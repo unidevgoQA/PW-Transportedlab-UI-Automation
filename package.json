@@ -1,0 +1,33 @@
+{
+  "name": "test-runner",
+  "version": "v1.20",
+  "description": "Playwright Awesome Tutorial",
+  "main": "index.js",
+  "scripts": {
+    "report": "npx playwright test --reporter=html && npx playwright show-report",
+    "debug": "npx playwright test --debug",
+    "test": "npx playwright test",
+    "test-us": "npx playwright test --update-snapshots",
+    "github-action": "npx playwright test --config=github.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.25.2",
+    "@types/nodemailer": "^6.4.5",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "adm-zip": "^0.5.9",
+    "clipboardy": "^2.3.0",
+    "fs": "^0.0.1-security",
+    "nodemailer": "^6.7.8",
+    "tesseract.js": "^3.0.2",
+    "ts-node": "10.9.1",
+    "typescript": "4.8.3",
+    "winston": "^3.8.2"
+  },
+  "keywords": [
+    "playwright",
+    "playwright test runner"
+  ],
+  "dependencies": {
+    "allure-playwright": "^2.0.0-beta.19"
+  }
+}
