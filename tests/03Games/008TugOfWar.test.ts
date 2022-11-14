@@ -25,6 +25,8 @@ test("008TOFW-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, fu
 
         await page.waitForTimeout(5000)
 
+        await tugOfWarPage.deleteAutoConfigurationIfHave()
+        await page.waitForTimeout(2000)
 
 
         //click AddNew Config Plus Btn 

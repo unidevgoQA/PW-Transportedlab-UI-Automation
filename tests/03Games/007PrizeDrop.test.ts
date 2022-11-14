@@ -13,7 +13,7 @@ var text: string;
 
 
 
-test.only("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
 
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -48,6 +48,7 @@ test.only("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage,
 
                 await prizeDropPage.verifyDeleteAutoConfigurationIfHave()
 
+                await page.waitForTimeout(2000)
 
                 //verify Configurations Text
                 await prizeDropPage.verifyConfigurationsText()

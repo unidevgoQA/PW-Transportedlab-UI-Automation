@@ -387,7 +387,7 @@ export default class tugOfWarPage {
         }
 
         async clickTeamNameBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[1]")
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Name Box']/following-sibling::button")
                 await ele.click()
 
         }
@@ -429,7 +429,7 @@ export default class tugOfWarPage {
 
 
         async clickTeamSelectedMassageBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[2]")
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Selected Message Box']/following-sibling::button")
                 await ele.click()
 
         }
@@ -1043,6 +1043,34 @@ export default class tugOfWarPage {
         //🔚 Closed Thankyou Stage Section Element 
         //=======================================================
         //▶▶Start Add New Config Section Element    
+
+        async deleteAutoConfigurationIfHave() {
+                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
+                //         await this.page.waitForSelector(ele)        
+
+                const ele = await this.page.frameLocator('iframe').locator("//h6[text()='Auto']").isVisible()
+                if ((ele == true)) {
+                        // console.log("Enable Stage to be skip and jump to next one")
+                        await this.page.frameLocator('iframe')
+                                .locator('text=AutoStagesGame SettingsDelete >> p').last()
+                                .click({force:true})
+                }
+
+                await this.page.waitForTimeout(3000)
+
+                const deleteBtn = await this.page.frameLocator('iframe').locator("//p[text()='Are you sure that you want to delete this configuration?']").isVisible()
+                if ((deleteBtn == true)) {
+                        // console.log("Enable Stage to be skip and jump to next one")
+                        await this.page.frameLocator('iframe')
+                                .locator("//button[text()='Delete']")
+                                .click({force:true})
+                }
+
+
+               
+
+
+        }
 
 
         async clickAddNewConfigPlusBtn() {

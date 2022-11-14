@@ -8,4 +8,4 @@ test-results/
 playwright-report/
 allure-report/
 allure-results/
-html-report.zip/
+report.json
