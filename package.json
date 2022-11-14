@@ -1,7 +1,7 @@
 {
   "name": "test-runner",
   "version": "v1.20",
-  "description": "Playwright Awesome Tutorial",
+  "description": "TransportedLabs UI Automation",
   "main": "index.js",
   "scripts": {
     "report": "npx playwright test --reporter=html && npx playwright show-report",
@@ -11,7 +11,7 @@
     "github-action": "npx playwright test --config=github.config.ts"
   },
   "devDependencies": {
-    "@playwright/test": "^1.25.2",
+    "@playwright/test": "^1.27.1",
     "@types/nodemailer": "^6.4.5",
     "@types/testing-library__jest-dom": "^5.14.5",
     "adm-zip": "^0.5.9",
