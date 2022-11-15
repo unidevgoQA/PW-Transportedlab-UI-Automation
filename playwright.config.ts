@@ -1,149 +1,50 @@
-import { devices, PlaywrightTestConfig } from '@playwright/test';
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-
-    
-
-
-    workers: 1,
-    fullyParallel: !true,
-    // projects: [
-    //     // {
-    //     //     name: 'chromium',
-    //     //     use: { ...devices['Desktop Chrome'] },
- 
-    //     // },
-    //     // {
-    //     //     name: 'Pixel',
-    //     //     use: { ...devices['Pixel 5'] },
-    //     // },
-    //     // {
-    //     //     name: 'firefox',
-    //     //     use: { ...devices['Desktop Firefox'] },
-    //     // },
-    //     {
-    //         name: 'webkit',
-    //         use: { ...devices['Desktop Safari'] },
-    //     },
-    
-    // ],
-    // globalSetup: require.resolve('./global-setup'),
-    use: {
-        actionTimeout: 10 * 5000,
-        navigationTimeout: 30 * 6000,
-        // Tell all tests to load signed-in state from 'storageState.json'.
-        // storageState: 'storageState.json',
-        viewport: null,
-        headless: false,
-        browserName: "firefox",
-        screenshot: "off",
-        video: "off",
-        trace: "on",
-        // baseURL: "https://qa-2.testingdxp.com/",
-
-        // permissions: ["camera"]
-
-        
-
-        baseURL: "https://qa-1.testingdxp.com/",
-        //
-        // baseURL: "https://qa-2.testingdxp.com/",
-        // baseURL: "https://garrett.testingdxp.com/",
-        // baseURL: "https://dev107189.service-now.com/api/now/table/incident",
-        // extraHTTPHeaders: {
-        //     "Authorization": "Basic YWRtaW46U0NxN2pDb2tDbFI4"
-        // }
-        // baseURL: "",
-        // contextOptions: {
-        //     permissions: ["clipboard-read"]
-        // }
-        // ,
-        // contextOptions: {
-        //         permissions: ["clipboard-read"]
-        //     },
-
-        launchOptions: {
-            args: ["--start-maximized"],
-        },
-        
-        // permissions: ["camera"],
-        permissions: ["microphone","camera"],
-
-            // logger: {
-            //     isEnabled: (name, severity) => true,
-            //     log: (name, severity, message, args) => console.log(name, severity)
-            // }
-        
+  testDir: './tests',
+  testMatch: [
+    "tests/registerUser.test.ts",
+    "tests/loginUser.test.ts",
+    "tests/addProductToCart.test.ts"
+  ],
+  timeout: 1 * 30 * 1000,
+  expect: {
+    timeout: 5000
+  },
+  fullyParallel: !true,
+  retries: process.env.CI ? 1 : 0,
+  workers: process.env.CI ? 1 : 2,
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "on-failure"
+  }]],
+  use: {
+    headless: process.env.CI ? true : false,
+    baseURL: "https://bookcart.azurewebsites.net/",
+    // actionTimeout: 2 * 60 * 1000,
+    trace: process.env.CI ? "off" : "on",
+    video: process.env.CI ? "off" : "on",
+    screenshot: process.env.CI ? "off" : "on",
+  },
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
     },
-    expect: {
-        /**
-         * Maximum time expect() should wait for the condition to be met.
-         * For example in `await expect(locator).toHaveText();`
-         */
-     },
-    
-    timeout: 1000000,
-   
 
-    forbidOnly: !!process.env.CI,
-    /* Retry on CI only */
-    
-    /* Opt out of parallel tests on CI. */
-    // workers: process.env.CI ? 1 : undefined,
-    /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-    
-    /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-    // grep: [new RegExp("@smoke"), new RegExp("@reg")],
-    testMatch: [
-                // "001Login.test.ts",
-                "002MobileDesign.test.ts",
-                // "003Language.test.ts",
-                // "004Menu.test.ts",
-                // "005SignUp.test.ts",
-                // "006GlobalPrizing.test.ts",
-                // "007PrizeDrop.test.ts",
-                // "008TugOfWar.test.ts",
-                // "009LiveWall.test.ts",
-                // // "009LiveWallVIPSection.test.ts",
-                // "010Arcade.test.ts",
-                // "011AddNewExperiences.test.ts",
-                          
-                
-               
-                ],
-    retries: 0,
-    // reporter: "./customReport/myReporter.ts", 
-    reporter: [
-        ["./customReport/myReporter.ts"],
-        ["list"], // -> console
-        ["json", { outputFile: "test-result.json" }], //  -> JSON
-        ['html', {
-            open: "never"
-        }] // -> HTML
-    ],
-    // globalTeardown: './helper/globalsetup.ts'
-
- /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
-
-  
-  
-}
-
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    }
+  ]
+};
 
 export default config;
