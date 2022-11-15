@@ -44,7 +44,7 @@ const config: PlaywrightTestConfig = {
         // storageState: 'storageState.json',
         viewport: null,
         headless: false,
-        browserName: "chromium",
+        browserName: "firefox",
         screenshot: "off",
         video: "off",
         trace: "on",
@@ -104,8 +104,8 @@ const config: PlaywrightTestConfig = {
     /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
     // grep: [new RegExp("@smoke"), new RegExp("@reg")],
     testMatch: [
-                "001Login.test.ts",
-                // "002MobileDesign.test.ts",
+                // "001Login.test.ts",
+                "002MobileDesign.test.ts",
                 // "003Language.test.ts",
                 // "004Menu.test.ts",
                 // "005SignUp.test.ts",
