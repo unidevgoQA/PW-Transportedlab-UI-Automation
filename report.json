@@ -1,0 +1,228 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Work Station/Unidevgo/TransportedLabs/PW-Transportedlab-UI-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/Work Station/Unidevgo/TransportedLabs/PW-Transportedlab-UI-Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "001Login.test.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "on-failure"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/TransportedLabs/PW-Transportedlab-UI-Automation/tests",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.27.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "01Login\\001Login.test.ts",
+      "file": "01Login/001Login.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TLL001-01 | Verify login with valid credentials",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30010,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\tests\\01Login\\001Login.test.ts",
+                        "column": 20,
+                        "line": 25
+                      },
+                      "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n\n\u001b[90m   at \u001b[39m01Login\\001Login.test.ts:25\n\n\u001b[0m \u001b[90m 23 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/#/sign-in'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 27 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m5000\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 28 |\u001b[39m         \u001b[90m//wait for login button\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\tests\\01Login\\001Login.test.ts:25:20\u001b[22m"
+                    },
+                    {
+                      "message": "Pending operations:\n  - page.goto at tests\\01Login\\001Login.test.ts:25:20\n"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-11-15T15:37:49.523Z",
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-01-Verify-login-with-valid-credentials-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-01-Verify-login-with-valid-credentials-chromium\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-01-Verify-login-with-valid-credentials-chromium\\test-failed-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b14b9055aa1f8f460cb1-4b58286cd94abefbc929",
+          "file": "01Login/001Login.test.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "TLL001-02 | Verify login with invalid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 21014,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-11-15T15:38:31.988Z",
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials-chromium\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b14b9055aa1f8f460cb1-cfb3072d42f3837fdfea",
+          "file": "01Login/001Login.test.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "TLL001-03 | Verify login with UserName and Password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "status": "passed",
+                  "duration": 18761,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-11-15T15:38:53.866Z",
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password-chromium\\video.webm"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password-chromium\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\TransportedLabs\\PW-Transportedlab-UI-Automation\\test-results\\01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password-chromium\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b14b9055aa1f8f460cb1-5e0c3b49ff084b278299",
+          "file": "01Login/001Login.test.ts",
+          "line": 96,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
