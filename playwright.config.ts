@@ -129,7 +129,7 @@ const config: PlaywrightTestConfig = {
       }], ["html", {
         open: "never"
       }]],
-    globalTeardown: './helper/globalsetup.ts'
+    // globalTeardown: './helper/globalsetup.ts'
 
  /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',

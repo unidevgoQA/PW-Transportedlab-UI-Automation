@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.27.1",
-    "adm-zip": "^0.5.9",
+    "@playwright/test": "^1.27.1",    
     "clipboardy": "^2.3.0",
     "fs": "^0.0.1-security",
     "ts-node": "10.9.1",
