@@ -4,9 +4,8 @@ import { devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   testMatch: [
-    "tests/registerUser.test.ts",
-    "tests/loginUser.test.ts",
-    "tests/addProductToCart.test.ts"
+    "001Login.test.ts",
+    
   ],
   timeout: 1 * 30 * 1000,
   expect: {
@@ -24,7 +23,7 @@ const config: PlaywrightTestConfig = {
   }]],
   use: {
     headless: process.env.CI ? true : false,
-    baseURL: "https://bookcart.azurewebsites.net/",
+    baseURL: "https://qa-1.testingdxp.com/",
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "on",
     video: process.env.CI ? "off" : "on",
@@ -38,12 +37,12 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    }
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // }
   ]
 };
 
