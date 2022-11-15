@@ -113,12 +113,12 @@ export default class addnewexperiencePage {
 
 
       async ImageUploadFunction() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -398,12 +398,12 @@ export default class addnewexperiencePage {
       }
 
       async WImageUploadFunction() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -726,12 +726,12 @@ export default class addnewexperiencePage {
       }
 
       async uploadImage() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -1004,12 +1004,12 @@ export default class addnewexperiencePage {
       // }
 
       async TruploadImage() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);

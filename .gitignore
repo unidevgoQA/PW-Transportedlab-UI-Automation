@@ -1,12 +1,4 @@
-
-/playwright/.cache/
-report.json
-report.zip
-
-my-ext
-test-result.json
 node_modules/
-test-results/
-playwright-report/
-allure-report/
-allure-results/
+/test-results/
+/playwright-report/
+/playwright/.cache/

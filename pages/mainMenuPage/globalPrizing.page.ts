@@ -567,12 +567,12 @@ export default class globalPrizingPage {
         }
 
         async BcImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/images/banner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -586,12 +586,12 @@ export default class globalPrizingPage {
 
         }
         async LgImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/images/banner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -601,12 +601,12 @@ export default class globalPrizingPage {
 
         }
         async FgImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/images/banner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);

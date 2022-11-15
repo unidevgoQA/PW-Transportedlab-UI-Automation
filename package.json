@@ -1,33 +1,23 @@
 {
-  "name": "test-runner",
-  "version": "v1.20",
+  "name": "TransportedLabs UI Automation",
+  "version": "1.0.0",
   "description": "TransportedLabs UI Automation",
   "main": "index.js",
   "scripts": {
-    "report": "npx playwright test --reporter=html && npx playwright show-report",
-    "debug": "npx playwright test --debug",
     "test": "npx playwright test",
-    "test-us": "npx playwright test --update-snapshots",
-    "github-action": "npx playwright test --config=github.config.ts"
+    "allure:generate": "allure generate ./allure-results --clean && allure open ./allure-report"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.27.1",
-    "@types/nodemailer": "^6.4.5",
-    "@types/testing-library__jest-dom": "^5.14.5",
     "adm-zip": "^0.5.9",
     "clipboardy": "^2.3.0",
     "fs": "^0.0.1-security",
-    "nodemailer": "^6.7.8",
-    "tesseract.js": "^3.0.2",
     "ts-node": "10.9.1",
     "typescript": "4.8.3",
-    "winston": "^3.8.2"
-  },
-  "keywords": [
-    "playwright",
-    "playwright test runner"
-  ],
-  "dependencies": {
-    "allure-playwright": "^2.0.0-beta.19"
+    "allure-commandline": "^2.18.1",
+    "allure-playwright": "^2.0.0-beta.15"
   }
 }

@@ -1359,6 +1359,18 @@ export default class tugOfWarPage {
         }
 
 
+        async fileUploadCropperForSpacificOne() {
+                const chooseBtn = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
+                expect.soft(chooseBtn).toContainText("Choose File")
+                await chooseBtn.click()
+
+
+                const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
+                expect(cropperSaveBtn).toContainText("Save")
+                await cropperSaveBtn.click({force:true})
+
+        }
+
 
 
 }
