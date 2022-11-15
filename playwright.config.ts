@@ -43,7 +43,7 @@ const config: PlaywrightTestConfig = {
         // Tell all tests to load signed-in state from 'storageState.json'.
         // storageState: 'storageState.json',
         viewport: null,
-        headless: process.env.CI ? true : false,
+        headless: process.env.CI ? false : false,
         browserName: "chromium",
         screenshot: process.env.CI ? "off" :"on",
         video: process.env.CI ? "off" :"off",
