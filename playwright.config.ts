@@ -127,7 +127,7 @@ const config: PlaywrightTestConfig = {
       }]] : [["json", {
         outputFile: "report.json"
       }], ["html", {
-        open: "on-failure"
+        open: "never"
       }]],
     globalTeardown: './helper/globalsetup.ts'
 
