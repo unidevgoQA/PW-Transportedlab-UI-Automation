@@ -30,7 +30,7 @@ const config: PlaywrightTestConfig = {
   }]] : [["json", {
     outputFile: "report.json"
   }], ["html", {
-    open: "on-failure"
+    open: "never"
   }]],
   use: {
     headless: process.env.CI ? true : false,
