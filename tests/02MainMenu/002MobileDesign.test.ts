@@ -550,7 +550,7 @@ test("MD002-03 | Validate all the Uploaded Image File Delete Functionality", asy
 
 // })
 
-test("MD002-05 | Validate all the Uploaded Video File Delete Functionality", async ({ loginPage,functions, MainMenu, page }) => {
+test.only("MD002-05 | Validate all the Uploaded Video File Delete Functionality", async ({ loginPage,functions, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -606,7 +606,7 @@ test("MD002-05 | Validate all the Uploaded Video File Delete Functionality", asy
 
 })
 
-test("MD002-06 | Validate Video Upload Functionality For Mobile Design", async ({ loginPage,functions, MainMenu, page }) => {
+test.only("MD002-06 | Validate Video Upload Functionality For Mobile Design", async ({ loginPage,functions, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 

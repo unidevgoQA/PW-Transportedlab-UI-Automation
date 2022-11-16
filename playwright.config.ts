@@ -18,20 +18,22 @@ const config: PlaywrightTestConfig = {
     // "011AddNewExperiences.test.ts",  
     
   ],
-  timeout: 1 * 30 * 1000,
+  timeout: 1 * 30 * 10000,
   expect: {
-    timeout: 5000
+    timeout: 6000
   },
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 2,
-  reporter: process.env.CI ? [["junit", {
-    outputFile: "results.xml"
-  }]] : [["json", {
-    outputFile: "report.json"
-  }], ["html", {
-    open: "never"
-  }]],
+
+  reporter: [
+    ["./customReport/myReporter.ts"],
+    ["list"], // -> console
+    ["json", { outputFile: "test-result.json" }], //  -> JSON
+    ['html', {
+        open: "never"
+    }] // -> HTML
+],
   use: {
     headless: process.env.CI ? true : false,
     baseURL: "https://qa-1.testingdxp.com/",
