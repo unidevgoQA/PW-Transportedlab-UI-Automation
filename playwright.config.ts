@@ -26,22 +26,34 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 2,
 
-  reporter: [
-    ["./customReport/myReporter.ts"],
-    ["list"], // -> console
-    ["json", { outputFile: "test-result.json" }], //  -> JSON
-    ['html', {
-        open: "never"
-    }] // -> HTML
-],
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "never"
+  }]],
+
   use: {
+    actionTimeout: 10 * 6000,
+    navigationTimeout: 30 * 7000,
     headless: process.env.CI ? true : false,
     baseURL: "https://qa-1.testingdxp.com/",
+
+    launchOptions: {
+      args: ["--start-maximized"],
+  },
+  
+  // permissions: ["camera"],
+  permissions: ["microphone","camera"],
+
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "on",
     video: process.env.CI ? "off" : "on",
     screenshot: process.env.CI ? "off" : "on",
   },
+
+  
   projects: [
     {
       name: 'chromium',
