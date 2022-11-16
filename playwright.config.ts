@@ -14,7 +14,7 @@ const config: PlaywrightTestConfig = {
     "008TugOfWar.test.ts",
     "009LiveWall.test.ts",    
     "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",  
+    // "011AddNewExperiences.test.ts",  
     
   ],
   timeout: 1 * 30 * 10000,
