@@ -12,8 +12,7 @@ const config: PlaywrightTestConfig = {
     "006GlobalPrizing.test.ts",
     "007PrizeDrop.test.ts",
     "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",
-    // "009LiveWallVIPSection.test.ts",
+    "009LiveWall.test.ts",    
     "010Arcade.test.ts",
     "011AddNewExperiences.test.ts",  
     
@@ -24,7 +23,7 @@ const config: PlaywrightTestConfig = {
   },
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 1 : 2,
+  workers: process.env.CI ? 1 : 1,
 
   reporter: process.env.CI ? [["junit", {
     outputFile: "results.xml"
