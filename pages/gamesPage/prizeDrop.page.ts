@@ -709,11 +709,9 @@ export default class prizeDropPage {
 
         async clickMobileLinkOpenBtn() {
 
-                // Click text=Open Link
-                const [page1] = await Promise.all([
-                        this.page.waitForEvent('popup'),
-                        this.page.frameLocator('iframe').locator('text=Open Link').click()
-                ]);
+               
+                  await this.page.frameLocator('iframe').locator('text=Open Link').click()
+        
 
 
         }

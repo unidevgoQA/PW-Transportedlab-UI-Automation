@@ -19,11 +19,10 @@ export default class triviaPage {
 
             const [ page ] = await Promise.all([
                   // Start waiting for the download
-                  this.page.waitForEvent('load'),
+                  this.page.waitForNavigation(),
                   // Perform the action that initiates download
                   this.page.locator("//p[text()='Trivia']").click({force:true}),
                 ]);
-
 
             //     const locator = this.page.locator("//p[text()='Trivia']")
             //     expect(locator).toContainText('Trivia')
@@ -35,7 +34,7 @@ export default class triviaPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
-                const ele = await this.page.frameLocator('iframe').locator('text=Configurations')
+                const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Configurations']")
                 expect(ele).toContainText("Configurations")
 
 
