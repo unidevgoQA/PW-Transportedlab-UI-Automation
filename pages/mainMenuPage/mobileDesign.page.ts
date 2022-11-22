@@ -14,7 +14,7 @@ export default class MobileDesign {
 
     async clickHomeAvater() {
         const ele = this.page.locator('button').nth(2)
-        expect(ele).toBeVisible()
+        expect(ele).toBeEnabled()
         await ele.click()
     }
 

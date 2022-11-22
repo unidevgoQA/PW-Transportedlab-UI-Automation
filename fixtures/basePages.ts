@@ -10,9 +10,8 @@ import functions from "@testData/func";
 import prizeDropPage from "@pages/prizeDrop.page";
 import liveWallPage from "@pages/liveWall.page";
 import arcadePage from "@pages/arcade.page";
-import addnewexperiencePage from "@pages/AddNewexperiences.page";
-import triviaPage from "@pages/trivia.page";
-
+import addnewexperiencePage from "@pages/AddNewexperiences.page"
+import guesstheScorePage from "@pages/guesstheScore.page";
 
 
 
@@ -29,7 +28,7 @@ const test = baseTest.extend<{
     functions: functions;
     arcadePage: arcadePage;
     addnewexperiencePage: addnewexperiencePage;
-    triviaPage: triviaPage;
+    guesstheScorePage: guesstheScorePage;
 
 }>({
     functions: async ({ page }, use) => {
@@ -74,11 +73,9 @@ const test = baseTest.extend<{
     addnewexperiencePage: async ({ page }, use) => {
         await use(new addnewexperiencePage(page));
      },
-
-     triviaPage: async ({ page }, use) => {
-        await use(new triviaPage(page));
-     },
-    
+     guesstheScorePage : async({page}, use) =>{
+        await use(new  guesstheScorePage(page));
+    }
     
     
 })

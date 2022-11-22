@@ -387,7 +387,7 @@ export default class tugOfWarPage {
         }
 
         async clickTeamNameBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Name Box']/following-sibling::button")
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[1]")
                 await ele.click()
 
         }
@@ -429,7 +429,7 @@ export default class tugOfWarPage {
 
 
         async clickTeamSelectedMassageBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Selected Message Box']/following-sibling::button")
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[2]")
                 await ele.click()
 
         }
@@ -1048,7 +1048,7 @@ export default class tugOfWarPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
-                const ele = await this.page.frameLocator('iframe').locator("//h6[text()='Auto']").isVisible()
+                const ele = await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').last().isVisible()
                 if ((ele == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
@@ -1358,18 +1358,6 @@ export default class tugOfWarPage {
 
         }
 
-
-        async fileUploadCropperForSpacificOne() {
-                const chooseBtn = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
-                expect.soft(chooseBtn).toContainText("Choose File")
-                await chooseBtn.click()
-
-
-                const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
-                expect(cropperSaveBtn).toContainText("Save")
-                await cropperSaveBtn.click({force:true})
-
-        }
 
 
 

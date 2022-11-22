@@ -185,10 +185,10 @@ test("010A-004 | Validated Arcade outside Game Delete Functionality", async ({ M
     //click on arcadepage
     await MainMenu.clickArcadePage()
 
-    // await functions.logoImageUploadFunction()
-    // await arcadePage.clickToUploadGameLogo()
-    // await functions.fileUploadCropperWithoutIframe()
-    // await page.waitForTimeout(5000)
+    await functions.logoImageUploadFunction()
+    await arcadePage.clickToUploadGameLogo()
+    await functions.fileUploadCropperWithoutIframe()
+    await page.waitForTimeout(5000)
 
 
     await arcadePage.clickOutSideGameDeleteBtn()

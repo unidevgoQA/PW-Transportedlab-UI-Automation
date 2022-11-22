@@ -536,8 +536,8 @@ export default class prizeDropPage {
         }
 
         async verifyDragYourImageText() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Marketing Message']")
-                expect(ele).toContainText("Marketing Message")
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Drag your image here, or browse']")
+                expect(ele).toContainText("Drag your image here, or browse")
         }
 
 
@@ -699,7 +699,7 @@ export default class prizeDropPage {
 
         async clickMobileLinkBtn() {
                 // Click text=AutoStart >> button >> nth=1
-                await this.page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click({force:true});
+                await this.page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
                 // expect(ele).toBeVisible()

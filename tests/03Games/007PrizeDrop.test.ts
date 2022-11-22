@@ -41,7 +41,7 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
                 const screenshot = await page.screenshot();
                 await testInfo.attach("click Prize Drop Section", {
                         contentType: "image/png",
-                        body: screenshot
+
                 })
 
                 await page.waitForTimeout(5000)

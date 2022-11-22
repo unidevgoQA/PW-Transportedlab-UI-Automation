@@ -344,9 +344,6 @@ test("Varify Global Prizing Section", async ({ loginPage, MainMenu, languagePage
                 //search Prize
                 await globalPrizingPage.searchPrize()
 
-                await page.waitForTimeout(3000)
-
-
                 //delete Prize
                 await globalPrizingPage.deletePrize()
 
