@@ -15,7 +15,7 @@ const config: PlaywrightTestConfig = {
     "009LiveWall.test.ts",    
     "010Arcade.test.ts",
     "011AddNewExperiences.test.ts",  
-    // "012Trivia.test.ts"
+    "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
@@ -39,23 +39,29 @@ const config: PlaywrightTestConfig = {
     navigationTimeout: 30 * 7000,
     baseURL: "https://qa-1.testingdxp.com/",
 
+    launchOptions: {
+      // args: ["--start-maximized"],
+      slowMo: 100
+      
+  },
+  permissions: ["microphone","camera"],
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'chrome',
-    viewport: { width: 1500, height: 730 },
+    viewport: { width: 1500, height: 720 },
     ignoreHTTPSErrors: true,
-    launchOptions: {
-      // args: ["--start-maximized"],
-  },
+    
   
   // permissions: ["camera"],
-  permissions: ["microphone","camera"],
+  
 
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "on",
     video: process.env.CI ? "off" : "off",
     screenshot: process.env.CI ? "off" : "on",
   },
+
+
 
   
   // projects: [

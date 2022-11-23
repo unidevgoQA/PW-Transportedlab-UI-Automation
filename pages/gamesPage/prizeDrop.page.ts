@@ -699,7 +699,7 @@ export default class prizeDropPage {
 
         async clickMobileLinkBtn() {
                 // Click text=AutoStart >> button >> nth=1
-                await this.page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click({force:true});
+                await this.page.frameLocator('iframe').locator("(//button[text()='Live']/following-sibling::button)[1]").click({force:true});
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
                 // expect(ele).toBeVisible()
