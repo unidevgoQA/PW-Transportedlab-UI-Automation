@@ -40,16 +40,20 @@ const config: PlaywrightTestConfig = {
     // channel: 'chrome',
     // viewport: { width: 1500, height: 700 },
     ignoreHTTPSErrors: true,
-  //   launchOptions: {
-  //     args: ["--start-maximized"],
-  // },
+    launchOptions: {
+      // args: ["--start-maximized"],
+      slowMo:150
+  },
   // permissions: ["camera"],
   permissions: ["microphone","camera"],
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "on",
     video: process.env.CI ? "off" : "off",
     screenshot: process.env.CI ? "off" : "on",
+
+    
   },
+  
   // projects: [
   //   {
   //     name: 'chromium',

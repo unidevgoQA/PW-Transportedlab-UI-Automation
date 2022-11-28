@@ -12,7 +12,7 @@ var text: string;
 
 test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, functions }, testInfo) => {
 
-    await test.step("Login Admin And land To Home Screen", async () => {
+    await test.step("Login Admin And land To guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -27,7 +27,7 @@ test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, funct
 
     })
 
-    await test.step("Add new configuration", async () => {
+    await test.step("validate Add new configuration is working", async () => {
 
 
         //click guess the score Section
@@ -59,8 +59,8 @@ test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, funct
     })
 
 })
-test("007PD-002 | Validate Font Upload Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
+test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -76,29 +76,29 @@ test("007PD-002 | Validate Font Upload Functionality", async ({ loginPage, guess
 
 
     })
-    await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+    await test.step(" Validate Font Upload Functionality", async () => {
         
         await guesstheScorePage.clickGuessTheScoreSection()
         await guesstheScorePage.clickGameDesign()
         
-        await page.waitForTimeout(4000)
+        //await page.waitForTimeout(4000)
         //font upload here
         await functions.fontUploadFunction()
         await guesstheScorePage.clickToUploadFont()
 
-        await page.waitForTimeout(4000)
+        //await page.waitForTimeout(4000)
 
          //click Clear All Btn
          await guesstheScorePage.clickClearAllBtn()
 
-         await page.waitForTimeout(4000)
+        //await page.waitForTimeout(4000)
     })
 
 
 })
 
-test("007PD-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
+test("Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -112,7 +112,7 @@ test("007PD-003 | Validate All The Color Input Functionality", async ({ loginPag
             })
 
     })
-    await test.step("008TOFW-003 | Validate All The Color Input Functionality", async () => {
+    await test.step("Validate background Color Input Functionality", async () => {
         await guesstheScorePage.clickGuessTheScoreSection()
         await guesstheScorePage.clickGameDesign()
         
@@ -122,6 +122,368 @@ test("007PD-003 | Validate All The Color Input Functionality", async ({ loginPag
 
         await page.waitForTimeout(2000)
         await guesstheScorePage.clickBackgroundColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate Text Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clicktextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate Header Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickHeaderColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate buttons Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.buttonstextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate maindBoard background Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.MainboardBackgroundColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate Event title font Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.EventtitlefontColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate timer circle Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.TimerCircleColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate wood Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.WoodColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate gameplay score text Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.gameplayscoretextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+    
+    await test.step("Validate timer background Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.TimerBackgroundColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickColorPickerSaveBtn()
     })
     
 })
+
+test("validate image upload works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickGameDesign()
+
+    })
+    await test.step("full screen logo upload works", async() =>{
+        await guesstheScorePage.clickfullscreenlogoupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+    await test.step("Mainboard Background logo upload works", async() =>{
+        await guesstheScorePage.clickMainboardBackgroundupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+    await test.step("sponsor logo upload works", async() =>{
+        await guesstheScorePage.clicksposnorLogoupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+    await test.step("Mobile Background logo upload works", async() =>{
+        await guesstheScorePage.clickMobileBackgroundupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+    await test.step("Game title logo upload works", async() =>{
+        await guesstheScorePage.clickGametitlelogoupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+    await test.step("banner image logo upload works", async() =>{
+        await guesstheScorePage.clickBannerImageupload()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.Imageuploader()
+
+        await page.waitForTimeout(4000)
+    })
+})
+test("test editor section functionalities", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickGameDesign()
+        await page.waitForTimeout(5000)
+
+    })
+    await test.step("validate standby message text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typestandbymessage()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate correct guess text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typecorrectguess()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate close guess text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typecloseguess()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate incorrect text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typeincorrectguess()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate Far guess text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typefarguess()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate no score editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typenoscore()
+        await page.waitForTimeout(1000)
+    })
+
+})
+test("validate Rider Roster settings is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
+    await test.step("Login Admin And land Rider roster of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickriderroster()
+        await page.waitForTimeout(1000)
+
+    })
+
+    await test.step("validate add rider settings is working", async ()=>{
+        await guesstheScorePage.clickaddriderbutton()
+        await guesstheScorePage.addriderfirstname()
+        await guesstheScorePage.addriderLastname()
+        await guesstheScorePage.clicksaveandclosebutton()
+    })
+
+    await test.step("validate edit rider settings are working",async() =>{
+        await guesstheScorePage.clickeditriderbutton()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("validate delete rider is working", async() =>{
+        await guesstheScorePage.clickdeleteriderbutton()
+    })
+
+})
+test("validate game operation settings are working",async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
+    await test.step("Login Admin And land game operations of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickgameoperation()
+        await page.waitForTimeout(1000)
+
+    })
+    await test.step("validate Add event button is working",async ()=>{
+        await guesstheScorePage.clickaddeventbutton()
+        await guesstheScorePage.typetestevent()
+        await guesstheScorePage.clickaddbutton()
+    })
+
+    await test.step("validate add riders button is working", async ()=>{
+        await guesstheScorePage.clickaddridersbutton()
+    })
+})
+
+test("validate game settings option is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game settings of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickgamesettings()
+        await page.waitForTimeout(1000)
+
+    })
+    await test.step("validate scores section is working",async ()=>{
+        await guesstheScorePage.typeincorrectguesscore()
+        await guesstheScorePage.typecorrectguesscore()
+        await guesstheScorePage.typecloseguesscore()
+        await guesstheScorePage.typefarguessscore()
+    })
+    await test.step("validate times section is working",async ()=>{
+        await guesstheScorePage.typeguesstime()
+    })
+})
+
+test("validate edit and delete section is working",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        // await guesstheScorePage.clickGameDesign()
+        // await page.waitForTimeout(5000)
+
+    })
+    await test.step("validate edit option is working", async()=>{
+        await guesstheScorePage.clickeditsection()
+        await guesstheScorePage.editconfigname()
+        await guesstheScorePage.clickeditbutton()
+    })
+
+    await test.step("validate delete section is working", async() =>{
+        await guesstheScorePage.clickdeletesection()
+        await guesstheScorePage.clickdeletebutton()
+    })
+})
+
