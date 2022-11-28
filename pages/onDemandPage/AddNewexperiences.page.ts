@@ -976,7 +976,7 @@ export default class addnewexperiencePage {
       }
 
       async TrAnswer_1() {
-            const locator = this.page.locator("//input[@type='text' and @id='P-1361192122']")
+            const locator = this.page.locator("//input[@placeholder='Type here text...']")
             expect(locator).toBeVisible()
             await locator.fill("Demo Answer For Automation")
       }

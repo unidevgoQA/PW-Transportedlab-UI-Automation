@@ -939,7 +939,7 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
                 await prizeDropPage.clickMobileLinkBtn()
 
                 //click Mobile Link Btn
-                await prizeDropPage.clickMobileLinkOpenBtn()
+                // await prizeDropPage.clickMobileLinkOpenBtn()
 
         })
 

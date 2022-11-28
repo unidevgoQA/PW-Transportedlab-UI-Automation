@@ -278,7 +278,7 @@ test("011ANE-005 | Validate Poll Section", async ({ loginPage, liveWallPage, add
       await page.waitForTimeout(4000)
       await addnewexperiencePage.Pollvdo();
       await addnewexperiencePage.uploadvdo();
-      await addnewexperiencePage.PVideo();
+      // await addnewexperiencePage.PVideo();
       await addnewexperiencePage.PTitlename();
       // await addnewexperiencePage.pollSaveBtn();
 

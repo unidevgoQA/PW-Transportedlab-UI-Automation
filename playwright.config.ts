@@ -4,7 +4,7 @@ import { devices } from '@playwright/test';
 const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
-    // "001Login.test.ts",
+    "001Login.test.ts",
     "002MobileDesign.test.ts",
     "003Language.test.ts",
     "004Menu.test.ts",
@@ -41,7 +41,7 @@ const config: PlaywrightTestConfig = {
 
     launchOptions: {
       // args: ["--start-maximized"],
-      // slowMo: 100
+      slowMo: 200
       
   },
   permissions: ["microphone","camera"],

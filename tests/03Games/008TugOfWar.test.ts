@@ -260,18 +260,18 @@ test("008TOFW-003 | Varify Selection Stage Section", async ({ loginPage, tugOfWa
 
 
 
-        //click Custom Selection Massage Check Box
-        await tugOfWarPage.clickCustomSelectionMassageCheckBox()
-        await page.waitForTimeout(2000)
+        // //click Custom Selection Massage Check Box
+        // await tugOfWarPage.clickCustomSelectionMassageCheckBox()
+        // await page.waitForTimeout(2000)
 
 
         //input Custom Selection Massge Text
         await tugOfWarPage.inputCustomSelectionMassgeText()
 
 
-        //click Custom Team Selection Massage Check Box
-        await tugOfWarPage.clickCustomTeamSelectionMassageCheckBox()
-        await page.waitForTimeout(2000)
+        // //click Custom Team Selection Massage Check Box
+        // await tugOfWarPage.clickCustomTeamSelectionMassageCheckBox()
+        // await page.waitForTimeout(2000)
 
 
         //input Custome Team Section Massage
@@ -876,8 +876,8 @@ test("008TOFW-009 | Verify Game Design", async ({ loginPage, tugOfWarPage, funct
 
         await page.waitForTimeout(3000)
 
-        await tugOfWarPage.enableStandByCheckBox()
-        await page.waitForTimeout(2000)
+        // await tugOfWarPage.enableStandByCheckBox()
+        // await page.waitForTimeout(2000)
         await tugOfWarPage.inputStandByMassage()
 
         await page.waitForTimeout(2000)

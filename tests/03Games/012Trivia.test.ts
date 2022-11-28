@@ -54,6 +54,7 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
 
       await test.step("Click Add Btn", async () => {
             await triviaPage.clickAddBtn()
+            await page.waitForTimeout(3000)
 
       })
 
@@ -2511,7 +2512,6 @@ test("012TV-023 | Validated Point-Bubble Stroke Color Input Section", async ({ l
 
 })
 
-
 test("012TV-024 | Validated Point-Bubble Text Color Input Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
@@ -2620,6 +2620,236 @@ test("012TV-024 | Validated Point-Bubble Text Color Input Section", async ({ log
       await test.step("click Color Picker Save Btn", async () => {
             await triviaPage.clickColorPickerSaveBtn()
       })
+
+
+})
+
+test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+
+
+      await test.step("click Control Panel", async () => {
+            await triviaPage.clickControlPanel()
+      })
+
+
+      await test.step("verify Add Round Text", async () => {
+            await triviaPage.clickAddRoundBtn()
+            await page.waitForTimeout(2000)
+      })
+
+      await test.step("verify New Round Title Text", async () => {
+            await triviaPage.verifyNewRoundTitleText()
+      })
+      
+      await test.step("input New Round Title", async () => {
+            await page.waitForTimeout(2000)            
+            await triviaPage.inputNewRoundTitle()
+      })
+
+      await test.step("click Round Add Btn", async () => {
+            await triviaPage.clickRoundAddBtn()
+      })
+
+      await test.step("verify Game Mode Text", async () => {
+            await triviaPage.verifyGameModeText()
+      })
+
+      await test.step("click Manual Mode Btn", async () => {
+            await triviaPage.clickManualModeBtn()
+      })
+
+      await test.step("click On Demand Mode Btn", async () => {
+            await triviaPage.clickOnDemandModeBtn()
+      })
+
+      await test.step("verify Countdown Text", async () => {
+            await triviaPage.verifyCountdownText()
+      })
+
+      await test.step("click Countdown Time Radio Btn", async () => {
+            await triviaPage.clickCountdownTimeRadioBtn()
+      })
+
+      await test.step("click Countdown Points Radio Btn", async () => {
+            await triviaPage.clickCountdownPointsRadioBtn()
+      })
+
+      await test.step("verify Countdown Type Text", async () => {
+            await triviaPage.verifyCountdownTypeText()
+      })
+
+      await test.step("click Countdown Circular Radio Btn", async () => {
+            await triviaPage.clickCountdownCircularRadioBtn()
+      })
+
+      await test.step("click Countdown Linear Radio Btn", async () => {
+            await triviaPage.clickCountdownLinearRadioBtn()
+      })
+
+      await test.step("verify Question Sequence Text", async () => {
+            await triviaPage.verifyQuestionSequenceText()
+      })
+
+      await test.step("click Countdown Random Radio Btn", async () => {
+            await triviaPage.clickCountdownRandomRadioBtn()
+      })
+
+      await test.step("click Countdown Sequence Radio Btn", async () => {
+            await triviaPage.clickCountdownSequenceRadioBtn()
+      })
+
+      await test.step("verify Automatic Timers Text", async () => {
+            await triviaPage.verifyAutomaticTimersText()
+      })
+
+      await test.step("verify Countdown Stage Text", async () => {
+            await triviaPage.verifyCountdownStageText()
+      })
+
+
+      await test.step("input Countdown Stage Sec", async () => {
+            await triviaPage.inputCountdownStageSec()
+      })
+
+      await test.step("verify Question No Stage Text", async () => {
+            await triviaPage.verifyQuestionNoStageText()
+      })
+
+
+      await test.step("input Countdown No Stage Sec", async () => {
+            await triviaPage.inputCountdownNoStageSec()
+      })
+
+
+
+      await test.step("enable Question No Stage", async () => {
+            await triviaPage.enableQuestionNoStage()
+      })
+
+
+      await test.step("verify Question Reveal Text", async () => {
+            await triviaPage.verifyQuestionRevealText()
+      })
+
+      await test.step("input Question Reveal Sec", async () => {
+            await triviaPage.inputQuestionRevealSec()
+      })
+
+
+
+
+      await test.step("verify Point Allocation Text", async () => {
+            await triviaPage.verifyPointAllocationText()
+      })
+
+      await test.step("inputPoint", async () => {
+            await triviaPage.inputPoint()
+      })
+
+      await test.step("input Point Sec", async () => {
+            await triviaPage.inputPointSec()
+      })
+
+      await test.step("verify Deduction Text", async () => {
+            await triviaPage.verifyDeductionText()
+      })    
+
+
+      await test.step("click Add Media Btn", async () => {
+            await triviaPage.clickAddMediaBtn()
+      })
+
+      await test.step("verify Add Media Text", async () => {
+            await triviaPage.verifyAddMediaText()
+      })
+
+
+      await test.step("verify Quiestion Text", async () => {
+            await triviaPage.verifyQuiestionText()
+      })
+
+
+
+      await test.step("input Question Text", async () => {
+            await triviaPage.inputQuestionText()
+      })
+
+
+      await test.step("input Countdown Sec", async () => {
+            await triviaPage.inputCountdownSec()
+      })
+
+      await test.step("click Mobile Media Redio Btn", async () => {
+            await triviaPage.clickMobileMediaRedioBtn()
+      })
+
+
+
+      await test.step("click To Upload Mobile Media File", async () => {
+            await functions.bannerImageUploadFunction()
+            await triviaPage.clickToUploadMobileMediaFile()
+            await functions.fileUploadCropper()
+      })
+
+
+
+      await test.step("click Mainboard Media Redio Btn", async () => {
+            await triviaPage.clickMainboardMediaRedioBtn()
+      })
+
+
+      await test.step("click To Upload Mainboard Media File", async () => {
+            await functions.bannerImageUploadFunction()
+            await triviaPage.clickToUploadMainboardMediaFile()
+            await functions.fileUploadCropper()
+
+      })
+
+      await test.step("click Add Media Save Btn", async () => {
+            await triviaPage.clickAddMediaSaveBtn()
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 })

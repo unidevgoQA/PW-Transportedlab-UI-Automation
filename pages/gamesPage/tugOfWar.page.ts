@@ -790,24 +790,24 @@ export default class tugOfWarPage {
         }
 
         async inputWinnerAddURL() {
-                const ele = await this.page.frameLocator('iframe').locator("//textarea[@placeholder='Type url']")
+                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]")
                 await ele.fill('https://www.lipsum.com/')
 
         }
 
         async inputCustomConsolationMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]")
+                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[4]")
                 await ele.fill('In publishing and graphic design')
 
         }
 
         async inputConsolationAddURL() {
 
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[4]").isVisible()
+                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[5]").isVisible()
                 if ((ele == true)) {
 
                         await this.page.frameLocator('iframe')
-                                .locator("(//textarea[@placeholder='Type message'])[4]")
+                                .locator("(//textarea[@placeholder='Type message'])[5]")
                                 .fill('https://www.lipsum.com/')
                 }
 
@@ -1300,7 +1300,7 @@ export default class tugOfWarPage {
         }
         async enableStandByCheckBox() {
 
-                const ele = await this.page.frameLocator('iframe').locator("//input[@type='checkbox']")
+                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
                 expect(ele).toBeVisible()
                 await ele.click({ force: true })
 
