@@ -41,7 +41,7 @@ const config: PlaywrightTestConfig = {
 
     launchOptions: {
       // args: ["--start-maximized"],
-      slowMo: 200
+      // slowMo: 200
       
   },
   permissions: ["microphone","camera"],
