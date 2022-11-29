@@ -735,7 +735,7 @@ export default class triviaPage {
 
         async inputNewRoundTitle() {
 
-                const ele = await this.page.frameLocator('iframe').locator("//input[@id='P-18374521762']")
+                const ele = await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//input[1]")
                 await ele.fill("Auto")
                
  

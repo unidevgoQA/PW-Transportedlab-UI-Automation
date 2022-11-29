@@ -377,7 +377,7 @@ test("011ANE-006 | Validate Trivia Section", async ({ loginPage, liveWallPage, a
       await page.waitForTimeout(4000);
       await addnewexperiencePage.TrPollvdo();
       await addnewexperiencePage.Truploadvdo();
-      await addnewexperiencePage.TrPVideo();
+      // await addnewexperiencePage.TrPVideo();
       await page.waitForTimeout(7000);
 
       await addnewexperiencePage.TrTitlename();
