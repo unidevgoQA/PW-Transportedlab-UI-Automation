@@ -76,12 +76,19 @@ test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePag
 
 
     })
-    await test.step(" Validate Font Upload Functionality", async () => {
-        
+    await test.step("open fonts section ",async()=>{
         await guesstheScorePage.clickGuessTheScoreSection()
         await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.openfontsection()
+
+
+    })
+    await test.step(" Validate Font Upload Functionality", async () => {
         
-        //await page.waitForTimeout(4000)
+        // await guesstheScorePage.clickGuessTheScoreSection()
+        // await guesstheScorePage.clickGameDesign()
+        
+        await page.waitForTimeout(4000)
         //font upload here
         await functions.fontUploadFunction()
         await guesstheScorePage.clickToUploadFont()
@@ -89,7 +96,7 @@ test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePag
         //await page.waitForTimeout(4000)
 
          //click Clear All Btn
-         await guesstheScorePage.clickClearAllBtn()
+        //  await guesstheScorePage.clickClearAllBtn()
 
         //await page.waitForTimeout(4000)
     })
@@ -110,24 +117,33 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
                     contentType: "image/png",
                     body: screenshot
             })
+            await guesstheScorePage.clickGuessTheScoreSection()
 
     })
-    await test.step("Validate background Color Input Functionality", async () => {
-        await guesstheScorePage.clickGuessTheScoreSection()
+
+    await test.step("validate open the color section works", async () =>{
         await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.opencolorssection()
         
-        await page.waitForTimeout(4000)
+    })
+    await test.step("Validate background Color Input Functionality", async () => {
+        // await guesstheScorePage.clickGuessTheScoreSection()
+       
+        
+        // await page.waitForTimeout(4000)
 
         await guesstheScorePage.verifyBackgroundColorText()
 
-        await page.waitForTimeout(2000)
+        await page.waitForTimeout(1000)
         await guesstheScorePage.clickBackgroundColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -135,11 +151,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.clicktextColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -147,11 +165,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickHeaderColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -159,11 +179,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.buttonstextColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -171,11 +193,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.MainboardBackgroundColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -183,11 +207,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.EventtitlefontColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -195,11 +221,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.TimerCircleColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -207,11 +235,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.WoodColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -219,11 +249,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.gameplayscoretextColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
     
@@ -231,11 +263,13 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
         await page.waitForTimeout(1000)
         await guesstheScorePage.TimerBackgroundColorPicker()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
     

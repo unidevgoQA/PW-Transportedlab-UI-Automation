@@ -53,16 +53,30 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').locator("//h6[text()='test_by_Automation']/parent::div/following-sibling::div//div//div//p[text()='Game Design']").click()
 
         }
+
+        async openfontsection(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Fonts"]//parent::div').click()
+        }
         async clickToUploadFont() {
                 const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
                 expect(ele).toBeVisible()
                 await ele.click()
 
         }
-        async clickClearAllBtn(){
-                const ele = this.page.frameLocator('iframe').locator("//button[text()='Clear all']")
-                expect(ele).toBeVisible()
-                await ele.click({force:true});
+        // clear all button no longer available
+        // async clickClearAllBtn(){
+        //         const ele = this.page.frameLocator('iframe').locator("//button[text()='Clear all']")
+        //         expect(ele).toBeVisible()
+        //         await ele.click({force:true});
+        // }
+        
+        //colors section from here 
+        async opencolorssection(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div').click() 
+        }
+
+        async clickplusbuttonswatches(){
+                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="Add Color"]').click()
         }
 
         async verifyBackgroundColorText() {
@@ -131,7 +145,7 @@ export default class guesstheScorePage {
 
         }
         async TimerBackgroundColorPicker() {
-                const ele = this.page.frameLocator('iframe').locator("//p[text()='TimerBackground']/following-sibling::button").first()
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Timer Background']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
                 await ele.click()
 
@@ -171,12 +185,13 @@ export default class guesstheScorePage {
 
         }
 
+        async clickdeletebuttonswatches(){
+                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="delete"]').last().click()     
+        }
+
 
         async clickColorPickerSaveBtn() {
-                const ele = this.page.frameLocator('iframe').locator('text=Save')
-                await expect(ele).toBeVisible()
-                await ele.click()
-
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
         }
 
         async clickfullscreenlogoupload(){
