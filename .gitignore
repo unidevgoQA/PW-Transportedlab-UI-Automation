@@ -6,3 +6,4 @@ node_modules/
 /allure-resuts/
 playwright-report
 report.json/
+report.json
