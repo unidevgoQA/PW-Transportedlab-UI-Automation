@@ -2652,9 +2652,9 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
       await test.step("verify New Round Title Text", async () => {
             await triviaPage.verifyNewRoundTitleText()
       })
-      
+
       await test.step("input New Round Title", async () => {
-            await page.waitForTimeout(2000)            
+            await page.waitForTimeout(2000)
             await triviaPage.inputNewRoundTitle()
       })
 
@@ -2764,8 +2764,28 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
 
       await test.step("verify Deduction Text", async () => {
             await triviaPage.verifyDeductionText()
-      })    
+      })
 
+})
+
+test.skip("012TV-026 | Vaslidated Point-Bubble Text Color Input Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+
+
+      await test.step("click Control Panel", async () => {
+            await triviaPage.clickControlPanel()
+      })
 
       await test.step("click Add Media Btn", async () => {
             await triviaPage.clickAddMediaBtn()
@@ -2775,17 +2795,14 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
             await triviaPage.verifyAddMediaText()
       })
 
-
       await test.step("verify Quiestion Text", async () => {
             await triviaPage.verifyQuiestionText()
       })
 
 
-
       await test.step("input Question Text", async () => {
             await triviaPage.inputQuestionText()
       })
-
 
       await test.step("input Countdown Sec", async () => {
             await triviaPage.inputCountdownSec()
@@ -2820,6 +2837,71 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
       await test.step("click Add Media Save Btn", async () => {
             await triviaPage.clickAddMediaSaveBtn()
       })
+
+
+
+
+
+await test.step("click Add Question", async () => {
+      await triviaPage.clickAddQuestion()
+})
+
+await test.step("verify Question Text In Add Question", async () => {
+      await triviaPage.verifyQuestionTextInAddQuestion()
+})
+
+await test.step("input Question Text For Add Question", async () => {
+      await triviaPage.inputQuestionTextForAddQuestion()
+})
+
+await test.step("click To Upload Question Image", async () => {
+      await functions.bannerImageUploadFunction()
+      await triviaPage.clickToUploadQuestionImage()
+      await functions.fileUploadCropper()
+})
+
+
+await test.step("verify Answers Text", async () => {
+      await triviaPage.verifyAnswersText()
+})
+
+await test.step("click Add Answer Btn", async () => {
+      await triviaPage.clickAddAnswerBtn()
+})
+
+await test.step("verify Answers Text In Pop Up", async () => {
+      await triviaPage.verifyAnswersTextInPopUp()
+})
+
+await test.step("input Answer Text", async () => {
+      await triviaPage.inputAnswerText()
+})
+
+
+
+await test.step("click To Upload Answer Image", async () => {
+      await functions.bannerImageUploadFunction()
+      await triviaPage.clickToUploadAnswerImage()
+      await functions.fileUploadCropper()
+})
+
+
+
+await test.step("click Answer Save Btn", async () => {
+      await triviaPage.clickAnswerSaveBtn()
+})
+
+
+await test.step("click Add Media Save Btn", async () => {
+      await triviaPage.clickAddMediaSaveBtn()
+})
+
+
+
+
+
+
+
 
 
 

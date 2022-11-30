@@ -975,9 +975,81 @@ export default class triviaPage {
          
          async clickAddMediaSaveBtn() {
                 const ele = this.page.frameLocator('iframe').locator("//button[text()='SAVE']")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async clickAddQuestion() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='Add Question']")
+                expect(ele).toBeVisible()
                 await ele.click()
  
          }
+
+         async verifyQuestionTextInAddQuestion() {
+                const ele = this.page.frameLocator('iframe').locator("(//p[text()='Question'])[2]")
+                expect(ele).toContainText("Question")
+                
+ 
+         }
+
+         async inputQuestionTextForAddQuestion() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@data-offset-key='9hfja-0-0']//div[1]")
+                // expect(ele).toBeVisible()
+                await ele.fill("Input Demo Question")
+ 
+         }
+
+         async clickToUploadQuestionImage() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']")
+                expect(ele).toBeVisible()
+                await ele.click()
+ 
+         }
+
+         async verifyAnswersText() {
+                const ele = this.page.frameLocator('iframe').locator("//h5[text()='Answers']")
+                expect(ele).toContainText("Answers")                
+ 
+         }
+
+         async clickAddAnswerBtn() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='Add Answer']")
+                expect(ele).toContainText("Add Answer")                
+ 
+         }
+
+         async verifyAnswersTextInPopUp() {
+                const ele = this.page.frameLocator('iframe').locator("(//p[text()='Answer'])[2]")
+                expect(ele).toContainText("Answer")                
+ 
+         }
+
+         async inputAnswerText() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@data-offset-key='4o2c2-0-0']//div[1]")
+                expect(ele).toBeVisible()
+                await ele.fill("Demo Text Here..")                
+ 
+         }
+
+         async clickToUploadAnswerImage() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']")
+                expect(ele).toBeVisible()
+                await ele.click()
+ 
+         }
+
+         async clickAnswerSaveBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//button[text()='SAVE'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click()
+ 
+         }
+
+
+
+         
 
 
 
