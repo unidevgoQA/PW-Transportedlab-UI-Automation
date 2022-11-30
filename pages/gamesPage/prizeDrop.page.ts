@@ -91,6 +91,7 @@ export default class prizeDropPage {
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
+                await this.page.waitForTimeout(2000)
                 await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(0).click()
 
         }
@@ -424,6 +425,7 @@ export default class prizeDropPage {
         }
 
         async clickToUploadHowtoPlayImage() {
+                await this.page.waitForTimeout(2000)
                 const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[11]")
                 expect(ele).toBeVisible()
                 await ele.click({force:true})

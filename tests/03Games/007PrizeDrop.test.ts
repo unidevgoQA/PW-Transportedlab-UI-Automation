@@ -64,6 +64,8 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
 
                 //click Add Btn
                 await prizeDropPage.clickAddBtn()
+                await page.waitForTimeout(4000)
+
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
@@ -628,7 +630,7 @@ test("007PD-004 | Validate Upload Game Design Image Functionality", async ({ log
 
         })
 
-        await test.step("008TOFW-004 | Validate Upload Game Design Image Functionality", async () => {
+        await test.step("007PD-004 | Validate Upload Game Design Image Functionality", async () => {
 
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()

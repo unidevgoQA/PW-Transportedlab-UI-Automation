@@ -34,6 +34,7 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
       })
 
       await test.step("Verify Configurations Text", async () => {
+            await page.waitForTimeout(2000)
             await triviaPage.verifyConfigurationsText()
 
       })

@@ -1062,8 +1062,9 @@ export default class globalPrizingPage {
         /////////////////Open in Wizard////////////////
 
         async Clickopenwizard() {
+                await this.page.waitForTimeout(2000)
                 const locator = this.page.locator("//button[text()='Open in Wizard']")
-                await locator.click()
+                await locator.click({force:true})
         }
         async Welcomelabl() {
                 const locator = this.page.locator("//h1[text()='Welcome to the Coupon Wizard']")
