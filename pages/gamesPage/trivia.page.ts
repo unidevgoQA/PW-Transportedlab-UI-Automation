@@ -34,6 +34,7 @@ export default class triviaPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
+                await this.page.waitForTimeout(2000)
                 const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Configurations']")
                 expect(ele).toContainText("Configurations")
 
@@ -44,11 +45,11 @@ export default class triviaPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
-                const ele = await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsDelete >> p').last().isVisible()
+                const ele = await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').last().isVisible()
                 if ((ele == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
-                                .locator('text=AutoStartControl PanelGame DesignGame SettingsDelete >> p').last()
+                                .locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').last()
                                 .click({ force: true })
                 }
 
@@ -111,7 +112,7 @@ export default class triviaPage {
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsDelete >> p').nth(1).click()
+                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(1).click()
 
         }
 
@@ -714,7 +715,7 @@ export default class triviaPage {
 
         //▶▶Start Control Pannel Section Element  
         async clickControlPanel() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsDelete >> p').nth(0).click()
+                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(0).click()
 
         }
 
@@ -969,6 +970,7 @@ export default class triviaPage {
          async clickToUploadMainboardMediaFile() {
                 const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']")
                 await ele.click()
+                
  
          }
 
@@ -995,7 +997,7 @@ export default class triviaPage {
          }
 
          async inputQuestionTextForAddQuestion() {
-                const ele = this.page.frameLocator('iframe').locator("//div[@data-offset-key='9hfja-0-0']//div[1]")
+                const ele = this.page.frameLocator('iframe').locator("//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']")
                 // expect(ele).toBeVisible()
                 await ele.fill("Input Demo Question")
  
@@ -1016,7 +1018,8 @@ export default class triviaPage {
 
          async clickAddAnswerBtn() {
                 const ele = this.page.frameLocator('iframe').locator("//button[text()='Add Answer']")
-                expect(ele).toContainText("Add Answer")                
+                expect(ele).toContainText("Add Answer")
+                await ele.click()                
  
          }
 
@@ -1049,7 +1052,343 @@ export default class triviaPage {
 
 
 
+
+
+         //Start Game Settings Section 
+         async clickGameSettings() {
+                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(2).click()
+
+        }
+
+        async verifyGameSettingsText() {
+                const ele = this.page.frameLocator('iframe').locator("//h4[text()='Game Settings']")
+                expect(ele).toContainText("Game Settings")
+                
+ 
+         }
+
+         async verifyGameTitleText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Game Title']")
+                expect(ele).toContainText("Game Title")
+                
+ 
+         }
          
+
+         async inputGameTitle() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
+                expect(ele).toBeVisible()
+                await ele.fill("Auto Game Title")
+ 
+         }
+
+
+         async verifyCountdownTitleText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Countdown Title']")
+                expect(ele).toContainText("Countdown Title")
+                
+ 
+         }
+         async inputGameCountdownTitle() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
+                expect(ele).toBeVisible()
+                await ele.fill("Auto Countdown Title")
+ 
+         }
+
+         async verifyLeaderboardTitleText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Leaderboard Title']")
+                expect(ele).toContainText("Leaderboard Title")
+                
+ 
+         }
+         async inputLeaderboardTitle() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
+                expect(ele).toBeVisible()
+                await ele.fill("Auto Leaderboard Title")
+ 
+         }
+
+         async verifyAlignmentsTitleText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Alignments']")
+                expect(ele).toContainText("Alignments")
+                
+ 
+         }
+
+         async verifyGameTitleAlignmentText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Game Title Alignment']")
+                expect(ele).toContainText("Game Title Alignment")
+                
+ 
+         }
+
+         async clickGameTitleAlignmentLeftBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Left'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async clickGameTitleAlignmentRightBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Right'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         
+         async clickGameTitleAlignmentCenterBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Center'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+
+         async verifyLogoImageAlignmentText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Logo Image Alignment']")
+                expect(ele).toContainText("Logo Image Alignment")
+                
+ 
+         }
+
+         async clickLogoImageAlignmentLeftBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Left'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async clickLogoImageAlignmentRightBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Right'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         
+         async clickLogoImageAlignmentCenterBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Center'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async verifyGameCountdownAlignmentText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Countdown Alignment']")
+                expect(ele).toContainText("Countdown Alignment")
+                
+ 
+         }
+
+         async clickGameCountdownAlignmentLeftBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Left'])[3]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async clickGameCountdownAlignmentRightBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Right'])[3]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         
+         async clickGameCountdownAlignmentCenterBtn() {
+                const ele = this.page.frameLocator('iframe').locator("(//h6[text()='Center'])[3]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+
+         async verifyGameMainboardCountdownText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Mainboard Countdown']")
+                expect(ele).toContainText("Mainboard Countdown")
+                
+ 
+         }
+
+         async clickGameMainboardCountdownBottomBtn() {
+                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Bottom']")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async clickGameMainboardCountdownTopBtn() {
+                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Top']")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+ 
+         }
+
+         async verifyGameAnswerShapeText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Answer Shape']")
+                expect(ele).toContainText("Answer Shape")
+                
+ 
+         }
+
+
+         async clickToEnableAnswerShape() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                
+ 
+         }
+
+         async verifyGameSelectedAnswerGradientText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Selected Answer Gradient']")
+                expect(ele).toContainText("Selected Answer Gradient")
+                
+ 
+         }
+
+
+         async clickToEnableSelectedAnswerGradient() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                
+ 
+         }
+
+         async verifyGameAnswerDisplayButtonText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Answer Display Button']")
+                expect(ele).toContainText("Answer Display Button")
+                
+ 
+         }
+
+
+         async clickToEnableAnswerDisplayButton() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[3]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                
+ 
+         }
+
+         async verifyGameQuestionTextBackgroundText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Question Text Background']")
+                expect(ele).toContainText("Question Text Background")
+                
+ 
+         }
+
+
+         async clickToEnableQuestionTextBackground() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[4]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                
+ 
+         }
+
+
+         async verifyGameAnswerTextBackgroundText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Answer Text Background']")
+                expect(ele).toContainText("Answer Text Background")
+                
+ 
+         }
+
+
+         async clickToEnableAnswerTextBackground() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[5]")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                
+ 
+         }
+
+         async verifyPreGameHeadingText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Pre Game Heading']")
+                expect(ele).toContainText("Pre Game Heading")
+                
+ 
+         }
+
+
+         async inputPreGameHeading() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]")
+                // expect(ele).toBeVisible()
+                await ele.fill("Demo Data For PreGameHeading..")
+                
+ 
+         }
+
+         async verifyPreGameMassageText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Pre Game Message']")
+                expect(ele).toContainText("Pre Game Message")
+                
+ 
+         }
+
+
+         async inputPreGameMassage() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]")
+                // expect(ele).toBeVisible()
+                await ele.fill("Demo Data For PreGameHeading..")
+                
+ 
+         }
+
+         
+         async verifyPostGameMassageText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Post Game Message']")
+                expect(ele).toContainText("Post Game Message")
+                
+ 
+         }
+
+
+         async inputPostGameMassage() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]")
+                // expect(ele).toBeVisible()
+                await ele.fill("Demo Data For PreGameHeading..")
+                
+ 
+         }
+
+         async verifyGameWinningMassageText() {
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Winning Message']")
+                expect(ele).toContainText("Winning Message")
+                
+ 
+         }
+
+
+         async inputGameWinningMassage() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[4]")
+                // expect(ele).toBeVisible()
+                await ele.fill("Demo Data For Game Winning Massage..")
+                
+ 
+         }
+
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -59,10 +59,6 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
 
       })
 
-      await test.step("Click Game Desgin", async () => {
-            await triviaPage.clickGameDesign()
-
-      })
 
 
 
@@ -2659,6 +2655,7 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
             await triviaPage.inputNewRoundTitle()
       })
 
+
       await test.step("click Round Add Btn", async () => {
             await triviaPage.clickRoundAddBtn()
       })
@@ -2769,7 +2766,7 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
 
 })
 
-test.skip("012TV-026 | Vaslidated Point-Bubble Text Color Input Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-026 | Vaslidated Game Control Panel Add Media Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2832,11 +2829,13 @@ test.skip("012TV-026 | Vaslidated Point-Bubble Text Color Input Section", async 
             await functions.bannerImageUploadFunction()
             await triviaPage.clickToUploadMainboardMediaFile()
             await functions.fileUploadCropper()
+            await page.waitForTimeout(3000)
 
       })
 
       await test.step("click Add Media Save Btn", async () => {
             await triviaPage.clickAddMediaSaveBtn()
+
       })
 
 
@@ -2844,6 +2843,7 @@ test.skip("012TV-026 | Vaslidated Point-Bubble Text Color Input Section", async 
 
 
 await test.step("click Add Question", async () => {
+      await page.waitForTimeout(3000)
       await triviaPage.clickAddQuestion()
 })
 
@@ -2870,11 +2870,9 @@ await test.step("click Add Answer Btn", async () => {
       await triviaPage.clickAddAnswerBtn()
 })
 
-await test.step("verify Answers Text In Pop Up", async () => {
-      await triviaPage.verifyAnswersTextInPopUp()
-})
 
 await test.step("input Answer Text", async () => {
+      await page.waitForTimeout(2000)
       await triviaPage.inputAnswerText()
 })
 
@@ -2926,6 +2924,240 @@ await test.step("click Add Media Save Btn", async () => {
 
 
 
+
+
+
+
+
+
+
+
+
+})
+
+
+test("012TV-026 | Vashlidated Game Settings Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+
+
+      await test.step("click Game Settings", async () => {
+            await triviaPage.clickGameSettings()
+      })
+
+      await test.step("verify Game Settings Text", async () => {
+            await triviaPage.verifyGameSettingsText()
+      })
+
+      await test.step("verify Game Title Text", async () => {
+            await triviaPage.verifyGameTitleText()
+      })
+
+      await test.step("input Game Title", async () => {
+            await triviaPage.inputGameTitle()
+      })
+
+
+      await test.step("verify Countdown Title Text", async () => {
+            await triviaPage.verifyCountdownTitleText()
+      })
+
+      await test.step("input Game Countdown Title", async () => {
+            await triviaPage.inputGameCountdownTitle()
+      })
+
+      await test.step("verify Leaderboard Title Text", async () => {
+            await triviaPage.verifyLeaderboardTitleText()
+      })
+
+
+
+      await test.step("input Leaderboard Title", async () => {
+       
+            await triviaPage.inputLeaderboardTitle()
+          
+      })
+
+
+
+      await test.step("verify Alignments Title Text", async () => {
+            await triviaPage.verifyAlignmentsTitleText()
+      })
+
+
+      await test.step("verify Game Title Alignment Text", async () => {
+            await triviaPage.verifyGameTitleAlignmentText()
+           
+
+      })
+
+      await test.step("click Game Title Alignment LeftBtn", async () => {
+            await triviaPage.clickGameTitleAlignmentLeftBtn()
+      })
+
+
+
+
+
+await test.step("click Game Title Alignment Right Btn", async () => {
+      await triviaPage.clickGameTitleAlignmentRightBtn()
+})
+
+await test.step("click Game Title Alignment Center Btn", async () => {
+      await triviaPage.clickGameTitleAlignmentCenterBtn()
+})
+
+await test.step("verify Logo Image Alignment Text", async () => {
+      await triviaPage.verifyLogoImageAlignmentText()
+})
+
+await test.step("click Logo Image Alignment Left Btn", async () => {
+      
+      await triviaPage.clickLogoImageAlignmentLeftBtn()
+     
+})
+
+
+await test.step("click Logo Image Alignment Right Btn", async () => {
+      await triviaPage.clickLogoImageAlignmentRightBtn()
+})
+
+await test.step("click Logo Image Alignment Center Btn", async () => {
+      await triviaPage.clickLogoImageAlignmentCenterBtn()
+})
+
+await test.step("verify Game Countdown Alignment Text", async () => {
+      await triviaPage.verifyGameCountdownAlignmentText()
+})
+
+await test.step("click Game Countdown Alignment Left Btn", async () => {
+      await triviaPage.clickGameCountdownAlignmentLeftBtn()
+})
+
+
+await test.step("click Game Countdown Alignment Right Btn", async () => {
+      await triviaPage.clickGameCountdownAlignmentRightBtn()
+})
+
+
+await test.step("click Game Countdown Alignment Center Btn", async () => {
+      await triviaPage.clickGameCountdownAlignmentCenterBtn()
+})
+
+
+
+
+
+await test.step("verify Game Mainboard Countdown Text", async () => {
+      await triviaPage.verifyGameMainboardCountdownText()
+})
+
+await test.step("click Game Mainboard Countdown Bottom Btn", async () => {
+      await triviaPage.clickGameMainboardCountdownBottomBtn()
+})
+
+await test.step("click Game Mainboard Countdown Top Btn", async () => {
+      await triviaPage.clickGameMainboardCountdownTopBtn()
+})
+
+await test.step("verify Game Answer Shape Text", async () => {
+      await triviaPage.verifyGameAnswerShapeText()
+})
+
+
+await test.step("click To Enable Answer Shape", async () => {
+      await triviaPage.clickToEnableAnswerShape()
+})
+
+
+await test.step("verify Game Selected Answer Gradient Text", async () => {
+      await triviaPage.verifyGameSelectedAnswerGradientText()
+})
+
+
+
+await test.step("click To Enable Selected Answer Gradient", async () => {
+      await triviaPage.clickToEnableSelectedAnswerGradient()
+})
+
+await test.step("verify Game Answer Display Button Text", async () => {
+      await triviaPage.verifyGameAnswerDisplayButtonText()
+})
+
+await test.step("click To Enable Answer Display Button", async () => {
+      await triviaPage.clickToEnableAnswerDisplayButton()
+})
+
+
+await test.step("verify Game Question Text Background Text", async () => {
+      await triviaPage.verifyGameQuestionTextBackgroundText()
+})
+
+
+await test.step("click To Enable Question Text Background", async () => {
+      await triviaPage.clickToEnableQuestionTextBackground()
+})
+
+
+await test.step("verify Game Answer Text Background Text", async () => {
+      await triviaPage.verifyGameAnswerTextBackgroundText()
+})
+
+
+await test.step("click To Enable Answer Text Background", async () => {
+      await triviaPage.clickToEnableAnswerTextBackground()
+})
+
+
+
+
+
+await test.step("verify Pre Game Heading Text", async () => {
+      await triviaPage.verifyPreGameHeadingText()
+})
+
+
+
+await test.step("input Pre Game Heading", async () => {
+      await triviaPage.inputPreGameHeading()
+})
+
+await test.step("verify Pre Game Massage Text", async () => {
+      await triviaPage.verifyPreGameMassageText()
+})
+
+await test.step("input Pre Game Massage", async () => {
+      await triviaPage.inputPreGameMassage()
+})
+
+
+await test.step("verify Post Game Massage Text", async () => {
+      await triviaPage.verifyPostGameMassageText()
+})
+
+await test.step("input Post Game Massage", async () => {
+      await triviaPage.inputPostGameMassage()
+})
+
+
+await test.step("verify Game Winning Massage Text", async () => {
+      await triviaPage.verifyGameWinningMassageText()
+})
+
+
+await test.step("input Game Winning Massage", async () => {
+      await triviaPage.inputGameWinningMassage()
+})
 
 
 

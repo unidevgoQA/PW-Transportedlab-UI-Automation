@@ -117,14 +117,15 @@ export default class functions {
                 expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
 
 
+                await this.page.waitForTimeout(2000)                
                 const deviceSelectField = await this.page.frameLocator('iframe').locator("(//div[@role='button'])[1]")
                 expect.soft(deviceSelectField).toBeVisible()
-                await deviceSelectField.click()
+                await deviceSelectField.click({force:true})
 
-
+                await this.page.waitForTimeout(2000)
                 const iphone13ProMax = await this.page.frameLocator('iframe').locator("//li[@data-value='iPhone 13 Pro Max']")
                 expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
-                await iphone13ProMax.dblclick()
+                await iphone13ProMax.dblclick({force:true})
 
                 await this.page.waitForTimeout(1000)
 

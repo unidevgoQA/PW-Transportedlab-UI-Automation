@@ -58,9 +58,8 @@ export default class LoginPage {
     
 
     async clickLoginBtn() {
-        await Promise.all([
-            this.page.waitForNavigation(),
-            this.page.click("button:has-text('Login')")
-        ])
+            await this.page.waitForTimeout(3000)
+            await this.page.click("button:has-text('Login')")
+   
     }
 }
