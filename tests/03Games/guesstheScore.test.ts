@@ -101,7 +101,6 @@ test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePag
         //await page.waitForTimeout(4000)
     })
 
-
 })
 
 test("Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
@@ -290,9 +289,13 @@ test("validate image upload works", async({ loginPage, guesstheScorePage, page, 
         })
 
         await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
-        await guesstheScorePage.clickGameDesign()
+        await page.waitForTimeout(1000)
 
+    })
+
+    await test.step("open image uploads section in game design", async() =>{
+        await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.openimagesection()
     })
     await test.step("full screen logo upload works", async() =>{
         await guesstheScorePage.clickfullscreenlogoupload()
@@ -336,7 +339,7 @@ test("validate image upload works", async({ loginPage, guesstheScorePage, page, 
 
         await page.waitForTimeout(4000)
     })
-})
+})  
 test("test editor section functionalities", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -353,13 +356,26 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
 
         await guesstheScorePage.clickGuessTheScoreSection()
         await page.waitForTimeout(2000)
-        await guesstheScorePage.clickGameDesign()
-        await page.waitForTimeout(5000)
+        // await guesstheScorePage.clickGameDesign()
+        // await page.waitForTimeout(5000)
 
     })
-    await test.step("validate standby message text editor sanity", async() =>{
+    await test.step("open test editor section in game design",async() =>{
+        await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.opendialogs()
+    })
+    await test.step("validate incorrect text editor sanity", async() =>{
+        await guesstheScorePage.typeincorrectguess()
+        await guesstheScorePage.clickleftalignedincorrectguess()
+        await guesstheScorePage.clickrightalignedincorrectguess()
+        await guesstheScorePage.clickboldincorrectguesseditor()
+        await guesstheScorePage.clickitalicincorrectguesseditor()
+        await guesstheScorePage.clickitalicincorrectguesseditor()
+        await guesstheScorePage.clickorderedincorrectguesseditor()
+    })
+    await test.step("validate In-Gate Header sanity",async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.typestandbymessage()
+        await guesstheScorePage.typeingateheader()
         await page.waitForTimeout(1000)
     })
     await test.step("validate correct guess text editor sanity", async() =>{
@@ -367,14 +383,19 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
         await guesstheScorePage.typecorrectguess()
         await page.waitForTimeout(1000)
     })
+    await test.step("validate riding header sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typeridingheader()
+        await page.waitForTimeout(1000)
+    })
     await test.step("validate close guess text editor sanity", async() =>{
         await page.waitForTimeout(1000)
         await guesstheScorePage.typecloseguess()
         await page.waitForTimeout(1000)
     })
-    await test.step("validate incorrect text editor sanity", async() =>{
+    await test.step("validate scoring header sanity", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.typeincorrectguess()
+        await guesstheScorePage.typescoringheader()
         await page.waitForTimeout(1000)
     })
     await test.step("validate Far guess text editor sanity", async() =>{
@@ -382,9 +403,19 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
         await guesstheScorePage.typefarguess()
         await page.waitForTimeout(1000)
     })
+    await test.step("validate Re-ride header sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typeRerideheader()
+        await page.waitForTimeout(1000)
+    })
     await test.step("validate no score editor sanity", async() =>{
         await page.waitForTimeout(1000)
         await guesstheScorePage.typenoscore()
+        await page.waitForTimeout(1000)
+    })
+    await test.step("validate standby message text editor sanity", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.typestandbymessage()
         await page.waitForTimeout(1000)
     })
 
@@ -416,7 +447,18 @@ test("validate Rider Roster settings is working", async({ loginPage, guesstheSco
         await guesstheScorePage.addriderLastname()
         await guesstheScorePage.clicksaveandclosebutton()
     })
+    
+    await test.step("validate search option in rider roster is working", async()=>{
+        await guesstheScorePage.typesearchinriderroster()
+    })
 
+    await test.step('validate export rider button is working', async() =>{
+        await guesstheScorePage.clickexportbutton()
+    })
+    await test.step('validate import rider button is working', async() =>{
+        await guesstheScorePage.Jsonuploader()
+    })
+ 
     await test.step("validate edit rider settings are working",async() =>{
         await guesstheScorePage.clickeditriderbutton()
         await guesstheScorePage.clickColorPickerSaveBtn()
@@ -424,7 +466,10 @@ test("validate Rider Roster settings is working", async({ loginPage, guesstheSco
 
     await test.step("validate delete rider is working", async() =>{
         await guesstheScorePage.clickdeleteriderbutton()
+        await guesstheScorePage.clickokindeleterider()
     })
+
+
 
 })
 test("validate game operation settings are working",async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{

@@ -193,7 +193,11 @@ export default class guesstheScorePage {
         async clickColorPickerSaveBtn() {
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
         }
+        //image upload starts here
 
+        async openimagesection(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Image Uploads"]//parent::div').click()
+        }
         async clickfullscreenlogoupload(){
                 await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Full Screen Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
         }
@@ -230,10 +234,15 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
 
         }
+        // Editor sections(dialogs) start here
+
+        async opendialogs(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Dialogs"]//parent::div').click() 
+        }
         async typestandbymessage(){
                 const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]')
                 expect(ele).toBeVisible()
-                await ele.fill(' ')
+                await ele.fill(" ")
                 await ele.fill("this is a test message")
                 
         }
@@ -245,30 +254,108 @@ export default class guesstheScorePage {
 
         async typecorrectguess(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Correct Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]')
-                expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
                 await ele.fill("this is a test message")
         }
         async typecloseguess(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]')
-                expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await this.page.waitForTimeout(400 )
                 await ele.fill("this is a test message")
         }
         async typeincorrectguess(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]')
-                expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
                 await ele.fill("this is a test message")
+                
         }
+        async clickleftalignedincorrectguess(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Left"]').click()
+               
+        }
+        async clickrightalignedincorrectguess(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Right"]').click()
+               
+        }
+        async clickboldincorrectguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Bold"]').click()
+               
+        }
+        async clickitalicincorrectguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Underline"]').click()
+               
+        }
+        async clickunderlineincorrectguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Italic"]').click()
+               
+        }
+        async clickorderedincorrectguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Ordered"]').click()
+               
+        }
+        async clickunorderedincorrectguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Unordered"]').click()
+               
+        }
+        
         async typefarguess(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Far Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]')
-                expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
                 await ele.fill("this is a test message")
         }
         async typenoscore(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="No Score"]//following-sibling::div//div[@aria-label="rdw-editor"]')
-                expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
                 await ele.fill("this is a test message")
         }
-        //rider roster
+
+        async typeingateheader(){
+                const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("this is a test message")
+        }
+
+        async typeridingheader(){
+                const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@aria-label="rdw-editor"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("this is a test message")
+        }
+
+        async typescoringheader(){
+                const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Scoring Header"]//following-sibling::div//div[@aria-label="rdw-editor"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("this is a test message")
+        }
+
+        async typeRerideheader(){
+                const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Re-Ride Header"]//following-sibling::div//div[@aria-label="rdw-editor"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("this is a test message")
+        }
+        //rider roster starts here
         
 
         async clickriderroster(){
@@ -292,6 +379,26 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save & Close"]').click()
                 await this.page.waitForTimeout(1000)
         }
+        async typesearchinriderroster(){
+                await this.page.frameLocator('.css-r99fy3').locator('//input[@placeholder="Search..."]').type("test")
+        }
+
+        async clickexportbutton(){
+                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Export"]').click()
+        }
+
+        async Jsonuploader(){
+                const filePath0 = "testData/login.cred.json"
+                const [fileChooser] = await Promise.all([
+                // It is important to call waitForEvent before click to set up waiting.
+                this.page.waitForEvent('filechooser'),
+                // Opens the file chooser.
+                this.page.frameLocator('.css-r99fy3').locator('//button[text()="Import"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+              
+
+        }
 
         async clickeditriderbutton(){
                 await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Edit"]').first().click()
@@ -299,6 +406,11 @@ export default class guesstheScorePage {
 
         async clickdeleteriderbutton(){
                 await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Delete"]').first().click()
+                await this.page.waitForSelector('button')
+        }
+
+        async clickokindeleterider(){
+                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Ok"]').click()
         }
         //game operation
         async clickgameoperation(){
