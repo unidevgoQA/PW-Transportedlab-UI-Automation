@@ -5,17 +5,17 @@ const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
     "001Login.test.ts",
-    "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
-    "005SignUp.test.ts",
-    "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
-    "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",    
-    "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",  
-    "012Trivia.test.ts"
+    // "002MobileDesign.test.ts",
+    // "003Language.test.ts",
+    // "004Menu.test.ts",
+    // "005SignUp.test.ts",
+    // "006GlobalPrizing.test.ts",
+    // "007PrizeDrop.test.ts",
+    // "008TugOfWar.test.ts",
+    // "009LiveWall.test.ts",    
+    // "010Arcade.test.ts",
+    // "011AddNewExperiences.test.ts",  
+    // "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
@@ -48,7 +48,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'chrome',
-    viewport: { width: 1500, height: 720 },
+    viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
     
   

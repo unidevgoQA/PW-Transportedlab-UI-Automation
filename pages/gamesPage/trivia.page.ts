@@ -719,6 +719,21 @@ export default class triviaPage {
 
         }
 
+        async clickLiveGameStopBtn() {
+              const ele = this.page.frameLocator('iframe').locator("//button[text()='Live']").last()
+              // expect(ele).toContainText("Add Round")
+              await ele.click({force:true})
+
+       }
+
+       async clickOkBtn() {
+              const ele = this.page.frameLocator('iframe').locator("//button[text()='Ok']").last()
+              // expect(ele).toContainText("Add Round")
+              await ele.click({force:true})
+
+       }
+
+
         async clickAddRoundBtn() {
                const ele = this.page.frameLocator('iframe').locator("//button[text()='Add Round']")
                expect(ele).toContainText("Add Round")
@@ -1030,8 +1045,8 @@ export default class triviaPage {
          }
 
          async inputAnswerText() {
-                const ele = this.page.frameLocator('iframe').locator("//div[@data-offset-key='4o2c2-0-0']//div[1]")
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]")
+                // expect(ele).toBeVisible()
                 await ele.fill("Demo Text Here..")                
  
          }
@@ -1373,10 +1388,62 @@ export default class triviaPage {
          }
 
 
+         async clickToUploadGameFont() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
+
          
+         async clickToUploadMarketingMassageFile() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[7]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
+
+         async clickToUploadMainboardBackgroundFile() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[6]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
+
+         async clickToUploadTeamLogoFile() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[5]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
+
+         async clickToUploadMobileBackgroundFile() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[4]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
+
+         async clickToUploadGameTitleFile() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[3]")
+                expect(ele).toBeVisible()
+                await ele.click()
+                
+ 
+         }
 
 
 
+
+         async clickAnalyticsSection() {
+              await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(3).click()
+
+      }
 
 
 

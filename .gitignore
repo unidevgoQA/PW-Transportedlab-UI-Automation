@@ -1,9 +1,7 @@
 node_modules/
 /test-results/
-/playwright-report/
 /playwright/.cache/
 /allure-report/
 /allure-resuts/
-playwright-report
 report.json/
-report.json
+
