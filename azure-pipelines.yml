@@ -11,11 +11,15 @@ pool:
 
 steps:
 - task: NodeTool@0
-  inputs:
+  inputs:  
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+  
 
 - script: |
     npm install
     npm run test
   displayName: 'npm install and test'
+  publishJUnitResults: true
+  testResultsFiles: '**/surefire-reports/TEST-*.xml'
+  goals: 'package'
