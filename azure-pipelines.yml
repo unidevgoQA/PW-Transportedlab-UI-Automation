@@ -27,4 +27,5 @@ steps:
 - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
   displayName: 'Publish Html Report'
   inputs:
-    reportDir: '$(Parameters.reportDir)'
+    reportDir: 'playwright-report\index.html'
+  continueOnError: true
