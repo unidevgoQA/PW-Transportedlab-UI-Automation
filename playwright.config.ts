@@ -26,10 +26,12 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 
-  reporter: [['allure-playwright', {
-    detail: true,
-    outputFolder: 'my-allure-results',
-    suiteTitle: false
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "on-failure"
   }]],
 
   use: {
