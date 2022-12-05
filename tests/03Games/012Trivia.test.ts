@@ -2839,7 +2839,7 @@ test("012TV-027 | Vaslidated Game StopLIve ", async ({ loginPage, functions, pag
 
 })
 
-test("012TV-028 | Vaslidated Game Control Panel Add Media Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-028 | Vaslidated Game Control Panel Add Media Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
