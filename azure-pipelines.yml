@@ -20,6 +20,12 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-  publishJUnitResults: true
-  testResultsFiles: '**/surefire-reports/TEST-*.xml'
-  continueOnError: true
+#Your build pipeline references an undefined variable named ‘Parameters.resultsDir’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+#Your build pipeline references an undefined variable named ‘Parameters.targetDir’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+
+- task: ivang7.allure-test-reports.allure-generate.AllureGenerate@1
+  displayName: 'Generate Allure Report'
+  inputs:
+    resultsDir: '$(Parameters.resultsDir)'
+    targetDir: '$(Parameters.targetDir)'
