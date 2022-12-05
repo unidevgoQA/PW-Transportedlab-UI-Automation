@@ -26,7 +26,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+    targetFolder: 'playwright-report/index.html'    
 
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
