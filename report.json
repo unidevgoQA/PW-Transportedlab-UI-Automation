@@ -1,0 +1,195 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "",
+        "name": "",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "001Login.test.ts"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.28.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\01Login\\001Login.test.ts",
+      "file": "tests/01Login/001Login.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TLL001-01 | Verify login with valid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 39725,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-05T09:09:06.475Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-01-Verify-login-with-valid-credentials\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-01-Verify-login-with-valid-credentials\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-6cb3d35422010c93e201",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "TLL001-02 | Verify login with invalid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 23095,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-05T09:09:46.815Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-f33b0d99c8e8d99fa116",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 60,
+          "column": 1
+        },
+        {
+          "title": "TLL001-03 | Verify login with UserName and Password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 18715,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-05T09:10:09.912Z",
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password\\trace.zip"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-fa14622583e6aca7e8e5",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 96,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
