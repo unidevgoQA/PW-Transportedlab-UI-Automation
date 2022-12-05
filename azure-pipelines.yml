@@ -24,3 +24,7 @@ jobs:
         artifact: playwright-report
         # always create the artifact, this is useful for debugging failed tests
         condition: always()
+        
+    displayName: 'Publish HTML Report'
+    inputs:
+      reportDir: '$(ResultsPath)/reportName.html'
