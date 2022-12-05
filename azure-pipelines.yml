@@ -1,49 +1,26 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
+name: Playwright Tests
 trigger:
-- main
-
-pool:
-  vmImage: windows-2019
-
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-
-#Your build pipeline references an undefined variable named ‘Parameters.resultsDir’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-#Your build pipeline references an undefined variable named ‘Parameters.targetDir’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
-
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '$(solution)'
-    arguments: '--output $(Build.ArtifactStagingDirectory)'
-    
-
-# - task: CopyFiles@2
-#   inputs:
-#     targetFolder: '$(Build.ArtifactStagingDirectory)'    
-
-- task: PublishBuildArtifacts@1    
-  displayName: 'Publish Artifact: drop'
-  inputs:
-    PathtoPublish: 'playwright-report/index.html'
-    
-
-- task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
-  displayName: 'Publish Html Report'
-  inputs:
-    reportDir: 'playwright-report/index.html'
-
-    
+  - main
+jobs:
+  - job: test
+    timeoutInMinutes: 60
+    pool:
+      vmImage: "windows-2019"
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: "16.x"
+        displayName: "Install Node.js"
+      - script: |
+          npm ci
+        displayName: "Install dependencies"
+      - script: |
+          npx playwright install --with-deps
+        displayName: "Install Playwright Browsers"
+      - script: |
+          npx playwright test
+        displayName: "Run Playwright tests"
+      - publish: $(System.DefaultWorkingDirectory)/playwright-report
+        artifact: playwright-report
+        # always create the artifact, this is useful for debugging failed tests
+        condition: always()
