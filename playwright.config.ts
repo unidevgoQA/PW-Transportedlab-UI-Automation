@@ -56,7 +56,7 @@ const config: PlaywrightTestConfig = {
   
 
     // actionTimeout: 2 * 60 * 1000,
-    trace: process.env.CI ? "off" : "on",
+    trace: process.env.CI ? "off" : "off",
     video: process.env.CI ? "off" : "off",
     screenshot: process.env.CI ? "off" : "on",
   },
