@@ -31,10 +31,10 @@ steps:
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
   inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
+    PathtoPublish: 'playwright-report/index.html'
     
 
 - task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
   displayName: 'Publish Html Report'
   inputs:
-    reportDir: '$(build.artifactstagingdirectory)/index.html'
+    reportDir: 'playwright-report/index.html'
