@@ -24,9 +24,16 @@ steps:
 #Your build pipeline references an undefined variable named ‘Parameters.targetDir’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 
-- task: CopyFiles@2
+- task: DotNetCoreCLI@2
   inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)'    
+    command: 'build'
+    projects: '$(solution)'
+    arguments: '--output $(Build.ArtifactStagingDirectory)'
+    
+
+# - task: CopyFiles@2
+#   inputs:
+#     targetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishBuildArtifacts@1    
   displayName: 'Publish Artifact: drop'
@@ -38,3 +45,5 @@ steps:
   displayName: 'Publish Html Report'
   inputs:
     reportDir: 'playwright-report/index.html'
+
+    
