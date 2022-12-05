@@ -34,8 +34,7 @@ steps:
     PathtoPublish: '$(build.artifactstagingdirectory)'
     
 
-- task: ivang7.allure-test-reports.allure-generate.AllureGenerate@1
-  displayName: 'Generate Allure Report'
+- task: JakubRumpca.azure-pipelines-html-report.PublishHtmlReport.PublishHtmlReport@1
+  displayName: 'Publish Html Report'
   inputs:
-    resultsDir: '$(Parameters.resultsDir)'
-    targetDir: '$(Parameters.targetDir)'
+    reportDir: '$(build.artifactstagingdirectory)/index.html'
