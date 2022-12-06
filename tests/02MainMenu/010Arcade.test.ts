@@ -17,11 +17,7 @@ test("010A-001| Arcade settings related tests", async ({ MainMenu, arcadePage, m
         await MainMenu.mainMenuBtn()
         //click on arcadepage
         await MainMenu.clickArcadePage()
-        const screenshot = await page.screenshot();
-        await testInfo.attach("click on arcadepage", {
-            contentType: "image/png",
-            body: screenshot
-        })
+        
 
     })
     await test.step("validate fonts upload functionality", async () => {
@@ -31,32 +27,39 @@ test("010A-001| Arcade settings related tests", async ({ MainMenu, arcadePage, m
         await arcadePage.checkUploadFontText()
         // upload a test font
         await arcadePage.uploadFont()
-        const screenshot = await page.screenshot();
-        await testInfo.attach("Upload Font", {
-            contentType: "image/png",
-            body: screenshot
-        })
+       
         await page.waitForTimeout(2000)
         // now deleting the uploaded font
         await arcadePage.clickDeletefont()
     })
     await test.step("check arcade settings text", async () => {
         await page.waitForTimeout(2000)
-        arcadePage.checkArcadesettingtext()
+        await arcadePage.checkArcadesettingtext()
     })
 
-    await test.step("Add outside button works", async () => {
+    // await test.step("Add outside button works", async () => {
         //click on button
-        arcadePage.clickaddOutsidegame()
-        await page.waitForTimeout(2000)
-        // now click close button
-        arcadePage.clickclosebutton()
-    })
+        // await arcadePage.clickaddOutsidegame()
+        // await page.waitForTimeout(2000)
+        // // now click close button
+        // await arcadePage.clickclosebutton()
+    // })
     await test.step("validate add outside game works", async () => {
 
-        arcadePage.clickaddOutsidegame()
+        await arcadePage.clickaddOutsidegame()
         await page.waitForTimeout(2000)
-        arcadePage.addnewgame()
+        await arcadePage.addnewgame()
+        await arcadePage.clickSaveBtn()
+        await page.waitForTimeout(2000)
+
+    })
+
+    await test.step("validate add outside game works", async () => {
+
+        await arcadePage.clickaddOutsidegame()
+        await page.waitForTimeout(2000)
+        await arcadePage.addnewgame()
+        await arcadePage.clickSaveBtn()
     })
 })
 
@@ -87,7 +90,7 @@ test("010A-002 | Validated Arcade Settings Logo Section", async ({ MainMenu, arc
     //click To Upload Logo Header
     await functions.logoImageUploadFunction()
     await arcadePage.clickToUploadLogoHeader()
-    
+
     await functions.fileUploadCropperWithoutIframe()
 
     //click Square Type Btn

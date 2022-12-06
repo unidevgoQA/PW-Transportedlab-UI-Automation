@@ -64,16 +64,22 @@ export default class arcadePage {
         
 
         async addnewgame(){
-                const gameUrl=this.page.locator('#P-12890536272')
-                await gameUrl.type("https://garrett.testingdxp.com/")
+                const gameUrl=this.page.locator("(//p[text()='Game Url']/following::input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
+                await gameUrl.fill("https://garrett.testingdxp.com/")
 
-                const gamename = this.page.locator('#P2184981822')
-                await gamename.type("Auto")
+                const gamename = this.page.locator("//p[text()='Game Name']/following::input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]")
+                await gamename.fill("Auto")
 
-                const savebutton= this.page.locator("//button[text()='Save']")
-                await savebutton.click()
+               
+
+         
         }
 
+        async clickSaveBtn(){              
+        
+                const ele = this.page.locator("(//h1[text()='Add Outside Game']/following-sibling::button)[2]")           
+                await ele.click({force:true})
+        }
 
         async deleteLogoHeader() {
                 let ele = await this.page.locator("//div[@class='MuiBox-root css-1tejaop']").isVisible()

@@ -45,11 +45,11 @@ export default class triviaPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
-                const ele = await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').last().isVisible()
+                const ele = await this.page.frameLocator('iframe').locator("//h6[text()='Auto']").isVisible()
                 if ((ele == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
-                                .locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').last()
+                                .locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsPrizingDelete >> p').last()
                                 .click({ force: true })
                 }
 
@@ -94,9 +94,9 @@ export default class triviaPage {
         }
 
 
-        async inputConfigurationName() {
+        async inputConfigurationName(name : string) {
                 const ele = await this.page.frameLocator('iframe').locator("//input[@id='P-15440491692']")
-                await ele.fill("Auto")
+                await ele.fill(name)
 
         }
 
@@ -107,12 +107,15 @@ export default class triviaPage {
 
         }
 
+       getRandomName () { 
+              return "Auto"+ Date.now() + "Name"
+          }
 
         //🔚 Closed Add New Config Section Element 
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(1).click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last().click()
 
         }
 
@@ -715,7 +718,7 @@ export default class triviaPage {
 
         //▶▶Start Control Pannel Section Element  
         async clickControlPanel() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(0).click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Control Panel']").last().click()
 
         }
 
@@ -1071,7 +1074,7 @@ export default class triviaPage {
 
          //Start Game Settings Section 
          async clickGameSettings() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(2).click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Game Settings']").last().click()
 
         }
 
@@ -1441,7 +1444,7 @@ export default class triviaPage {
 
 
          async clickAnalyticsSection() {
-              await this.page.frameLocator('iframe').locator('text=AutoStartControl PanelGame DesignGame SettingsAnalyticsDelete >> p').nth(3).click()
+              await this.page.frameLocator('iframe').locator("//p[text()='Analytics']").last().click()
 
       }
 
@@ -1449,9 +1452,16 @@ export default class triviaPage {
 
 
 
+      async clickGameDeleteBtn() {
+       await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click()
+
+}
 
 
+async clickDeleteBtn() {
+       await this.page.frameLocator('iframe').locator("//button[text()='Delete']").click({force:true})
 
+}
 
 
 

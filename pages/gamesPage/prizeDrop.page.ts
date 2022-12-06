@@ -763,6 +763,9 @@ async clickEditBtn(){
 
         }
 
+        getRandomName () { 
+                return "Auto"+ Date.now() + "Name"
+            }
 
 
 

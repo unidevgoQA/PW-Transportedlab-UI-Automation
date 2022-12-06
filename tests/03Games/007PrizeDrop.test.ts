@@ -1170,6 +1170,8 @@ test("007PD-013 | Validate Game Edit And Delete Functionality", async ({ loginPa
                 await prizeDropPage.clickEditBtn()
 
                 await prizeDropPage.clickStartGameOkBtn()
+                await page.waitForTimeout(2000)
+
 
 
                 //click Game Delete Btn

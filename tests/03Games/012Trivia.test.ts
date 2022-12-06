@@ -28,11 +28,6 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
 
       })
 
-      await test.step("If there is any automation cofig then delete it", async () => {
-            await page.waitForTimeout(2000)
-            await triviaPage.verifyDeleteAutoConfigurationIfHave()
-
-      })
 
       await test.step("Verify Configurations Text", async () => {
             await page.waitForTimeout(2000)
@@ -50,13 +45,17 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
       })
 
       await test.step("Input Configuration Name", async () => {
-            await triviaPage.inputConfigurationName()
+            await triviaPage.inputConfigurationName(triviaPage.getRandomName())
             // await page.waitForTimeout(2000)
       })
 
       await test.step("Click Add Btn", async () => {
             await triviaPage.clickAddBtn()
             await page.waitForTimeout(3000)
+
+            await triviaPage.clickControlPanel()
+            await page.waitForTimeout(3000)
+
 
       })
 
@@ -2627,7 +2626,7 @@ test("012TV-024 | Validated Point-Bubble Text Color Input Section", async ({ log
 
 })
 
-test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-026 | Validated Add New Raound Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2647,7 +2646,8 @@ test("012TV-026 | Validated Point-Bubble Text Color Input Section", async ({ log
       })
 
 
-      await test.step("verify Add Round Text", async () => {
+      await test.step("click Add Round Btn", async () => {
+            await page.waitForTimeout(2000)
             await triviaPage.clickAddRoundBtn()
             await page.waitForTimeout(2000)
       })
@@ -3270,6 +3270,7 @@ test("012TV-030 | Validated Game Design All The Image Upload Functionality", asy
 
 
       await test.step("click To Upload Marketing Massage File", async () => {
+            await page.waitForTimeout(2000)
             await functions.bannerImageUploadFunction()
             await triviaPage.clickToUploadMarketingMassageFile()
             await functions.fileUploadCropper()
@@ -3304,12 +3305,42 @@ test("012TV-030 | Validated Game Design All The Image Upload Functionality", asy
       })
 
 
-      await test.step("click Analytics Section", async () => {
+      // await test.step("click Analytics Section", async () => {
+      //       await page.waitForTimeout(2000)
+      //       await triviaPage.clickAnalyticsSection()
 
-            await triviaPage.clickAnalyticsSection()
+
+      // })
+      
+
+})
+
+
+test("012TV-031 | Validated Game Delete Functionality", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
 
 
       })
-      
+
+
+      await test.step("Click Game Design", async () => {
+            await triviaPage.clickGameDeleteBtn()
+            await page.waitForTimeout(3000)
+      })
+
+
+      await test.step("click Delete Btn", async () => {
+            await triviaPage.clickDeleteBtn()
+      })
 
 })
