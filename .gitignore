@@ -1,6 +1,12 @@
-node_modules/
-/test-results/
 /playwright/.cache/
-
+report.zip
+my-ext
+test-result.json
+node_modules/
+test-results/
+playwright-report/
+allure-report/
+allure-results/
+html-report.zip/
 report.json/
 
