@@ -10,7 +10,7 @@ var url: any;
 
 var text: string;
 
-test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, functions }, testInfo) => {
+test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
 
     await test.step("Login Admin And land To guess the score", async () => {
 
@@ -92,7 +92,7 @@ test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePag
         //font upload here
         await functions.fontUploadFunction()
         await guesstheScorePage.clickToUploadFont()
-
+        await guesstheScorePage.waitforuploadcomplete()
         //await page.waitForTimeout(4000)
 
          //click Clear All Btn
@@ -376,7 +376,11 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
     await test.step("validate In-Gate Header sanity",async() =>{
         await page.waitForTimeout(1000)
         await guesstheScorePage.typeingateheader()
-        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickleftalignedingateheader()
+        await guesstheScorePage.clickrightalignedingateheader()
+        await guesstheScorePage.clickboldingateheadereditor()
+        await guesstheScorePage.clickitalicingateheadereditor()
+        await guesstheScorePage.clickunderlineingateheadereditor()
     })
     await test.step("validate correct guess text editor sanity", async() =>{
         await page.waitForTimeout(1000)

@@ -58,10 +58,15 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Fonts"]//parent::div').click()
         }
         async clickToUploadFont() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('.css-r99fy3').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
+                await expect(ele).toBeVisible()
                 await ele.click()
 
+        }
+
+        async waitforuploadcomplete(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//body//div[@font-list-mode="true"]')
+                await expect(ele).toBeVisible()
         }
         // clear all button no longer available
         // async clickClearAllBtn(){
@@ -333,6 +338,38 @@ export default class guesstheScorePage {
                 await expect(ele).toBeVisible()
                 await ele.fill(" ")
                 await ele.fill("this is a test message")
+        }
+
+        async clickleftalignedingateheader(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@title="Left"]').click()
+               
+        }
+
+        async clickrightalignedingateheader(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@title="Right"]').click()
+               
+        }
+        async clickboldingateheadereditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@title="Bold"]').click()
+               
+        }
+        async clickitalicingateheadereditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@title="Underline"]').click()
+               
+        }
+        async clickunderlineingateheadereditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@title="Italic"]').click()
+               
         }
 
         async typeridingheader(){
