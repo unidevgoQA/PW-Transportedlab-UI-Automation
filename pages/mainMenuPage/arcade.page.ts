@@ -88,7 +88,7 @@ export default class arcadePage {
                         await this.page
                                 .locator("//div[@class='MuiBox-root css-1tejaop']")
                                 .click()
-                }
+                }               
 
 
         }

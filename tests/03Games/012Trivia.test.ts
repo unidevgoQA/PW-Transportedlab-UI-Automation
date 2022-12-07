@@ -29,12 +29,6 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
       })
 
 
-      await test.step("Verify Configurations Text", async () => {
-            await page.waitForTimeout(2000)
-            await triviaPage.verifyConfigurationsText()
-
-      })
-
       await test.step("Click Add New Config Plus Btn", async () => {
             await triviaPage.clickAddNewConfigPlusBtn()
       })
@@ -2643,11 +2637,12 @@ test("012TV-026 | Validated Add New Raound Section", async ({ loginPage, functio
 
       await test.step("click Control Panel", async () => {
             await triviaPage.clickControlPanel()
+            await page.waitForTimeout(2000)
       })
 
 
       await test.step("click Add Round Btn", async () => {
-            await page.waitForTimeout(2000)
+            
             await triviaPage.clickAddRoundBtn()
             await page.waitForTimeout(2000)
       })

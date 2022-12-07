@@ -23,10 +23,8 @@ test("008TOFW-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, fu
         await tugOfWarPage.clickTugOfWarPage()
 
 
-        await page.waitForTimeout(5000)
-
-        await tugOfWarPage.deleteAutoConfigurationIfHave()
         await page.waitForTimeout(2000)
+
 
 
         //click AddNew Config Plus Btn 
@@ -40,7 +38,7 @@ test("008TOFW-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, fu
 
 
         //input Configuration Name
-        await tugOfWarPage.inputConfigurationName()
+        await tugOfWarPage.inputConfigurationName(functions.getRandomName())
 
         //click Add Btn
         await tugOfWarPage.clickAddBtn()
@@ -771,7 +769,7 @@ test("008TOFW-009 | Verify Game Design", async ({ loginPage, tugOfWarPage, funct
         await tugOfWarPage.clickTugOfWarPage()
         await page.waitForTimeout(3000)
 
-        await tugOfWarPage.clickGameDesignBtn()
+        await tugOfWarPage.clickGameSettingsBtn()
 
         await page.waitForTimeout(3000)
 

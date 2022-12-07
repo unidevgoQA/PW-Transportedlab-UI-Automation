@@ -740,7 +740,7 @@ export default class triviaPage {
         async clickAddRoundBtn() {
                const ele = this.page.frameLocator('iframe').locator("//button[text()='Add Round']")
                expect(ele).toContainText("Add Round")
-               await ele.click()
+               await ele.click({force:true})
 
         }
 

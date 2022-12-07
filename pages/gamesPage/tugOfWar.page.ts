@@ -16,7 +16,7 @@ export default class tugOfWarPage {
 
         //click Tug Of War Page
         async clickTugOfWarPage() {
-                const locator = this.page.locator('text=Tug of War')
+                const locator = this.page.locator("//p[text()='Tug of War']")
                 expect(locator).toContainText('Tug of War')
                 await locator.click()
                 // console.log("Successfully Click To Tug of War Page ")
@@ -316,7 +316,7 @@ export default class tugOfWarPage {
         }
 
         async inputSelectionTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("//input[@max='59']")
+                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='number'])[1]")
                 await ele.fill('20')
 
         }
@@ -1087,9 +1087,9 @@ export default class tugOfWarPage {
 
 
 
-        async inputConfigurationName() {
+        async inputConfigurationName(name:string) {
                 const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
-                await ele.fill("Auto")
+                await ele.fill(name)
 
         }
 
@@ -1101,14 +1101,14 @@ export default class tugOfWarPage {
         }
 
         async clickStagesBtn() {
-                await this.page.frameLocator('iframe').locator("text=AutoStagesGame SettingsDelete >> p").first().click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Stages']").last().click()
 
 
         }
 
 
         async clickGameDeleteBtn() {
-                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(2).click();
+                await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click();
 
         }
 
@@ -1122,8 +1122,8 @@ export default class tugOfWarPage {
         //=======================================================
         //▶▶Start Game Design Section Element    
 
-        async clickGameDesignBtn() {
-                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(1).click();
+        async clickGameSettingsBtn() {
+                await this.page.frameLocator('iframe').locator("//p[text()='Game Settings']").last().click();
 
         }
 
