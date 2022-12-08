@@ -374,7 +374,7 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
         await guesstheScorePage.clickorderedincorrectguesseditor()
     })
     await test.step("validate In-Gate Header sanity",async() =>{
-        await page.waitForTimeout(1000)
+        // await page.waitForTimeout(1000)
         await guesstheScorePage.typeingateheader()
         await guesstheScorePage.clickleftalignedingateheader()
         await guesstheScorePage.clickrightalignedingateheader()
@@ -383,14 +383,24 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
         await guesstheScorePage.clickunderlineingateheadereditor()
     })
     await test.step("validate correct guess text editor sanity", async() =>{
-        await page.waitForTimeout(1000)
+        // await page.waitForTimeout(1000)
         await guesstheScorePage.typecorrectguess()
-        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickleftalignedcorrectguess()
+        await guesstheScorePage.clickrightalignedcorrectguess()
+        await guesstheScorePage.clickboldcorrectguesseditor()
+        await guesstheScorePage.clickitaliccorrectguesseditor()
+        await guesstheScorePage.clickorderedcorrectguesseditor()
+        await guesstheScorePage.clickunderlinecorrectguesseditor()
+        await guesstheScorePage.clickunorderedcorrectguesseditor()
     })
     await test.step("validate riding header sanity", async() =>{
-        await page.waitForTimeout(1000)
+        // await page.waitForTimeout(1000)
         await guesstheScorePage.typeridingheader()
-        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickrightalignedridingheader()
+        await guesstheScorePage.clickboldridingheadereditor()
+        await guesstheScorePage.clickitalicridingheadereditor()
+        await guesstheScorePage.clickleftalignedridingheader()
+        await guesstheScorePage.clickunderlineridingheadereditor()
     })
     await test.step("validate close guess text editor sanity", async() =>{
         await page.waitForTimeout(1000)
@@ -569,4 +579,5 @@ test("validate edit and delete section is working",async({ loginPage, guesstheSc
         await guesstheScorePage.clickdeletebutton()
     })
 })
+
 
