@@ -3006,7 +3006,7 @@ await test.step("click Add Media Save Btn", async () => {
 })
 
 
-test("012TV-029 | Vashlidated Game Settings Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-029 | Vashlidated Game Settings Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -3065,64 +3065,64 @@ test("012TV-029 | Vashlidated Game Settings Section", async ({ loginPage, functi
       })
 
 
-      await test.step("verify Game Title Alignment Text", async () => {
-            await triviaPage.verifyGameTitleAlignmentText()
+      // await test.step("verify Game Title Alignment Text", async () => {
+      //       await triviaPage.verifyGameTitleAlignmentText()
            
 
-      })
+      // })
 
-      await test.step("click Game Title Alignment LeftBtn", async () => {
-            await triviaPage.clickGameTitleAlignmentLeftBtn()
-      })
-
-
+//       await test.step("click Game Title Alignment LeftBtn", async () => {
+//             await triviaPage.clickGameTitleAlignmentLeftBtn()
+//       })
 
 
 
-await test.step("click Game Title Alignment Right Btn", async () => {
-      await triviaPage.clickGameTitleAlignmentRightBtn()
-})
 
-await test.step("click Game Title Alignment Center Btn", async () => {
-      await triviaPage.clickGameTitleAlignmentCenterBtn()
-})
 
-await test.step("verify Logo Image Alignment Text", async () => {
-      await triviaPage.verifyLogoImageAlignmentText()
-})
+// await test.step("click Game Title Alignment Right Btn", async () => {
+//       await triviaPage.clickGameTitleAlignmentRightBtn()
+// })
 
-await test.step("click Logo Image Alignment Left Btn", async () => {
+// await test.step("click Game Title Alignment Center Btn", async () => {
+//       await triviaPage.clickGameTitleAlignmentCenterBtn()
+// })
+
+// await test.step("verify Logo Image Alignment Text", async () => {
+//       await triviaPage.verifyLogoImageAlignmentText()
+// })
+
+// await test.step("click Logo Image Alignment Left Btn", async () => {
       
-      await triviaPage.clickLogoImageAlignmentLeftBtn()
+//       await triviaPage.clickLogoImageAlignmentLeftBtn()
      
-})
+// })
 
 
-await test.step("click Logo Image Alignment Right Btn", async () => {
-      await triviaPage.clickLogoImageAlignmentRightBtn()
-})
+// await test.step("click Logo Image Alignment Right Btn", async () => {
+//       await triviaPage.clickLogoImageAlignmentRightBtn()
+// })
 
-await test.step("click Logo Image Alignment Center Btn", async () => {
-      await triviaPage.clickLogoImageAlignmentCenterBtn()
-})
+// await test.step("click Logo Image Alignment Center Btn", async () => {
+//       await triviaPage.clickLogoImageAlignmentCenterBtn()
+// })
 
-await test.step("verify Game Countdown Alignment Text", async () => {
-      await triviaPage.verifyGameCountdownAlignmentText()
-})
+// await test.step("verify Game Countdown Alignment Text", async () => {
+//       await triviaPage.verifyGameCountdownAlignmentText()
+// })
 
-await test.step("click Game Countdown Alignment Left Btn", async () => {
-      await triviaPage.clickGameCountdownAlignmentLeftBtn()
-})
-
-
-await test.step("click Game Countdown Alignment Right Btn", async () => {
-      await triviaPage.clickGameCountdownAlignmentRightBtn()
-})
+// await test.step("click Game Countdown Alignment Left Btn", async () => {
+//       await triviaPage.clickGameCountdownAlignmentLeftBtn()
+// })
 
 
-await test.step("click Game Countdown Alignment Center Btn", async () => {
-      await triviaPage.clickGameCountdownAlignmentCenterBtn()
-})
+// await test.step("click Game Countdown Alignment Right Btn", async () => {
+//       await triviaPage.clickGameCountdownAlignmentRightBtn()
+// })
+
+
+// await test.step("click Game Countdown Alignment Center Btn", async () => {
+//       await triviaPage.clickGameCountdownAlignmentCenterBtn()
+// })
 
 
 
@@ -3150,8 +3150,8 @@ await test.step("click To Enable Answer Shape", async () => {
 })
 
 
-await test.step("verify Game Selected Answer Gradient Text", async () => {
-      await triviaPage.verifyGameSelectedAnswerGradientText()
+await test.step("verify Game Answer Shadow Text", async () => {
+      await triviaPage.verifyGameAnswerShadowText()
 })
 
 
@@ -3337,5 +3337,167 @@ test("012TV-031 | Validated Game Delete Functionality", async ({ loginPage, func
       await test.step("click Delete Btn", async () => {
             await triviaPage.clickDeleteBtn()
       })
+
+})
+
+
+test("012TV-032 | Validate Game Prizing Section", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+
+
+      await test.step("click Prizing Section", async () => {
+            await triviaPage.clickPrizingSection()
+      })
+
+      await test.step("verify Prizing List Text", async () => {
+            await triviaPage.verifyPrizingListText()
+      })
+
+      await test.step("click Add New Prize Btn", async () => {
+            await triviaPage.clickAddNewPrizeBtn()
+      })
+
+      await test.step("verify Add New Prize Text", async () => {
+            await triviaPage.verifyAddNewPrizeText()
+      })
+
+
+      await test.step("verify Title Text", async () => {
+            await triviaPage.verifyTitleText()
+      })
+
+      await test.step("input Prize Title Text", async () => {
+            await triviaPage.inputPrizeTitleText()
+      })
+
+      await test.step("verify Add Prizing Total Prize Text", async () => {
+            await triviaPage.verifyAddPrizingTotalPrizeText()
+      })
+
+
+
+      await test.step("input Add Prizing Total Prize", async () => {
+       
+            await triviaPage.inputAddPrizingTotalPrize()
+          
+      })
+
+
+
+      await test.step("verify Add Prizing Distribution Type Text", async () => {
+            await triviaPage.verifyAddPrizingDistributionTypeText()
+      })
+
+
+      await test.step("select Add Prizing Distribution Type Manual", async () => {
+            await triviaPage.selectAddPrizingDistributionTypeManual()
+           
+
+      })
+
+      await test.step("select Add Prizing Distribution Type Automatic", async () => {
+            await triviaPage.selectAddPrizingDistributionTypeAutomatic()
+      })
+
+
+
+
+
+await test.step("verify Condition Type Text", async () => {
+      await triviaPage.verifyConditionTypeText()
+})
+
+await test.step("click Condition Type Drop Down Option", async () => {
+      await triviaPage.clickConditionTypeDropDownOption()
+})
+
+await test.step("click Condition Type Participation Option", async () => {
+      await triviaPage.clickConditionTypeParticipationOption()
+})
+
+// await test.step("click Condition Type Drop Down Option", async () => {
+//       await triviaPage.clickConditionTypeDropDownOption()
+// })
+
+// // await test.step("click Condition Type Multiple Game Play Option", async () => {
+      
+// //       await triviaPage.clickConditionTypeMultipleGamePlayOption()
+     
+// // })
+
+
+// await test.step("click Condition Type Drop Down Option", async () => {
+//       await triviaPage.clickConditionTypeDropDownOption()
+// })
+
+// await test.step("click Condition Type Points Option", async () => {
+//       await triviaPage.clickConditionTypePointsOption()
+// })
+
+await test.step("click Condition Type Drop Down Option", async () => {
+      await triviaPage.clickConditionTypeDropDownOption()
+})
+await test.step("click Condition Type Time Option", async () => {
+      await triviaPage.clickConditionTypeTimeOption()
+})
+
+await test.step("verify Greater Thanor Equal Text", async () => {
+      await triviaPage.verifyGreaterThanorEqualText()
+})
+
+await test.step("input Greater Thanor Equal Hour", async () => {
+      await triviaPage.inputGreaterThanorEqualHour()
+})
+
+
+await test.step("input Greater Thanor Equal Minutes", async () => {
+      await triviaPage.inputGreaterThanorEqualMinutes()
+})
+
+
+await test.step("input Greater Thanor Equal Seconds", async () => {
+      await triviaPage.inputGreaterThanorEqualSeconds()
+})
+
+
+
+
+
+await test.step("verify Select Coupon Text", async () => {
+      await triviaPage.verifySelectCouponText()
+})
+
+await test.step("click Select Coupon Input Field", async () => {
+      await triviaPage.clickSelectCouponInputField()
+})
+
+await test.step("select Coupon", async () => {
+      await triviaPage.selectCoupon()
+})
+
+await test.step("click Select Btn", async () => {
+      await triviaPage.clickSelectBtn()
+})
+
+
+await test.step("click Prizing Save Btn", async () => {
+      await triviaPage.clickPrizingSaveBtn()
+})
+
+
+
+
+
 
 })

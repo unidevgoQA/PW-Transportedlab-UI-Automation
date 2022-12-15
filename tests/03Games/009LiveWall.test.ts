@@ -100,6 +100,10 @@ test("009LW-002 | Validate Color Input Functionality", async ({ loginPage, liveW
 
         //click Design Page
         await liveWallPage.clickDesignPage()
+        await page.waitForTimeout(2000)
+
+        await liveWallPage.clickDesignPage()
+
 
         //click Clear Btn
         await liveWallPage.clickClearBtn()
@@ -203,6 +207,8 @@ test("009LW-003 | Validate Upload Image Delete Functionality", async ({ loginPag
 
         //click Design Page
         await liveWallPage.clickDesignPage()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickDesignPage()
 
 
 
@@ -260,6 +266,8 @@ test("009LW-004 | Validate Image Upload Functionality", async ({ loginPage, live
 
 
         //click Design Page
+        await liveWallPage.clickDesignPage()
+        await page.waitForTimeout(2000)
         await liveWallPage.clickDesignPage()
 
         await page.waitForTimeout(4000)
@@ -330,6 +338,8 @@ test("009LW-005 | Validate Display Messages Functionality", async ({ loginPage, 
 
 
         //click Design Page
+        await liveWallPage.clickDesignPage()
+        await page.waitForTimeout(2000)
         await liveWallPage.clickDesignPage()
 
         //input Pre Live Text
@@ -572,6 +582,7 @@ test("009LW-006 | Validate Live Selfie Cam Link Open Functionality", async ({ lo
         await liveWallPage.clickGameStartBtn()
 
         await page.waitForTimeout(2000)
+        await liveWallPage.clickGameStartBtn()
 
 
         //click Live Selfie Cam Out Put Link
@@ -693,6 +704,7 @@ test.skip("009LW-007 | Validate Live Selfie Cam OutPut Link open in Mobile", asy
   
         await page1.waitForTimeout(2000)  
 
+        await page1.click("//button[text()='Ok']")
 
         await page1.click("//p[text()='USER PROFILE']");
 
@@ -879,10 +891,12 @@ test("009LW-0010 | Validate QR Code Section", async ({ loginPage, liveWallPage, 
 
         //click Live Wall Section
         await liveWallPage.clickLiveWallSection()
+        await page.waitForTimeout(2000)
 
         //click Mobile QR Code
         await liveWallPage.clickMobileQRCode()
-
+        await page.waitForTimeout(3000)
+        await liveWallPage.clickMobileQRCode()
 
         //click Copy QR Code Btn
         await liveWallPage.clickCopyQRCodeBtn()
@@ -945,7 +959,10 @@ test("009LW-0011 | Validate Analytics Section", async ({ loginPage, liveWallPage
         //click Analytics Btn
         await liveWallPage.clickAnalyticsBtn()
 
-        await page.waitForTimeout(3000)
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickAnalyticsBtn()
+        await page.waitForTimeout(2000)
+
         // //download Anlytics
         // await liveWallPage.downloadAnlytics()
         //click Analytics Page Back Btn

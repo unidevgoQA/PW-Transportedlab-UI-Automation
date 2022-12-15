@@ -476,9 +476,9 @@ export default class addnewexperiencePage {
       //////////////////////////// Implement EngagementBtn
 
       async EngagementBtn() {
-            const locator = this.page.locator("(//p[text()='Engagement'])[1]")
+            const locator = this.page.locator("//p[text()='Game/Engagement']")
             //expect(locator).toContainText('Image')
-            await locator.click()
+            await locator.click({force:true})
 
       }
 

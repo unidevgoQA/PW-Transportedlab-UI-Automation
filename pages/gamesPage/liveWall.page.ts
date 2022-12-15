@@ -24,7 +24,7 @@ export default class liveWallPage {
     const ele = await this.page
       .frameLocator("iframe")
       .locator("//button[text()='Design']");
-    await ele.click();
+    await ele.click({force:true});
   }
 
 
@@ -32,12 +32,12 @@ export default class liveWallPage {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
     const ele = await this.page
       .frameLocator("iframe")
-        .locator("text='Clear All'");
-    await ele.click({force:true});
+      .locator("text='Clear All'");
+    await ele.click({ force: true });
   }
 
   async verifyFontsTitleText() {
-    const ele = await this.page.frameLocator("iframe").locator("text=Fonts");
+    const ele = await this.page.frameLocator("iframe").locator("//h4[text()='Fonts']");
     expect(ele).toContainText("Fonts");
   }
 
@@ -125,8 +125,8 @@ export default class liveWallPage {
   async clickFontColorPickerInputField() {
     const ele = await this.page
       .frameLocator("iframe")
-      .locator("//p[text()='Font Color']/following-sibling::button"); 
-    await ele.click({force:true});
+      .locator("//p[text()='Font Color']/following-sibling::button");
+    await ele.click({ force: true });
   }
 
   async inputFontFirstRGBColor() {
@@ -341,128 +341,128 @@ export default class liveWallPage {
 
   //Dispaly Massage Section Element From Here
 
-    
+
   async preLiveInputBoxFonts() {
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[1]").click()
-}
+  }
 
-async preLiveInputBoxArial() {
+  async preLiveInputBoxArial() {
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
-}
+  }
 
-async preLiveInputBoxBlocktype() {
+  async preLiveInputBoxBlocktype() {
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[1]").click()
 
-}
-async preLiveInputBoxNormal() {
+  }
+  async preLiveInputBoxNormal() {
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
-}
+  }
 
-async preLiveInputBoxBlockH1() {
+  async preLiveInputBoxBlockH1() {
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
-}
-async preLiveInputBoxBlockH2() {
+  }
+  async preLiveInputBoxBlockH2() {
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
-}
-async preLiveInputBoxBlockH3() {
+  }
+  async preLiveInputBoxBlockH3() {
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
-}
-async preLiveInputBoxBlockH4() {
+  }
+  async preLiveInputBoxBlockH4() {
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
-}
-async preLiveInputBoxBlockH5() {
+  }
+  async preLiveInputBoxBlockH5() {
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
-}
-async preLiveInputBoxBlockH6() {
+  }
+  async preLiveInputBoxBlockH6() {
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
-}
-async preLiveInputBoxBlockquote() {
+  }
+  async preLiveInputBoxBlockquote() {
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
-}
+  }
 
-async preLiveInputBoxBold() {
+  async preLiveInputBoxBold() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxItalic() {
+  async preLiveInputBoxItalic() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxUnderline() {
+  async preLiveInputBoxUnderline() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxsikethrough() {
+  async preLiveInputBoxsikethrough() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxColorpk() {
+  async preLiveInputBoxColorpk() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[1]").click()
 
-}
+  }
 
-async preLiveInputBoxTextcl() {
+  async preLiveInputBoxTextcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
-}
+  }
 
-async preLiveInputBoxGreencl() {
+  async preLiveInputBoxGreencl() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxHighlightcl() {
+  async preLiveInputBoxHighlightcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
-}
+  }
 
-async preLiveInputBoxHighlightgrn() {
+  async preLiveInputBoxHighlightgrn() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[1]").click()
 
-}
-async preLiveInputBoxLeft() {
+  }
+  async preLiveInputBoxLeft() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[1]").click()
 
-}
-async preLiveInputBoxCenter() {
+  }
+  async preLiveInputBoxCenter() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[1]").click()
 
-}
-async preLiveInputBoxRight() {
+  }
+  async preLiveInputBoxRight() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[1]").click()
 
-}
-async preLiveInputBoxOutdent() {
+  }
+  async preLiveInputBoxOutdent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[1]").click()
 
-}
-async preLiveInputBoxIndent() {
+  }
+  async preLiveInputBoxIndent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[1]").click()
 
-}
+  }
 
 
 
-async preLiveInputBoxOrdered() {
+  async preLiveInputBoxOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[1]").click()
 
-}
+  }
 
 
-async preLiveInputBoxUnOrdered() {
+  async preLiveInputBoxUnOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[1]").click()
 
-}
+  }
 
-async preLiveInputBoxRemove() {
+  async preLiveInputBoxRemove() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[1]").click()
 
-}
+  }
 
 
   async inputPreLiveText() {
@@ -478,128 +478,128 @@ async preLiveInputBoxRemove() {
     );
   }
 
-    
+
   async postLiveInputBoxFonts() {
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[2]").click()
-}
+  }
 
-async postLiveInputBoxArial() {
+  async postLiveInputBoxArial() {
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
-}
+  }
 
-async postLiveInputBoxBlocktype() {
+  async postLiveInputBoxBlocktype() {
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[2]").click()
 
-}
-async postLiveInputBoxNormal() {
+  }
+  async postLiveInputBoxNormal() {
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
-}
+  }
 
-async postLiveInputBoxBlockH1() {
+  async postLiveInputBoxBlockH1() {
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
-}
-async postLiveInputBoxBlockH2() {
+  }
+  async postLiveInputBoxBlockH2() {
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
-}
-async postLiveInputBoxBlockH3() {
+  }
+  async postLiveInputBoxBlockH3() {
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
-}
-async postLiveInputBoxBlockH4() {
+  }
+  async postLiveInputBoxBlockH4() {
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
-}
-async postLiveInputBoxBlockH5() {
+  }
+  async postLiveInputBoxBlockH5() {
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
-}
-async postLiveInputBoxBlockH6() {
+  }
+  async postLiveInputBoxBlockH6() {
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
-}
-async postLiveInputBoxBlockquote() {
+  }
+  async postLiveInputBoxBlockquote() {
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
-}
+  }
 
-async postLiveInputBoxBold() {
+  async postLiveInputBoxBold() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxItalic() {
+  async postLiveInputBoxItalic() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxUnderline() {
+  async postLiveInputBoxUnderline() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxsikethrough() {
+  async postLiveInputBoxsikethrough() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxColorpk() {
+  async postLiveInputBoxColorpk() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[2]").click()
 
-}
+  }
 
-async postLiveInputBoxTextcl() {
+  async postLiveInputBoxTextcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
-}
+  }
 
-async postLiveInputBoxGreencl() {
+  async postLiveInputBoxGreencl() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxHighlightcl() {
+  async postLiveInputBoxHighlightcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
-}
+  }
 
-async postLiveInputBoxHighlightgrn() {
+  async postLiveInputBoxHighlightgrn() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[2]").click()
 
-}
-async postLiveInputBoxLeft() {
+  }
+  async postLiveInputBoxLeft() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[2]").click()
 
-}
-async postLiveInputBoxCenter() {
+  }
+  async postLiveInputBoxCenter() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[2]").click()
 
-}
-async postLiveInputBoxRight() {
+  }
+  async postLiveInputBoxRight() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[2]").click()
 
-}
-async postLiveInputBoxOutdent() {
+  }
+  async postLiveInputBoxOutdent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[2]").click()
 
-}
-async postLiveInputBoxIndent() {
+  }
+  async postLiveInputBoxIndent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[2]").click()
 
-}
+  }
 
 
 
-async postLiveInputBoxOrdered() {
+  async postLiveInputBoxOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[2]").click()
 
-}
+  }
 
 
-async postLiveInputBoxUnOrdered() {
+  async postLiveInputBoxUnOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[2]").click()
 
-}
+  }
 
-async postLiveInputBoxRemove() {
+  async postLiveInputBoxRemove() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[2]").click()
 
-}
+  }
 
 
   async inputPostLiveText() {
@@ -613,7 +613,7 @@ async postLiveInputBoxRemove() {
       "In publishing and graphic design, Lorem ipsum is a placeholder"
     );
   }
-  
+
 
 
 
@@ -635,133 +635,133 @@ async postLiveInputBoxRemove() {
     await ele.click();
   }
 
-    
+
   async standByInputBoxFonts() {
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[3]").click()
-}
+  }
 
-async standByInputBoxArial() {
+  async standByInputBoxArial() {
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
-}
+  }
 
-async standByInputBoxBlocktype() {
+  async standByInputBoxBlocktype() {
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[3]").click()
 
-}
-async standByInputBoxNormal() {
+  }
+  async standByInputBoxNormal() {
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
-}
+  }
 
-async standByInputBoxBlockH1() {
+  async standByInputBoxBlockH1() {
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
-}
-async standByInputBoxBlockH2() {
+  }
+  async standByInputBoxBlockH2() {
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
-}
-async standByInputBoxBlockH3() {
+  }
+  async standByInputBoxBlockH3() {
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
-}
-async standByInputBoxBlockH4() {
+  }
+  async standByInputBoxBlockH4() {
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
-}
-async standByInputBoxBlockH5() {
+  }
+  async standByInputBoxBlockH5() {
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
-}
-async standByInputBoxBlockH6() {
+  }
+  async standByInputBoxBlockH6() {
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
-}
-async standByInputBoxBlockquote() {
+  }
+  async standByInputBoxBlockquote() {
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
-}
+  }
 
-async standByInputBoxBold() {
+  async standByInputBoxBold() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[3]").click()
 
-}
+  }
 
-async standByInputBoxItalic() {
+  async standByInputBoxItalic() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[3]").click()
 
-}
+  }
 
-async standByInputBoxUnderline() {
+  async standByInputBoxUnderline() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[3]").click()
 
-}
+  }
 
-async standByInputBoxsikethrough() {
+  async standByInputBoxsikethrough() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[3]").click()
 
-}
+  }
 
-async standByInputBoxColorpk() {
+  async standByInputBoxColorpk() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[3]").click()
 
-}
+  }
 
-async standByInputBoxTextcl() {
+  async standByInputBoxTextcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
-}
+  }
 
-async standByInputBoxGreencl() {
+  async standByInputBoxGreencl() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[3]").click()
 
-}
+  }
 
-async standByInputBoxHighlightcl() {
+  async standByInputBoxHighlightcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
-}
+  }
 
-async standByInputBoxHighlightgrn() {
+  async standByInputBoxHighlightgrn() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[3]").click()
 
-}
-async standByInputBoxLeft() {
+  }
+  async standByInputBoxLeft() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[3]").click()
 
-}
-async standByInputBoxCenter() {
+  }
+  async standByInputBoxCenter() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[3]").click()
 
-}
-async standByInputBoxRight() {
+  }
+  async standByInputBoxRight() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[3]").click()
 
-}
-async standByInputBoxOutdent() {
+  }
+  async standByInputBoxOutdent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[3]").click()
 
-}
-async standByInputBoxIndent() {
+  }
+  async standByInputBoxIndent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[3]").click()
 
-}
+  }
 
 
 
-async standByInputBoxOrdered() {
+  async standByInputBoxOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[3]").click()
 
-}
+  }
 
 
-async standByInputBoxUnOrdered() {
+  async standByInputBoxUnOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[3]").click()
 
-}
+  }
 
 
 
 
-async standByInputBoxRemove() {
+  async standByInputBoxRemove() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[3]").click()
 
-}
+  }
 
-  
+
   async inputStandByMessage() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -780,162 +780,162 @@ async standByInputBoxRemove() {
     await ele.click();
   }
 
-    
+
   async lowConnectionMassageInputBoxFonts() {
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[4]").click()
-}
+  }
 
-async lowConnectionMassageInputBoxArial() {
+  async lowConnectionMassageInputBoxArial() {
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
-}
+  }
 
-async lowConnectionMassageInputBoxBlocktype() {
+  async lowConnectionMassageInputBoxBlocktype() {
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[4]").click()
 
-}
-async lowConnectionMassageInputBoxNormal() {
+  }
+  async lowConnectionMassageInputBoxNormal() {
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxBlockH1() {
+  async lowConnectionMassageInputBoxBlockH1() {
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
-}
-async lowConnectionMassageInputBoxBlockH2() {
+  }
+  async lowConnectionMassageInputBoxBlockH2() {
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
-}
-async lowConnectionMassageInputBoxBlockH3() {
+  }
+  async lowConnectionMassageInputBoxBlockH3() {
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
-}
-async lowConnectionMassageInputBoxBlockH4() {
+  }
+  async lowConnectionMassageInputBoxBlockH4() {
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
-}
-async lowConnectionMassageInputBoxBlockH5() {
+  }
+  async lowConnectionMassageInputBoxBlockH5() {
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
-}
-async lowConnectionMassageInputBoxBlockH6() {
+  }
+  async lowConnectionMassageInputBoxBlockH6() {
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
-}
-async lowConnectionMassageInputBoxBlockquote() {
+  }
+  async lowConnectionMassageInputBoxBlockquote() {
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
-}
+  }
 
-async lowConnectionMassageInputBoxBold() {
+  async lowConnectionMassageInputBoxBold() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxItalic() {
+  async lowConnectionMassageInputBoxItalic() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxUnderline() {
+  async lowConnectionMassageInputBoxUnderline() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxsikethrough() {
+  async lowConnectionMassageInputBoxsikethrough() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxColorpk() {
+  async lowConnectionMassageInputBoxColorpk() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxTextcl() {
+  async lowConnectionMassageInputBoxTextcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxGreencl() {
+  async lowConnectionMassageInputBoxGreencl() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxHighlightcl() {
+  async lowConnectionMassageInputBoxHighlightcl() {
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxHighlightgrn() {
+  async lowConnectionMassageInputBoxHighlightgrn() {
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[4]").click()
 
-}
-async lowConnectionMassageInputBoxLeft() {
+  }
+  async lowConnectionMassageInputBoxLeft() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[4]").click()
 
-}
-async lowConnectionMassageInputBoxCenter() {
+  }
+  async lowConnectionMassageInputBoxCenter() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[4]").click()
 
-}
-async lowConnectionMassageInputBoxRight() {
+  }
+  async lowConnectionMassageInputBoxRight() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[4]").click()
 
-}
-async lowConnectionMassageInputBoxOutdent() {
+  }
+  async lowConnectionMassageInputBoxOutdent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[4]").click()
 
-}
-async lowConnectionMassageInputBoxIndent() {
+  }
+  async lowConnectionMassageInputBoxIndent() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[4]").click()
 
-}
+  }
 
 
 
-async lowConnectionMassageInputBoxOrdered() {
+  async lowConnectionMassageInputBoxOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[4]").click()
 
-}
+  }
 
 
-async lowConnectionMassageInputBoxUnOrdered() {
+  async lowConnectionMassageInputBoxUnOrdered() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[4]").click()
 
-}
+  }
 
-async lowConnectionMassageInputBoxRemove() {
+  async lowConnectionMassageInputBoxRemove() {
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[4]").click()
 
-}
+  }
 
-async inputLowConnectionMassage() {
-  await this.page.frameLocator("iframe").locator("(//ul[@class='public-DraftStyleDefault-ul']//li)[4]")
+  async inputLowConnectionMassage() {
+    await this.page.frameLocator("iframe").locator("(//ul[@class='public-DraftStyleDefault-ul']//li)[4]")
       .fill("Massage For Low Connection")
 
-}
+  }
 
 
-    //Live Wall Home page 
-    async clickGameStartBtn() {
+  //Live Wall Home page 
+  async clickGameStartBtn() {
 
-      let startBtn = await this.page.frameLocator('iframe').locator("text='STOP'").isHidden()
-      if ((startBtn == true)) {
-              // console.log("Enable Stage to be skip and jump to next one")
-              await this.page.frameLocator('iframe')
-                      .locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]")
-                      .click({force:true})
-      }     
-      
+    let startBtn = await this.page.frameLocator('iframe').locator("text='STOP'").isHidden()
+    if ((startBtn == true)) {
+      // console.log("Enable Stage to be skip and jump to next one")
+      await this.page.frameLocator('iframe')
+        .locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]")
+        .click({ force: true })
     }
 
-        //Live Wall Home page 
-        async clickGameStopBtn() {
+  }
 
-          //const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]").isVisible()
-          if (await this.page.frameLocator('iframe').locator("//button[text()='STOP']")) {
-                  // console.log("Enable Stage to be skip and jump to next one")
-                  await this.page.frameLocator('iframe')
-                          .locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]")
-                          .click({force:true})
-          }
-          
-        }
-  
+  //Live Wall Home page 
+  async clickGameStopBtn() {
+
+    //const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]").isVisible()
+    if (await this.page.frameLocator('iframe').locator("//button[text()='STOP']")) {
+      // console.log("Enable Stage to be skip and jump to next one")
+      await this.page.frameLocator('iframe')
+        .locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]")
+        .click({ force: true })
+    }
+
+  }
+
 
   //Live Wall Home page 
   async clickLiveSelfieCamOutPutLink() {
@@ -946,7 +946,7 @@ async inputLowConnectionMassage() {
   }
 
 
-  
+
   //Live Wall Home page 
   async clickLiveSelfieCamOutPutLinkCopyBtn() {
     const ele = await this.page
@@ -961,7 +961,7 @@ async inputLowConnectionMassage() {
     const ele = await this.page
       .frameLocator("iframe")
       .locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//img)[2]");
-    await ele.click();
+    await ele.click({force:true});
   }
 
   //Live Wall Home page 
@@ -992,10 +992,10 @@ async inputLowConnectionMassage() {
     const ele = await this.page
       .frameLocator("iframe")
       .locator("//button[text()='Refresh']");
-    await ele.click({force:true});
+    await ele.click({ force: true });
   }
 
-    
+
   async clickOnlyShowVIPSelfieCamEnableBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -1020,22 +1020,22 @@ async inputLowConnectionMassage() {
   }
 
   async clickCueOpenNewTabBtn() {
-      // Click text=Open Link
-  const [page1] = await Promise.all([
-    this.page.waitForEvent('popup'),
-    this.page.frameLocator('iframe').locator('text=Open Link').click()
-  ]);
+    // Click text=Open Link
+    const [page1] = await Promise.all([
+      this.page.waitForEvent('popup'),
+      this.page.frameLocator('iframe').locator('text=Open Link').click()
+    ]);
 
   }
 
-  async clickToAddCueToLiveSection() {  
-
-    
-  // Click text=LiveAlertUncue >> button >> nth=0
-  await this.page1.locator('text=LiveAlertUncue >> button').first().click()
+  async clickToAddCueToLiveSection() {
 
 
-}
+    // Click text=LiveAlertUncue >> button >> nth=0
+    await this.page1.locator('text=LiveAlertUncue >> button').first().click()
+
+
+  }
 
 
   async clickAutoRotationCheckBox() {
@@ -1047,50 +1047,50 @@ async inputLowConnectionMassage() {
   async clickAnalyticsBtn() {
     const ele = await this.page
       .frameLocator("iframe")
-      .locator("//button[text()='Analytics']");    
-    await ele.click({force:true});
+      .locator("//button[text()='Analytics']");
+    await ele.click({ force: true });
   }
 
 
   async downloadAnlytics() {
     // Click text=Export 
     const [download] = await Promise.all([
-            this.page.waitForEvent('download'),
-            this.page.frameLocator('iframe').locator("(//button[text()='Export'])[1]").click()
+      this.page.waitForEvent('download'),
+      this.page.frameLocator('iframe').locator("(//button[text()='Export'])[1]").click()
     ]);
-}
+  }
 
-async clickAnalyticsPageBackBtn() {
-  const ele = await this.page
-    .frameLocator("iframe")
-    .locator("//button[text()='← Back']");
-  expect(ele).toBeVisible()
-  await ele.click();
-}
+  async clickAnalyticsPageBackBtn() {
+    const ele = await this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='← Back']");
+    expect(ele).toBeVisible()
+    await ele.click();
+  }
 
-async clickOutPutBtn() {
-  const ele = await this.page
-    .frameLocator("iframe")
-    .locator("//button[text()='Output']");
-  expect(ele).toBeVisible()
-  await ele.click();
-}
+  async clickOutPutBtn() {
+    const ele = await this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Output']");
+    expect(ele).toBeVisible()
+    await ele.click();
+  }
 
-async clickOutPutLinkInNewTab() {
-  const ele = await this.page
-    .frameLocator("iframe")
-    .locator("//a[contains(@class,'MuiButtonBase-root MuiButton-root')]");
-  expect(ele).toBeVisible()
-  await ele.click();
-}
+  async clickOutPutLinkInNewTab() {
+    const ele = await this.page
+      .frameLocator("iframe")
+      .locator("//a[contains(@class,'MuiButtonBase-root MuiButton-root')]");
+    expect(ele).toBeVisible()
+    await ele.click();
+  }
 
-async clickVIPLiveSelfieCamBtn() {
-  const ele = await this.page
-    .frameLocator("iframe")
-    .locator("(//h2[text()='Live Selfie Cam']/following-sibling::button)[3]");
-  expect(ele).toBeVisible()
-  await ele.click();
-}
+  async clickVIPLiveSelfieCamBtn() {
+    const ele = await this.page
+      .frameLocator("iframe")
+      .locator("(//h2[text()='Live Selfie Cam']/following-sibling::button)[3]");
+    expect(ele).toBeVisible()
+    await ele.click();
+  }
 
 
 
