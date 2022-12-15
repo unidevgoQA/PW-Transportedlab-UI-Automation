@@ -313,12 +313,75 @@ export default class guesstheScorePage {
                 await this.page.waitForTimeout(400 )
                 await ele.fill("this is a test message")
         }
+        async clickleftalignedcloseguess(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Left"]').click()
+               
+        }
+
+        async clickrightalignedcloseguess(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Right"]').click()
+               
+        }
+        async clickboldcloseguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Bold"]').click()
+               
+        }
+        async clickitaliccloseguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Underline"]').click()
+               
+        }
+        async clickunderlinecloseguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Italic"]').click()
+               
+        }
+        async clickorderedcloseguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Ordered"]').click()
+               
+        }
+        async clickunorderedcloseguesseditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//div[@title="Unordered"]').click()
+               
+        }
+        async selectincorrecguessfont(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-toolbar"]//a[@title="Font"]').click()
+                const li =this.page.frameLocator('.css-r99fy3').locator('//li[text()="Arial"]')
+                await expect(li).toBeVisible()
+        }
+
+        async selectarialfontincorrectguess(){
+               await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Arial"]').click()
+        }
+
         async typeincorrectguess(){
                 const ele =this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]')
                 await expect(ele).toBeVisible()
                 await ele.fill(" ")
                 await ele.fill("this is a test message")
                 
+        }
+
+        async selectincorrectguessblockquote(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-toolbar"]//a[@title="Block Type"]').click()
+                const ul =this.page.frameLocator('.css-r99fy3').locator('//ul[@class="rdw-dropdown-optionwrapper dropdownMenu"]')
+                await expect(ul).toBeVisible()
+        }
+
+        async selectH4blockquoteincorrectguess(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="H4"]').click()
         }
         async clickleftalignedincorrectguess(){
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
@@ -374,6 +437,15 @@ export default class guesstheScorePage {
                 await expect(ele).toBeVisible()
                 await ele.fill(" ")
                 await ele.fill("this is a test message")
+        }
+        async selectingatefont(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="In-Gate Header"]//following-sibling::div//div[@aria-label="rdw-toolbar"]//a[@title="Font"]').click()
+                const li =this.page.frameLocator('.css-r99fy3').locator('//li[text()="Arial"]')
+                await expect(li).toBeVisible()
+        }
+
+        async selectarialfontingate(){
+               await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Arial"]').click()
         }
 
         async typeingateheader(){
@@ -451,6 +523,18 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
                 await this.page.waitForTimeout(1000)
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@title="Italic"]').click()
+               
+        }
+        async clickorderedridingheadereditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@title="Ordered"]').click()
+               
+        }
+        async clickunorderedridingheadereditor(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Riding Header"]//following-sibling::div//div[@title="Unordered"]').click()
                
         }
 
