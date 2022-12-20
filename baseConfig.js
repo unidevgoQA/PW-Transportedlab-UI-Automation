@@ -14,7 +14,7 @@ const testConfig =
       "MailServiceProvider": "Gmail",
       "MailNotification": "yes",
       "TeamsNotification": "yes",
-      "Githubreportlink": "https://github.com/unidevgoQA/PW-Intagration-With-Teams"
+      "Githubreportlink": "https://github.com/unidevgoQA/PW-Transportedlab-UI-Automation"
 }
 
 module.exports = { testConfig }

@@ -521,13 +521,13 @@ test("012TV-006 | Validated Answer Text Color Input Section", async ({ loginPage
             await triviaPage.clickAnswerTextColorPicker()
       })
 
-      await test.step("click Drop Down Btn", async () => {
-            await triviaPage.clickDropDownBtn()
-      })
+      // await test.step("click Drop Down Btn", async () => {
+      //       await triviaPage.clickDropDownBtn()
+      // })
 
-      await test.step("select Solid", async () => {
-            await triviaPage.selectSolid()
-      })
+      // await test.step("select Solid", async () => {
+      //       await triviaPage.selectSolid()
+      // })
 
       await test.step("input Answer Text RGR First Color", async () => {
             await triviaPage.inputRGRFirstColor()
@@ -557,39 +557,39 @@ test("012TV-006 | Validated Answer Text Color Input Section", async ({ loginPage
             await triviaPage.clickStwatchseDeleteBtn()
       })
 
-      await test.step("click Drop Down Btn", async () => {
-            await triviaPage.clickDropDownBtn()
-      })
+      // await test.step("click Drop Down Btn", async () => {
+      //       await triviaPage.clickDropDownBtn()
+      // })
 
-      await test.step("select Horizontal", async () => {
-            await triviaPage.selectHorizontal()
-      })
+      // await test.step("select Horizontal", async () => {
+      //       await triviaPage.selectHorizontal()
+      // })
 
-      await test.step("click Drop Down Btn", async () => {
-            await triviaPage.clickDropDownBtn()
-      })
+      // await test.step("click Drop Down Btn", async () => {
+      //       await triviaPage.clickDropDownBtn()
+      // })
 
-      await test.step("Select Vertical", async () => {
-            await triviaPage.selectVertical()
-      })
+      // await test.step("Select Vertical", async () => {
+      //       await triviaPage.selectVertical()
+      // })
 
-      await test.step("click Drop Down Btn", async () => {
-            await triviaPage.clickDropDownBtn()
-      })
-
-
-      await test.step("Select Diagonal", async () => {
-            await triviaPage.selectDiagonal()
-      })
-
-      await test.step("click Drop Down Btn", async () => {
-            await triviaPage.clickDropDownBtn()
-      })
+      // await test.step("click Drop Down Btn", async () => {
+      //       await triviaPage.clickDropDownBtn()
+      // })
 
 
-      await test.step("Select Radial", async () => {
-            await triviaPage.selectRadial()
-      })
+      // await test.step("Select Diagonal", async () => {
+      //       await triviaPage.selectDiagonal()
+      // })
+
+      // await test.step("click Drop Down Btn", async () => {
+      //       await triviaPage.clickDropDownBtn()
+      // })
+
+
+      // await test.step("Select Radial", async () => {
+      //       await triviaPage.selectRadial()
+      // })
 
 
 
@@ -3424,6 +3424,7 @@ await test.step("click Condition Type Drop Down Option", async () => {
 
 await test.step("click Condition Type Participation Option", async () => {
       await triviaPage.clickConditionTypeParticipationOption()
+      await page.waitForTimeout(2000)
 })
 
 // await test.step("click Condition Type Drop Down Option", async () => {
@@ -3448,7 +3449,7 @@ await test.step("click Condition Type Participation Option", async () => {
 await test.step("click Condition Type Drop Down Option", async () => {
       await triviaPage.clickConditionTypeDropDownOption()
 })
-await test.step("click Condition Type Time Option", async () => {
+await test.step("click Condition Type Time Option", async () => {      
       await triviaPage.clickConditionTypeTimeOption()
 })
 

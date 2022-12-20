@@ -51,6 +51,9 @@ test("009LW-001 | Validate Font Upload Functionality", async ({ loginPage, liveW
         //click Design Page
         await liveWallPage.clickDesignPage()
 
+        
+        //click Design Page
+        await liveWallPage.clickDesignPage()
         //verify Fonts Title Text
         await liveWallPage.verifyFontsTitleText()
 
@@ -61,10 +64,12 @@ test("009LW-001 | Validate Font Upload Functionality", async ({ loginPage, liveW
         await liveWallPage.deleteUploadedFont()
 
 
-        //verify Upload Font Text
+        // //verify Upload Font Text
         await liveWallPage.verifyUploadFontText()
+        await page.waitForTimeout(2000)
 
         await functions.fontUploadFunction()
+
 
         //verify Upload Font Text
         await liveWallPage.clickToUploadFont()
