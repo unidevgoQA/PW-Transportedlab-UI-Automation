@@ -297,20 +297,20 @@ test("validate image upload works", async({ loginPage, guesstheScorePage, page, 
         await guesstheScorePage.clickGameDesign()
         await guesstheScorePage.openimagesection()
     })
-    await test.step("full screen logo upload works", async() =>{
-        await guesstheScorePage.clickfullscreenlogoupload()
-        await page.waitForTimeout(2000)
-        await guesstheScorePage.Imageuploader()
+    // await test.step("full screen logo upload works", async() =>{
+    //     await guesstheScorePage.clickfullscreenlogoupload()
+    //     await page.waitForTimeout(2000)
+    //     await guesstheScorePage.Imageuploader()
 
-        await page.waitForTimeout(4000)
-    })
-    await test.step("Mainboard Background logo upload works", async() =>{
-        await guesstheScorePage.clickMainboardBackgroundupload()
-        await page.waitForTimeout(2000)
-        await guesstheScorePage.Imageuploader()
+    //     await page.waitForTimeout(4000)
+    // })
+    // await test.step("Mainboard Background logo upload works", async() =>{
+    //     await guesstheScorePage.clickMainboardBackgroundupload()
+    //     await page.waitForTimeout(2000)
+    //     await guesstheScorePage.Imageuploader()
 
-        await page.waitForTimeout(4000)
-    })
+    //     await page.waitForTimeout(4000)
+    // })
     await test.step("sponsor logo upload works", async() =>{
         await guesstheScorePage.clicksposnorLogoupload()
         await page.waitForTimeout(2000)
@@ -502,11 +502,16 @@ test("validate Rider Roster settings is working", async({ loginPage, guesstheSco
         await guesstheScorePage.typesearchinriderroster()
     })
 
-    await test.step('validate export rider button is working', async() =>{
-        await guesstheScorePage.clickexportbutton()
-    })
     await test.step('validate import rider button is working', async() =>{
         await guesstheScorePage.Jsonuploader()
+    })
+    await test.step('validate import rider data from json is working successfully', async() =>{
+        await guesstheScorePage.checksuccessfulupload()
+        await guesstheScorePage.clickokafterjsonuplod()
+    })
+    
+    await test.step('validate export rider button is working', async() =>{
+        await guesstheScorePage.clickexportbutton()
     })
  
     await test.step("validate edit rider settings are working",async() =>{

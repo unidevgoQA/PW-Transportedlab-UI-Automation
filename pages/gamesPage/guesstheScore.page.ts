@@ -196,20 +196,20 @@ export default class guesstheScorePage {
 
 
         async clickColorPickerSaveBtn() {
-                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]').click()
         }
         //image upload starts here
 
         async openimagesection() {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Image Uploads"]//parent::div').click()
         }
-        async clickfullscreenlogoupload() {
-                await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Full Screen Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
-        }
+        // async clickfullscreenlogoupload() {
+        //         await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Full Screen Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
+        // }
 
-        async clickMainboardBackgroundupload() {
-                await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mainboard Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
-        }
+        // async clickMainboardBackgroundupload() {
+        //         await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mainboard Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
+        // }
 
         async clicksposnorLogoupload() {
                 await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Sponsor Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
@@ -646,7 +646,7 @@ export default class guesstheScorePage {
         }
 
         async Jsonuploader() {
-                const filePath0 = "testData/login.cred.json"
+                const filePath0 = "testData/Riders.json"
                 const [fileChooser] = await Promise.all([
                         // It is important to call waitForEvent before click to set up waiting.
                         this.page.waitForEvent('filechooser'),
@@ -656,6 +656,14 @@ export default class guesstheScorePage {
                 await fileChooser.setFiles([filePath0]);
 
 
+        }
+        async checksuccessfulupload(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="The list of riders has been successfully updated"]')
+                await expect(ele).toBeVisible()
+        }
+
+        async clickokafterjsonuplod() {
+                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Ok"]').click()
         }
 
         async clickeditriderbutton() {
@@ -680,7 +688,7 @@ export default class guesstheScorePage {
         }
 
         async typetestevent() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P-9080702712"]').type("test_event")
+                await this.page.frameLocator('.css-r99fy3').locator('//input[@type="string"]').type("test_event")
         }
 
         async clickaddbutton() {
@@ -699,20 +707,20 @@ export default class guesstheScorePage {
         }
 
         async typeincorrectguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P16913967962"]').type('4')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//input').type('4')
         }
         async typecorrectguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P20211625572"]').type('5')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Correct Guess"]//following-sibling::div//input').type('5')
         }
         async typecloseguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P-19440389782"]').type('6')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//input').type('6')
         }
         async typefarguessscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P-16142732172"]').type('7')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Far Guess"]//following-sibling::div//input').type('7')
         }
 
         async typeguesstime() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@id="P17027129232"]').fill('20')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Guess Time"]//following-sibling::div//input').fill('20')
         }
         //edit section
 
@@ -720,7 +728,7 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').locator("//h6[text()='test_by_Automation']/parent::div/following-sibling::div//div//div//p[text()='Edit']").click()
         }
         async editconfigname() {
-                const ele = this.page.frameLocator('iframe').first().locator('//input[@id="P-9080702712"]')
+                const ele = this.page.frameLocator('iframe').first().locator('//input[@type="string"]')
                 await ele.fill("test_by_Automation_edited")
         }
         async clickeditbutton() {
