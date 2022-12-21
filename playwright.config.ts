@@ -1,26 +1,29 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
+var date = new Date();
+var ReportDate =date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2) + ("0" + date.getHours() ).slice(-2) + ("0" + date.getMinutes()).slice(-2) + ("0" + date.getSeconds()).slice(-2);
 
 const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
     "001Login.test.ts",
-    "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
-    "005SignUp.test.ts",
-    "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
-    "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",    
-    "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",  
-    "012Trivia.test.ts"
+    // "002MobileDesign.test.ts",
+    // "003Language.test.ts",
+    // "004Menu.test.ts",
+    // "005SignUp.test.ts",
+    // "006GlobalPrizing.test.ts",
+    // "007PrizeDrop.test.ts",
+    // "008TugOfWar.test.ts",
+    // "009LiveWall.test.ts",    
+    // "010Arcade.test.ts",
+    // "011AddNewExperiences.test.ts",  
+    // "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
   expect: {
     timeout: 6000
+    
   },
   fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
@@ -33,6 +36,10 @@ const config: PlaywrightTestConfig = {
   // }], ["html", {
   //   open: "never"
   // }]],
+
+// reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
+
+
 
   reporter: [["html", {
     open: "never"
@@ -53,7 +60,7 @@ const config: PlaywrightTestConfig = {
       
   },
   permissions: ["microphone","camera"],
-    headless: process.env.CI ? true : false,
+    headless: process.env.CI ? true : !false,
     browserName: 'chromium',
     channel: 'chrome',
     viewport: { width: 1700, height: 920 },

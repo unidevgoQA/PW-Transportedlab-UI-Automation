@@ -197,7 +197,7 @@ import * as data from "@testData/login.cred.json"
 
 
 
-test("TL003-03 | Verify Admin Select Forced Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-01 | Verify Admin Select Forced Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -306,7 +306,7 @@ test("TL003-03 | Verify Admin Select Forced Language", async ({ loginPage, MainM
 
 
 })
-test("TL003-01 | Validate Admin Select Registration flow Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-02 | Validate Admin Select Registration flow Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -414,7 +414,7 @@ test("TL003-01 | Validate Admin Select Registration flow Language", async ({ log
 
 })
 
-test("TL003-02 | Verify Admin Select Profile flow Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-03 | Verify Admin Select Profile flow Language", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {

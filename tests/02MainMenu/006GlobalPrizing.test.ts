@@ -8,7 +8,7 @@ import { readFileSync } from 'fs'
 
 
 
-test("Varify Global Prizing Section", async ({ loginPage, MainMenu, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("006GP-001 | Verify Global Prizing Section", async ({ loginPage, MainMenu, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
 
 
         await test.step("Login Admin And Land To Home Screen", async () => {

@@ -7,7 +7,7 @@ import { readFileSync } from 'fs'
 
 
 
-test("Verify SignUp Page Functionality", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("005SU-001 | Verify SignUp Page Functionality", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
 
 
         await test.step("Login Admin And Land to Home Screen", async () => {
@@ -330,7 +330,7 @@ test("Verify SignUp Page Functionality", async ({ loginPage, MainMenu,functions,
         })
 })
 
-test("005SU-006 | Verify Additional Information Section", async ({loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }) => {
+test("005SU-002 | Verify Additional Information Section", async ({loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }) => {
         
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)

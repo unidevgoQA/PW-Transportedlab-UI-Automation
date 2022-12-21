@@ -948,7 +948,7 @@ test("008TOFW-010 | Delete New Config", async ({ loginPage, tugOfWarPage, functi
 
 
 
-test.skip("Game open in mobile view", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-010 | Game open in mobile view", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
 
         await test.step("Login Admin And land To Home Screen", async () => {

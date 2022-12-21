@@ -129,7 +129,7 @@ test("004M-002 | Varify Color input functionality for menu", async ({ loginPage,
 
 })
 
-test("004M-004 | Varify Alignment button functionality", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("004M-003 | Varify Alignment button functionality", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -171,7 +171,7 @@ test("004M-004 | Varify Alignment button functionality", async ({ loginPage, Mai
 
 })
 
-test("004M-005 | Varify All the show icon disable successfully ", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("004M-004 | Varify All the show icon disable successfully ", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -323,7 +323,7 @@ test("004M-006 | Verify all the uploaded icons deleted successfully", async ({ l
 
 })
 
-test("004M-017 | Verify Upload Menu Profile Icon", async ({ loginPage, MainMenu, functions, languagePage, menuPage, page, }, testInfo) => {
+test("004M-007 | Verify Upload Menu Profile Icon", async ({ loginPage, MainMenu, functions, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -367,7 +367,7 @@ test("004M-017 | Verify Upload Menu Profile Icon", async ({ loginPage, MainMenu,
 
 })
 
-test("004M-018 | Verify Upload The Menu Rule Icon", async ({ loginPage, MainMenu, functions, languagePage, menuPage, page, }, testInfo) => {
+test("004M-008 | Verify Upload The Menu Rule Icon", async ({ loginPage, MainMenu, functions, languagePage, menuPage, page, }, testInfo) => {
 
 
 

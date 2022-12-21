@@ -23,7 +23,7 @@ var mailoption = {
     from: testConfig.FromMailaddress,
     to: testConfig.ToMailAddress,
     subject: subject,
-    html: Textmessage
+    html: HTMLmessage
 }
 
 function getMessage(type){
@@ -74,7 +74,7 @@ if(type="TEXT"){
   const Textmessage="Hi Team,"+
   "\n Test Execution for the project " +testConfig.Project+" is conducted in " +testConfig.Env+ " Environment and its succesfully completed."+
   "\nHere is the HTML link and data for the Test Execution Report."+
-  "\n [Click Here](https://pages.github.com/) " + "\n"  + 
+  "\n [Click Here](https://unidevgoqa.github.io/PW-Transportedlab-UI-Automation/) " + "\n"  + 
 
   "> ## 🟠 Total Number of Test Cases Executed : " +Totalcount+ "\n"+ 
   "> ## ✅ Total Number of test cases Passed : " +passedcount+ "\n"+
