@@ -23,7 +23,7 @@ var mailoption = {
     from: testConfig.FromMailaddress,
     to: testConfig.ToMailAddress,
     subject: subject,
-    html: HTMLmessage
+    html: Textmessage
 }
 
 function getMessage(type){
