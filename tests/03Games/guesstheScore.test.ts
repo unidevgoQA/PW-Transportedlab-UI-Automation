@@ -10,7 +10,7 @@ var url: any;
 
 var text: string;
 
-test("Add New Configuration", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
+test("validate Add New Configuration in guess the score is working", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
 
     await test.step("Login Admin And land To guess the score", async () => {
 
@@ -274,7 +274,7 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
     
 })
 
-test("validate image upload works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("validate image upload section in guess the score works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -505,7 +505,7 @@ test("validate Rider Roster settings is working", async({ loginPage, guesstheSco
     await test.step('validate import rider button is working', async() =>{
         await guesstheScorePage.Jsonuploader()
     })
-    await test.step('validate import rider data from json is working successfully', async() =>{
+    await test.step('validate import rider data from json is loading successfully', async() =>{
         await guesstheScorePage.checksuccessfulupload()
         await guesstheScorePage.clickokafterjsonuplod()
     })
@@ -590,7 +590,7 @@ test("validate game settings option is working", async({ loginPage, guesstheScor
 })
 
 test("validate edit and delete section is working",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land game design of guess the score", async () => {
+    await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
