@@ -723,7 +723,7 @@ export default class triviaPage {
        }
 
        async clickLiveGameStopBtn() {
-              const ele = this.page.frameLocator('iframe').locator("//button[text()='Live']").last()
+              const ele = this.page.frameLocator('iframe').locator("//button[text()='Stop']").last()
               // expect(ele).toContainText("Add Round")
               await ele.click({ force: true })
 
