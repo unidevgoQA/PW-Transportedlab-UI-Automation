@@ -10,7 +10,7 @@ var url: any;
 
 var text: string;
 
-test("validate Add New Configuration in guess the score is working", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
+test("0013GTS-001 | validate Add New Configuration in guess the score is working", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
 
     await test.step("Login Admin And land To guess the score", async () => {
 
@@ -59,7 +59,7 @@ test("validate Add New Configuration in guess the score is working", async ({ lo
     })
 
 })
-test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-002 |  Validate Font Upload Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -103,7 +103,7 @@ test(" Validate Font Upload Functionality", async ({ loginPage, guesstheScorePag
 
 })
 
-test("Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
@@ -274,7 +274,7 @@ test("Validate All The Color Input Functionality", async ({ loginPage, guesstheS
     
 })
 
-test("validate image upload section in guess the score works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-004 |validate image upload section in guess the score works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -340,7 +340,7 @@ test("validate image upload section in guess the score works", async({ loginPage
         await page.waitForTimeout(4000)
     })
 })  
-test("test editor section functionalities", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-005 |test editor section functionalities", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -470,7 +470,7 @@ test("test editor section functionalities", async({ loginPage, guesstheScorePage
     })
 
 })
-test("validate Rider Roster settings is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
+test("0013GTS-006 |validate Rider Roster settings is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
     await test.step("Login Admin And land Rider roster of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -527,7 +527,7 @@ test("validate Rider Roster settings is working", async({ loginPage, guesstheSco
 
 
 })
-test("validate game operation settings are working",async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
+test("0013GTS-007 |validate game operation settings are working",async({ loginPage, guesstheScorePage, page, functions }, testInfo)=>{
     await test.step("Login Admin And land game operations of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -558,7 +558,7 @@ test("validate game operation settings are working",async({ loginPage, guesstheS
     })
 })
 
-test("validate game settings option is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-008 |validate game settings option is working", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game settings of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -589,7 +589,7 @@ test("validate game settings option is working", async({ loginPage, guesstheScor
     })
 })
 
-test("validate edit and delete section is working",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-009 |validate edit and delete section is working",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
