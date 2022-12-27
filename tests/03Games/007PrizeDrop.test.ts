@@ -40,8 +40,8 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
                 await prizeDropPage.clickPrizeDropSection()
                 const screenshot = await page.screenshot();
                 await testInfo.attach("click Prize Drop Section", {
+                        body:screenshot,
                         contentType: "image/png",
-
                 })
 
                 await page.waitForTimeout(5000)
@@ -56,12 +56,15 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
                 //click Add New Config Plus Btn
                 await prizeDropPage.clickAddNewConfigPlusBtn()
 
+                // verify configuration name header is visible()
+                await prizeDropPage.verifyAddNewConfigPlusWindowText()
                 //input Configuration Name
                 await prizeDropPage.inputConfigurationName()
 
                 await page.waitForTimeout(2000)
 
-
+                // check cancel button visiblity
+                await prizeDropPage.veirfycancelBtnvisiblity()
                 //click Add Btn
                 await prizeDropPage.clickAddBtn()
 
@@ -1138,6 +1141,31 @@ test("007PD-0012 | Validate Analytics Section Functionality", async ({ loginPage
 
         })
 
+})
+test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
+        
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("click on mobile link page", async() =>{
+                await prizeDropPage.clickMobileLinkBtn()
+                const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
+                await newgame.setViewportSize({width:360,height:740})
+                await newgame.waitForTimeout(3000)
+        })
 })
 
 test("007PD-013 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {

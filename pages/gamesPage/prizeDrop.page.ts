@@ -78,6 +78,11 @@ export default class prizeDropPage {
                 await ele.fill("Auto")
 
         }
+        async veirfycancelBtnvisiblity() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='CANCEL']")
+                await expect(ele).toBeVisible()
+
+        }
 
         async clickAddBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
@@ -707,13 +712,15 @@ export default class prizeDropPage {
 
         }
 
-        async clickMobileLinkOpenBtn() {
+        async  clickMobileLinkOpenBtn() {
 
                 // Click text=Open Link
                 const [page1] = await Promise.all([
                         this.page.waitForEvent('popup'),
                         this.page.frameLocator('iframe').locator('text=Open Link').click()
                 ]);
+
+                return page1;
 
 
         }
@@ -819,6 +826,8 @@ async clickEditBtn(){
 
 
         }
+
+        // Mobilepage functions start from here
 
 
 
