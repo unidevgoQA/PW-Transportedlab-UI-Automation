@@ -121,7 +121,7 @@ test("TLL001-03 | Verify login with UserName and Password", async ({ loginPage, 
 
 })
 
-test.only("TLL001-04| Verify", async ({ loginPage, MainMenu, page, browser }) => {
+test("TLL001-04| Verify", async ({ loginPage, MainMenu, page, browser }) => {
 
 
 
