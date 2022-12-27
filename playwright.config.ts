@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
     timeout: 6000
     
   },
-  fullyParallel: true,
+  fullyParallel: !true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 
