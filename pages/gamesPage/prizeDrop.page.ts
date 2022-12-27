@@ -91,6 +91,36 @@ export default class prizeDropPage {
 
         }
 
+        async verifyerrorvisiblity() {
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Configuration name cannot be empty']")
+                await expect(ele).toBeVisible()
+        }
+
+        async clickokbuttonerror(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
+      
+        }
+        //start button visiblity
+
+        async startbuttonvisible(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]')
+                await expect(ele).toBeVisible()
+                
+        }
+
+        async clickstartbutton(){
+                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click()
+        }
+
+        async clickokinstartconfirmmodal(){
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
+        }
+
+        async verifyerrorvisiblityfornoprize() {
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='You can`t start a session without prizes, please create a prize']")
+                await expect(ele).toBeVisible()
+        }
+
 
         //🔚 Closed Add New Config Section Element 
         //=======================================================
