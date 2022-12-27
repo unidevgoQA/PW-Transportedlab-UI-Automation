@@ -1,9 +1,6 @@
 import test, { expect } from "@fixtures/basePages"
 import * as data from "@testData/login.cred.json";
-
-
-
-
+import BaseFunctions from "base-function/baseFunctions";
 
 
 test("TLL001-01 | Verify login with valid credentials", async ({ loginPage, MainMenu, page, browser }) => {
@@ -117,6 +114,36 @@ test("TLL001-03 | Verify login with UserName and Password", async ({ loginPage, 
         await loginPage.clickInvalidCredantialsWindowOkBtn()
 
         await page.waitForTimeout(4000)
+
+
+
+
+
+})
+
+test.only("TLL001-04| Verify", async ({ loginPage, MainMenu, page, browser }) => {
+
+
+
+        await page.goto('/admin/#/sign-in')
+
+
+        await loginPage.verifyCueLogoIsVisible()
+        await loginPage.verifySigninTextIsVisible()
+        await loginPage.verifySigninPageTitleTextIsVisible()
+        await loginPage.verifyIdLabelIsVisible()
+        await loginPage.verifySecretLabelIsVisible()
+        await loginPage.inputID(data.invalidusername)
+        await loginPage.clickEyeBtn()
+
+
+
+
+
+
+
+
+
 
 
 

@@ -30,6 +30,11 @@
                     "testData/images/*",
                     "testData/videos*"
                     
+                ],
+                "@base-function/*": [
+                    "base-function/*"
+                    
+                    
                 ]
             }
         }

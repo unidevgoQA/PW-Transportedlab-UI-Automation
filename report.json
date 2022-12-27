@@ -3,7 +3,7 @@
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
-    "globalTeardown": "D:\\Work Station\\Unidevgo\\Playwright\\mailer.js",
+    "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
@@ -48,7 +48,7 @@
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
-    "version": "1.28.1",
+    "version": "1.29.1",
     "workers": 1,
     "webServer": null
   },
@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "TLL001-01 | Verify login with valid credentials",
+          "title": "TLL001-04| Verify",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,17 +74,17 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 23922,
+                  "duration": 9211,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2022-12-20T08:42:00.436Z",
+                  "startTime": "2022-12-27T05:20:03.123Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-01-Verify-login-with-valid-credentials\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-04-Verify\\test-finished-1.png"
                     }
                   ]
                 }
@@ -92,86 +92,10 @@
               "status": "expected"
             }
           ],
-          "id": "d152332eee6d3e0219ce-6cb3d35422010c93e201",
+          "id": "d152332eee6d3e0219ce-757fd8c46ccb404df059",
           "file": "tests/01Login/001Login.test.ts",
-          "line": 9,
-          "column": 1
-        },
-        {
-          "title": "TLL001-02 | Verify login with invalid credentials",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 25099,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2022-12-20T08:42:25.015Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-02-Verify-login-with-invalid-credentials\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "d152332eee6d3e0219ce-f33b0d99c8e8d99fa116",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 60,
-          "column": 1
-        },
-        {
-          "title": "TLL001-03 | Verify login with UserName and Password",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 25295,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2022-12-20T08:42:50.116Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-03-Verify-login-with-UserName-and-Password\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "d152332eee6d3e0219ce-fa14622583e6aca7e8e5",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 96,
-          "column": 1
+          "line": 124,
+          "column": 6
         }
       ]
     }

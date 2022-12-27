@@ -7,17 +7,17 @@ const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
     "001Login.test.ts",
-    "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
-    "005SignUp.test.ts",
-    "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
-    "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",    
-    "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",  
-    "012Trivia.test.ts"
+    // "002MobileDesign.test.ts",
+    // "003Language.test.ts",
+    // "004Menu.test.ts",
+    // "005SignUp.test.ts",
+    // "006GlobalPrizing.test.ts",
+    // "007PrizeDrop.test.ts",
+    // "008TugOfWar.test.ts",
+    // "009LiveWall.test.ts",    
+    // "010Arcade.test.ts",
+    // "011AddNewExperiences.test.ts",  
+    // "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
@@ -29,23 +29,23 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 
-  // reporter: process.env.CI ? [["junit", {
-  //   outputFile: "results.xml"
-  // }]] : [["json", {
-  //   outputFile: "report.json"
-  // }], ["html", {
-  //   open: "never"
-  // }]],
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "never"
+  }]],
 
 // reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
 
 
 
-  reporter: [["html", {
-    open: "never"
-  }], ["allure-playwright"], ['./My-Reporter.js']],
+  // reporter: [["html", {
+  //   open: "never"
+  // }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 
@@ -60,7 +60,7 @@ const config: PlaywrightTestConfig = {
       
   },
   permissions: ["microphone","camera"],
-    headless: process.env.CI ? true : !false,
+    headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'chrome',
     viewport: { width: 1700, height: 920 },

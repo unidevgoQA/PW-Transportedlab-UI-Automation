@@ -12,6 +12,7 @@ import liveWallPage from "@pages/liveWall.page";
 import arcadePage from "@pages/arcade.page";
 import addnewexperiencePage from "@pages/AddNewexperiences.page";
 import triviaPage from "@pages/trivia.page";
+import BaseFunctions from "@base-function/baseFunctions";
 
 
 
@@ -30,6 +31,7 @@ const test = baseTest.extend<{
     arcadePage: arcadePage;
     addnewexperiencePage: addnewexperiencePage;
     triviaPage: triviaPage;
+    BaseFunctions: BaseFunctions;
 
 }>({
     functions: async ({ page }, use) => {
@@ -77,6 +79,10 @@ const test = baseTest.extend<{
 
      triviaPage: async ({ page }, use) => {
         await use(new triviaPage(page));
+     },
+
+     BaseFunctions: async ({ page }, use) => {
+        await use(new BaseFunctions(page));
      },
     
     
