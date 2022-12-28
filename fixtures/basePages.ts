@@ -12,6 +12,7 @@ import liveWallPage from "@pages/liveWall.page";
 import arcadePage from "@pages/arcade.page";
 import addnewexperiencePage from "@pages/AddNewexperiences.page"
 import guesstheScorePage from "@pages/guesstheScore.page";
+import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 
 
 
@@ -29,6 +30,7 @@ const test = baseTest.extend<{
     arcadePage: arcadePage;
     addnewexperiencePage: addnewexperiencePage;
     guesstheScorePage: guesstheScorePage;
+    prizedropMobilePage: prizeDropMobilePage;
 
 }>({
     functions: async ({ page }, use) => {

@@ -1,4 +1,5 @@
 import test, { expect } from "@fixtures/basePages";
+import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import { devices, chromium } from "@playwright/test";
 import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
@@ -681,30 +682,74 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
 
         await test.step("Validate Game Open Section Functionality", async () => {
 
-                //click Prize Drop Section
-                // await prizeDropPage.clickPrizeDropSection()
-
-                // await page.waitForTimeout(3000)
-                //click Prizing Section
-                // await prizeDropPage.clickPrizingSection()
-
-                // await page.waitForTimeout(6000)
-                //click Prizing Section
-                await prizeDropPage.clickStartGameBtn()
-
-                //click Prizing Section
-                await prizeDropPage.clickStartGameOkBtn()
-
-
                 //click Mobile Link Btn
                 await prizeDropPage.clickMobileLinkBtn()
-
+                //now click on open button
                 const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
                 await newgame.setViewportSize({width:360,height:740})
                 await newgame.waitForTimeout(3000)
 
         })
 
+})
+
+test("007PD-0010 | validate start button not visible if game is opened before clicking start",async({loginPage,  prizeDropPage, page, browser }, testInfo)=>{
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        let newTab=null;
+        let newprizedropgame :prizeDropMobilePage
+        await test.step("Validate Game Open Section Functionality", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+
+        })
+        await test.step("validate form fields are visible",async() =>{
+                await newprizedropgame.lookforphonenoinform()
+                await newprizedropgame.lookforBirthdateinform()
+                await newprizedropgame.lookforEmailinform()
+                await newprizedropgame.lookforZipinform()
+                await newprizedropgame.lookforEmailinform()
+        })
+
+        await test.step("provide values in form field", async() =>{
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+        })
+
+        await test.step("click on submit button", async()=>{
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("clickonHomepage", async() =>{
+                await newprizedropgame.selecthomepage()
+        })
+
+        await test.step("click the start button to open", async() =>{
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await prizeDropPage.clickStartGameBtn()
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        
 })
 test("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ prizeDropPage, page }) => {
 
@@ -901,31 +946,31 @@ test("007PD-0012 | Validate Analytics Section Functionality", async ({ loginPage
         })
 
 })
-test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
+// test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
         
-        await test.step("Login Admin And land To Home Screen", async () => {
+//         await test.step("Login Admin And land To Home Screen", async () => {
 
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
 
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
+//                 const screenshot = await page.screenshot();
+//                 await testInfo.attach("login screenshot", {
+//                         contentType: "image/png",
+//                         body: screenshot
+//                 })
 
 
 
-        })
-        await test.step("click on mobile link page", async() =>{
-                await prizeDropPage.clickMobileLinkBtn()
-                const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
-                await newgame.setViewportSize({width:360,height:740})
-                await newgame.waitForTimeout(3000)
-        })
-})
+//         })
+//         await test.step("click on mobile link page", async() =>{
+//                 await prizeDropPage.clickMobileLinkBtn()
+//                 const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
+//                 await newgame.setViewportSize({width:360,height:740})
+//                 await newgame.waitForTimeout(3000)
+//         })
+// })
 
 test("007PD-013 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
