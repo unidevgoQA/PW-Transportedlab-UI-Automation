@@ -12,7 +12,10 @@ import liveWallPage from "@pages/liveWall.page";
 import arcadePage from "@pages/arcade.page";
 import addnewexperiencePage from "@pages/AddNewexperiences.page";
 import triviaPage from "@pages/trivia.page";
+import guesstheScorePage from "@pages/guesstheScore.page";
 import BaseFunctions from "@base-function/baseFunctions";
+import liveWallMobileScreenPage from "@pages/liveWallMobile.page"
+import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page"
 
 
 
@@ -27,11 +30,14 @@ const test = baseTest.extend<{
     tugOfWarPage: tugOfWarPage;
     prizeDropPage: prizeDropPage;
     liveWallPage: liveWallPage;
+    liveWallMobileScreenPage: liveWallMobileScreenPage;
     functions: functions;
     arcadePage: arcadePage;
     addnewexperiencePage: addnewexperiencePage;
     triviaPage: triviaPage;
+    guesstheScorePage: guesstheScorePage;
     BaseFunctions: BaseFunctions;
+    prizedropMobilePage: prizeDropMobilePage;
 
 }>({
     functions: async ({ page }, use) => {
@@ -69,7 +75,7 @@ const test = baseTest.extend<{
 
     liveWallPage: async ({ page }, use) => {
         await use(new liveWallPage(page));
-    },
+    },    
     arcadePage: async({ page }, use ) =>{
         await use(new arcadePage(page))
     },
@@ -79,6 +85,9 @@ const test = baseTest.extend<{
 
      triviaPage: async ({ page }, use) => {
         await use(new triviaPage(page));
+     },
+     guesstheScorePage: async ({ page }, use) => {
+        await use(new guesstheScorePage(page));
      },
 
      BaseFunctions: async ({ page }, use) => {

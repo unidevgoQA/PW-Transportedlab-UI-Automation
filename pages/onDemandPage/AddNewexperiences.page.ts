@@ -113,12 +113,12 @@ export default class addnewexperiencePage {
 
 
       async ImageUploadFunction() {
-            const buffer = readFileSync('testData/images/banner.png');
+            const buffer = readFileSync('./videos/a.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -398,12 +398,12 @@ export default class addnewexperiencePage {
       }
 
       async WImageUploadFunction() {
-            const buffer = readFileSync('testData/images/banner.png');
+            const buffer = readFileSync('./videos/a.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -476,9 +476,9 @@ export default class addnewexperiencePage {
       //////////////////////////// Implement EngagementBtn
 
       async EngagementBtn() {
-            const locator = this.page.locator("//p[text()='Game/Engagement']")
+            const locator = this.page.locator("(//p[text()='Engagement'])[1]")
             //expect(locator).toContainText('Image')
-            await locator.click({force:true})
+            await locator.click()
 
       }
 
@@ -726,12 +726,12 @@ export default class addnewexperiencePage {
       }
 
       async uploadImage() {
-            const buffer = readFileSync('testData/images/banner.png');
+            const buffer = readFileSync('./videos/a.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);
@@ -976,7 +976,7 @@ export default class addnewexperiencePage {
       }
 
       async TrAnswer_1() {
-            const locator = this.page.locator("//input[@placeholder='Type here text...']")
+            const locator = this.page.locator("//input[@type='text' and @id='P-1361192122']")
             expect(locator).toBeVisible()
             await locator.fill("Demo Answer For Automation")
       }
@@ -1004,12 +1004,12 @@ export default class addnewexperiencePage {
       // }
 
       async TruploadImage() {
-            const buffer = readFileSync('testData/images/banner.png');
+            const buffer = readFileSync('./videos/a.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
                   // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                   dt.items.add(file);
                   return dt;
             }, buffer);

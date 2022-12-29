@@ -1,7 +1,7 @@
 {
   "config": {
     "forbidOnly": false,
-    "fullyParallel": false,
+    "fullyParallel": true,
     "globalSetup": null,
     "globalTeardown": null,
     "globalTimeout": 0,
@@ -20,7 +20,18 @@
         "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts"
+          "001Login.test.ts",
+          "002MobileDesign.test.ts",
+          "003Language.test.ts",
+          "004Menu.test.ts",
+          "005SignUp.test.ts",
+          "006GlobalPrizing.test.ts",
+          "007PrizeDrop.test.ts",
+          "008TugOfWar.test.ts",
+          "009LiveWall.test.ts",
+          "010Arcade.test.ts",
+          "011AddNewExperiences.test.ts",
+          "012Trivia.test.ts"
         ],
         "timeout": 300000
       }
@@ -60,7 +71,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "TLL001-04| Verify",
+          "title": "TLL001-01 | Verify login with valid credentials",
           "ok": true,
           "tags": [],
           "tests": [
@@ -73,29 +84,3499 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 9211,
+                  "status": "interrupted",
+                  "duration": 20,
+                  "error": {
+                    "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.103Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-6cb3d35422010c93e201",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "TLL001-02 | Verify login with invalid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2022-12-27T05:20:03.123Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-01Login-001Login-TLL001-04-Verify\\test-finished-1.png"
-                    }
-                  ]
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-f33b0d99c8e8d99fa116",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 57,
+          "column": 5
+        },
+        {
+          "title": "TLL001-03 | Verify login with UserName and Password",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-fa14622583e6aca7e8e5",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 93,
+          "column": 5
+        },
+        {
+          "title": "TLL001-04| Verify",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
             }
           ],
           "id": "d152332eee6d3e0219ce-757fd8c46ccb404df059",
           "file": "tests/01Login/001Login.test.ts",
           "line": 124,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\002MobileDesign.test.ts",
+      "file": "tests/02MainMenu/002MobileDesign.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "MD002-01 | Validate Font upload functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-7a8151e4a7925d03a2b9",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 8,
+          "column": 1
+        },
+        {
+          "title": "MD002-02 | Validate All The Color Input Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-eec8ca27c7d7d27afcaf",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "MD002-03 | Validate all the Uploaded Image File Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-d73e086561973ff36f2a",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 414,
+          "column": 1
+        },
+        {
+          "title": "MD002-05 | Validate all the Uploaded Video File Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-e16cacc33bdf752b606d",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 553,
+          "column": 1
+        },
+        {
+          "title": "MD002-06 | Validate Video Upload Functionality For Mobile Design",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-3935be28b6ec881d3b18",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 609,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\003Language.test.ts",
+      "file": "tests/02MainMenu/003Language.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TL003-01 | Verify Admin Select Forced Language",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "aa3cb2870e92c4001846-228883d6f843cfe8654b",
+          "file": "tests/02MainMenu/003Language.test.ts",
+          "line": 200,
+          "column": 1
+        },
+        {
+          "title": "TL003-02 | Validate Admin Select Registration flow Language",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "aa3cb2870e92c4001846-16bbf062cadb0c060b7e",
+          "file": "tests/02MainMenu/003Language.test.ts",
+          "line": 309,
+          "column": 1
+        },
+        {
+          "title": "TL003-03 | Verify Admin Select Profile flow Language",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "aa3cb2870e92c4001846-a70f2398c2ddd1f98a37",
+          "file": "tests/02MainMenu/003Language.test.ts",
+          "line": 417,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\004Menu.test.ts",
+      "file": "tests/02MainMenu/004Menu.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "004M-001 | Varify Fonts Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-01105bd83eaa064ea91d",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "004M-002 | Varify Color input functionality for menu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-50df021b0753a50ac0ae",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "004M-003 | Varify Alignment button functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-748e8ab39ebb05e213ef",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 132,
+          "column": 1
+        },
+        {
+          "title": "004M-004 | Varify All the show icon disable successfully ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-f571e3b52aa2b5cbebf5",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 174,
+          "column": 1
+        },
+        {
+          "title": "004M-005 | Varify All the show icon enable successfully ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-044f884d0c956f8513cb",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 234,
+          "column": 1
+        },
+        {
+          "title": "004M-006 | Verify all the uploaded icons deleted successfully",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-281aaf867465bbc9d962",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 289,
+          "column": 1
+        },
+        {
+          "title": "004M-007 | Verify Upload Menu Profile Icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-30fcd73d53837a973303",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 326,
+          "column": 1
+        },
+        {
+          "title": "004M-008 | Verify Upload The Menu Rule Icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-33fb7d537fb7e74efaae",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 370,
+          "column": 1
+        },
+        {
+          "title": "004M-009 | Verify Upload The Menu HowToPlay Icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-542a1d1819baef814a19",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 409,
+          "column": 1
+        },
+        {
+          "title": "004M-010 | Verify Upload The Menu Prize Icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-c994b8eb05619d7c78b5",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 448,
+          "column": 1
+        },
+        {
+          "title": "004M-011 | Verify Upload All The Menu Home Icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "1743d8a90f7616040068-f2779281596c65728318",
+          "file": "tests/02MainMenu/004Menu.test.ts",
+          "line": 486,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\005SignUp.test.ts",
+      "file": "tests/02MainMenu/005SignUp.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "005SU-001 | Verify SignUp Page Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87a13ee5b4d629e8a31d-5d85d232bc329f8d97a5",
+          "file": "tests/02MainMenu/005SignUp.test.ts",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "005SU-002 | Verify Additional Information Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87a13ee5b4d629e8a31d-a8f53f296723499399b3",
+          "file": "tests/02MainMenu/005SignUp.test.ts",
+          "line": 333,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\006GlobalPrizing.test.ts",
+      "file": "tests/02MainMenu/006GlobalPrizing.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "006GP-001 | Verify Global Prizing Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "34ce9cbfd2ce597fe604-c0b1afe2bd64869c1afb",
+          "file": "tests/02MainMenu/006GlobalPrizing.test.ts",
+          "line": 11,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\02MainMenu\\010Arcade.test.ts",
+      "file": "tests/02MainMenu/010Arcade.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "010A-001| Arcade settings related tests",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e20982d1e4ae30b1b040-cc3af7717a63f267f6e7",
+          "file": "tests/02MainMenu/010Arcade.test.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "010A-002 | Validated Arcade Settings Logo Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e20982d1e4ae30b1b040-57dcd62000a21488d646",
+          "file": "tests/02MainMenu/010Arcade.test.ts",
+          "line": 66,
+          "column": 1
+        },
+        {
+          "title": "010A-003 | Validated Arcade Settings Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e20982d1e4ae30b1b040-574878061c58f0b92770",
+          "file": "tests/02MainMenu/010Arcade.test.ts",
+          "line": 109,
+          "column": 1
+        },
+        {
+          "title": "010A-004 | Validated Arcade outside Game Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e20982d1e4ae30b1b040-4b861b58bfd46d5e19fb",
+          "file": "tests/02MainMenu/010Arcade.test.ts",
+          "line": 177,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\03Games\\007PrizeDrop.test.ts",
+      "file": "tests/03Games/007PrizeDrop.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "007PD-001 | Add New Configuration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-184d95a2a43088d30e80",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 17,
+          "column": 5
+        },
+        {
+          "title": "007PD-002 |validate error if Add New Configuration is clicked without name provided",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-755868b89484a98e7e8b",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 80,
+          "column": 5
+        },
+        {
+          "title": "008PD-003 | Validate error if start clicked without prize given ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-e309c36b2f6ee3267fb6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 124,
+          "column": 5
+        },
+        {
+          "title": "007PD-002 | Validate Font Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-b230d70fd6f936466cf2",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 158,
+          "column": 5
+        },
+        {
+          "title": "007PD-003 | Validate All The Color Input Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-b6b9154d402998d31e85",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 201,
+          "column": 5
+        },
+        {
+          "title": "007PD-004 | Validate Upload Game Design Image Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-a8fa8b79b67b583c5632",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 374,
+          "column": 5
+        },
+        {
+          "title": "007PD-005 | Validate Game Setting Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-657f3c3af430594b0e7c",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 500,
+          "column": 5
+        },
+        {
+          "title": "007PD-006 | Validate Add Banner Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-8743f9db12da8f835a2a",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 558,
+          "column": 5
+        },
+        {
+          "title": "007PD-007 | Validate Prizing Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-d366681095c7eb37e4d9",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 601,
+          "column": 5
+        },
+        {
+          "title": "007PD-008 | Validate Game Open Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-d17c1a9f0a141bcbf6ee",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 664,
+          "column": 5
+        },
+        {
+          "title": "007PD-0010 | validate start button not visible if game is opened before clicking start",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-ea52d9a11593b8479b19",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 696,
+          "column": 5
+        },
+        {
+          "title": "007PD-009 | Validate Game Link Successfully Copy in clipboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-262c8992071ed36c30ef",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 754,
+          "column": 5
+        },
+        {
+          "title": "007PD-010 | Validate User Additional Information Section ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-2c64eed69d5ee14c6b43",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 785,
+          "column": 5
+        },
+        {
+          "title": "007PD-0011 | Validate Game Successfully open in mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-311ba667313643f90feb",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 807,
           "column": 6
+        },
+        {
+          "title": "007PD-0012 | Validate Analytics Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-f1f18b0e6e6cd1c263d8",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 892,
+          "column": 5
+        },
+        {
+          "title": "007PD-013 | Validate Game Edit And Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-b2a5ededa33ff49661be",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 975,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\03Games\\008TugOfWar.test.ts",
+      "file": "tests/03Games/008TugOfWar.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "008TOFW-001 | Add New Configuration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-d693d36eb2a06419291e",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 11,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-002 | Varify Title Stage Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-ec48325d937a4de6660c",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-003 | Varify Selection Stage Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-142586b1ef73483c5892",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 186,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-004 | Varify Countdown Stage Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-22814bee637251cbb026",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 342,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-005 | Varify Gameplay Stage Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-d2e8c7527576bc5505e0",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 413,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-006 | Varify Endgame Stage Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-fdbd41c5adbd59da5543",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 508,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-007 | Varify Leaderboard Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-685101830b24fc8aa7b3",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 593,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-008 | Varify Thank You Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-098ff746670f26ce786d",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 677,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-009 | Verify Game Design",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-da809f33fdd5a602efa7",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 753,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-010 | Delete New Config",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-c89061fae39c857d8886",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 891,
+          "column": 1
+        },
+        {
+          "title": "008TOFW-010 | Game open in mobile view",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "26becc8c701c81079457-3e32e6b647484b332803",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 951,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "tests\\03Games\\009LiveWall.test.ts",
+      "file": "tests/03Games/009LiveWall.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "009LW-001 | Validate Font Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-cbe2549a553cb69492fb",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 25,
+          "column": 5
+        },
+        {
+          "title": "009LW-002 | Validate Color Input Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-b4f5dba124970651798e",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 85,
+          "column": 5
+        },
+        {
+          "title": "009LW-003 | Validate Upload Image Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-764b3a8b29f70ab4970d",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 192,
+          "column": 5
+        },
+        {
+          "title": "009LW-004 | Validate Image Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-bc671c678053e62465a3",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 252,
+          "column": 5
+        },
+        {
+          "title": "009LW-005 | Validate Display Messages Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-74d0fa49258d4bb3213a",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 324,
+          "column": 5
+        },
+        {
+          "title": "009LW-006 | Validate Live Selfie Cam Link Open Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-c0fb2f8c682326ef8238",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 566,
+          "column": 5
+        },
+        {
+          "title": "009LW-007 | Validate Live Selfie Cam OutPut Link open in Mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-39f23f3f5138f4ab8349",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 609,
+          "column": 5
+        },
+        {
+          "title": "009LW-008 | Validate Cue Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-6cccbebcd5b2ce8ac171",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 747,
+          "column": 5
+        },
+        {
+          "title": "009LW-009 | Validate OutPut Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-ec96d96431c2fc0416f9",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 812,
+          "column": 5
+        },
+        {
+          "title": "009LW-0010 | Validate QR Code Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-580e0a71b095eb0badfd",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 883,
+          "column": 5
+        },
+        {
+          "title": "009LW-0011 | Validate Analytics Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-2ab0a2380ef3c7701c31",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 947,
+          "column": 5
+        },
+        {
+          "title": "009LW-00ss7 | Validate Live Selfie Cam OutPut Link open in Mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "ce540cedefba1f39420a-3c163f3bcc20e2ca0118",
+          "file": "tests/03Games/009LiveWall.test.ts",
+          "line": 999,
+          "column": 6
+        }
+      ]
+    },
+    {
+      "title": "tests\\03Games\\012Trivia.test.ts",
+      "file": "tests/03Games/012Trivia.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "012TV-001 | Add New Configuration",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-7b050f2e1ac66a8da2b8",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 16,
+          "column": 1
+        },
+        {
+          "title": "012TV-002 | Validated Mobile Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-a303d6474c047ff0891d",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "012TV-003 | Validated General/Button Text Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-cf6d268816ebe5b65b6d",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 177,
+          "column": 1
+        },
+        {
+          "title": "012TV-004 | Validated Button Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-8af425073b151597ddf4",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 282,
+          "column": 1
+        },
+        {
+          "title": "012TV-005 | Validated Question Text Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-f2dd40f932e566090586",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 387,
+          "column": 1
+        },
+        {
+          "title": "012TV-006 | Validated Answer Text Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-241ad61d616c0a1733f6",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 491,
+          "column": 1
+        },
+        {
+          "title": "012TV-007 | Validated Question Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-a95b307c3890396d44f4",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 604,
+          "column": 1
+        },
+        {
+          "title": "012TV-008 | Validated Answer Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-275a672ac27e843d8aa8",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 716,
+          "column": 1
+        },
+        {
+          "title": "012TV-009 | Validated Question Frame Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-ab2f1b7cd9a3cef37a27",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 828,
+          "column": 1
+        },
+        {
+          "title": "012TV-010 | Validated Answer Frame Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-11fcfe95261d08b3dc05",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 940,
+          "column": 1
+        },
+        {
+          "title": "012TV-011 | Validated Selected Answer Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-27e141457b8fb83d1558",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1052,
+          "column": 1
+        },
+        {
+          "title": "012TV-012 | Validated Correct Answer Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-0a8ca144fac6c6076ac8",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1164,
+          "column": 1
+        },
+        {
+          "title": "012TV-013 | Validated Incorrect Answer Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-bea3c2d07f43299ba8ed",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1276,
+          "column": 1
+        },
+        {
+          "title": "012TV-014 | Validated Leaderboard Text Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-a14dc2efd531bdbe462a",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1388,
+          "column": 1
+        },
+        {
+          "title": "012TV-015 | Validated Leaderboard Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-d9b28249c9daa52d0814",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1501,
+          "column": 1
+        },
+        {
+          "title": "012TV-016 | Validated Leaderboard Frame Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-d6c63779e0dbd815f064",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1613,
+          "column": 1
+        },
+        {
+          "title": "012TV-017 | Validated Leaderboard Accent Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-37748165cb4a8ccee54b",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1725,
+          "column": 1
+        },
+        {
+          "title": "012TV-018 | Validated User Top 10 Rank Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-a0ad2afaee2f64b40194",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1837,
+          "column": 1
+        },
+        {
+          "title": "012TV-019 | Validated Countdown Animation Fill Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-9cf299c328a4b2ad6a80",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 1949,
+          "column": 1
+        },
+        {
+          "title": "012TV-020 | Validated Tile/Countdown Background Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-79b103b34b98b7f34389",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2062,
+          "column": 1
+        },
+        {
+          "title": "012TV-021 | Validated Tile/Countdown Frame Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.415Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-99ecf52086563b0bbfd3",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2175,
+          "column": 1
+        },
+        {
+          "title": "012TV-022 | Validated Point-Bubble Fill Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-ccc45b0fd9fd35e86208",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2287,
+          "column": 1
+        },
+        {
+          "title": "012TV-023 | Validated Point-Bubble Stroke Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-5b2a3d04c80e001f6e79",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2399,
+          "column": 1
+        },
+        {
+          "title": "012TV-024 | Validated Point-Bubble Text Color Input Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-9d6eb5ac63cdf15c41b6",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2511,
+          "column": 1
+        },
+        {
+          "title": "012TV-026 | Validated Add New Raound Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-aa814f90a43397a06714",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2623,
+          "column": 1
+        },
+        {
+          "title": "012TV-027 | Vaslidated Game StopLIve ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-23b70b55b30b8cf25704",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2774,
+          "column": 1
+        },
+        {
+          "title": "012TV-028 | Vaslidated Game Control Panel Add Media Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-904379d53273e91066ac",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 2837,
+          "column": 6
+        },
+        {
+          "title": "012TV-029 | Vashlidated Game Settings Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-a083c05aaf488669803c",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3009,
+          "column": 6
+        },
+        {
+          "title": "012TV-030 | Validated Game Design All The Image Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-e153192c73bf0a482eb8",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3242,
+          "column": 1
+        },
+        {
+          "title": "012TV-031 | Validated Game Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-02e19e966a0e3ed645fc",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3314,
+          "column": 1
+        },
+        {
+          "title": "012TV-032 | Validate Game Prizing Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "923949df3e7701a35fec-2a41695d9cf2a2e58baa",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3344,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "tests\\04OnDemand\\011AddNewExperiences.test.ts",
+      "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "011ANE-001 | Validate Image Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-ab87e3e433134de2051b",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "011ANE-002 | Validate Video Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-e753598d7f8ac7706c42",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 57,
+          "column": 1
+        },
+        {
+          "title": "011ANE-003 | Validate Web Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-ace3ae21d712e97ca5b1",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 113,
+          "column": 1
+        },
+        {
+          "title": "011ANE-004 | Validate Engagement Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-951969cee48e0c957fa3",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 163,
+          "column": 1
+        },
+        {
+          "title": "011ANE-005 | Validate Poll Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-e462854e8a9ef3d18337",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 207,
+          "column": 1
+        },
+        {
+          "title": "011ANE-006 | Validate Trivia Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2022-12-29T06:34:24.416Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "87520e579ac7e9edfa9a-fd8b8c51d116b32ccc6b",
+          "file": "tests/04OnDemand/011AddNewExperiences.test.ts",
+          "line": 298,
+          "column": 1
         }
       ]
     }

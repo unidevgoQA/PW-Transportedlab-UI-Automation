@@ -1,6 +1,7 @@
 import { Page } from "@playwright/test";
 
 export default class BaseFunctions {
+    static goto: any;
 
     constructor(private page: Page) { }
 

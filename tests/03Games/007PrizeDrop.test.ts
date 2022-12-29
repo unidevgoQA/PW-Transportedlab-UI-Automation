@@ -1,4 +1,5 @@
 import test, { expect } from "@fixtures/basePages";
+import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import { devices, chromium } from "@playwright/test";
 import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
@@ -33,15 +34,15 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
 
         })
 
-        await test.step("008TOFW-001 | Add New Configuration", async () => {
+        await test.step(" Add New Configuration", async () => {
 
 
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
                 const screenshot = await page.screenshot();
                 await testInfo.attach("click Prize Drop Section", {
+                        body:screenshot,
                         contentType: "image/png",
-                        body: screenshot
                 })
 
                 await page.waitForTimeout(5000)
@@ -56,16 +57,17 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
                 //click Add New Config Plus Btn
                 await prizeDropPage.clickAddNewConfigPlusBtn()
 
+                // verify configuration name header is visible()
+                await prizeDropPage.verifyAddNewConfigPlusWindowText()
                 //input Configuration Name
                 await prizeDropPage.inputConfigurationName()
 
                 await page.waitForTimeout(2000)
 
-
+                // check cancel button visiblity
+                await prizeDropPage.veirfycancelBtnvisiblity()
                 //click Add Btn
                 await prizeDropPage.clickAddBtn()
-                await page.waitForTimeout(4000)
-
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
@@ -74,323 +76,82 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
 
         })
 
-        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+})
+test("007PD-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage,  prizeDropPage,  page, }, testInfo) => {
 
 
-        //         //click Game Design
-        //         await prizeDropPage.clickGameDesign()
+        await test.step("Login Admin And land To Home Screen", async () => {
 
-        //         await page.waitForTimeout(4000)
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
-        //         //UploadFont
-        //         await functions.fontUploadFunction()
-        //         await prizeDropPage.clickToUploadFont()
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+                
 
 
-        //         //click Clear All Btn
-        //         await prizeDropPage.clickClearAllBtn()
+        })
+        await test.step("validate error if Add New Configuration is clicked without name provided", async () => {
 
 
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+                const screenshot = await page.screenshot();
+                await testInfo.attach("click Prize Drop Section", {
+                        body:screenshot,
+                        contentType: "image/png",
+                })
+                 //click Add New Config Plus Btn
+                 await prizeDropPage.clickAddNewConfigPlusBtn()
 
+                //click Add Btn
+                await prizeDropPage.clickAddBtn()
+                // validate error message visiblity
 
-        //         await page.waitForTimeout(4000)
+                await prizeDropPage.verifyerrorvisiblity()
 
-        // })
+                // click ok button
+                await prizeDropPage.clickokbuttonerror()
+                
+        })
+})
 
-        // await test.step("008TOFW-003 | Validate All The Color Input Functionality", async () => {
+test("008PD-003 | Validate error if start clicked without prize given ", async({ loginPage,  prizeDropPage, functions, page, }, testInfo) =>{
+        await test.step("Login Admin And land To Home Screen", async () => {
 
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
 
-        //         //click Clear All Btn
-        //         await prizeDropPage.clickClearAllBtn()
+        })
 
+        await test.step("validate start button of newly added game is visible", async () =>{
+              await prizeDropPage.startbuttonvisible()
+        })
 
-        //         //verify Main Color Text
-        //         await prizeDropPage.verifyMainColorText()
+        await test.step("click on start button", async() =>{
+                await prizeDropPage.clickstartbutton()
+        })
 
+        await test.step("validate error message for no prize given", async() =>{
+                await prizeDropPage.clickokinstartconfirmmodal()
+                await prizeDropPage.verifyerrorvisiblityfornoprize()
+                await prizeDropPage.clickokbuttonerror()
+        })
 
-        //         //click Main Color Picker
-        //         await prizeDropPage.clickMainColorPicker()
 
-
-        //         //input Main RGR First Color
-        //         await prizeDropPage.inputMainRGRFirstColor()
-
-
-        //         //input Main RGR Second Color
-        //         await prizeDropPage.inputMainRGRSecondColor()
-
-
-        //         //input Main RGR Third Color
-        //         await prizeDropPage.inputMainRGRThirdColor()
-
-
-        //         //input Main RGR Four Color
-        //         await prizeDropPage.inputMainRGRFourColor()
-
-
-        //         //input Main RGR Five Color
-        //         await prizeDropPage.inputMainRGRFiveColor()
-
-
-        //         //click Color Picker SaveBtn
-        //         await prizeDropPage.clickColorPickerSaveBtn()
-
-
-        //         //verify Accent Color Text
-        //         await prizeDropPage.verifyAccentColorText()
-
-
-        //         //click Accent Color Picker
-        //         await prizeDropPage.clickAccentColorPicker()
-
-
-        //         //input Accent RGR First Color
-        //         await prizeDropPage.inputAccentRGRFirstColor()
-
-
-        //         //input Accent RGR Second Color
-        //         await prizeDropPage.inputAccentRGRSecondColor()
-
-
-        //         //input Accent RGR Third Color
-        //         await prizeDropPage.inputAccentRGRThirdColor()
-
-
-        //         //input Accent RGR Four Color
-        //         await prizeDropPage.inputAccentRGRFourColor()
-
-
-        //         //input Accent RGR Five Color
-        //         await prizeDropPage.inputAccentRGRFiveColor()
-
-        //         //click Color Picker SaveBtn
-        //         await prizeDropPage.clickColorPickerSaveBtn()
-
-
-
-
-
-
-        //         //verify Text Color Text
-        //         await prizeDropPage.verifyTextColorText()
-
-
-        //         //click Text Color Picker
-        //         await prizeDropPage.clickTextColorPicker()
-
-
-        //         //input Text RGR First Color
-        //         await prizeDropPage.inputTextRGRFirstColor()
-
-
-        //         //input Text RGR Second Color
-        //         await prizeDropPage.inputTextRGRSecondColor()
-
-
-        //         //input Text RGR Third Color
-        //         await prizeDropPage.inputTextRGRThirdColor()
-
-
-        //         //input Text RGR Four Color
-        //         await prizeDropPage.inputTextRGRFourColor()
-
-
-        //         //input Text RGR Five Color
-        //         await prizeDropPage.inputTextRGRFiveColor()
-
-
-
-        //         //click Color Picker SaveBtn
-        //         await prizeDropPage.clickColorPickerSaveBtn()
-
-
-
-
-
-
-        //         //click Game Design
-        //         await prizeDropPage.verifyButtonColorText()
-
-
-        //         //click Game Design
-        //         await prizeDropPage.clickButtonColorPicker()
-
-
-        //         //input Button RGR First Color
-        //         await prizeDropPage.inputButtonRGRFirstColor()
-
-
-
-        //         //input Button RGR Second Color
-        //         await prizeDropPage.inputButtonRGRSecondColor()
-
-        //         //input Button RGR Third Color
-        //         await prizeDropPage.inputButtonRGRThirdColor()
-
-
-
-        //         //input Button RGR Four Color
-        //         await prizeDropPage.inputButtonRGRFourColor()
-
-
-
-        //         //input Button RGR Five Color
-        //         await prizeDropPage.inputButtonRGRFiveColor()
-
-        //         //click Color Picker SaveBtn
-        //         await prizeDropPage.clickColorPickerSaveBtn()
-
-
-
-        //         await page.waitForTimeout(4000)
-
-        // })
-
-        // await test.step("008TOFW-004 | Validate Upload Game Design Image Functionality", async () => {
-
-        //         await page.waitForTimeout(4000)
-
-        //         //verify Full Screen Logo Text
-        //         await prizeDropPage.verifyFullScreenLogoText()
-
-        //         // const filePath0 = "testData/logos/Logo.jpg"
-        //         // page.on("filechooser", async (filechooser) => {
-        //         //         await filechooser.setFiles([filePath0]);
-        //         // })
-        //         // await page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[2]").click()
-
-        //         // //click To Upload Full Screen Logo
-        //         // // await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadFullScreenLogo()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //verify Game Title Image Title Text
-        //         await prizeDropPage.verifyGameTitleImageTitleText()
-
-        //         //click ToUp load Game Title Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadGameTitleImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload Frame ImageImage
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadFrameImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload Parachute Prize Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadParachutePrizeImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload NoPrizeWon Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadNoPrizeWonImage()
-
-        //         await page.waitForTimeout(4000)
-
-        // })
-
-        // await test.step("008TOFW-005 | Validate Upload Sponsor Image Functionality", async () => {
-
-
-        //         //click To Upload Sponsor Image
-        //         await prizeDropPage.clickToUploadSponsorImage()
-
-        //         // const filePath0 = "testData/logos/Logo.jpg"
-        //         // page.on("filechooser", async (filechooser) => {
-        //         //         await filechooser.setFiles([filePath0]);
-        //         // })
-        //         // await page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[2]").click()
-
-        //         // //click To Upload Sponsor Logo
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadSponsorLogo()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload Sponsor Team Logo
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadSponsorTeamLogo()
-
-        //         //click To Upload Game Background Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadGameBackgroundImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload How toPlayImage
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadHowtoPlayImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload Splash Screen Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadSplashScreenImage()
-
-        //         await page.waitForTimeout(4000)
-
-        //         //click To Upload Rules Image
-        //         await functions.logoImageUploadFunction()
-        //         await prizeDropPage.clickToUploadRulesImage()
-
-        //         await page.waitForTimeout(4000)
-
-        // })
-
-        // await test.step("008TOFW-006 | Validate Game Setting Functionality", async () => {
-
-
-        //         //click Game Settings
-        //         await prizeDropPage.clickGameSettings()
-
-
-        //         //input Total Rewards
-        //         await prizeDropPage.inputTotalRewards()
-        //         //input Total Rewards PerDay
-        //         await prizeDropPage.inputTotalRewardsPerDay()
-        //         //input Duration Time Hour
-        //         await prizeDropPage.inputDurationTimeHour()
-        //         //input Duration Time Minutes
-        //         await prizeDropPage.inputDurationTimeMinutes()
-        //         //input Duration Time Second
-        //         await prizeDropPage.inputDurationTimeSecond()
-        //         //input Stand By Message
-        //         await prizeDropPage.inputStandByMessage()
-        //         //input Ending Game Massage
-        //         await prizeDropPage.inputEndingGameMassage()
-
-        //         //input Selection Message
-        //         await prizeDropPage.inputSelectionMessage()
-
-        //         //click Entry Screen
-        //         await prizeDropPage.clickEntryScreen()
-
-
-        //         //click Entry Screen
-        //         await prizeDropPage.selectHowToScreen()
-
-        // })
-
-
-        // await test.step("008TOFW-00 | Verify Game Delete Functionality", async () => {
-
-
-        //         //click Game Delete Btn
-        //         await prizeDropPage.clickGameDeleteBtn()
-
-        //         await page.waitForTimeout(1000)
-
-        //         //confirm Delete Btn
-        //         await prizeDropPage.confirmDeleteBtn()
-        //         await page.waitForTimeout(4000)
-
-        // })
 
 })
 
@@ -407,8 +168,6 @@ test("007PD-002 | Validate Font Upload Functionality", async ({ loginPage, tugOf
                         contentType: "image/png",
                         body: screenshot
                 })
-
-
 
         })
         await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
@@ -437,6 +196,7 @@ test("007PD-002 | Validate Font Upload Functionality", async ({ loginPage, tugOf
         })
 
 })
+
 
 test("007PD-003 | Validate All The Color Input Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -630,7 +390,7 @@ test("007PD-004 | Validate Upload Game Design Image Functionality", async ({ log
 
         })
 
-        await test.step("007PD-004 | Validate Upload Game Design Image Functionality", async () => {
+        await test.step("008TOFW-004 | Validate Upload Game Design Image Functionality", async () => {
 
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
@@ -922,29 +682,74 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
 
         await test.step("Validate Game Open Section Functionality", async () => {
 
-                //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-
-                await page.waitForTimeout(3000)
-                //click Prizing Section
-                await prizeDropPage.clickPrizingSection()
-
-                await page.waitForTimeout(6000)
-                //click Prizing Section
-                await prizeDropPage.clickStartGameBtn()
-
-                //click Prizing Section
-                await prizeDropPage.clickStartGameOkBtn()
-
-
                 //click Mobile Link Btn
                 await prizeDropPage.clickMobileLinkBtn()
-
-                //click Mobile Link Btn
-                // await prizeDropPage.clickMobileLinkOpenBtn()
+                //now click on open button
+                const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
+                await newgame.setViewportSize({width:360,height:740})
+                await newgame.waitForTimeout(3000)
 
         })
 
+})
+
+test("007PD-0010 | validate start button not visible if game is opened before clicking start",async({loginPage,  prizeDropPage, page, browser }, testInfo)=>{
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        let newTab=null;
+        let newprizedropgame :prizeDropMobilePage
+        await test.step("Validate Game Open Section Functionality", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+
+        })
+        await test.step("validate form fields are visible",async() =>{
+                await newprizedropgame.lookforphonenoinform()
+                await newprizedropgame.lookforBirthdateinform()
+                await newprizedropgame.lookforEmailinform()
+                await newprizedropgame.lookforZipinform()
+                await newprizedropgame.lookforEmailinform()
+        })
+
+        await test.step("provide values in form field", async() =>{
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+        })
+
+        await test.step("click on submit button", async()=>{
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("clickonHomepage", async() =>{
+                await newprizedropgame.selecthomepage()
+        })
+
+        await test.step("click the start button to open", async() =>{
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await prizeDropPage.clickStartGameBtn()
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        
 })
 test("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ prizeDropPage, page }) => {
 
@@ -1141,6 +946,31 @@ test("007PD-0012 | Validate Analytics Section Functionality", async ({ loginPage
         })
 
 })
+// test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
+        
+//         await test.step("Login Admin And land To Home Screen", async () => {
+
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+
+//                 const screenshot = await page.screenshot();
+//                 await testInfo.attach("login screenshot", {
+//                         contentType: "image/png",
+//                         body: screenshot
+//                 })
+
+
+
+//         })
+//         await test.step("click on mobile link page", async() =>{
+//                 await prizeDropPage.clickMobileLinkBtn()
+//                 const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
+//                 await newgame.setViewportSize({width:360,height:740})
+//                 await newgame.waitForTimeout(3000)
+//         })
+// })
 
 test("007PD-013 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
@@ -1170,8 +1000,6 @@ test("007PD-013 | Validate Game Edit And Delete Functionality", async ({ loginPa
                 await prizeDropPage.clickEditBtn()
 
                 await prizeDropPage.clickStartGameOkBtn()
-                await page.waitForTimeout(2000)
-
 
 
                 //click Game Delete Btn

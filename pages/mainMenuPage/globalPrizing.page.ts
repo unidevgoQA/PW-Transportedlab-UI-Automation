@@ -56,12 +56,12 @@ export default class globalPrizingPage {
 
         //p[text()='Drag your image here, or browse']
         async uploadPrizeImage() {
-                const buffer = readFileSync('testData/images/banner.png');
+                const buffer = readFileSync('./videos/a.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -567,12 +567,12 @@ export default class globalPrizingPage {
         }
 
         async BcImage() {
-                const buffer = readFileSync('testData/images/banner.png');
+                const buffer = readFileSync('./videos/a.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -586,12 +586,12 @@ export default class globalPrizingPage {
 
         }
         async LgImage() {
-                const buffer = readFileSync('testData/images/banner.png');
+                const buffer = readFileSync('./videos/a.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -601,12 +601,12 @@ export default class globalPrizingPage {
 
         }
         async FgImage() {
-                const buffer = readFileSync('testData/images/banner.png');
+                const buffer = readFileSync('./videos/a.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
                         // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'banner.png', { type: 'application/png' });
+                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
                         dt.items.add(file);
                         return dt;
                 }, buffer);
@@ -1062,9 +1062,8 @@ export default class globalPrizingPage {
         /////////////////Open in Wizard////////////////
 
         async Clickopenwizard() {
-                await this.page.waitForTimeout(2000)
                 const locator = this.page.locator("//button[text()='Open in Wizard']")
-                await locator.click({force:true})
+                await locator.click()
         }
         async Welcomelabl() {
                 const locator = this.page.locator("//h1[text()='Welcome to the Coupon Wizard']")

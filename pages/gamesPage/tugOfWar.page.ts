@@ -16,7 +16,7 @@ export default class tugOfWarPage {
 
         //click Tug Of War Page
         async clickTugOfWarPage() {
-                const locator = this.page.locator("//p[text()='Tug of War']")
+                const locator = this.page.locator('text=Tug of War')
                 expect(locator).toContainText('Tug of War')
                 await locator.click()
                 // console.log("Successfully Click To Tug of War Page ")
@@ -316,7 +316,7 @@ export default class tugOfWarPage {
         }
 
         async inputSelectionTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='number'])[1]")
+                const ele = await this.page.frameLocator('iframe').locator("//input[@max='59']")
                 await ele.fill('20')
 
         }
@@ -387,7 +387,7 @@ export default class tugOfWarPage {
         }
 
         async clickTeamNameBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Name Box']/following-sibling::button")
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[1]")
                 await ele.click()
 
         }
@@ -429,7 +429,7 @@ export default class tugOfWarPage {
 
 
         async clickTeamSelectedMassageBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Team Selected Message Box']/following-sibling::button")
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[2]")
                 await ele.click()
 
         }
@@ -790,24 +790,24 @@ export default class tugOfWarPage {
         }
 
         async inputWinnerAddURL() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]")
+                const ele = await this.page.frameLocator('iframe').locator("//textarea[@placeholder='Type url']")
                 await ele.fill('https://www.lipsum.com/')
 
         }
 
         async inputCustomConsolationMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[4]")
+                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]")
                 await ele.fill('In publishing and graphic design')
 
         }
 
         async inputConsolationAddURL() {
 
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[5]").isVisible()
+                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[4]").isVisible()
                 if ((ele == true)) {
 
                         await this.page.frameLocator('iframe')
-                                .locator("(//textarea[@placeholder='Type message'])[5]")
+                                .locator("(//textarea[@placeholder='Type message'])[4]")
                                 .fill('https://www.lipsum.com/')
                 }
 
@@ -1048,7 +1048,7 @@ export default class tugOfWarPage {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
                 //         await this.page.waitForSelector(ele)        
 
-                const ele = await this.page.frameLocator('iframe').locator("//h6[text()='Auto']").isVisible()
+                const ele = await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').last().isVisible()
                 if ((ele == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
@@ -1087,9 +1087,9 @@ export default class tugOfWarPage {
 
 
 
-        async inputConfigurationName(name:string) {
+        async inputConfigurationName() {
                 const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
-                await ele.fill(name)
+                await ele.fill("Auto")
 
         }
 
@@ -1101,14 +1101,14 @@ export default class tugOfWarPage {
         }
 
         async clickStagesBtn() {
-                await this.page.frameLocator('iframe').locator("//p[text()='Stages']").last().click()
+                await this.page.frameLocator('iframe').locator("text=AutoStagesGame SettingsDelete >> p").first().click()
 
 
         }
 
 
         async clickGameDeleteBtn() {
-                await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click();
+                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(2).click();
 
         }
 
@@ -1122,8 +1122,8 @@ export default class tugOfWarPage {
         //=======================================================
         //▶▶Start Game Design Section Element    
 
-        async clickGameSettingsBtn() {
-                await this.page.frameLocator('iframe').locator("//p[text()='Game Settings']").last().click();
+        async clickGameDesignBtn() {
+                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(1).click();
 
         }
 
@@ -1300,7 +1300,7 @@ export default class tugOfWarPage {
         }
         async enableStandByCheckBox() {
 
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
+                const ele = await this.page.frameLocator('iframe').locator("//input[@type='checkbox']")
                 expect(ele).toBeVisible()
                 await ele.click({ force: true })
 
@@ -1358,18 +1358,6 @@ export default class tugOfWarPage {
 
         }
 
-
-        async fileUploadCropperForSpacificOne() {
-                const chooseBtn = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
-                expect.soft(chooseBtn).toContainText("Choose File")
-                await chooseBtn.click()
-
-
-                const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
-                expect(cropperSaveBtn).toContainText("Save")
-                await cropperSaveBtn.click({force:true})
-
-        }
 
 
 

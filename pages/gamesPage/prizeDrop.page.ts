@@ -78,6 +78,11 @@ export default class prizeDropPage {
                 await ele.fill("Auto")
 
         }
+        async veirfycancelBtnvisiblity() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='CANCEL']")
+                await expect(ele).toBeVisible()
+
+        }
 
         async clickAddBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
@@ -86,12 +91,41 @@ export default class prizeDropPage {
 
         }
 
+        async verifyerrorvisiblity() {
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Configuration name cannot be empty']")
+                await expect(ele).toBeVisible()
+        }
+
+        async clickokbuttonerror(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
+      
+        }
+        //start button visiblity
+
+        async startbuttonvisible(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]')
+                await expect(ele).toBeVisible()
+                
+        }
+
+        async clickstartbutton(){
+                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click()
+        }
+
+        async clickokinstartconfirmmodal(){
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
+        }
+
+        async verifyerrorvisiblityfornoprize() {
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='You can`t start a session without prizes, please create a prize']")
+                await expect(ele).toBeVisible()
+        }
+
 
         //🔚 Closed Add New Config Section Element 
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-                await this.page.waitForTimeout(2000)
                 await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(0).click()
 
         }
@@ -425,7 +459,6 @@ export default class prizeDropPage {
         }
 
         async clickToUploadHowtoPlayImage() {
-                await this.page.waitForTimeout(2000)
                 const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[11]")
                 expect(ele).toBeVisible()
                 await ele.click({force:true})
@@ -538,8 +571,8 @@ export default class prizeDropPage {
         }
 
         async verifyDragYourImageText() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Marketing Message']")
-                expect(ele).toContainText("Marketing Message")
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Drag your image here, or browse']")
+                expect(ele).toContainText("Drag your image here, or browse")
         }
 
 
@@ -701,7 +734,7 @@ export default class prizeDropPage {
 
         async clickMobileLinkBtn() {
                 // Click text=AutoStart >> button >> nth=1
-                await this.page.frameLocator('iframe').locator("(//button[text()='Live']/following-sibling::button)[1]").click({force:true});
+                await this.page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
                 // expect(ele).toBeVisible()
@@ -709,11 +742,15 @@ export default class prizeDropPage {
 
         }
 
-        async clickMobileLinkOpenBtn() {
+        async  clickMobileLinkOpenBtn() {
 
-               
-                  await this.page.frameLocator('iframe').locator('text=Open Link').click()
-        
+                // Click text=Open Link
+                const [page1] = await Promise.all([
+                        this.page.waitForEvent('popup'),
+                        this.page.frameLocator('iframe').locator('text=Open Link').click()
+                ]);
+
+                return page1;
 
 
         }
@@ -763,9 +800,6 @@ async clickEditBtn(){
 
         }
 
-        getRandomName () { 
-                return "Auto"+ Date.now() + "Name"
-            }
 
 
 
@@ -822,6 +856,8 @@ async clickEditBtn(){
 
 
         }
+
+        // Mobilepage functions start from here
 
 
 

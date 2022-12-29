@@ -16,7 +16,8 @@
                     "pages/loginPage/*",
                     "pages/mainMenuPage/*",
                     "pages/gamesPage/*",
-                    "pages/onDemandPage/*"
+                    "pages/onDemandPage/*",
+                    "pages/MobileGamesPage/*"
                 ],
                 "@fixtures/*": [
                     "fixtures/*"
