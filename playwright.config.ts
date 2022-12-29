@@ -7,17 +7,17 @@ const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
     "001Login.test.ts",
-    "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
-    "005SignUp.test.ts",
-    "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
-    "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",    
-    "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",  
-    "012Trivia.test.ts"
+    // "002MobileDesign.test.ts",
+    // "003Language.test.ts",
+    // "004Menu.test.ts",
+    // "005SignUp.test.ts",
+    // "006GlobalPrizing.test.ts",
+    // "007PrizeDrop.test.ts",
+    // "008TugOfWar.test.ts",
+    // "009LiveWall.test.ts",    
+    // "010Arcade.test.ts",
+    // "011AddNewExperiences.test.ts",  
+    // "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
@@ -25,7 +25,7 @@ const config: PlaywrightTestConfig = {
     timeout: 6000
     
   },
-  fullyParallel: !true,
+  fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 

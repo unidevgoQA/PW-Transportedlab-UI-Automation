@@ -16,7 +16,7 @@ import guesstheScorePage from "@pages/guesstheScore.page";
 import BaseFunctions from "@base-function/baseFunctions";
 import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
-import gameDesignMobile from "@pages/gameDesignMobile.page"
+
 
 
 
@@ -38,7 +38,7 @@ const test = baseTest.extend<{
     guesstheScorePage: guesstheScorePage;
     BaseFunctions: BaseFunctions;
     prizedropMobilePage: prizeDropMobilePage;
-    gameDesignMobileL: gameDesignMobile;
+
 
 }>({
     functions: async ({ page }, use) => {

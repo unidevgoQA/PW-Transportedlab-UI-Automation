@@ -606,7 +606,7 @@ test("009LW-006 | Validate Live Selfie Cam Link Open Functionality", async ({ lo
 
 })
 
-test("009LW-007 | Validate Live Selfie Cam OutPut Link open in Mobile", async ({ loginPage, liveWallPage, functions }, testInfo) => {
+test.skip("009LW-007 | Validate Live Selfie Cam OutPut Link open in Mobile", async ({ loginPage, liveWallPage, functions }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
 
@@ -744,7 +744,7 @@ test("009LW-007 | Validate Live Selfie Cam OutPut Link open in Mobile", async ({
 })
 
 
-test("009LW-008 | Validate Cue Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test.skip("009LW-008 | Validate Cue Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
         // const browser = await chromium.launch({ headless: false });
         // const context = await browser.newContext({permissions: ["camera"] });
@@ -809,7 +809,7 @@ test("009LW-008 | Validate Cue Section", async ({ loginPage, liveWallPage, funct
 
 })
 
-test("009LW-009 | Validate OutPut Section", async ({ loginPage, liveWallPage, functions, page, context }, testInfo) => {
+test.skip("009LW-009 | Validate OutPut Section", async ({ loginPage, liveWallPage, functions, page, context }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
         // const browser = await chromium.launch({ headless: false });
         // const context = await browser.newContext({permissions: ["camera"] });
