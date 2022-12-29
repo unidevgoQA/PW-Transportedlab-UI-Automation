@@ -676,3 +676,35 @@ test("MD002-06 | Validate Video Upload Functionality For Mobile Design", async (
      
 
 })
+
+test("MD002-06 | Validate Video Upload Functionality For Mobile Design", async ({ loginPage,functions, MainMenu, page }) => {
+
+        await test.step("Login Admin And Land to Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                await MainMenu.clickHomeAvater();
+
+
+
+                await MainMenu.mainMenuBtn();
+
+
+
+                await MainMenu.clickMobileDesign();
+
+                await page.waitForTimeout(6000)
+
+                // await expect(page).toHaveURL(Env.MobileDesignPageUrl)
+
+        })
+
+        
+
+
+     
+
+})

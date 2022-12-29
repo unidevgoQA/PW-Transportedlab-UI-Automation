@@ -2,6 +2,7 @@ import { expect, Page } from "@playwright/test";
 import BaseFunctions from "@base-function/baseFunctions"
 export default class liveWallMobileScreenPage {
 
+  
   private page: Page;
   private base: BaseFunctions;
   // static buffer: void;
@@ -49,14 +50,14 @@ export default class liveWallMobileScreenPage {
     await this.base.waitAndClick(this.liveWallPageElement.mobileLinkOpenNewTabBtn)
 }
   
-  async clickMobileLinkOpenNewTabBtn() {     
-    const [newtab] = await Promise.all([ 
-      this.page.waitForLoadState(),
-      this.base.waitAndClick(this.liveWallPageElement.eyeBtn)
+  // async clickMobileLinkOpenNewTabBtn() {     
+  //   const [newtab] = await Promise.all([ 
+  //     this.page.waitForLoadState(),
+  //     this.base.waitAndClick(this.liveWallPageElement.eyeBtn)
   
-    ])
-    return newtab;
-  }
+  //   ])
+  //   return newtab;
+  // }
 
 
 
