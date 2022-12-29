@@ -61,7 +61,7 @@
       "specs": [
         {
           "title": "007PD-0010 | validate start button not visible if game is opened before clicking start",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -73,60 +73,43 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 83710,
-                  "error": {
-                    "message": "locator.click: Timeout 60000ms exceeded.\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//button[text()=\\'Ok\\']')\n============================================================",
-                    "stack": "locator.click: Timeout 60000ms exceeded.\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//button[text()=\\'Ok\\']')\n============================================================\n    at prizeDropPage.clickStartGameOkBtn (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\prizeDrop.page.ts:715:89)\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:750:37\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:747:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\prizeDrop.page.ts",
-                        "column": 89,
-                        "line": 715
-                      },
-                      "message": "locator.click: Timeout 60000ms exceeded.\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//button[text()=\\'Ok\\']')\n============================================================\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\prizeDrop.page.ts:715\n\n  713 |         async clickStartGameOkBtn() {\n  714 |\n> 715 |                 await this.page.frameLocator('iframe').locator(\"//button[text()='Ok']\").click({force:true});\n      |                                                                                         ^\n  716 |\n  717 |                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)\n  718 |                 // expect(ele).toBeVisible()\n\n\u001b[2m    at prizeDropPage.clickStartGameOkBtn (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\prizeDrop.page.ts:715:89)\u001b[22m\n\u001b[2m    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:750:37\u001b[22m\n\u001b[2m    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:747:9\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 23448,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
                       "title": "Login Admin And land To Home Screen",
-                      "duration": 7551
+                      "duration": 7415
                     },
                     {
                       "title": "Validate Game Open Section Functionality",
-                      "duration": 3053
+                      "duration": 2415
                     },
                     {
                       "title": "validate form fields are visible",
-                      "duration": 4162
+                      "duration": 4300
                     },
                     {
                       "title": "provide values in form field",
-                      "duration": 7683
+                      "duration": 7592
                     },
                     {
                       "title": "click on submit button",
-                      "duration": 211
+                      "duration": 190
                     },
                     {
                       "title": "clickonHomepage",
-                      "duration": 204
+                      "duration": 202
                     },
                     {
                       "title": "click the start button to open",
-                      "duration": 60211,
-                      "error": {
-                        "message": "locator.click: Timeout 60000ms exceeded.\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//button[text()=\\'Ok\\']')\n============================================================",
-                        "stack": "locator.click: Timeout 60000ms exceeded.\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//button[text()=\\'Ok\\']')\n============================================================\n    at prizeDropPage.clickStartGameOkBtn (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\prizeDrop.page.ts:715:89)\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:750:37\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:747:9"
-                      }
+                      "duration": 638
                     }
                   ],
-                  "startTime": "2022-12-28T13:19:08.590Z",
+                  "startTime": "2022-12-29T05:50:27.245Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -141,22 +124,17 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-0010-validate-b4c0c-visible-if-game-is-opened-before-clicking-start\\test-failed-1.png"
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-0010-validate-b4c0c-visible-if-game-is-opened-before-clicking-start\\test-finished-1.png"
                     },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-0010-validate-b4c0c-visible-if-game-is-opened-before-clicking-start\\test-failed-2.png"
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-0010-validate-b4c0c-visible-if-game-is-opened-before-clicking-start\\test-finished-2.png"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\prizeDrop.page.ts",
-                    "column": 89,
-                    "line": 715
-                  }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "5d78b1b18d7f9409d41e-ea52d9a11593b8479b19",

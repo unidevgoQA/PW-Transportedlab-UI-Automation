@@ -698,11 +698,13 @@ export default class prizeDropPage {
 
 
 
-
+        async click_closebutton_in_mobilelinkmodal (){
+                await this.page.frameLocator('.css-r99fy3').locator('(//div[@role="dialog"]//button)[1]').click()
+        }
 
         async clickStartGameBtn() {
 
-                await this.page.frameLocator('iframe').locator('text=AutoStart').click({force:true});
+                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
                 // expect(ele).toBeVisible()
@@ -712,7 +714,7 @@ export default class prizeDropPage {
 
         async clickStartGameOkBtn() {
 
-                await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click({force:true});
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
                 // expect(ele).toBeVisible()

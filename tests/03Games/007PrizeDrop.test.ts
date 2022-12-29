@@ -746,6 +746,7 @@ test("007PD-0010 | validate start button not visible if game is opened before cl
 
         await test.step("click the start button to open", async() =>{
                 await browser.contexts()[0].pages()[0].bringToFront()
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
                 await prizeDropPage.clickStartGameBtn()
                 await prizeDropPage.clickStartGameOkBtn()
         })
