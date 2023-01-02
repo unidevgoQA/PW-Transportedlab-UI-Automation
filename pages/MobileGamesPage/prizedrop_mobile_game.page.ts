@@ -59,4 +59,16 @@ export default class prizeDropMobilePage {
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
+
+         async start_button_visiblity(){
+              const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
+              await expect(ele).toBeVisible()
+         }
+
+         async GoTo(url:string){
+              
+              await this.page.goto(url)
+              //await this.page.waitForEvent('domcontentloaded')
+              await this.page.waitForTimeout(3000)
+         }
     }

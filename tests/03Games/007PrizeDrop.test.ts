@@ -3,17 +3,8 @@ import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import { devices, chromium } from "@playwright/test";
 import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
-import { readFileSync } from 'fs'
-// import clipboard from 'clipboardy';
-const clipboard = require("clipboardy");
-var url: any;
-
-var text: string;
-
-
-
-
-
+import { readFileSync } from 'fs';
+const clipboard = require('clipboardy')
 test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
 
@@ -693,7 +684,7 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
 
 })
 
-test("007PD-0010 | validate start button not visible if game is opened before clicking start",async({loginPage,  prizeDropPage, page, browser }, testInfo)=>{
+test("007PD-0010 | validate start button is working properly",async({loginPage,  prizeDropPage, page, browser }, testInfo)=>{
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -745,14 +736,59 @@ test("007PD-0010 | validate start button not visible if game is opened before cl
         })
 
         await test.step("click the start button to open", async() =>{
+                await browser.contexts()[0].pages()[0].setViewportSize({width:720,height:1280})
                 await browser.contexts()[0].pages()[0].bringToFront()
                 await prizeDropPage.click_closebutton_in_mobilelinkmodal()
                 await prizeDropPage.clickStartGameBtn()
                 await prizeDropPage.clickStartGameOkBtn()
         })
+        await test.step("now navigate to gamepage and validate start button", async() =>{
+                await browser.contexts()[0].pages()[1].bringToFront()
+                await newprizedropgame.selecthomepage()
+                await newprizedropgame.start_button_visiblity()
+
+        })
         
 })
-test("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ prizeDropPage, page }) => {
+
+test("validate QR code section is working perfectly", async({loginPage,  prizeDropPage, page, browser }, testInfo) =>{
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+        })
+        await test.step("click on prize drop page", async () =>{
+                await prizeDropPage.clickPrizeDropSection()
+        })
+
+        await test.step("click on QR code section", async () =>{
+                await prizeDropPage.clickQRcodebutton()
+        })
+
+        await test.step("validate QR code text is visible",async () =>{
+                await prizeDropPage.validateQRtext()
+        })
+        await test.step("validate Save QR code download is working",async () =>{
+                await prizeDropPage.validateDownload()
+        })
+
+        await test.step("validate copy QR code section is working", async ()=>{
+                await  prizeDropPage.clickQRcodecopybtn()
+                const newtab = browser.contexts()[0].newPage();
+                (await newtab).goto('https://qr-code-scanner.net/')
+                await (await newtab).locator('//a[@title="Scan QR code from paste"]').click()
+                await (await newtab).locator('//button[text()="Paste"]').click()
+        })
+})
+test.only("007PD-009 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page,browser}) => {
 
     
                 await page.goto("/admin/#/sign-in");
@@ -764,18 +800,39 @@ test("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ p
                         page.click("button:has-text('Login')")
                 ])
 
-                await prizeDropPage.clickPrizeDropSection()
 
-                //click Mobile Link Btn
-                await prizeDropPage.clickMobileLinkBtn()
+                await test.step('validate click on the copy link button is working',async()=>{
+                        await prizeDropPage.clickPrizeDropSection()
 
+                        //click Mobile Link Btn
+                        await prizeDropPage.clickMobileLinkBtn()
+        
+                        //
+                        await prizeDropPage.clickMobileLinkCopyBtn()
+                })
 
+                await test.step('now close the copy link modal', async() =>{
+                        await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+                })
+                let URL = '';
 
-                // let text = await clipboard.read();
+                await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
+                        URL = clipboard.readSync();
+                })
+                // await page.waitForTimeout(20000)
+
+                 
                 // console.log('From clipboard: ' + text);
-                await page.frameLocator('iframe').locator("//button[text()='Copy Link']").click({ force: true })
+                // await page.frameLocator('iframe').locator("//button[text()='Copy Link']").click({ force: true })
 
-                // url = await clipboard.read();
+                ;
+                
+                await test.step('now open new page with copied URL',async()=>{
+                        const newprizedropgame = new prizeDropMobilePage(page)
+
+                
+                        await newprizedropgame.GoTo(URL)   
+                })
                 // console.log('From clipboard URL: ' + url);
                 // const newPage = await page.context().newPage();
                 // await newPage.goto(url);

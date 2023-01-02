@@ -46,7 +46,7 @@ const config: PlaywrightTestConfig = {
       slowMo:150
   },
   // permissions: ["camera"],
-  permissions: ["microphone","camera"],
+  permissions: ["microphone","camera","clipboard-read","clipboard-write"],
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "on",
     video: process.env.CI ? "off" : "off",
