@@ -39,7 +39,7 @@ test("012TV-001 | Add New Configuration", async ({ loginPage, functions, page, t
       })
 
       await test.step("Input Configuration Name", async () => {
-            await triviaPage.inputConfigurationName(triviaPage.getRandomName())
+            await triviaPage.inputConfigurationName()
             // await page.waitForTimeout(2000)
       })
 
