@@ -682,7 +682,7 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
 
         })
 
-})
+
 
                 //click Prizing Section
                 await prizeDropPage.clickStartGameOkBtn()
@@ -695,7 +695,7 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
 
 
 
-        })
+
         let newTab=null;
         let newprizedropgame :prizeDropMobilePage
         await test.step("Validate Game Open Section Functionality", async () => {
@@ -724,7 +724,7 @@ test("007PD-008 | Validate Game Open Section Functionality", async ({ loginPage,
         })
 
 })
-test("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ prizeDropPage, page }) => {
+test.skip("007PD-009 | Validate Game Link Successfully Copy in clipboard", async ({ prizeDropPage,  page }) => {
 
         await test.step("clickonHomepage", async() =>{
                 await newprizedropgame.selecthomepage()
@@ -783,7 +783,7 @@ test("validate QR code section is working perfectly", async({loginPage,  prizeDr
                 await (await newtab).locator('//button[text()="Paste"]').click()
         })
 })
-test.only("007PD-009 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page,browser}) => {
+test("007PD-009 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page,browser}) => {
 
     
                 await page.goto("/admin/#/sign-in");
