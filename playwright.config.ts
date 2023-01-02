@@ -17,11 +17,8 @@ const config: PlaywrightTestConfig = {
     // "008TugOfWar.test.ts",
     // "009LiveWall.test.ts",    
     // "010Arcade.test.ts",
-<<<<<<< Updated upstream
     // "011AddNewExperiences.test.ts",  
-=======
     "011AddNewExperiences.test.ts",  
->>>>>>> Stashed changes
     "012Trivia.test.ts"
     
 
