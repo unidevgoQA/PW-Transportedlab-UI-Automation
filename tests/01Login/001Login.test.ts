@@ -133,7 +133,7 @@ test("TLL001-04| Verify", async ({ loginPage, MainMenu, page, browser }) => {
         await loginPage.verifySigninPageTitleTextIsVisible()
         await loginPage.verifyIdLabelIsVisible()
         await loginPage.verifySecretLabelIsVisible()
-        await loginPage.inputID(data.invalidusername)
+        await loginPage.inputSecret()
         await loginPage.clickEyeBtn()
 
 
