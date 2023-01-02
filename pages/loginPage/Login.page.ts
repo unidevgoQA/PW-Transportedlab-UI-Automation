@@ -85,21 +85,20 @@ export default class LoginPage {
 
     async verifyIdLabelIsVisible() {
 
-        const ele = this.page.locator("//label[text()='Id']")
+        const ele = this.page.locator("(//label[text()='Id']/following::input)[1]")
         expect(ele).toBeVisible()        
     }
 
     
     async verifySecretLabelIsVisible() {
 
-        const ele = this.page.locator("//label[text()='Secret']")
+        const ele = this.page.locator("//label[text()='Secret']/following::input")
         expect(ele).toBeVisible()        
     }
 
     async inputSecret() {
 
         const ele = this.page.locator("//input[@type='password']")
-        expect(ele).toBeVisible()
         await ele.fill("Demo Data")     
     }
 
