@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { readFileSync } from 'fs'
+import { readFileSync,existsSync } from 'fs'
 export default class prizeDropPage {
         // [x: string]: any;
 
@@ -698,11 +698,13 @@ export default class prizeDropPage {
 
 
 
-
+        async click_closebutton_in_mobilelinkmodal (){
+                await this.page.frameLocator('.css-r99fy3').locator('(//div[@role="dialog"]//button)[1]').click()
+        }
 
         async clickStartGameBtn() {
 
-                await this.page.frameLocator('iframe').locator('text=AutoStart').click({force:true});
+                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
                 // expect(ele).toBeVisible()
@@ -712,7 +714,7 @@ export default class prizeDropPage {
 
         async clickStartGameOkBtn() {
 
-                await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click({force:true});
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
                 // expect(ele).toBeVisible()
@@ -763,6 +765,32 @@ export default class prizeDropPage {
 
 
 
+        }
+        //QR code section here
+        async clickQRcodebutton(){
+                
+                await  this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[3]').click()
+
+        }
+
+        async validateQRtext(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h2[text()="Mobile QR Code"]')
+                await expect(ele).toBeVisible()
+        }
+        async validateDownload(){
+                
+                const [download] = await Promise.all([
+                         this.page.waitForEvent('download'),
+                         this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save QR Code"]').click()
+              ])
+                const suggestedFileName = download.suggestedFilename()
+                const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
+                await download.saveAs(filePath)
+                expect(existsSync(filePath)).toBeTruthy()
+        }
+
+        async clickQRcodecopybtn(){
+                await  this.page.frameLocator('.css-r99fy3').locator('//button[text()="Copy QR Code"]').click()
         }
 
 

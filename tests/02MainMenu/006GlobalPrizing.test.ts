@@ -344,9 +344,6 @@ test("006GP-001 | Verify Global Prizing Section", async ({ loginPage, MainMenu, 
                 //search Prize
                 await globalPrizingPage.searchPrize()
 
-                await page.waitForTimeout(3000)
-
-
                 //delete Prize
                 await globalPrizingPage.deletePrize()
 
