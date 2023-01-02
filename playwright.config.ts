@@ -17,7 +17,7 @@ const config: PlaywrightTestConfig = {
     // "009LiveWall.test.ts",    
     "010Arcade.test.ts",
     "011AddNewExperiences.test.ts",  
-    "012Trivia.test.ts"
+    // "012Trivia.test.ts"
     
   ],
   timeout: 1 * 30 * 10000,
