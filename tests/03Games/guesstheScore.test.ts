@@ -5,6 +5,7 @@ import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 // import clipboard from 'clipboardy';
+import guesstheScoreMobilePage from '../../pages/MobileGamesPage/guessthescore_mobile_game.page';
 const clipboard = require("clipboardy");
 var url: any;
 
@@ -620,5 +621,341 @@ test("0013GTS-009 |validate edit and delete section is working",async({ loginPag
         await guesstheScorePage.clickdeletebutton()
     })
 })
+test("0013GTS-010 |Validate configurations text is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+
+    })
+    await test.step("Validate configurations text is visible", async()=>{
+        await guesstheScorePage.verifyConfigurationsText()
+    })
+})
+test("0013GTS-011 |Validate + button is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+
+    })
+    await test.step("Check + button visibility", async()=>{
+        await guesstheScorePage.verifyPlusBtn()
+    })
+})
+test("0013GTS-012 |Validate add button is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Check Add button visibility", async()=>{
+     
+        await guesstheScorePage.clickAddNewConfigPlusBtn()
+        await guesstheScorePage.verifyAddBtn()
+
+    })
+})
+test("0013GTS-013 |Validate cancel button is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Check cancel button is visible", async()=>{
+     
+        await guesstheScorePage.clickAddNewConfigPlusBtn()
+        await guesstheScorePage.verifyCancelBtn()
+
+    })
+})
+test("0013GTS-014 |Validate new configurations text is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Check new configurations text is visible", async()=>{
+     
+       // await guesstheScorePage.clickAddNewConfigPlusBtn()
+        await guesstheScorePage.verifynewConfigrationText()
+
+    })
+})
+test("0013GTS-015 |Validate start/live button is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Validate start/live button is visible", async()=>{
+     
+       // await guesstheScorePage.clickAddNewConfigPlusBtn()
+        // await guesstheScorePage.verifynewConfigrationText()
+        // await await page.waitForTimeout(2000);
+        await guesstheScorePage.verifyStartBtn()
+        await await page.waitForTimeout(2000);
+        await guesstheScorePage.clickgameStartBtn()
+        await await page.waitForTimeout(2000);
+        await guesstheScorePage.clickOkBtn()
+        await await page.waitForTimeout(2000);
+        await guesstheScorePage.verifyLiveBtn()
+
+    })
+})
+test("0013GTS-016 |Validate mobile link button is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Validate mobile link button is visible", async()=>{
+     
+       // await guesstheScorePage.clickAddNewConfigPlusBtn()
+       await guesstheScorePage.verifykMobileLinkBtn()
+        await guesstheScorePage.clickMobileLinkBtn()
+        await page.waitForTimeout(3000)
+
+    })
+})
+// test("007PD-0017 | Validate mobile link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+//     await test.step("Login Admin And land To Home Screen", async () => {
+//             await page.goto('/admin/#/sign-in')
+//             await loginPage.login(data.username, data.password)
+//             const title = await page.title();
+//             expect(title).toBe('DXP Admin')
+
+//             const screenshot = await page.screenshot();
+//             await testInfo.attach("login screenshot", {
+//                     contentType: "image/png",
+//                     body: screenshot
+//             })
+//             await guesstheScorePage.clickGuessTheScoreSection()
+//             await page.waitForTimeout(2000)
+
+
+
+//     })
+//     await test.step("Validate mobile link button is visible", async()=>{
+     
+//          await guesstheScorePage.clickMobileLinkBtn()
+//          await page.waitForTimeout(3000)
+ 
+//      })
+   
+    
+// })
+test("007PD-027 | Validate Game settings is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+    })
+    await test.step("Validate Game settings all text visible", async()=>{
+         await guesstheScorePage.verifyGameSettingsText()
+         await guesstheScorePage.clickGameSettings()
+         await guesstheScorePage.verifyScoreText()
+         await guesstheScorePage.verifyCorrectGuessText()
+         await guesstheScorePage.verifyCloseGuessText()
+         await guesstheScorePage.verifyFarGuessText()
+         await guesstheScorePage.verifyIncorrectGuessText()
+         await guesstheScorePage.verifyGuessTimeText()
+     })
+    //  await test.step("Validate Game settings all input field is visible", async()=>{
+    //     await guesstheScorePage.inputCorrectGuess()
+    //     await guesstheScorePage.inputCloseGuess()
+    //     await guesstheScorePage.inputFarGuess()
+    //     await guesstheScorePage.inputIncorrectGuess()
+    //     await guesstheScorePage.inputGuessTime()
+
+        
+
+    // })
+   
+    
+})
+test("007PD-020 | Validate close button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+    })
+    await test.step("Validate close button is working", async()=>{
+         await guesstheScorePage.clickMobileLinkBtn()
+         await page.waitForTimeout(2000)
+         await guesstheScorePage.clickCloseBtn()
+ 
+     })
+   
+    
+})
+test.only("007PD-0017 | Validate Open link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    let newTab=null;
+    let newguessthescoregame :guesstheScoreMobilePage
+    await test.step("Validate Game Open Section Functionality", async () => {
+
+            //click Mobile Link Btn
+            await guesstheScorePage.clickMobileLinkBtn()
+            //now click on open button
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+
+    })
+   
+    
+})
+// test.only("007PD-022 | Validate Mobile link Text is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+//     await test.step("Login Admin And land To Home Screen", async () => {
+//             await page.goto('/admin/#/sign-in')
+//             await loginPage.login(data.username, data.password)
+//             const title = await page.title();
+//             expect(title).toBe('DXP Admin')
+
+//             const screenshot = await page.screenshot();
+//             await testInfo.attach("login screenshot", {
+//                     contentType: "image/png",
+//                     body: screenshot
+//             })
+//             await guesstheScorePage.clickGuessTheScoreSection()
+//             await page.waitForTimeout(2000)
+
+
+
+//     })
+//     await test.step("Validate Mobile link Text is visible", async () => {
+
+//         await guesstheScorePage.clickMobileLinkBtn()
+//         await guesstheScorePage.verifyMobileLinkText()
+        
+
+// })
+   
+    
+// })
+
 
 

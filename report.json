@@ -1,0 +1,143 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "",
+        "name": "",
+        "testDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+        "testIgnore": [],
+        "testMatch": [
+          "001Login.test.ts",
+          "002MobileDesign.test.ts",
+          "003Language.test.ts",
+          "004Menu.test.ts",
+          "005SignUp.test.ts",
+          "006GlobalPrizing.test.ts",
+          "007PrizeDrop.test.ts",
+          "008TugOfWar.test.ts",
+          "009LiveWall.test.ts",
+          "010Arcade.test.ts",
+          "011AddNewExperiences.test.ts",
+          "guesstheScore.test.ts"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/playwright.config.ts",
+    "rootDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.29.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests/03Games/guesstheScore.test.ts",
+      "file": "tests/03Games/guesstheScore.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "007PD-0017 | Validate Open link button is working",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 35081,
+                  "error": {
+                    "message": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://qa-1.testingdxp.com/admin/#/sign-in\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================",
+                    "stack": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://qa-1.testingdxp.com/admin/#/sign-in\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:901:24\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:900:16"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts",
+                        "column": 24,
+                        "line": 901
+                      },
+                      "message": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://qa-1.testingdxp.com/admin/#/sign-in\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n\n\u001b[90m   at \u001b[39mtests/03Games/guesstheScore.test.ts:901\n\n\u001b[0m \u001b[90m 899 |\u001b[39m test\u001b[33m.\u001b[39monly(\u001b[32m\"007PD-0017 | Validate Open link button is working\"\u001b[39m\u001b[33m,\u001b[39m\u001b[36masync\u001b[39m({loginPage\u001b[33m,\u001b[39m  guesstheScorePage\u001b[33m,\u001b[39m page\u001b[33m,\u001b[39m browser }\u001b[33m,\u001b[39m testInfo)\u001b[33m=>\u001b[39m{\u001b[0m\n\u001b[0m \u001b[90m 900 |\u001b[39m     \u001b[36mawait\u001b[39m test\u001b[33m.\u001b[39mstep(\u001b[32m\"Login Admin And land To Home Screen\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 901 |\u001b[39m             \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/#/sign-in'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 902 |\u001b[39m             \u001b[36mawait\u001b[39m loginPage\u001b[33m.\u001b[39mlogin(data\u001b[33m.\u001b[39musername\u001b[33m,\u001b[39m data\u001b[33m.\u001b[39mpassword)\u001b[0m\n\u001b[0m \u001b[90m 903 |\u001b[39m             \u001b[36mconst\u001b[39m title \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mtitle()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 904 |\u001b[39m             expect(title)\u001b[33m.\u001b[39mtoBe(\u001b[32m'DXP Admin'\u001b[39m)\u001b[0m\n\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:901:24\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:900:16\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Login Admin And land To Home Screen",
+                      "duration": 33163,
+                      "error": {
+                        "message": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://qa-1.testingdxp.com/admin/#/sign-in\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================",
+                        "stack": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://qa-1.testingdxp.com/admin/#/sign-in\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:901:24\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:900:16"
+                      }
+                    }
+                  ],
+                  "startTime": "2023-01-03T13:15:41.715Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-007PD-0017-Validate-Open-link-button-is-working/test-failed-1.png"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts",
+                    "column": 24,
+                    "line": 901
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-20d6bdf3a38a04fdf6e4",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 899,
+          "column": 6
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -743,5 +743,153 @@ export default class guesstheScorePage {
                 const ele = this.page.frameLocator('iframe').first().locator('//button[text()="Delete"]')
                 await ele.click()
         }
+        async verifyAddBtn(){
+                const ele = this.page.frameLocator('iframe').first().locator("//button[text()='ADD']")
+                await expect(ele).toContainText('ADD')
+                await expect(ele).toBeVisible()
+        }
+        async verifyCancelBtn(){
+               const ele = await this.page.frameLocator('iframe').first().locator("(//div[@class='MuiBox-root css-12mgqqu']//button)[2]")
+               await expect(ele).toContainText("CANCEL")
+               await expect(ele).toBeVisible()
+        }
+        async verifynewConfigrationText(){
+               const ele =  await this.page.frameLocator('iframe').locator("//h6[text()='Test_By_Mahfuz']")
+               await expect(ele).toContainText('Test_By_Mahfuz')
+        }
+        async verifyStartBtn(){
+          const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()
+           expect(ele).toContainText("Start")
+           //expect(ele).toBeVisible()
+        }
+        async verifyLiveBtn(){
+                const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()
+                expect(ele).toContainText("Live")
+                // await expect(ele).toBeVisible()
+              }
+         async  clickgameStartBtn(){
+                await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
+            }
+        async clickOkBtn(){
+               await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
+               
+            }
+         async clickCancelBtn(){
+                await this.page.frameLocator('iframe').locator("///button[text()='Cancel']").click()
+            }
+         async clickgameStartandLivePopupCloseBtn(){
+                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1xnxzwa']").click()
+            }
+            async verifykMobileLinkBtn() {
+               const ele =  await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[3]")
+               expect(ele).toBeVisible()
+                 
+  
+          }
+            async clickMobileLinkBtn() {
+              await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[3]").click()
+               
+
+        }
+        // async clickMobileLinkOpenBtn(){
+        //         await this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+        // }
+        
+        async  clickMobileLinkOpenBtn() {
+
+                // Click text=Open Link
+                const [page1] = await Promise.all([
+                        this.page.waitForEvent('popup'),
+                        this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+                ]);
+
+                return page1;
+
+
+        }
+        async verifyPlusBtn(){
+                const ele = await this.page.frameLocator('iframe').first().locator("(//h5[text()='Configurations']/following-sibling::button)[1]")
+                await expect(ele).toBeVisible()
+        }
+        async clickLiveBtn(){
+                await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
+        }
+        async verifyGameSettingsText(){
+              const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first()
+              expect(ele).toContainText("Game Settings")
+        }
+        async clickGameSettings(){
+                 await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first().click()
+                
+          }
+          async verifyScoreText(){
+                const ele = await this.page.frameLocator('iframe').locator('//h4[text()="Scores"]').first()
+                expect(ele).toContainText("Scores")
+
+          }
+          async verifyCorrectGuessText(){
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Correct Guess"]').first()
+                expect(ele).toContainText("Correct Guess")
+
+                
+          }
+          async verifyCloseGuessText(){
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Close Guess"]').first()
+                expect(ele).toContainText("Close Guess")
+
+          }
+          async verifyFarGuessText(){
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Far Guess"]').first()
+                expect(ele).toContainText("Far Guess")
+
+          }
+          async verifyIncorrectGuessText(){
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Incorrect Guess"]').first()
+                expect(ele).toContainText("Incorrect Guess")
+
+          }
+          async verifyGuessTimeText(){
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Guess Time"]').first()
+                expect(ele).toContainText("Guess Time")
+
+          }
+          async inputCorrectGuess(){
+                await this.page.frameLocator('iframe').locator('#P0-73').last().type("50")
+                
+
+                
+          }
+          async inputFarGuess(){
+                await this.page.frameLocator('iframe').locator('#P0-74').last().type("30")
+                
+
+                
+          }
+          async inputCloseGuess(){
+                await this.page.frameLocator('iframe').locator('#P0-75').last().type("40")
+                
+
+                
+          }
+          async inputIncorrectGuess(){
+                await this.page.frameLocator('iframe').locator('#P0-76').last().type("40")
+                
+
+                
+          }
+          async inputGuessTime(){
+                await this.page.frameLocator('iframe').locator('#P0-77').last().type("10")
+                
+
+                
+          }
+        async clickCloseBtn(){
+                await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').click()
+        }
+        async verifyMobileLinkText(){
+               const ele =  await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link'").click()
+
+        }
+
 
 }
