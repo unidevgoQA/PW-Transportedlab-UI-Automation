@@ -59,4 +59,20 @@ export default class prizeDropMobilePage {
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
+
+         async GoTo(URL: string){
+              await this.page.goto(URL)
+              await this.page.waitForTimeout(3000)
+         }
+
+         // color related functions from here
+        async checkTextcolor(){
+              const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
+              const color = await ele.evaluate((ele) =>{
+                     return window.getComputedStyle(ele).getPropertyValue("color")
+              })
+              expect(color).toBe("rgb(189,179,229)")
+        }
+
+
     }

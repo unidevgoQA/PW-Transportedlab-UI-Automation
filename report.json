@@ -1,0 +1,177 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "",
+        "name": "",
+        "testDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation",
+        "testIgnore": [],
+        "testMatch": [
+          "001Login.test.ts",
+          "002MobileDesign.test.ts",
+          "003Language.test.ts",
+          "004Menu.test.ts",
+          "005SignUp.test.ts",
+          "006GlobalPrizing.test.ts",
+          "007PrizeDrop.test.ts",
+          "008TugOfWar.test.ts",
+          "009LiveWall.test.ts",
+          "010Arcade.test.ts",
+          "011AddNewExperiences.test.ts",
+          "guesstheScore.test.ts"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
+    "rootDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.28.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\03Games\\007PrizeDrop.test.ts",
+      "file": "tests/03Games/007PrizeDrop.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "007PD-005 | Validate All The Color Input Functionality and their reflection on mobile screen",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 25975,
+                  "error": {
+                    "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"rgb(\u001b[7m189,179,229\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"rgb(\u001b[7m255, 255, 255\u001b[27m)\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"rgb(\u001b[7m189,179,229\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"rgb(\u001b[7m255, 255, 255\u001b[27m)\"\u001b[39m\n    at prizeDropMobilePage.checkTextcolor (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\prizedrop_mobile_game.page.ts:74:29)\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:870:17\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:869:9"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\prizedrop_mobile_game.page.ts",
+                        "column": 29,
+                        "line": 74
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"rgb(\u001b[7m189,179,229\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"rgb(\u001b[7m255, 255, 255\u001b[27m)\"\u001b[39m\n\n\u001b[90m   at \u001b[39mpages\\MobileGamesPage\\prizedrop_mobile_game.page.ts:74\n\n  72 |                      return window.getComputedStyle(ele).getPropertyValue(\"color\")\n  73 |               })\n> 74 |               expect(color).toBe(\"rgb(189,179,229)\")\n     |                             ^\n  75 |         }\n  76 |\n  77 |\n\n\u001b[2m    at prizeDropMobilePage.checkTextcolor (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\prizedrop_mobile_game.page.ts:74:29)\u001b[22m\n\u001b[2m    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:870:17\u001b[22m\n\u001b[2m    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:869:9\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Login Admin And land To Home Screen",
+                      "duration": 6499
+                    },
+                    {
+                      "title": "navigate to color section and click clear all button",
+                      "duration": 2931
+                    },
+                    {
+                      "title": "now click on start button on Admin site",
+                      "duration": 3039
+                    },
+                    {
+                      "title": "now open the game in mobile view",
+                      "duration": 583
+                    },
+                    {
+                      "title": "provide values in form field of mobile view and submit",
+                      "duration": 9276
+                    },
+                    {
+                      "title": "validate Admin can change the Text color settings successfully",
+                      "duration": 3174
+                    },
+                    {
+                      "title": "now validate text color change is visible on mobile",
+                      "duration": 129,
+                      "error": {
+                        "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"rgb(\u001b[7m189,179,229\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"rgb(\u001b[7m255, 255, 255\u001b[27m)\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"rgb(\u001b[7m189,179,229\u001b[27m)\"\u001b[39m\nReceived: \u001b[31m\"rgb(\u001b[7m255, 255, 255\u001b[27m)\"\u001b[39m\n    at prizeDropMobilePage.checkTextcolor (e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\prizedrop_mobile_game.page.ts:74:29)\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:870:17\n    at e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\tests\\03Games\\007PrizeDrop.test.ts:869:9"
+                      }
+                    }
+                  ],
+                  "startTime": "2023-01-03T11:44:29.881Z",
+                  "attachments": [
+                    {
+                      "name": "login screenshot",
+                      "contentType": "image/png",
+                      "body": "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gAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAFflOoIAAAPKSURBVIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgAAAAACQmAAIAAAAAIkJgPD/27EDGQAAAIBB/tb3+AojAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYC2Uz3+/JQGhfAAAAAElFTkSuQmCC"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-005-Validate--09bb5-tionality-and-their-reflection-on-mobile-screen\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-005-Validate--09bb5-tionality-and-their-reflection-on-mobile-screen\\test-failed-2.png"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\prizedrop_mobile_game.page.ts",
+                    "column": 29,
+                    "line": 74
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1839f391993006ddc23c",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 728,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -32,23 +32,23 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 
-  // reporter: process.env.CI ? [["junit", {
-  //   outputFile: "results.xml"
-  // }]] : [["json", {
-  //   outputFile: "report.json"
-  // }], ["html", {
-  //   open: "never"
-  // }]],
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "never"
+  }]],
 
 // reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
 
 
 
-  reporter: [["html", {
-    open: "never"
-  }], ["allure-playwright"], ['./My-Reporter.js']],
+  // reporter: [["html", {
+  //   open: "never"
+  // }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 
@@ -62,11 +62,11 @@ const config: PlaywrightTestConfig = {
       slowMo: 100
       
   },
-  permissions: ["microphone","camera"],
+  permissions: ["microphone","camera","clipboard-read","clipboard-write"],
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
-    channel: 'chrome',
-    viewport: { width: 1700, height: 920 },
+    // channel: 'chrome',
+    // viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
     
   
