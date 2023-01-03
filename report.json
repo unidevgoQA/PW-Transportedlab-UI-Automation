@@ -1,0 +1,147 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "",
+        "name": "",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
+        "testIgnore": [],
+        "testMatch": [
+          "001Login.test.ts",
+          "002MobileDesign.test.ts",
+          "003Language.test.ts",
+          "004Menu.test.ts",
+          "005SignUp.test.ts",
+          "006GlobalPrizing.test.ts",
+          "007PrizeDrop.test.ts",
+          "008TugOfWar.test.ts",
+          "009LiveWall.test.ts",
+          "010Arcade.test.ts",
+          "011AddNewExperiences.test.ts",
+          "guesstheScore.test.ts"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "report.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.29.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\02MainMenu\\002MobileDesign.test.ts",
+      "file": "tests/02MainMenu/002MobileDesign.test.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "MD002-08 | Validate Try To Upload Invalid Font Format",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "failed",
+                  "duration": 81153,
+                  "error": {
+                    "message": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================",
+                    "stack": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:764:32\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:751:9"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts",
+                        "column": 32,
+                        "line": 764
+                      },
+                      "message": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================\n\n\u001b[90m   at \u001b[39mtests\\02MainMenu\\002MobileDesign.test.ts:764\n\n\u001b[0m \u001b[90m 762 |\u001b[39m                     })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 763 |\u001b[39m                     \u001b[90m// await page.click(\"#accept\")\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 764 |\u001b[39m                     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m\"dialog\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 765 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 766 |\u001b[39m         })\u001b[0m\n\u001b[0m \u001b[90m 767 |\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:764:32\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:751:9\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Login Admin And Land to Home Screen",
+                      "duration": 15646
+                    },
+                    {
+                      "title": "Validate Try To Upload Invalid Font",
+                      "duration": 64574,
+                      "error": {
+                        "message": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================",
+                        "stack": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"dialog\"\n=========================== logs ===========================\nwaiting for event \"dialog\"\n============================================================\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:764:32\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:751:9"
+                      }
+                    }
+                  ],
+                  "startTime": "2023-01-03T09:33:38.350Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-002MobileDesign-MD002-08-Validate-Try-To-Upload-Invalid-Font-Format\\test-failed-1.png"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts",
+                    "column": 32,
+                    "line": 764
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "763aa67a7d12c7767892-5ae8bd5237bf0086efe1",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 738,
+          "column": 6
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

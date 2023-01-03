@@ -708,3 +708,62 @@ test("MD002-06 | Validates Video Upload Functionality For Mobile Design", async 
      
 
 })
+
+test("MD002-07 | Validate Try To Upload Invalid Font Format", async ({ loginPage, MainMenu, page }) => {
+
+        await test.step("Login Admin And Land to Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                await MainMenu.clickHomeAvater();
+                await MainMenu.mainMenuBtn();
+                await MainMenu.clickMobileDesign();
+        })
+
+        await test.step("Validate Try To Upload Invalid Font", async () => {
+                
+                //delete Font
+                await MainMenu.deleteFont()
+                //click Upload Font And Upload Files
+                await MainMenu.validateTryToUploadInvalidFont()
+                await page.waitForTimeout(4000)
+
+        })
+
+
+})
+
+test.skip("MD002-08 | Validate Try To Upload Invalid Font Format", async ({ loginPage, MainMenu, page }) => {
+
+        await test.step("Login Admin And Land to Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                await MainMenu.clickHomeAvater();
+                await MainMenu.mainMenuBtn();
+                await MainMenu.clickMobileDesign();
+        })
+
+        await test.step("Validate Try To Upload Invalid Font", async () => {
+                
+
+                //click Upload Font And Upload Files
+                await MainMenu.validateTryToUploadInvalidFont()
+                await page.waitForTimeout(4000)
+                await MainMenu.clickUploadFontsInputFiled()
+
+                page.on("dialog", async (alert) => {
+                        console.log('Alert message: ' + alert.message());
+                        await alert.accept();
+                    });
+                    // await page.click("#accept")
+                    await page.waitForEvent("dialog");
+
+        })
+
+
+})

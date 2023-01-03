@@ -18,12 +18,12 @@ export default class MobileDesign {
         await ele.click()
     }
 
-    
-   async clickArcadePage() {
-    const ele = this.page.locator('text=Arcade')
-    expect(ele).toContainText('Arcade')
-    await ele.click()
-}
+
+    async clickArcadePage() {
+        const ele = this.page.locator('text=Arcade')
+        expect(ele).toContainText('Arcade')
+        await ele.click()
+    }
 
     async HomeAvater() {
         await this.page.locator('button').nth(2)
@@ -55,7 +55,11 @@ export default class MobileDesign {
     }
 
     async clickUploadFontInputFiled() {
-        await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").first().click()
+        await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").first().click({force:true})
+    }
+
+    async clickUploadFontsInputFiled() {
+        await this.page.locator("//div[@class='MuiBox-root css-v2612']").first().click({force:true})
     }
 
     //click on the clear button
@@ -475,243 +479,243 @@ export default class MobileDesign {
 
 
     async deleteUploadedLandscapeBG() {
-                     
-            let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
-               if ((ele == true)) {
-                    // console.log("delete Uploaded Landscape BG ")
-                    await this.page
-                            .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                                    .click()
-               }        
-       
-               
-       
+
+        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        if ((ele == true)) {
+            // console.log("delete Uploaded Landscape BG ")
+            await this.page
+                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .click()
+        }
+
+
+
     }
     async deleteUploadedPortraitBG() {
-                     
-        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
-           if ((ele == true)) {
-                // console.log("delete Uploaded Portrait BG ")
-                await this.page
-                        .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                                .click()
-           }        
-   
-           
-   
-}
 
-async deleteUploadedLandscapeBGHeader() {
-                     
-    let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
-       if ((ele == true)) {
+        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        if ((ele == true)) {
+            // console.log("delete Uploaded Portrait BG ")
+            await this.page
+                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .click()
+        }
+
+
+
+    }
+
+    async deleteUploadedLandscapeBGHeader() {
+
+        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        if ((ele == true)) {
             // console.log("delete Uploaded Landscape BG Header ")
             await this.page
-                    .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                            .click()
-       }        
+                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .click()
+        }
 
-       
 
-}
 
-async deleteUploadedPortraitBGHeader() {
-                     
-    let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
-       if ((ele == true)) {
+    }
+
+    async deleteUploadedPortraitBGHeader() {
+
+        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        if ((ele == true)) {
             // console.log("delete Uploaded Portrait BG Header ")
             await this.page
-                    .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                            .click()
-       }        
-
-       
-
-}
+                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .click()
+        }
 
 
-async deleteUploadedMainLogo() {
-                     
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-8eu9qp']//button)[2]").isVisible()
-       if ((ele == true)) {
+
+    }
+
+
+    async deleteUploadedMainLogo() {
+
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-8eu9qp']//button)[2]").isVisible()
+        if ((ele == true)) {
             // console.log("delete Uploaded Portrait BG Header ")
             await this.page.locator("(//div[@class='MuiBox-root css-8eu9qp']//button)[2]")
-                            .click()
-       }        
-
-       
-
-}
+                .click()
+        }
 
 
-async deleteFont() {
-                     
-    let ele = await this.page.locator("(//div[@class='MuiBox-root css-718jsx'])[1]").isVisible()
-       if ((ele == true)) {
+
+    }
+
+
+    async deleteFont() {
+
+        let ele = await this.page.locator("(//div[@class='MuiBox-root css-718jsx'])[1]").isVisible()
+        if ((ele == true)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//div[@class='MuiBox-root css-718jsx'])[1]")
-                            .click()
-       }        
+                .locator("(//div[@class='MuiBox-root css-718jsx'])[1]")
+                .click()
+        }
 
-       
 
-}
 
-async clickPortraitBackgroundHeaderVideoCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickPortraitBackgroundHeaderVideoCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='video'])[4]")
-                            .check()
-       }        
+                .locator("(//input[@value='video'])[4]")
+                .check()
+        }
 
-       
 
-}
 
-async clickLandscapeBackgroundHeaderVideoCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickLandscapeBackgroundHeaderVideoCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='video'])[3]")
-                            .check()
-       }     
+                .locator("(//input[@value='video'])[3]")
+                .check()
+        }
 
-       
 
-}
 
-async clickPortraitBackgroundVideoCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickPortraitBackgroundVideoCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='video'])[2]")
-                            .check()
-       }     
+                .locator("(//input[@value='video'])[2]")
+                .check()
+        }
 
-       
 
-}
 
-async clickLandscapeBackgroundVideoCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='video'])[1]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickLandscapeBackgroundVideoCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='video'])[1]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='video'])[1]")
-                            .click()
-       }     
-
-       
-
-}
+                .locator("(//input[@value='video'])[1]")
+                .click()
+        }
 
 
-async clickPortraitBackgroundHeaderimageCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-       if ((ele == false)) {
+
+    }
+
+
+    async clickPortraitBackgroundHeaderimageCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='image'])[4]")
-                            .check()
-       }        
+                .locator("(//input[@value='image'])[4]")
+                .check()
+        }
 
-       
 
-}
 
-async clickLandscapeBackgroundHeaderimageCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickLandscapeBackgroundHeaderimageCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='image'])[3]")
-                            .check()
-       }     
+                .locator("(//input[@value='image'])[3]")
+                .check()
+        }
 
-       
 
-}
 
-async clickPortraitBackgroundimageCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickPortraitBackgroundimageCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='image'])[2]")
-                            .check()
-       }     
+                .locator("(//input[@value='image'])[2]")
+                .check()
+        }
 
-       
 
-}
 
-async clickLandscapeBackgroundimageCheckBox() {
-                     
-    let ele = await this.page.locator("(//input[@value='image'])[1]").isChecked()
-       if ((ele == false)) {
+    }
+
+    async clickLandscapeBackgroundimageCheckBox() {
+
+        let ele = await this.page.locator("(//input[@value='image'])[1]").isChecked()
+        if ((ele == false)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                    .locator("(//input[@value='image'])[1]")
-                            .check()
-       }     
+                .locator("(//input[@value='image'])[1]")
+                .check()
+        }
 
-       
 
-}
 
-async clickToUploadMainLogo() {
+    }
 
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[6]")
-    await ele.click()                    
+    async clickToUploadMainLogo() {
 
-       
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[6]")
+        await ele.click()
 
-}
-async clickToUploadPortraitBackgroundHeader() {
 
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[5]")
-    await ele.click()                    
 
-       
+    }
+    async clickToUploadPortraitBackgroundHeader() {
 
-}
-async clickToUploadLandscapeBackgroundHeader() {
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[5]")
+        await ele.click()
 
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[4]")
-    await ele.click()                    
 
-       
 
-}
-async clickToUploadPortraitBackground() {
+    }
+    async clickToUploadLandscapeBackgroundHeader() {
 
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[3]")
-    await ele.click()                    
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[4]")
+        await ele.click()
 
-       
 
-}
 
-async clickToUploadLandscapeBackground() {
+    }
+    async clickToUploadPortraitBackground() {
 
-    const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-    await ele.click()                    
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[3]")
+        await ele.click()
 
-       
 
-}
+
+    }
+
+    async clickToUploadLandscapeBackground() {
+
+        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
+        await ele.click()
+
+
+
+    }
 
 
 
@@ -730,6 +734,15 @@ async clickToUploadLandscapeBackground() {
     //Start function from here
     async clickUploadFontAndUploadFiles() {
         const filePath0 = "files/Thin.otf"
+        this.page.on("filechooser", async (filechooser) => {
+            await filechooser.setFiles([filePath0]);
+        })
+        await this.clickUploadFontInputFiled();
+    }
+
+    //Start function from here
+    async validateTryToUploadInvalidFont() {
+        const filePath0 = "testData/csv/csv.csv"
         this.page.on("filechooser", async (filechooser) => {
             await filechooser.setFiles([filePath0]);
         })
