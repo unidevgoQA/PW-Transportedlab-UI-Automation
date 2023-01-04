@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { readFileSync } from 'fs'
+import { existsSync, lstat, readFileSync } from 'fs'
 export default class guesstheScorePage {
         // [x: string]: any;
 
@@ -50,7 +50,7 @@ export default class guesstheScorePage {
         }
 
         async clickGameDesign() {
-                await this.page.frameLocator('iframe').locator("//h6[text()='test_by_Automation']/parent::div/following-sibling::div//div//div//p[text()='Game Design']").click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last().click()
 
         }
 
@@ -768,7 +768,7 @@ export default class guesstheScorePage {
                 // await expect(ele).toBeVisible()
               }
          async  clickgameStartBtn(){
-                await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
+                await this.page.frameLocator('iframe').locator("//button[text()='Start']").first().click()
             }
         async clickOkBtn(){
                await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
@@ -887,9 +887,204 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').click()
         }
         async verifyMobileLinkText(){
-               const ele =  await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link'").click()
+               const ele =  await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link']")
+               expect(ele).toContainText("Mobile Link")
 
         }
+        async clickMobileLinkCopyBtn(){
+                await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]').click()
+        }
+        async verifySaveQRCodeText(){
+              const ele =   await this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]')
+              expect(ele).toContainText("Save QR Code")
+
+        }
+        async validateSaveQRCode(){
+                const [download] = await Promise.all([
+                        this.page.waitForEvent('download'),
+                        this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click()
+             ])
+               const suggestedFileName = download.suggestedFilename()
+               const filePath = 'QRCode' + suggestedFileName
+               await download.saveAs(filePath)
+               expect(existsSync(filePath)).toBeTruthy()
+        }
+        async verifyCopyQRCodeText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]')
+                expect(ele).toContainText("Copy QR Code")
+  
+          }
+          async clickQRcodecopybtn(){
+                await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]').click()
+          }
+          async verifyUploadFontText(){
+              const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
+              expect(ele).toContainText("Upload Font")
+
+
+          }
+          async clickFontsSection(){
+             await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]').click()
+        
+
+          }
+          async verifyFontsText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//h4[text()="Fonts"]')
+                expect(ele).toContainText("Fonts")
+  
+  
+            }
+            async verifyOpenFontsSection(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]')
+                expect(ele).toBeVisible()
+            }
+            async verifyUploadFontsBtn(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
+              expect(ele).toBeVisible()
+            }
+            async verifyopencolorssection() {
+               const ele = await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div')
+               expect(ele).toBeVisible()
+        }
+        async verifyColorsBackgroundText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Background"]')
+                expect(ele).toContainText("Background")
+        }
+        async verifyColorsText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Text"]')
+                expect(ele).toContainText("Text")
+        }
+        async verifyColorsHeaderText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Header"]')
+                expect(ele).toContainText("Header")
+        }
+        async verifyColorsButtonsText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Buttons"]')
+                expect(ele).toContainText("Buttons")
+        }
+        async verifyColorsMainboardBackgroundText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Mainboard Background"]')
+                expect(ele).toContainText("Mainboard Background")
+        }
+        async verifyColorsEventTitleFontText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Event Title Font"]')
+                expect(ele).toContainText("Event Title Font")
+        }
+        async verifyColorsTimerCircleText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Timer Circle"]')
+                expect(ele).toContainText("Timer Circle")
+        }
+        async verifyColorsWoodText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Wood"]')
+                expect(ele).toContainText("Wood")
+        }
+        async verifyColorsGameplayScoreText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Gameplay Score Text"]')
+            
+                expect(ele).toContainText("Gameplay Score Text")
+        }
+        async verifyColorsTimerBackgroundText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Timer Background"]')
+            
+                expect(ele).toContainText("Timer Background")
+        }
+        async verifyopenImageUploadSection(){
+                const ele =   await this.page.frameLocator('iframe').locator(' //p[text()="Image Uploads"]')
+              expect(ele).toBeVisible()
+               
+        }
+        async verifyMobileBackgroundText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Mobile Background"]')
+            
+                expect(ele).toContainText("Mobile Background")
+        }
+        async verifyuploadMobileBackgroundImageBtn(){
+                const ele =   await this.page.frameLocator('iframe').locator(' (//div[@class="MuiBox-root css-v2612"])[2]')
+              expect(ele).toBeVisible()
+              ele.click()
+
+                
+        }
+        async verifyGameTitleLogoText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Game Title Logo"]')
+            
+                expect(ele).toContainText("Game Title Logo")
+        }
+        async verifyGameTitleLogoUploadBtn(){
+                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[3]')
+            
+                expect(ele).toBeVisible()
+        }
+        async verifySponsorLogoText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Sponsor Logo"]')
+            
+                expect(ele).toContainText("Sponsor Logo")
+        }
+        async verifySponsorLogoUploadBtn(){
+                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[4]')
+            
+                expect(ele).toBeVisible()
+        }
+        async verifyBannerImageText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Banner Image"]')
+            
+                expect(ele).toContainText("Banner Image")
+        }
+        async verifyBannerImageUploadBtn(){
+                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[5]')
+            
+                expect(ele).toBeVisible()
+        }
+        async clickStartGameOkBtn() {
+
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
+
+                // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
+                // expect(ele).toBeVisible()
+                // await ele.click({force:true})
+
+        }
+
+  async verifyAnalyticsText(){
+        const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last()
+            
+                expect(ele).toContainText("Analytics")
+        
+  }
+  async clickAnalyticsBtn(){
+        await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last().click({force : true})
+        
+        
+  }
+  async verifyDateText(){
+       const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Date"]')
+       expect(ele).toContainText("Date")
+        
+  }
+  async verifyQRScsnsText(){
+       const ele =  await this.page.frameLocator('iframe').locator('//span[text()="QR Scans"]')
+       expect(ele).toContainText("QR Scans")
+  }
+  async verifyTotalPlayersText(){
+        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Total Players"]')
+        expect(ele).toContainText("Total Players")
+   }
+   async verifyUniqueUsersPlayedText(){
+        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Unique Users Played"]')
+        expect(ele).toContainText("Unique Users Played")
+   }
+   async verifyReturningUsersText(){
+        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Returning Users"]')
+        expect(ele).toContainText("Returning Users")
+   }
+   async verifyTotalTimePlayedText(){
+        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Total Time Played"]')
+        expect(ele).toContainText("Total Time Played")
+   }
+   async verifyActionText(){
+        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Action"]')
+        expect(ele).toContainText("Action")
+   }
 
 
 }

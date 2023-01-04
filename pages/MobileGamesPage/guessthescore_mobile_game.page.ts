@@ -59,4 +59,9 @@ export default class guesstheScoreMobilePage {
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
+         async GoTo(URL : string){
+              //console.log(URL)
+              await this.page.goto(URL)
+              await this.page.waitForTimeout(3000)
+         }
     }

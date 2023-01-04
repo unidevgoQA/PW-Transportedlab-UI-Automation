@@ -62,7 +62,7 @@ const config: PlaywrightTestConfig = {
       slowMo: 100
       
   },
-  permissions: ["microphone","camera"],
+  permissions: ["microphone","camera","clipboard-read", "clipboard-write"],
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'chrome',
