@@ -56,6 +56,14 @@ export default class prizeDropMobilePage {
                 await this.page.locator('//button[text()="Submit"]').click()
          }
 
+         async verifyUserNameInputFieldTitle(){
+              const ele = this.page.locator("//label[text()='Username']")
+              expect(ele).toBeVisible()
+              
+       }
+
+         
+
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }

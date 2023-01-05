@@ -54,12 +54,75 @@ export default class MobileDesign {
         await this.page.locator('text=Fonts')
     }
 
+    async click_closebutton_in_mobilelinkmodal() {
+        await this.page.frameLocator('.css-r99fy3').locator('(//div[@role="dialog"]//button)[1]').click()
+    }
+
+
+    async clickEntryScreenSelectField() {
+        const ele = this.page.locator("//div[@role='button']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async selectEntryScreenUserProfile() {
+        const ele = this.page.locator("//li[@data-value='userProfile']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async clickMobileLinkBtn() {
+        const ele = this.page.frameLocator('iframe').locator(`[data-testid="MobileScreenShareIcon"]`).first()
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async  clickMobileLinkOpenBtn() {
+
+        // Click text=Open Link
+        const [page1] = await Promise.all([
+                this.page.waitForEvent('popup'),
+                this.page.frameLocator('iframe').locator('text=Open Link').click()
+        ]);
+
+        return page1;
+
+
+}
+
+
+
+    async selectEntryScreenRules() {
+        const ele = this.page.locator("//li[@data-value='rules']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async selectEntryScreenHowToPlay() {
+        const ele = this.page.locator("//li[@data-value='howToPlay']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async selectEntryScreenPrize() {
+        const ele = this.page.locator("//li[@data-value='prize']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+    async selectEntryScreenHome() {
+        const ele = this.page.locator("//li[@data-value='home']")
+        expect(ele).toBeVisible()
+        await ele.click({ force: true })
+    }
+
+
     async clickUploadFontInputFiled() {
-        await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").first().click({force:true})
+        await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").first().click({ force: true })
     }
 
     async clickUploadFontsInputFiled() {
-        await this.page.locator("//div[@class='MuiBox-root css-v2612']").first().click({force:true})
+        await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").dblclick({ force: true })
     }
 
     //click on the clear button
