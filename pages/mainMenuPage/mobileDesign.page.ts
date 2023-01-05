@@ -151,24 +151,24 @@ export default class MobileDesign {
 
 
     async primaryColorFirstInputField() {
-        await this.page.locator("(//input[@type='text'])[1]").fill("231")
+        await this.page.locator("(//input[@type='text'])[1]").fill("95")
     }
 
 
     async primaryColorSecondInputField() {
-        await this.page.locator("(//input[@type='text'])[2]").fill("195")
+        await this.page.locator("(//input[@type='text'])[2]").fill("188")
     }
 
     async primaryColorThirdInputField() {
-        await this.page.locator("(//input[@type='text'])[3]").fill("14")
+        await this.page.locator("(//input[@type='text'])[3]").fill("210")
     }
 
     async primaryColorOpacityInputField() {
-        await this.page.locator("(//input[@type='text'])[4]").fill("50")
+        await this.page.locator("(//input[@type='text'])[4]").fill("100")
     }
 
     async primaryColorHexInputField() {
-        await this.page.locator("(//input[@type='text'])[5]").fill("ff2b6aff")
+        await this.page.locator("(//input[@type='text'])[5]").fill("5FBCD2FF")
     }
 
     async clickSaveBtn() {
@@ -195,24 +195,24 @@ export default class MobileDesign {
 
 
     async SecondaryColorFirstInputField() {
-        await this.page.locator("(//input[@type='text'])[1]").fill("20")
+        await this.page.locator("(//input[@type='text'])[1]").fill("96")
     }
 
 
     async SecondaryColorSecondInputField() {
-        await this.page.locator("(//input[@type='text'])[2]").fill("10")
+        await this.page.locator("(//input[@type='text'])[2]").fill("37")
     }
 
     async SecondaryColorThirdInputField() {
-        await this.page.locator("(//input[@type='text'])[3]").fill("13")
+        await this.page.locator("(//input[@type='text'])[3]").fill("74")
     }
 
     async SecondaryColorOpacityInputField() {
-        await this.page.locator("(//input[@type='text'])[4]").fill("55")
+        await this.page.locator("(//input[@type='text'])[4]").fill("100")
     }
 
     async SecondaryColorHexInputField() {
-        await this.page.locator("(//input[@type='text'])[5]").fill("fd2b6aff")
+        await this.page.locator("(//input[@type='text'])[5]").fill("60254AFF")
     }
 
     //Tertiary color input field ele

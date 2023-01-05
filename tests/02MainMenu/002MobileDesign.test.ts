@@ -57,7 +57,7 @@ test("MD002-01 | Validate Font upload functionality", async ({ loginPage, MainMe
 })
 
 
-test("MD002-01 | Validate Admin Successfully Select Entry Screen As User Profile", async ({ loginPage, MainMenu, page }) => {
+test("MD002-02 | Validate Admin Successfully Select Entry Screen As User Profile", async ({ loginPage, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -84,7 +84,7 @@ test("MD002-01 | Validate Admin Successfully Select Entry Screen As User Profile
 
 })
 
-test("007PD-005 | Validate Entry Screen As User Profile Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-003 | Validate Entry Screen As User Profile Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -154,7 +154,7 @@ test("007PD-005 | Validate Entry Screen As User Profile Applied Successfully on 
 
 })
 
-test("MD002-01s | Validate Admin Successfully Select Entry Screen As Role", async ({ loginPage, MainMenu, page }) => {
+test("MD002-04 | Validate Admin Successfully Select Entry Screen As Role", async ({ loginPage, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -181,7 +181,7 @@ test("MD002-01s | Validate Admin Successfully Select Entry Screen As Role", asyn
 
 })
 
-test("007PD-005 | Validate Entry Screen As Role Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-005 | Validate Entry Screen As Role Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -251,7 +251,7 @@ test("007PD-005 | Validate Entry Screen As Role Applied Successfully on Mobile S
 
 })
 
-test("MD002-01s | Validate Admin Successfully Select Entry Screen As How To Play", async ({ loginPage, MainMenu, page }) => {
+test("MD002-006 | Validate Admin Successfully Select Entry Screen As How To Play", async ({ loginPage, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -278,7 +278,7 @@ test("MD002-01s | Validate Admin Successfully Select Entry Screen As How To Play
 
 })
 
-test("007PD-005 | Validate Entry Screen As How To Play Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-007 | Validate Entry Screen As How To Play Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -341,7 +341,7 @@ test("007PD-005 | Validate Entry Screen As How To Play Applied Successfully on M
 
 })
 
-test("MD002-01s | Validate Admin Successfully Select Entry Screen As Prize", async ({ loginPage, MainMenu, page }) => {
+test("MD002-008 | Validate Admin Successfully Select Entry Screen As Prize", async ({ loginPage, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -368,7 +368,7 @@ test("MD002-01s | Validate Admin Successfully Select Entry Screen As Prize", asy
 
 })
 
-test("007PD-005 | Validate Entry Screen As Prize Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-009 | Validate Entry Screen As Prize Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -431,7 +431,7 @@ test("007PD-005 | Validate Entry Screen As Prize Applied Successfully on Mobile 
 
 })
 
-test("MD002-01s | Validate Admin Successfully Select Entry Screen As Home", async ({ loginPage, MainMenu, page }) => {
+test("MD002-010 | Validate Admin Successfully Select Entry Screen As Home", async ({ loginPage, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -458,7 +458,7 @@ test("MD002-01s | Validate Admin Successfully Select Entry Screen As Home", asyn
 
 })
 
-test("007PD-005 | Validate Entry Screen As Home Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-011 | Validate Entry Screen As Home Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -521,7 +521,63 @@ test("007PD-005 | Validate Entry Screen As Home Applied Successfully on Mobile S
 
 })
 
-test("007PD-005 | Validate Secondary Color Applied Into Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+
+test("MD002-012 | Verify input parimary color functionality", async ({ loginPage, MainMenu, page }) => {
+
+        await test.step("Login Admin And Land to Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                await MainMenu.clickHomeAvater();
+
+
+
+                await MainMenu.mainMenuBtn();
+
+
+
+                await MainMenu.clickMobileDesign();
+
+                await page.waitForTimeout(6000)
+
+                // await expect(page).toHaveURL(Env.MobileDesignPageUrl)
+
+        })
+
+        await test.step("MD002-02 | Verify input parimary color functionality", async () => {
+
+
+                await MainMenu.clickClearAllBtn();
+
+
+                await MainMenu.checkPrimaryColortxt()
+
+                await MainMenu.clickPrimaryColorField()
+
+                await MainMenu.primaryColorFirstInputField()
+
+                await MainMenu.primaryColorSecondInputField()
+
+                await MainMenu.primaryColorThirdInputField()
+
+                await MainMenu.primaryColorOpacityInputField()
+
+                await MainMenu.primaryColorHexInputField()
+
+                await MainMenu.clickSaveBtn()
+
+        })
+
+
+
+
+
+})
+
+test("MD002-013 | Validate parimary Color Applied Into Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -590,6 +646,132 @@ test("007PD-005 | Validate Secondary Color Applied Into Mobile Screen", async ({
         
 
 })
+
+test("MD002-014 | Verify input secondary color functionality", async ({ loginPage, MainMenu, page }) => {
+
+        await test.step("Login Admin And Land to Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                await MainMenu.clickHomeAvater();
+
+
+
+                await MainMenu.mainMenuBtn();
+
+
+
+                await MainMenu.clickMobileDesign();
+
+                await page.waitForTimeout(6000)
+
+                // await expect(page).toHaveURL(Env.MobileDesignPageUrl)
+
+        })
+
+        await test.step("MD002-03 | Verify input secondary color functionality", async () => {
+
+
+
+
+
+
+
+                await MainMenu.checkSecondaryText();
+
+                await MainMenu.clickSecondaryColorBtn();
+
+
+                await MainMenu.SecondaryColorFirstInputField()
+
+                await MainMenu.SecondaryColorSecondInputField()
+
+                await MainMenu.SecondaryColorThirdInputField()
+
+                await MainMenu.SecondaryColorOpacityInputField()
+
+                await MainMenu.SecondaryColorHexInputField()
+
+                await MainMenu.clickSaveBtn()
+
+
+
+
+
+
+        })
+
+
+
+
+
+
+})
+
+
+test("MD002-015 | Validate Secondary Color Applied Into Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to color section and click clear all button", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+
+        })       
+        
+        await test.step("now click on start button on Admin site", async() =>{
+                // await prizeDropPage.clickstartbutton()
+
+                // await prizeDropPage.clickStartGameOkBtn()
+        })
+        let newTab=null;
+        let newmobilePreviewPage :mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async() =>{
+              
+                  //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                 //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)
+                // await MainMenu.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("provide values in form field of mobile view and submit", async() =>{
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+                await newmobilePreviewPage.clickPrizeBtn()
+                await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
+                
+        })
+
+})
+
+
 
 
 
@@ -667,93 +849,6 @@ test.skip("007PD-012 | Validate Game Link Successfully Copy in system clipboard"
 
 
 
-test("MD002-02 | Verify input parimary color functionality", async ({ loginPage, MainMenu, page }) => {
-
-        await test.step("Login Admin And Land to Home Screen", async () => {
-
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-
-                await MainMenu.clickHomeAvater();
-
-
-
-                await MainMenu.mainMenuBtn();
-
-
-
-                await MainMenu.clickMobileDesign();
-
-                await page.waitForTimeout(6000)
-
-                // await expect(page).toHaveURL(Env.MobileDesignPageUrl)
-
-        })
-
-        await test.step("MD002-02 | Verify input parimary color functionality", async () => {
-
-
-                await MainMenu.clickClearAllBtn();
-
-
-                await MainMenu.checkPrimaryColortxt()
-
-                await MainMenu.clickPrimaryColorField()
-
-
-
-
-                await MainMenu.primaryColorFirstInputField()
-
-                await MainMenu.primaryColorSecondInputField()
-
-                await MainMenu.primaryColorThirdInputField()
-
-                await MainMenu.primaryColorOpacityInputField()
-
-                await MainMenu.primaryColorHexInputField()
-
-                await MainMenu.clickSaveBtn()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        })
-
-
-
-
-
-})
 
 
 

@@ -95,13 +95,23 @@ export default class mobilePreviewPage {
 
 
        async verifySecondaryColorAppliedInMobile() {
-              
+
               const btn = this.page.locator("//div[@class='MuiBox-root css-1jjj9fe']");
               const color = await btn.evaluate((ele) => {
                      return window.getComputedStyle(ele).getPropertyValue("background-color")
               });
               console.log(color);
-              expect(color).toBe("rgb(255, 0, 0)");
+              expect(color).toBe("rgb(96, 37, 74)");
+
+
+
+       }
+
+
+       async clickPrizeBtn() {
+              const btn = this.page.locator("//button[@value='prize']");
+              expect(btn).toBeVisible()
+              await btn.click({ force: true })
 
 
 
