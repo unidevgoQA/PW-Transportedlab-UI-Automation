@@ -32,7 +32,7 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
                 await prizeDropPage.clickPrizeDropSection()
                 const screenshot = await page.screenshot();
                 await testInfo.attach("click Prize Drop Section", {
-                        body:screenshot,
+                        body: screenshot,
                         contentType: "image/png",
                 })
 
@@ -68,7 +68,7 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
         })
 
 })
-test("007PD-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage,  prizeDropPage,  page, }, testInfo) => {
+test("007PD-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage, prizeDropPage, page, }, testInfo) => {
 
 
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -83,7 +83,7 @@ test("007PD-002 |validate error if Add New Configuration is clicked without name
                         contentType: "image/png",
                         body: screenshot
                 })
-                
+
 
 
         })
@@ -94,11 +94,11 @@ test("007PD-002 |validate error if Add New Configuration is clicked without name
                 await prizeDropPage.clickPrizeDropSection()
                 const screenshot = await page.screenshot();
                 await testInfo.attach("click Prize Drop Section", {
-                        body:screenshot,
+                        body: screenshot,
                         contentType: "image/png",
                 })
-                 //click Add New Config Plus Btn
-                 await prizeDropPage.clickAddNewConfigPlusBtn()
+                //click Add New Config Plus Btn
+                await prizeDropPage.clickAddNewConfigPlusBtn()
 
                 //click Add Btn
                 await prizeDropPage.clickAddBtn()
@@ -108,11 +108,11 @@ test("007PD-002 |validate error if Add New Configuration is clicked without name
 
                 // click ok button
                 await prizeDropPage.clickokbuttonerror()
-                
+
         })
 })
 
-test("008PD-003 | Validate error if start clicked without prize given ", async({ loginPage,  prizeDropPage, functions, page, }, testInfo) =>{
+test("008PD-003 | Validate error if start clicked without prize given ", async ({ loginPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -128,15 +128,15 @@ test("008PD-003 | Validate error if start clicked without prize given ", async({
 
         })
 
-        await test.step("validate start button of newly added game is visible", async () =>{
-              await prizeDropPage.startbuttonvisible()
+        await test.step("validate start button of newly added game is visible", async () => {
+                await prizeDropPage.startbuttonvisible()
         })
 
-        await test.step("click on start button", async() =>{
+        await test.step("click on start button", async () => {
                 await prizeDropPage.clickstartbutton()
         })
 
-        await test.step("validate error message for no prize given", async() =>{
+        await test.step("validate error message for no prize given", async () => {
                 await prizeDropPage.clickokinstartconfirmmodal()
                 await prizeDropPage.verifyerrorvisiblityfornoprize()
                 await prizeDropPage.clickokbuttonerror()
@@ -501,8 +501,8 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
 
 
 
-        let newTab=null;
-        let newprizedropgame :prizeDropMobilePage
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
         await test.step("Validate Game Open Section Functionality", async () => {
 
                 //click Mobile Link Btn
@@ -512,7 +512,7 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
                 newprizedropgame = new prizeDropMobilePage(newTab)
 
         })
-        await test.step("validate form fields are visible",async() =>{
+        await test.step("validate form fields are visible", async () => {
                 await newprizedropgame.lookforphonenoinform()
                 await newprizedropgame.lookforBirthdateinform()
                 await newprizedropgame.lookforEmailinform()
@@ -520,7 +520,7 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
                 await newprizedropgame.lookforEmailinform()
         })
 
-        await test.step("provide values in form field", async() =>{
+        await test.step("provide values in form field", async () => {
                 await newprizedropgame.typephoneno()
                 await newprizedropgame.selectbirthdate()
                 await newprizedropgame.typeAge()
@@ -530,7 +530,7 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
 
 })
 
-test("007PD-011 |validate QR code section is working perfectly", async({loginPage,  prizeDropPage, page, browser }, testInfo) =>{
+test("007PD-011 |validate QR code section is working perfectly", async ({ loginPage, prizeDropPage, page, browser }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -544,84 +544,84 @@ test("007PD-011 |validate QR code section is working perfectly", async({loginPag
                 })
 
         })
-        await test.step("click on prize drop page", async () =>{
+        await test.step("click on prize drop page", async () => {
                 await prizeDropPage.clickPrizeDropSection()
         })
 
-        await test.step("click on QR code section", async () =>{
+        await test.step("click on QR code section", async () => {
                 await prizeDropPage.clickQRcodebutton()
         })
 
-        await test.step("validate QR code text is visible",async () =>{
+        await test.step("validate QR code text is visible", async () => {
                 await prizeDropPage.validateQRtext()
         })
-        await test.step("validate Save QR code download is working",async () =>{
+        await test.step("validate Save QR code download is working", async () => {
                 await prizeDropPage.validateDownload()
         })
 
-        await test.step("validate copy QR code section is working", async ()=>{
-                await  prizeDropPage.clickQRcodecopybtn()
+        await test.step("validate copy QR code section is working", async () => {
+                await prizeDropPage.clickQRcodecopybtn()
                 const newtab = browser.contexts()[0].newPage();
                 (await newtab).goto('https://qr-code-scanner.net/')
                 await (await newtab).locator('//a[@title="Scan QR code from paste"]').click()
                 await (await newtab).locator('//button[text()="Paste"]').click()
         })
 })
-test("007PD-012 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page,browser}) => {
-
-    
-                await page.goto("/admin/#/sign-in");
-                await page.fill("input[type='text']", "qa-1")
-                await page.fill("input[type='password']", "mFkTylCDNC")
-
-                await Promise.all([
-                        page.waitForNavigation(),
-                        page.click("button:has-text('Login')")
-                ])
+test("007PD-012 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page, browser }) => {
 
 
-                await test.step('validate click on the copy link button is working',async()=>{
-                        await prizeDropPage.clickPrizeDropSection()
+        await page.goto("/admin/#/sign-in");
+        await page.fill("input[type='text']", "qa-1")
+        await page.fill("input[type='password']", "mFkTylCDNC")
 
-                        //click Mobile Link Btn
-                        await prizeDropPage.clickMobileLinkBtn()
-        
-                        //
-                        await prizeDropPage.clickMobileLinkCopyBtn()
-                })
+        await Promise.all([
+                page.waitForNavigation(),
+                page.click("button:has-text('Login')")
+        ])
 
-                await test.step('now close the copy link modal', async() =>{
-                        await prizeDropPage.click_closebutton_in_mobilelinkmodal()
-                })
-                let URL = '';
 
-                await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
-                        URL = clipboard.readSync();
-                })
+        await test.step('validate click on the copy link button is working', async () => {
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+
+                //
+                await prizeDropPage.clickMobileLinkCopyBtn()
+        })
+
+        await test.step('now close the copy link modal', async () => {
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+        let URL = '';
+
+        await test.step("now copy the contents from system clipboard(URL Here)", async () => {
+                URL = clipboard.readSync();
+        })
                 // await page.waitForTimeout(20000)
 
-                 
+
                 // console.log('From clipboard: ' + text);
                 // await page.frameLocator('iframe').locator("//button[text()='Copy Link']").click({ force: true })
 
                 ;
-                
-                await test.step('now open new page with copied URL',async()=>{
-                        const newprizedropgame = new prizeDropMobilePage(page)
 
-                
-                        await newprizedropgame.GoTo(URL)   
-                })
-                // console.log('From clipboard URL: ' + url);
-                // const newPage = await page.context().newPage();
-                // await newPage.goto(url);
-                // console.log("Title from new tab: " + await newPage.title());
+        await test.step('now open new page with copied URL', async () => {
+                const newprizedropgame = new prizeDropMobilePage(page)
+
+
+                await newprizedropgame.GoTo(URL)
+        })
+        // console.log('From clipboard URL: ' + url);
+        // const newPage = await page.context().newPage();
+        // await newPage.goto(url);
+        // console.log("Title from new tab: " + await newPage.title());
 
 })
 
-test("007PD-013 | Validate User Additional Information Section ", async ({ prizeDropPage,MainMenu,functions, singupPage, page }) => {
+test("007PD-013 | Validate User Additional Information Section ", async ({ prizeDropPage, MainMenu, functions, singupPage, page }) => {
 
-    
+
         await page.goto("/admin/#/sign-in");
         await page.fill("input[type='text']", "qa-1")
         await page.fill("input[type='password']", "mFkTylCDNC")
@@ -636,24 +636,24 @@ test("007PD-013 | Validate User Additional Information Section ", async ({ prize
         await MainMenu.clickMobileDesign();
         await singupPage.clickSignUpPage()
         //Verify Additional Information Title text is visible
-        
+
         await functions.mobileSignUpAdditionalInformation()
 
 })
-
+// this test case can be discarded 
 test.skip("007PD-014 | Validate Game Successfully open in mobile screen", async ({ loginPage, prizeDropPage }) => {
         const browser = await chromium.launch({ headless: false });
-        const context = await browser.newContext({ ...devices["Pixel 5"], permissions: ["microphone","camera"] });
+        const context = await browser.newContext({ ...devices["Pixel 5"], permissions: ["microphone", "camera"] });
         const page = await context.newPage();
 
         await page.goto("/admin/#/sign-in");
         await page.fill("input[type='text']", "qa-1")
         await page.fill("input[type='password']", "mFkTylCDNC")
-    
+
         await Promise.all([
-            page.waitForNavigation(),
-            page.click("button:has-text('Login')")
-    ])
+                page.waitForNavigation(),
+                page.click("button:has-text('Login')")
+        ])
 
 
         await page.click("//p[text()='Prize Drop']")
@@ -661,8 +661,8 @@ test.skip("007PD-014 | Validate Game Successfully open in mobile screen", async 
         await page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click();
 
 
-//     await page.waitForTimeout(3000)
-//         await prizeDropPage.clickPrizeDropSection()
+        //     await page.waitForTimeout(3000)
+        //         await prizeDropPage.clickPrizeDropSection()
 
         //click Mobile Link Btn
         // await prizeDropPage.clickMobileLinkBtn()
@@ -672,26 +672,26 @@ test.skip("007PD-014 | Validate Game Successfully open in mobile screen", async 
                 page.frameLocator('iframe').locator('text=Open Link').click()
         ]);
 
-        
+
         await page1.fill('[name="phone"]', "310-260-6620")
 
         await page1.fill('[name="email"]', "jon@email.com")
-  
+
         await page1.fill('[name="age"]', "23")
-  
+
         await page1.click('//input[@name="birthDate"]');
-  
+
         await page1.waitForTimeout(5000)
-  
+
         await page1.click("//button[text()='27']");
-  
+
         await page1.click("//button[text()='OK']");
-  
+
         await page1.fill('[name="zipCode"]', "1223")
-  
+
         await page1.click("//button[text()='Submit']");
-  
-        await page1.waitForTimeout(2000)  
+
+        await page1.waitForTimeout(2000)
 
 
 
@@ -725,7 +725,7 @@ test.skip("007PD-014 | Validate Game Successfully open in mobile screen", async 
 
 
 })
-test("007PD-005 | Validate All The Color Input Functionality and their reflection on mobile screen", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("007PD-005 | Validate text Color Input Functionality and reflection on mobile screen", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -752,60 +752,30 @@ test("007PD-005 | Validate All The Color Input Functionality and their reflectio
 
                 //click Clear All Btn
                 await prizeDropPage.clickClearAllBtn()
+
+                await prizeDropPage.verifyclearallworking()
+
         })
 
-        // await test.step("valiate 'main color' section updates on admin side ", async () => {
-        //          //verify Main Color Text
-        //          await prizeDropPage.verifyMainColorText()
-
-
-        //          //click Main Color Picker
-        //          await prizeDropPage.clickMainColorPicker()
- 
- 
-        //          //input Main RGR First Color
-        //          await prizeDropPage.inputMainRGRFirstColor()
- 
- 
-        //          //input Main RGR Second Color
-        //          await prizeDropPage.inputMainRGRSecondColor()
- 
- 
-        //          //input Main RGR Third Color
-        //          await prizeDropPage.inputMainRGRThirdColor()
- 
- 
-        //          //input Main RGR Four Color
-        //          await prizeDropPage.inputMainRGRFourColor()
- 
- 
-        //          //input Main RGR Five Color
-        //          await prizeDropPage.inputMainRGRFiveColor()
- 
- 
-        //          //click Color Picker SaveBtn
-        //          await prizeDropPage.clickColorPickerSaveBtn()
-        // })    
-        
-        await test.step("now click on start button on Admin site", async() =>{
+        await test.step("now click on start button on Admin site", async () => {
                 await prizeDropPage.clickstartbutton()
 
                 await prizeDropPage.clickStartGameOkBtn()
         })
-        let newTab=null;
-        let newprizedropgame :prizeDropMobilePage
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
 
-        await test.step("now open the game in mobile view", async() =>{
-              
-                  //click Mobile Link Btn
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
                 await prizeDropPage.clickMobileLinkBtn()
-                 //now click on open button
+                //now click on open button
                 newTab = await prizeDropPage.clickMobileLinkOpenBtn()
                 newprizedropgame = new prizeDropMobilePage(newTab)
                 await prizeDropPage.click_closebutton_in_mobilelinkmodal()
         })
 
-        await test.step("provide values in form field of mobile view and submit", async() =>{
+        await test.step("provide values in form field of mobile view and submit", async () => {
                 await newprizedropgame.typephoneno()
                 await newprizedropgame.selectbirthdate()
                 await newprizedropgame.typeAge()
@@ -814,35 +784,11 @@ test("007PD-005 | Validate All The Color Input Functionality and their reflectio
                 await newprizedropgame.clicksubmit()
         })
 
-        // await test.step("validate Admin can change the accent color settings successfully", async() =>{
-        //         //verify Accent Color Text
-        //         await prizeDropPage.verifyAccentColorText()
-
-        //         //click Accent Color Picker
-        //         await prizeDropPage.clickAccentColorPicker()
-
-        //         //input Accent RGR First Color
-        //         await prizeDropPage.inputAccentRGRFirstColor()
-
-        //         //input Accent RGR Second Color
-        //         await prizeDropPage.inputAccentRGRSecondColor()
-
-        //         //input Accent RGR Third Color
-        //         await prizeDropPage.inputAccentRGRThirdColor()
-
-        //         //input Accent RGR Four Color
-        //         await prizeDropPage.inputAccentRGRFourColor()
-
-        //         //input Accent RGR Five Color
-        //         await prizeDropPage.inputAccentRGRFiveColor()
-
-        //         //click Color Picker SaveBtn
-        //         await prizeDropPage.clickColorPickerSaveBtn()
-
-        // })
-
-        await test.step("validate Admin can change the Text color settings successfully",async() =>{
+        await test.step("validate Admin can change the Text color settings successfully", async () => {
                 //verify Text Color Text
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
+
                 await prizeDropPage.verifyTextColorText()
 
                 //click Text Color Picker
@@ -865,91 +811,347 @@ test("007PD-005 | Validate All The Color Input Functionality and their reflectio
 
                 //click Color Picker SaveBtn
                 await prizeDropPage.clickColorPickerSaveBtn()
-        })       
-        await test.step("now validate text color change is visible on mobile",async () =>{
-                // await newprizedropgame.checkTextcolor()
+        })
+        await test.step("now validate text color change is visible on mobile", async () => {
+                await browser.contexts()[0].pages()[1].bringToFront()
+                await newprizedropgame.selecthomepage()
+                await newprizedropgame.checkTextcolor()
         })
 
-
-
-
-                // //verify Text Color Text
-                // await prizeDropPage.verifyTextColorText()
-
-
-                // //click Text Color Picker
-                // await prizeDropPage.clickTextColorPicker()
-
-
-                // //input Text RGR First Color
-                // await prizeDropPage.inputTextRGRFirstColor()
-
-
-                // //input Text RGR Second Color
-                // await prizeDropPage.inputTextRGRSecondColor()
-
-
-                // //input Text RGR Third Color
-                // await prizeDropPage.inputTextRGRThirdColor()
-
-
-                // //input Text RGR Four Color
-                // await prizeDropPage.inputTextRGRFourColor()
-
-
-                // //input Text RGR Five Color
-                // await prizeDropPage.inputTextRGRFiveColor()
-
-
-
-                // //click Color Picker SaveBtn
-                // await prizeDropPage.clickColorPickerSaveBtn()
-
-
-
-
-
-
-                // //click Game Design
-                // await prizeDropPage.verifyButtonColorText()
-
-
-                // //click Game Design
-                // await prizeDropPage.clickButtonColorPicker()
-
-
-                // //input Button RGR First Color
-                // await prizeDropPage.inputButtonRGRFirstColor()
-
-
-
-                // //input Button RGR Second Color
-                // await prizeDropPage.inputButtonRGRSecondColor()
-
-                // //input Button RGR Third Color
-                // await prizeDropPage.inputButtonRGRThirdColor()
-
-
-
-                // //input Button RGR Four Color
-                // await prizeDropPage.inputButtonRGRFourColor()
-
-
-
-                // //input Button RGR Five Color
-                // await prizeDropPage.inputButtonRGRFiveColor()
-
-                // //click Color Picker SaveBtn
-                // await prizeDropPage.clickColorPickerSaveBtn()
-
-
-
-                // await page.waitForTimeout(4000)
-
-        
+        await test.step("now stop the game", async () => {
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
+        })
 
 })
 
+test("validate main color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to color section and click clear all button", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+
+                //click Clear All Btn
+                await prizeDropPage.clickClearAllBtn()
+
+                await prizeDropPage.verifyclearallworking()
+
+        })
+
+        await test.step("now click on start button on Admin site", async () => {
+                await prizeDropPage.clickstartbutton()
+
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("provide values in form field of mobile view and submit", async () => {
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("valiate Admin can change 'main color' section on admin side ", async () => {
+
+                //this two lines can be commented for pipelines
+                await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await prizeDropPage.verifyMainColorText()
+
+                //verify Main Color Text
+                //click Main Color Picker
+                await prizeDropPage.clickMainColorPicker()
+
+
+                //input Main RGR First Color
+                await prizeDropPage.inputMainRGRFirstColor()
+
+
+                //input Main RGR Second Color
+                await prizeDropPage.inputMainRGRSecondColor()
+
+
+                //input Main RGR Third Color
+                await prizeDropPage.inputMainRGRThirdColor()
+
+
+                //input Main RGR Four Color
+                await prizeDropPage.inputMainRGRFourColor()
+
+
+                //input Main RGR Five Color
+                await prizeDropPage.inputMainRGRFiveColor()
+
+
+                //click Color Picker SaveBtn
+                await prizeDropPage.clickColorPickerSaveBtn()
+
+        })
+        await test.step("now upload a transparent background to see main chagne action in mobile site", async () => {
+                await prizeDropPage.click_BackgroundImage_upload_for_maincolor_check()
+                await prizeDropPage.Image_uploader_for_maincolorcheck()
+
+                // await page.waitForTimeout(3000)
+
+        })
+        await test.step("now validate the change on mobile site", async () => {
+                //this line can be commented for pipeline
+                await browser.contexts()[0].pages()[1].bringToFront()
+                //this is important 
+                await newprizedropgame.checkMainColor()
+        })
+
+        await test.step("now stop the game", async () => {
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
+        })
+
+})
+test.skip("validate button color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to color section and click clear all button", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+
+                //click Clear All Btn
+                await prizeDropPage.clickClearAllBtn()
+
+                await prizeDropPage.verifyclearallworking()
+
+        })
+
+        await test.step("now click on start button on Admin site", async () => {
+                await prizeDropPage.clickstartbutton()
+
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("provide values in form field of mobile view and submit", async () => {
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("validate admin can change the button color input on admin side", async () => {
+
+                //this two lines can be commented for pipelines
+                await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
+                await browser.contexts()[0].pages()[0].bringToFront()
+
+                //click Game Design
+                await prizeDropPage.verifyButtonColorText()
+
+
+                //click Game Design
+                await prizeDropPage.clickButtonColorPicker()
+
+
+                //input Button RGR First Color
+                await prizeDropPage.inputButtonRGRFirstColor()
+
+                //input Button RGR Second Color
+                await prizeDropPage.inputButtonRGRSecondColor()
+
+                //input Button RGR Third Color
+                await prizeDropPage.inputButtonRGRThirdColor()
+
+                //input Button RGR Four Color
+                await prizeDropPage.inputButtonRGRFourColor()
+
+                //input Button RGR Five Color
+                await prizeDropPage.inputButtonRGRFiveColor()
+
+                //click Color Picker SaveBtn
+                await prizeDropPage.clickColorPickerSaveBtn()
+
+        })
+        await test.step("now validate the change on mobile site", async () => {
+                //this line can be commented for pipeline
+                await browser.contexts()[0].pages()[1].bringToFront()
+                //this is important 
+                //need some working here 
+                
+        })
+
+        await test.step("now stop the game", async () => {
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
+        })
+
+
+})
+test.skip("validate accent color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to color section and click clear all button", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+
+                //click Clear All Btn
+                await prizeDropPage.clickClearAllBtn()
+
+                await prizeDropPage.verifyclearallworking()
+
+        })
+
+        await test.step("now click on start button on Admin site", async () => {
+                await prizeDropPage.clickstartbutton()
+
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("provide values in form field of mobile view and submit", async () => {
+                //type the inputs on mobile site
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("validate Admin can change the accent color settings successfully", async() =>{
+                
+                
+                //this two lines can be commented for pipelines
+                await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
+                await browser.contexts()[0].pages()[0].bringToFront()
+
+                //verify Accent Color Text
+                await prizeDropPage.verifyAccentColorText()
+
+                //click Accent Color Picker
+                await prizeDropPage.clickAccentColorPicker()
+
+                //input Accent RGR First Color
+                await prizeDropPage.inputAccentRGRFirstColor()
+
+                //input Accent RGR Second Color
+                await prizeDropPage.inputAccentRGRSecondColor()
+
+                //input Accent RGR Third Color
+                await prizeDropPage.inputAccentRGRThirdColor()
+
+                //input Accent RGR Four Color
+                await prizeDropPage.inputAccentRGRFourColor()
+
+                //input Accent RGR Five Color
+                await prizeDropPage.inputAccentRGRFiveColor()
+
+                //click Color Picker SaveBtn
+                await prizeDropPage.clickColorPickerSaveBtn()
+
+        })
+        await test.step("now validate the change on mobile site", async () => {
+                //this line can be commented for pipeline
+                await browser.contexts()[0].pages()[1].bringToFront()
+                //this is important 
+                //need some working here 
+               
+        })
+
+        await test.step("now stop the game", async () => {
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
+        })
+})
 test("007PD-015 | Validate Analytics Section Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -1008,7 +1210,7 @@ test("007PD-015 | Validate Analytics Section Functionality", async ({ loginPage,
 
 })
 // test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
-        
+
 //         await test.step("Login Admin And land To Home Screen", async () => {
 
 //                 await page.goto('/admin/#/sign-in')

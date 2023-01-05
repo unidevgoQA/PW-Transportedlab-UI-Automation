@@ -7,7 +7,7 @@ export default class prizeDropMobilePage {
         // static buffer: void;
         constructor(page: Page) {
                 this.page = page;
-                page.setViewportSize({width:360,height:740})
+                this.page.setViewportSize({width:360,height:658})
         }
 
         async lookforphonenoinform(){
@@ -68,11 +68,23 @@ export default class prizeDropMobilePage {
          // color related functions from here
         async checkTextcolor(){
               const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
-              const color = await ele.evaluate((ele) =>{
-                     return window.getComputedStyle(ele).getPropertyValue("color")
-              })
-              expect(color).toBe("rgb(189,179,229)")
+              //following lines give unexpected behaviour, please dont use that one
+              // const color = await ele.evaluate((ele) =>{
+              //        return window.getComputedStyle(ele).getPropertyValue("color")
+              // })
+              // expect(color).toBe("rgb(189, 179, 229)")
+              await expect(ele).toHaveCSS("color","rgb(189, 179, 229)")
         }
+
+        async checkMainColor(){
+              const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+              await expect(ele).toHaveCSS("background-color","rgb(84, 161, 220)")
+        }
+
+        async checkButtoncolor(){
+        }
+
+        
 
 
     }

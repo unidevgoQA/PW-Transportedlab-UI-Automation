@@ -138,69 +138,102 @@ export default class prizeDropPage {
         }
 
         async clickClearAllBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Clear All']")
-                expect(ele).toBeVisible()
-                await ele.click({force:true});
-
+                
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Clear All']").dblclick({button:'left',delay:500})
+                
         }
-
+        async verifyclearallworking(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Text Color']/following-sibling::button")
+                await expect(ele).toHaveAttribute("background","rgba(255, 255, 255, 1)")
+        }
 
 
         //start main color section element
         async verifyMainColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Main Color')
-                expect(ele).toContainText("Main Color")
+                const ele = this.page.frameLocator('iframe').locator('text=Main Color')
+                await expect(ele).toContainText("Main Color")
 
         }
 
 
         async clickMainColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Main Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Main Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
                 await ele.click()
 
         }
 
         async inputMainRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[1]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("84")
+                await this.page.waitForTimeout(500)
 
         }
         async inputMainRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[2]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("161")
+                await this.page.waitForTimeout(500)
 
         }
 
 
         async inputMainRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("9")
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[3]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("220")
+                await this.page.waitForTimeout(500)
 
         }
 
         async inputMainRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("90")
+                const ele =  this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[4]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("95")
+                await this.page.waitForTimeout(500)  
 
         }
 
         async inputMainRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("F1d40FFF")
+                const ele = this.page.frameLocator('iframe').locator('//input[@class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1yftmq7"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("54A1DCF2")
+                await this.page.waitForTimeout(500)  
 
         }
 
 
         async clickColorPickerSaveBtn() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Save')
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]')
+                await expect(ele).toBeVisible()
                 await ele.click()
+
+        }
+
+        async click_BackgroundImage_upload_for_maincolor_check() {
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
+                }
+                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//div[@class="MuiBox-root css-v2612"]').click()
+        }
+
+        async Image_uploader_for_maincolorcheck() {
+                const filePath0 = "testData/images/transparent_background_image.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
 
         }
 
@@ -258,51 +291,65 @@ export default class prizeDropPage {
         //start Text color section element
 
         async verifyTextColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Text Color')
-                expect(ele).toContainText("Text Color")
+                const ele = this.page.frameLocator('iframe').locator('//p[text()="Text Color"]')
+                await expect(ele).toContainText("Text Color")
 
         }
 
 
         async clickTextColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Text Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
                 await ele.click()
 
         }
 
         async inputTextRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
+               
+                const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[1]')
+                await expect(ele).toBeVisible()
+                await ele.fill("  ")
+                await ele.type("189")
+                //await this.page.waitForSelector('//div[@aria-label="Color"]')
+                //div[@fill="hsla(180, 100%, 87%, 1)"] ei selector ta waitforselector die kora jabe
+                await this.page.waitForTimeout(500)
 
         }
         async inputTextRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("179")
+               
+                const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[2]')
+                await expect(ele).toBeVisible()
+                await ele.fill("  ")
+                await ele.type("179")
+                await this.page.waitForTimeout(500)
 
         }
 
 
         async inputTextRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("229")
+                const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[3]')
+                await expect(ele).toBeVisible()
+                await ele.fill("  ")
+                await ele.type("229")
+                await this.page.waitForTimeout(500)
 
         }
 
         async inputTextRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("190")
+                const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[4]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("95")
+                await this.page.waitForTimeout(500)
 
         }
 
         async inputTextRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("FFdFFFFF")
+                const ele =  this.page.frameLocator('.css-r99fy3').locator('//input[@class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1yftmq7"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("#BDB3E5F2")
+                await this.page.waitForTimeout(500)
 
         }
 
@@ -736,7 +783,7 @@ export default class prizeDropPage {
 
         async clickMobileLinkBtn() {
                 // Click text=AutoStart >> button >> nth=1
-                await this.page.frameLocator('iframe').locator('text=AutoStart >> button').nth(1).click();
+                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[2]').click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
                 // expect(ele).toBeVisible()
@@ -749,7 +796,7 @@ export default class prizeDropPage {
                 // Click text=Open Link
                 const [page1] = await Promise.all([
                         this.page.waitForEvent('popup'),
-                        this.page.frameLocator('iframe').locator('text=Open Link').click()
+                        this.page.frameLocator('.css-r99fy3').locator("//a[text()='Open Link']").click()
                 ]);
 
                 return page1;
@@ -761,7 +808,7 @@ export default class prizeDropPage {
 
                 // Click text=Open Link
 
-                await this.page.frameLocator('iframe').locator('text=Copy Link').click()
+                await this.page.frameLocator('.css-r99fy3').locator('text=Copy Link').click()
 
 
 
