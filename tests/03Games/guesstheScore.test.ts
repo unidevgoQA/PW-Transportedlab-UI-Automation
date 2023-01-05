@@ -1280,7 +1280,7 @@ test("007GTS-034 | Validate game status on mobile if start /live button is click
     })
 
 })
-test.only("007GTS-037 | Validate analytics settings is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("007GTS-037 | Validate analytics settings is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -1315,6 +1315,422 @@ test.only("007GTS-037 | Validate analytics settings is visible",async({loginPage
 
    
     
+})
+test.only("0013GTS-013 |Validate Text color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        //await guesstheScorePage.clickStartBtn()
+
+       // await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+})
+await test.step("validate Admin can change the Text color settings successfully",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clicktextColorPicker()
+     await page.waitForTimeout(1000)
+    
+
+    //input Text RGR First Color
+    await guesstheScorePage.inputRGBFirstColor()
+
+    //input Text RGR Second Color
+    await guesstheScorePage.inputRGBSecondColor()
+
+    //input Text RGR Third Color
+    await guesstheScorePage.inputRGBThirdColor()
+
+    //input Text RGR Four Color
+    await guesstheScorePage.inputRGBColorOpacity()
+
+    //input Text RGR Five Color
+    await guesstheScorePage.inputRGBColorHex()
+
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})       
+await test.step("now validate text color change is visible on mobile",async () =>{
+    await newguessthescoregame.verifyTextColor()
+})
+})
+test("0013GTS-050 | Validate opacity slider is visible in color picker",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click ",async()=>{
+        await guesstheScorePage.clickBackgroundColorPicker()
+    })
+    await test.step("Validate opacity slider is visible in color picker",async()=>{
+        await guesstheScorePage.verifyOpacitySlider()
+    })
+
+
+   
+    
+})
+test("0013GTS-044 | Validate swatches section is visible in color picker",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click Background Color Picker Button",async()=>{
+        await guesstheScorePage.clickBackgroundColorPicker()
+    })
+    await test.step("Validate swatches section is visible in color picker",async()=>{
+        await guesstheScorePage.verifySwatchesText()
+    })
+
+
+   
+    
+})
+test("0013GTS-048 | Validate color picker header text is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click Background Color Picker Button",async()=>{
+        await guesstheScorePage.clickBackgroundColorPicker()
+    })
+    await test.step("Validate color picker header text is visible",async()=>{
+        await guesstheScorePage.verifyColorPickerText()
+    })
+
+
+   
+    
+})
+test("0013GTS-046 | Validate + button is visible in color picker",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click Background Color Picker Button",async()=>{
+        await guesstheScorePage.clickBackgroundColorPicker()
+    })
+    await test.step("Validate + button is visible in color picker",async()=>{
+        await guesstheScorePage.verifyPlusBtnInColorPicker()
+    })
+
+
+   
+    
+})
+test("0013GTS-047 | Validate RGB sections are visible in color picker",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click Background Color Picker Button",async()=>{
+        await guesstheScorePage.clickBackgroundColorPicker()
+    })
+    await test.step("Validate RGB sections are visible in color picker",async()=>{
+        await guesstheScorePage.verifyRGBText()
+        await guesstheScorePage.verifyRGBFirstColorInputField()
+        await guesstheScorePage.verifyRGBSecondColorInputField()
+        await guesstheScorePage.verifyRGBThirdColorInputField()
+        await guesstheScorePage.verifyRGBOpacityColorInputField()
+        await guesstheScorePage.verifyRGBHexColorInputField()
+    })
+
+
+   
+    
+})
+
+test("0013GTS-045 |Validate swatches change visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.clickStartBtn()
+
+        await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+})
+await test.step("validate Admin can change the Text color settings successfully",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clickBackgroundColorPicker()
+     await page.waitForTimeout(1000)
+     //click swatches +button
+    await guesstheScorePage.clickplusbuttonswatches()
+
+    // //input Text RGR First Color
+    // await guesstheScorePage.inputRGBFirstColor()
+
+    // //input Text RGR Second Color
+    // await guesstheScorePage.inputRGBSecondColor()
+
+    // //input Text RGR Third Color
+    // await guesstheScorePage.inputRGBThirdColor()
+
+    // //input Text RGR Four Color
+    // await guesstheScorePage.inputRGBColorOpacity()
+
+    // //input Text RGR Five Color
+    // await guesstheScorePage.inputRGBColorHex()
+
+    // //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})       
+await test.step("now validate text color change is visible on mobile",async () =>{
+    await newguessthescoregame.checkswatchesColor()
+})
+})
+test("0013GTS-013 |Validate background color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.clickStartBtn()
+
+        await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+})
+await test.step("validate Admin can change the Text color settings successfully",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clickBackgroundColorPicker()
+     await page.waitForTimeout(1000)
+    
+
+    //input Text RGR First Color
+    await guesstheScorePage.inputRGBFirstColor()
+
+    //input Text RGR Second Color
+    await guesstheScorePage.inputRGBSecondColor()
+
+    //input Text RGR Third Color
+    await guesstheScorePage.inputRGBThirdColor()
+
+    //input Text RGR Four Color
+    await guesstheScorePage.inputRGBColorOpacity()
+
+    //input Text RGR Five Color
+    await guesstheScorePage.inputRGBColorHex()
+
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})       
+await test.step("now validate text color change is visible on mobile",async () =>{
+    await newguessthescoregame.checkBackgroundcolor()
+})
 })
 
 

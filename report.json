@@ -71,8 +71,8 @@
       "line": 0,
       "specs": [
         {
-          "title": "007GTS-037 | Validate analytics settings is visible",
-          "ok": true,
+          "title": "0013GTS-013 |Validate Text color change is visible on mobile screen",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -84,23 +84,58 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 14856,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 41627,
+                  "error": {
+                    "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveCSS\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected string: \u001b[32m\"rgb(87, 124, 152)\"\u001b[39m\nReceived string: \u001b[31m\"rgb\u001b[7ma\u001b[27m(87, 124, 152\u001b[7m, 0\u001b[27m)\"\u001b[39m\nCall log:\n  \u001b[2m- expect.toHaveCSS with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe frameborder=\"0\" class=\"css-r5x6lv\" allow=\"camera…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveCSS\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected string: \u001b[32m\"rgb(87, 124, 152)\"\u001b[39m\nReceived string: \u001b[31m\"rgb\u001b[7ma\u001b[27m(87, 124, 152\u001b[7m, 0\u001b[27m)\"\u001b[39m\nCall log:\n  \u001b[2m- expect.toHaveCSS with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe frameborder=\"0\" class=\"css-r5x6lv\" allow=\"camera…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\n    at guesstheScoreMobilePage.verifyTextColor (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/guessthescore_mobile_game.page.ts:85:47)\n    at step (/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1399:32)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1398:12"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/guessthescore_mobile_game.page.ts",
+                        "column": 47,
+                        "line": 85
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveCSS\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected string: \u001b[32m\"rgb(87, 124, 152)\"\u001b[39m\nReceived string: \u001b[31m\"rgb\u001b[7ma\u001b[27m(87, 124, 152\u001b[7m, 0\u001b[27m)\"\u001b[39m\nCall log:\n  \u001b[2m- expect.toHaveCSS with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe frameborder=\"0\" class=\"css-r5x6lv\" allow=\"camera…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\n\n\u001b[90m   at \u001b[39mpages/MobileGamesPage/guessthescore_mobile_game.page.ts:85\n\n\u001b[0m \u001b[90m 83 |\u001b[39m         \u001b[36masync\u001b[39m verifyTextColor(){\u001b[0m\n\u001b[0m \u001b[90m 84 |\u001b[39m               \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[32m\"(//button[@type='button'])[1]\"\u001b[39m)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 85 |\u001b[39m                             \u001b[36mawait\u001b[39m expect(ele)\u001b[33m.\u001b[39mtoHaveCSS(\u001b[32m\"color\"\u001b[39m\u001b[33m,\u001b[39m\u001b[32m\"rgb(87, 124, 152)\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 86 |\u001b[39m               }\u001b[0m\n\u001b[0m \u001b[90m 87 |\u001b[39m         \u001b[36masync\u001b[39m checkBackgroundcolor(){\u001b[0m\n\u001b[0m \u001b[90m 88 |\u001b[39m                      \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[32m\"//div[@class='MuiBox-root css-t1094a']\"\u001b[39m)\u001b[0m\n\n\u001b[2m    at guesstheScoreMobilePage.verifyTextColor (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/guessthescore_mobile_game.page.ts:85:47)\u001b[22m\n\u001b[2m    at step (/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1399:32)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1398:12\u001b[22m"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "Login Admin And land To Home Screen",
-                      "duration": 10837
+                      "title": "Login Admin And land on guess the score",
+                      "duration": 11259
                     },
                     {
-                      "title": "Validate analytics settings is visible",
-                      "duration": 2014
+                      "title": "now click on start button on Admin site",
+                      "duration": 0
+                    },
+                    {
+                      "title": "now open the game in mobile view",
+                      "duration": 21475,
+                      "steps": [
+                        {
+                          "title": "provide values in form field of mobile view and submit",
+                          "duration": 9667
+                        },
+                        {
+                          "title": "validate Admin can change the Text color settings successfully",
+                          "duration": 512
+                        }
+                      ]
+                    },
+                    {
+                      "title": "now validate text color change is visible on mobile",
+                      "duration": 6118,
+                      "error": {
+                        "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveCSS\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected string: \u001b[32m\"rgb(87, 124, 152)\"\u001b[39m\nReceived string: \u001b[31m\"rgb\u001b[7ma\u001b[27m(87, 124, 152\u001b[7m, 0\u001b[27m)\"\u001b[39m\nCall log:\n  \u001b[2m- expect.toHaveCSS with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe frameborder=\"0\" class=\"css-r5x6lv\" allow=\"camera…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoHaveCSS\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected string: \u001b[32m\"rgb(87, 124, 152)\"\u001b[39m\nReceived string: \u001b[31m\"rgb\u001b[7ma\u001b[27m(87, 124, 152\u001b[7m, 0\u001b[27m)\"\u001b[39m\nCall log:\n  \u001b[2m- expect.toHaveCSS with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe frameborder=\"0\" class=\"css-r5x6lv\" allow=\"camera…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('xpath=(//button[@type=\\'button\\'])[1]')\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\u001b[2m  -   locator resolved to <button tabindex=\"0\" type=\"button\" text-color=\"rgba(87, …>…</button>\u001b[22m\n\u001b[2m  -   unexpected value \"rgba(87, 124, 152, 0)\"\u001b[22m\n\n    at guesstheScoreMobilePage.verifyTextColor (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/guessthescore_mobile_game.page.ts:85:47)\n    at step (/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1399:32)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:1398:12"
+                      }
                     }
                   ],
-                  "startTime": "2023-01-04T13:32:27.031Z",
+                  "startTime": "2023-01-05T14:13:47.663Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -110,17 +145,27 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-007GTS-037-Validate-analytics-settings-is-visible/test-finished-1.png"
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-0013GTS-013-Validate-Text-color-change-is-visible-on-mobile-screen/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-0013GTS-013-Validate-Text-color-change-is-visible-on-mobile-screen/test-failed-2.png"
                     }
-                  ]
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/guessthescore_mobile_game.page.ts",
+                    "column": 47,
+                    "line": 85
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "0de45138bb1b85ba065c-cf7af212000f0458c28d",
+          "id": "0de45138bb1b85ba065c-afd2cdd5ddee9e433fbd",
           "file": "tests/03Games/guesstheScore.test.ts",
-          "line": 1283,
+          "line": 1319,
           "column": 6
         }
       ]

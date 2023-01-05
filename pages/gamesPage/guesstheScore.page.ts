@@ -68,14 +68,7 @@ export default class guesstheScorePage {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('//body//div[@font-list-mode="true"]')
                 await expect(ele).toBeVisible()
         }
-        // clear all button no longer available
-        // async clickClearAllBtn(){
-        //         const ele = this.page.frameLocator('iframe').locator("//button[text()='Clear all']")
-        //         expect(ele).toBeVisible()
-        //         await ele.click({force:true});
-        // }
-
-        //colors section from here 
+ 
         async opencolorssection() {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div').click()
         }
@@ -98,7 +91,7 @@ export default class guesstheScorePage {
         }
         async clicktextColorPicker() {
                 const ele = this.page.frameLocator('iframe').locator("//p[text()='Text']/following-sibling::button").first()
-                await expect(ele).toBeVisible()
+               expect(ele).toBeVisible()
                 await ele.click()
 
         }
@@ -158,13 +151,13 @@ export default class guesstheScorePage {
         async inputRGBFirstColor() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
                 await expect(ele).toBeVisible()
-                await ele.fill("189")
+                await ele.fill("87")
 
         }
         async inputRGBSecondColor() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
                 await expect(ele).toBeVisible()
-                await ele.fill("189")
+                await ele.fill("124")
 
         }
 
@@ -172,21 +165,21 @@ export default class guesstheScorePage {
         async inputRGBThirdColor() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
                 await expect(ele).toBeVisible()
-                await ele.fill("9")
+                await ele.fill("152")
 
         }
 
         async inputRGBColorOpacity() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
                 await expect(ele).toBeVisible()
-                await ele.fill("90")
+                await ele.fill("100")
 
         }
 
         async inputRGBColorHex() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
                 await expect(ele).toBeVisible()
-                await ele.fill("F1d40FFF")
+                await ele.fill("1C8200FF")
 
         }
 
@@ -950,8 +943,8 @@ export default class guesstheScorePage {
                 const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Background"]')
                 expect(ele).toContainText("Background")
         }
-        async verifyColorsText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Text"]')
+        async verifyTextColorsText(){
+                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Text"]/following-sibling::button').first()
                 expect(ele).toContainText("Text")
         }
         async verifyColorsHeaderText(){
@@ -1085,6 +1078,54 @@ export default class guesstheScorePage {
         const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Action"]')
         expect(ele).toContainText("Action")
    }
+  
+  async clickStartBtn(){
+        await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
+        
+  }
+  async verifyOpacitySlider(){
+     const  ele =  await this.page.frameLocator('iframe').locator("(//span[@class='MuiSlider-track css-19p2p10'])[2]")
+     expect(ele).toBeVisible()
+  }
+  
+  async verifySwatchesText(){
+        const  ele =  await this.page.frameLocator('iframe').locator('//p[text()="Swatches"]')
+        expect(ele).toContainText("Swatches")
+     }
+     async verifyColorPickerText(){
+        const  ele =  await this.page.frameLocator('iframe').locator("//h3[text()='Color Picker']")
+        expect(ele).toContainText("Color Picker")
+     }
+     async verifyPlusBtnInColorPicker(){
+        const  ele =  await this.page.frameLocator('iframe').locator("//button[@aria-label='Add Color']")
+        expect(ele).toBeVisible()
+     }
+     async verifyRGBFirstColorInputField(){
+          const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+            expect(ele).toBeVisible()
+     }
+     async verifyRGBSecondColorInputField(){
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+                 expect(ele).toBeVisible()
+     }
+     async verifyRGBThirdColorInputField(){
+               const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
+                 expect(ele).toBeVisible()
+}
+async verifyRGBOpacityColorInputField(){
+               const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+                 expect(ele).toBeVisible()
+}
+async verifyRGBHexColorInputField(){
+        const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+                await expect(ele).toBeVisible()
+}
+async verifyRGBText(){
+        const  ele =  await this.page.frameLocator('iframe').locator("//h3[text()='RGB']")
+        expect(ele).toContainText("RGB")
+}
+
+
 
 
 }
