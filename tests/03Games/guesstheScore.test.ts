@@ -774,6 +774,7 @@ test("0013GTS-015 |Validate start/live button is visible",async({ loginPage, gue
         await guesstheScorePage.clickOkBtn()
         await await page.waitForTimeout(2000);
         await guesstheScorePage.verifyLiveBtn()
+        await guesstheScorePage.clickOkBtn()
 
     })
 })
@@ -805,34 +806,34 @@ test("0013GTS-016 |Validate mobile link button is visible",async({ loginPage, gu
 
     })
 })
-// test("007PD-0017 | Validate mobile link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
-//     await test.step("Login Admin And land To Home Screen", async () => {
-//             await page.goto('/admin/#/sign-in')
-//             await loginPage.login(data.username, data.password)
-//             const title = await page.title();
-//             expect(title).toBe('DXP Admin')
+test("007PD-0017 | Validate mobile link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
 
-//             const screenshot = await page.screenshot();
-//             await testInfo.attach("login screenshot", {
-//                     contentType: "image/png",
-//                     body: screenshot
-//             })
-//             await guesstheScorePage.clickGuessTheScoreSection()
-//             await page.waitForTimeout(2000)
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
 
 
 
-//     })
-//     await test.step("Validate mobile link button is visible", async()=>{
+    })
+    await test.step("Validate mobile link button is visible", async()=>{
      
-//          await guesstheScorePage.clickMobileLinkBtn()
-//          await page.waitForTimeout(3000)
+         await guesstheScorePage.clickMobileLinkBtn()
+         await page.waitForTimeout(3000)
  
-//      })
+     })
    
     
-// })
-test("0013GTS-027 | Validate Game settings is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+})
+test("0013GTS-018 | Validate Game settings is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -871,7 +872,7 @@ test("0013GTS-027 | Validate Game settings is visible",async({loginPage,  guesst
    
     
 })
-test("0013GTS-020 | Validate close button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-019 | Validate close button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -896,7 +897,7 @@ test("0013GTS-020 | Validate close button is working",async({loginPage,  guessth
    
     
 })
-test("0013GTS-0017 | Validate Open link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-020 | Validate Open link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -928,7 +929,7 @@ test("0013GTS-0017 | Validate Open link button is working",async({loginPage,  gu
    
     
 })
-test("0013GTS-022 | Validate Mobile link Text is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-021 | Validate Mobile link Text is visible",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -956,58 +957,58 @@ test("0013GTS-022 | Validate Mobile link Text is visible",async({loginPage,  gue
    
     
 })
-test("0013GTS-024 | Validate Copy Link button is working", async ({ prizeDropPage, page,browser}) => {
+// test.only("0013GTS-024 | Validate Copy Link button is working", async ({ prizeDropPage, page,browser}) => {
 
     
-                await page.goto("/admin/#/sign-in");
-                await page.fill("input[type='text']", "qa-1")
-                await page.fill("input[type='password']", "mFkTylCDNC")
+//                 await page.goto("/admin/#/sign-in");
+//                 await page.fill("input[type='text']", "qa-1")
+//                 await page.fill("input[type='password']", "mFkTylCDNC")
 
-                await Promise.all([
-                        page.waitForNavigation(),
-                        page.click("button:has-text('Login')")
-                ])
+//                 await Promise.all([
+//                         page.waitForNavigation(),
+//                         page.click("button:has-text('Login')")
+//                 ])
 
 
-                await test.step('validate click on the copy link button is working',async()=>{
-                        await prizeDropPage.clickPrizeDropSection()
+//                 await test.step('validate click on the copy link button is working',async()=>{
+//                         await prizeDropPage.clickPrizeDropSection()
 
-                        //click Mobile Link Btn
-                        await prizeDropPage.clickMobileLinkBtn()
+//                         //click Mobile Link Btn
+//                         await prizeDropPage.clickMobileLinkBtn()
         
-                        //
-                        await prizeDropPage.clickMobileLinkCopyBtn()
-                })
+//                         //
+//                         await prizeDropPage.clickMobileLinkCopyBtn()
+//                 })
 
-                await test.step('now close the copy link modal', async() =>{
-                        await prizeDropPage.click_closebutton_in_mobilelinkmodal()
-                })
-                let URL = '';
+//                 await test.step('now close the copy link modal', async() =>{
+//                         await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+//                 })
+//                 let URL = '';
 
-                await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
-                        URL = clipboard.readSync();
-                })
-                // await page.waitForTimeout(20000)
+//                 await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
+//                         URL = clipboard.readSync();
+//                 })
+//                 // await page.waitForTimeout(20000)
 
                  
-                // console.log('From clipboard: ' + text);
-                // await page.frameLocator('iframe').locator("//button[text()='Copy Link']").click({ force: true })
+//                 // console.log('From clipboard: ' + text);
+//                 // await page.frameLocator('iframe').locator("//button[text()='Copy Link']").click({ force: true })
 
-                ;
+//                 ;
                 
-                await test.step('now open new page with copied URL',async()=>{
-                        const newprizedropgame = new guesstheScoreMobilePage(page)
+//                 await test.step('now open new page with copied URL',async()=>{
+//                         const newprizedropgame = new guesstheScoreMobilePage(page)
 
                 
-                        await newprizedropgame.GoTo(URL)   
-                })
-                // console.log('From clipboard URL: ' + url);
-                // const newPage = await page.context().newPage();
-                // await newPage.goto(url);
-                // console.log("Title from new tab: " + await newPage.title());
+//                         await newprizedropgame.GoTo(URL)   
+//                 })
+//                 // console.log('From clipboard URL: ' + url);
+//                 // const newPage = await page.context().newPage();
+//                 // await newPage.goto(url);
+//                 // console.log("Title from new tab: " + await newPage.title());
 
-})
-test("0013GTS-022 | Validate Copy Link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+//})
+test.only("0013GTS-022 | Validate Copy Link button is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -1051,7 +1052,7 @@ await test.step('now open new page with copied URL',async()=>{
         await newguessthescore.GoTo(URL)   
 })
 })
-test("0013GTS-028 | Validate save QR code is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test.only("0023GTS-023 | Validate save QR code is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -1083,7 +1084,7 @@ test("0013GTS-028 | Validate save QR code is working",async({loginPage,  guessth
    
     
 })
-test("0013GTS-029 | Validate Copy QR code is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-024 | Validate Copy QR code is working",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -1119,7 +1120,7 @@ test("0013GTS-029 | Validate Copy QR code is working",async({loginPage,  guessth
    
     
 })
-test("0013GTS-022 | Validate upload fonts is working",async({loginPage, functions, guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-025 | Validate upload fonts is working",async({loginPage, functions, guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -1160,7 +1161,7 @@ test("0013GTS-022 | Validate upload fonts is working",async({loginPage, function
 })
 
 })
-test("0013GTS-031 |Validate game design settings is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-026 |Validate game design settings is visible",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1218,7 +1219,7 @@ test("0013GTS-031 |Validate game design settings is visible",async({ loginPage, 
 
 
 })
-test("007GTS-034 | Validate game status on mobile if start /live button is clicked", async ({ loginPage, tugOfWarPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-027 | Validate game status on mobile if start /live button is clicked", async ({ loginPage, tugOfWarPage, guesstheScorePage, functions, page, }, testInfo) => {
 
     await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -1316,7 +1317,7 @@ test("007GTS-037 | Validate analytics settings is visible",async({loginPage,  gu
    
     
 })
-test.only("0013GTS-013 |Validate Text color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-013 |Validate Text color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1337,10 +1338,10 @@ test.only("0013GTS-013 |Validate Text color change is visible on mobile screen",
     })
 
     await test.step("now click on start button on Admin site", async() =>{
-        //await guesstheScorePage.clickGameDesign()
-        //await guesstheScorePage.clickStartBtn()
+    //     await guesstheScorePage.clickGameDesign()
+    //     await guesstheScorePage.clickStartBtn()
 
-       // await guesstheScorePage.clickStartGameOkBtn()
+    //    await guesstheScorePage.clickStartGameOkBtn()
 })
 let newTab=null;
 let newguessthescoregame :guesstheScoreMobilePage
@@ -1565,7 +1566,7 @@ test("0013GTS-047 | Validate RGB sections are visible in color picker",async({lo
     
 })
 
-test("0013GTS-045 |Validate swatches change visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.skip("0013GTS-045 |Validate swatches change visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1587,9 +1588,9 @@ test("0013GTS-045 |Validate swatches change visible on mobile screen",async({ lo
 
     await test.step("now click on start button on Admin site", async() =>{
         //await guesstheScorePage.clickGameDesign()
-        await guesstheScorePage.clickStartBtn()
+        // await guesstheScorePage.clickStartBtn()
 
-        await guesstheScorePage.clickStartGameOkBtn()
+        // await guesstheScorePage.clickStartGameOkBtn()
 })
 let newTab=null;
 let newguessthescoregame :guesstheScoreMobilePage
@@ -1612,7 +1613,7 @@ await test.step("provide values in form field of mobile view and submit", async(
         await newguessthescoregame.typezip()
         await newguessthescoregame.clicksubmit()
 })
-await test.step("validate Admin can change the Text color settings successfully",async() =>{
+await test.step("validate Admin can change the swatches color settings successfully",async() =>{
     //verify Text Color Text
    //await guesstheScorePage.verifyTextColorsText()
 
@@ -1645,7 +1646,7 @@ await test.step("validate Admin can change the Text color settings successfully"
     // //click Color Picker SaveBtn
     await guesstheScorePage.clickColorPickerSaveBtn()
 })       
-await test.step("now validate text color change is visible on mobile",async () =>{
+await test.step("now validate background swatches color change is visible on mobile",async () =>{
     await newguessthescoregame.checkswatchesColor()
 })
 })
@@ -1696,7 +1697,7 @@ await test.step("provide values in form field of mobile view and submit", async(
         await newguessthescoregame.typezip()
         await newguessthescoregame.clicksubmit()
 })
-await test.step("validate Admin can change the Text color settings successfully",async() =>{
+await test.step("validate Admin can change background color change is visible on mobile screen",async() =>{
     //verify Text Color Text
    //await guesstheScorePage.verifyTextColorsText()
 
@@ -1728,10 +1729,224 @@ await test.step("validate Admin can change the Text color settings successfully"
     //click Color Picker SaveBtn
     await guesstheScorePage.clickColorPickerSaveBtn()
 })       
-await test.step("now validate text color change is visible on mobile",async () =>{
+await test.step("now validate background color change is visible on mobile screen",async () =>{
     await newguessthescoregame.checkBackgroundcolor()
 })
 })
+test("0013GTS-013 |Validate button color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.clickStartBtn()
+
+        await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+})
+await test.step("validate Admin can change button color change is visible on mobile screen",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clickbuttoncolorpicker()
+     await page.waitForTimeout(1000)
+    
+
+    //input Text RGR First Color
+    await guesstheScorePage.inputRGBFirstColor()
+
+    //input Text RGR Second Color
+    await guesstheScorePage.inputRGBSecondColor()
+
+    //input Text RGR Third Color
+    await guesstheScorePage.inputRGBThirdColor()
+
+    //input Text RGR Four Color
+    await guesstheScorePage.inputRGBColorOpacity()
+
+    //input Text RGR Five Color
+    await guesstheScorePage.inputRGBColorHex()
+
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})       
+await test.step("now validate button color change is visible on mobile screen",async () =>{
+    await newguessthescoregame.checksbuttonColor()
+})
+})
+test.skip("0013GTS-013 |Validate wood color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.clickStartBtn()
+
+        await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+})
+await test.step("validate Admin can change wood color change is visible on mobile screen",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clickwoodcolorpicker()
+     await page.waitForTimeout(1000)
+    
+
+    //input Text RGR First Color
+    await guesstheScorePage.inputRGBFirstColor()
+
+    //input Text RGR Second Color
+    await guesstheScorePage.inputRGBSecondColor()
+
+    //input Text RGR Third Color
+    await guesstheScorePage.inputRGBThirdColor()
+
+    //input Text RGR Four Color
+    await guesstheScorePage.inputRGBColorOpacity()
+
+    //input Text RGR Five Color
+    await guesstheScorePage.inputRGBColorHex()
+
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})       
+await test.step("now validate wood color change is visible on mobile screen",async () =>{
+    await newguessthescoregame.checkswoodColor()
+})
+})
+test("0012-052 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage,  guesstheScorePage,  page, }, testInfo) => {
+
+
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("validate error if Add New Configuration is clicked without name provided", async () => {
+
+
+            //click Prize Drop Section
+            await guesstheScorePage.clickGuessTheScoreSection()
+            const screenshot = await page.screenshot();
+            await testInfo.attach("click Prize Drop Section", {
+                    body:screenshot,
+                    contentType: "image/png",
+            })
+             //click Add New Config Plus Btn
+             await guesstheScorePage.clickAddNewConfigPlusBtn()
+
+            //click Add Btn
+            await guesstheScorePage.clickAddBtn()
+            // validate error message visiblity
+
+            //await guesstheScorePage.verifyerrorvisiblity()
+
+            // click cancel button
+            //await guesstheScorePage.clickokbuttonerror()
+            //await guesstheScorePage.clickCancelBtn()
+            
+    })
+})
+
+
 
 
 

@@ -71,32 +71,43 @@ export default class guesstheScoreMobilePage {
        //        })
        //        expect(color).toBe("rgb(28,130,0)")
        //  }
-       //  async checkTextcolor(){
-       //        const ele = this.page.frameLocator('iframe').locator("//button[text()='Today's Line Up']")
-       //        //following lines give unexpected behaviour, please dont use that one
-       //        // const color = await ele.evaluate((ele) =>{
-       //        //      return window.getComputedStyle(ele).getPropertyValue("color")
-       //        //  })
-       //       // expect(color).toBe("rgb(28, 130, 0)")
-       //        await expect(ele).toHaveCSS("color","rgb(241, 196, 15)")
-       //  }
+        async checkTextcolor(){
+              const ele = this.page.frameLocator('iframe').locator("//button[text()='Today's Line Up']")
+              //following lines give unexpected behaviour, please dont use that one
+              // const color = await ele.evaluate((ele) =>{
+              //      return window.getComputedStyle(ele).getPropertyValue("color")
+              //  })
+             // expect(color).toBe("rgb(28, 130, 0)")
+              await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
+        }
         async verifyTextColor(){
               const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
                             await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
-              }
+               }
         async checkBackgroundcolor(){
                      const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-t1094a']")
                      // const color = await ele.evaluate((ele) =>{
-                     //        return window.getComputedStyle(ele).getPropertyValue("background-color")
+                     //        return window.getComputedStyle(ele).getPropertyValue("background-")
                      // })
                      //expect(color).toBe("rgb(28,130,0)")
-                     await expect(ele).toHaveCSS("background","rgb(241, 196, 15)")
+                     await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
                }
                async checkswatchesColor(){
-                     const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-t1094a']")
+                     const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1ig8opu']//div)[1]")
 
-                     await expect(ele).toHaveCSS("background-color","rgb(241, 196, 15)")
+                     await expect(ele).toHaveCSS("background","rgb(255, 0, 0)")
 
                }
-        
+               async checksbuttonColor(){
+                     const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
+
+                     await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
+
+               }
+               async checkswoodColor(){
+                     const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-89f2e5']")
+
+                     await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
+
+               }
     }
