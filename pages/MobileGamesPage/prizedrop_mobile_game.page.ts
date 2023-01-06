@@ -73,15 +73,22 @@ export default class prizeDropMobilePage {
               //        return window.getComputedStyle(ele).getPropertyValue("color")
               // })
               // expect(color).toBe("rgb(189, 179, 229)")
-              await expect(ele).toHaveCSS("color","rgb(189, 179, 229)")
+              await expect.soft(ele).toHaveCSS("color","rgb(189, 179, 229)")
         }
 
         async checkMainColor(){
               const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
-              await expect(ele).toHaveCSS("background-color","rgb(84, 161, 220)")
+              await expect.soft(ele).toHaveCSS("background-color","rgb(84, 161, 220)")
         }
 
         async checkButtoncolor(){
+              const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
+              await expect.soft(ele).toHaveCSS("background-color","rgb(204, 56, 147)")
+        }
+
+        async check_Accent_color(){
+              const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+              await expect.soft(ele).toHaveCSS("accent-color","rgb(189, 189, 9)")
         }
 
         

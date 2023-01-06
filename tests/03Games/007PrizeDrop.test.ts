@@ -530,7 +530,7 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
 
 })
 
-test("007PD-011 |validate QR code section is working perfectly", async ({ loginPage, prizeDropPage, page, browser }, testInfo) => {
+test("007PD-011 | validate QR code section is working perfectly", async ({ loginPage, prizeDropPage, page, browser }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -725,7 +725,7 @@ test.skip("007PD-014 | Validate Game Successfully open in mobile screen", async 
 
 
 })
-test("007PD-005 | Validate text Color Input Functionality and reflection on mobile screen", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("007PD-015 | Validate text Color Input Functionality and reflection on mobile screen", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -825,7 +825,7 @@ test("007PD-005 | Validate text Color Input Functionality and reflection on mobi
 
 })
 
-test("validate main color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("007PD-016 | validate main color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -884,16 +884,26 @@ test("validate main color input functionality and reflection on mobile site ", a
                 await newprizedropgame.clicksubmit()
         })
 
-        await test.step("valiate Admin can change 'main color' section on admin side ", async () => {
-
+        await test.step("validate main color text is visible to admin", async() =>{
                 //this two lines can be commented for pipelines
                 await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
                 await browser.contexts()[0].pages()[0].bringToFront()
                 await prizeDropPage.verifyMainColorText()
+        })
 
-                //verify Main Color Text
+        await test.step("validate swatches section is working in color picker ",async()=>{
                 //click Main Color Picker
                 await prizeDropPage.clickMainColorPicker()
+                await prizeDropPage.clickplusbuttonswatches()
+                await prizeDropPage.clickdeletebuttonswatches()
+
+        })
+
+        // await test.step("validate solid dropdowns are working properly",async()=>{
+        //         await prizeDropPage
+        // })
+
+        await test.step("valiate Admin can change 'main color' section on admin side ", async () => {
 
 
                 //input Main RGR First Color
@@ -940,7 +950,7 @@ test("validate main color input functionality and reflection on mobile site ", a
         })
 
 })
-test.skip("validate button color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("007PD-016 | validate button color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1036,7 +1046,7 @@ test.skip("validate button color color input functionality and reflection on mob
                 //this line can be commented for pipeline
                 await browser.contexts()[0].pages()[1].bringToFront()
                 //this is important 
-                //need some working here 
+                await newprizedropgame.checkButtoncolor()
                 
         })
 
@@ -1047,7 +1057,7 @@ test.skip("validate button color color input functionality and reflection on mob
 
 
 })
-test.skip("validate accent color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("007PD-017 | validate accent color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1144,6 +1154,7 @@ test.skip("validate accent color color input functionality and reflection on mob
                 await browser.contexts()[0].pages()[1].bringToFront()
                 //this is important 
                 //need some working here 
+                await newprizedropgame.check_Accent_color()
                
         })
 
@@ -1152,7 +1163,7 @@ test.skip("validate accent color color input functionality and reflection on mob
                 await prizeDropPage.clickStopGameOkBtn()
         })
 })
-test("007PD-015 | Validate Analytics Section Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("007PD-018 | Validate Analytics Section Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -1235,7 +1246,7 @@ test("007PD-015 | Validate Analytics Section Functionality", async ({ loginPage,
 //         })
 // })
 
-test("007PD-016 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("007PD-019 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 
