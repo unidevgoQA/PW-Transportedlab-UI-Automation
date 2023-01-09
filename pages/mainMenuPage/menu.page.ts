@@ -30,6 +30,15 @@ export default class menuPage {
         }
 
 
+        //Upload Fonts Header Text Elemant
+        async clickToUploadFont() {
+                const ele = this.page.locator("//div[@class='MuiBox-root css-v2612']")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                await this.page.waitForLoadState('domcontentloaded');
+        }
+
+
 
         //Upload Fonts
         async uploadFont() {
