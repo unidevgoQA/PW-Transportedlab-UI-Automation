@@ -12,7 +12,7 @@ export default class functions {
 
 
         async fontUploadFunction() {
-                const filePath0 = "files/Thin.otf"
+                const filePath0 = "testData/fonts/Thin.otf"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })

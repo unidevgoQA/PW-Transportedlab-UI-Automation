@@ -7,7 +7,7 @@ export default class mobilePreviewPage {
        // static buffer: void;
        constructor(page: Page) {
               this.page = page;
-              page.setViewportSize({ width: 360, height: 740 })
+              page.setViewportSize({ width: 420, height: 980 })
        }
 
        async lookforphonenoinform() {
@@ -54,6 +54,7 @@ export default class mobilePreviewPage {
 
        async clicksubmit() {
               await this.page.locator('//button[text()="Submit"]').click()
+              await this.page.waitForLoadState('domcontentloaded');
        }
 
 
@@ -93,15 +94,23 @@ export default class mobilePreviewPage {
 
        }
 
+       async verifyPrimaryColorAppliedInMobile(){
+              const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+              await expect(ele).toHaveCSS("background-color","rgb(45, 168, 217)")
+        }
+
 
        async verifySecondaryColorAppliedInMobile() {
+              // const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+              const btn = this.page.locator(".css-d7djuo");
 
-              const btn = this.page.locator("//div[@class='MuiBox-root css-1jjj9fe']");
+
+              // const btn = this.page.frameLocator('iframe').locator('//div//img//parent::div')
               const color = await btn.evaluate((ele) => {
                      return window.getComputedStyle(ele).getPropertyValue("background-color")
               });
               console.log(color);
-              expect(color).toBe("rgb(96, 37, 74)");
+              expect(color).toBe("rgb(95, 188, 210)");
 
 
 
@@ -112,6 +121,30 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//button[@value='prize']");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
+              await this.page.reload()
+              await this.page.waitForLoadState('load');
+
+
+
+       }
+
+       
+       async clickHowToPlayBtn() {
+              const btn = this.page.locator("//p[text()='HOW TO PLAY']");
+              expect(btn).toBeVisible()
+              await btn.click({ force: true })
+              await this.page.waitForLoadState('load');
+
+
+
+       }
+
+       
+       async clickHomeBtn() {
+              const btn = this.page.locator("//button[@value='home']");
+              expect(btn).toBeVisible()
+              await btn.click({ force: true })
+              await this.page.waitForLoadState('domcontentloaded');
 
 
 

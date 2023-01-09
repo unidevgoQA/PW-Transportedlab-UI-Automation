@@ -66,12 +66,11 @@ export default class LoginPage {
 
     async verifyCueLogoIsVisible() {
 
-        const ele = this.page.locator("//div[@class='MuiBox-root css-uycfjs']")
+        const ele = this.page.locator("//h1/preceding::div[@class='MuiBox-root css-uycfjs']")
         expect(ele).toBeVisible()        
     }
 
-    async verifySigninTextIsVisible() {
-
+    async verifySigninTextIsVisible() {        
         const ele = this.page.locator("//h1[text()='Sign in']")
         expect(ele).toBeVisible()        
     }
@@ -85,14 +84,14 @@ export default class LoginPage {
 
     async verifyIdLabelIsVisible() {
 
-        const ele = this.page.locator("(//label[text()='Id']/following::input)[1]")
+        const ele = this.page.locator("//label[text()='Id']")
         expect(ele).toBeVisible()        
     }
 
     
     async verifySecretLabelIsVisible() {
 
-        const ele = this.page.locator("//label[text()='Secret']/following::input")
+        const ele = this.page.locator("//label[text()='Secret']")
         expect(ele).toBeVisible()        
     }
 

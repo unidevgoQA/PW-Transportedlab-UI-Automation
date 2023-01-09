@@ -40,6 +40,7 @@ export default class MobileDesign {
         const ele = this.page.locator('text=Mobile Design')
         expect(ele).toContainText('Mobile Design')
         await ele.click()
+        await this.page.waitForLoadState('domcontentloaded');
     }
 
     async mobileDesign() {
@@ -119,6 +120,13 @@ export default class MobileDesign {
 
     async clickUploadFontInputFiled() {
         await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[1]").first().click({ force: true })
+        await this.page.waitForLoadState('domcontentloaded');
+    }
+
+    async verifyFontSuccessfullyUploaded() {
+        await this.page.waitForSelector("//p[text()='Thin.ot']")
+        const ele = this.page.locator("//p[text()='Thin.ot']")
+        expect(ele).toBeVisible()      
     }
 
     async clickUploadFontsInputFiled() {
@@ -169,10 +177,13 @@ export default class MobileDesign {
 
     async primaryColorHexInputField() {
         await this.page.locator("(//input[@type='text'])[5]").fill("5FBCD2FF")
+        await this.page.waitForTimeout(2000)
+
     }
 
     async clickSaveBtn() {
         await this.page.locator("//button[text()='Save']").click()
+        await this.page.waitForTimeout(3000)
     }
 
     async primaryColorPickerWindowClose() {
@@ -193,26 +204,119 @@ export default class MobileDesign {
 
     }
 
+    async clickSwatchesColorNumberThree() {
+        const ele = this.page.locator("//span[text()='#2b3648ff']")
+        expect(ele).toBeVisible()
+        await ele.click()
+
+
+    }
+
+    
+    async clickSwatchesColorNumberFour() {
+        const ele = this.page.locator("//span[text()='#5fbcd2ff']")
+        expect(ele).toBeVisible()
+        await ele.click()
+
+
+    }
+
+    async clickSwatchesColorNumberFive() {
+        const ele = this.page.locator("//span[text()='#5fbcd2ff']")
+        expect(ele).toBeVisible()
+        await ele.click()
+
+
+    }
+
+        
+    async clickColorSwatchesDeleteBtn() {
+        const ele = this.page.locator("//button[@aria-label='delete']").first()
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+
+    async clcikColorTypeSelectionInputField() {
+        const ele = this.page.locator("//div[contains(@class,'MuiSelect-select MuiSelect-standard')]")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+        await this.page.waitForLoadState('networkidle');
+
+
+    }
+
+    async selectColorTypeRadial() {
+        const ele = this.page.locator("//li[@data-value='radial']")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+
+    async selectColorTypeDiagonal() {
+        const ele = this.page.locator("//li[@data-value='diagonal']")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+
+    async selectColorTypeVertical() {
+        const ele = this.page.locator("//li[@data-value='vertical']")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+
+    async selectColorTypeHorizontal() {
+        const ele = this.page.locator("//li[@data-value='horizontal']")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+
+    async selectColorTypeSolid() {
+        const ele = this.page.locator("//li[@data-value='solid']")
+        expect(ele).toBeVisible()
+        await ele.click({force:true})
+
+
+    }
+    
+
+
+    
+    
+
 
     async SecondaryColorFirstInputField() {
-        await this.page.locator("(//input[@type='text'])[1]").fill("96")
+        await this.page.locator("(//input[@type='text'])[1]").fill("95")
+        
     }
 
 
     async SecondaryColorSecondInputField() {
-        await this.page.locator("(//input[@type='text'])[2]").fill("37")
+        await this.page.locator("(//input[@type='text'])[2]").fill("188")
+       
     }
 
     async SecondaryColorThirdInputField() {
-        await this.page.locator("(//input[@type='text'])[3]").fill("74")
+        await this.page.locator("(//input[@type='text'])[3]").fill("210")
+        
     }
 
     async SecondaryColorOpacityInputField() {
         await this.page.locator("(//input[@type='text'])[4]").fill("100")
+        
     }
 
     async SecondaryColorHexInputField() {
-        await this.page.locator("(//input[@type='text'])[5]").fill("60254AFF")
+        await this.page.locator("(//input[@type='text'])[5]").fill("5FBCD2FF")
+        await this.page.waitForLoadState('networkidle');
     }
 
     //Tertiary color input field ele

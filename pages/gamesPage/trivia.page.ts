@@ -95,14 +95,6 @@ export default class triviaPage {
 
         }
 
-        
-        async clickControlPanel() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Control Panel']").last()
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
 
         //🔚 Closed Add New Config Section Element 
         //=======================================================
