@@ -91,7 +91,18 @@ export default class prizeDropMobilePage {
               await expect.soft(ele).toHaveCSS("accent-color","rgb(189, 189, 9)")
         }
 
-        
+        //Image validations here
+        async wait_for_elements_to_load() {
+              await this.page.waitForLoadState('networkidle')
+        }
+
+        async screenshot_matcher_fullscreen_logo(){
+              await expect.soft(this.page).toHaveScreenshot('fullscreen_logo_test_screenshot.png')
+        }
+
+        async screenshot_matcher_game_title_image(){
+              await expect.soft(this.page).toHaveScreenshot('Game_title_test_screenshot.png') 
+        }
 
 
     }

@@ -333,7 +333,7 @@ test("007PD-007 | Validate Game Setting Functionality", async ({ loginPage, tugO
 
         })
 
-        await test.step("008TOFW-006 | Validate Game Setting Functionality", async () => {
+        await test.step(" Validate Game Setting Functionality", async () => {
 
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
@@ -478,7 +478,7 @@ test("007PD-009 | Validate Prizing Section Functionality", async ({ loginPage, t
 })
 
 
-test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,  prizeDropPage, browser, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -526,6 +526,15 @@ test("007PD-010 | Validate Game Open Section Functionality", async ({ loginPage,
                 await newprizedropgame.typeAge()
                 await newprizedropgame.typeemail()
                 await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()
+        })
+
+        await test.step("now stop the game in mobile screen",async()=>{
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
         })
 
 })
@@ -933,7 +942,7 @@ test("007PD-016 | validate main color input functionality and reflection on mobi
         await test.step("now upload a transparent background to see main chagne action in mobile site", async () => {
                 await prizeDropPage.click_BackgroundImage_upload_for_maincolor_check()
                 await prizeDropPage.Image_uploader_for_maincolorcheck()
-
+                //need some waiting here, its important
                 // await page.waitForTimeout(3000)
 
         })
@@ -1163,7 +1172,140 @@ test("007PD-017 | validate accent color color input functionality and reflection
                 await prizeDropPage.clickStopGameOkBtn()
         })
 })
-test("007PD-018 | Validate Analytics Section Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("Validate full screen logo upload and its reflection on mobile screen", async({ loginPage,  prizeDropPage, page, browser}, testInfo) =>{
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to Game design section and upload a full screen logo", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+                //click on full screenlogo
+                await prizeDropPage.fullscreenlogoupload()
+
+                await prizeDropPage.Image_uploader_For_Fullcreenlogo()
+
+        })
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("now provide values in form field of mobile view and submit",async () =>{
+                await browser.contexts()[0].pages()[1].bringToFront()
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()   
+        })
+
+        await test.step("now validate the change in mobile view", async () =>{
+                await newprizedropgame.selecthomepage()
+        })
+
+        await test.step("now wait for elements to load", async()=>{
+                await newprizedropgame.wait_for_elements_to_load()
+        })
+        await test.step('now check the screenshots',async() =>{
+                await newprizedropgame.screenshot_matcher_fullscreen_logo()
+        })
+        //here we can delete the element after its done
+})
+test.skip("Validate Game title upload and its reflection on mobile screen",async ({ loginPage,  prizeDropPage, page, browser}, testInfo) =>{
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        await test.step("navigate to Game design section and upload a full screen logo", async () => {
+
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
+                //click on full screenlogo
+                await prizeDropPage.Game_title_image_upload()
+
+                await prizeDropPage.Image_uploader_For_Game_title_image()
+
+        })
+        let newTab = null;
+        let newprizedropgame: prizeDropMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+
+                //click Mobile Link Btn
+                await prizeDropPage.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await prizeDropPage.clickMobileLinkOpenBtn()
+                newprizedropgame = new prizeDropMobilePage(newTab)
+                await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+        })
+
+        await test.step("now provide values in form field of mobile view and submit",async () =>{
+                await browser.contexts()[0].pages()[1].bringToFront()
+                await newprizedropgame.typephoneno()
+                await newprizedropgame.selectbirthdate()
+                await newprizedropgame.typeAge()
+                await newprizedropgame.typeemail()
+                await newprizedropgame.typezip()
+                await newprizedropgame.clicksubmit()   
+        })
+
+        await test.step("now validate the change in mobile view", async () =>{
+                await newprizedropgame.selecthomepage()
+        })
+
+        await test.step("now wait for elements to load", async()=>{
+                await newprizedropgame.wait_for_elements_to_load()
+        })
+        await test.step('now check the screenshots',async() =>{
+                await newprizedropgame.screenshot_matcher_game_title_image()
+        })
+        //here we can delete the element after its done
+})
+test.skip("Validate Frame image upload and its reflection on mobile screen",async({ loginPage,  prizeDropPage, page, browser}, testInfo)=>{
+
+})
+test("007PD-018 | Validate Analytics Section Functionality", async ({ loginPage,  prizeDropPage, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 

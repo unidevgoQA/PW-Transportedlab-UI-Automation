@@ -94,6 +94,7 @@ export default class prizeDropPage {
         async verifyerrorvisiblity() {
                 const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Configuration name cannot be empty']")
                 await expect(ele).toBeVisible()
+                await this.page.waitForTimeout(1000)
         }
 
         async clickokbuttonerror(){
@@ -119,6 +120,7 @@ export default class prizeDropPage {
         async verifyerrorvisiblityfornoprize() {
                 const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='You can`t start a session without prizes, please create a prize']")
                 await expect(ele).toBeVisible()
+                await this.page.waitForTimeout(1000)
         }
 
 
@@ -240,7 +242,7 @@ export default class prizeDropPage {
                 await ele.click()
 
         }
-
+        //image uploaders here
         async click_BackgroundImage_upload_for_maincolor_check() {
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
@@ -260,6 +262,45 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
 
+        }
+
+        async fullscreenlogoupload(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                }
+                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click()
+        }
+
+        async Image_uploader_For_Fullcreenlogo(){
+                const filePath0 = "testData/images/Fullscreen.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
+        }
+
+        async Game_title_image_upload(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                }
+                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
+        }
+        async Image_uploader_For_Game_title_image(){
+                const filePath0 = "testData/images/title.jpg"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
 
         //start accent color section element
