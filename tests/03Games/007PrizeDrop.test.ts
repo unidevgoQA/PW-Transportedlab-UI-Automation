@@ -68,7 +68,7 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
         })
 
 })
-test("007PD-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage,  prizeDropPage,  page, }, testInfo) => {
+test("007D-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage,  prizeDropPage,  page, }, testInfo) => {
 
 
         await test.step("Login Admin And land To Home Screen", async () => {

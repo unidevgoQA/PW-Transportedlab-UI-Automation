@@ -110,4 +110,59 @@ export default class guesstheScoreMobilePage {
                      await expect(ele).toHaveCSS("color","rgb(87, 124, 152)")
 
                }
+               async clickscreenshoot(){
+                     const ele = await this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]")
+                    this.page.screenshot({ path: 'testData/before.png'})
+                    
+
+               }
+               async waitforelementLoad(){
+                     await this.page.waitForLoadState("load")
+               }
+               async screenshot_matcher_backgroundimage(){
+                     await expect.soft(this.page).toHaveScreenshot("background_logo_image_screenshot.png")
+               }
+               async screenshot_matcher_gametitlelogo(){
+                     await expect.soft(this.page).toHaveScreenshot("gametitle_logo_image_screenshot.png")
+               }
+               async clickTodaysLineUpBtn(){
+                     await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]").click()
+               }
+               async clickTestBtn(){
+                     
+                     await this.page.frameLocator('iframe').locator("//div[text()='test']").click()
+               }
+               async screenshot_matcher_sponsorlogo(){
+                     await expect.soft(this.page).toHaveScreenshot("sponsor_logo_image_screenshot.png")
+               }
+               async screenshot_matcher_bannerimage(){
+                     await expect.soft(this.page).toHaveScreenshot("banner_image_screenshot.png")
+               }
+               async screenshot_matcher_rider_Avatar(){
+                     const ele = await this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']")
+                     await expect.soft(ele).toHaveScreenshot("avatar_image_screenshot.png")
+               }
+               async inputuserGuess(){
+                     await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v8vpxh']").last().type('6')
+               }
+               async verifyincorrectguessmessage(){
+                   const ele =   await this.page.frameLocator('iframe').locator("//span[text()='Incorrect Guess!']").last()
+                   expect(ele).toContainText("Incorrect Guess!")
+               }
+               async verifyscoryhedingText(){
+                     const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Guess Now!']").last()
+                   expect(ele).toContainText("Guess Now!")
+               }
+               async verifyingatehedingText(){
+                     const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Get Ready']").last()
+                   expect(ele).toContainText("Get Ready")
+               }
+               async verifyreriderText(){
+                     
+                     const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Watch the Ride']").last()
+                   expect(ele).toContainText("Watch the Ride")
+               }
+               
+
+            
     }
