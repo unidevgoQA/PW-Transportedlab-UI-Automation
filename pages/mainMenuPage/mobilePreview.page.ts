@@ -133,11 +133,23 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//p[text()='HOW TO PLAY']");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
-              await this.page.waitForLoadState('load');
+              await this.page.waitForLoadState("networkidle");
 
 
 
        }
+
+       async verifyPotraitBackgroundUploadSuccessfully() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("Verify_Portrait_Background.png") 
+
+
+
+       }
+
+
 
        
        async clickHomeBtn() {

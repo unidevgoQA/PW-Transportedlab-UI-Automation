@@ -20,7 +20,8 @@ const config: PlaywrightTestConfig = {
     "011AddNewExperiences.test.ts",     
     // "012Trivia.test.ts",
     // "guesstheScore.test.ts"
-    
+    // "textExtractFromImage.test.ts"
+        
 
   ],
   timeout: 1 * 30 * 10000,

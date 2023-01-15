@@ -33,7 +33,7 @@ export default class functions {
         }
 
         async logoImageUploadFunction() {
-                const filePath0 = "testData/images/CountDownStageBanner.jpg"
+                const filePath0 = "testData/logos/gameTeamLogo.jpg"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -220,7 +220,7 @@ export default class functions {
 
                 const chooseBtn = await this.page.locator("//button[text()='Choose File']")
                 expect.soft(chooseBtn).toContainText("Choose File")
-                const filePath0 = "testData/images/CountDownStageBanner.jpg"
+                const filePath0 = "testData/logos/PotraitBanner.png"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -230,14 +230,14 @@ export default class functions {
                 expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
 
 
-                const deviceSelectField = await this.page.locator("//label[text()='Choose Size']")
-                expect.soft(deviceSelectField).toBeVisible()
-                await deviceSelectField.click({force:true})
+                // const deviceSelectField = await this.page.locator("//label[text()='Choose Size']")
+                // expect.soft(deviceSelectField).toBeVisible()
+                // await deviceSelectField.click({force:true})
 
 
-                const iphone13ProMax = await this.page.locator("//li[@data-value='iPhone 13 Pro Max']")
-                expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
-                await iphone13ProMax.dblclick()
+                // const iphone13ProMax = await this.page.locator("//li[@data-value='iPhone 13 Pro Max']")
+                // expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
+                // await iphone13ProMax.dblclick()
 
                 // await this.page.waitForTimeout(1000)
 
@@ -269,6 +269,124 @@ export default class functions {
                 const cropperSaveBtn = await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]")
                 expect(cropperSaveBtn).toContainText("Save")
                 await cropperSaveBtn.click()
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        async invalidFileUploadCropperWithoutIframe() {
+
+                // const imageText = await this.page.locator("text='Image'")
+                // expect(imageText).toContainText("Image")
+
+                const ratioText = await this.page.locator("text='Ratio:'")
+                expect.soft(ratioText).toContainText("Ratio:")
+
+
+                const resolutionText = await this.page.locator("text='Resolution:'")
+                expect.soft(resolutionText).toContainText("Resolution:")
+
+
+                const alignmentText = await this.page.locator("text='Alignment:'")
+                expect.soft(alignmentText).toContainText("Alignment:")
+
+                const fileTypeText = await this.page.locator("text='File Type:'")
+                expect.soft(fileTypeText).toContainText("File Type:")
+
+
+                const maxFileSizeText = await this.page.locator("text='Max File Size:'")
+                expect.soft(maxFileSizeText).toContainText("Max File Size:")
+
+                // const ratioTimeText = await this.page.frameLocator('iframe').locator("text='16:9'")
+                // expect(ratioTimeText).toContainText("16:9")
+
+                const resolutionSizeText = await this.page.locator("text='1280x720'")
+                expect.soft(resolutionSizeText).toContainText("1280x720")
+
+
+                const alignmentDetailsText = await this.page.locator("text='Centered'")
+                expect.soft(alignmentDetailsText).toContainText("Centered")
+
+
+                const fileTypeDetailsText = await this.page.locator("text='PNG, SVG, JPEG, JPG'")
+                expect.soft(fileTypeDetailsText).toContainText("PNG, SVG, JPEG, JPG")
+
+                const maxFileSizeDetailsText = await this.page.locator("text='2MB'")
+                expect.soft(maxFileSizeDetailsText).toContainText("2MB")
+
+                const fileNameText = await this.page.locator("text='File Name'")
+                expect.soft(fileNameText).toContainText("File Name")
+
+                const fileSizeText = await this.page.locator("text='File Size'")
+                expect.soft(fileSizeText).toContainText("File Size")
+
+
+                const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                expect.soft(chooseBtn).toContainText("Choose File")
+                const filePath0 = "testData/csv/csv.csv"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+                // const popupPromise = this.page.waitForEvent('popup');
+                await chooseBtn.click()
+                // const popup = await popupPromise;
+
+                // await popup.locator("//p[text()='File type is not supported']").isVisible()
+                // await popup.locator("//button[text()='Ok']").click()
+
+
+
+                // const deviceScreenSizeText = await this.page.locator("text='Device Screen Size:'")
+                // expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
+
+
+                // const deviceSelectField = await this.page.locator("//label[text()='Choose Size']")
+                // expect.soft(deviceSelectField).toBeVisible()
+                // await deviceSelectField.click({force:true})
+
+
+                // const iphone13ProMax = await this.page.locator("//li[@data-value='iPhone 13 Pro Max']")
+                // expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
+                // await iphone13ProMax.dblclick()
+
+                // await this.page.waitForTimeout(1000)
+
+                // await deviceSelectField.click({force:true})
+
+
+                // const iphone12 = await this.page.locator("//li[@data-value='iPhone 12']")
+                // expect(iphone12).toContainText("iPhone 12")
+                // await iphone12.dblclick()
+
+                // await this.page.waitForTimeout(1000)
+
+                // await deviceSelectField.click({force:true})
+
+
+                // const samsungS20 = await this.page.locator("//li[text()='Samsung S20']")
+                // expect(samsungS20).toContainText("Samsung S20")
+                // await samsungS20.dblclick()
+
+
+
+                // const currentImageSizeTitleText = await this.page.locator("//div[text()='Current Image Size:']")
+                // expect.soft(currentImageSizeTitleText).toContainText("Current Image Size:")
+
+                // const currentImageRatioTitleText = await this.page.locator("//p[text()='Current Image Size Ratio:']")
+                // expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
+
+
+                // const cropperSaveBtn = await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]")
+                // expect(cropperSaveBtn).toContainText("Save")
+                // await cropperSaveBtn.click()
 
 
 

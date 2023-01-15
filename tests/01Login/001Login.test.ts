@@ -1,9 +1,10 @@
 import test, { expect } from "@fixtures/basePages"
 import * as data from "@testData/login.cred.json";
 import BaseFunctions from "base-function/baseFunctions";
+import { readFileSync } from "fs";
 
 
-test("TLL001-01 | Verify login with valid credentials", async ({ loginPage, MainMenu, page, browser }) => {
+test("TLL001-01 | Verify login with valid credentials", async ({ loginPage,page, MainMenu,  browser }) => {
 
 
 
@@ -21,16 +22,15 @@ test("TLL001-01 | Verify login with valid credentials", async ({ loginPage, Main
 
         await page.goto('/admin/#/sign-in', { waitUntil: 'domcontentloaded' })
 
-        await page.waitForTimeout(5000)
         //wait for login button
         await page.waitForSelector("button[type='button']");
 
-        //verify the full login page screen
-        // expect(await page.screenshot({
-        //         fullPage: true
-        //     })).toMatchSnapshot("login-page-UI.png")
+        // verify the full login page screen
+        expect(await page.screenshot({
+                fullPage: true
+            })).toMatchSnapshot("login-page-UI.png")
 
-        //Login with valid credentials 
+        // Login with valid credentials 
         await loginPage.login(data.username, data.password)
 
         const title = await page.title();
@@ -279,3 +279,4 @@ test("TLL001-10| Validate After Reloading From Login Page All The Element Showin
 
 
 })
+

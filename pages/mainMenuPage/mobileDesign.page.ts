@@ -78,18 +78,18 @@ export default class MobileDesign {
         await ele.click({ force: true })
     }
 
-    async  clickMobileLinkOpenBtn() {
+    async clickMobileLinkOpenBtn() {
 
         // Click text=Open Link
         const [page1] = await Promise.all([
-                this.page.waitForEvent('popup'),
-                this.page.frameLocator('iframe').locator('text=Open Link').click()
+            this.page.waitForEvent('popup'),
+            this.page.frameLocator('iframe').locator('text=Open Link').click()
         ]);
 
         return page1;
 
 
-}
+    }
 
 
 
@@ -126,7 +126,7 @@ export default class MobileDesign {
     async verifyFontSuccessfullyUploaded() {
         await this.page.waitForSelector("//p[text()='Thin.ot']")
         const ele = this.page.locator("//p[text()='Thin.ot']")
-        expect(ele).toBeVisible()      
+        expect(ele).toBeVisible()
     }
 
     async clickUploadFontsInputFiled() {
@@ -212,7 +212,7 @@ export default class MobileDesign {
 
     }
 
-    
+
     async clickSwatchesColorNumberFour() {
         const ele = this.page.locator("//span[text()='#5fbcd2ff']")
         expect(ele).toBeVisible()
@@ -229,11 +229,11 @@ export default class MobileDesign {
 
     }
 
-        
+
     async clickColorSwatchesDeleteBtn() {
         const ele = this.page.locator("//button[@aria-label='delete']").first()
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
@@ -241,7 +241,7 @@ export default class MobileDesign {
     async clcikColorTypeSelectionInputField() {
         const ele = this.page.locator("//div[contains(@class,'MuiSelect-select MuiSelect-standard')]")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
         await this.page.waitForLoadState('networkidle');
 
 
@@ -250,7 +250,7 @@ export default class MobileDesign {
     async selectColorTypeRadial() {
         const ele = this.page.locator("//li[@data-value='radial']")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
@@ -258,7 +258,7 @@ export default class MobileDesign {
     async selectColorTypeDiagonal() {
         const ele = this.page.locator("//li[@data-value='diagonal']")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
@@ -266,7 +266,7 @@ export default class MobileDesign {
     async selectColorTypeVertical() {
         const ele = this.page.locator("//li[@data-value='vertical']")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
@@ -274,7 +274,7 @@ export default class MobileDesign {
     async selectColorTypeHorizontal() {
         const ele = this.page.locator("//li[@data-value='horizontal']")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
@@ -282,36 +282,36 @@ export default class MobileDesign {
     async selectColorTypeSolid() {
         const ele = this.page.locator("//li[@data-value='solid']")
         expect(ele).toBeVisible()
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
     }
-    
 
 
-    
-    
+
+
+
 
 
     async SecondaryColorFirstInputField() {
         await this.page.locator("(//input[@type='text'])[1]").fill("95")
-        
+
     }
 
 
     async SecondaryColorSecondInputField() {
         await this.page.locator("(//input[@type='text'])[2]").fill("188")
-       
+
     }
 
     async SecondaryColorThirdInputField() {
         await this.page.locator("(//input[@type='text'])[3]").fill("210")
-        
+
     }
 
     async SecondaryColorOpacityInputField() {
         await this.page.locator("(//input[@type='text'])[4]").fill("100")
-        
+
     }
 
     async SecondaryColorHexInputField() {
@@ -363,7 +363,7 @@ export default class MobileDesign {
     async clickButtonColorBtn() {
         const ele = this.page.locator("//p[text()='Button']/following-sibling::button")
         expect(ele).toBeVisible()
-        await ele.click()
+        await ele.click({ force: true })
 
 
     }
@@ -654,7 +654,7 @@ export default class MobileDesign {
                 .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
                 .click()
         }
-
+        await this.page.waitForLoadState("networkidle")
 
 
     }
@@ -668,6 +668,7 @@ export default class MobileDesign {
                 .click()
         }
 
+        await this.page.waitForLoadState("networkidle")
 
 
     }
@@ -679,9 +680,10 @@ export default class MobileDesign {
             // console.log("delete Uploaded Landscape BG Header ")
             await this.page
                 .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                .click()
+                .click({force:true})
         }
 
+        await this.page.waitForLoadState("networkidle")
 
 
     }
@@ -696,6 +698,7 @@ export default class MobileDesign {
                 .click()
         }
 
+        await this.page.waitForLoadState("networkidle")
 
 
     }
@@ -710,6 +713,7 @@ export default class MobileDesign {
                 .click()
         }
 
+        await this.page.waitForLoadState("networkidle")
 
 
     }
@@ -738,6 +742,29 @@ export default class MobileDesign {
                 .locator("(//input[@value='video'])[4]")
                 .check()
         }
+
+
+
+    }
+
+    async clickPortraitBackgroundHeaderImageCheckBox() {
+        const ele = this.page.locator("(//span[text()='Image']/preceding::input[@type='radio'])[2]")
+        expect(ele).toBeVisible()
+        await ele.check({ force: true })
+        await this.page.waitForLoadState("load")
+
+    }
+
+    async deletePotraitBackgrounBanner() {
+
+        let ele = await this.page.locator("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]").isVisible()
+        if ((ele == true)) {
+            // console.log("delete Uploaded Landscape BG ")
+            await this.page
+                .locator("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
+                .click({force:true})
+        }
+        await this.page.waitForLoadState('networkidle')
 
 
 
@@ -780,6 +807,8 @@ export default class MobileDesign {
                 .locator("(//input[@value='video'])[1]")
                 .click()
         }
+
+        // await this.page.waitForLoadState('networkidle')
 
 
 
@@ -853,7 +882,7 @@ export default class MobileDesign {
     async clickToUploadPortraitBackgroundHeader() {
 
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[5]")
-        await ele.click()
+        await ele.click({force:true})
 
 
 
@@ -868,20 +897,107 @@ export default class MobileDesign {
     }
     async clickToUploadPortraitBackground() {
 
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[3]")
-        await ele.click()
+        // const popupPromise = this.page.waitForEvent('popup');
+        await this.page.locator("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]").click();
+        // const popup = await popupPromise;
+        // Wait for the popup to load.
+        // await popup.waitForLoadState('load');
+
+        // const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[3]")
+        // await ele.click()
+
+
 
 
 
     }
 
+    async verifyPotraitBackgroundUploadSuccessfully() {
+
+        await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
+       
+
+
+
+    }
+
+    async verifyLandscapeBackgroundUploadSuccessfully() {
+
+        await this.page.waitForSelector("//h5[text()='Landscape Background']/following::button[@title='Delete']//div[1]")
+       
+
+
+
+    }
+    async verifyLandscapeBackgroundHeaderUploadSuccessfully() {
+
+        await this.page.waitForSelector("(//h5[text()='Landscape Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+       
+
+
+
+    }
+
+    async verifyPortraitBackgroundHeaderUploadSuccessfully() {
+
+        await this.page.waitForSelector("(//h5[text()='Portrait Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+       
+
+
+
+    }
+
+    async verifyMainLogoUploadSuccessfully() {
+
+        await this.page.waitForSelector("(//h5[text()='Main Logo']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+       
+
+
+
+    }
+
+    
+
+    async uploadProtraitBackgrounImageForMobileScreen() {
+
+        const buffer = readFileSync('testData/logos/gameTeamLogo.jpg');
+        // Create the DataTransfer and File
+        const dataTransfer = await this.page.evaluateHandle((data) => {
+            const dt = new DataTransfer();
+            // Convert the buffer to a hex array
+            const file = new File([data.toString('hex')], 'gameTeamLogo.jpg', { type: 'application/jpg' });
+            dt.items.add(file);
+            return dt;
+        }, buffer);
+
+        await this.page.dispatchEvent("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]", 'drop', { dataTransfer });
+        await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
+
+
+    }
+
+
+
     async clickToUploadLandscapeBackground() {
 
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
+        await ele.click({force:true})
+
+
+
+    }
+
+    async verifyErrorAlertText() {
+
+        const ele = await this.page.locator("//p[text()='File type is not supported']")
+        expect(ele).toContainText("File type is not supported")
+    }
+
+    async clcikErrorAlertOkBtn() {
+
+        const ele = await this.page.locator("//button[text()='Ok']")
+        expect(ele).toContainText("Ok")
         await ele.click()
-
-
-
     }
 
 
@@ -922,17 +1038,18 @@ export default class MobileDesign {
 
     async dragAndDropUploadHelper() {
 
-        const buffer = readFileSync('./videos/a.png');
+        const buffer = readFileSync('testData/videos/video.mp4');
         // Create the DataTransfer and File
         const dataTransfer = await this.page.evaluateHandle((data) => {
             const dt = new DataTransfer();
             // Convert the buffer to a hex array
-            const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+            const file = new File([data.toString('hex')], 'video.mp4', { type: 'application/mp4' });
             dt.items.add(file);
             return dt;
         }, buffer);
 
-        await this.page.dispatchEvent("(//div[@class='MuiBox-root css-78n4oq']//div)[1]", 'drop', { dataTransfer });
+        await this.page.dispatchEvent("(//div[@class='MuiBox-root css-v2612'])[2]", 'drop', { dataTransfer });
+        await this.page.waitForLoadState("domcontentloaded")
 
     }
 
