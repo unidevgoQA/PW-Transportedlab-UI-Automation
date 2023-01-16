@@ -197,6 +197,7 @@ export default class guesstheScorePage {
 
         async openimagesection() {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Image Uploads"]//parent::div').click()
+                await this.page.waitForLoadState("networkidle")
         }
         // async clickfullscreenlogoupload() {
         //         await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Full Screen Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
@@ -213,6 +214,14 @@ export default class guesstheScorePage {
         async clickMobileBackgroundupload() {
                await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
         }
+
+        async verifyProtraitBackgroundImageUploadSuccessfully() {
+                
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@title='Delete']")
+                expect(ele).toBeVisible()
+         }
+
+        
         async checkMobileBackgrounduploadimage() {
                 return await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-vjb914'])[1]").isVisible()
                 

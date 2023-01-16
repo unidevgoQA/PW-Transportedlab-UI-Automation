@@ -56,6 +56,13 @@ export default class guesstheScoreMobilePage {
                 await this.page.locator('//button[text()="Submit"]').click()
          }
 
+         async clcikHomePageInMobileScreen(){
+            const ele = await this.page.locator("//p[text()='HOME']")
+            await ele.click({force:true})
+            await this.page.waitForLoadState("networkidle")
+
+     }
+
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
@@ -120,7 +127,9 @@ export default class guesstheScoreMobilePage {
                      await this.page.waitForLoadState("load")
                }
                async screenshot_matcher_backgroundimage(){
-                     await expect.soft(this.page).toHaveScreenshot("background_logo_image_screenshot.png")
+                  expect(await this.page.screenshot({
+                        fullPage: true
+                    })).toMatchSnapshot("Protrait-BAckground-UI.png")
                }
                async screenshot_matcher_gametitlelogo(){
                      await expect.soft(this.page).toHaveScreenshot("gametitle_logo_image_screenshot.png")
