@@ -5759,7 +5759,7 @@ test("MD002-111 | Validate Try to upload Invalid Image Format for Portrait Backg
 
 })
 
-test.only("MD002-112 | Validate Successfully Upload Portrait Background From Admin Side", async ({ loginPage,functions, MainMenu, page }) => {
+test("MD002-112 | Validate Successfully Upload Portrait Background From Admin Side", async ({ loginPage,functions, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
