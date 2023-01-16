@@ -12,26 +12,15 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts",
-          "002MobileDesign.test.ts",
-          "003Language.test.ts",
-          "004Menu.test.ts",
-          "005SignUp.test.ts",
-          "006GlobalPrizing.test.ts",
-          "007PrizeDrop.test.ts",
-          "008TugOfWar.test.ts",
-          "009LiveWall.test.ts",
-          "010Arcade.test.ts",
-          "011AddNewExperiences.test.ts",
-          "guesstheScore.test.ts"
+          "007PrizeDrop.test.ts"
         ],
         "timeout": 300000
       }
@@ -54,12 +43,12 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
-    "rootDir": "e:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
-    "version": "1.28.0",
+    "version": "1.29.1",
     "workers": 1,
     "webServer": null
   },
@@ -71,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "007PD-009 | Validate Prizing Section Functionality",
+          "title": "007PD-001 | Add New Configuration",
           "ok": true,
           "tags": [],
           "tests": [
@@ -84,64 +73,1135 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 21058,
+                  "status": "interrupted",
+                  "duration": 22,
+                  "error": {
+                    "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:19.714Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-184d95a2a43088d30e80",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 8,
+          "column": 5
+        },
+        {
+          "title": "007PD-002 |validate error if Add New Configuration is clicked without name provided",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login Admin And land To Home Screen",
-                      "duration": 6567
-                    },
-                    {
-                      "title": "Now click on the prizing section",
-                      "duration": 3845
-                    },
-                    {
-                      "title": "Now validation prizing list text is visible",
-                      "duration": 13
-                    },
-                    {
-                      "title": "validate 'click' add new prize button is working",
-                      "duration": 127
-                    },
-                    {
-                      "title": "validate back button here is working",
-                      "duration": 313
-                    },
-                    {
-                      "title": "validate Admin can input the coupon name and amount of awarding , awarded",
-                      "duration": 378
-                    },
-                    {
-                      "title": "validate Admin can select the coupon prize and save",
-                      "duration": 6544
-                    }
-                  ],
-                  "startTime": "2023-01-16T11:48:31.858Z",
-                  "attachments": [
-                    {
-                      "name": "login screenshot",
-                      "contentType": "image/png",
-                      "body": "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AAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEKg9mAcAAAPWSURBVAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAIDEBEAAAAAASEwABAAAAILH/344dyAAAAAAM8re+x1cYCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgTAACAAAAwJgABAAAAIAxAQgAAAAAYwIQAAAAAMYEIAAAAACMCUAAAAAAGBOAAAAAADAmAAEAAABgLNEy5u9O82sdAAAAAElFTkSuQmCC"
-                    },
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-007PrizeDrop-007PD-009-Validate-Prizing-Section-Functionality\\test-finished-1.png"
-                    }
-                  ]
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-755868b89484a98e7e8b",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 71,
+          "column": 5
+        },
+        {
+          "title": "008PD-003 | Validate error if start clicked without prize given ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-e309c36b2f6ee3267fb6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 115,
+          "column": 5
+        },
+        {
+          "title": "007PD-004 | Validate Font Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-ef1cfd2a26be8d62fad5",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 149,
+          "column": 5
+        },
+        {
+          "title": "007PD-006 | Validate Upload Game Design Image Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-8ad3f3fe58cdc4bcdc54",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 191,
+          "column": 5
+        },
+        {
+          "title": "007PD-007 | Validate Game Setting Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-d0bff6b3956a3532a712",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 317,
+          "column": 5
+        },
+        {
+          "title": "007PD-008 | Validate Add Banner Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-6aa7a02d0d94a7f32412",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 390,
+          "column": 5
+        },
+        {
+          "title": "007PD-009 | Validate Prizing Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
             }
           ],
           "id": "5d78b1b18d7f9409d41e-49eca4e3fd088457adab",
           "file": "tests/03Games/007PrizeDrop.test.ts",
           "line": 433,
-          "column": 1
+          "column": 5
+        },
+        {
+          "title": "validate prize name,Total prizes and Parcentage awarded is visible ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-4c114b170e41084de07c",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 505,
+          "column": 5
+        },
+        {
+          "title": "007PD-010 | Validate Game Open Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-82770222fe6ba994d5ce",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 552,
+          "column": 5
+        },
+        {
+          "title": "007PD-011 | validate QR code section is working perfectly",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-fcc886ca9ab780622672",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 613,
+          "column": 5
+        },
+        {
+          "title": "007PD-012 | Validate Game Link Successfully Copy in system clipboard",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-6fbc775d73d3f9f9dc00",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 650,
+          "column": 5
+        },
+        {
+          "title": "007PD-013 | Validate User Additional Information Section ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-7c0cb6e1fa88248bd1a8",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 702,
+          "column": 5
+        },
+        {
+          "title": "007PD-014 | Validate Game Successfully open in mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-4657140861ec4ccc16ae",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 724,
+          "column": 6
+        },
+        {
+          "title": "007PD-015 | Validate text Color Input Functionality and reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-2adbd5bc297921798020",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 808,
+          "column": 5
+        },
+        {
+          "title": "007PD-016 | validate main color input functionality and reflection on mobile site ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-a73cefd526d46a25a6d9",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 908,
+          "column": 5
+        },
+        {
+          "title": "007PD-016 | validate button color color input functionality and reflection on mobile site ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-efba7a15c672e075071e",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1033,
+          "column": 5
+        },
+        {
+          "title": "007PD-017 | validate accent color color input functionality and reflection on mobile site ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-7d811ea4abe6852f841a",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1140,
+          "column": 5
+        },
+        {
+          "title": "Validate full screen logo upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-0a3a71e574b16b627722",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1246,
+          "column": 6
+        },
+        {
+          "title": "Validate Game title upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-621ddf0f7a3fe8a447b7",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1312,
+          "column": 6
+        },
+        {
+          "title": "Validate Frame image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-c4b5c45620232ace14bd",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1378,
+          "column": 5
+        },
+        {
+          "title": "validate sponsor logo upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-e3a3e21df716da562cb6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1459,
+          "column": 5
+        },
+        {
+          "title": "validate Team logo upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-15a1c6c097e3f9d721f3",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1525,
+          "column": 5
+        },
+        {
+          "title": "validate Loading image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-62b840f41de1f444a5cf",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1590,
+          "column": 5
+        },
+        {
+          "title": "validate Background video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1f4394a6316da5cc98e0",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1669,
+          "column": 5
+        },
+        {
+          "title": "validate How to play image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-237bbb6fbd6d52c423e4",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1735,
+          "column": 5
+        },
+        {
+          "title": "validate How to play video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-287a574bacf8a65ec9f4",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1801,
+          "column": 5
+        },
+        {
+          "title": "validate rules image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-2f65a976b85412aab684",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1867,
+          "column": 5
+        },
+        {
+          "title": "validate rules video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-f5ae404a3cb7dd222653",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1932,
+          "column": 5
+        },
+        {
+          "title": "validate splash image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1727870982542e430c6a",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1998,
+          "column": 5
+        },
+        {
+          "title": "validate splash video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1629cdf706d300d86889",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2059,
+          "column": 5
+        },
+        {
+          "title": "validate standby message test and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-59f3d00917e91ca8c77d",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2127,
+          "column": 5
+        },
+        {
+          "title": "validate Ending Game message Editor and its full regression",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-9e8fed9e891d6ce6f2e6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2197,
+          "column": 6
+        },
+        {
+          "title": "007PD-018 | Validate Analytics Section Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-81ab6839ff094931fc67",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2263,
+          "column": 5
+        },
+        {
+          "title": "007PD-019 | Validate Game Edit And Delete Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-16T13:45:22.534Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-56d7d863bd82d0bb35a3",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2346,
+          "column": 5
         }
       ]
     }

@@ -5,6 +5,8 @@ import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
 import { readFileSync } from 'fs';
 const clipboard = require('clipboardy')
+
+
 test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
 
@@ -68,6 +70,7 @@ test("007PD-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, priz
         })
 
 })
+
 test("007PD-002 |validate error if Add New Configuration is clicked without name provided", async ({ loginPage, prizeDropPage, page, }, testInfo) => {
 
 
@@ -187,6 +190,8 @@ test("007PD-004 | Validate Font Upload Functionality", async ({ loginPage, tugOf
         })
 
 })
+
+
 
 test("007PD-006 | Validate Upload Game Design Image Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
@@ -2317,31 +2322,7 @@ test("007PD-018 | Validate Analytics Section Functionality", async ({ loginPage,
         })
 
 })
-// test("007PD-012| validate mobile page is working ", async ({ loginPage, page,prizeDropPage }, testInfo) =>{
 
-//         await test.step("Login Admin And land To Home Screen", async () => {
-
-//                 await page.goto('/admin/#/sign-in')
-//                 await loginPage.login(data.username, data.password)
-//                 const title = await page.title();
-//                 expect(title).toBe('DXP Admin')
-
-//                 const screenshot = await page.screenshot();
-//                 await testInfo.attach("login screenshot", {
-//                         contentType: "image/png",
-//                         body: screenshot
-//                 })
-
-
-
-//         })
-//         await test.step("click on mobile link page", async() =>{
-//                 await prizeDropPage.clickMobileLinkBtn()
-//                 const newgame = await prizeDropPage.clickMobileLinkOpenBtn()
-//                 await newgame.setViewportSize({width:360,height:740})
-//                 await newgame.waitForTimeout(3000)
-//         })
-// })
 
 test("007PD-019 | Validate Game Edit And Delete Functionality", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
 
