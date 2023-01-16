@@ -92,9 +92,8 @@ test("MD002-003 | Validate Try To Upload Invalid Font Format", async ({ loginPag
 
                 //click Upload Font And Upload Files
 
-                await MainMenu.clickMobileDesign();
-                await page.waitForTimeout(2000)
-                await functions.logoImageUploadFunction()
+                await MainMenu.clickMobileDesign();                
+                await functions.bannerImageUploadFunction()
                 await MainMenu.clickUploadFontsInputFiled()
 
 
@@ -5827,7 +5826,7 @@ test("MD002-112 | Validate Successfully Upload Portrait Background From Admin Si
 
 })
 
-test.only("MD002-113 | Validate Portrait Background Successfully Show on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-113 | Validate Portrait Background Successfully Show on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

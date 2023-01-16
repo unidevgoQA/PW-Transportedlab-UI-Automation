@@ -665,7 +665,7 @@ export default class MobileDesign {
             // console.log("delete Uploaded Portrait BG ")
             await this.page
                 .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                .click()
+                .click({force:true})
         }
 
         await this.page.waitForLoadState("networkidle")
