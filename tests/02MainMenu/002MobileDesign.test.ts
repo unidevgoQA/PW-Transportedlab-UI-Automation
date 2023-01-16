@@ -5759,7 +5759,7 @@ test("MD002-111 | Validate Try to upload Invalid Image Format for Portrait Backg
 
 })
 
-test("MD002-112 | Validate Successfully Upload Portrait Background From Admin Side", async ({ loginPage,functions, MainMenu, page }) => {
+test.only("MD002-112 | Validate Successfully Upload Portrait Background From Admin Side", async ({ loginPage,functions, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -5827,7 +5827,7 @@ test("MD002-112 | Validate Successfully Upload Portrait Background From Admin Si
 
 })
 
-test("MD002-113 | Validate Portrait Background Successfully Show on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test.only("MD002-113 | Validate Portrait Background Successfully Show on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

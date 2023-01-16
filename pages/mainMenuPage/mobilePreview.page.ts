@@ -7,7 +7,7 @@ export default class mobilePreviewPage {
        // static buffer: void;
        constructor(page: Page) {
               this.page = page;
-              page.setViewportSize({ width: 420, height: 980 })
+              page.setViewportSize({ width: 520, height: 980 })
        }
 
        async lookforphonenoinform() {
