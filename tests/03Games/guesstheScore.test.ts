@@ -1946,7 +1946,7 @@ test("0013GTS-039 |validate error if Add New Configuration is clicked without na
             
     })
 })
-test.only("0013GTS-040 |validate Mobile Background image upload works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-040 |validate Mobile Background image upload works", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1976,8 +1976,9 @@ test.only("0013GTS-040 |validate Mobile Background image upload works", async({ 
     await test.step("Background image  logo upload works", async() =>{
         await functions.portraitBackgroundImageUploadHelper()
         await guesstheScorePage.clickMobileBackgroundupload()
-        await functions.fileUploadCropper()         
-        await page.waitForTimeout(4000)       
+        await functions.fileUploadCropper()  
+        await guesstheScorePage.verifyMobileBackgroundTexts()      
+        
         await guesstheScorePage.verifyProtraitBackgroundImageUploadSuccessfully()
 
     })

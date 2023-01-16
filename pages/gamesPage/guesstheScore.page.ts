@@ -53,6 +53,8 @@ export default class guesstheScorePage {
 
         async clickGameDesign() {
                 await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last().click()
+                await this.page.waitForLoadState("networkidle")
+
 
         }
 
@@ -215,8 +217,14 @@ export default class guesstheScorePage {
                await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
         }
 
+        async verifyMobileBackgroundTexts() {
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("//p[text()='Mobile Background']")
+                expect(ele).toContainText("Mobile Background")
+                await this.page.waitForLoadState("load")
+         }
+
         async verifyProtraitBackgroundImageUploadSuccessfully() {
-                
+                await this.page.waitForTimeout(6000)
                 const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@title='Delete']")
                 expect(ele).toBeVisible()
          }

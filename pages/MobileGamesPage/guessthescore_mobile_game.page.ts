@@ -126,7 +126,7 @@ export default class guesstheScoreMobilePage {
                async waitforelementLoad(){
                      await this.page.waitForLoadState("load")
                }
-               async screenshot_matcher_backgroundimage(){
+               async screenshot_matcher_backgroundimage(){                  
                   expect(await this.page.screenshot({
                         fullPage: true
                     })).toMatchSnapshot("Protrait-BAckground-UI.png")
