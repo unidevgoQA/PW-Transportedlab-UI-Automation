@@ -39,6 +39,13 @@ export default class functions {
                 })
         }
 
+        async portraitBackgroundImageUploadHelper() {
+                const filePath0 = "testData/logos/PotraitBanner.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
         async videoUploadFunction() {
                 const filePath0 = "testData/videos/video.mp4"
                 this.page.on("filechooser", async (filechooser) => {
@@ -113,21 +120,21 @@ export default class functions {
                 expect.soft(chooseBtn).toContainText("Choose File")
                 await chooseBtn.click()
 
-                const deviceScreenSizeText = await this.page.frameLocator('iframe').locator("text='Device Screen Size:'")
-                expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
+                // const deviceScreenSizeText = await this.page.frameLocator('iframe').locator("text='Device Screen Size:'")
+                // expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
 
 
-                await this.page.waitForTimeout(2000)                
-                const deviceSelectField = await this.page.frameLocator('iframe').locator("(//div[@role='button'])[1]")
-                expect.soft(deviceSelectField).toBeVisible()
-                await deviceSelectField.click({force:true})
+                // await this.page.waitForTimeout(2000)                
+                // const deviceSelectField = await this.page.frameLocator('iframe').locator("(//div[@role='button'])[1]")
+                // expect.soft(deviceSelectField).toBeVisible()
+                // await deviceSelectField.click({force:true})
 
-                await this.page.waitForTimeout(2000)
-                const iphone13ProMax = await this.page.frameLocator('iframe').locator("//li[@data-value='iPhone 13 Pro Max']")
-                expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
-                await iphone13ProMax.dblclick({force:true})
+                // await this.page.waitForTimeout(2000)
+                // const iphone13ProMax = await this.page.frameLocator('iframe').locator("//li[@data-value='iPhone 13 Pro Max']")
+                // expect.soft(iphone13ProMax).toContainText("iPhone 13 Pro Max")
+                // await iphone13ProMax.dblclick({force:true})
 
-                await this.page.waitForTimeout(1000)
+                // await this.page.waitForTimeout(1000)
 
                 // await deviceSelectField.click()
 
@@ -147,16 +154,26 @@ export default class functions {
 
 
 
-                const currentImageSizeTitleText = await this.page.frameLocator('iframe').locator("//div[text()='Current Image Size:']")
-                expect.soft(currentImageSizeTitleText).toContainText("Current Image Size:")
+                // const currentImageSizeTitleText = await this.page.frameLocator('iframe').locator("//div[text()='Current Image Size:']")
+                // expect.soft(currentImageSizeTitleText).toContainText("Current Image Size:")
 
-                const currentImageRatioTitleText = await this.page.frameLocator('iframe').locator("//p[text()='Current Image Size Ratio:']")
-                expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
+                // const currentImageRatioTitleText = await this.page.frameLocator('iframe').locator("//p[text()='Current Image Size Ratio:']")
+                // expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
 
+                const chooseRatio = await this.page.frameLocator('iframe').locator("(//div[@backgroundcolor='#212936']//div)[2]")
+                await chooseRatio.click({force:true})
+                await this.page.waitForTimeout(3000)
+
+                const selectNone = await this.page.frameLocator('iframe').locator("//li[text()='None']")
+                await selectNone.click({force:true})
+
+                await this.page.waitForLoadState("networkidle")
 
                 const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 expect(cropperSaveBtn).toContainText("Save")
                 await cropperSaveBtn.click()
+
+                await this.page.waitForLoadState("networkidle")
 
 
 
