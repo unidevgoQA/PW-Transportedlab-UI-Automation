@@ -131,7 +131,7 @@ export default class languagePage {
 
         //select language type english
     async selectEnglishLanguage() {
-            const ele = this.page.locator("//li[text()='English']");
+            const ele = this.page.locator("//li[text()='English']")
             expect(ele).toBeVisible()
             await ele.click()       
     }
