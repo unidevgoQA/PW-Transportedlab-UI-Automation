@@ -1985,7 +1985,7 @@ test("0013GTS-040 |validate Mobile Background image upload works", async({ login
   
 }) 
 
-test.only("0013GTS-044 |Validate Protrait Background image upload change is being reflected on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-044 |Validate Protrait Background image upload change is being reflected on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
