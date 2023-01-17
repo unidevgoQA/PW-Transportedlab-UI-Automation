@@ -20,7 +20,7 @@
         "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "002MobileDesign.test.ts"
+          "003Language.test.ts"
         ],
         "timeout": 300000
       }
@@ -54,14 +54,14 @@
   },
   "suites": [
     {
-      "title": "tests\\02MainMenu\\002MobileDesign.test.ts",
-      "file": "tests/02MainMenu/002MobileDesign.test.ts",
+      "title": "tests\\02MainMenu\\003Language.test.ts",
+      "file": "tests/02MainMenu/003Language.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "MD002-105 | Validate Try to upload Invalid Image Format for Landscape Background ",
-          "ok": true,
+          "title": "TL003-001 | Validate User Selectable Language Change Functionality Working Properly on User Side",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -73,42 +73,80 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 13908,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 11587,
+                  "error": {
+                    "message": "locator.selectOption: Error: Element is not a <select> element\n=========================== logs ===========================\nwaiting for locator('xpath=(//div[@role=\\'button\\'])[2]')\n  locator resolved to visible <div tabindex=\"0\" role=\"button\" aria-expanded=\"true\" …>…</div>\n  selecting specified option(s)\n  Element is not a <select> element\n============================================================",
+                    "stack": "locator.selectOption: Error: Element is not a <select> element\n=========================== logs ===========================\nwaiting for locator('xpath=(//div[@role=\\'button\\'])[2]')\n  locator resolved to visible <div tabindex=\"0\" role=\"button\" aria-expanded=\"true\" …>…</div>\n  selecting specified option(s)\n  Element is not a <select> element\n============================================================\n    at languagePage.selectJapaneseLanguage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\language.page.ts:178:63)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:78:28\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:66:5"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\language.page.ts",
+                        "column": 63,
+                        "line": 178
+                      },
+                      "message": "locator.selectOption: Error: Element is not a <select> element\n=========================== logs ===========================\nwaiting for locator('xpath=(//div[@role=\\'button\\'])[2]')\n  locator resolved to visible <div tabindex=\"0\" role=\"button\" aria-expanded=\"true\" …>…</div>\n  selecting specified option(s)\n  Element is not a <select> element\n============================================================\n\n\u001b[90m   at \u001b[39mpages\\mainMenuPage\\language.page.ts:178\n\n\u001b[0m \u001b[90m 176 |\u001b[39m         \u001b[90m// }  \u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 177 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 178 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"(//div[@role='button'])[2]\"\u001b[39m)\u001b[33m.\u001b[39mselectOption({label\u001b[33m:\u001b[39m\u001b[32m\"English\"\u001b[39m})\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 179 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 180 |\u001b[39m \u001b[90m//         const englishLanguage = await expect(this.page.locator('option[selected=\"selected\"]')).toHaveText('Option 1')\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 181 |\u001b[39m \u001b[90m//       if ((englishLanguage == true)) {\u001b[39m\u001b[0m\n\n\u001b[2m    at languagePage.selectJapaneseLanguage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\language.page.ts:178:63)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:78:28\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:66:5\u001b[22m"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "Login Admin And Land to Home Screen",
-                      "duration": 9172
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 7548
                     },
                     {
-                      "title": "click Portrait Background Header Image CheckBox",
-                      "duration": 2575
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 683
                     },
                     {
-                      "title": "Validate Upload Functionality For Mobile Design",
-                      "duration": 1085
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 609
+                    },
+                    {
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 376
+                    },
+                    {
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 346
+                    },
+                    {
+                      "title": "Login Admin and Land to Home Screen",
+                      "duration": 324
+                    },
+                    {
+                      "title": "TL003-02 | Verify Admin Select Profile flow Language",
+                      "duration": 592,
+                      "error": {
+                        "message": "locator.selectOption: Error: Element is not a <select> element\n=========================== logs ===========================\nwaiting for locator('xpath=(//div[@role=\\'button\\'])[2]')\n  locator resolved to visible <div tabindex=\"0\" role=\"button\" aria-expanded=\"true\" …>…</div>\n  selecting specified option(s)\n  Element is not a <select> element\n============================================================",
+                        "stack": "locator.selectOption: Error: Element is not a <select> element\n=========================== logs ===========================\nwaiting for locator('xpath=(//div[@role=\\'button\\'])[2]')\n  locator resolved to visible <div tabindex=\"0\" role=\"button\" aria-expanded=\"true\" …>…</div>\n  selecting specified option(s)\n  Element is not a <select> element\n============================================================\n    at languagePage.selectJapaneseLanguage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\language.page.ts:178:63)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:78:28\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\003Language.test.ts:66:5"
+                      }
                     }
                   ],
-                  "startTime": "2023-01-13T10:35:43.210Z",
+                  "startTime": "2023-01-16T21:49:55.492Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-002MobileDesign-MD002-105-Val-78064--Invalid-Image-Format-for-Landscape-Background-\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-003Language-TL003-001-Validat-cd385-nge-Functionality-Working-Properly-on-User-Side\\test-failed-1.png"
                     }
-                  ]
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\language.page.ts",
+                    "column": 63,
+                    "line": 178
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "763aa67a7d12c7767892-4e4709a1b3c3d0637902",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5337,
+          "id": "aa3cb2870e92c4001846-37f31b985338c75339f0",
+          "file": "tests/02MainMenu/003Language.test.ts",
+          "line": 33,
           "column": 6
         }
       ]

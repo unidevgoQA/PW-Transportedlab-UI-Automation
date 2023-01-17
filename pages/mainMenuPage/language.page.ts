@@ -163,12 +163,49 @@ export default class languagePage {
             expect(ele).toBeVisible()
             await ele.click()       
     }
-
+   
         //select language type Japanese
     async selectJapaneseLanguage() {
-            const ele = this.page.locator("//li[text()='Japanese']");
-            expect(ele).toBeVisible()
-            await ele.click()       
+        // const englishLanguage: boolean
+        // const EnglishLGregistrationflow = await this.page.locator("(//div[text()='English'])[2]").isVisible()
+        // if ((EnglishLGregistrationflow == true)) {
+        //         // console.log("Enable Stage to be skip and jump to next one")
+        //         await this.page
+        //                 .locator("//li[text()='Japanese']")
+        //                 .click({force:true})
+        // }  
+
+        await this.page.locator("(//div[@role='button'])[2]").selectOption({label:"English"})
+
+//         const englishLanguage = await expect(this.page.locator('option[selected="selected"]')).toHaveText('Option 1')
+//       if ((englishLanguage == true)) {
+//               // console.log("Enable Stage to be skip and jump to next one")
+//               await this.page
+//                       .locator("//li[text()='Japanese']")
+//                       .click({force:true})
+//       }    
+
+        // const checkboxState = await this.page.evaluate(() => {
+        //         const checkbox = document.querySelector('[type=checkbox]');
+        //         return checkbox.checked;
+        //     });
+
+        // const checkboxStates = await this.page.evaluate(() => {
+        //         const checkboxes = document.querySelectorAll('[type=checkbox]');
+        //         return [...checkboxes].map(c => c.checked);
+        //     });
+
+        // let startBtn = await this.page.locator("//li[text()='Japanese']").isChecked()
+        // if ((startBtn == false)) {
+        //         // console.log("Enable Stage to be skip and jump to next one")
+        //         await this.page.locator("//li[text()='Japanese']").check()
+        // }    
+
+        // expect(await this.page.locator("//li[text()='Japanese']").isChecked()).toBeFalsy()
+        //     const ele = this.page.locator("//li[text()='Japanese']").isChecked().
+
+        //     expect(ele).toBeVisible()
+        //     await ele.click()       
     }
 
     //Language Controls Elable disable btn Element
@@ -185,6 +222,8 @@ export default class languagePage {
             const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]");
             expect(ele).toBeVisible()
             await ele.dblclick()
+
+            await this.page.waitForLoadState("networkidle")
 
        
         }        
