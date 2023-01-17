@@ -61,7 +61,10 @@ export default class mobilePreviewPage {
        async clickOkBtn() {
               const ele = this.page.locator("//button[text()='Ok']")
               expect(ele).toBeVisible()
-              await ele.click()
+              await ele.click({force:true})
+              await this.page.waitForLoadState("networkidle")
+
+
        }
        async verifyUserNameInputFieldTitle() {
               const ele = this.page.locator("//label[text()='Username']")
@@ -127,6 +130,127 @@ export default class mobilePreviewPage {
 
 
        }
+
+       async clickMyProfile() {
+              const btn = this.page.locator("//p[text()='USER PROFILE']");
+              expect(btn).toBeVisible()
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       
+       async clickLanguageSelectionInputField() {
+              const btn = this.page.locator("div[role='button']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+       }
+
+       async selectJapanese() {
+              const btn = this.page.locator("//li[text()='Japanese']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async selectSpanish() {
+              const btn = this.page.locator("//li[text()='Spanish']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async verifyJapaneseLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='プロフィール']");  
+              expect(btn).toContainText("プロフィール")            
+              
+
+
+
+       }
+
+       async selectArabic() {
+              const btn = this.page.locator("//li[text()='Arabic']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async verifyArabicLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='الملف الشخصي']");  
+              expect(btn).toContainText("الملف الشخصي")            
+
+
+       }
+
+       async selectRussian() {
+              const btn = this.page.locator("//li[text()='Russian']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async verifyRussianLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='Профиль']");  
+              expect(btn).toContainText("Профиль")            
+
+
+       }
+
+       async selectFrancias() {
+              const btn = this.page.locator("//li[text()='Francias']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async verifyFranciasLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='Profil']");  
+              expect(btn).toContainText("Profil")            
+
+
+       }
+
+       async selectEnglish() {
+              const btn = this.page.locator("//li[text()='English']");              
+              await btn.click({ force: true })
+              await this.page.waitForLoadState("networkidle");
+
+
+
+       }
+
+       async verifyEnglishLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='Profile']");  
+              expect(btn).toContainText("Profile")            
+
+
+       }
+
+       
+       async verifySpanishLanguageApplaidSuccessfully() {
+              const btn = this.page.locator("//h1[text()='Perfil']");  
+              expect(btn).toContainText("Perfil")            
+              
+
+
+
+       }
+       
+
+
 
        
        async clickHowToPlayBtn() {
