@@ -24,6 +24,7 @@ test("011ANE-001 | Validate Image Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.ImageBtn();
       await addnewexperiencePage.ImageBtn();
       await addnewexperiencePage.inputTitleName()
+      await addnewexperiencePage.enabledIconCheckBox();
       await addnewexperiencePage.checkHeaderText();
       await addnewexperiencePage.HeaderTextBtn();
       await addnewexperiencePage.selectLarge();
@@ -31,10 +32,11 @@ test("011ANE-001 | Validate Image Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.selectMedium();
       await addnewexperiencePage.HeaderTextBtn();
       await addnewexperiencePage.selectSmall();
-      await addnewexperiencePage.enabledIconCheckBox();
+      
       await addnewexperiencePage.checkWebsiteText();
       await addnewexperiencePage.ImageUploadFunction();
-
+      await addnewexperiencePage.ImageDelete();
+      await addnewexperiencePage.ImageEdit();
       await addnewexperiencePage.clickFillBtn();
       await addnewexperiencePage.clickFitBtn();
       await addnewexperiencePage.clickStretchBtn();
@@ -86,8 +88,11 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
 
       await page.waitForTimeout(10000)
       await addnewexperiencePage.VideoDelete();
-
-      await page.waitForTimeout(10000)
+      // await addnewexperiencePage.UploadedvideoDelete();
+      // await addnewexperiencePage.videoUploadFunction();
+      // await addnewexperiencePage.UploadedVideoEdit();
+      // await addnewexperiencePage.videoUploadFunction();
+       await page.waitForTimeout(10000)
       await addnewexperiencePage.ShowcontrolCheckBox();
       await addnewexperiencePage.PlayvdoCheckBox();
       await addnewexperiencePage.MutevdoCheckBox();
@@ -110,7 +115,7 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
 })
 
 
-test("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test.only("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')

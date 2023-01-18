@@ -54,8 +54,17 @@ export default class menuPage {
                 }, buffer);
 
                 // Now dispatch
+            
                 await this.page.dispatchEvent("//div[@class='MuiBox-root css-v2612']", 'drop', { dataTransfer });
         }
+
+         //Delete uploaded font
+         async deleteUploadedFont() {
+                const ele = this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[1]")
+                expect(ele).toBeVisible()
+                await ele.click();
+        } 
+
 
         //Fonts Header Text Elemant
         async checkMenuBarTitleText() {
@@ -69,7 +78,7 @@ export default class menuPage {
                 expect(ele).toBeVisible()
                 await ele.click();
         }
-
+       
         //input menubar first color
         async inputMenuBarRgbFirstFieldColor() {
                 const ele = this.page.locator("(//input[@inputmode='numeric'])[1]")
@@ -147,6 +156,20 @@ export default class menuPage {
                 expect(ele).toBeVisible()
                 await ele.fill('2aA8D9');
         }
+        //Background color modal
+        // async backGroundcolor() {
+        //         const ele = this.page.locator("//div[@class='MuiBox-root css-1pqer0i']")
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
+        // }
+        // //Menu bar background color deletion
+        // async menubarBackgroundcolorDeletation() {
+
+
+        //         const ele = this.page.locator("//div[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv']")
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
+        //}
 
         //input menubar second field color
         async clickColorPickerWindowSaveBtn() {
@@ -547,5 +570,51 @@ async disableUserProfileIconCheckBox() {
         await cropperSaveBtn.click()
 
 }
+//Solid dropdown selection from the background color
+async selectSolidcolor () {
+        const ele = this.page.locator("//div[contains(@class,'MuiSelect-select MuiSelect-standard')]")
+        expect (ele).toBeVisible()
+        await ele.click()
+
+        
+}
+//select horizontalcolor
+async selecthorizontalColor() {
+        const ele = this.page.locator("//li[text()='Horizontal']")
+        expect (ele).toBeVisible()
+        await ele.click()
 }
 
+//select verticalcolor
+async seletverticalColor() {
+        const ele = this.page.locator("//li[text()='Vertical']")
+        expect (ele).toBeVisible()
+        await ele.click()
+}
+
+//Add new background color swatches
+async selectnewSwatch() {
+        const ele = this.page.locator("//button[@aria-label='Add Color']")
+        expect(ele).toBeVisible()
+        await ele.click()
+ }
+ //Delete the added swatches
+ async deleteSwatches() {
+        const ele = this.page.locator("(//button[@aria-label='delete'])[2]")
+        expect(ele).toBeVisible()
+        await ele.click()
+ }
+ //Diagonal color selection
+ async selectdiagonalColor() {
+        const ele = this.page.locator("//li[@data-value='diagonal']")
+        expect(ele).toBeVisible()
+        await ele.click()
+ }
+ // Select Radial color
+ async selectradialColor() {
+        const ele = this.page.locator("//li[@data-value='radial']")
+        expect(ele).toBeVisible()
+        await ele.click()
+ }
+
+}

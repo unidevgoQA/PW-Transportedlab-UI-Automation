@@ -67,8 +67,33 @@ test("004M-002 | Validate Try To Upload Invalid Font From Admin Side", async ({ 
 
 })
 
+test("004M-003 | Validate delete uploaded font by the admin side", async ({ loginPage,functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
-test("004M-002 | Varify Color input functionality for menu", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        await MainMenu.clickHomeAvater();
+        await MainMenu.mainMenuBtn();
+        await MainMenu.clickMobileDesign();
+
+        //Click on the menu page
+        await menuPage.clickMenuPage()
+        //verify font text
+        await menuPage.checkFontsText();
+
+        //Verify upload font text
+        await menuPage.checkUploadFontText();
+
+        await functions.logoImageUploadFunction()
+        await menuPage.clickToUploadFont()
+        await menuPage.deleteUploadedFont()
+})
+
+test("004M-004 | Varify Color input functionality for menu", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -123,6 +148,10 @@ test("004M-002 | Varify Color input functionality for menu", async ({ loginPage,
 
         //clcik on the menubar first color input field
         await menuPage.clickFirstMenuBarColorInputField()
+        //Add new swatches
+        await menuPage.selectnewSwatch()
+        //Delete swatches
+        await menuPage.deleteSwatches()
 
 
         //Input menubar RGB first field color 
@@ -139,16 +168,115 @@ test("004M-002 | Varify Color input functionality for menu", async ({ loginPage,
 
         //Input menubar solid field color 
         await menuPage.inputSecondMenuBarSolidFieldColor()
+         // select horizontal color
+         await menuPage.selectSolidcolor();
+
+         // select horizontal color
+         await menuPage.selecthorizontalColor();
+
+         //select vertical option
+         await menuPage.selectSolidcolor();
+         await menuPage.seletverticalColor();
+         //select diagonal color
+         await menuPage.selectSolidcolor();
+         await menuPage.selectdiagonalColor();
+         //select radial color
+         await menuPage.selectSolidcolor();
+         await menuPage.selectradialColor();
 
 
         //click on the save button
         await menuPage.clickColorPickerWindowSaveBtn();
+       
 
 
 
 
 })
 
+// test.only("004M-004 | Verify delete background color", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+
+
+
+
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+
+//         await MainMenu.clickHomeAvater();
+//         await MainMenu.mainMenuBtn();
+//         await MainMenu.clickMobileDesign();
+
+
+
+
+//         //Click on the menu page
+//         await menuPage.clickMenuPage()
+
+
+
+
+
+//         //clcik on the menubar first color input field
+//         await menuPage.clickFirstMenuBarColorInputField()
+
+//         await page.waitForTimeout(3000)
+
+//         //Input menubar RGB first field color 
+//         await menuPage.inputMenuBarRgbFirstFieldColor()
+
+//         //Input menubar RGB second field color 
+//         await menuPage.inputMenuBarRgbSecondFieldColor()
+
+//         //Input menubar RGB third field color 
+//         await menuPage.inputMenuBarRgbThirdFieldColor()
+
+//         //Input menubar field color  opacity
+//         await menuPage.inputMenuBarColorFieldOpacity()
+
+//         //Input menubar solid field color 
+//         await menuPage.inputMenuBarSolidFieldColor()
+
+
+
+//         //click on the save button
+//         await menuPage.clickColorPickerWindowSaveBtn();
+
+
+
+
+
+//         //clcik on the menubar first color input field
+//         await menuPage.clickFirstMenuBarColorInputField()
+
+
+//         //Input menubar RGB first field color 
+//         await menuPage.inputSecondMenuBarRgbFirstFieldColor()
+
+//         //Input menubar RGB second field color 
+//         await menuPage.inputMenuBarRgbSecondFieldColor()
+
+//         //Input menubar RGB third field color 
+//         await menuPage.inputSecondMenuBarRgbThirdFieldColor()
+
+//         //Input menubar field color  opacity
+//         await menuPage.inputSecondMenuBarColorFieldOpacity()
+
+//         //Input menubar solid field color 
+//         await menuPage.inputSecondMenuBarSolidFieldColor()
+
+
+//         //click on the save button
+//         await menuPage.clickColorPickerWindowSaveBtn();
+//         //Delete the background color
+//         await menuPage.backGroundcolor();
+//         await menuPage.menubarBackgroundcolorDeletation();
+
+
+
+
+// })
 test("004M-003 | Varify Alignment button functionality", async ({ loginPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
