@@ -11,7 +11,7 @@ export default class guesstheScoreMobilePage {
         }
 
         async lookforphonenoinform(){
-               const ele = this.page.locator('//label[text()="Phone number"]')
+               const ele =  this.page.locator('//label[text()="Phone number"]')
                await expect(ele).toBeVisible()
         }
         async lookforEmailinform(){
@@ -132,17 +132,21 @@ export default class guesstheScoreMobilePage {
                     })).toMatchSnapshot("Protrait-BAckground-UI.png")
                }
                async screenshot_matcher_gametitlelogo(){
-                     await expect.soft(this.page).toHaveScreenshot("gametitle_logo_image_screenshot.png")
+                     await expect.soft(await this.page.screenshot({
+                        fullPage : true
+                     })).toMatchSnapshot("gametitle_logo_image_screenshot.png")
                }
                async clickTodaysLineUpBtn(){
                      await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]").click()
                }
-               async clickTestBtn(){
+               async clickCurrentEventBtn(){
                      
-                     await this.page.frameLocator('iframe').locator("//div[text()='test']").click()
+                     await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-1v9r71b"])[1]').last().click()
                }
                async screenshot_matcher_sponsorlogo(){
-                     await expect.soft(this.page).toHaveScreenshot("sponsor_logo_image_screenshot.png")
+                     await expect.soft(await this.page.screenshot({
+                        fullPage : true
+                     })).toMatchSnapshot("sponsor_logo_image_screenshot.png")
                }
                async screenshot_matcher_bannerimage(){
                      await expect.soft(this.page).toHaveScreenshot("banner_image_screenshot.png")
@@ -152,10 +156,10 @@ export default class guesstheScoreMobilePage {
                      await expect.soft(ele).toHaveScreenshot("avatar_image_screenshot.png")
                }
                async inputuserGuess(){
-                     await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v8vpxh']").last().type('6')
+                     await this.page.frameLocator('iframe').locator('(//p[@class="MuiTypography-root MuiTypography-body1 css-sev7bh"])[1]').last().type('6')
                }
                async verifyincorrectguessmessage(){
-                   const ele =   await this.page.frameLocator('iframe').locator("//span[text()='Incorrect Guess!']").last()
+                   const ele =   await this.page.frameLocator('iframe').locator("//span[text()='Incorrect Guess!']")
                    expect(ele).toContainText("Incorrect Guess!")
                }
                async verifyscoryhedingText(){
@@ -170,6 +174,10 @@ export default class guesstheScoreMobilePage {
                      
                      const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Watch the Ride']").last()
                    expect(ele).toContainText("Watch the Ride")
+               }
+               async verifyaddingridername(){
+                  const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Rider Test']").last()
+                   expect(ele).toContainText("Rider Test")
                }
                
 
