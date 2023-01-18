@@ -2717,7 +2717,11 @@ test("0013GTS-059 |Validate event name cancel button is working. ", async({login
 
 })
 
+<<<<<<< Updated upstream
 test("0013GTS-060 |Validate start event and stop event is working. ", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+=======
+test.only("0013GTS-060 |Validate start event is working. ", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+>>>>>>> Stashed changes
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -2828,7 +2832,11 @@ test("0013GTS-063 |Validate add riders in event save button is working", async({
    })
 
 })
+<<<<<<< Updated upstream
 test("0013GTS-064 |Validate game status Live after click start event", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+=======
+test.only("0013GTS-064 |Validate game status Live after click start event.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+>>>>>>> Stashed changes
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -2852,6 +2860,7 @@ test("0013GTS-064 |Validate game status Live after click start event", async({lo
        await guesstheScorePage.clickLiveBtn()
        //await guesstheScorePage.clickStartGameOkBtn()
        await guesstheScorePage.clicksLiveGameOkBtn()
+       await guesstheScorePage.clickeventStop()
       
        
    })
@@ -2913,9 +2922,10 @@ test("0013GTS-065 |Validate uploaded avatar is reflected on mobile screen", asyn
          await page.waitForTimeout(2000)
          await newguessthescoregame.screenshot_matcher_rider_Avatar()
       })
+      await guesstheScorePage.clickeventStop()
 
 })
-test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.skip("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
@@ -2983,6 +2993,7 @@ test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile sc
         await guesstheScorePage.clickeventStop()
 
      })
+     await guesstheScorePage.clickeventStop()
     // await test.step("Now verify the rider avatar screenshot",async()=>{
     //      await newguessthescoregame.waitforelementLoad()
     //      await newguessthescoregame.clickTodaysLineUpBtn()

@@ -1306,24 +1306,34 @@ async clickEditRiderBtn(){
         //         await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
         //         ele.click()
         // }
+<<<<<<< Updated upstream
         await this.page.frameLocator('iframe').locator('//p[text()="Start Event"]').click()
         
   }
   async clickeventStop(){
         const ele =  this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").last()
          await ele.click()
+=======
+        await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[1]").last().click()
+        
+  }
+  async clickeventStop(){
+        const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
+        ele.click()
+>>>>>>> Stashed changes
         //  if((await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible())){
         //         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click()
         //         ele.click()
         // }
 
-        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
+        await this.page.frameLocator('iframe').locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p[1]").last().click()
         
 
   }
   async clickeventRename(){
         await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
-        await this.page.frameLocator('iframe').locator("//p[text()='Rename']").click()
+        await this.page.waitForTimeout(1000)
+        await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
         const rename = await this.page.frameLocator('iframe').locator("//input[@type='string']")
         await rename.focus()
         await this.page.keyboard.press("Meta+A");
