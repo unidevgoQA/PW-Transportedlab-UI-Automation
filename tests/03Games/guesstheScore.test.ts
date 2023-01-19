@@ -2435,7 +2435,7 @@ test("0013GTS-048 |Validate rider roster tab is visible", async({ loginPage, gue
    
 }) 
 
-test.only("0013GTS-048 |Validate rider import functionality", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-048 |Validate rider import functionality", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -2995,7 +2995,7 @@ test("0013GTS-065 |Validate uploaded avatar is reflected on mobile screen", asyn
       await guesstheScorePage.clickeventStop()
 
 })
-test("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
@@ -3077,10 +3077,13 @@ test("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen"
         // await guesstheScorePage.clickMoveToNextBtn()
      })
      await test.step("Now input rider score admin",async()=>{
-        // await page.waitForTimeout(5000)
-        await guesstheScorePage.inputRiderScore()
+        // await page.waitForTimeout(5000)\
+        await newguessthescoregame.clickRiderInputField()
+        await newguessthescoregame.inputRiderScore()
         await page.waitForTimeout(1000)
+        await guesstheScorePage.inputRiderScore()
         await guesstheScorePage.clickRiderScoresubmitBtn()
+
      })
      await test.step("Now validate incorrect guess message on mobile screen",async()=>{
         await newguessthescoregame.verifyincorrectguessmessage()

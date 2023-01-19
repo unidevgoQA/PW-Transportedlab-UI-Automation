@@ -1400,8 +1400,16 @@ async clickEditRiderBtn(){
         await this.page.waitForLoadState("networkidle")
   }
   async inputRiderScore(){
-        const ele =  await this.page.frameLocator('css-r99fy3').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]").last()
-        expect(ele).toBeVisible()
+        // await this.page.waitForSelector("//input[@type='number']")
+        await this.page.waitForTimeout(6000)
+        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+        // expect(ele).toBeVisible()        
+        await ele.fill("10")
+  }
+
+  async clickRiderInputField(){
+        const ele =  await this.page.locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+        // expect(ele).toBeVisible()        
         await ele.fill("20")
   }
   async clickRiderScoresubmitBtn(){

@@ -181,6 +181,18 @@ export default class guesstheScoreMobilePage {
 
             }
 
+            async inputRiderScore(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.fill("20")
+            }
+          
+            async clickRiderInputField(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.click()
+            }
+
                
 
                async clickCurrentEventBtn(){
