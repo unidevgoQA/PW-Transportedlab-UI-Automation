@@ -12,7 +12,7 @@ export default class functions {
 
 
         async fontUploadFunction() {
-                const filePath0 = "files/Thin.otf"
+                const filePath0 = "testData/fonts/Midnight.ttf"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -33,6 +33,13 @@ export default class functions {
         }
 
         async logoImageUploadFunction() {
+                const filePath0 = "testData/json/rider.json"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async uploadJsonFile() {
                 const filePath0 = "testData/images/CountDownStageBanner.jpg"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);

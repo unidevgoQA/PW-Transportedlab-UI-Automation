@@ -54,7 +54,17 @@ export default class guesstheScoreMobilePage {
 
          async clicksubmit(){
                 await this.page.locator('//button[text()="Submit"]').click()
+                await this.page.waitForLoadState("networkidle")
          }
+
+         async verifyFontAppliedSuccessfullyInMobileScreen(){
+            expect(await this.page.screenshot({
+                  fullPage: true
+              })).toMatchSnapshot("Font-Uploaded-UI.png")
+     }
+
+
+         
 
          async clcikHomePageInMobileScreen(){
             const ele = await this.page.locator("//p[text()='HOME']")
@@ -105,6 +115,20 @@ export default class guesstheScoreMobilePage {
                      await expect(ele).toHaveCSS("background","rgb(255, 0, 0)")
 
                }
+
+               async verifyBackgroundColorUpdatedSuccessfully(){
+                  expect(await this.page.screenshot({
+                        fullPage: true
+                    })).toMatchSnapshot("BackGround-Color-Uploaded-UI.png")
+
+            }
+
+            async verifyWoodColorUpdatedSuccessfully(){
+                  expect(await this.page.screenshot({
+                        fullPage: true
+                    })).toMatchSnapshot("Wood-Color-Uploaded-UI.png")
+
+            }
                async checksbuttonColor(){
                      const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
 
@@ -136,9 +160,29 @@ export default class guesstheScoreMobilePage {
                         fullPage : true
                      })).toMatchSnapshot("gametitle_logo_image_screenshot.png")
                }
+
+               async verifyTodaysLineUpBtnText(){
+                  const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
+                  expect(ele).toContainText("Today's Line Up")
+                  await this.page.waitForLoadState("networkidle")
+             }
+
                async clickTodaysLineUpBtn(){
-                     await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]").click()
+                    const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
+                    await ele.click()
+                    await this.page.waitForLoadState("networkidle")
                }
+
+               async clickGameEventTestBtn(){
+                  const ele = await this.page.frameLocator('iframe').locator("//div[text()='test']")
+                  expect(ele).toBeVisible()
+                  await ele.click()
+                  await this.page.waitForLoadState("networkidle")
+
+            }
+
+               
+
                async clickCurrentEventBtn(){
                      
                      await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-1v9r71b"])[1]').last().click()
