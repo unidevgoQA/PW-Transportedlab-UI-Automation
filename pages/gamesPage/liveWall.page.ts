@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 export default class liveWallPage {
   [x: string]: any;
 
@@ -27,10 +27,29 @@ export default class liveWallPage {
 
   async clickMobileLinkOpenBtn() {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]");
-    await ele.click();
+    // const ele = await this.page
+    //   .frameLocator("iframe")
+    //   .locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]");
+    // await ele.click();
+    const [page1] = await Promise.all([
+      this.page.waitForEvent('popup'),
+      this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+]);
+
+return page1;
+  }
+  async clickVIPMobileLinkOpenBtn() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    // const ele = await this.page
+    //   .frameLocator("iframe")
+    //   .locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]");
+    // await ele.click();
+    const [page1] = await Promise.all([
+      this.page.waitForEvent('popup'),
+      this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+]);
+
+return page1;
   }
   
 
@@ -1010,7 +1029,8 @@ async inputLowConnectionMassage() {
   async clickRefreshBtn() {
     const ele = await this.page
       .frameLocator("iframe")
-      .locator("//button[text()='Refresh']");
+      .locator('(//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1pejgza"])[1]')
+      expect(ele).toBeVisible()
     await ele.click({force:true});
   }
 
@@ -1110,6 +1130,87 @@ async clickVIPLiveSelfieCamBtn() {
   expect(ele).toBeVisible()
   await ele.click();
 }
+async clickMobileLinkBtn(){
+  const ele = this.page.frameLocator("iframe").locator('(//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1pejgza"])[2]')
+  expect(ele).toBeVisible()
+  await ele.click({force:true})
+  //await this.page.waitForLoadState("networkidle")
+}
+async clickAdminSection(){
+  const ele = this.page.frameLocator("iframe").locator("//button[@aria-label='Admin']")
+  expect(ele).toBeVisible()
+  await ele.click({force:true})
+  //await this.page.waitForLoadState("networkidle")
+}
+async verifyMobileLinkText(){
+  const ele = this.page.frameLocator("iframe").locator("//h2[text()='Mobile Link']")
+   expect(ele).toContainText("Mobile Link")
+  }
+  async verifyQRScreencode(){
+    const ele = this.page.frameLocator("iframe").locator('//div[@class="MuiDialogContent-root css-9tte1s"]')
+    expect(ele).toBeVisible()
+  }
+  async verifyVIPQRScreencode(){
+    const ele = this.page.frameLocator("iframe").locator('//div[@class="MuiDialogContent-root css-9tte1s"]')
+    expect(ele).toBeVisible()
+  }
+  async clickCopyLinkBtn(){
+      const ele = this.page.frameLocator("iframe").locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]')
+      expect(ele).toBeVisible()
+      await ele.click()
+    
+  }
+  async clickVIPCopyLinkBtn(){
+    const ele = this.page.frameLocator("iframe").locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]')
+    expect(ele).toBeVisible()
+    await ele.click()
+  
+}
+  async clickCloseBtn(){
+    await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').click()
+  }
+  async validateSaveQRCode(){
+      const [download] = await Promise.all([
+              this.page.waitForEvent('download'),
+              this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click()
+    ])
+    const suggestedFileName = download.suggestedFilename()
+    const filePath = 'QRCode' + suggestedFileName
+    await download.saveAs(filePath)
+    expect(existsSync(filePath)).toBeTruthy()
+  }
+  async validateVIPSaveQRCode(){
+    const [download] = await Promise.all([
+            this.page.waitForEvent('download'),
+            this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click()
+  ])
+  const suggestedFileName = download.suggestedFilename()
+  const filePath = 'QRCode' + suggestedFileName
+  await download.saveAs(filePath)
+  expect(existsSync(filePath)).toBeTruthy()
+}
+  async clickVIPMobileLinkBtn(){
+    const ele = this.page.frameLocator("iframe").locator('(//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1pejgza"])[3]')
+    expect(ele).toBeVisible()
+    await ele.click()
+    
+  }
+  async clickOutputLinkBtn(){
+    const ele = this.page.frameLocator("iframe").locator("//div[@class='css-1iwzvcj']/following-sibling::button[1]")
+    expect(ele).toBeVisible()
+    await ele.click()
+    
+  }
+  async verifyVIPLinkText(){
+      await  this.page.waitForTimeout(1000)
+      const ele = this.page.frameLocator('iframe').locator('//h2[@class="MuiTypography-root MuiTypography-h6 MuiDialogTitle-root css-188xrq4"]')
+      expect(ele).toContainText("VIP Link")
+  }
+  async verifyOutputScreenLinkText(){
+      await  this.page.waitForTimeout(1000)
+      const ele = this.page.frameLocator('iframe').locator("//h2[text()='Output Screen Link']")
+      expect(ele).toContainText("Output Screen Link")
+  }
 
 
 

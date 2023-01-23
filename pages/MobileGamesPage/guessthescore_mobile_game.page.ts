@@ -11,7 +11,7 @@ export default class guesstheScoreMobilePage {
         }
 
         async lookforphonenoinform(){
-               const ele = this.page.locator('//label[text()="Phone number"]')
+               const ele =  this.page.locator('//label[text()="Phone number"]')
                await expect(ele).toBeVisible()
         }
         async lookforEmailinform(){
@@ -54,7 +54,17 @@ export default class guesstheScoreMobilePage {
 
          async clicksubmit(){
                 await this.page.locator('//button[text()="Submit"]').click()
+                await this.page.waitForLoadState("networkidle")
          }
+
+         async verifyFontAppliedSuccessfullyInMobileScreen(){
+            expect(await this.page.screenshot({
+                  fullPage: true
+              })).toMatchSnapshot("Font-Uploaded-UI.png")
+     }
+
+
+         
 
          async clcikHomePageInMobileScreen(){
             const ele = await this.page.locator("//p[text()='HOME']")
@@ -105,6 +115,20 @@ export default class guesstheScoreMobilePage {
                      await expect(ele).toHaveCSS("background","rgb(255, 0, 0)")
 
                }
+
+               async verifyBackgroundColorUpdatedSuccessfully(){
+                  expect(await this.page.screenshot({
+                        fullPage: true
+                    })).toMatchSnapshot("BackGround-Color-Uploaded-UI.png")
+
+            }
+
+            async verifyWoodColorUpdatedSuccessfully(){
+                  expect(await this.page.screenshot({
+                        fullPage: true
+                    })).toMatchSnapshot("Wood-Color-Uploaded-UI.png")
+
+            }
                async checksbuttonColor(){
                      const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
 
@@ -132,44 +156,123 @@ export default class guesstheScoreMobilePage {
                     })).toMatchSnapshot("Protrait-BAckground-UI.png")
                }
                async screenshot_matcher_gametitlelogo(){
-                     await expect.soft(this.page).toHaveScreenshot("gametitle_logo_image_screenshot.png")
+                     await expect.soft(await this.page.screenshot({
+                        fullPage : true
+                     })).toMatchSnapshot("gametitle_logo_image_screenshot.png")
                }
+
+               async verifyTodaysLineUpBtnText(){
+                  const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
+                  expect(ele).toContainText("Today's Line Up")
+                  await this.page.waitForLoadState("networkidle")
+             }
+
                async clickTodaysLineUpBtn(){
-                     await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]").click()
+                    const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
+                    await ele.click()
+                    await this.page.waitForLoadState("networkidle")
                }
-               async clickTestBtn(){
+
+               async clickGameEventTestBtn(){
+                  const ele = await this.page.frameLocator('iframe').locator("//div[text()='test']")
+                  expect(ele).toBeVisible()
+                  await ele.click()
+                  await this.page.waitForLoadState("networkidle")
+
+            }
+
+            async inputIncorrectRiderScore(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.fill("20")
+            }
+          
+            async clickRiderInputField(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.click()
+            }
+            async inputCorrectRiderScore(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.fill("20")
+            }   
+            async inputCloseRiderScore(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.fill("19")
+            }  
+           
+            async inputFarRiderScore(){
+                  const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                  // expect(ele).toBeVisible()        
+                  await ele.fill("18")
+            }  
+
+               async clickCurrentEventBtn(){
                      
-                     await this.page.frameLocator('iframe').locator("//div[text()='test']").click()
+                     await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-1v9r71b"])[1]').last().click()
                }
                async screenshot_matcher_sponsorlogo(){
-                     await expect.soft(this.page).toHaveScreenshot("sponsor_logo_image_screenshot.png")
+                     await expect.soft(await this.page.screenshot({
+                        fullPage : true
+                     })).toMatchSnapshot("sponsor_logo_image_screenshot.png")
                }
                async screenshot_matcher_bannerimage(){
                      await expect.soft(this.page).toHaveScreenshot("banner_image_screenshot.png")
                }
                async screenshot_matcher_rider_Avatar(){
-                     const ele = await this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']")
+                     const ele = await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiAvatar-root MuiAvatar-square')]")
                      await expect.soft(ele).toHaveScreenshot("avatar_image_screenshot.png")
                }
                async inputuserGuess(){
-                     await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v8vpxh']").last().type('6')
+                     await this.page.frameLocator('iframe').locator('(//p[@class="MuiTypography-root MuiTypography-body1 css-sev7bh"])[1]').last().type('6')
                }
                async verifyincorrectguessmessage(){
-                   const ele =   await this.page.frameLocator('iframe').locator("//span[text()='Incorrect Guess!']").last()
+                   const ele =    this.page.frameLocator('iframe').locator("//div[text()='Incorrect Guess!']").last()
                    expect(ele).toContainText("Incorrect Guess!")
                }
+               async verifycorrectguessmessage(){
+                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Correct Guess!']").last()
+                  expect(ele).toContainText("Correct Guess!")
+              }
+              async verifycloseguessmessage(){
+                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Close Guess!']").last()
+                  expect(ele).toContainText("Close Guess!")
+              }
+              async verifyfarguessmessage(){
+                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Far Guess!']").last()
+                  expect(ele).toContainText("Far Guess!")
+              }
+              async verifyNoScoremessage(){
+                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='No Score!']").last()
+                  expect(ele).toContainText("No Score!")
+              }
                async verifyscoryhedingText(){
                      const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Guess Now!']").last()
                    expect(ele).toContainText("Guess Now!")
                }
                async verifyingatehedingText(){
-                     const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Get Ready']").last()
+                     const ele =    this.page.frameLocator('iframe').locator("//p[text()='Get Ready']").last()
                    expect(ele).toContainText("Get Ready")
                }
                async verifyreriderText(){
                      
-                     const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Watch the Ride']").last()
+                     const ele =    this.page.frameLocator('iframe').locator("//p[text()='Watch the Ride']").last()
                    expect(ele).toContainText("Watch the Ride")
+               }
+               async verifyaddingridername(){
+                  const ele =   await this.page.frameLocator('iframe').locator("//p[text()='Rider Test']").last()
+                   expect(ele).toContainText("Rider Test")
+               }
+               async verifyEarnedPointsText(){
+                  const ele =    this.page.frameLocator('iframe').locator("//p[text()='Earned Points']")
+                   expect(ele).toContainText("Earned Points")
+               }
+               async verifyEarnedPoints(){
+                  const ele =    this.page.frameLocator('iframe').locator('//p[@class="MuiTypography-root MuiTypography-body1 css-242oqg"]')
+                  expect(ele).toBeVisible()
+                   expect(ele).toContainText("50")
                }
                
 

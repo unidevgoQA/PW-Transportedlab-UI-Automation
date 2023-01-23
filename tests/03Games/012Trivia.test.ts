@@ -90,7 +90,7 @@ test("012TV-002 | Validated Mobile Background Color Input Section", async ({ log
 
       await test.step("click To Upload Game Font", async () => {
             await functions.fontUploadFunction()
-            await triviaPage.clickToUploadGameFont()
+            await triviaPage.clickToUploadFont()
       })
 
 
