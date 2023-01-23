@@ -150,6 +150,13 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Russian']");
                 expect(ele).toBeVisible()
                 await ele.click()
+                
+        }
+
+        //select language type Russian
+        async verifyRussianLanguageSuccessfullySelected() {
+                const ele = this.page.locator("//div[text()='Russian']");
+                expect(ele).toContainText("Russian")
         }
 
         //select language type Arabic
