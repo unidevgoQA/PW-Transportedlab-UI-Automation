@@ -153,7 +153,7 @@ await test.step("Now game open in mobile screen",async()=>{
     
 })
 
-test("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test.only("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
@@ -175,7 +175,11 @@ test("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginP
         await guesstheScorePage.opencolorssection()
         
     })
+   
     await test.step("Validate background Color Input Functionality", async () => {
+           //click solid dropdown
+            
+        
         // await guesstheScorePage.clickGuessTheScoreSection()
        
         
@@ -185,6 +189,7 @@ test("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginP
 
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickBackgroundColorPicker()
+       // await guesstheScorePage.clickSolidDropdowns()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -2985,9 +2990,7 @@ test("0013GTS-065 |Validate uploaded avatar is reflected on mobile screen", asyn
     await test.step("Now verify the rider avatar screenshot",async()=>{
          await newguessthescoregame.waitforelementLoad()
          await newguessthescoregame.clickTodaysLineUpBtn()
-         await page.waitForTimeout(2000)
          await newguessthescoregame.clickCurrentEventBtn()
-         await page.waitForTimeout(2000)
          await guesstheScorePage.clickMoveToNextBtn() 
          await page.waitForTimeout(2000)
          await newguessthescoregame.screenshot_matcher_rider_Avatar()
@@ -2995,7 +2998,7 @@ test("0013GTS-065 |Validate uploaded avatar is reflected on mobile screen", asyn
       await guesstheScorePage.clickeventStop()
 
 })
-test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-066 |Validate Incorrect guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
@@ -3040,7 +3043,6 @@ test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile sc
             await newguessthescoregame.typeAge()
             await newguessthescoregame.typezip()
             await newguessthescoregame.clicksubmit()
-            await newguessthescoregame.verifyTodaysLineUpBtnText()
             })
 
             await test.step("now open the game in mobile view", async() =>{
@@ -3057,41 +3059,29 @@ test.only("0013GTS-066 |Validate Incorrect guess message reflection on mobile sc
             
             await test.step("Now game open in mobile screen",async()=>{
                 
-                               
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
                 await newguessthescoregame.clickTodaysLineUpBtn()
                 await newguessthescoregame.clickGameEventTestBtn()
                 })
-
-                
-           // await newTab.waitForTimeout(4000)
-            // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
-            //newTab.close()
+     await test.step("Now Input for Incorrect Guess on mobile screen",async()=>{
+                    await newguessthescoregame.clickRiderInputField()
+                    await newguessthescoregame.inputIncorrectRiderScore()
+                })
      
-     await test.step("Now click start even",async()=>{
-        // await guesstheScorePage.clickeventStart()
-        // await page.waitForTimeout(1000)
-        // await guesstheScorePage.clickMoveToNextBtn()
-        // await page.waitForTimeout(1000)
-        // await guesstheScorePage.clickMoveToNextBtn()
-        // await page.waitForTimeout(1000)
-        // await guesstheScorePage.clickMoveToNextBtn()
-     })
      await test.step("Now input rider score admin",async()=>{
-        // await page.waitForTimeout(5000)\
-        await newguessthescoregame.clickRiderInputField()
-        await newguessthescoregame.inputRiderScore()
+        await guesstheScorePage.inputIncorrectRiderScore()
         await page.waitForTimeout(1000)
-        await guesstheScorePage.inputRiderScore()
         await guesstheScorePage.clickRiderScoresubmitBtn()
 
      })
      await test.step("Now validate incorrect guess message on mobile screen",async()=>{
+       // await page.waitForTimeout(1000)
         await newguessthescoregame.verifyincorrectguessmessage()
-        await page.waitForTimeout(1000)
+        await page.waitForTimeout(4000)
         await guesstheScorePage.clickeventStop()
 
      })
-     await guesstheScorePage.clickeventStop()
+    // await guesstheScorePage.clickeventStop()
     // await test.step("Now verify the rider avatar screenshot",async()=>{
     //      await newguessthescoregame.waitforelementLoad()
     //      await newguessthescoregame.clickTodaysLineUpBtn()
@@ -3289,12 +3279,9 @@ test("0013GTS-069 |Validate Riding header  message reflection on mobile screen."
       })
      await test.step("Now click start even",async()=>{
         await guesstheScorePage.clickeventStart()
-        await page.waitForTimeout(1000)
         await guesstheScorePage.clickreridingBtn()
-        await page.waitForTimeout(1000)
         await guesstheScorePage.clickMoveToNextBtn()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickMoveToNextBtn()
+       // await guesstheScorePage.clickMoveToNextBtn()
      })
      await test.step("Now validate re-ride  hedader text on mobile screen",async()=>{
         await page.waitForTimeout(2000)
@@ -3331,13 +3318,13 @@ test("0013GTS-070 |Validate error visibility if edit button is clicked without t
            await guesstheScorePage.verifyEditConfigurationText()
            await guesstheScorePage.clickeditbutton()
         await page.waitForTimeout(3000)
-          //await guesstheScorePage.verifyConfigurationnameAutoalreadyexists()
+          await guesstheScorePage.verifyConfigurationnameAutoalreadyexists()
            await guesstheScorePage.clickeditconfigrationOkBtn()
    })
 
 })
 
-test("0023GTS-071 | Validate export button is working on add rider",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-071 | Validate export button is working on add rider",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -3363,6 +3350,7 @@ test("0023GTS-071 | Validate export button is working on add rider",async({login
     })
     await test.step("Validate export Button",async()=>{
         await guesstheScorePage.validateExportBtn()
+        await page.waitForTimeout(1000);
     })
 
 
@@ -3392,6 +3380,8 @@ test("0023GTS-072 | Validate search option in add rider is working",async({login
     })
     await test.step("Validate search rider show",async()=>{
         await guesstheScorePage.inputsearchfield()
+        await guesstheScorePage.clickdeleteriderbutton()
+        await guesstheScorePage.clickokindeleterider()
     })
 
 
@@ -3482,10 +3472,9 @@ test("0023GTS-075 | Validate Edit button is working guess The score",async({logi
         await guesstheScorePage.clickeditsection()
     })
     await test.step("Validate Edit button is working",async()=>{
-        await guesstheScorePage.verifyEditBtn()
+       // await guesstheScorePage.verifyEditBtn()
        // await guesstheScorePage.editRiderfirstname()
-       await guesstheScorePage.verifyEditBtn()
-        await page.waitForTimeout(1000)
+        await guesstheScorePage.verifyEditBtn()
         await guesstheScorePage.clickeditbutton()
       
         
@@ -3495,7 +3484,7 @@ test("0023GTS-075 | Validate Edit button is working guess The score",async({logi
    
     
 })
-test("0023GTS-076 | Validate Adding Rider Roster names are reflected on mobile screen for riders",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-076 | Validate Adding Rider Roster names are reflected on mobile screen for riders",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -3547,11 +3536,8 @@ await test.step("Now game open in mobile screen",async()=>{
 })
 await test.step("Now click start even on admin side",async()=>{
     await guesstheScorePage.clickeventStart()
-    await page.waitForTimeout(1000)
-    await guesstheScorePage.clickreridingBtn()
-    await page.waitForTimeout(1000)
+    //await guesstheScorePage.clickreridingBtn()
     await guesstheScorePage.clickMoveToNextBtn()
-    await page.waitForTimeout(1000)
     await guesstheScorePage.clickMoveToNextBtn()
 })
 await test.step("Now validate adding rider name on mobile screen",async()=>{
@@ -3632,7 +3618,7 @@ test("0013GTS-078 | Validate error if wrong file is selected as background image
 
 
 })
-test("0013GTS-079 | Validate error if wrong file is selected as Game Title Logo", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-079 | Validate error if wrong file is selected as Game Title Logo.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -3669,7 +3655,7 @@ test("0013GTS-079 | Validate error if wrong file is selected as Game Title Logo"
 
 
 })
-test("0013GTS-080 | Validate error if wrong file is selected as Sponsor Logo", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-080 | Validate error if wrong file is selected as Sponsor Logo.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -3741,6 +3727,524 @@ test("0013GTS-081 | Validate error if wrong file is selected as Banner Image", a
     })
    
 
+
+})
+test("0013GTS-082 |Validate Correct guess message reflection on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("now open the game in mobile view", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+       
+            let newTab=null;
+            let newguessthescoregame :guesstheScoreMobilePage
+  
+    
+    await test.step("Now game open in mobile screen",async()=>{
+
+            await guesstheScorePage.clickMobileLinkBtn()
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+            await guesstheScorePage.clickCloseBtn()
+            await newTab.waitForTimeout(4000)
+            await newguessthescoregame.typephoneno()
+            await newguessthescoregame.typeemail()
+            await newguessthescoregame.selectbirthdate()
+            await newguessthescoregame.typeAge()
+            await newguessthescoregame.typezip()
+            await newguessthescoregame.clicksubmit()
+            })
+
+            await test.step("now open the game in mobile view", async() =>{
+                // await page.bringToFront()                
+                // await guesstheScorePage.clickgameoperationssection() 
+                // await guesstheScorePage.clickgameoperationssection() 
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                
+            })
+            
+            await test.step("Now game open in mobile screen",async()=>{
+                
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
+                await newguessthescoregame.clickTodaysLineUpBtn()
+                await newguessthescoregame.clickGameEventTestBtn()
+                })
+    await test.step("Now input for Correct guess on mobile screen",async()=>{
+                    await newguessthescoregame.clickRiderInputField()
+                    await newguessthescoregame.inputCorrectRiderScore()
+                })
+    
+     
+     await test.step("Now input rider score admin for correct guess",async()=>{
+      
+        await guesstheScorePage.inputCorrectRiderScore()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickRiderScoresubmitBtn()
+
+     })
+     await test.step("Now validate incorrect guess message on mobile screen",async()=>{
+       // await page.waitForTimeout(1000)
+        await newguessthescoregame.verifycorrectguessmessage()
+        await page.waitForTimeout(4000)
+        await guesstheScorePage.clickeventStop()
+
+     })
+    // await guesstheScorePage.clickeventStop()
+    // await test.step("Now verify the rider avatar screenshot",async()=>{
+    //      await newguessthescoregame.waitforelementLoad()
+    //      await newguessthescoregame.clickTodaysLineUpBtn()
+    //      await page.waitForTimeout(2000)
+    //      await newguessthescoregame.clickTestBtn()
+    //      await page.waitForTimeout(2000)
+    //      await guesstheScorePage.clickMoveToNextBtn() 
+    //      await page.waitForTimeout(2000)
+    //      await newguessthescoregame.screenshot_matcher_rider_Avatar()
+    //   })
+
+})
+test("0013GTS-083 |Validate Close guess message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("now open the game in mobile view", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+       
+            let newTab=null;
+            let newguessthescoregame :guesstheScoreMobilePage
+  
+    
+    await test.step("Now game open in mobile screen",async()=>{
+
+            await guesstheScorePage.clickMobileLinkBtn()
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+            await guesstheScorePage.clickCloseBtn()
+            await newTab.waitForTimeout(4000)
+            await newguessthescoregame.typephoneno()
+            await newguessthescoregame.typeemail()
+            await newguessthescoregame.selectbirthdate()
+            await newguessthescoregame.typeAge()
+            await newguessthescoregame.typezip()
+            await newguessthescoregame.clicksubmit()
+            })
+
+            await test.step("now open the game in mobile view", async() =>{
+                // await page.bringToFront()                
+                // await guesstheScorePage.clickgameoperationssection() 
+                // await guesstheScorePage.clickgameoperationssection() 
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                
+            })
+            
+            await test.step("Now game open in mobile screen",async()=>{
+                
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
+                await newguessthescoregame.clickTodaysLineUpBtn()
+                await newguessthescoregame.clickGameEventTestBtn()
+                })
+    await test.step("Now input for Close guess on mobile screen",async()=>{
+                    await newguessthescoregame.clickRiderInputField()
+                    await newguessthescoregame.inputCloseRiderScore()
+                })
+    
+     
+     await test.step("Now input rider score admin for close guess",async()=>{
+      
+        await guesstheScorePage.inputCloseRiderScore()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickRiderScoresubmitBtn()
+
+     })
+     await test.step("Now validate close guess message on mobile screen",async()=>{
+       // await page.waitForTimeout(1000)
+        await newguessthescoregame.verifycloseguessmessage()
+        await page.waitForTimeout(4000)
+        await guesstheScorePage.clickeventStop()
+
+     })
+
+})
+test("0013GTS-085 |Validate Far guess message reflection on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("now open the game in mobile view", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+       
+            let newTab=null;
+            let newguessthescoregame :guesstheScoreMobilePage
+  
+    
+    await test.step("Now game open in mobile screen",async()=>{
+
+            await guesstheScorePage.clickMobileLinkBtn()
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+            await guesstheScorePage.clickCloseBtn()
+            await newTab.waitForTimeout(4000)
+            await newguessthescoregame.typephoneno()
+            await newguessthescoregame.typeemail()
+            await newguessthescoregame.selectbirthdate()
+            await newguessthescoregame.typeAge()
+            await newguessthescoregame.typezip()
+            await newguessthescoregame.clicksubmit()
+            })
+
+            await test.step("now open the game in mobile view", async() =>{
+                // await page.bringToFront()                
+                // await guesstheScorePage.clickgameoperationssection() 
+                // await guesstheScorePage.clickgameoperationssection() 
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                
+            })
+            
+            await test.step("Now game open in mobile screen",async()=>{
+                
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
+                await newguessthescoregame.clickTodaysLineUpBtn()
+                await newguessthescoregame.clickGameEventTestBtn()
+                })
+    await test.step("Now input for Far guess on mobile screen",async()=>{
+                    await newguessthescoregame.clickRiderInputField()
+                    await newguessthescoregame.inputFarRiderScore()
+                })
+    
+     
+     await test.step("Now input rider score admin for Far guess",async()=>{
+      
+        await guesstheScorePage.inputFarguessRiderScore()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickRiderScoresubmitBtn()
+
+     })
+     await test.step("Now validate Far guess message on mobile screen",async()=>{
+        await newguessthescoregame.verifyfarguessmessage()
+        await page.waitForTimeout(4000)
+        await guesstheScorePage.clickeventStop()
+
+     })
+
+})
+test("0013GTS-086 |Validate No Score message reflection on mobile screen", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("now open the game in mobile view", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+       
+            let newTab=null;
+            let newguessthescoregame :guesstheScoreMobilePage
+  
+    
+    await test.step("Now game open in mobile screen",async()=>{
+
+            await guesstheScorePage.clickMobileLinkBtn()
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+            await guesstheScorePage.clickCloseBtn()
+            await newTab.waitForTimeout(4000)
+            await newguessthescoregame.typephoneno()
+            await newguessthescoregame.typeemail()
+            await newguessthescoregame.selectbirthdate()
+            await newguessthescoregame.typeAge()
+            await newguessthescoregame.typezip()
+            await newguessthescoregame.clicksubmit()
+            })
+
+            await test.step("now open the game in mobile view", async() =>{
+                // await page.bringToFront()                
+                // await guesstheScorePage.clickgameoperationssection() 
+                // await guesstheScorePage.clickgameoperationssection() 
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                
+            })
+            
+            await test.step("Now game open in mobile screen",async()=>{
+                
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
+                await newguessthescoregame.clickTodaysLineUpBtn()
+                await newguessthescoregame.clickGameEventTestBtn()
+                })
+    // await test.step("Now input for Far guess on mobile screen",async()=>{
+    //                 await newguessthescoregame.clickRiderInputField()
+    //                 await newguessthescoregame.inputFarRiderScore()
+    //             })
+    
+     
+     await test.step("Now click no score button on admin admin side",async()=>{
+      
+       
+        await guesstheScorePage.clickRidernoscoreBtn()
+
+     })
+     await test.step("Now validate Far guess message on mobile screen",async()=>{
+        await newguessthescoregame.verifyNoScoremessage()
+        await page.waitForTimeout(4000)
+        await guesstheScorePage.clickeventStop()
+
+     })
+
+})
+test("0013GTS-087 | Validate Re-Ride button is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("Now click game operation sestion", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+ 
+            await test.step("now open the game in mobile view", async() =>{
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                
+            })
+            await test.step("Now validate Re-Ride button is working",async()=>{
+                await guesstheScorePage.clickReRideBtn()
+                await guesstheScorePage.clickeventStop()
+        
+            })
+
+})
+
+test("0013GTS-088 | Validate earned points is visible on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("now open the game in mobile view", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+       
+        // await guesstheScorePage.clickMoveToNextBtn()
+    })
+    
+       
+            let newTab=null;
+            let newguessthescoregame :guesstheScoreMobilePage
+  
+    
+    await test.step("Now game open in mobile screen",async()=>{
+
+            await guesstheScorePage.clickMobileLinkBtn()
+            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+            newguessthescoregame = new guesstheScoreMobilePage(newTab)
+            await guesstheScorePage.clickCloseBtn()
+            await newTab.waitForTimeout(4000)
+            await newguessthescoregame.typephoneno()
+            await newguessthescoregame.typeemail()
+            await newguessthescoregame.selectbirthdate()
+            await newguessthescoregame.typeAge()
+            await newguessthescoregame.typezip()
+            await newguessthescoregame.clicksubmit()
+            })
+
+            await test.step("now open the game in mobile view", async() =>{
+                // await page.bringToFront()                
+                // await guesstheScorePage.clickgameoperationssection() 
+                // await guesstheScorePage.clickgameoperationssection() 
+                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                await guesstheScorePage.clickEventStartBtn()            
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                await guesstheScorePage.clickMoveToNextBtn()
+                
+            })
+            
+            await test.step("Now game open in mobile screen",async()=>{
+                
+                await newguessthescoregame.verifyTodaysLineUpBtnText()
+                await newguessthescoregame.clickTodaysLineUpBtn()
+                await newguessthescoregame.clickGameEventTestBtn()
+                })
+    await test.step("Now input for Far guess on mobile screen",async()=>{
+                    await newguessthescoregame.clickRiderInputField()
+                    await newguessthescoregame.inputCorrectRiderScore()
+                })
+    
+     
+     await test.step("Now click no score button on admin admin side",async()=>{
+      
+       
+        await guesstheScorePage.inputRiderScore()
+        await guesstheScorePage.clickRiderScoresubmitBtn()
+
+     })
+     await test.step("Now validate Far guess message on mobile screen",async()=>{
+        await newguessthescoregame.verifycorrectguessmessage()
+        await page.waitForTimeout(1000)
+        await newguessthescoregame.verifyEarnedPointsText()
+        await newguessthescoregame.verifyEarnedPoints()
+        await guesstheScorePage.clickeventStop()
+
+     })
+
+})
+test("0013GTS-089 |Validate Riders not yet added Text is visible.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(1000)
+            await guesstheScorePage.clickGameDesign()
+
+    })
+
+    await test.step("Now click game operation Section", async() =>{
+                     
+
+        await guesstheScorePage.clickgameoperationssection() 
+    })
+     
+     await test.step("Now validate Riders not yet added Text is visible.",async()=>{
+        await guesstheScorePage.clicktest1Event()
+        await guesstheScorePage.verifyriderText()
+        await guesstheScorePage.verifyRidersnotyetaddedText()
+
+     })
 
 })
 

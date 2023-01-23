@@ -6,9 +6,12 @@ import { readFileSync } from 'fs'
 // const clipboard = require("clipboardy");
 import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import BaseFunctions from "@base-function/baseFunctions";
+import livewallMobilePage from '../../pages/MobileGamesPage/livewall_mobile_game.page';
+//import liveWallMobilePage from "@pages/liveWallMobile.page";
 
 
 let url: any;
+const clipboard = require("clipboardy");
 
 
 
@@ -996,7 +999,7 @@ test("009LW-0011 | Validate Analytics Section", async ({ loginPage, liveWallPage
 
 
 
-test.skip("009LW-00ss7 | Validate Live Selfie Cam OutPut Link open in Mobile", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+test.skip("009LW-012 | Validate Live Selfie Cam OutPut Link open in Mobile", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -1027,7 +1030,7 @@ test.skip("009LW-00ss7 | Validate Live Selfie Cam OutPut Link open in Mobile", a
 
                 //now click on open button
                 newTab = await liveWallPage.clickMobileLinkOpenBtn()
-                livewallmobilescreenpage = new liveWallMobileScreenPage(newTab)
+                //livewallmobilescreenpage = new liveWallMobileScreenPage(newTab)
 
 
         })
@@ -1039,3 +1042,558 @@ test.skip("009LW-00ss7 | Validate Live Selfie Cam OutPut Link open in Mobile", a
 
 
 })
+test.only("009LW-0013 | Validate mobile link button visible and clickable", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate mobile link button visible and clickable",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickMobileLinkBtn()
+})
+        
+
+
+
+
+})
+test.only("009LW-0014 | Validate Mobile Link text is  visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate Mobile Link Text is visible",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickMobileLinkBtn()
+        await liveWallPage.verifyMobileLinkText()
+})
+        
+
+
+
+
+})
+test.only("009LW-0015 | Validate QR Screen code is  visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate QR Screen code is  visible",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickMobileLinkBtn()
+        await liveWallPage.verifyQRScreencode()
+})
+        
+
+
+
+
+})
+test.only("009LW-016 | Validate mobile  Link open in Mobile screen", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        let newTab = null;
+        let livewallmobilepage: livewallMobilePage
+        await test.step("Validate Game Open Section Functionality", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickMobileLinkBtn()
+                
+                
+                
+
+                //now click on open button
+                newTab = await liveWallPage.clickMobileLinkOpenBtn()
+                livewallmobilepage = new livewallMobilePage(newTab)
+
+
+        })
+        await test.step("provide values in form field of mobile view and submit", async() =>{
+                await livewallmobilepage.typephoneno()
+                await livewallmobilepage.selectbirthdate()
+                await livewallmobilepage.typeAge()
+                await livewallmobilepage.typeemail()
+                await livewallmobilepage.typezip()
+                await livewallmobilepage.clicksubmit()
+        })
+
+
+
+
+
+
+
+})
+test.only("009LW-017 | Validate Game Link Successfully Copy in system clipboard and open in Mobile screen", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        
+        await test.step("Now click mobile link copy button", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickMobileLinkBtn()
+                await liveWallPage.clickCopyLinkBtn()
+                
+                
+                
+
+                //now click on open button
+               
+
+
+        })
+ await test.step("Now click close button",async()=>{
+              await liveWallPage.clickCloseBtn()
+        })
+              let URL =''
+ await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
+                        URL = clipboard.readSync();
+                        console.log(URL);
+                })
+    let livewallmobilepage: livewallMobilePage
+       
+ await test.step("Now open copy link on mobile",async()=>{
+         livewallmobilepage = new livewallMobilePage(page)
+        await livewallmobilepage.GoTo(URL)
+                
+       
+        })
+
+        // let newTab = null;
+       
+        // newTab = await liveWallPage.clickMobileLinkOpenBtn()
+        // livewallmobilepage = new livewallMobilePage(newTab)
+        await test.step("provide values in form field of mobile view and submit", async() =>{
+                await livewallmobilepage.typephoneno()
+                await livewallmobilepage.selectbirthdate()
+                await livewallmobilepage.typeAge()
+                await livewallmobilepage.typeemail()
+                await livewallmobilepage.typezip()
+                await livewallmobilepage.clicksubmit()
+        })
+
+
+
+
+
+
+
+})
+test.only("009LW-018 | Validate Save QR Code button is working", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        
+        await test.step("Now click mobile link copy button", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickMobileLinkBtn()
+                
+               
+
+
+        })
+        await test.step("Now Validate QR code save button",async()=>{
+                await liveWallPage.validateSaveQRCode()
+                await page.waitForTimeout(2000)
+                
+        })
+
+})
+test.only("009LW-0019 | Validate VIP mobile link button visible and clickable", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate VIP mobile link button visible and clickable",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickVIPMobileLinkBtn()
+})
+})
+test.only("009LW-0020 | Validate VIP link text is visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate VIP link text visible",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickRefreshBtn()
+        await liveWallPage.clickVIPMobileLinkBtn()
+        await liveWallPage.verifyVIPLinkText()
+})
+})
+test.only("009LW-021 | Validate VIP QR Screen code is  visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate QR Screen code is  visible",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickVIPMobileLinkBtn()
+        await liveWallPage.verifyVIPQRScreencode()
+        await liveWallPage.clickCloseBtn()
+})
+        
+
+
+
+
+})
+test.only("009LW-022 | Validate VIP mobile  Link open in Mobile screen", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        let newTab = null;
+        let livewallmobilepage: livewallMobilePage
+        await test.step("Validate Game Open Section Functionality", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickVIPMobileLinkBtn()
+                
+                
+                
+
+                //now click on open button
+                newTab = await liveWallPage.clickVIPMobileLinkOpenBtn()
+                livewallmobilepage = new livewallMobilePage(newTab)
+
+
+        })
+        await test.step("provide values in form field of mobile view and submit", async() =>{
+                await livewallmobilepage.typephoneno()
+                await livewallmobilepage.selectbirthdate()
+                await livewallmobilepage.typeAge()
+                await livewallmobilepage.typeemail()
+                await livewallmobilepage.typezip()
+                await livewallmobilepage.clicksubmit()
+        })
+
+
+})
+test.only("009LW-023 | Validate VIP Game Link Successfully Copy in system clipboard and open in Mobile screen", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        
+        await test.step("Now click VIP mobile link copy button", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickVIPMobileLinkBtn()
+                await liveWallPage.clickVIPCopyLinkBtn()
+                
+                
+                
+
+                //now click on open button
+               
+
+
+        })
+ await test.step("Now click close button",async()=>{
+              await liveWallPage.clickCloseBtn()
+        })
+              let URL =''
+ await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
+                        URL = clipboard.readSync();
+                        console.log(URL);
+                })
+    let livewallmobilepage: livewallMobilePage
+       
+ await test.step("Now open copy link on mobile",async()=>{
+         livewallmobilepage = new livewallMobilePage(page)
+        await livewallmobilepage.GoTo(URL)
+                
+       
+        })
+
+        // let newTab = null;
+       
+        // newTab = await liveWallPage.clickMobileLinkOpenBtn()
+        // livewallmobilepage = new livewallMobilePage(newTab)
+        await test.step("provide values in form field of mobile view and submit", async() =>{
+                await livewallmobilepage.typephoneno()
+                await livewallmobilepage.selectbirthdate()
+                await livewallmobilepage.typeAge()
+                await livewallmobilepage.typeemail()
+                await livewallmobilepage.typezip()
+                await livewallmobilepage.clicksubmit()
+        })
+
+})
+test.only("009LW-024 | Validate Save VIP QR Code button is working", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+        
+        await test.step("Now click mobile link copy button", async () => {
+
+                //click Mobile Link Btn
+                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.clickAdminSection()
+                await page.waitForTimeout(2000)
+                await liveWallPage.clickRefreshBtn()
+                await liveWallPage.clickVIPMobileLinkBtn()
+                
+               
+
+
+        })
+        await test.step("Now Validate VIP QR code save button",async()=>{
+                await liveWallPage.validateVIPSaveQRCode()
+                await page.waitForTimeout(2000)
+                
+        })
+
+})
+test.only("009LW-025 | Validate Output Screen Link button visible and clickable.", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate Output Screen Link button visible and clickable",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickOutputLinkBtn()
+})
+})
+
+test.only("009LW-026 | Validate Output Screen Link text is visible.", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+})
+
+
+
+        //click Live Wall Section
+await test.step("Validate Output Screen Link text is visible",async()=>{
+        
+        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.clickAdminSection()
+        await page.waitForTimeout(2000)
+        await liveWallPage.clickRefreshBtn()
+        await liveWallPage.clickOutputLinkBtn()
+        await liveWallPage.verifyOutputScreenLinkText()
+})
+})
+
