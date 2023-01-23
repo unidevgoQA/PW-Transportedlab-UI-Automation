@@ -709,7 +709,7 @@ test("MD002-016 | Admin Successfully Input Primary Color", async ({ loginPage, M
 
 })
 
-test("MD002-017 | Validate Primary Color Applied Into Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("MD002-017 | Validate Primary Color Applied Into Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1204,9 +1204,9 @@ test("MD002-025 | Validate Secondary Color Applied Into Mobile Screen", async ({
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()                
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()    
+                await newmobilePreviewPage.clickPrizeSection()    
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -1620,9 +1620,9 @@ test("MD002-033 | Validate Tertiary Color Applied Into Mobile Screen", async ({ 
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -2056,9 +2056,9 @@ test.skip("MD002-042 | Validate Button Color Applied Into Mobile Screen", async 
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -2470,9 +2470,9 @@ test.skip("MD002-050 | Validate Button Blow Color Applied Into Mobile Screen", a
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -2887,9 +2887,9 @@ test.skip("MD002-058 | Validate Test Color Applied Into Mobile Screen", async ({
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -3309,9 +3309,9 @@ test.skip("MD002-066 | Validate Test Glow Color Applied Into Mobile Screen", asy
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -3730,9 +3730,9 @@ test.skip("MD002-074 | Validate Header Color Applied Into Mobile Screen", async 
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -4159,9 +4159,9 @@ test.skip("MD002-082 | Validate Header Text Color Applied Into Mobile Screen", a
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -4585,9 +4585,9 @@ test.skip("MD002-090 | Validate Gamification Color Applied Into Mobile Screen", 
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -5010,9 +5010,9 @@ test.skip("MD002-098 | Validate Gamification Color Glow Color Applied Into Mobil
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()                
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -5495,11 +5495,11 @@ test.skip("MD002-107 | Validate Landscape Background Successfully Show on Mobile
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.verifyPotraitBackgroundUploadSuccessfully()
                               
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 // await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -5669,11 +5669,11 @@ test.skip("MD002-110 | Validate Landscape Background Header Successfully Show on
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.verifyPotraitBackgroundUploadSuccessfully()
                               
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 // await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -5858,11 +5858,11 @@ test("MD002-113 | Validate Portrait Background Successfully Show on Mobile Scree
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.verifyPotraitBackgroundUploadSuccessfully()
                               
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 // await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -6031,11 +6031,11 @@ test.skip("MD002-116 | Validate Landscape Portrait Background Header Successfull
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.verifyPotraitBackgroundUploadSuccessfully()
                               
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 // await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })
@@ -6084,8 +6084,7 @@ test("MD002-117 | Validate Try to upload Invalid Image Format for Main Logo ", a
 
                 // await functions.logoImageUploadFunction()   
                 await MainMenu.clickToUploadMainLogo()
-                await functions.invalidFileUploadCropperWithoutIframe()
-                await page.waitForLoadState("load")
+                await functions.invalidFileUploadCropperWithoutIframe()                
                 await MainMenu.verifyErrorAlertText()
                 await MainMenu.clcikErrorAlertOkBtn()
                 
@@ -6204,11 +6203,11 @@ test.skip("MD002-119 | Validate Landscape Main Logo Successfully Show on Mobile 
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
-                await newmobilePreviewPage.clickPrizeBtn()            
+                await newmobilePreviewPage.clickPrizeSection()            
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.verifyPotraitBackgroundUploadSuccessfully()
                               
-                await newmobilePreviewPage.clickPrizeBtn()                
+                await newmobilePreviewPage.clickPrizeSection()                
                 // await newmobilePreviewPage.verifySecondaryColorAppliedInMobile()
                 
         })

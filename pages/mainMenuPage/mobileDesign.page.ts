@@ -196,7 +196,7 @@ export default class MobileDesign {
     }
 
     async clickSaveBtn() {
-        await this.page.locator("//button[text()='Save']").click()
+        await this.page.locator("//button[text()='Save']").click({delay:300})
         await this.page.waitForTimeout(3000)
     }
 
@@ -230,7 +230,7 @@ export default class MobileDesign {
     async clickSwatchesColorNumberFour() {
         const ele = this.page.locator("//span[text()='#5fbcd2ff']")
         expect(ele).toBeVisible()
-        await ele.click()
+        await ele.click({delay:300})
 
 
     }
@@ -1002,7 +1002,7 @@ export default class MobileDesign {
     }
 
     async verifyErrorAlertText() {
-
+        await this.page.waitForTimeout(2000)
         const ele = await this.page.locator("//p[text()='File type is not supported']")
         expect(ele).toContainText("File type is not supported")
     }

@@ -423,7 +423,7 @@ export default class functions {
                         await filechooser.setFiles([filePath0]);
                 })
                 // const popupPromise = this.page.waitForEvent('popup');
-                await chooseBtn.click()
+                await chooseBtn.click({delay:300})
                 // const popup = await popupPromise;
 
                 // await popup.locator("//p[text()='File type is not supported']").isVisible()

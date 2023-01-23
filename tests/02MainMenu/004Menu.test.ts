@@ -6,7 +6,7 @@ import { readFileSync } from 'fs'
 
 
 
-test.only("004M-000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("004M-000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
