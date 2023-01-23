@@ -10,7 +10,8 @@ export default class addnewexperiencePage {
         }
 
         private addNewExperiencePageElement = {
-                menuPage: "//p[text()='Menu']",
+                onDemandBtn: "text=On Demand",
+                addNewExpBtn: "(//button[text()='Add new Experiences'])[2]"
                
                 
 
@@ -54,14 +55,26 @@ export default class addnewexperiencePage {
       }
 
       async onDemandBtn() {
-            const ele = this.page.locator('text=On Demand')
-            expect(ele).toBeEnabled()
-            await ele.click()
 
+            const ele = await this.page.locator(this.addNewExperiencePageElement.onDemandBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.onDemandBtn, { force: true })
+                }
+                else throw new Error("On Demand Button is not visible")
+
+                await this.page.waitForLoadState("networkidle")         
       }
 
       async clickaddnewex() {
-            await this.page.click("(//button[text()='Add new Experiences'])[2]")
+            const ele = await this.page.locator(this.addNewExperiencePageElement.addNewExpBtn).isVisible()
+            if ((ele == true)) {
+                    await this.page.click(this.addNewExperiencePageElement.addNewExpBtn, { force: true })
+            }
+            else throw new Error("Add New Exp Button is not visible")
+
+            await this.page.waitForLoadState("networkidle")   
+
+            // await this.page.click("(//button[text()='Add new Experiences'])[2]")
 
       }
       //image button
