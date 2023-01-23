@@ -1,15 +1,48 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
+import BaseFunctions from "@base-function/baseFunctions";
+
 export default class addnewexperiencePage {
-      [x: string]: any;
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
+        }
 
-      private page: Page;
-      static login: any;
-      static buffer: void;
+        private addNewExperiencePageElement = {
+                menuPage: "//p[text()='Menu']",
+               
+                
 
-      constructor(page: Page) {
-            this.page = page;
-      }
+        
+                
+                
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+// export default class addnewexperiencePage {
+//       [x: string]: any;
+
+//       private page: Page;
+//       static login: any;
+//       static buffer: void;
+
+//       constructor(page: Page) {
+//             this.page = page;
+//       }
 
 
 
