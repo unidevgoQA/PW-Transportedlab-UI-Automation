@@ -135,6 +135,7 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='English']")
                 expect(ele).toBeVisible()
                 await ele.click()
+                await this.page.waitForTimeout(2000)
         }
 
         //select language type Francias
@@ -168,11 +169,11 @@ export default class languagePage {
 
         async verifySpanishLanguageText() {
                 const ele = this.page.locator("//div[text()='Spanish']");
-                expect(ele).toContainText("Spanish")                
+                expect(ele).toContainText("Spanish")
                 await this.page.waitForLoadState("networkidle")
         }
 
-        
+
         //select language type Japanese
         async deselectEnglishLanguage() {
                 // const englishLanguage: boolean
@@ -180,7 +181,7 @@ export default class languagePage {
                 if ((EnglishLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='English']")
+                                .locator(`(//li[@aria-selected="true"])[1]`)
                                 .click()
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -193,7 +194,7 @@ export default class languagePage {
                 if ((FranciasLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='Francias']")
+                                .locator(`(//li[@aria-selected="true"])[2]`)
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -203,11 +204,11 @@ export default class languagePage {
 
         async deselectRussianLanguage() {
                 // const englishLanguage: boolean
-                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[2]`).isVisible()
+                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[3]`).isVisible()
                 if ((SpanishLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='Russian']")
+                                .locator(`(//li[@aria-selected="true"])[3]`)
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -221,7 +222,7 @@ export default class languagePage {
                 if ((ArabicLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='Arabic']")
+                                .locator(`(//li[@aria-selected="true"])[4]`)
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -235,7 +236,7 @@ export default class languagePage {
                 if ((SpanishLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='Spanish']")
+                                .locator(`(//li[@aria-selected="true"])[5]`)
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -251,7 +252,7 @@ export default class languagePage {
                 if ((JapaneseLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
-                                .locator("//li[text()='Japanese']")
+                                .locator(`(//li[@aria-selected="true"])[6]`)
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
@@ -276,11 +277,20 @@ export default class languagePage {
 
         //select language type Japanese
         async selectJapaneseLanguage() {
-             
-        const japanese = await this.page.locator("//li[text()='Japanese']")
-        expect(japanese).toBeVisible()
-        await japanese.click({force:true})
-                    
+
+                const japanese = await this.page.locator("//li[@data-value='ja']")
+                expect(japanese).toBeVisible()
+                await japanese.dblclick()
+
+        }
+
+        //select language type Japanese
+        async verifyJapaneseLanguageSelectSuccessfully() {
+                // await this.page.waitForNavigation()
+
+                const japanese = await this.page.locator("//div[text()='Japanese']")
+                expect(japanese).toContainText("Japanese")
+
         }
 
         //Language Controls Elable disable btn Element
@@ -339,17 +349,17 @@ export default class languagePage {
 
 
         // //Language Controls Elable disable btn Element
-        async clickForceLanguageInputField() {               
+        async clickForceLanguageInputField() {
 
                 const ele = this.page.locator("//div[@role='button']")
                 expect(ele).toBeVisible()
-                await ele.click({force:true})
+                await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
 
         }
 
-        
+
 
 
 }

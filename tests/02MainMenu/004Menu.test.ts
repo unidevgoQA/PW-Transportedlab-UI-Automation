@@ -5,31 +5,6 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 
 
-// test("004M-003 | Validate Try To Upload Invalid Font From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
-
-
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         await MainMenu.clickHomeAvater();
-//         await MainMenu.mainMenuBtn();
-//         await MainMenu.clickMobileDesign();
-//         //Click on the menu page
-//         await menuPage.clickMenuPage()
-//         await menuPage.verifyUploadFontText()
-//         await functions.portraitBackgroundImageUploadHelper()
-//         await menuPage.clickToUploadFont()
-//         await page.on("dialog", async (alert) => {
-//                 console.log('Alert message: ' + alert.message());
-//                 await alert.accept();
-//         });
-//         // await page.click("#accept")
-//         await page.waitForEvent("dialog");
-
-// })
 
 test("004M-000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
