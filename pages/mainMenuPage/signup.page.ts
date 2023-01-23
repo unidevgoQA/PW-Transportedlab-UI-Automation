@@ -8,6 +8,7 @@ export default class singupPage {
         constructor(page: Page) {
                 this.page = page;
         }
+        
 
         //Click SignUp Page Button Element
         async clickSignUpPage() {

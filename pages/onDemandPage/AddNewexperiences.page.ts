@@ -61,37 +61,40 @@ export default class addnewexperiencePage {
 
       //select Category
       async HeaderTextBtn() {
-            await this.page.click("div[role='button']")
+            await this.page.click("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]")
 
       }
 
 
       //select Size Category
       async selectLarge() {
-            await this.page.click("//li[text()='Large']")
+            await this.page.click("//li[@data-value='Large']")
 
       }
 
       async selectMedium() {
-            await this.page.click("//li[text()='Medium']")
+            await this.page.click("//li[@data-value='Medium']")
 
       }
 
       async selectSmall() {
-            await this.page.click("//li[text()='Small']")
+            await this.page.click("//li[@data-value='Small']")
+            //await this.page.waitForLoadState("networkidle");
 
       }
 
 
       //     //enabled button
       async enabledIconCheckBox() {
-            const ele = await this.page.locator("(//input[@type='checkbox'])[1]").isVisible()
-            if ((ele == true)) {
-                  // console.log("enabled Home Icon Check Box")
-                  await this.page
-                        .locator("(//input[@type='checkbox'])[1]")
-                        .click()
-            }
+            const ele = await this.page.locator("//span[contains(@class,'MuiTypography-root MuiTypography-body1')]/preceding::input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]")
+            expect(ele).toBeVisible();
+            await ele.check();            
+            // if ((ele == true)) {
+            //       // console.log("enabled Home Icon Check Box")
+            //       await this.page
+            //             .locator("(//input[@type='checkbox']")
+            //             .click()
+            // }
       }
 
 
@@ -113,7 +116,7 @@ export default class addnewexperiencePage {
 
 
       async ImageUploadFunction() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
@@ -129,7 +132,11 @@ export default class addnewexperiencePage {
       }
 
       async ImageDelete() {
-            await this.page.locator("//div[@class='MuiBox-root css-vjb914']").first().click()
+            await this.page.locator("//div[@class='MuiBox-root css-1tejaop']").first().click()
+      }
+      async ImageEdit() {
+            await this.page.locator("//div[@class='MuiBox-root css-1jo9dd']").click()
+            await this.page.locator("//button[text()='Cancel']").click()
       }
 
 
@@ -230,21 +237,21 @@ export default class addnewexperiencePage {
 
       //select Category
       async HeaderVTextBtn() {
-            await this.page.click("div[role='button']")
+            await this.page.click("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]")
 
       }
       async VselectLarge() {
-            await this.page.click("//li[text()='Large']")
+            await this.page.click("//li[@data-value='Large']")
 
       }
 
       async VselectMedium() {
-            await this.page.click("//li[text()='Medium']")
+            await this.page.click("//li[@data-value='Medium']")
 
       }
 
       async VselectSmall() {
-            await this.page.click("//li[text()='Small']")
+            await this.page.click("//li[@data-value='Small']")
 
       }
 
@@ -254,6 +261,13 @@ export default class addnewexperiencePage {
                   await filechooser.setFiles([filePath0])
             })
       }
+      // async UploadedvideoDelete() { 
+      //       await this.page.locator("//div[@class='MuiBox-root css-1tejaop']").click()
+      // }
+      // async UploadedVideoEdit() {
+      //       await this.page.locator("//div[@class='MuiBox-root css-1jo9dd']").click()
+      //       //await this.page.locator("")
+      // }
 
       async VideoDelete() {
             await this.page.locator("(//div[@class='MuiBox-root css-gtq43u']//div)[1]").first().click()
@@ -360,21 +374,21 @@ export default class addnewexperiencePage {
 
       //select Size Category
       async WHeaderTextBtn() {
-            await this.page.click("//div[@backgroundcolor='#212936']//div[1]")
+            await this.page.click("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]")
 
       }
       async WselectLarge() {
-            await this.page.click("//li[text()='Large']")
+            await this.page.click("//li[@data-value='Large']")
 
       }
 
       async WselectMedium() {
-            await this.page.click("//li[text()='Medium']")
+            await this.page.click("//li[@data-value='Medium']")
 
       }
 
       async WselectSmall() {
-            await this.page.click("//li[text()='Small']")
+            await this.page.click("//li[@data-value='Small']")
 
       }
 
@@ -398,7 +412,7 @@ export default class addnewexperiencePage {
       }
 
       async WImageUploadFunction() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
