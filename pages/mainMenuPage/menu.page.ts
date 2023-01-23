@@ -145,6 +145,44 @@ export default class menuPage {
                 expect(ele).toBeVisible()
                 await ele.click()
         }
+        //updated color pickers here, above ones sometimes conflict in code
+        async click_Background_ColorPicker() {
+                const ele = this.page.locator("//p[text()='Background']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async click_text_color_Picker() {
+                const ele = this.page.locator("//p[text()='Text Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async click_Active_Background_ColorPicker() {
+                const ele = this.page.locator("//p[text()='Active Background']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async click_active_text_color_Picker() {
+                const ele = this.page.locator("//p[text()='Active Text Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+
+        async clickplusbuttonswatches() {
+                await this.page.locator('//button[@aria-label="Add Color"]').click()
+        }
+
+        async clickColorPickerSaveBtn() {
+                await this.page.locator('//button[text()="Save"]').click()
+        }
+        async clickdeletebuttonswatches() {
+                await this.page.locator('//button[@aria-label="delete"]').last().click()
+        }
+
+
 
         //Check Alignment Text
         async checkAlignmentText() {

@@ -10,12 +10,23 @@ export default class functions {
         }
 
 
-
+        async check_upload_font_text(){
+                const ele= this.page.frameLocator('.css-r99fy3').locator('//p[text()="Upload Font"]')
+                await expect(ele).toBeVisible()
+        }
         async fontUploadFunction() {
                 const filePath0 = "files/Thin.otf"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
+        }
+
+        async select_font(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]').click({button:'left'})
+        }
+
+        async delete_font(){
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]//following-sibling::button').click()
         }
 
         async bannerImageUploadFunction() {
