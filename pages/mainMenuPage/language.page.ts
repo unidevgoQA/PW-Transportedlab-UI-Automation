@@ -326,7 +326,7 @@ export default class languagePage {
 
         async clickUserForceLanguageinputfield() {
 
-                const ele = await this.page.frameLocator('iframe').locator("//div[@role='button']").isVisible()
+                const ele = await this.page.frameLocator('iframe').locator("//div[@role='button'and aria-haspopup='listbox' ]").isVisible()
                 if ((ele == true)) {
                         // console.log("delete Uploaded Leaderboard BG")
                         await this.page.locator("//div[@role='button']")
@@ -349,8 +349,7 @@ export default class languagePage {
 
         }
 
-
-
+        
 
 
 }

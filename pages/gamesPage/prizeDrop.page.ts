@@ -129,15 +129,15 @@ export default class prizeDropPage {
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-              const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last()
+        //       const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last()
+                await this.page.frameLocator('iframe').locator('//p[text()="Game Design"]').last().click({button:'left'})
 
         }
 
         async clickToUploadFont() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]//preceding-sibling::div')
+                await expect(ele).toBeVisible()
                 await ele.click()
-
         }
 
         async clickClearAllBtn() {
@@ -251,7 +251,12 @@ export default class prizeDropPage {
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//div[@class="MuiBox-root css-v2612"]').click()
         }
-
+        async delete_background_image(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
+                }
+        }
         async Image_uploader_for_maincolorcheck() {
                 const filePath0 = "testData/images/transparent_background_image.png"
                 const [fileChooser] = await Promise.all([
@@ -286,11 +291,11 @@ export default class prizeDropPage {
         }
 
         async Game_title_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
-                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
+                await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
         async Image_uploader_For_Game_title_image(){
                 const filePath0 = "testData/images/title.jpg"
@@ -885,21 +890,21 @@ export default class prizeDropPage {
         }
 
         async inputSelectionMessage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]")
-                expect(ele).toBeVisible()
+                const ele = this.page.frameLocator('iframe').locator("(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]")
+                await expect(ele).toBeVisible()
                 await ele.fill("In publishing and graphic design, Lorem ipsum is a placeholder")
         }
 
         async clickEntryScreen() {
-                const ele = await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiSelect-outlined')]")
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele = this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiSelect-outlined')]")
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
         }
 
         async selectHowToScreen() {
-                const ele = await this.page.frameLocator('iframe').locator("//li[text()='How to Screen']")
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele = this.page.frameLocator('iframe').locator("//li[text()='How to Screen']")
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
         }
 
 
@@ -930,6 +935,10 @@ export default class prizeDropPage {
                 const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']")
                 expect(ele).toBeVisible()
                 await ele.click()
+        }
+        async check_marketing_message(){
+               const ele =  this.page.frameLocator('iframe').locator('//p[text()="Marketing Message"]').last() 
+               await expect(ele).toBeVisible()
         }
 
 
@@ -1077,11 +1086,11 @@ export default class prizeDropPage {
 
         async clickStartGameBtn() {
 
-                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click();
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]')
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
-                // expect(ele).toBeVisible()
-                // await ele.click({force:true})
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
 
         }
 
@@ -1094,6 +1103,7 @@ export default class prizeDropPage {
                 // await ele.click({force:true})
 
         }
+
 
         async clickStopGameOkBtn() {
 
@@ -1147,7 +1157,7 @@ export default class prizeDropPage {
         }
 
         async validateQRtext(){
-                const ele = this.page.frameLocator('.css-r99fy3').locator('//h2[text()="Mobile QR Code"]')
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h2[text()="Mobile Link"]')
                 await expect(ele).toBeVisible()
         }
         async validateDownload(){
@@ -1353,6 +1363,54 @@ async clickEditBtn(){
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Ending Game Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
                 await this.page.waitForTimeout(1000)
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Ending Game Message"]//following-sibling::div//div[@title="Unordered"]').click()
+
+        }
+        //selection message
+        async typeselectionmessage(text:string) {
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(` ${text}`)
+        }
+        async clickleftalignedselectionmessage() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Left"]').click()
+
+        }
+        async clickrightalignedselectionmessage() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Right"]').click()
+
+        }
+        async clickboldselectionmessageeditor() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Bold"]').click()
+
+        }
+        async clickitalicselectionmessageeditor() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Underline"]').click()
+
+        }
+        async clickunderlineselectionmessageeditor() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Italic"]').click()
+
+        }
+        async clickorderedselectionmessageeditor() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Ordered"]').click()
+
+        }
+        async clickunorderedselectionmessageeditor() {
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]').selectText()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Unordered"]').click()
 
         }
 
