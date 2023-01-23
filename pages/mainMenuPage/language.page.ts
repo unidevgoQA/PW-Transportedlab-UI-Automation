@@ -136,7 +136,7 @@ export default class languagePage {
         async selectEnglishLanguage() {
                 const ele = this.page.locator("//li[text()='English']")
                 expect(ele).toBeVisible()
-                await ele.click()
+                await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
         }
 
@@ -151,7 +151,7 @@ export default class languagePage {
         async selectRussianLanguage() {
                 const ele = this.page.locator("//li[text()='Russian']");
                 expect(ele).toBeVisible()
-                await ele.click()
+                await ele.click({button:'left',delay:1000})
                 
         }
 
@@ -165,14 +165,14 @@ export default class languagePage {
         async selectArabicLanguage() {
                 const ele = this.page.locator("//li[text()='Arabic']");
                 expect(ele).toBeVisible()
-                await ele.click()
+                await ele.click({button:'left',delay:1000})
         }
 
         //select language type Spanish
         async selectSpanishLanguage() {
                 const ele = this.page.locator("//li[text()='Spanish']");
                 expect(ele).toBeVisible()
-                await ele.click()
+                await ele.click({button:'left',delay:1000})
                 await this.page.waitForLoadState("networkidle")
         }
 
@@ -289,7 +289,7 @@ export default class languagePage {
 
                 const japanese = await this.page.locator("//li[@data-value='ja']")
                 expect(japanese).toBeVisible()
-                await japanese.dblclick()
+                await japanese.click({button:'left',delay:1000})
 
         }
 

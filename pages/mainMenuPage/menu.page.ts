@@ -420,26 +420,26 @@ export default class menuPage {
         async clickColorPickerWindowSaveBtn() {
                 const ele = this.page.locator("//button[text()='Save']")
                 expect(ele).toBeVisible()
-                await ele.click()
+                await ele.dblclick({button:'left',delay:1000})
                 await this.page.waitForTimeout(3000)
         }
         //updated color pickers here, above ones sometimes conflict in code
         async click_Background_ColorPicker() {
                 const ele = this.page.locator("//p[text()='Background']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.click()
+                await ele.dblclick({button:'left',delay:1000})
 
         }
         async click_text_color_Picker() {
                 const ele = this.page.locator("//p[text()='Text Color']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.click()
+                await ele.dblclick({button:'left',delay:1000})
 
         }
         async click_Active_Background_ColorPicker() {
                 const ele = this.page.locator("//p[text()='Active Background']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.click()
+                await ele.dblclick({button:'left',delay:1000})
 
         }
         async click_active_text_color_Picker() {

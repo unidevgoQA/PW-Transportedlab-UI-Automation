@@ -100,6 +100,7 @@ export default class mobilePreviewPage {
               expect(ele).toBeVisible()
               await ele.click({force:true})
               await this.page.waitForLoadState("networkidle")
+              await this.page.waitForTimeout(2000)
 
 
        }
@@ -182,7 +183,7 @@ export default class mobilePreviewPage {
        
        async clickLanguageSelectionInputField() {
               const btn = this.page.locator("div[role='button']");              
-              await btn.click({ force: true })
+              await btn.click({button:'left',delay:1000})
               await this.page.waitForLoadState("networkidle");
        }
 
