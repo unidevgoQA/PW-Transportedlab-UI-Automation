@@ -789,11 +789,7 @@ test("004M-019 | Validate  Menu Bar  Bottom Alignment Successfully Applied in Mo
 
         })
 
-        await test.step("now click on start button on Admin site", async () => {
-                // await prizeDropPage.clickstartbutton()
-
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
+  
         let newTab = null;
         let newmobilePreviewPage: mobilePreviewPage
 

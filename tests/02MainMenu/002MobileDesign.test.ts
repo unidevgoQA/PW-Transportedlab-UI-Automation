@@ -253,20 +253,11 @@ test("MD002-007 | Validate Entry Screen As User Profile Applied Successfully on 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()                
 
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
-
-        })
-
+        })      
         
-        
-        await test.step("now click on start button on Admin site", async() =>{
-                // await prizeDropPage.clickstartbutton()
-
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
+    
         let newTab=null;
         let newmobilePreviewPage :mobilePreviewPage
 
@@ -350,10 +341,7 @@ test("MD002-009 | Validate Entry Screen As Role Applied Successfully on Mobile S
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
         })
 
@@ -444,9 +432,7 @@ test("MD002-011 | Validate Entry Screen As How To Play Applied Successfully on M
 
         await test.step("navigate to color section and click clear all button", async () => {
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
         })       
         
         await test.step("now click on start button on Admin site", async() =>{
@@ -534,9 +520,7 @@ test("MD002-013 | Validate Entry Screen As Prize Applied Successfully on Mobile 
 
         await test.step("navigate to color section and click clear all button", async () => {
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
         })       
         
         await test.step("now click on start button on Admin site", async() =>{
@@ -627,10 +611,7 @@ test("MD002-015 | Validate Entry Screen As Home Applied Successfully on Mobile S
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
         })    
 
@@ -748,7 +729,7 @@ test("MD002-017 | Validate Primary Color Applied Into Mobile Screen", async ({ l
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -1191,7 +1172,7 @@ test("MD002-025 | Validate Secondary Color Applied Into Mobile Screen", async ({
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -1607,7 +1588,7 @@ test("MD002-033 | Validate Tertiary Color Applied Into Mobile Screen", async ({ 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -2043,7 +2024,7 @@ test.skip("MD002-042 | Validate Button Color Applied Into Mobile Screen", async 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -2457,7 +2438,7 @@ test.skip("MD002-050 | Validate Button Blow Color Applied Into Mobile Screen", a
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -2874,7 +2855,7 @@ test.skip("MD002-058 | Validate Test Color Applied Into Mobile Screen", async ({
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -3296,7 +3277,7 @@ test.skip("MD002-066 | Validate Test Glow Color Applied Into Mobile Screen", asy
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -3717,7 +3698,7 @@ test.skip("MD002-074 | Validate Header Color Applied Into Mobile Screen", async 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -4146,7 +4127,7 @@ test.skip("MD002-082 | Validate Header Text Color Applied Into Mobile Screen", a
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -4572,7 +4553,7 @@ test.skip("MD002-090 | Validate Gamification Color Applied Into Mobile Screen", 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -4997,7 +4978,7 @@ test.skip("MD002-098 | Validate Gamification Color Glow Color Applied Into Mobil
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -5483,8 +5464,7 @@ test.skip("MD002-107 | Validate Landscape Background Successfully Show on Mobile
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
 
@@ -5657,7 +5637,7 @@ test.skip("MD002-110 | Validate Landscape Background Header Successfully Show on
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -5846,7 +5826,7 @@ test("MD002-113 | Validate Portrait Background Successfully Show on Mobile Scree
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -6019,7 +5999,7 @@ test.skip("MD002-116 | Validate Landscape Portrait Background Header Successfull
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()
@@ -6192,7 +6172,7 @@ test.skip("MD002-119 | Validate Landscape Main Logo Successfully Show on Mobile 
         await test.step("navigate to color section and click clear all button", async () => {
 
                 //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
+                await MainMenu.clickGussTheScroeSectionForOpenMobileScreen()
 
                 // //click Game Design
                 // await prizeDropPage.clickGameDesign()

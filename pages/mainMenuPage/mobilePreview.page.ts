@@ -10,6 +10,33 @@ export default class mobilePreviewPage {
               page.setViewportSize({ width: 390, height: 844 })
        }
 
+       async clickTriviaSectionForOpenMobileScreen() {
+              const ele = this.page.locator("//p[text()='Trivia']")
+              await expect(ele).toBeVisible()
+              await ele.click({force:true})
+              await this.page.waitForLoadState("networkidle")
+       }
+
+       async clickMobileLinkBtn() {
+              const ele = this.page.frameLocator('iframe').locator(`(//button[@aria-label='Show Mobile Link']//button)[1]`).first()
+              expect(ele).toBeVisible()
+              await ele.click({ force: true })
+              await this.page.waitForTimeout(2000)
+       }
+
+       async clickMobileLinkOpenBtn() {
+
+              // Click text=Open Link
+              const [page1] = await Promise.all([
+                  this.page.waitForEvent('popup'),
+                  this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+              ]);
+      
+              return page1;
+      
+      
+       }
+
        async lookforphonenoinform() {
               const ele = this.page.locator('//label[text()="Phone number"]')
               await expect(ele).toBeVisible()

@@ -8,8 +8,8 @@ const config: PlaywrightTestConfig = {
   testMatch: [
 
     // "001Login.test.ts",
-    // "002MobileDesign.test.ts",
-    "003Language.test.ts",
+    "002MobileDesign.test.ts",
+    // "003Language.test.ts",
     // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",

@@ -76,6 +76,20 @@ export default class MobileDesign {
         const ele = this.page.frameLocator('iframe').locator(`(//button[@aria-label='Show Mobile Link']//button)[1]`).first()
         expect(ele).toBeVisible()
         await ele.click({ force: true })
+        await this.page.waitForTimeout(2000)
+    }
+
+    async clickTriviaSectionForOpenMobileScreen() {
+        const ele = this.page.locator("//p[text()='Trivia']")
+        await expect(ele).toBeVisible()
+        await ele.click({ force: true })
+        await this.page.waitForLoadState("networkidle")
+    }
+
+    async clickGussTheScroeSectionForOpenMobileScreen() {
+        const locator = this.page.locator("//p[text()='Guess The Score']")       
+        await locator.click({ force: true })        
+        await this.page.waitForLoadState("networkidle")
     }
 
     async clickMobileLinkOpenBtn() {
@@ -665,7 +679,7 @@ export default class MobileDesign {
             // console.log("delete Uploaded Portrait BG ")
             await this.page
                 .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                .click({force:true})
+                .click({ force: true })
         }
 
         await this.page.waitForLoadState("networkidle")
@@ -680,7 +694,7 @@ export default class MobileDesign {
             // console.log("delete Uploaded Landscape BG Header ")
             await this.page
                 .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
-                .click({force:true})
+                .click({ force: true })
         }
 
         await this.page.waitForLoadState("networkidle")
@@ -762,7 +776,7 @@ export default class MobileDesign {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
                 .locator("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
-                .click({force:true})
+                .click({ force: true })
         }
         await this.page.waitForLoadState('networkidle')
 
@@ -882,7 +896,7 @@ export default class MobileDesign {
     async clickToUploadPortraitBackgroundHeader() {
 
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[5]")
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
 
@@ -915,7 +929,7 @@ export default class MobileDesign {
     async verifyPotraitBackgroundUploadSuccessfully() {
 
         await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
-       
+
 
 
 
@@ -924,7 +938,7 @@ export default class MobileDesign {
     async verifyLandscapeBackgroundUploadSuccessfully() {
 
         await this.page.waitForSelector("//h5[text()='Landscape Background']/following::button[@title='Delete']//div[1]")
-       
+
 
 
 
@@ -932,7 +946,7 @@ export default class MobileDesign {
     async verifyLandscapeBackgroundHeaderUploadSuccessfully() {
 
         await this.page.waitForSelector("(//h5[text()='Landscape Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
-       
+
 
 
 
@@ -941,7 +955,7 @@ export default class MobileDesign {
     async verifyPortraitBackgroundHeaderUploadSuccessfully() {
 
         await this.page.waitForSelector("(//h5[text()='Portrait Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
-       
+
 
 
 
@@ -950,13 +964,13 @@ export default class MobileDesign {
     async verifyMainLogoUploadSuccessfully() {
 
         await this.page.waitForSelector("(//h5[text()='Main Logo']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
-       
+
 
 
 
     }
 
-    
+
 
     async uploadProtraitBackgrounImageForMobileScreen() {
 
@@ -981,7 +995,7 @@ export default class MobileDesign {
     async clickToUploadLandscapeBackground() {
 
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-        await ele.click({force:true})
+        await ele.click({ force: true })
 
 
 
