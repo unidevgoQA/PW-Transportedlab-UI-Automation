@@ -8,7 +8,7 @@ const clipboard = require('clipboardy')
 
 
 
-test("TL003-001 | Validate Deselete All User Selectable Language Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-000 | Validate Deselete All User Selectable Language Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -96,7 +96,7 @@ test("TL003-001 | Validate Deselete All User Selectable Language Functionality W
 })
 
 
-test("TL003-002 | Validate User Selectable Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-001 | Validate User Selectable Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -175,7 +175,7 @@ test("TL003-002 | Validate User Selectable Japanese Language Change Functionalit
 
 })
 
-test("TL003-003 | Validate User Selectable Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-002 | Validate User Selectable Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -239,7 +239,7 @@ test("TL003-003 | Validate User Selectable Japanese Language Change Properly Sho
     })
 
 })
-test("TL003-004 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-013-0 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -284,7 +284,7 @@ test("TL003-004 | Validate Forced Language Japanese Language Change Functionalit
 
 })
 
-test("TL003-005 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-014-0 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -347,7 +347,7 @@ test("TL003-005 | Validate Forced Language Japanese Language Change Properly Sho
 
 })
 
-test("TL003-006 | Validate User Selectable Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-003 | Validate User Selectable Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -421,7 +421,7 @@ test("TL003-006 | Validate User Selectable Spanish Language Change Functionality
 
 })
 
-test("TL003-007 | Validate User Selectable Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-004 | Validate User Selectable Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -487,7 +487,7 @@ test("TL003-007 | Validate User Selectable Spanish Language Change Properly Show
 })
 
 
-test("TL003-008 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-015-0 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -532,7 +532,7 @@ test("TL003-008 | Validate Forced Language Spanish Language Change Functionality
 
 })
 
-test("TL003-009 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-016-0 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -596,7 +596,7 @@ test("TL003-009 | Validate Forced Language Spanish Language Change Properly Show
 })
 
 
-test("TL003-010 | Validate User Selectable Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-005 | Validate User Selectable Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -672,7 +672,7 @@ test("TL003-010 | Validate User Selectable Arabic Language Change Functionality 
 
 })
 
-test("TL003-011 | Validate User Selectable Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-006 | Validate User Selectable Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -738,7 +738,7 @@ test("TL003-011 | Validate User Selectable Arabic Language Change Properly Show 
 })
 
 
-test("TL003-012 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-017-0 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -781,7 +781,7 @@ test("TL003-012 | Validate Forced Language Arabic Language Change Functionality 
 
 })
 
-test("TL003-013 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-018-0 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -844,7 +844,7 @@ test("TL003-013 | Validate Forced Language Arabic Language Change Properly Show 
 
 })
 
-test("TL003-014 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-007 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -921,7 +921,7 @@ test("TL003-014 | Validate User Selectable Russian Language Change Functionality
 
 })
 
-test("TL003-015 | Validate User Selectable Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-008 | Validate User Selectable Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -987,7 +987,7 @@ test("TL003-015 | Validate User Selectable Russian Language Change Properly Show
 })
 
 
-test("TL003-016 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-019-0 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -1031,7 +1031,7 @@ test("TL003-016 | Validate Forced Language Russian Language Change Functionality
 
 })
 
-test("TL003-017 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-020-0 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1095,7 +1095,7 @@ test("TL003-017 | Validate Forced Language Russian Language Change Properly Show
 })
 
 
-test("TL003-018 | Validate User Selectable Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-009 | Validate User Selectable Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -1150,7 +1150,7 @@ test("TL003-018 | Validate User Selectable Francias Language Change Functionalit
 
 })
 
-test("TL003-019 | Validate User Selectable Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-010 | Validate User Selectable Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1215,7 +1215,7 @@ test("TL003-019 | Validate User Selectable Francias Language Change Properly Sho
 
 })
 
-test("TL003-020 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-021-0 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -1258,7 +1258,7 @@ test("TL003-020 | Validate Forced Language Francias Language Change Functionalit
 
 })
 
-test("TL003-021 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-022-0 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1321,7 +1321,7 @@ test("TL003-021 | Validate Forced Language Francias Language Change Properly Sho
 
 })
 
-test("TL003-022 | Validate User Selectable English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-011 | Validate User Selectable English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -1372,7 +1372,7 @@ test("TL003-022 | Validate User Selectable English Language Change Functionality
 
 })
 
-test("TL003-023 | Validate User Selectable English Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-012 | Validate User Selectable English Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1437,7 +1437,7 @@ test("TL003-023 | Validate User Selectable English Language Change Properly Show
 
 })
 
-test("TL003-024 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test("TL003-023-0 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -1480,7 +1480,7 @@ test("TL003-024 | Validate Forced Language English Language Change Functionality
 
 })
 
-test("TL003-025 | Validate Forced Language English Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("TL003-024-0 | Validate Forced Language English Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')

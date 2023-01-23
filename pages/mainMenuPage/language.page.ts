@@ -92,6 +92,8 @@ export default class languagePage {
 
                 await this.page.locator("//span[text()='User Selectable']").click({ force: true })
 
+                await this.page.waitForTimeout(3000)
+
                 // let ele = await this.page.locator("//h5[text()='Landing page of the user registration flow:']").isHidden()
                 // if ((ele == true)) {
                 //         // console.log("delete Uploaded Leaderboard BG")
