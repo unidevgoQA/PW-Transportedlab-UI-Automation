@@ -12,12 +12,12 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
           "guesstheScore.test.ts"
@@ -43,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/playwright.config.ts",
-    "rootDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -54,14 +54,14 @@
   },
   "suites": [
     {
-      "title": "tests/03Games/guesstheScore.test.ts",
+      "title": "tests\\03Games\\guesstheScore.test.ts",
       "file": "tests/03Games/guesstheScore.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "0013GTS-003 | Validate All The Color Input Functionality",
-          "ok": false,
+          "title": "0013GTS-001 | validate Add New Configuration in guess the score is working",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -73,76 +73,2975 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 53091,
+                  "status": "interrupted",
+                  "duration": 54,
                   "error": {
-                    "message": "\u001b[31mTimed out 6000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n",
-                    "stack": "Error: \u001b[31mTimed out 6000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n\n    at guesstheScorePage.clickSolidDropdowns (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/gamesPage/guesstheScore.page.ts:1583:21)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:192:33\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:179:5"
+                    "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24"
                   },
                   "errors": [
                     {
-                      "location": {
-                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/gamesPage/guesstheScore.page.ts",
-                        "column": 21,
-                        "line": 1583
-                      },
-                      "message": "Error: \u001b[31mTimed out 6000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\nCall log:\n  \u001b[2m- expect.toBeVisible with timeout 6000ms\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n\u001b[2m  -   waiting for frameLocator('iframe')\u001b[22m\n\u001b[2m  -   locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\u001b[22m\n\u001b[2m  - waiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\u001b[22m\n\n\n\u001b[90m   at \u001b[39mpages/gamesPage/guesstheScore.page.ts:1583\n\n\u001b[0m \u001b[90m 1581 |\u001b[39m         \u001b[90m//click for select option\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1582 |\u001b[39m         \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m  \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[32m'MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw'\u001b[39m)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1583 |\u001b[39m         expect(ele)\u001b[33m.\u001b[39mtoBeVisible()\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1584 |\u001b[39m        \u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39mclick()\u001b[0m\n\u001b[0m \u001b[90m 1585 |\u001b[39m        \u001b[90m//clickSolid\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1586 |\u001b[39m        \u001b[36mconst\u001b[39m ele1 \u001b[33m=\u001b[39m  \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[32m\"//div[text()='Solid']\"\u001b[39m)\u001b[0m\n\n\u001b[2m    at guesstheScorePage.clickSolidDropdowns (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/gamesPage/guesstheScore.page.ts:1583:21)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:192:33\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:179:5\u001b[22m"
-                    },
-                    {
-                      "message": "\u001b[31mTest timeout of 300000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "message": "Pending operations:\n  - locator.click at pages/gamesPage/guesstheScore.page.ts:1584:18\n"
+                      "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24\u001b[22m"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login Admin And land To guess the score",
-                      "duration": 19507
-                    },
-                    {
-                      "title": "validate open the color section works",
-                      "duration": 24322
-                    },
-                    {
-                      "title": "Validate background Color Input Functionality",
-                      "duration": 8190,
-                      "error": {
-                        "message": "locator.click: Target closed\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\n============================================================",
-                        "stack": "locator.click: Target closed\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')\n============================================================\n    at guesstheScorePage.clickSolidDropdowns (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/gamesPage/guesstheScore.page.ts:1584:18)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:192:33\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/guesstheScore.test.ts:179:5"
-                      }
-                    }
-                  ],
-                  "startTime": "2023-01-22T15:20:38.839Z",
-                  "attachments": [
-                    {
-                      "name": "login screenshot",
-                      "contentType": "image/png",
-                      "body": "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AKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIqqnzx12njPAAAAAAAAwK8wd0gBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFACbMmptAAAWR0lEQVQAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFAAAAAABAUYIUAAAAAAAARQlSAAAAAAAAFCVIAQAAAAAAUJQgBQAAAAAAQFGCFAAAAAAAAEUJUgAAAAAAABQlSAEAAAAAAFCUIAUAAAAAAEBRghQAAAAAAABFCVIAAAAAAAAUJUgBAAAAAABQlCAFwP9vz44FAAAAAAb5W49iX2kEAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACsAvblzDJ1g5kEAAAAAElFTkSuQmCC"
-                    },
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-0013GTS-003-Validate-All-The-Color-Input-Functionality/test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/gamesPage/guesstheScore.page.ts",
-                    "column": 21,
-                    "line": 1583
-                  }
+                  "startTime": "2023-01-23T05:22:21.533Z",
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "skipped"
             }
           ],
-          "id": "0de45138bb1b85ba065c-9ce22e2d17158beb0e80",
+          "id": "0de45138bb1b85ba065c-bf6bce622e8117beb102",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-002 |  Validate Font Upload Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-985f2350de6016932013",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 63,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-003 | Validate Font Successfully Applied in mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-90aacf992ad629541068",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 107,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-003 | Validate All The Color Input Functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f92e4c15f73cdadbe899",
           "file": "tests/03Games/guesstheScore.test.ts",
           "line": 156,
-          "column": 6
+          "column": 5
+        },
+        {
+          "title": "0013GTS-004 |validate image upload section in guess the score works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-ab49b601209f3ced554b",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 332,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-005 |test editor section functionalities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-34f1212a69ee5f8f7297",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 398,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-006 |validate Rider Roster settings is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-41eab00f464b85699d68",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 528,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-007 |validate game operation settings are working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e55bd8e8250018ee70a7",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 585,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-008 |validate game settings option is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e4b699fd584527f78d49",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 616,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-009 |validate edit and delete section is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-40c1c846ebd2b4c8ba2b",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 647,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-010 |Validate configurations text is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-bef39084d8c8da13650c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 678,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-011 |Validate Plus button is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-19c443e115923e9edd9a",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 700,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-012 |Validate add button is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-751992fc943b4ae350ca",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 722,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-013 |Validate cancel button is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-c2a30c7b46720cd04cbc",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 748,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-014 |Validate new configurations text is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-985d863e36090284cf36",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 774,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-015 |Validate start/live button is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f398c34b84f382b5603c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 800,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-016 |Validate mobile link button is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-93f547b9b01544632180",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 836,
+          "column": 5
+        },
+        {
+          "title": "007PD-0017 | Validate mobile link button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-709c55a14cb1deebe566",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 864,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-018 | Validate Mobile link Text is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-08c8c366ee9071d194af",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 891,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-019 | Validate Open link button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-ccae04cd2fa53419010e",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 920,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-020 | Validate Copy Link button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-8dbb61028af86c330f5c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 952,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-021 | Validate close button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-2ae557e635f08207db1c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 996,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-022 | Validate analytics settings is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-6b0a54b9929ea550b347",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1022,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-023 | Validate mobile QR code text visibility",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e64fff04da61bb0a8b8c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1058,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-024 | Validate save QR code is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-a61fe3d321792277398e",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1135,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-025 | Validate Copy QR code is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-484951d0a01cfeb15587",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1167,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-026 | Validate upload fonts is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-1532e45fdf140105f239",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1200,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-027 |Validate game design settings is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f1279d569e03a5b84460",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1241,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-028 | Validate Game settings is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-1208d9a43be5f20dfc05",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1299,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-029 |Validate Text color change is visible on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-9a3f363916beeccf2cde",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1338,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-030 | Validate game status on mobile if start /live button is clicked",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-983b6a42624a8c21171a",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1421,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-030 | Validate opacity slider is visible in color picker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-70094ff0f931051b6351",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1484,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-031 | Validate swatches section is visible in color picker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-363887fc5c0f0502f690",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1516,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-032 | Validate color picker header text is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-da88c30d758d377f6567",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1548,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-033 | Validate + button is visible in color picker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-965cd508affd142f1f0e",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1580,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-034 | Validate RGB sections are visible in color picker",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-5f761638967e6ddaf228",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1613,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-035 |Validate swatches change visible on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-a59a68aa7d3ba06ba9ad",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1655,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-036 |Validate background color change is visible on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f783a667b9f11d0de4a5",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1711,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-037 |Validate button color change is visible on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-448a0593c5d75651e352",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1794,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-034 | Validate Wood Color Input From Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-8d40b0046a96afa5c025",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1877,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-035 |Validate Wood Color Successfully Uploaed In mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-aad864db44e70248ec99",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1919,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-039 |validate error if Add New Configuration is clicked without name provided",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-18d4d73cd3cda69875ae",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 1974,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-040 |validate  Background image upload works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-5f1fb3ab98dec76d4900",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2020,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-044 |Validate Protrait Background image upload change is being reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f777735d6c3fe242b288",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2058,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-041 |validate Game Title Logo upload works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-b4fb1c773a0e96e5e3a3",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2104,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-042 |validate Sponsor Logo upload works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e0cf0e3d59c5c76cc322",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2140,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-043 |Validate Banner Image upload works",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-c288714d9031b51d13a1",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2178,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-044 |Validate Background image upload change is being reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-34089bb08bfd7fd2880e",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2216,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-045 |Validate game title Image upload change is being reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f64bf0828ac40572ea79",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2263,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-046 |Validate sponsor  Image upload change is being reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-edf527e355f6f7058f32",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2310,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-047 |Validate Banner  Image upload change is being reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-15c99628e66de51d3895",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2362,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-048 |Validate rider roster tab is visible",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-9d57f25559fad3ccad12",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2409,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-048 |Validate rider import functionality",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-6675ec065c9d0b216d43",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2443,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-049 |Validate add rider button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-732767e074656b8d6040",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2480,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-050 |Validate first name field is typeable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e2c5e6f4c1436d9a15bb",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2507,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-051 |Validate last name field is typeable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-1627e2b33ed38b41b70c",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2535,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-052 | Validate save & close button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-0ee609fad5a68b852dc3",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2563,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-053 | Validate save & Add More is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-5d024195484f62bc8b36",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2591,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-054 |Validate error message if save button is clicked without rider firstname",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-b13e386a0b6b3edcdf45",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2619,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-055 |Validate error message if save button is clicked without rider lastname",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-19829fff0a350b071116",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2648,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-056 |Validate upload avatar is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-33dcdc0d6f00445c5322",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2677,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-057 |Edit rider first name & last name is working ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-55116da363b63250d514",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2709,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-058 | Validate event name add button is working. ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-0b75bef8ef4f145c8182",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2744,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-059 |Validate event name cancel button is working. ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-3c61a33e49e5174559a3",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2773,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-060 |Validate start event is working. ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-b52e0641d57bcee26dcd",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2803,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-061 |Validate Rename event is working.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-30ab5eb7857fcd938387",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2829,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-062 |Validate delete event is working. ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-30ff4ed42beebb7c69eb",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2854,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-063 |Validate add riders in event save button is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-a2b94582aad5e8936dd3",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2886,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-064 |Validate game status Live after click start event.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-17bb746b184e6a899c25",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2914,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-065 |Validate uploaded avatar is reflected on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-fda1b1dc84719e1b50a6",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 2945,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-066 |Validate Incorrect guess message reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-f1b50dbfb0e5bcdf44e0",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3001,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-067 | Validate scoring header  message reflection on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-96fdef53ea69ae4b36f8",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3097,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-068 | Validate In-Gate header  text reflection on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-03dcf6368e17427cb024",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3168,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-069 |Validate Riding header  message reflection on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-ce476d735dbca2cf28ee",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3231,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-070 |Validate error visibility if edit button is clicked without text change",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-37ea1a6a90689ad7d4b4",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3295,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-071 | Validate export button is working on add rider",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-0769c750c7d05906dfbc",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3327,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-072 | Validate search option in add rider is working",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-8b713c198f7046249c3b",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3360,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-073 | Validate Rows per page is selectable in rider roster page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-849c07a97372a11ee957",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3391,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-074 | Validate Edit Configuration is visible in guess The score",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-0b58bcc2f37582d701a4",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3422,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-075 | Validate Edit button is working guess The score",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-97c372a624b9606a6eee",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3453,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-076 | Validate Adding Rider Roster names are reflected on mobile screen for riders",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-6762171e4162f4df4c4e",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3487,
+          "column": 5
+        },
+        {
+          "title": "0023GTS-077 | Validate Please start the event text is visible.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-732787cdb80788c21642",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3550,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-078 | Validate error if wrong file is selected as background image.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-2ba21a7f35f3a598c05b",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3581,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-079 | Validate error if wrong file is selected as Game Title Logo.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-7dba0d0cf77a26674587",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3621,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-080 | Validate error if wrong file is selected as Sponsor Logo.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-236ef47c44ad18202eda",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3658,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-081 | Validate error if wrong file is selected as Banner Image",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-a426dd7bbd1c175a04f5",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3695,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-082 |Validate Correct guess message reflection on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-a7b358f9b4a8d78c2dc2",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3732,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-083 |Validate Close guess message reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e815266fda0bc3713382",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3830,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-085 |Validate Far guess message reflection on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-e55ffd50faf0cd5a9a36",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 3917,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-086 |Validate No Score message reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-5a88c40ce613d3d5cbc1",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 4003,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-087 | Validate Re-Ride button is working.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-3d2dc82fad3c482953f3",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 4088,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-088 | Validate earned points is visible on mobile screen.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-77407ede164d653d7255",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 4129,
+          "column": 5
+        },
+        {
+          "title": "0013GTS-089 |Validate Riders not yet added Text is visible.",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-23T05:22:21.758Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0de45138bb1b85ba065c-5391a9e08e21d6b194af",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 4217,
+          "column": 5
         }
       ]
     }

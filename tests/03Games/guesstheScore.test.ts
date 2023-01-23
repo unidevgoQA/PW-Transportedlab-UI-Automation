@@ -153,7 +153,7 @@ await test.step("Now game open in mobile screen",async()=>{
     
 })
 
-test.only("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-003 | Validate All The Color Input Functionality", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
             await page.goto('/admin/#/sign-in')
