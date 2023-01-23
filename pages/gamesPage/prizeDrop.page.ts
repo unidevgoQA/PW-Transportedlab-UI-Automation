@@ -129,7 +129,7 @@ export default class prizeDropPage {
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(0).click()
+              const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last()
 
         }
 

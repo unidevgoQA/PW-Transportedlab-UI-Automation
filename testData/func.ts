@@ -12,7 +12,7 @@ export default class functions {
 
 
         async fontUploadFunction() {
-                const filePath0 = "testData/fonts/Thin.otf"
+                const filePath0 = "testData/fonts/Midnight.ttf"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -34,6 +34,41 @@ export default class functions {
 
         async logoImageUploadFunction() {
                 const filePath0 = "testData/logos/gameTeamLogo.jpg"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async homeIconUploadHelper() {
+                const filePath0 = "testData/icons/home.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async prizeIconUploadHelper() {
+                const filePath0 = "testData/icons/prize.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async howToPlayIconUploadHelper() {
+                const filePath0 = "testData/icons/howtoplay.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async rulesIconUploadHelper() {
+                const filePath0 = "testData/icons/rules.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
+        async userProfileIconUploadHelper() {
+                const filePath0 = "testData/icons/profile.png"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -161,11 +196,11 @@ export default class functions {
                 // expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
 
                 const chooseRatio = await this.page.frameLocator('iframe').locator("(//div[@backgroundcolor='#212936']//div)[2]")
-                await chooseRatio.click({force:true})
+                await chooseRatio.click({ force: true })
                 await this.page.waitForTimeout(3000)
 
                 const selectNone = await this.page.frameLocator('iframe').locator("//li[text()='None']")
-                await selectNone.click({force:true})
+                await selectNone.click({ force: true })
 
                 await this.page.waitForLoadState("networkidle")
 
@@ -187,6 +222,30 @@ export default class functions {
 
         }
 
+        async fileUploadCropperForMainMenu() {
+
+
+                const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                await chooseBtn.click()
+
+
+
+
+                const cropperSaveBtn = await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]")
+                expect(cropperSaveBtn).toContainText("Save")
+                await cropperSaveBtn.click()
+
+
+
+
+
+
+
+
+
+
+
+        }
 
         async fileUploadCropperWithoutIframe() {
 
@@ -474,9 +533,9 @@ export default class functions {
 
 
                 let menu = await this.page.locator("//p[text()='Menu']")
-                await menu.click({force:true})
+                await menu.click({ force: true })
 
-                await this.page.locator('text=Bottom').click({force:true});
+                await this.page.locator('text=Bottom').click({ force: true });
 
 
         }
@@ -486,7 +545,7 @@ export default class functions {
 
                 await this.page.frameLocator('iframe').locator('input[name="email"]').fill("jon@email.com")
 
-            //     await page.frameLocator('iframe').locator('input[name="age"]').fill("23")
+                //     await page.frameLocator('iframe').locator('input[name="age"]').fill("23")
 
                 // await this.page.click('//input[@name="birthDate"]');
 
@@ -526,10 +585,10 @@ export default class functions {
         }
 
 
-        getRandomName () { 
-                return "Auto"+ Date.now() + "Name"
-            }
-  
+        getRandomName() {
+                return "Auto" + Date.now() + "Name"
+        }
+
 
 }
 

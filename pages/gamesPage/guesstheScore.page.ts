@@ -21,6 +21,7 @@ export default class guesstheScorePage {
                 // expect(locator).toContainText('Prize Drop')
                 await locator.click({ force: true })
                 // console.log("Successfully Click To Tug of War Page ")
+                await this.page.waitForLoadState("networkidle")
         }
 
         async verifyConfigurationsText() {

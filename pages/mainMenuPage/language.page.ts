@@ -49,6 +49,8 @@ export default class languagePage {
                 const locator = this.page.locator("//p[text()='Language']")
                 expect(locator).toContainText('Language')
                 await locator.click()
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
         }
 
         //Language Header Text Elemant
@@ -161,8 +163,16 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Spanish']");
                 expect(ele).toBeVisible()
                 await ele.click()
+                await this.page.waitForLoadState("networkidle")
         }
 
+        async verifySpanishLanguageText() {
+                const ele = this.page.locator("//div[text()='Spanish']");
+                expect(ele).toContainText("Spanish")                
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        
         //select language type Japanese
         async deselectEnglishLanguage() {
                 // const englishLanguage: boolean
@@ -171,7 +181,7 @@ export default class languagePage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
                                 .locator("//li[text()='English']")
-                                .click({ force: true })
+                                .click()
                 }
                 await this.page.waitForLoadState("networkidle")
 
@@ -193,7 +203,7 @@ export default class languagePage {
 
         async deselectRussianLanguage() {
                 // const englishLanguage: boolean
-                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[3]`).isVisible()
+                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[2]`).isVisible()
                 if ((SpanishLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
@@ -233,7 +243,7 @@ export default class languagePage {
 
         }
 
-       
+
 
         async deselectJapaneseLanguage() {
                 // const englishLanguage: boolean
@@ -251,147 +261,96 @@ export default class languagePage {
         async JapaneseLanguage() {
                 // const englishLanguage: boolean
                 const JapaneseLanguage = await this.page.locator(`(//li[@aria-selected="true"])[4]`).isVisible()
-                if ((JapaneseLanguage == true )) {
+                if ((JapaneseLanguage == true)) {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
                                 .locator("//li[text()='Japanese']")
                                 .click({ force: true })
                 }
-                
+
                 await this.page.waitForLoadState("networkidle")
 
 
         }
-        
+
 
         //select language type Japanese
-    async selectJapaneseLanguage() {
-                        // const englishLanguage: boolean
-                        const EnglishLGregistrationflow = await this.page.locator("(//li[@selected='true'])[1]").isChecked()
-                        if ((EnglishLGregistrationflow == false)) {
-                                // console.log("Enable Stage to be skip and jump to next one")
-                                await this.page
-                                        .locator("//li[text()='Japanese']")
-                                        .click()
-                        }
-                        // const ele = await this.page.locator("//li[text()='Japanese']")
+        async selectJapaneseLanguage() {
+             
+        const japanese = await this.page.locator("//li[text()='Japanese']")
+        expect(japanese).toBeVisible()
+        await japanese.click({force:true})
+                    
+        }
 
-                        // if (await ele.isChecked())
-                        //         await ele.click()
-
-
-                        // await this.page.locator("(//div[@role='button'])[2]").selectOption({label:"English"})
-
-                        //         const englishLanguage = await expect(this.page.locator('option[selected="selected"]')).toHaveText('Option 1')
-                        //       if ((englishLanguage == true)) {
-                        //               // console.log("Enable Stage to be skip and jump to next one")
-                        //               await this.page
-                        //                       .locator("//li[text()='Japanese']")
-                        //                       .click({force:true})
-                        //       }    
-
-                        // const checkboxState = await this.page.evaluate(() => {
-                        //         const checkbox = document.querySelector('[type=checkbox]');
-                        //         return checkbox.checked;
-                        //     });
-
-                        // const checkboxStates = await this.page.evaluate(() => {
-                        //         const checkboxes = document.querySelectorAll('[type=checkbox]');
-                        //         return [...checkboxes].map(c => c.checked);
-                        //     });
-
-                        // let startBtn = await this.page.locator("//li[text()='Japanese']").isChecked()
-                        // if ((startBtn == false)) {
-                        //         // console.log("Enable Stage to be skip and jump to next one")
-                        //         await this.page.locator("//li[text()='Japanese']").check()
-                        // }    
-
-                        // expect(await this.page.locator("//li[text()='Japanese']").isChecked()).toBeFalsy()
-                        //     const ele = this.page.locator("//li[text()='Japanese']").isChecked().
-
-                        //     expect(ele).toBeVisible()
-                        //     await ele.click()       
-                }
-
-    //Language Controls Elable disable btn Element
-    async clickUserSelectablesRadioBtn() {
-                        const ele = this.page.locator("(//div[@role='button'])[2]");
-                        expect(ele).toBeVisible()
-                        await ele.dblclick()
+        //Language Controls Elable disable btn Element
+        async clickUserSelectablesRadioBtn() {
+                const ele = this.page.locator("(//div[@role='button'])[2]");
+                expect(ele).toBeVisible()
+                await ele.dblclick()
 
 
-                }
+        }
 
         //Language Controls Elable disable btn Element
         async clickUserProfileSelectableInputField() {
-                        const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]");
-                        expect(ele).toBeVisible()
-                        await ele.dblclick()
+                const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]");
+                expect(ele).toBeVisible()
+                await ele.dblclick()
 
-                        await this.page.waitForLoadState("networkidle")
+                await this.page.waitForLoadState("networkidle")
 
 
-                }
+        }
 
 
 
 
         //Language Controls Elable disable btn Element
         async checkUserForcedLanguageText() {
-                        const ele = this.page.locator("//span[text()='Forced Language']");
-                        expect(ele).toContainText('Forced Language')
-                        await ele.click({ force: true })
-
-
-                }
-
-        //Language Controls Elable disable btn Element
-        async clickUserForceLanguageOption() {
-
-                        // const ele = await this.page.frameLocator('iframe').locator("input[value='forced']").isChecked()
-                        // if ((ele == false)) {
-                        //         // console.log("delete Uploaded Leaderboard BG")
-                        //         await this.page.locator("input[value='forced']")
-                        //                 .check({force:true})
-                        // }
-                        const ele = this.page.locator("//span[text()='Forced Language']");
-                        //     expect(ele).toBeVisible()
-                        await ele.click({ force: true })
-                }
-
-        
-         async clickUserForceLanguageinputfield() {
-
-                        const ele = await this.page.frameLocator('iframe').locator("//div[@role='button']").isVisible()
-                        if ((ele == true)) {
-                                // console.log("delete Uploaded Leaderboard BG")
-                                await this.page.locator("//div[@role='button']")
-                                        .click({ force: true })
-                        }
-                        //  const ele = this.page.locator("input[value='forced']");
-                        //     expect(ele).toBeVisible()
-                        //     await ele.click()   
-                }
-
-
-        // //Language Controls Elable disable btn Element
-        async clickForceLanguageInputField() {
-
-                        // let ele = await this.page.frameLocator('iframe').locator("//div[@role='button']").isVisible()
-                        // if ((ele == true)) {
-                        //         // console.log("delete Uploaded Leaderboard BG")
-                        //         await this.page.locator("//div[@role='button']")
-                        //                 .click({force:true})
-                        // }
-
-                        const ele = this.page.locator("//div[contains(@class,'MuiSelect-select MuiSelect-outlined')]")
-                        await ele.click()
-
-
-                }
-
-
-
+                const ele = this.page.locator("//span[text()='Forced Language']");
+                expect(ele).toContainText('Forced Language')
+                await ele.click({ force: true })
 
 
         }
+
+        //Language Controls Elable disable btn Element
+        async clickUserForceLanguageOption() {
+                const ele = this.page.locator("//span[text()='Forced Language']");
+                expect(ele).toBeVisible()
+                await ele.click({ force: true })
+                await this.page.waitForLoadState("networkidle")
+        }
+
+
+        async clickUserForceLanguageinputfield() {
+
+                const ele = await this.page.frameLocator('iframe').locator("//div[@role='button']").isVisible()
+                if ((ele == true)) {
+                        // console.log("delete Uploaded Leaderboard BG")
+                        await this.page.locator("//div[@role='button']")
+                                .click({ force: true })
+                }
+                //  const ele = this.page.locator("input[value='forced']");
+                //     expect(ele).toBeVisible()
+                //     await ele.click()   
+        }
+
+
+        // //Language Controls Elable disable btn Element
+        async clickForceLanguageInputField() {               
+
+                const ele = this.page.locator("//div[@role='button']")
+                expect(ele).toBeVisible()
+                await ele.click({force:true})
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
+
+        }
+
+
+
+
+
+}

@@ -73,7 +73,7 @@ export default class MobileDesign {
     }
 
     async clickMobileLinkBtn() {
-        const ele = this.page.frameLocator('iframe').locator(`[data-testid="MobileScreenShareIcon"]`).first()
+        const ele = this.page.frameLocator('iframe').locator(`(//button[@aria-label='Show Mobile Link']//button)[1]`).first()
         expect(ele).toBeVisible()
         await ele.click({ force: true })
     }
@@ -83,7 +83,7 @@ export default class MobileDesign {
         // Click text=Open Link
         const [page1] = await Promise.all([
             this.page.waitForEvent('popup'),
-            this.page.frameLocator('iframe').locator('text=Open Link').click()
+            this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
         ]);
 
         return page1;

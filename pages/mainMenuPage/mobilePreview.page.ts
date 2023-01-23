@@ -7,7 +7,7 @@ export default class mobilePreviewPage {
        // static buffer: void;
        constructor(page: Page) {
               this.page = page;
-              page.setViewportSize({ width: 520, height: 980 })
+              page.setViewportSize({ width: 390, height: 844 })
        }
 
        async lookforphonenoinform() {
@@ -53,13 +53,23 @@ export default class mobilePreviewPage {
        }
 
        async clicksubmit() {
-              await this.page.locator('//button[text()="Submit"]').click()
-              await this.page.waitForLoadState('domcontentloaded');
+              await this.page.locator("//button[@type='submit']").click()
+              // await this.page.waitForLoadState("networkidle")
+              await this.page.waitForTimeout(2000)
+
+       }
+       async dblClickOkBtn() {
+              const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
+              expect(ele).toBeVisible()
+              await ele.dblclick({force:true})
+              await this.page.waitForLoadState("networkidle")
+
+
        }
 
 
        async clickOkBtn() {
-              const ele = this.page.locator("//button[text()='Ok']")
+              const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
               expect(ele).toBeVisible()
               await ele.click({force:true})
               await this.page.waitForLoadState("networkidle")
@@ -90,8 +100,9 @@ export default class mobilePreviewPage {
        }
 
        async verifyPrizeEntryIsApplyed() {
-              const ele = await this.page.locator("//h3[text()='PRIZE VAULT']")
-              expect(ele).toBeVisible()
+              await this.page.waitForSelector("//div[text()='No Won Prize']")
+              const ele = await this.page.locator("//div[text()='No Won Prize']")
+              expect(ele).toContainText("No Won Prize")
 
 
 
@@ -120,22 +131,22 @@ export default class mobilePreviewPage {
        }
 
 
-       async clickPrizeBtn() {
-              const btn = this.page.locator("//button[@value='prize']");
+       async clickPrizeSection() {
+              const btn = this.page.locator("(//button[@type='button'])[2]");
               expect(btn).toBeVisible()
-              await btn.click({ force: true })
-              await this.page.reload()
-              await this.page.waitForLoadState('load');
+              await btn.click({ force: true })           
+              await this.page.waitForLoadState("networkidle");
 
 
 
        }
 
        async clickMyProfile() {
-              const btn = this.page.locator("//p[text()='USER PROFILE']");
+              const btn = this.page.locator("(//button[@type='button'])[5]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -152,6 +163,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='Japanese']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -161,6 +173,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='Spanish']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -179,6 +192,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='Arabic']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -195,6 +209,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='Russian']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -211,6 +226,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='Francias']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -227,6 +243,7 @@ export default class mobilePreviewPage {
               const btn = this.page.locator("//li[text()='English']");              
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -254,7 +271,7 @@ export default class mobilePreviewPage {
 
        
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("//p[text()='HOW TO PLAY']");
+              const btn = this.page.locator("(//button[@type='button'])[3]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -270,6 +287,101 @@ export default class mobilePreviewPage {
                  })).toMatchSnapshot("Verify_Portrait_Background.png") 
 
 
+
+       }
+
+       async verifyMainMenuFontSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MainMenu_Font_Upload_UI.png") 
+
+
+
+       }
+
+       async verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_Background_UI.png") 
+
+       }
+
+       
+       async verifyMenuBarTopAlignmentSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_TopAlignment_UI.png") 
+
+       }
+
+       async verifyMenuBarBottomAlignmentSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_BottomAlignment_UI.png") 
+
+       }
+
+       async verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_ThreeLineAlignment_UI.png") 
+
+       }
+       async clickThreeLineAlignmentBtn() {
+
+             const ele = await this.page.locator("//div[@iconcolor='rgb(96, 37, 74)']")
+             expect(ele).toBeVisible()
+             await ele.click({force:true})
+             await this.page.waitForTimeout(3000)
+
+       }
+
+       async verifyMenuBarHideAlignmentSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_HideAlignment_UI.png") 
+
+       }
+
+       async verifyHomeIconSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_HomeIcon_UI.png") 
+
+       }
+       async verifyPrizeIconSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_PrizeIcon_UI.png") 
+
+       }
+       async verifyHowToPlayIconSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_HowToPlayIcon_UI.png") 
+
+       }
+       async verifyRulesIconSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_RulesIcon_UI.png") 
+
+       }
+       async verifyUserProfileIconSuccessfullyAppliedInMobileScreen() {
+
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("MenuBar_UserProfileIcon_UI.png") 
 
        }
 

@@ -1,21 +1,296 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
+import BaseFunctions from "@base-function/baseFunctions";
+
 export default class menuPage {
-
-        private page: Page;
-        static login: any;
-        static buffer: void;
-
-        constructor(page: Page) {
-                this.page = page;
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
         }
+
+        private menuPageElements = {
+                menuPage: "//p[text()='Menu']",
+                uploadFont: "//div[@class='MuiBox-root css-v2612']",
+                fontUplodInputFieldText: "//p[text()='Upload Font']",
+                uploadFontTitle: "//p[text()='Midnight']",
+                fontDeleteBtn: "//p[text()='Aa']/following-sibling::button",
+                backgroundColorInputField: "//p[text()='Background']/following-sibling::button",
+                textColorInputField: "//p[text()='Text Color']/following-sibling::button",
+                activeBackgroundColorInputField: "//p[text()='Active Background']/following-sibling::button",
+                activeTextColorInputField: "//p[text()='Active Text Color']/following-sibling::button",
+                colorCodeInputField: "//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
+                topAlignmentBtn: "//h5[text()='Top']",
+                topAlignmentBtnSelected: "//button[@selected='true']",
+                bottomAlignmentBtn: "//h5[text()='Bottom']",
+                threeLineAlignmentBtn: "//h5[text()='3 Line Option']",
+                threeLineInMobileScreen: "//div[@class='MuiBox-root css-1ox9e35']",
+                hideAlignmentBtn: "//h5[text()='Hide']",
+                homeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                prizeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[2]",
+                howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                
+
+        
+                
+                
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+        // export default class menuPage {
+
+        //         private page: Page;
+        //         static login: any;
+        //         static buffer: void;
+
+        //         constructor(page: Page) {
+        //                 this.page = page;
+        //         }
+
+
+
+
 
         //Menu Page Button Element
         async clickMenuPage() {
-                const locator = this.page.locator("//p[text()='Menu']")
-                expect(locator).toContainText('Menu')
-                await locator.click()
+
+                const ele = this.page.locator(this.menuPageElements.menuPage)
+                if (ele != null)
+                        await ele.click({ force: true });
+                else throw new Error("Menu Page Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
         }
+
+        async deleteUploadedFont() {
+
+                const ele = await this.page.locator(this.menuPageElements.uploadFontTitle).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.fontDeleteBtn)
+                }
+
+
+
+        }
+
+        //Upload Fonts Header Text Elemant
+        async clickToUploadFont() {
+                const ele = await this.page.locator(this.menuPageElements.uploadFont).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.uploadFont, { force: true })
+                }
+                else throw new Error("Main Menu Font Upload Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async verifyUploadFontText() {
+                await expect(this.page.locator(this.menuPageElements.fontUplodInputFieldText))
+                        .toBeVisible();
+
+        }
+
+
+        //Upload Fonts Header Text Elemant
+        async verifyFontUploadedSuccessfully() {
+                await this.page.waitForSelector(this.menuPageElements.uploadFontTitle)
+                const ele = this.page.locator(this.menuPageElements.uploadFontTitle)
+                if (ele != null) {
+                        await ele.click({ force: true });
+                }
+                else throw new Error("Font Does Not Upload Successfully")
+
+        }
+
+        async clickBackgroundColorInputField() {
+                const ele = await this.page.locator(this.menuPageElements.backgroundColorInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.backgroundColorInputField, { force: true })
+                }
+                else throw new Error("Main Menu Background Color Input Field Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async inputBackgroundColor() {
+                const ele = await this.page.locator(this.menuPageElements.colorCodeInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.fill(this.menuPageElements.colorCodeInputField, "5FBCD2FF")
+                }
+                else throw new Error("Main Menu Background Color Code Input Field Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async inputTextColor() {
+                const ele = await this.page.locator(this.menuPageElements.colorCodeInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.fill(this.menuPageElements.colorCodeInputField, "60254AFF")
+                }
+                else throw new Error("Main Menu Text Color Code Input Field Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async inputActiveBackgroundColor() {
+                const ele = await this.page.locator(this.menuPageElements.colorCodeInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.fill(this.menuPageElements.colorCodeInputField, "70A4CCFF")
+                }
+                else throw new Error("Main Menu Active Background Color Code Input Field Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
+        }
+        
+        async inputActiveTextColor() {
+                const ele = await this.page.locator(this.menuPageElements.colorCodeInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.fill(this.menuPageElements.colorCodeInputField, "021019FF")
+                }
+                else throw new Error("Main Menu Active Text Color Code Input Field Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async clickTextColorInputField() {
+                const ele = await this.page.locator(this.menuPageElements.textColorInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.textColorInputField, { force: true })
+                }
+                else throw new Error("Main Menu text Color Input Field Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async clickActiveBackgroundColorInputField() {
+                const ele = await this.page.locator(this.menuPageElements.activeBackgroundColorInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.activeBackgroundColorInputField, { force: true })
+                }
+                else throw new Error("Main Menu Active Background Color Input Field Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+        async clickActiveTextColorInputField() {
+                const ele = await this.page.locator(this.menuPageElements.activeTextColorInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.activeTextColorInputField, { force: true })
+                }
+                else throw new Error("Main Menu Active Text Color Input Field Element Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async selectTopAlignmentMenuBar() {
+                const ele = await this.page.locator(this.menuPageElements.topAlignmentBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.topAlignmentBtn, { force: true })
+                }
+                else throw new Error("Main Bar Top Alignment Button Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async selectBottomAlignmentMenuBar() {
+                const ele = await this.page.locator(this.menuPageElements.bottomAlignmentBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.bottomAlignmentBtn, { force: true })
+                }
+                else throw new Error("Main Bar Bottom Alignment Button Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async selectThreeLineAlignmentMenuBar() {
+                const ele = await this.page.locator(this.menuPageElements.threeLineAlignmentBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.threeLineAlignmentBtn, { force: true })
+                }
+                else throw new Error("Main Bar Three Line Alignment Button Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async selectHideAlignmentMenuBar() {
+                const ele = await this.page.locator(this.menuPageElements.hideAlignmentBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.hideAlignmentBtn, { force: true })
+                }
+                else throw new Error("Main Bar Hide Alignment Button Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+        
+        async uploadMenuBarHomeIcon() {
+                const ele = await this.page.locator(this.menuPageElements.homeMenuBarIcon).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.homeMenuBarIcon, { force: true })
+                }
+                else throw new Error("Main Bar Home Icon Upload Input Field Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async uploadMenuBarPrizeIcon() {
+                const ele = await this.page.locator(this.menuPageElements.prizeMenuBarIcon).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.prizeMenuBarIcon, { force: true })
+                }
+                else throw new Error("Main Bar Prize Icon Upload Input Field Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async uploadMenuBarHowToPlayIcon() {
+                const ele = await this.page.locator(this.menuPageElements.howtoplayMenuBarIcon).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.howtoplayMenuBarIcon, { force: true })
+                }
+                else throw new Error("Main Bar How To Play Icon Upload Input Field Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async uploadMenuBarRulesIcon() {
+                const ele = await this.page.locator(this.menuPageElements.rulesMenuBarIcon).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.rulesMenuBarIcon, { force: true })
+                }
+                else throw new Error("Main Bar Rules Upload Input Field Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async uploadMenuBarUserProfileIcon() {
+                const ele = await this.page.locator(this.menuPageElements.userProfileMenuBarIcon).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.menuPageElements.userProfileMenuBarIcon, { force: true })
+                }
+                else throw new Error("Main Bar User Profile Upload Input Field Element Is Visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Fonts Header Text Elemant
         async checkFontsText() {
@@ -30,13 +305,6 @@ export default class menuPage {
         }
 
 
-        //Upload Fonts Header Text Elemant
-        async clickToUploadFont() {
-                const ele = this.page.locator("//div[@class='MuiBox-root css-v2612']")
-                expect(ele).toBeVisible()
-                await ele.click({force:true})
-                await this.page.waitForLoadState('domcontentloaded');
-        }
 
 
 
@@ -153,6 +421,7 @@ export default class menuPage {
                 const ele = this.page.locator("//button[text()='Save']")
                 expect(ele).toBeVisible()
                 await ele.click()
+                await this.page.waitForTimeout(3000)
         }
 
         //Check Alignment Text
@@ -193,120 +462,120 @@ export default class menuPage {
 
         }
 
-   //check all icon text 
-   async disableShowAllIconBtn() {
+        //check all icon text 
+        async disableShowAllIconBtn() {
 
-        // const showalliconcheckbox = this.page.locator("//input[@type='checkbox'])[1]")
-        // expect(showalliconcheckbox).not.toBeEnabled()
-        // await showalliconcheckbox.click()
-
-             
-        const ele = await this.page.locator("(//input[@type='checkbox'])[1]").isChecked()
-        if ((ele == true)) {
-             // console.log("enabled Home Icon Check Box")
-             await this.page
-                     .locator("(//input[@type='checkbox'])[1]")
-                             .click({force:true})
-        }       
-
-        // if (await this.page.isHidden("(//div[@class='MuiBox-root css-74zz35'])[1]")) {
-        //         await this.page.click("(//input[@type='checkbox'])[1]");
-        // }
+                // const showalliconcheckbox = this.page.locator("//input[@type='checkbox'])[1]")
+                // expect(showalliconcheckbox).not.toBeEnabled()
+                // await showalliconcheckbox.click()
 
 
-}
+                const ele = await this.page.locator("(//input[@type='checkbox'])[1]").isChecked()
+                if ((ele == true)) {
+                        // console.log("enabled Home Icon Check Box")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[1]")
+                                .click({ force: true })
+                }
 
-//enabled home button
-async disableHomeIconCheckBox() {
+                // if (await this.page.isHidden("(//div[@class='MuiBox-root css-74zz35'])[1]")) {
+                //         await this.page.click("(//input[@type='checkbox'])[1]");
+                // }
 
-                     
+
+        }
+
+        //enabled home button
+        async disableHomeIconCheckBox() {
+
+
                 const ele = await this.page.locator("(//input[@type='checkbox'])[2]").isChecked()
-                   if ((ele == true)) {
+                if ((ele == true)) {
                         // console.log("enabled Home Icon Check Box")
                         await this.page
                                 .locator("(//input[@type='checkbox'])[2]")
-                                        .click({force:true})
-                   }        
-           
-         
-
-        // if (await this.page.isDisabled("//input[@id='P-19239526022']")) {
-        //         await this.page.click("(//input[@type='checkbox'])[2]", { force: true });
-        // }
+                                .click({ force: true })
+                }
 
 
-}
 
-//enabled prize button 
-async disablePrizeIconCheckBox() {
+                // if (await this.page.isDisabled("//input[@id='P-19239526022']")) {
+                //         await this.page.click("(//input[@type='checkbox'])[2]", { force: true });
+                // }
 
-        const ele = await this.page.locator("(//input[@type='checkbox'])[3]").isChecked()
-                   if ((ele == true)) {
+
+        }
+
+        //enabled prize button 
+        async disablePrizeIconCheckBox() {
+
+                const ele = await this.page.locator("(//input[@type='checkbox'])[3]").isChecked()
+                if ((ele == true)) {
                         // console.log("enabled Prize Icon CheckBox")
                         await this.page
                                 .locator("(//input[@type='checkbox'])[3]")
-                                        .click({force:true})
-                   }  
+                                .click({ force: true })
+                }
 
-        // if (await this.page.isDisabled("//input[@id='P-18230406352']")) {
-        //         await this.page.click("(//input[@type='checkbox'])[3]", { force: true });
-        // }
+                // if (await this.page.isDisabled("//input[@id='P-18230406352']")) {
+                //         await this.page.click("(//input[@type='checkbox'])[3]", { force: true });
+                // }
 
 
-}
+        }
 
-//enabled how to play icon
-async disableHowToPlayIconCheckBox() {
+        //enabled how to play icon
+        async disableHowToPlayIconCheckBox() {
 
-        const ele = await this.page.locator("(//input[@type='checkbox'])[4]").isChecked()
-                   if ((ele == true)) {
+                const ele = await this.page.locator("(//input[@type='checkbox'])[4]").isChecked()
+                if ((ele == true)) {
                         // console.log("enabled Prize Icon CheckBox")
                         await this.page
                                 .locator("(//input[@type='checkbox'])[4]")
-                                        .click({force:true})
-                   }  
+                                .click({ force: true })
+                }
 
-        // if (await this.page.isDisabled("//input[@id='P-17221286682']")) {
-        //         await this.page.click("(//input[@type='checkbox'])[4]", { force: true });
-        // }
+                // if (await this.page.isDisabled("//input[@id='P-17221286682']")) {
+                //         await this.page.click("(//input[@type='checkbox'])[4]", { force: true });
+                // }
 
 
-}
+        }
 
-//enabled rules icon checkbox
-async disableRulesIconCheckBox() {
-        const ele = await this.page.locator("(//input[@type='checkbox'])[5]").isChecked()
-                   if ((ele == true)) {
+        //enabled rules icon checkbox
+        async disableRulesIconCheckBox() {
+                const ele = await this.page.locator("(//input[@type='checkbox'])[5]").isChecked()
+                if ((ele == true)) {
                         // console.log("enabled rules Icon CheckBox")
                         await this.page
                                 .locator("(//input[@type='checkbox'])[5]")
-                                        .click({force:true})
-                   }  
+                                .click({ force: true })
+                }
 
-        // if (await this.page.isDisabled("//input[@id='P-16212167012']")) {
-        //         await this.page.click("(//input[@type='checkbox'])[5]", { force: true });
-        // }
-
-
-}
-
-//enabled user profile icon checkbox
-async disableUserProfileIconCheckBox() {
-
-        const ele = await this.page.locator("(//input[@type='checkbox'])[6]").isChecked()
-        if ((ele == true)) {
-        //      console.log("enabled User Profile Icon CheckBox")
-             await this.page
-                     .locator("(//input[@type='checkbox'])[6]")
-                             .click({force:true})
-        }  
-
-        // if (await this.page.isDisabled("//input[@id='P-15203047342']")) {
-        //         await this.page.click("(//input[@type='checkbox'])[6]", { force: true });
-        // }
+                // if (await this.page.isDisabled("//input[@id='P-16212167012']")) {
+                //         await this.page.click("(//input[@type='checkbox'])[5]", { force: true });
+                // }
 
 
-}
+        }
+
+        //enabled user profile icon checkbox
+        async disableUserProfileIconCheckBox() {
+
+                const ele = await this.page.locator("(//input[@type='checkbox'])[6]").isChecked()
+                if ((ele == true)) {
+                        //      console.log("enabled User Profile Icon CheckBox")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[6]")
+                                .click({ force: true })
+                }
+
+                // if (await this.page.isDisabled("//input[@id='P-15203047342']")) {
+                //         await this.page.click("(//input[@type='checkbox'])[6]", { force: true });
+                // }
+
+
+        }
 
 
 
@@ -321,14 +590,14 @@ async disableUserProfileIconCheckBox() {
                 // expect(showalliconcheckbox).not.toBeEnabled()
                 // await showalliconcheckbox.click()
 
-                     
+
                 const ele = await this.page.locator("(//input[@type='checkbox'])[1]").isChecked()
                 if ((ele == false)) {
-                     // console.log("enabled Home Icon Check Box")
-                     await this.page
-                             .locator("(//input[@type='checkbox'])[1]")
-                                     .check({force:true})
-                }       
+                        // console.log("enabled Home Icon Check Box")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[1]")
+                                .check({ force: true })
+                }
 
                 // if (await this.page.isHidden("(//div[@class='MuiBox-root css-74zz35'])[1]")) {
                 //         await this.page.click("(//input[@type='checkbox'])[1]");
@@ -340,16 +609,16 @@ async disableUserProfileIconCheckBox() {
         //enabled home button
         async enabledHomeIconCheckBox() {
 
-                             
-                        const ele = await this.page.locator("(//input[@type='checkbox'])[2]").isChecked()
-                           if ((ele == false)) {
-                                // console.log("enabled Home Icon Check Box")
-                                await this.page
-                                        .locator("(//input[@type='checkbox'])[2]")
-                                                .check({force:true})
-                           }        
-                   
-                 
+
+                const ele = await this.page.locator("(//input[@type='checkbox'])[2]").isChecked()
+                if ((ele == false)) {
+                        // console.log("enabled Home Icon Check Box")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[2]")
+                                .check({ force: true })
+                }
+
+
 
                 // if (await this.page.isDisabled("//input[@id='P-19239526022']")) {
                 //         await this.page.click("(//input[@type='checkbox'])[2]", { force: true });
@@ -362,12 +631,12 @@ async disableUserProfileIconCheckBox() {
         async enabledPrizeIconCheckBox() {
 
                 const ele = await this.page.locator("(//input[@type='checkbox'])[3]").isChecked()
-                           if ((ele == false)) {
-                                // console.log("enabled Prize Icon CheckBox")
-                                await this.page
-                                        .locator("(//input[@type='checkbox'])[3]")
-                                                .check({force:true})
-                           }  
+                if ((ele == false)) {
+                        // console.log("enabled Prize Icon CheckBox")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[3]")
+                                .check({ force: true })
+                }
 
                 // if (await this.page.isDisabled("//input[@id='P-18230406352']")) {
                 //         await this.page.click("(//input[@type='checkbox'])[3]", { force: true });
@@ -380,12 +649,12 @@ async disableUserProfileIconCheckBox() {
         async enabledHowToPlayIconCheckBox() {
 
                 const ele = await this.page.locator("(//input[@type='checkbox'])[4]").isChecked()
-                           if ((ele == false)) {
-                                // console.log("enabled Prize Icon CheckBox")
-                                await this.page
-                                        .locator("(//input[@type='checkbox'])[4]")
-                                                .check({force:true})
-                           }  
+                if ((ele == false)) {
+                        // console.log("enabled Prize Icon CheckBox")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[4]")
+                                .check({ force: true })
+                }
 
                 // if (await this.page.isDisabled("//input[@id='P-17221286682']")) {
                 //         await this.page.click("(//input[@type='checkbox'])[4]", { force: true });
@@ -397,12 +666,12 @@ async disableUserProfileIconCheckBox() {
         //enabled rules icon checkbox
         async enabledRulesIconCheckBox() {
                 const ele = await this.page.locator("(//input[@type='checkbox'])[5]").isChecked()
-                           if ((ele == false)) {
-                                // console.log("enabled rules Icon CheckBox")
-                                await this.page
-                                        .locator("(//input[@type='checkbox'])[5]")
-                                                .check({force:true})
-                           }  
+                if ((ele == false)) {
+                        // console.log("enabled rules Icon CheckBox")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[5]")
+                                .check({ force: true })
+                }
 
                 // if (await this.page.isDisabled("//input[@id='P-16212167012']")) {
                 //         await this.page.click("(//input[@type='checkbox'])[5]", { force: true });
@@ -416,11 +685,11 @@ async disableUserProfileIconCheckBox() {
 
                 const ele = await this.page.locator("(//input[@type='checkbox'])[6]").isChecked()
                 if ((ele == false)) {
-                //      console.log("enabled User Profile Icon CheckBox")
-                     await this.page
-                             .locator("(//input[@type='checkbox'])[6]")
-                                     .check({force:true})
-                }  
+                        //      console.log("enabled User Profile Icon CheckBox")
+                        await this.page
+                                .locator("(//input[@type='checkbox'])[6]")
+                                .check({ force: true })
+                }
 
                 // if (await this.page.isDisabled("//input[@id='P-15203047342']")) {
                 //         await this.page.click("(//input[@type='checkbox'])[6]", { force: true });
@@ -506,7 +775,7 @@ async disableUserProfileIconCheckBox() {
                 await this.page.click("(//div[@class='MuiBox-root css-74zz35'])[2]")
         }
 
-                //Start function from here
+        //Start function from here
         async uplodHowToPlayIcon() {
                 const howtoplayicon = "testData/icons/howtoplay.png"
                 this.page.on("filechooser", async (filechooser) => {
@@ -514,7 +783,7 @@ async disableUserProfileIconCheckBox() {
                 })
                 await this.page.click("(//div[@class='MuiBox-root css-74zz35'])[3]")
         }
-                //Start function from here
+        //Start function from here
         async uplodRulesIcon() {
                 const rulesicon = "testData/icons/rules.png"
                 this.page.on("filechooser", async (filechooser) => {
@@ -523,7 +792,7 @@ async disableUserProfileIconCheckBox() {
                 await this.page.click("(//div[@class='MuiBox-root css-74zz35'])[4]")
         }
 
-                //Start function from here
+        //Start function from here
         async uplodProfileIcon() {
                 const profileicon = "testData/icons/profile.png"
                 this.page.on("filechooser", async (filechooser) => {
@@ -534,18 +803,18 @@ async disableUserProfileIconCheckBox() {
 
         async functionForCroper() {
 
-        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
-        expect.soft(chooseBtn).toContainText("Choose File")
-        await chooseBtn.click({force:true})
+                const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                expect.soft(chooseBtn).toContainText("Choose File")
+                await chooseBtn.click({ force: true })
 
-        await this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]").click({force:true})
-        await this.page.waitForTimeout(2000)
-        await this.page.locator("//li[text()='None']").click()
+                await this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]").click({ force: true })
+                await this.page.waitForTimeout(2000)
+                await this.page.locator("//li[text()='None']").click()
 
-        const cropperSaveBtn = await this.page.locator("//button[text()='Save']")
-        expect(cropperSaveBtn).toContainText("Save")
-        await cropperSaveBtn.click()
+                const cropperSaveBtn = await this.page.locator("//button[text()='Save']")
+                expect(cropperSaveBtn).toContainText("Save")
+                await cropperSaveBtn.click()
 
-}
+        }
 }
 
