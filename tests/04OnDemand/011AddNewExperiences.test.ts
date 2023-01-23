@@ -115,7 +115,7 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
 })
 
 
-test.only("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')
