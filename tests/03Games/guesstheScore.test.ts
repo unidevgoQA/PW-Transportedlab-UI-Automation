@@ -2204,14 +2204,18 @@ test("0013GTS-040 |validate  Background image upload works", async({ loginPage, 
         await guesstheScorePage.clickGameDesign()
         //await guesstheScorePage.verifyopenImageUploadSection()
         await guesstheScorePage.openimagesection()
+        await guesstheScorePage.deleteUploadedMobileBanner()
+        await guesstheScorePage.deleteUploadedMobileSponsorLogo()
+        await guesstheScorePage.deleteUploadedMobileGameTitleLogo()
+        await guesstheScorePage.deleteUploadedMobileBackground()
 
     })
 
    
 
     await test.step("Background image  logo upload works", async() =>{
-        await functions.portraitBackgroundImageUploadHelper()
         await guesstheScorePage.clickMobileBackgroundupload()
+        await functions.portraitBackgroundImageUploadHelper()
         await functions.fileUploadCropper()  
         await guesstheScorePage.verifyMobileBackgroundTexts()      
         await guesstheScorePage.verifyProtraitBackgroundImageUploadSuccessfully()

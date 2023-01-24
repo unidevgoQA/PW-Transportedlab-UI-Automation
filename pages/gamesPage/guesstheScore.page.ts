@@ -230,6 +230,8 @@ export default class guesstheScorePage {
 
         async openimagesection() {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Image Uploads"]//parent::div').click()
+                await this.page.waitForLoadState("networkidle")
+        
                 //await this.page.waitForLoadState("networkidle")
         }
         // async clickfullscreenlogoupload() {
@@ -248,15 +250,57 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
         }
 
+        async clickCropperChooseBtn() {
+                await this.page.frameLocator('(//iframe)[1]').locator("//button[text()='Choose File']").click({force:true})
+        }
+
+        async deleteUploadedMobileBackground() {
+               const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@aria-label='Delete']").first().isVisible()
+               if((ele==true)){        
+
+                await this.page.frameLocator('(//iframe)[1]').locator("//button[@aria-label='Delete']").first().click({force:true})
+                        
+               }
+        }      
+        
+        async deleteUploadedMobileBanner() {
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[4]").isVisible()
+                if((ele==true)){        
+ 
+                 await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[4]").click({force:true})
+                         
+                }
+         }    
+
+         async deleteUploadedMobileSponsorLogo() {
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[3]").isVisible()
+                if((ele==true)){        
+ 
+                 await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[3]").click({force:true})
+                         
+                }
+         }  
+         
+         async deleteUploadedMobileGameTitleLogo() {
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[2]").isVisible()
+                if((ele==true)){        
+ 
+                 await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[2]").click({force:true})
+                         
+                }
+         }   
+
+        
+
         async verifyMobileBackgroundTexts() {
                 const ele = await this.page.frameLocator('(//iframe)[1]').locator("//p[text()='Mobile Background']")
-                expect(ele).toContainText("Mobile Background")
-                await this.page.waitForLoadState("load")
+                expect(ele).toContainText("Mobile Background")                
+                await this.page.waitForTimeout(3000)
         }
 
         async verifyProtraitBackgroundImageUploadSuccessfully() {
-                await this.page.waitForTimeout(6000)
-                const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@title='Delete']")
+                // await this.page.waitForSelector("//button[@aria-label='Delete']")
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@aria-label='Delete']")
                 expect(ele).toBeVisible()
         }
 
