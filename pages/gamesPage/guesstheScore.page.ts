@@ -271,7 +271,51 @@ export default class guesstheScorePage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
-                await this.page.waitForTimeout(2000)
+                await this.page.waitForTimeout(5000)
+                //await this.page.waitForEvent('')
+
+        }
+        async BannerImageuploader() {
+                const filePath0 = "testData/images/titlebanner.jpg"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+                await this.page.waitForTimeout(5000)
+                //await this.page.waitForEvent('')
+
+        }
+
+        async SponsorImageuploader() {
+                const filePath0 = "testData/images/sponsor.jpg"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+                await this.page.waitForTimeout(5000)
+                //await this.page.waitForEvent('')
+
+        }
+        async GametitleImageuploader() {
+                const filePath0 = "testData/images/title.jpg"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+                await this.page.waitForTimeout(5000)
+                //await this.page.waitForEvent('load')
 
         }
         // Editor sections(dialogs) start here
@@ -815,8 +859,8 @@ export default class guesstheScorePage {
                await expect(ele).toBeVisible()
         }
         async verifynewConfigrationText(){
-               const ele =  await this.page.frameLocator('iframe').locator("//h6[text()='Test_By_Mahfuz']")
-               await expect(ele).toContainText('Test_By_Mahfuz')
+               const ele =  this.page.frameLocator('iframe').locator("//h6[text()='Auto']")
+                expect(ele).toContainText('Auto')
         }
         async verifyStartBtn(){
           const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()
@@ -945,7 +989,7 @@ export default class guesstheScorePage {
                 
           }
         async clickCloseBtn(){
-                await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').click()
+                await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').last().click()
         }
         async verifyMobileLinkText(){
                const ele =  await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link']")
@@ -1361,7 +1405,7 @@ async clickEditRiderBtn(){
         
   }
   async clickeventStop(){
-        const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
+        const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
         ele.click()
         //  if((await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible())){
         //         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click()
@@ -1376,12 +1420,12 @@ async clickEditRiderBtn(){
         await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
         await this.page.waitForTimeout(1000)
         await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
-        const rename = await this.page.frameLocator('iframe').locator("//input[@type='string']")
+        const rename =  this.page.frameLocator('iframe').locator("//input[@type='string']")
         await rename.focus()
         await this.page.keyboard.press("Meta+A");
         await this.page.keyboard.press('Backspace');
         //now type new rename event name
-        rename.type("Rename Event")
+        rename.type("test")
         
   }
   async clickeventDelete(){
@@ -1576,6 +1620,7 @@ async verifyRidersnotyetaddedText(){
         const ele =  this.page.frameLocator('iframe').locator("//p[text()='Riders not yet added']").last()
         expect(ele).toContainText('Riders not yet added')
         await this.page.waitForTimeout(1000)
+        
 }
 // async clickSolidDropdowns(){
 //         //click for select option

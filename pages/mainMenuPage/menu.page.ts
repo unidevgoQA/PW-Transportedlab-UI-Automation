@@ -30,14 +30,7 @@ export default class menuPage {
                 prizeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[2]",
                 howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
-                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
-                
-
-        
-                
-                
-
-
+                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]", 
 
         }
 
