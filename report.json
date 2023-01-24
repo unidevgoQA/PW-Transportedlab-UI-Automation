@@ -20,10 +20,7 @@
         "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts",
-          "002MobileDesign.test.ts",
-          "003Language.test.ts",
-          "004Menu.test.ts"
+          "007PrizeDrop.test.ts"
         ],
         "timeout": 300000
       }
@@ -57,63 +54,13 @@
   },
   "suites": [
     {
-      "title": "tests\\01Login\\001Login.test.ts",
-      "file": "tests/01Login/001Login.test.ts",
+      "title": "tests\\03Games\\007PrizeDrop.test.ts",
+      "file": "tests/03Games/007PrizeDrop.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "TLL001-01 | Verify login with valid credentials",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 2581,
-                  "error": {
-                    "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"domcontentloaded\"\n============================================================",
-                    "stack": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"domcontentloaded\"\n============================================================\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\01Login\\001Login.test.ts:23:20"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\01Login\\001Login.test.ts",
-                        "column": 20,
-                        "line": 23
-                      },
-                      "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"domcontentloaded\"\n============================================================\n\n\u001b[90m   at \u001b[39mtests\\01Login\\001Login.test.ts:23\n\n\u001b[0m \u001b[90m 21 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 22 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/#/sign-in'\u001b[39m\u001b[33m,\u001b[39m { waitUntil\u001b[33m:\u001b[39m \u001b[32m'domcontentloaded'\u001b[39m })\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 25 |\u001b[39m         \u001b[90m//wait for login button\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m\"button[type='button']\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\01Login\\001Login.test.ts:23:20\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:40.693Z",
-                  "attachments": [],
-                  "errorLocation": {
-                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\01Login\\001Login.test.ts",
-                    "column": 20,
-                    "line": 23
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "d152332eee6d3e0219ce-6cb3d35422010c93e201",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 7,
-          "column": 5
-        },
-        {
-          "title": "TLL001-02 | Verify login with invalid credentials",
+          "title": "Add New Configuration related tests",
           "ok": true,
           "tags": [],
           "tests": [
@@ -125,9 +72,9 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "status": "interrupted",
-                  "duration": 14,
+                  "duration": 23,
                   "error": {
                     "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24"
@@ -140,20 +87,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.788Z",
+                  "startTime": "2023-01-24T05:33:53.947Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-f33b0d99c8e8d99fa116",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 58,
+          "id": "5d78b1b18d7f9409d41e-ab118db52c1b63b970a2",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 12,
           "column": 5
         },
         {
-          "title": "TLL001-03 | Verify login with UserName and Password",
+          "title": "PD007-6 |validate error if Add New Configuration is clicked without name provided",
           "ok": true,
           "tags": [],
           "tests": [
@@ -172,20 +119,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-fa14622583e6aca7e8e5",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 95,
+          "id": "5d78b1b18d7f9409d41e-b91172950be887abcc29",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 85,
           "column": 5
         },
         {
-          "title": "TLL001-04| Verify Cue Logo Is Visible",
+          "title": "PD007-7 | Validate error if start clicked without prize given ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -204,20 +151,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-52e3ee55b4dfe548e297",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 126,
+          "id": "5d78b1b18d7f9409d41e-429ce6a372d7202d11c0",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 129,
           "column": 5
         },
         {
-          "title": "TLL001-05| Verify Signin Text Is Visible",
+          "title": "PD007-24|Validate Add Banner Functionality",
           "ok": true,
           "tags": [],
           "tests": [
@@ -236,20 +183,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-fccdf4ce368b59c37d09",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 151,
+          "id": "5d78b1b18d7f9409d41e-3533b409881d0e8cf076",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 362,
           "column": 5
         },
         {
-          "title": "TLL001-06|  Verify Signin Page Title Text IsVisible",
+          "title": "PD007-91|Validate marketing message change is reflected on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -268,20 +215,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-462cb51fa7949b62a72d",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 160,
+          "id": "5d78b1b18d7f9409d41e-cfc356df92be9cc23b3e",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 403,
           "column": 5
         },
         {
-          "title": "TLL001-07| Verify Id Label IsVisible",
+          "title": "PD007-96|validate Admin can select the coupon prize and save",
           "ok": true,
           "tags": [],
           "tests": [
@@ -300,20 +247,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-3000eb5bf2c5f1c3879e",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 184,
+          "id": "5d78b1b18d7f9409d41e-664581cb8824df6a7fad",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 489,
           "column": 5
         },
         {
-          "title": "TLL001-08| Verify Secret Label Is Visible",
+          "title": "PD007-98|validate prize name,Total prizes and Parcentage awarded is visible ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -332,20 +279,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-d04f6634f76a21bfb33e",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 207,
+          "id": "5d78b1b18d7f9409d41e-4ba306712e585ec44f99",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 561,
           "column": 5
         },
         {
-          "title": "TLL001-09| Verify Eye Button Functionality Is Working",
+          "title": "PD007-28|Validate Font Upload Functionality",
           "ok": true,
           "tags": [],
           "tests": [
@@ -364,20 +311,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-f4b562af3cda44b5abf0",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 232,
+          "id": "5d78b1b18d7f9409d41e-3568d0803d2ad9b646e8",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 606,
           "column": 5
         },
         {
-          "title": "TLL001-10| Validate After Reloading From Login Page All The Element Showing Properly",
+          "title": "PD007-29|validate uploaded font is being reflected on mobile view",
           "ok": true,
           "tags": [],
           "tests": [
@@ -396,3864 +343,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "d152332eee6d3e0219ce-08ea39676159e893263c",
-          "file": "tests/01Login/001Login.test.ts",
-          "line": 257,
+          "id": "5d78b1b18d7f9409d41e-4b167f7f764cb506e525",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 650,
           "column": 5
-        }
-      ]
-    },
-    {
-      "title": "tests\\02MainMenu\\002MobileDesign.test.ts",
-      "file": "tests/02MainMenu/002MobileDesign.test.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "MD002-001 | Validate Font upload functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-490642fbcd00eb727762",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 10,
-          "column": 5
-        },
-        {
-          "title": "MD002-002 | Validate Try To Upload Invalid Font Format",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-f5c88a211fc66dbac403",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 53,
-          "column": 5
-        },
-        {
-          "title": "MD002-003 | Validate Try To Upload Invalid Font Format",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-24eac453ef8d8132db35",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 77,
-          "column": 5
-        },
-        {
-          "title": "MD002-004 | Validate Uploaded Font Delete Functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-5be4c80197aef80de72b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 112,
-          "column": 5
-        },
-        {
-          "title": "MD002-005 | Add New Configuration For Main Menu Mobile Screen Test",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-d711402786fb1ae24514",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 145,
-          "column": 5
-        },
-        {
-          "title": "MD002-006 | Validate Admin Successfully Select Entry Screen As User Profile",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-85d02ce2960b66f36c5b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 209,
-          "column": 5
-        },
-        {
-          "title": "MD002-007 | Validate Entry Screen As User Profile Applied Successfully on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-f643fbec27bca2087115",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 236,
-          "column": 5
-        },
-        {
-          "title": "MD002-008 | Validate Admin Successfully Select Entry Screen As Role",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-864e73366288fd85a995",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 297,
-          "column": 5
-        },
-        {
-          "title": "MD002-009 | Validate Entry Screen As Role Applied Successfully on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6946c93357319d516353",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 324,
-          "column": 5
-        },
-        {
-          "title": "MD002-010 | Validate Admin Successfully Select Entry Screen As How To Play",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-37939fb56623e4f65846",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 391,
-          "column": 5
-        },
-        {
-          "title": "MD002-011 | Validate Entry Screen As How To Play Applied Successfully on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-9b84337330cfec5ddbf0",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 418,
-          "column": 5
-        },
-        {
-          "title": "MD002-012 | Validate Admin Successfully Select Entry Screen As Prize",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-bba17663d9dda3489a6f",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 479,
-          "column": 5
-        },
-        {
-          "title": "MD002-013 | Validate Entry Screen As Prize Applied Successfully on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-af68162f89fe4c2e234e",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 506,
-          "column": 5
-        },
-        {
-          "title": "MD002-014 | Validate Admin Successfully Select Entry Screen As Home",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-e06afe0654874e791e5d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 567,
-          "column": 5
-        },
-        {
-          "title": "MD002-015 | Validate Entry Screen As Home Applied Successfully on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6227fbdafe09f8774007",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 594,
-          "column": 5
-        },
-        {
-          "title": "MD002-016 | Admin Successfully Input Primary Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4783a1d977e323365a8d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 657,
-          "column": 5
-        },
-        {
-          "title": "MD002-017 | Validate Primary Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6887f255d8c674ef91f2",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 712,
-          "column": 6
-        },
-        {
-          "title": "MD002-018 | Validate Delete Functionality For Primary Color Swatche",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-31d137865063fae0f165",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 783,
-          "column": 5
-        },
-        {
-          "title": "MD002-019 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-46658dabb10bad59f85a",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 840,
-          "column": 5
-        },
-        {
-          "title": "MD002-020 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-1c526f801ea374be06ae",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 889,
-          "column": 5
-        },
-        {
-          "title": "MD002-021 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-7554c66979718b3051c0",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 938,
-          "column": 5
-        },
-        {
-          "title": "MD002-022 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-3f5bb1fac15ba970eab7",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 987,
-          "column": 5
-        },
-        {
-          "title": "MD002-023 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-11304a5e4c0bdcc83395",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1036,
-          "column": 5
-        },
-        {
-          "title": "MD002-024 | Verify input secondary color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-2e7d632760eb3190737b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1090,
-          "column": 5
-        },
-        {
-          "title": "MD002-025 | Validate Secondary Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-eff7be10cca38110414a",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1155,
-          "column": 5
-        },
-        {
-          "title": "MD002-026 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-599c47216a1c7dc20c66",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1216,
-          "column": 5
-        },
-        {
-          "title": "MD002-027 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6c2816af81be119947fd",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1268,
-          "column": 5
-        },
-        {
-          "title": "MD002-028 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-42c081b8ad388a1b2868",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1316,
-          "column": 5
-        },
-        {
-          "title": "MD002-029 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-378ba053e07b0ae2bc5c",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1365,
-          "column": 5
-        },
-        {
-          "title": "MD002-030 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-ca675629b1e492f4e020",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1414,
-          "column": 5
-        },
-        {
-          "title": "MD002-031 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-288bc763c398ca80c668",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1462,
-          "column": 5
-        },
-        {
-          "title": "MD002-032 | Verify input Tertiary color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-8faf76ceb11b234373ec",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1518,
-          "column": 5
-        },
-        {
-          "title": "MD002-033 | Validate Tertiary Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-7d38afd43c8109a592e4",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1571,
-          "column": 5
-        },
-        {
-          "title": "MD002-034 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-d99596b52da317545da0",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1632,
-          "column": 5
-        },
-        {
-          "title": "MD002-035 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-c0850bb2fb9db0358f06",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1684,
-          "column": 5
-        },
-        {
-          "title": "MD002-036 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-94ec24e686cdddbe6c71",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1733,
-          "column": 5
-        },
-        {
-          "title": "MD002-037 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-d302408371915ba75fa9",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1783,
-          "column": 5
-        },
-        {
-          "title": "MD002-038 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-c060175475310471b260",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1833,
-          "column": 5
-        },
-        {
-          "title": "MD002-039 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-08ac2f6e62eadd72ee23",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1883,
-          "column": 5
-        },
-        {
-          "title": "MD002-040 | Verify input Button color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-9199230abe1646b97a51",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 1954,
-          "column": 5
-        },
-        {
-          "title": "MD002-042 | Validate Button Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-7b3d7d5c5e7c29f54fc9",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2007,
-          "column": 6
-        },
-        {
-          "title": "MD002-043 | Validate Delete Functionality For Button Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-907f33f4e9a5a9b1b64e",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2068,
-          "column": 5
-        },
-        {
-          "title": "MD002-044 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-9e914674bd45e5d2675e",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2118,
-          "column": 5
-        },
-        {
-          "title": "MD002-045 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-0adddc82b4580544eeb8",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2166,
-          "column": 5
-        },
-        {
-          "title": "MD002-046 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-b78ddb0b3701b5ea4a09",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2215,
-          "column": 5
-        },
-        {
-          "title": "MD002-047 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-660ceb9116b582a7b742",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2265,
-          "column": 5
-        },
-        {
-          "title": "MD002-048 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-bc89fad347cfdc056acb",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2315,
-          "column": 5
-        },
-        {
-          "title": "MD002-049 | Verify input Button Glow color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-15d07779710e2d241053",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2368,
-          "column": 5
-        },
-        {
-          "title": "MD002-050 | Validate Button Blow Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-5a34bdc22ac54fee4ddf",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2421,
-          "column": 6
-        },
-        {
-          "title": "MD002-051 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-91f6c7cbe2df6d6f6af9",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2482,
-          "column": 5
-        },
-        {
-          "title": "MD002-052 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6ff147e100adfdacf64f",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2533,
-          "column": 5
-        },
-        {
-          "title": "MD002-053 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-10c2872b5e54b58b7938",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2581,
-          "column": 5
-        },
-        {
-          "title": "MD002-054 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-c12d989564254a8d735d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2630,
-          "column": 5
-        },
-        {
-          "title": "MD002-055 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-2c72aa1bbda557afaaf3",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2681,
-          "column": 5
-        },
-        {
-          "title": "MD002-056 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-b04856db9c9738979930",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2731,
-          "column": 5
-        },
-        {
-          "title": "MD002-057 | Verify input Test color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-3700f69eaf2c6645509b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2785,
-          "column": 5
-        },
-        {
-          "title": "MD002-058 | Validate Test Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-da33a934b70259a87b5c",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2838,
-          "column": 6
-        },
-        {
-          "title": "MD002-059 | Validate Delete Functionality For Test Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-92198fc611758e7e9e4d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 2899,
-          "column": 5
-        },
-        {
-          "title": "MD002-065 | Verify input Test Glow color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-8a30407f0c6b01dea182",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3207,
-          "column": 5
-        },
-        {
-          "title": "MD002-066 | Validate Test Glow Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-03003b5d9fc8f8501746",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3260,
-          "column": 6
-        },
-        {
-          "title": "MD002-067 | Validate Delete Functionality For Test Glow Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-56af7790d0da23d157ad",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3321,
-          "column": 5
-        },
-        {
-          "title": "MD002-073 | Verify input Header color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-30a0e8d261b8f9462af0",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3628,
-          "column": 5
-        },
-        {
-          "title": "MD002-074 | Validate Header Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6e78205eed135b9051ec",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3681,
-          "column": 6
-        },
-        {
-          "title": "MD002-075 | Validate Delete Functionality For Header Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4428668ce9fd911de48e",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3742,
-          "column": 5
-        },
-        {
-          "title": "MD002-076 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-e41b9275a1e751748d91",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3795,
-          "column": 5
-        },
-        {
-          "title": "MD002-077 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-a5ef3a3fa5c18d773b8c",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3846,
-          "column": 5
-        },
-        {
-          "title": "MD002-078 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-9ec77d222a9e58d946db",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3897,
-          "column": 5
-        },
-        {
-          "title": "MD002-079 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-a51c48e697d722a7294d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 3948,
-          "column": 5
-        },
-        {
-          "title": "MD002-080 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-ea09c5f4df5698e9d768",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4002,
-          "column": 5
-        },
-        {
-          "title": "MD002-081 | Verify input Header Text color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-7f90c061856463dc7eb6",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4057,
-          "column": 5
-        },
-        {
-          "title": "MD002-082 | Validate Header Text Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-7301fb3aa3b764a29821",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4110,
-          "column": 6
-        },
-        {
-          "title": "MD002-083 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-493e8cdb2e69c68263d7",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4171,
-          "column": 5
-        },
-        {
-          "title": "MD002-089 | Verify input Gamification color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-49d22cf74030dd81a215",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4483,
-          "column": 5
-        },
-        {
-          "title": "MD002-090 | Validate Gamification Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-574b5438f2eaa4811aea",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4536,
-          "column": 6
-        },
-        {
-          "title": "MD002-091 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-493d18391f9c6e502929",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4597,
-          "column": 5
-        },
-        {
-          "title": "MD002-092 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-1c23023f4af6b5e6c44b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4650,
-          "column": 5
-        },
-        {
-          "title": "MD002-093 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-a9cec35db6c30eb6c50b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4700,
-          "column": 5
-        },
-        {
-          "title": "MD002-094 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-cf734220f3d86172b876",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4748,
-          "column": 5
-        },
-        {
-          "title": "MD002-095 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-314b80acf0537e1b934d",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4798,
-          "column": 5
-        },
-        {
-          "title": "MD002-096 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-0c8279a025abf0a3ba58",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4851,
-          "column": 5
-        },
-        {
-          "title": "MD002-097 | Verify input Gamification Glow Line color functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-793b0deaa1693db025a5",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4907,
-          "column": 5
-        },
-        {
-          "title": "MD002-098 | Validate Gamification Color Glow Color Applied Into Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-fd6e89c76fa36ec5861c",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 4961,
-          "column": 6
-        },
-        {
-          "title": "MD002-099 | Validate Delete Functionality For Secondary Color Swatches",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-f42d146a33a17ed6f9cc",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5022,
-          "column": 5
-        },
-        {
-          "title": "MD002-100 | Validate Admin Successfully Select Radial Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4048a23d503db0d3f946",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5075,
-          "column": 5
-        },
-        {
-          "title": "MD002-101 | Validate Admin Successfully Select Diagonal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-33eb6d504c97c57b9927",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5126,
-          "column": 5
-        },
-        {
-          "title": "MD002-102 | Validate Admin Successfully Select Vertical Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-65c5c2619707bb36ab17",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5175,
-          "column": 5
-        },
-        {
-          "title": "MD002-103 | Validate Admin Successfully Select Horizontal Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4ca1a4f9c3d2b87776cd",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5226,
-          "column": 5
-        },
-        {
-          "title": "MD002-104 | Validate Admin Successfully Select Solid Color",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-b066f88849ea442c0b9b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5279,
-          "column": 5
-        },
-        {
-          "title": "MD002-105 | Validate Try to upload Invalid Image Format for Landscape Background ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4e4709a1b3c3d0637902",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5337,
-          "column": 5
-        },
-        {
-          "title": "MD002-106 | Validate Successfully Upload Landscape Background From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4f39c08d7ba25faacb63",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5395,
-          "column": 5
-        },
-        {
-          "title": "MD002-107 | Validate Landscape Background Successfully Show on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-68706533dc522d53c954",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5447,
-          "column": 6
-        },
-        {
-          "title": "MD002-108 | Validate Try to upload Invalid Image Format for Landscape Background Header ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6e7e84929c250255a9ed",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5510,
-          "column": 5
-        },
-        {
-          "title": "MD002-109 | Validate Successfully Upload Landscape Background Header From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-b84641a72d12adb5def9",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5568,
-          "column": 5
-        },
-        {
-          "title": "MD002-110 | Validate Landscape Background Header Successfully Show on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-f834270398962af54387",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5620,
-          "column": 6
-        },
-        {
-          "title": "MD002-111 | Validate Try to upload Invalid Image Format for Portrait Background ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-c023a6ff0e064dc57f8e",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5683,
-          "column": 5
-        },
-        {
-          "title": "MD002-112 | Validate Successfully Upload Portrait Background From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-73621302a9cbecf2535c",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5741,
-          "column": 5
-        },
-        {
-          "title": "MD002-113 | Validate Portrait Background Successfully Show on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-e05f8bb407e8869fea4f",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5809,
-          "column": 5
-        },
-        {
-          "title": "MD002-114 | Validate Try to upload Invalid Image Format for Portrait Background Header ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-d2f2cc8c8a3442445785",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5872,
-          "column": 5
-        },
-        {
-          "title": "MD002-115 | Validate Successfully Upload Portrait Background Header From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-345a325df09f7827ef53",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5930,
-          "column": 5
-        },
-        {
-          "title": "MD002-116 | Validate Landscape Portrait Background Header Successfully Show on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6c37f058b9ec9f72e3e7",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 5982,
-          "column": 6
-        },
-        {
-          "title": "MD002-117 | Validate Try to upload Invalid Image Format for Main Logo ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-6fe1bfd5f8be369ec17b",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6045,
-          "column": 5
-        },
-        {
-          "title": "MD002-118 | Validate Successfully Upload Main Logo From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-5f78cbede776c04cd996",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6102,
-          "column": 5
-        },
-        {
-          "title": "MD002-119 | Validate Landscape Main Logo Successfully Show on Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-234207479b5790336ba6",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6154,
-          "column": 6
-        },
-        {
-          "title": "MD002-120 | Validate Try to upload Invalid Video Format for Landscape Background ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-cd37e0d34f714aa63e56",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6219,
-          "column": 5
-        },
-        {
-          "title": "MD002-121 | Validate Try to upload Invalid Video Format for Landscape Background Header ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-bd3b11add0400e293ec6",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6295,
-          "column": 5
-        },
-        {
-          "title": "MD002-122 | Validate Try to upload Invalid Video Format for Portrait  Background ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-fb37a8b5a5fedb58744a",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6371,
-          "column": 5
-        },
-        {
-          "title": "MD002-123 | Validate Try to upload Invalid Video Format for Portrait Background Header ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "763aa67a7d12c7767892-4bb32acdc04420237940",
-          "file": "tests/02MainMenu/002MobileDesign.test.ts",
-          "line": 6447,
-          "column": 5
-        }
-      ]
-    },
-    {
-      "title": "tests\\02MainMenu\\003Language.test.ts",
-      "file": "tests/02MainMenu/003Language.test.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "TL003-001 | Validate Deselete All User Selectable Language Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-13585fa8c9560f5d1387",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 11,
-          "column": 5
-        },
-        {
-          "title": "TL003-002 | Validate User Selectable Japanese Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-ed273121bff51650b701",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 99,
-          "column": 5
-        },
-        {
-          "title": "TL003-003 | Validate User Selectable Japanese Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-dfba879a87c488812a8a",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 177,
-          "column": 5
-        },
-        {
-          "title": "TL003-004 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-56f067ac7ac90f86c860",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 243,
-          "column": 5
-        },
-        {
-          "title": "TL003-005 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-3111709615951df8a7ff",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 287,
-          "column": 5
-        },
-        {
-          "title": "TL003-006 | Validate User Selectable Spanish Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-2ffc45b0376a13522172",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 351,
-          "column": 5
-        },
-        {
-          "title": "TL003-007 | Validate User Selectable Spanish Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-9d20565318c6697b2f9c",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 424,
-          "column": 5
-        },
-        {
-          "title": "TL003-008 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-24018d1096b190a661e9",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 490,
-          "column": 5
-        },
-        {
-          "title": "TL003-009 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-f318a73cc57ab81736b0",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 531,
-          "column": 5
-        },
-        {
-          "title": "TL003-010 | Validate User Selectable Arabic Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-18cdc8e68db59d5c1fd1",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 595,
-          "column": 5
-        },
-        {
-          "title": "TL003-011 | Validate User Selectable Arabic Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-266426c8f95a640b7ba6",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 670,
-          "column": 5
         },
         {
-          "title": "TL003-012 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side",
+          "title": "PD007-123|now validate delete font button is working",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4272,20 +375,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-4e906fa9d157364bdd2b",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 736,
+          "id": "5d78b1b18d7f9409d41e-fceba02cac9a8212fc4f",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 748,
           "column": 5
         },
         {
-          "title": "TL003-013 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen",
+          "title": " PD007-9|Validate Game Open Section Functionality with mobile link button",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4304,20 +407,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-3944c7d6f83ef97f60a1",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 778,
+          "id": "5d78b1b18d7f9409d41e-071361c5dcfc9c332df9",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 774,
           "column": 5
         },
         {
-          "title": "TL003-014 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side",
+          "title": "007PD-014 | validate QR code section is working perfectly",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4336,20 +439,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-0781f216097c395e9de8",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 841,
+          "id": "5d78b1b18d7f9409d41e-46d383e30569507d731c",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 835,
           "column": 5
         },
         {
-          "title": "TL003-015 | Validate User Selectable Russian Language Change Properly Show in Mobile Screen",
+          "title": "007PD-012 | Validate Game Link Successfully Copy in system clipboard",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4368,20 +471,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-8822f5789eef5a1c3796",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 917,
+          "id": "5d78b1b18d7f9409d41e-6fbc775d73d3f9f9dc00",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 872,
           "column": 5
         },
         {
-          "title": "TL003-016 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side",
+          "title": "PD007-47|  Validate text Color Input Functionality and reflection on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4400,20 +503,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-011c4ae9b2526840ee99",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 983,
+          "id": "5d78b1b18d7f9409d41e-8bd41e00cd920c0f595f",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 926,
           "column": 5
         },
         {
-          "title": "TL003-017 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen",
+          "title": "007PD-16 | validate main color input functionality and reflection on mobile site ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4432,20 +535,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-b881a2fd39895c743dde",
-          "file": "tests/02MainMenu/003Language.test.ts",
+          "id": "5d78b1b18d7f9409d41e-d64ebddafcf22bb6edcf",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
           "line": 1027,
           "column": 5
         },
         {
-          "title": "TL003-018 | Validate User Selectable Francias Language Change Functionality Working Properly on Admin Side",
+          "title": "PD007-49|  validate button color color input functionality and reflection on mobile site ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4464,20 +567,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-9c1c59eebb94d51e90a9",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1091,
+          "id": "5d78b1b18d7f9409d41e-66b68255282152e4b991",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1154,
           "column": 5
         },
         {
-          "title": "TL003-019 | Validate User Selectable Francias Language Change Properly Show in Mobile Screen",
+          "title": "PD007-45|validate accent color color input functionality and reflection on mobile site ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4496,20 +599,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-1f4957f2ed54fb1e9d31",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1146,
+          "id": "5d78b1b18d7f9409d41e-32b4f850dd0f1d332139",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1262,
           "column": 5
         },
         {
-          "title": "TL003-020 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side",
+          "title": "PD007-51|Validate full screen logo upload and its reflection on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4528,116 +631,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-ba24511548beb7b6bed5",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1211,
-          "column": 5
-        },
-        {
-          "title": "TL003-021 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-6e0ffb95bf233d666f89",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1254,
-          "column": 5
-        },
-        {
-          "title": "TL003-022 | Validate User Selectable English Language Change Functionality Working Properly on Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-71450334eabf4256d808",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1317,
-          "column": 5
-        },
-        {
-          "title": "TL003-023 | Validate User Selectable English Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-3a0414f60cdfc224265a",
-          "file": "tests/02MainMenu/003Language.test.ts",
+          "id": "5d78b1b18d7f9409d41e-b9c443133aa5af4788dc",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
           "line": 1368,
           "column": 5
         },
         {
-          "title": "TL003-024 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side",
+          "title": "PD007-53|Validate Game title upload and its reflection on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -4656,668 +663,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "aa3cb2870e92c4001846-122509e8e1a82c38cd65",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1433,
+          "id": "5d78b1b18d7f9409d41e-3281dcfb3f30671945db",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1464,
           "column": 5
         },
         {
-          "title": "TL003-025 | Validate Forced Language English Language Change Properly Show in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "aa3cb2870e92c4001846-faab28da3a7f84449aeb",
-          "file": "tests/02MainMenu/003Language.test.ts",
-          "line": 1476,
-          "column": 5
-        }
-      ]
-    },
-    {
-      "title": "tests\\02MainMenu\\004Menu.test.ts",
-      "file": "tests/02MainMenu/004Menu.test.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [
-        {
-          "title": "004M-000 | Select All The Menu Ready For UI Varification",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-397f9a2f4f168b8e9a41",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 9,
-          "column": 5
-        },
-        {
-          "title": "004M-001 | Varify Fonts Upload Functionality",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-01105bd83eaa064ea91d",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 59,
-          "column": 5
-        },
-        {
-          "title": "004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-586fb3ef3b0e58849d29",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 88,
-          "column": 5
-        },
-        {
-          "title": "004M-004 | Validate Menu Bar Background Color Input Functionality From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-0c8b481e05f58d02cbb3",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 151,
-          "column": 5
-        },
-        {
-          "title": "004M-005 | Validate  Menu Bar Background Color Successfully Applied In Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-9a827f8f3bff6601a090",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 173,
-          "column": 5
-        },
-        {
-          "title": "004M-006 | Validate Menu Bar Text Color Input Functionality From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-f34d31bcae0f29bb7237",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 238,
-          "column": 5
-        },
-        {
-          "title": "004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-12e82af6233204d92596",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 260,
-          "column": 5
-        },
-        {
-          "title": "004M-008 | Validate Menu Bar Active Background Color Input Functionality From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-aa3140f05d3e7c6c564b",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 325,
-          "column": 5
-        },
-        {
-          "title": "004M-009 | Validate  Menu Bar Active Background Color Successfully Applied In Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-2425d9a85684542dd20b",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 347,
-          "column": 5
-        },
-        {
-          "title": "004M-010 | Validate Menu Bar Active Text Color Input Functionality From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-ebfaff3a71f30d625a0d",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 412,
-          "column": 5
-        },
-        {
-          "title": "004M-011 | Validate  Menu Bar Active Text Color Successfully Applied In Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-05c9768415e9465a778d",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 434,
-          "column": 5
-        },
-        {
-          "title": "004M-012 | Validate Menu Bar Top Alignment Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-3b1a426c8e60b6fb5f13",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 498,
-          "column": 5
-        },
-        {
-          "title": "004M-013 | Validate  Menu Bar Top Alignment Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-d68fbc9d9bde05563512",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 519,
-          "column": 5
-        },
-        {
-          "title": "004M-014 | Validate Menu Bar Three Line Alignment Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-9da87511d7243510547a",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 580,
-          "column": 5
-        },
-        {
-          "title": "004M-015 | Validate  Menu Bar  Three Line Alignment Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-bd811537fccacb7a2cab",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 601,
-          "column": 5
-        },
-        {
-          "title": "004M-016 | Validate Menu Bar Hide Alignment Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-66a746367a8183649ab4",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 664,
-          "column": 5
-        },
-        {
-          "title": "004M-017 | Validate  Menu Bar  Hide Alignment Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-3539af04c5a0095ce1df",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 685,
-          "column": 5
-        },
-        {
-          "title": "004M-018 | Validate Menu Bar Bottom Alignment Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-cc927141b1ecdc88defc",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 747,
-          "column": 5
-        },
-        {
-          "title": "004M-019 | Validate  Menu Bar  Bottom Alignment Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-95f8adbb73b2e2a8e780",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 768,
-          "column": 5
-        },
-        {
-          "title": "004M-020 | Validate Menu Bar Home Icon Successfully Selected From Admin Sideted From Admin Side",
+          "title": "PD007-55|Validate Frame image upload and its reflection on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -5340,20 +699,372 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-a6e404f2cbf26de1e0ed",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 826,
+          "id": "5d78b1b18d7f9409d41e-d5cd39651014034247bb",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1561,
           "column": 6
         },
         {
-          "title": "004M-021 | Validate  Menu Bar Home Icon Successfully Applied in Mobile Screen",
+          "title": "PD007-61|validate sponsor logo upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-0aa9e95c9f38a47522b3",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1672,
+          "column": 5
+        },
+        {
+          "title": " PD007-67| validate Team logo upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1f5de33b65e09eafd0d7",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1768,
+          "column": 5
+        },
+        {
+          "title": "PD007-63| validate Loading image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-5f6a14a3226f61769c4a",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1863,
+          "column": 5
+        },
+        {
+          "title": "PD007-70|validate Background video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-5fb94e959b3db372cef6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 1972,
+          "column": 5
+        },
+        {
+          "title": "PD007-73|validate How to play image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-ed25de2410ec399683e5",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2068,
+          "column": 5
+        },
+        {
+          "title": "PD007-10|validate How to play video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-91a278c9a4de14e502de",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2165,
+          "column": 5
+        },
+        {
+          "title": "PD007-76|validate rules image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-ca0f273f7c16b15e9fa9",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2263,
+          "column": 5
+        },
+        {
+          "title": "PD007-79|validate rules video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-0b77af3b61ae3149080a",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2358,
+          "column": 5
+        },
+        {
+          "title": "PD007-77|validate splash image upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-1f0134c2a3ac972934b2",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2454,
+          "column": 5
+        },
+        {
+          "title": "PD007-125|validate splash video upload and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-f6a49945a729c2e8d425",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2545,
+          "column": 5
+        },
+        {
+          "title": "PD007-86|validate standby message test and its reflection on mobile screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-01-24T05:33:55.154Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "5d78b1b18d7f9409d41e-13e60ec2c8237ce0e3f6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2643,
+          "column": 5
+        },
+        {
+          "title": "PD007-126|validate Ending Game message Editor and its full reflection on mobile",
           "ok": true,
           "tags": [],
           "tests": [
@@ -5376,20 +1087,20 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-611a4c2f6dd2b3cb2d85",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 849,
+          "id": "5d78b1b18d7f9409d41e-abb466e0c897116ce3a6",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2713,
           "column": 6
         },
         {
-          "title": "004M-022 | Validate Menu Bar Prize Icon Successfully Selected From Admin Side",
+          "title": "PD007-127|validate selection message Editor and its full regression",
           "ok": true,
           "tags": [],
           "tests": [
@@ -5412,31 +1123,27 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-683f63bfac81c7207928",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 910,
+          "id": "5d78b1b18d7f9409d41e-8852a2dddef50a794924",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2779,
           "column": 6
         },
         {
-          "title": "004M-023 | Validate  Menu Bar Prize Icon Successfully Applied in Mobile Screen",
+          "title": "PD007-88|validate entry screen dropdown is reflected on mobile screen",
           "ok": true,
           "tags": [],
           "tests": [
             {
               "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
+              "annotations": [],
+              "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
               "results": [
@@ -5448,31 +1155,27 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-f439eae98d107ac1ab4c",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 933,
-          "column": 6
+          "id": "5d78b1b18d7f9409d41e-2c8910a88a1d84e4036f",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2845,
+          "column": 5
         },
         {
-          "title": "004M-024 | Validate Menu Bar How To Play Icon Successfully Selected From Admin Side",
+          "title": "007PD-0128 | Validate Analytics Section Functionality",
           "ok": true,
           "tags": [],
           "tests": [
             {
               "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
+              "annotations": [],
+              "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
               "results": [
@@ -5484,31 +1187,27 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-5a30048294167dd52b6e",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 994,
-          "column": 6
+          "id": "5d78b1b18d7f9409d41e-97b1ccced7313c6a42e4",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2905,
+          "column": 5
         },
         {
-          "title": "004M-025 | Validate  Menu Bar How To Play Icon Successfully Applied in Mobile Screen",
+          "title": "007PD-0129 | Validate Game Edit And Delete Functionality",
           "ok": true,
           "tags": [],
           "tests": [
             {
               "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
+              "annotations": [],
+              "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
               "results": [
@@ -5520,161 +1219,17 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
+                  "startTime": "2023-01-24T05:33:55.154Z",
                   "attachments": []
                 }
               ],
               "status": "skipped"
             }
           ],
-          "id": "1743d8a90f7616040068-dde4be9994321e757d91",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 1017,
-          "column": 6
-        },
-        {
-          "title": "004M-026 | Validate Menu Bar Rules Icon Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-dd6089ddfd034a8f3824",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 1077,
-          "column": 6
-        },
-        {
-          "title": "004M-027 | Validate  Menu Bar Rules Icon Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-a10bf21eb55465cfefc7",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 1100,
-          "column": 6
-        },
-        {
-          "title": "004M-028 | Validate Menu Bar User Profile Icon Successfully Selected From Admin Side",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-a8e440b65e76a48abded",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 1162,
-          "column": 6
-        },
-        {
-          "title": "004M-029 | Validate  Menu Bar User Profile Icon Successfully Applied in Mobile Screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [
-                {
-                  "type": "skip"
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-01-23T22:09:44.912Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "1743d8a90f7616040068-856782d725ed02406167",
-          "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 1185,
-          "column": 6
+          "id": "5d78b1b18d7f9409d41e-ab86ac215fbf579bcbf4",
+          "file": "tests/03Games/007PrizeDrop.test.ts",
+          "line": 2964,
+          "column": 5
         }
       ]
     }
