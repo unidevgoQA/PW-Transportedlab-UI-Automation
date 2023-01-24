@@ -1,13 +1,56 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-export default class singupPage {
-        [x: string]: any;
+import BaseFunctions from "@base-function/baseFunctions";
 
-        private page: Page;
-        static buffer: void;
-        constructor(page: Page) {
-                this.page = page;
+export default class singupPage {
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
         }
+
+        private signUpPageElements = {
+                signUpPage: "//p[text()='Sign Up']",
+                uploadFont: "//div[@class='MuiBox-root css-v2612']",
+                fontUplodInputFieldText: "//p[text()='Upload Font']",
+                uploadFontTitle: "//p[text()='Midnight']",
+                fontDeleteBtn: "//p[text()='Aa']/following-sibling::button",
+                backgroundColorInputField: "//p[text()='Background']/following-sibling::button",
+                textColorInputField: "//p[text()='Text Color']/following-sibling::button",
+                activeBackgroundColorInputField: "//p[text()='Active Background']/following-sibling::button",
+                activeTextColorInputField: "//p[text()='Active Text Color']/following-sibling::button",
+                colorCodeInputField: "//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
+                topAlignmentBtn: "//h5[text()='Top']",
+                topAlignmentBtnSelected: "//button[@selected='true']",
+                bottomAlignmentBtn: "//h5[text()='Bottom']",
+                threeLineAlignmentBtn: "//h5[text()='3 Line Option']",
+                threeLineInMobileScreen: "//div[@class='MuiBox-root css-1ox9e35']",
+                hideAlignmentBtn: "//h5[text()='Hide']",
+                homeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                prizeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[2]",
+                howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]", 
+
+        }
+
+
+
+
+
+
+
+
+
+
+// export default class singupPage {
+//         [x: string]: any;
+
+//         private page: Page;
+//         static buffer: void;
+//         constructor(page: Page) {
+//                 this.page = page;
+//         }
         
 
         //Click SignUp Page Button Element
