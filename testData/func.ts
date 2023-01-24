@@ -195,20 +195,21 @@ export default class functions {
                 // const currentImageRatioTitleText = await this.page.frameLocator('iframe').locator("//p[text()='Current Image Size Ratio:']")
                 // expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
 
-                const chooseRatio = await this.page.frameLocator('iframe').locator("(//div[@backgroundcolor='#212936']//div)[2]")
-                await chooseRatio.click({ force: true })
-                await this.page.waitForTimeout(3000)
+                // const chooseRatio = await this.page.frameLocator('iframe').locator("(//div[@backgroundcolor='#212936']//div)[2]")
+                // await chooseRatio.click({ force: true })
+                // await this.page.waitForTimeout(3000)
 
-                const selectNone = await this.page.frameLocator('iframe').locator("//li[text()='None']")
-                await selectNone.click({ force: true })
+                // const selectNone = await this.page.frameLocator('iframe').locator("//ul[@role='listbox']//li[1]")
+                // await selectNone.click({ force: true })
 
-                await this.page.waitForLoadState("networkidle")
+                // await this.page.waitForLoadState("networkidle")
 
                 const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 expect(cropperSaveBtn).toContainText("Save")
-                await cropperSaveBtn.click()
+                await cropperSaveBtn.click({force:true})
+                await this.page.waitForTimeout(3000)
 
-                await this.page.waitForLoadState("networkidle")
+                // await this.page.waitForLoadState("networkidle")
 
 
 
