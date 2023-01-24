@@ -67,9 +67,10 @@ export default class guesstheScoreMobilePage {
          
 
          async clcikHomePageInMobileScreen(){
-            const ele = await this.page.locator("//p[text()='HOME']")
+            const ele = await this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiToggleButton-root')])[1]")
             await ele.click({force:true})
             await this.page.waitForLoadState("networkidle")
+            await this.page.waitForTimeout(3000)
 
      }
 
@@ -229,6 +230,10 @@ export default class guesstheScoreMobilePage {
                async screenshot_matcher_buttoncolor(){
                   const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
                   await expect.soft(ele).toHaveScreenshot("buttoncolor_image_screenshot.png")
+            }
+            async verifyButtonColorSuccessfullyAppliedInMobileScreen(){
+                  const ele = await this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
+                  await expect.soft(ele).toHaveCSS("background-color","rgb(241, 196, 15)")
             }
                async inputuserGuess(){
                      await this.page.frameLocator('iframe').locator('(//p[@class="MuiTypography-root MuiTypography-body1 css-sev7bh"])[1]').last().type('6')

@@ -38,9 +38,14 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').first().locator("(//h5[text()='Configurations']/following-sibling::button)[1]").click()
         }
 
-        async inputConfigurationName() {
+        getRandomName() {
+                return "Auto" + Date.now() + "Config"
+        }
+
+
+        async inputConfigurationName(name:string) {
                 const ele = this.page.frameLocator('iframe').first().locator('input[type="string"]')
-                await ele.fill("test_by_Automation")
+                await ele.fill(name)
 
         }
 
@@ -76,11 +81,11 @@ export default class guesstheScorePage {
                 expect(ele).toBeVisible()
                 await ele.click()
         }
- 
+
         async opencolorssection() {
-               const ele =  this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div')
-                 expect(ele).toContainText("Colors")
-                 await ele.click()
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div')
+                expect(ele).toContainText("Colors")
+                await ele.click()
                 await this.page.waitForLoadState("networkidle")
         }
 
@@ -89,14 +94,14 @@ export default class guesstheScorePage {
         }
 
         async selectColorNumberFive() {
-                await this.page.frameLocator('.css-r99fy3').locator("(//li[contains(@class,'MuiListItem-root MuiListItem-gutters')])[5]").click({force:true})
+                await this.page.frameLocator('.css-r99fy3').locator("(//li[contains(@class,'MuiListItem-root MuiListItem-gutters')])[5]").click({ force: true })
         }
 
         async selectColorNumberTwo() {
-                await this.page.frameLocator('.css-r99fy3').locator("(//li[contains(@class,'MuiListItem-root MuiListItem-gutters')])[2]").click({force:true})
+                await this.page.frameLocator('.css-r99fy3').locator("(//li[contains(@class,'MuiListItem-root MuiListItem-gutters')])[2]").click({ force: true })
         }
 
-        
+
         async verifyBackgroundColorText() {
                 const ele = this.page.frameLocator('iframe').locator('//p[text()="Background"]')
                 expect(ele).toContainText("Background")
@@ -106,13 +111,13 @@ export default class guesstheScorePage {
         async clickBackgroundColorPicker() {
                 const ele = this.page.frameLocator('iframe').locator("//p[text()='Background']/following-sibling::button")
                 await expect(ele).toBeVisible()
-                await ele.click({force:true})
+                await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
 
         }
         async clicktextColorPicker() {
                 const ele = this.page.frameLocator('iframe').locator("//p[text()='Text']/following-sibling::button").first()
-               expect(ele).toBeVisible()
+                expect(ele).toBeVisible()
                 await ele.click()
 
         }
@@ -169,6 +174,14 @@ export default class guesstheScorePage {
                 await ele.click()
 
         }
+        
+
+        async inputButtonColor() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]")
+                await expect(ele).toBeVisible()
+                await ele.fill("F1C40FFF")
+
+        }
         async inputRGBFirstColor() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
                 await expect(ele).toBeVisible()
@@ -210,7 +223,8 @@ export default class guesstheScorePage {
 
 
         async clickColorPickerSaveBtn() {
-                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]').last().click()
+                await this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]').click({delay:1000})
+                await this.page.waitForTimeout(2000)
         }
         //image upload starts here
 
@@ -231,27 +245,27 @@ export default class guesstheScorePage {
         }
 
         async clickMobileBackgroundupload() {
-               await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
+                await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
         }
 
         async verifyMobileBackgroundTexts() {
                 const ele = await this.page.frameLocator('(//iframe)[1]').locator("//p[text()='Mobile Background']")
                 expect(ele).toContainText("Mobile Background")
                 await this.page.waitForLoadState("load")
-         }
+        }
 
         async verifyProtraitBackgroundImageUploadSuccessfully() {
                 await this.page.waitForTimeout(6000)
                 const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@title='Delete']")
                 expect(ele).toBeVisible()
-         }
+        }
 
-        
+
         async checkMobileBackgrounduploadimage() {
                 return await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-vjb914'])[1]").isVisible()
-                
-                
-         }
+
+
+        }
 
         async clickGametitlelogoupload() {
                 await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Game Title Logo"]//parent::div//div[@class="MuiBox-root css-v2612"]').click()
@@ -684,7 +698,7 @@ export default class guesstheScorePage {
 
         }
 
-        
+
 
         async typeRerideheader() {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="Re-Ride Header"]//following-sibling::div//div[@aria-label="rdw-editor"]')
@@ -736,7 +750,7 @@ export default class guesstheScorePage {
 
 
         }
-        async checksuccessfulupload(){
+        async checksuccessfulupload() {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="The list of riders has been successfully updated"]')
                 await expect(ele).toBeVisible()
         }
@@ -761,29 +775,29 @@ export default class guesstheScorePage {
         async clickgameoperationssection() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Game Operations"]').last()
                 expect(ele).toBeVisible()
-                await ele.click({force:true})
+                await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
         }
 
         async clickGameOperationAddedEventThreeDot() {
                 const ele = await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]")
                 expect(ele).toBeVisible()
-                await ele.click({force:true})
+                await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
         }
 
-        
+
         async clickEventStartBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("(//p[text()='Start Event'])[1]")
                 expect(ele).toBeVisible()
-                await ele.click({force:true})
+                await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(3000)
         }
 
 
-        
-        
+
+
 
 
         async clickaddeventbutton() {
@@ -828,9 +842,9 @@ export default class guesstheScorePage {
         //edit section
 
         async clickeditsection() {
-                const ele =  this.page.frameLocator('iframe').locator("//h6[text()='Auto']/parent::div/following-sibling::div//div//div//p[text()='Edit']")
+                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Auto']/parent::div/following-sibling::div//div//div//p[text()='Edit']")
                 expect(ele).toBeVisible()
-               await ele.click()
+                await ele.click()
         }
         async editconfigname() {
                 const ele = this.page.frameLocator('iframe').first().locator('//input[@type="string"]')
@@ -848,59 +862,59 @@ export default class guesstheScorePage {
                 const ele = this.page.frameLocator('iframe').first().locator('//button[text()="Delete"]')
                 await ele.click()
         }
-        async verifyAddBtn(){
+        async verifyAddBtn() {
                 const ele = this.page.frameLocator('iframe').first().locator("//button[text()='ADD']")
                 await expect(ele).toContainText('ADD')
                 await expect(ele).toBeVisible()
         }
-        async verifyCancelBtn(){
-               const ele = await this.page.frameLocator('iframe').first().locator("(//div[@class='MuiBox-root css-12mgqqu']//button)[2]")
-               await expect(ele).toContainText("CANCEL")
-               await expect(ele).toBeVisible()
+        async verifyCancelBtn() {
+                const ele = await this.page.frameLocator('iframe').first().locator("(//div[@class='MuiBox-root css-12mgqqu']//button)[2]")
+                await expect(ele).toContainText("CANCEL")
+                await expect(ele).toBeVisible()
         }
-        async verifynewConfigrationText(){
-               const ele =  this.page.frameLocator('iframe').locator("//h6[text()='Auto']")
+        async verifynewConfigrationText() {
+                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Auto']")
                 expect(ele).toContainText('Auto')
         }
-        async verifyStartBtn(){
-          const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()
-           expect(ele).toContainText("Start")
-           //expect(ele).toBeVisible()
+        async verifyStartBtn() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()
+                expect(ele).toContainText("Start")
+                //expect(ele).toBeVisible()
         }
-        async verifyLiveBtn(){
-                const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Live']").last()
+        async verifyLiveBtn() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Live']").last()
                 expect(ele).toContainText("Live")
                 // await expect(ele).toBeVisible()
-              }
-         async  clickgameStartBtn(){
+        }
+        async clickgameStartBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
-            }
-        async clickOkBtn(){
-               await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
-               
-            }
-         async clickCancelBtn(){
+        }
+        async clickOkBtn() {
+                await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
+
+        }
+        async clickCancelBtn() {
                 await this.page.frameLocator('iframe').locator("///button[text()='Cancel']").first().click()
-            }
-         async clickgameStartandLivePopupCloseBtn(){
+        }
+        async clickgameStartandLivePopupCloseBtn() {
                 await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1xnxzwa']").click()
-            }
-            async verifykMobileLinkBtn() {
-               const ele =  await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[3]")
-               expect(ele).toBeVisible()
-                 
-  
-          }
-            async clickMobileLinkBtn() {
-              await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1gcerwc"]').last().click()
-               
+        }
+        async verifykMobileLinkBtn() {
+                const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[3]")
+                expect(ele).toBeVisible()
+
+
+        }
+        async clickMobileLinkBtn() {
+                await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1gcerwc"]').last().click()
+
 
         }
         // async clickMobileLinkOpenBtn(){
         //         await this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
         // }
-        
-        async  clickMobileLinkOpenBtn() {
+
+        async clickMobileLinkOpenBtn() {
 
                 // Click text=Open Link
                 const [page1] = await Promise.all([
@@ -912,232 +926,232 @@ export default class guesstheScorePage {
 
 
         }
-        async verifyPlusBtn(){
+        async verifyPlusBtn() {
                 const ele = await this.page.frameLocator('iframe').first().locator("(//h5[text()='Configurations']/following-sibling::button)[1]")
                 await expect(ele).toBeVisible()
         }
-        async clickLiveBtn(){
+        async clickLiveBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Live']").last().click()
         }
-        async verifyGameSettingsText(){
-              const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first()
-              expect(ele).toContainText("Game Settings")
+        async verifyGameSettingsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first()
+                expect(ele).toContainText("Game Settings")
         }
-        async clickGameSettings(){
-                 await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first().click()
-                
-          }
-          async verifyScoreText(){
+        async clickGameSettings() {
+                await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first().click()
+
+        }
+        async verifyScoreText() {
                 const ele = await this.page.frameLocator('iframe').locator('//h4[text()="Scores"]').first()
                 expect(ele).toContainText("Scores")
 
-          }
-          async verifyCorrectGuessText(){
+        }
+        async verifyCorrectGuessText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Correct Guess"]').first()
                 expect(ele).toContainText("Correct Guess")
 
-                
-          }
-          async verifyCloseGuessText(){
+
+        }
+        async verifyCloseGuessText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Close Guess"]').first()
                 expect(ele).toContainText("Close Guess")
 
-          }
-          async verifyFarGuessText(){
+        }
+        async verifyFarGuessText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Far Guess"]').first()
                 expect(ele).toContainText("Far Guess")
 
-          }
-          async verifyIncorrectGuessText(){
+        }
+        async verifyIncorrectGuessText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Incorrect Guess"]').first()
                 expect(ele).toContainText("Incorrect Guess")
 
-          }
-          async verifyGuessTimeText(){
+        }
+        async verifyGuessTimeText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Guess Time"]').first()
                 expect(ele).toContainText("Guess Time")
 
-          }
-          async inputCorrectGuess(){
+        }
+        async inputCorrectGuess() {
                 await this.page.frameLocator('iframe').locator("(//div[contains(@class,'MuiInputBase-root MuiInput-root')])[1]").last().type("50")
-                
 
-                
-          }
-          async inputFarGuess(){
+
+
+        }
+        async inputFarGuess() {
                 await this.page.frameLocator('iframe').locator("(//div[contains(@class,'MuiInputBase-root MuiInput-root')]").last().type("30")
-                
 
-                
-          }
-          async inputCloseGuess(){
+
+
+        }
+        async inputCloseGuess() {
                 await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiInputBase-root MuiInput-root')]").last().type("40")
-                
 
-                
-          }
-          async inputIncorrectGuess(){
+
+
+        }
+        async inputIncorrectGuess() {
                 await this.page.frameLocator('iframe').locator("//input[@id='P0-87']").last().type("40")
-                
 
-                
-          }
-          async inputGuessTime(){
+
+
+        }
+        async inputGuessTime() {
                 await this.page.frameLocator('iframe').locator("//input[@id='P0-88']").last().type("10")
-                
 
-                
-          }
-        async clickCloseBtn(){
+
+
+        }
+        async clickCloseBtn() {
                 await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').last().click()
         }
-        async verifyMobileLinkText(){
-               const ele =  await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link']")
-               expect(ele).toContainText("Mobile Link")
+        async verifyMobileLinkText() {
+                const ele = await this.page.frameLocator('iframe').locator("//h2[text()='Mobile Link']")
+                expect(ele).toContainText("Mobile Link")
 
         }
-        async clickMobileLinkCopyBtn(){
+        async clickMobileLinkCopyBtn() {
                 await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]').click()
         }
-        async verifySaveQRCodeText(){
-              const ele =   await this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]')
-              expect(ele).toContainText("Save QR Code")
+        async verifySaveQRCodeText() {
+                const ele = await this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]')
+                expect(ele).toContainText("Save QR Code")
 
         }
-        async validateSaveQRCode(){
+        async validateSaveQRCode() {
                 const [download] = await Promise.all([
                         this.page.waitForEvent('download'),
                         this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click()
-             ])
-               const suggestedFileName = download.suggestedFilename()
-               const filePath = 'QRCode' + suggestedFileName
-               await download.saveAs(filePath)
-               expect(existsSync(filePath)).toBeTruthy()
+                ])
+                const suggestedFileName = download.suggestedFilename()
+                const filePath = 'QRCode' + suggestedFileName
+                await download.saveAs(filePath)
+                expect(existsSync(filePath)).toBeTruthy()
         }
-        async verifyCopyQRCodeText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]')
+        async verifyCopyQRCodeText() {
+                const ele = await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]')
                 expect(ele).toContainText("Copy QR Code")
-  
-          }
-          async clickQRcodecopybtn(){
-                await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]').click()
-          }
-          async verifyUploadFontText(){
-              const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
-              expect(ele).toContainText("Upload Font")
 
-
-          }
-          async clickFontsSection(){
-             await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]').click()
-        
-
-          }
-          async verifyFontsText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//h4[text()="Fonts"]')
-                expect(ele).toContainText("Fonts")
-  
-  
-            }
-            async verifyOpenFontsSection(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]')
-                expect(ele).toBeVisible()
-            }
-            async verifyUploadFontsBtn(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
-              expect(ele).toBeVisible()
-            }
-            async verifyopencolorssection() {
-               const ele = await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div')
-               expect(ele).toBeVisible()
         }
-        async verifyColorsBackgroundText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Background"]')
+        async clickQRcodecopybtn() {
+                await this.page.frameLocator('iframe').locator('//button[text()="Copy QR Code"]').click()
+        }
+        async verifyUploadFontText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
+                expect(ele).toContainText("Upload Font")
+
+
+        }
+        async clickFontsSection() {
+                await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]').click()
+
+
+        }
+        async verifyFontsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//h4[text()="Fonts"]')
+                expect(ele).toContainText("Fonts")
+
+
+        }
+        async verifyOpenFontsSection() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Fonts"]')
+                expect(ele).toBeVisible()
+        }
+        async verifyUploadFontsBtn() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]')
+                expect(ele).toBeVisible()
+        }
+        async verifyopencolorssection() {
+                const ele = await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Colors"]//parent::div')
+                expect(ele).toBeVisible()
+        }
+        async verifyColorsBackgroundText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Background"]')
                 expect(ele).toContainText("Background")
         }
-        async verifyTextColorsText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Text"]/following-sibling::button').first()
+        async verifyTextColorsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Text"]/following-sibling::button').first()
                 expect(ele).toContainText("Text")
         }
-        async verifyColorsHeaderText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Header"]')
+        async verifyColorsHeaderText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Header"]')
                 expect(ele).toContainText("Header")
         }
-        async verifyColorsButtonsText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Buttons"]')
+        async verifyColorsButtonsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Buttons"]')
                 expect(ele).toContainText("Buttons")
         }
-        async verifyColorsMainboardBackgroundText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Mainboard Background"]')
+        async verifyColorsMainboardBackgroundText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Mainboard Background"]')
                 expect(ele).toContainText("Mainboard Background")
         }
-        async verifyColorsEventTitleFontText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Event Title Font"]')
+        async verifyColorsEventTitleFontText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Event Title Font"]')
                 expect(ele).toContainText("Event Title Font")
         }
-        async verifyColorsTimerCircleText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Timer Circle"]')
+        async verifyColorsTimerCircleText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Timer Circle"]')
                 expect(ele).toContainText("Timer Circle")
         }
-        async verifyColorsWoodText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Wood"]')
+        async verifyColorsWoodText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Wood"]')
                 expect(ele).toContainText("Wood")
         }
-        async verifyColorsGameplayScoreText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Gameplay Score Text"]')
-            
+        async verifyColorsGameplayScoreText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Gameplay Score Text"]')
+
                 expect(ele).toContainText("Gameplay Score Text")
         }
-        async verifyColorsTimerBackgroundText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Timer Background"]')
-            
+        async verifyColorsTimerBackgroundText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Timer Background"]')
+
                 expect(ele).toContainText("Timer Background")
         }
-        async verifyopenImageUploadSection(){
-                const ele =   await this.page.frameLocator('iframe').locator(' //p[text()="Image Uploads"]')
-              expect(ele).toBeVisible()
-               
+        async verifyopenImageUploadSection() {
+                const ele = await this.page.frameLocator('iframe').locator(' //p[text()="Image Uploads"]')
+                expect(ele).toBeVisible()
+
         }
-        async verifyMobileBackgroundText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Mobile Background"]')
-            
+        async verifyMobileBackgroundText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Mobile Background"]')
+
                 expect(ele).toContainText("Mobile Background")
         }
-        async verifyuploadMobileBackgroundImageBtn(){
-                const ele =   await this.page.frameLocator('iframe').locator(' (//div[@class="MuiBox-root css-v2612"])[2]')
-              expect(ele).toBeVisible()
-              ele.click()
+        async verifyuploadMobileBackgroundImageBtn() {
+                const ele = await this.page.frameLocator('iframe').locator(' (//div[@class="MuiBox-root css-v2612"])[2]')
+                expect(ele).toBeVisible()
+                ele.click()
 
-                
+
         }
-        async verifyGameTitleLogoText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Game Title Logo"]')
-            
+        async verifyGameTitleLogoText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Game Title Logo"]')
+
                 expect(ele).toContainText("Game Title Logo")
         }
-        async verifyGameTitleLogoUploadBtn(){
-                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[3]')
-            
+        async verifyGameTitleLogoUploadBtn() {
+                const ele = await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[3]')
+
                 expect(ele).toBeVisible()
         }
-        async verifySponsorLogoText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Sponsor Logo"]')
-            
+        async verifySponsorLogoText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Sponsor Logo"]')
+
                 expect(ele).toContainText("Sponsor Logo")
         }
-        async verifySponsorLogoUploadBtn(){
-                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[4]')
-            
+        async verifySponsorLogoUploadBtn() {
+                const ele = await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[4]')
+
                 expect(ele).toBeVisible()
         }
-        async verifyBannerImageText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Banner Image"]')
-            
+        async verifyBannerImageText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Banner Image"]')
+
                 expect(ele).toContainText("Banner Image")
         }
-        async verifyBannerImageUploadBtn(){
-                const ele =   await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[5]')
-            
+        async verifyBannerImageUploadBtn() {
+                const ele = await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-v2612"])[5]')
+
                 expect(ele).toBeVisible()
         }
         async clickStartGameOkBtn() {
@@ -1150,99 +1164,99 @@ export default class guesstheScorePage {
 
         }
 
-        async verifyAnalyticsText(){
-                const ele =   await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last()
-                
-                        expect(ele).toContainText("Analytics")
-                
+        async verifyAnalyticsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last()
+
+                expect(ele).toContainText("Analytics")
+
         }
-        async clickAnalyticsBtn(){
-                await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last().click({force : true})
-                
-                
+        async clickAnalyticsBtn() {
+                await this.page.frameLocator('iframe').locator('//p[text()="Analytics"]').last().click({ force: true })
+
+
         }
-        async verifyDateText(){
-        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Date"]')
-        expect(ele).toContainText("Date")
-                
+        async verifyDateText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Date"]')
+                expect(ele).toContainText("Date")
+
         }
-        async verifyQRScsnsText(){
-        const ele =  await this.page.frameLocator('iframe').locator('//span[text()="QR Scans"]')
-        expect(ele).toContainText("QR Scans")
+        async verifyQRScsnsText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="QR Scans"]')
+                expect(ele).toContainText("QR Scans")
         }
-        async verifyTotalPlayersText(){
-                const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Total Players"]')
+        async verifyTotalPlayersText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Total Players"]')
                 expect(ele).toContainText("Total Players")
         }
-        async verifyUniqueUsersPlayedText(){
-                const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Unique Users Played"]')
+        async verifyUniqueUsersPlayedText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Unique Users Played"]')
                 expect(ele).toContainText("Unique Users Played")
         }
-        async verifyReturningUsersText(){
-                const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Returning Users"]')
+        async verifyReturningUsersText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Returning Users"]')
                 expect(ele).toContainText("Returning Users")
         }
-        async verifyTotalTimePlayedText(){
-                const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Total Time Played"]')
+        async verifyTotalTimePlayedText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Total Time Played"]')
                 expect(ele).toContainText("Total Time Played")
         }
-        async verifyActionText(){
-                const ele =  await this.page.frameLocator('iframe').locator('//span[text()="Action"]')
+        async verifyActionText() {
+                const ele = await this.page.frameLocator('iframe').locator('//span[text()="Action"]')
                 expect(ele).toContainText("Action")
         }
-        
-        async clickStartBtn(){
+
+        async clickStartBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
-                
+
         }
-        async verifyOpacitySlider(){
-        const  ele =  await this.page.frameLocator('iframe').locator("(//span[@class='MuiSlider-track css-19p2p10'])[2]")
-        expect(ele).toBeVisible()
-        }
-        
-        async verifySwatchesText(){
-                const  ele =  await this.page.frameLocator('iframe').locator('//p[text()="Swatches"]')
-                expect(ele).toContainText("Swatches")
-        }
-        async verifyColorPickerText(){
-                const  ele =  await this.page.frameLocator('iframe').locator("//h3[text()='Color Picker']")
-                expect(ele).toContainText("Color Picker")
-        }
-        async verifyPlusBtnInColorPicker(){
-                const  ele =  await this.page.frameLocator('iframe').locator("//button[@aria-label='Add Color']")
+        async verifyOpacitySlider() {
+                const ele = await this.page.frameLocator('iframe').locator("(//span[@class='MuiSlider-track css-19p2p10'])[2]")
                 expect(ele).toBeVisible()
         }
-        async verifyRGBFirstColorInputField(){
+
+        async verifySwatchesText() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Swatches"]')
+                expect(ele).toContainText("Swatches")
+        }
+        async verifyColorPickerText() {
+                const ele = await this.page.frameLocator('iframe').locator("//h3[text()='Color Picker']")
+                expect(ele).toContainText("Color Picker")
+        }
+        async verifyPlusBtnInColorPicker() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[@aria-label='Add Color']")
+                expect(ele).toBeVisible()
+        }
+        async verifyRGBFirstColorInputField() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
                 expect(ele).toBeVisible()
         }
-        async verifyRGBSecondColorInputField(){
-                        const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                        expect(ele).toBeVisible()
+        async verifyRGBSecondColorInputField() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+                expect(ele).toBeVisible()
         }
-        async verifyRGBThirdColorInputField(){
+        async verifyRGBThirdColorInputField() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                        expect(ele).toBeVisible()
+                expect(ele).toBeVisible()
         }
-        async verifyRGBOpacityColorInputField(){
+        async verifyRGBOpacityColorInputField() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                        expect(ele).toBeVisible()
+                expect(ele).toBeVisible()
         }
-        async verifyRGBHexColorInputField(){
+        async verifyRGBHexColorInputField() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                        await expect(ele).toBeVisible()
+                await expect(ele).toBeVisible()
         }
-        async verifyRGBText(){
-                const  ele =  await this.page.frameLocator('iframe').locator("//h3[text()='RGB']")
+        async verifyRGBText() {
+                const ele = await this.page.frameLocator('iframe').locator("//h3[text()='RGB']")
                 expect(ele).toContainText("RGB")
         }
-        async clickbuttoncolorpicker(){
-                
-                        const ele = this.page.frameLocator('iframe').locator("//p[text()='Buttons']/following-sibling::button").first()
-                        //await expect(ele).toBeVisible()
-                        await ele.click()
+        async clickbuttoncolorpicker() {
+
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Buttons']/following-sibling::button").first()
+                //await expect(ele).toBeVisible()
+                await ele.click()
         }
-        async clickwoodcolorpicker(){
+        async clickwoodcolorpicker() {
                 const ele = this.page.frameLocator('iframe').locator("//p[text()='Wood']/following-sibling::button").first()
                 //await expect(ele).toBeVisible()
                 await ele.click()
@@ -1252,385 +1266,385 @@ export default class guesstheScorePage {
                 await expect(ele).toBeVisible()
         }
 
-        async clickokbuttonerror(){
+        async clickokbuttonerror() {
                 const ele = this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
-      
+
         }
-        async clickriderrostersection(){
-               await this.page.frameLocator('iframe').locator("//p[text()='Rider Roster']").last().click()
-               await this.page.waitForLoadState("networkidle")
+        async clickriderrostersection() {
+                await this.page.frameLocator('iframe').locator("//p[text()='Rider Roster']").last().click()
+                await this.page.waitForLoadState("networkidle")
         }
-        async verifyriderrosterText(){
+        async verifyriderrosterText() {
                 const ele = await this.page.frameLocator('iframe').locator("//p[text()='Rider Roster']").last()
                 expect(ele).toContainText("Rider Roster")
         }
-        async verifyAllRidersText(){
+        async verifyAllRidersText() {
                 const ele = await this.page.frameLocator('iframe').locator("//h5[text()='All Riders']").last()
                 expect(ele).toContainText("All Riders")
         }
 
-        async clickToUploadRider(){
+        async clickToUploadRider() {
                 const ele = await this.page.frameLocator('iframe').locator("//h5[text()='All Riders']/following-sibling::button")
                 expect(ele).toContainText("Import")
                 await ele.click()
         }
-        
-        async verifysearchfield(){
-                
+
+        async verifysearchfield() {
+
                 const ele = await this.page.frameLocator('iframe').locator("input[placeholder='Search...']").last()
                 expect(ele).toBeVisible()
         }
-        async verifyimportBtn(){
+        async verifyimportBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Import']").last()
                 expect(ele).toBeVisible()
-                
+
         }
-        async verifyexportBtn(){
+        async verifyexportBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Export']").last()
                 expect(ele).toBeVisible()
-                
+
         }
-        async verifyRowsperpagedropdown(){
+        async verifyRowsperpagedropdown() {
                 const ele = await this.page.frameLocator('iframe').locator("//div[@role='button']").last()
-                 
+
                 expect(ele).toBeVisible()
                 ele.click()
         }
-        async verifyriderrosteraddBtn(){
+        async verifyriderrosteraddBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Add Rider']").last()
                 expect(ele).toBeVisible()
 
         }
-        async verifyAddRiderText(){
+        async verifyAddRiderText() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Add Rider']").last()
                 expect(ele).toContainText("Add Rider")
         }
-        async closeaddriderpopupBtn(){
+        async closeaddriderpopupBtn() {
                 await this.page.frameLocator('iframe').locator("//h3[text()='Add New Rider']").last().click()
                 //div[@class='MuiBox-root css-821f9k']/following-sibling::button[1]
         }
-        async clickriderrosteraddBtn(){
+        async clickriderrosteraddBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Add Rider']").last().click()
         }
-        async verifyRiderFirstName(){
-              const ele =  await this.page.frameLocator('iframe').locator('//p[text()="Rider First Name"]').last()
-              expect(ele).toContainText("Rider First Name")    
+        async verifyRiderFirstName() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Rider First Name"]').last()
+                expect(ele).toContainText("Rider First Name")
         }
-        async inputAddRiderFirstName(){
+        async inputAddRiderFirstName() {
                 await this.page.frameLocator('iframe').locator("//input[@placeholder='First Name']").last().type("Rider")
         }
-       async verifyRiderLastName(){
-        const ele =  await this.page.frameLocator('iframe').locator('//p[text()="Rider Last Name"]').last()
-              expect(ele).toContainText("Rider Last Name")
-       }
+        async verifyRiderLastName() {
+                const ele = await this.page.frameLocator('iframe').locator('//p[text()="Rider Last Name"]').last()
+                expect(ele).toContainText("Rider Last Name")
+        }
 
-      async inputAddRiderLastName(){
-        await this.page.frameLocator('iframe').locator("//input[@placeholder='Last Name']").last().type("Test")
-       }
-       async clicksaveandaddmorebutton(){
-        await this.page.frameLocator('iframe').locator("//button[text()='Save & Add More']").last().click()
-       }
-       async errorAlertMessage(){
-         const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Value cannot be an empty']").last()
-         expect(ele).toContainText("Value cannot be an empty")
-       }
-       async verifyUploadAvatarText(){
-        const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Upload Avatar']").last()
-         expect(ele).toContainText("Upload Avatar")
-        
-       }
-       async clickUploadAvatar(){
-          await this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']").last().click()
-       }
-       async Avataruploader() {
-        const filePath0 = "testData/images/profile.png"
-        const [fileChooser] = await Promise.all([
-                // It is important to call waitForEvent before click to set up waiting.
-                this.page.waitForEvent('filechooser'),
-                // Opens the file chooser.
-                this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']").last().click()
-        ]);
-        await fileChooser.setFiles([filePath0]);
+        async inputAddRiderLastName() {
+                await this.page.frameLocator('iframe').locator("//input[@placeholder='Last Name']").last().type("Test")
+        }
+        async clicksaveandaddmorebutton() {
+                await this.page.frameLocator('iframe').locator("//button[text()='Save & Add More']").last().click()
+        }
+        async errorAlertMessage() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Value cannot be an empty']").last()
+                expect(ele).toContainText("Value cannot be an empty")
+        }
+        async verifyUploadAvatarText() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Upload Avatar']").last()
+                expect(ele).toContainText("Upload Avatar")
 
-}
-async clickEditRiderBtn(){
-                     
-        await this.page.frameLocator('iframe').locator("//button[text()='Edit']").last().click()
-  }
-  async verifyEditRiderText(){
-        
-       const ele = await this.page.frameLocator('iframe').locator("//h3[text()='Edit Rider']").last()
-       expect(ele).toContainText("Edit Rider")
+        }
+        async clickUploadAvatar() {
+                await this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']").last().click()
+        }
+        async Avataruploader() {
+                const filePath0 = "testData/images/profile.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('iframe').locator("//img[@class='MuiAvatar-img css-1hy9t21']").last().click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+
+        }
+        async clickEditRiderBtn() {
+
+                await this.page.frameLocator('iframe').locator("//button[text()='Edit']").last().click()
+        }
+        async verifyEditRiderText() {
+
+                const ele = await this.page.frameLocator('iframe').locator("//h3[text()='Edit Rider']").last()
+                expect(ele).toContainText("Edit Rider")
 
 
-  }
-  async editRiderfirstname(){
-        const fname = await this.page.frameLocator('iframe').locator("//input[@placeholder='First Name']").last()
-        await fname.focus();
-        await this.page.keyboard.press("Meta+A");
-        await this.page.keyboard.press('Backspace');
-       
+        }
+        async editRiderfirstname() {
+                const fname = await this.page.frameLocator('iframe').locator("//input[@placeholder='First Name']").last()
+                await fname.focus();
+                await this.page.keyboard.press("Meta+A");
+                await this.page.keyboard.press('Backspace');
 
-  }
-  async editRiderlastname(){
-        const lname = await this.page.frameLocator('iframe').locator("//input[@placeholder='Last Name']").last()
-        await lname.focus()
-        await this.page.keyboard.press("Meta+A");
-        await this.page.keyboard.press('Backspace');
-  }
-  async clickriderSaveBtn(){
-        await this.page.frameLocator('iframe').locator("//button[text()='Save']").last()
-        
-  }
-  async verifyAddEventText(){
-        
-        const ele = await this.page.frameLocator('iframe').locator("//p[text()='Add Event']").last()
-        expect(ele).toContainText("Add Event")
-  }
-  async clickeventCancelBtn(){
-        await this.page.frameLocator('iframe').locator("//button[text()='CANCEL']").last().click()
-  }
-  async clickeventStart(){
-        await this.page.waitForTimeout(1000)
-       const ele =  this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").last()
-       await ele.click()
-        //div[@class='MuiBox-root css-1mj1ut2']
-        await this.page.waitForTimeout(1000)
-        // //const ele = await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").isVisible()
-        // if((await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").isVisible())){
-        //         await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
-        //         ele.click()
+
+        }
+        async editRiderlastname() {
+                const lname = await this.page.frameLocator('iframe').locator("//input[@placeholder='Last Name']").last()
+                await lname.focus()
+                await this.page.keyboard.press("Meta+A");
+                await this.page.keyboard.press('Backspace');
+        }
+        async clickriderSaveBtn() {
+                await this.page.frameLocator('iframe').locator("//button[text()='Save']").last()
+
+        }
+        async verifyAddEventText() {
+
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Add Event']").last()
+                expect(ele).toContainText("Add Event")
+        }
+        async clickeventCancelBtn() {
+                await this.page.frameLocator('iframe').locator("//button[text()='CANCEL']").last().click()
+        }
+        async clickeventStart() {
+                await this.page.waitForTimeout(1000)
+                const ele = this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").last()
+                await ele.click()
+                //div[@class='MuiBox-root css-1mj1ut2']
+                await this.page.waitForTimeout(1000)
+                // //const ele = await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").isVisible()
+                // if((await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").isVisible())){
+                //         await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
+                //         ele.click()
+                // }
+                await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[1]").last().click()
+
+        }
+        async clickeventStop() {
+                const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
+                ele.click()
+                //  if((await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible())){
+                //         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click()
+                //         ele.click()
+                // }
+
+                await this.page.frameLocator('iframe').locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p[1]").last().click()
+
+
+        }
+        async clickeventRename() {
+                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
+                const rename = this.page.frameLocator('iframe').locator("//input[@type='string']")
+                await rename.focus()
+                await this.page.keyboard.press("Meta+A");
+                await this.page.keyboard.press('Backspace');
+                //now type new rename event name
+                rename.type("test")
+
+        }
+        async clickeventDelete() {
+                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click({ force: true })
+        }
+        async clickridersadd() {
+                await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]").click()
+        }
+        async clickridersSaveBtn() {
+                await this.page.frameLocator('iframe').locator("//button[text()='Save Riders']").click()
+        }
+        async clicksLiveGameOkBtn() {
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
+        }
+        async clickMoveToNextBtn() {
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Move to Next']")
+                expect(ele).toContainText("Move to Next")
+                await ele.click()
+                await this.page.waitForLoadState("networkidle")
+        }
+        async inputRiderScore() {
+                // await this.page.waitForSelector("//input[@type='number']")
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+                // expect(ele).toBeVisible()        
+                await ele.fill("20")
+        }
+        async inputIncorrectRiderScore() {
+                // await this.page.waitForSelector("//input[@type='number']")
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+                // expect(ele).toBeVisible()        
+                await ele.fill("10")
+        }
+        async inputCorrectRiderScore() {
+                // await this.page.waitForSelector("//input[@type='number']")
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+                // expect(ele).toBeVisible()        
+                await ele.fill("20")
+        }
+        async inputCloseRiderScore() {
+                // await this.page.waitForSelector("//input[@type='number']")
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+                // expect(ele).toBeVisible()        
+                await ele.fill("20")
+        }
+        async inputFarguessRiderScore() {
+                // await this.page.waitForSelector("//input[@type='number']")
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
+                // expect(ele).toBeVisible()        
+                await ele.fill("20")
+        }
+
+
+        async clickRiderInputField() {
+                await this.page.waitForTimeout(6000)
+                const ele = await this.page.locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
+                // expect(ele).toBeVisible()        
+                await ele.fill("20")
+        }
+        async clickRiderScoresubmitBtn() {
+
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//button[text()="Submit"]')
+                expect(ele).toBeVisible()
+                await ele.click({ force: true });
+                await ele.click({ force: true });
+
+        }
+        async clickreridingBtn() {
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Re-Ride']").last().click({ force: true });
+        }
+        async verifyGameTitleLogoUploadSuccessfully() {
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[2]")
+                expect(ele).toBeVisible()
+        }
+
+        async verifySponsorLogoUploadSuccessfully() {
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[3]")
+                expect(ele).toBeVisible()
+        }
+        async verifyBannerImageUploadSuccessfully() {
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[4]")
+                expect(ele).toBeVisible()
+        }
+        async verifyEditConfigurationText() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Edit Configuration']").last()
+                expect(ele).toContainText("Edit Configuration")
+        }
+        async verifyConfigurationnameAutoalreadyexists() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[contains(@class,'MuiTypography-root MuiDialogContentText-root')]")
+                expect(ele).toContainText("Configuration name 'Auto' already exists")
+        }
+        async clickeditconfigrationOkBtn() {
+
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Ok']").last()
+                await ele.click()
+        }
+        async validateExportBtn() {
+                await this.page.waitForTimeout(1000)
+                const [download] = await Promise.all([
+                        this.page.waitForEvent('download'),
+                        this.page.frameLocator('iframe').locator("//button[text()='Export']").last().click()
+                ])
+                const suggestedFileName = download.suggestedFilename()
+                //        const filePath = 'Export' + suggestedFileName
+                //        await download.saveAs(filePath)
+                //        expect(existsSync(filePath)).toBeTruthy()
+        }
+        async verifyExportText() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Export']").last()
+                expect(ele).toContainText("Export")
+        }
+        async inputsearchfield() {
+                await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").last().type("Rider Test")
+                const ele = this.page.frameLocator('iframe').locator("//td[text()='Rider']").last()
+                expect(ele).toContainText("Rider")
+                const ele2 = this.page.frameLocator('iframe').locator("//td[text()='Test']").last()
+                expect(ele2).toContainText("Test")
+
+
+        }
+        async varifyrowsperpageText() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Rows per page:']").last()
+                expect(ele).toContainText("Rows per page:")
+
+        }
+        async clickrowsperpageBtn() {
+                await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiTablePagination-select')]").click({ force: true })
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiTablePagination-select')]").click({ force: true })
+                await this.page.close()
+        }
+        async verifyEditBtn() {
+                const editfield = await this.page.frameLocator('iframe').locator("//input[@type='string']").last()
+                await editfield.focus();
+                await this.page.keyboard.press("Meta+A");
+                await this.page.keyboard.press('Backspace');
+                await editfield.type("Auto")
+        }
+        async verifyPleasestarttheevent() {
+                const ele = await this.page.frameLocator('iframe').locator("//h4[text()='Please start the event']")
+                expect(ele).toContainText("Please start the event")
+        }
+        async ImageuploaderAlert() {
+                const filePath0 = "testData/images/main_banner.webp"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+
+                await this.page.waitForTimeout(1000)
+                this.page.on('dialog', async dialog => {
+
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        await this.page.waitForTimeout(2000)
+                        await dialog.accept();
+                })
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+
+        }
+        async clickRidernoscoreBtn() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='No Score']")
+                expect(ele).toBeVisible()
+                await ele.click()
+        }
+
+        async clickReRideBtn() {
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='Re-Ride']")
+                expect(ele).toBeVisible()
+                await ele.click()
+        }
+        async clicktest1Event() {
+                const ele = this.page.frameLocator('iframe').locator("(//div[@isdisabled='true']//p)[2]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async verifyriderText() {
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Riders']")
+                expect(ele).toContainText("Riders")
+        }
+        async verifyRidersnotyetaddedText() {
+                await this.page.waitForTimeout(1000)
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Riders not yet added']").last()
+                expect(ele).toContainText('Riders not yet added')
+                await this.page.waitForTimeout(1000)
+
+        }
+        // async clickSolidDropdowns(){
+        //         //click for select option
+        //         const ele =  this.page.frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')
+        //         expect(ele).toBeVisible()
+        //        await ele.click()
+        //        //clickSolid
+        //        const ele1 =  this.page.frameLocator('iframe').locator("//div[text()='Solid']")
+        //        await ele1.click()
         // }
-        await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[1]").last().click()
-        
-  }
-  async clickeventStop(){
-        const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
-        ele.click()
-        //  if((await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible())){
-        //         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click()
-        //         ele.click()
-        // }
-
-        await this.page.frameLocator('iframe').locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p[1]").last().click()
-        
-
-  }
-  async clickeventRename(){
-        await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
-        await this.page.waitForTimeout(1000)
-        await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
-        const rename =  this.page.frameLocator('iframe').locator("//input[@type='string']")
-        await rename.focus()
-        await this.page.keyboard.press("Meta+A");
-        await this.page.keyboard.press('Backspace');
-        //now type new rename event name
-        rename.type("test")
-        
-  }
-  async clickeventDelete(){
-        await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
-        await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click({force : true})
-  }
-  async clickridersadd(){
-        await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]").click()
-  }
-  async clickridersSaveBtn(){
-        await this.page.frameLocator('iframe').locator("//button[text()='Save Riders']").click()
-  }
-  async clicksLiveGameOkBtn(){
-        await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
-  }
-  async clickMoveToNextBtn() {
-        const ele = await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Move to Next']")
-        expect(ele).toContainText("Move to Next")
-        await ele.click()
-        await this.page.waitForLoadState("networkidle")
-  }
-  async inputRiderScore(){
-        // await this.page.waitForSelector("//input[@type='number']")
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
-        // expect(ele).toBeVisible()        
-        await ele.fill("20")
-  }
-  async inputIncorrectRiderScore(){
-        // await this.page.waitForSelector("//input[@type='number']")
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
-        // expect(ele).toBeVisible()        
-        await ele.fill("10")
-  }
-  async inputCorrectRiderScore(){
-        // await this.page.waitForSelector("//input[@type='number']")
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
-        // expect(ele).toBeVisible()        
-        await ele.fill("20")
-  }
-  async inputCloseRiderScore(){
-        // await this.page.waitForSelector("//input[@type='number']")
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
-        // expect(ele).toBeVisible()        
-        await ele.fill("20")
-  }
-  async inputFarguessRiderScore(){
-        // await this.page.waitForSelector("//input[@type='number']")
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.frameLocator('.css-r99fy3').locator("//input[@type='number']")
-        // expect(ele).toBeVisible()        
-        await ele.fill("20")
-  }
-
-
-  async clickRiderInputField(){
-        await this.page.waitForTimeout(6000)
-        const ele =  await this.page.locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-        // expect(ele).toBeVisible()        
-        await ele.fill("20")
-  }
-  async clickRiderScoresubmitBtn(){
-
- const ele = this.page.frameLocator('.css-r99fy3').locator('//button[text()="Submit"]')
-       expect(ele).toBeVisible()
-        await ele.click({force:true});
-        await ele.click({force:true});
-
-}
-  async clickreridingBtn(){
-        await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Re-Ride']").last().click({force : true});
-  }
-  async verifyGameTitleLogoUploadSuccessfully(){
-        const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[2]")
-        expect(ele).toBeVisible()
-  }
-  
-  async verifySponsorLogoUploadSuccessfully(){
-        const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[3]")
-        expect(ele).toBeVisible()
-  }
-  async verifyBannerImageUploadSuccessfully(){
-        const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[4]")
-        expect(ele).toBeVisible()
-  }
-  async verifyEditConfigurationText(){
-         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Edit Configuration']").last()
-         expect(ele).toContainText("Edit Configuration")
-  }
-  async verifyConfigurationnameAutoalreadyexists(){
-        const ele = await this.page.frameLocator('iframe').locator("//p[contains(@class,'MuiTypography-root MuiDialogContentText-root')]")
-        expect(ele).toContainText("Configuration name 'Auto' already exists")
- }
- async clickeditconfigrationOkBtn(){
-        
-       const ele =  await this.page.frameLocator('iframe').locator("//button[text()='Ok']").last()
-       await ele.click()
- }
- async validateExportBtn(){
-        await this.page.waitForTimeout(1000)
-        const [download] = await Promise.all([
-                this.page.waitForEvent('download'),
-                this.page.frameLocator('iframe').locator("//button[text()='Export']").last().click()
-     ])
-       const suggestedFileName = download.suggestedFilename()
-//        const filePath = 'Export' + suggestedFileName
-//        await download.saveAs(filePath)
-//        expect(existsSync(filePath)).toBeTruthy()
- }
- async verifyExportText(){
-       const ele = await this.page.frameLocator('iframe').locator("//button[text()='Export']").last()
-       expect(ele).toContainText("Export")
- }
- async inputsearchfield(){
-       await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").last().type("Rider Test")
-       const ele =  this.page.frameLocator('iframe').locator("//td[text()='Rider']").last()
-       expect(ele).toContainText("Rider")
-       const ele2 =  this.page.frameLocator('iframe').locator("//td[text()='Test']").last()
-       expect(ele2).toContainText("Test")
-       
-       
- }
- async varifyrowsperpageText(){
-       const ele = await this.page.frameLocator('iframe').locator("//p[text()='Rows per page:']").last()
-       expect(ele).toContainText("Rows per page:")
-        
- }
- async clickrowsperpageBtn(){
-        await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiTablePagination-select')]").click({force:true})
-        await this.page.waitForTimeout(1000)
-         await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiTablePagination-select')]").click({force:true})
-        await this.page.close()
- }    
- async verifyEditBtn(){
-        const editfield = await this.page.frameLocator('iframe').locator("//input[@type='string']").last()
-        await editfield.focus();
-        await this.page.keyboard.press("Meta+A");
-        await this.page.keyboard.press('Backspace');
-        await editfield.type("Auto")
- }
-async verifyPleasestarttheevent(){
-        const ele = await this.page.frameLocator('iframe').locator("//h4[text()='Please start the event']")
-        expect(ele).toContainText("Please start the event")
-}
-async ImageuploaderAlert() {
-        const filePath0 = "testData/images/main_banner.webp"
-        const [fileChooser] = await Promise.all([
-                // It is important to call waitForEvent before click to set up waiting.
-                this.page.waitForEvent('filechooser'),
-                // Opens the file chooser.
-                this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-        ]);
-        await fileChooser.setFiles([filePath0]);
-        
-        await this.page.waitForTimeout(1000)
-     this.page.on('dialog', async dialog => { 
-                
-                // verify message of alert
-                expect(dialog.message()).toContain('Error: Incorrect file extension');
-                await this.page.waitForTimeout(2000)
-                await dialog.accept();
-              })
-              await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
-
-}
-async clickRidernoscoreBtn(){
-        const ele = this.page.frameLocator('iframe').locator("//button[text()='No Score']")
-        expect(ele).toBeVisible()
-        await ele.click()
-}
-        
-async clickReRideBtn(){
-        const ele = this.page.frameLocator('iframe').locator("//button[text()='Re-Ride']")
-        expect(ele).toBeVisible()
-        await ele.click()
-}
-async clicktest1Event(){
-        const ele = this.page.frameLocator('iframe').locator("(//div[@isdisabled='true']//p)[2]")
-        expect(ele).toBeVisible()
-        await ele.click()
-
-}
-async verifyriderText(){
-        const ele = await this.page.frameLocator('iframe').locator("//p[text()='Riders']")
-        expect(ele).toContainText("Riders")
-}
-async verifyRidersnotyetaddedText(){
-        await this.page.waitForTimeout(1000)
-        const ele =  this.page.frameLocator('iframe').locator("//p[text()='Riders not yet added']").last()
-        expect(ele).toContainText('Riders not yet added')
-        await this.page.waitForTimeout(1000)
-        
-}
-// async clickSolidDropdowns(){
-//         //click for select option
-//         const ele =  this.page.frameLocator('iframe').locator('MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconStandard css-1du3utw')
-//         expect(ele).toBeVisible()
-//        await ele.click()
-//        //clickSolid
-//        const ele1 =  this.page.frameLocator('iframe').locator("//div[text()='Solid']")
-//        await ele1.click()
-// }
 
 
 
