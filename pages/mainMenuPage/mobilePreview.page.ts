@@ -183,7 +183,7 @@ export default class mobilePreviewPage {
        
        async clickLanguageSelectionInputField() {
               const btn = this.page.locator("div[role='button']");              
-              await btn.click({button:'left',delay:1000})
+              await btn.click({force:true})
               await this.page.waitForLoadState("networkidle");
        }
 
