@@ -68,7 +68,7 @@ export default class menuPage {
 
                 const ele = this.page.locator(this.menuPageElements.menuPage)
                 if (ele != null)
-                        await ele.click({ force: true });
+                        await ele.click({button:'left'});
                 else throw new Error("Menu Page Element Is Not Found")
 
                 await this.page.waitForLoadState("networkidle")
@@ -479,9 +479,9 @@ export default class menuPage {
 
         //click Bottom Alignment button
         async clickBottomAlignmentBtn() {
-                const ele = this.page.locator("//h5[text()='Bottom']")
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele = this.page.locator("//h5[text()='Bottom']//parent::button")
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
 
         }
 
