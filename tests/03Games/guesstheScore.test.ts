@@ -1784,7 +1784,7 @@ await test.step("now validate background color change is visible on mobile scree
     await guesstheScorePage.clickLiveBtn()
     await guesstheScorePage.clicksLiveGameOkBtn()
 })
-test.only("0013GTS-036 |Validate Button color successfully change from admin side",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-036 |Validate Button color successfully change from admin side",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1828,7 +1828,7 @@ await test.step("validate Admin can change background color change is visible on
 
 })
 
-test.only("0013GTS-037 |Validate button color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-037 |Validate button color change is visible on mobile screen",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
