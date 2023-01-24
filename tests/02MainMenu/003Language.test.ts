@@ -240,112 +240,112 @@ test("TL003-003 | Validate User Selectable Japanese Language Change Properly Sho
 })
 
 
-test("TL003-004 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+// test("TL003-004 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
+//     await test.step("Login Admin and Land to Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("click main menu button", async () => {
-        await MainMenu.mainMenuBtn();
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickHomeAvater();
+//     })
+//     await test.step("click main menu button", async () => {
+//         await MainMenu.mainMenuBtn();
 
-    })
-    await test.step("click mobile design ", async () => {
-        await MainMenu.clickMobileDesign();
-    })
+//     })
+//     await test.step("click mobile design ", async () => {
+//         await MainMenu.clickMobileDesign();
+//     })
 
-    await test.step("click language page", async () => {
-        await languagePage.clickLanguagePage();
-    })
+//     await test.step("click language page", async () => {
+//         await languagePage.clickLanguagePage();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserForceLanguageOption()
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickUserForceLanguageOption()
+//     })
 
-    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-        //Verify click on the user profile selectable input field
+//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+//         //Verify click on the user profile selectable input field
 
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectEnglishLanguage()
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectJapaneseLanguage()
-        await languagePage.verifyJapaneseLanguageSelectSuccessfully()
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectEnglishLanguage()
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectJapaneseLanguage()
+//         await languagePage.verifyJapaneseLanguageSelectSuccessfully()
 
-    })
-
-
-
-})
-test("TL003-005 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-            contentType: "image/png",
-            body: screenshot
-        })
+//     })
 
 
 
-    })
-    await test.step("Click Prize Drop Section", async () => {
+// })
+// test("TL003-005 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+//     await test.step("Login Admin And land To Home Screen", async () => {
 
-        //click Prize Drop Section
-        await guesstheScorePage.clickGuessTheScoreSection()
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
-    })
-
-    await test.step("now click on start button on Admin site", async () => {
-        // await prizeDropPage.clickstartbutton()
-
-        // await prizeDropPage.clickStartGameOkBtn()
-    })
-    let newTab = null;
-    let newmobilePreviewPage: mobilePreviewPage
-
-    await test.step("now open the game in mobile view", async () => {
-
-        //click Mobile Link Btn
-        await MainMenu.clickMobileLinkBtn()
-        //now click on open button
-        newTab = await MainMenu.clickMobileLinkOpenBtn()
-        newmobilePreviewPage = new mobilePreviewPage(newTab)
-        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-    })
-
-    await test.step("Input Additional Information For Mobile Screen", async () => {
-        await newmobilePreviewPage.typephoneno()
-        await newmobilePreviewPage.selectbirthdate()
-        await newmobilePreviewPage.typeAge()
-        await newmobilePreviewPage.typeemail()
-        await newmobilePreviewPage.typezip()
-        await newmobilePreviewPage.clicksubmit()
-    })
-
-    await test.step("Verify Spanish Language Applaid Successfully", async () => {
-        await newmobilePreviewPage.clickMyProfile()
-        await newmobilePreviewPage.clickOkBtn()
-        await newmobilePreviewPage.verifyJapaneseLanguageApplaidSuccessfully()
+//         const screenshot = await page.screenshot();
+//         await testInfo.attach("login screenshot", {
+//             contentType: "image/png",
+//             body: screenshot
+//         })
 
 
 
+//     })
+//     await test.step("Click Prize Drop Section", async () => {
 
-    })
+//         //click Prize Drop Section
+//         await guesstheScorePage.clickGuessTheScoreSection()
 
-})
+//     })
+
+//     await test.step("now click on start button on Admin site", async () => {
+//         // await prizeDropPage.clickstartbutton()
+
+//         // await prizeDropPage.clickStartGameOkBtn()
+//     })
+//     let newTab = null;
+//     let newmobilePreviewPage: mobilePreviewPage
+
+//     await test.step("now open the game in mobile view", async () => {
+
+//         //click Mobile Link Btn
+//         await MainMenu.clickMobileLinkBtn()
+//         //now click on open button
+//         newTab = await MainMenu.clickMobileLinkOpenBtn()
+//         newmobilePreviewPage = new mobilePreviewPage(newTab)
+//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
+//     })
+
+//     await test.step("Input Additional Information For Mobile Screen", async () => {
+//         await newmobilePreviewPage.typephoneno()
+//         await newmobilePreviewPage.selectbirthdate()
+//         await newmobilePreviewPage.typeAge()
+//         await newmobilePreviewPage.typeemail()
+//         await newmobilePreviewPage.typezip()
+//         await newmobilePreviewPage.clicksubmit()
+//     })
+
+//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
+//         await newmobilePreviewPage.clickMyProfile()
+//         await newmobilePreviewPage.clickOkBtn()
+//         await newmobilePreviewPage.verifyJapaneseLanguageApplaidSuccessfully()
+
+
+
+
+//     })
+
+// })
 
 
 test("TL003-006 | Validate User Selectable Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
@@ -487,109 +487,109 @@ test("TL003-007 | Validate User Selectable Spanish Language Change Properly Show
 })
 
 
-test("TL003-008 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+// test("TL003-008 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
+//     await test.step("Login Admin and Land to Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.mainMenuBtn();
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickHomeAvater();
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.mainMenuBtn();
 
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickMobileDesign();
-    })
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickMobileDesign();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickLanguagePage();
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickLanguagePage();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserForceLanguageOption()
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickUserForceLanguageOption()
+//     })
 
-    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-        //Verify click on the user profile selectable input field
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectSpanishLanguage()
-        await languagePage.verifySpanishLanguageText()
+//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+//         //Verify click on the user profile selectable input field
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectSpanishLanguage()
+//         await languagePage.verifySpanishLanguageText()
 
-    })
-
-
-
-})
-test("TL003-009 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-            contentType: "image/png",
-            body: screenshot
-        })
+//     })
 
 
 
-    })
-    await test.step("Click Prize Drop Section", async () => {
+// })
+// test("TL003-009 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
+//     await test.step("Login Admin And land To Home Screen", async () => {
 
-        //click Prize Drop Section
-        await guesstheScorePage.clickGuessTheScoreSection()
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
-    })
-
-    await test.step("now click on start button on Admin site", async () => {
-        // await prizeDropPage.clickstartbutton()
-
-        // await prizeDropPage.clickStartGameOkBtn()
-    })
-    let newTab = null;
-    let newmobilePreviewPage: mobilePreviewPage
-
-    await test.step("now open the game in mobile view", async () => {
-
-        //click Mobile Link Btn
-        await MainMenu.clickMobileLinkBtn()
-        //now click on open button
-        newTab = await MainMenu.clickMobileLinkOpenBtn()
-        newmobilePreviewPage = new mobilePreviewPage(newTab)
-        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-    })
-
-    await test.step("Input Additional Information For Mobile Screen", async () => {
-        await newmobilePreviewPage.typephoneno()
-        await newmobilePreviewPage.selectbirthdate()
-        await newmobilePreviewPage.typeAge()
-        await newmobilePreviewPage.typeemail()
-        await newmobilePreviewPage.typezip()
-        await newmobilePreviewPage.clicksubmit()
-    })
-
-    await test.step("Verify Spanish Language Applaid Successfully", async () => {
-        await newmobilePreviewPage.clickMyProfile()
-        await newmobilePreviewPage.clickOkBtn()
-        await newmobilePreviewPage.verifySpanishLanguageApplaidSuccessfully()
+//         const screenshot = await page.screenshot();
+//         await testInfo.attach("login screenshot", {
+//             contentType: "image/png",
+//             body: screenshot
+//         })
 
 
 
+//     })
+//     await test.step("Click Prize Drop Section", async () => {
 
-    })
+//         //click Prize Drop Section
+//         await guesstheScorePage.clickGuessTheScoreSection()
 
-})
+//     })
+
+//     await test.step("now click on start button on Admin site", async () => {
+//         // await prizeDropPage.clickstartbutton()
+
+//         // await prizeDropPage.clickStartGameOkBtn()
+//     })
+//     let newTab = null;
+//     let newmobilePreviewPage: mobilePreviewPage
+
+//     await test.step("now open the game in mobile view", async () => {
+
+//         //click Mobile Link Btn
+//         await MainMenu.clickMobileLinkBtn()
+//         //now click on open button
+//         newTab = await MainMenu.clickMobileLinkOpenBtn()
+//         newmobilePreviewPage = new mobilePreviewPage(newTab)
+//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
+//     })
+
+//     await test.step("Input Additional Information For Mobile Screen", async () => {
+//         await newmobilePreviewPage.typephoneno()
+//         await newmobilePreviewPage.selectbirthdate()
+//         await newmobilePreviewPage.typeAge()
+//         await newmobilePreviewPage.typeemail()
+//         await newmobilePreviewPage.typezip()
+//         await newmobilePreviewPage.clicksubmit()
+//     })
+
+//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
+//         await newmobilePreviewPage.clickMyProfile()
+//         await newmobilePreviewPage.clickOkBtn()
+//         await newmobilePreviewPage.verifySpanishLanguageApplaidSuccessfully()
+
+
+
+
+//     })
+
+// })
 
 
 test("TL003-010 | Validate User Selectable Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
@@ -733,110 +733,110 @@ test("TL003-011 | Validate User Selectable Arabic Language Change Properly Show 
 })
 
 
-test("TL003-012 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+// test("TL003-012 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
+//     await test.step("Login Admin and Land to Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.mainMenuBtn();
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickHomeAvater();
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.mainMenuBtn();
 
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickMobileDesign();
-    })
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickMobileDesign();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickLanguagePage();
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickLanguagePage();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserForceLanguageOption()
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickUserForceLanguageOption()
+//     })
 
-    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-        //Verify click on the user profile selectable input field
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectArabicLanguage()
-        await page.waitForLoadState("networkidle")
-
-
-    })
+//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+//         //Verify click on the user profile selectable input field
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectArabicLanguage()
+//         await page.waitForLoadState("networkidle")
 
 
-
-})
-test("TL003-013 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-            contentType: "image/png",
-            body: screenshot
-        })
+//     })
 
 
 
-    })
-    await test.step("Click Prize Drop Section", async () => {
+// })
+// test("TL003-013 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+//     await test.step("Login Admin And land To Home Screen", async () => {
 
-        //click Prize Drop Section
-        await guesstheScorePage.clickGuessTheScoreSection()
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
-    })
-
-    await test.step("now click on start button on Admin site", async () => {
-        // await prizeDropPage.clickstartbutton()
-
-        // await prizeDropPage.clickStartGameOkBtn()
-    })
-    let newTab = null;
-    let newmobilePreviewPage: mobilePreviewPage
-
-    await test.step("now open the game in mobile view", async () => {
-
-        //click Mobile Link Btn
-        await MainMenu.clickMobileLinkBtn()
-        //now click on open button
-        newTab = await MainMenu.clickMobileLinkOpenBtn()
-        newmobilePreviewPage = new mobilePreviewPage(newTab)
-        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-    })
-
-    await test.step("Input Additional Information For Mobile Screen", async () => {
-        await newmobilePreviewPage.typephoneno()
-        await newmobilePreviewPage.selectbirthdate()
-        await newmobilePreviewPage.typeAge()
-        await newmobilePreviewPage.typeemail()
-        await newmobilePreviewPage.typezip()
-        await newmobilePreviewPage.clicksubmit()
-    })
-
-    await test.step("Verify Spanish Language Applaid Successfully", async () => {
-        await newmobilePreviewPage.clickMyProfile()
-        await newmobilePreviewPage.clickOkBtn()
-        await newmobilePreviewPage.verifyArabicLanguageApplaidSuccessfully()
+//         const screenshot = await page.screenshot();
+//         await testInfo.attach("login screenshot", {
+//             contentType: "image/png",
+//             body: screenshot
+//         })
 
 
 
+//     })
+//     await test.step("Click Prize Drop Section", async () => {
 
-    })
+//         //click Prize Drop Section
+//         await guesstheScorePage.clickGuessTheScoreSection()
 
-})
+//     })
+
+//     await test.step("now click on start button on Admin site", async () => {
+//         // await prizeDropPage.clickstartbutton()
+
+//         // await prizeDropPage.clickStartGameOkBtn()
+//     })
+//     let newTab = null;
+//     let newmobilePreviewPage: mobilePreviewPage
+
+//     await test.step("now open the game in mobile view", async () => {
+
+//         //click Mobile Link Btn
+//         await MainMenu.clickMobileLinkBtn()
+//         //now click on open button
+//         newTab = await MainMenu.clickMobileLinkOpenBtn()
+//         newmobilePreviewPage = new mobilePreviewPage(newTab)
+//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
+//     })
+
+//     await test.step("Input Additional Information For Mobile Screen", async () => {
+//         await newmobilePreviewPage.typephoneno()
+//         await newmobilePreviewPage.selectbirthdate()
+//         await newmobilePreviewPage.typeAge()
+//         await newmobilePreviewPage.typeemail()
+//         await newmobilePreviewPage.typezip()
+//         await newmobilePreviewPage.clicksubmit()
+//     })
+
+//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
+//         await newmobilePreviewPage.clickMyProfile()
+//         await newmobilePreviewPage.clickOkBtn()
+//         await newmobilePreviewPage.verifyArabicLanguageApplaidSuccessfully()
+
+
+
+
+//     })
+
+// })
 
 test("TL003-014 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
@@ -980,112 +980,112 @@ test("TL003-015 | Validate User Selectable Russian Language Change Properly Show
 })
 
 
-test("TL003-016 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+// test("TL003-016 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
+//     await test.step("Login Admin and Land to Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.mainMenuBtn();
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickHomeAvater();
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.mainMenuBtn();
 
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickMobileDesign();
-    })
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickMobileDesign();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickLanguagePage();
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickLanguagePage();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserForceLanguageOption()
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickUserForceLanguageOption()
+//     })
 
-    await test.step("Verify Admin Select Profile flow Language", async () => {
-        //Verify click on the user profile selectable input field
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectRussianLanguage()
-        await languagePage.verifyRussianLanguageSuccessfullySelected()
+//     await test.step("Verify Admin Select Profile flow Language", async () => {
+//         //Verify click on the user profile selectable input field
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectRussianLanguage()
+//         await languagePage.verifyRussianLanguageSuccessfullySelected()
         
 
 
-    })
+//     })
 
 
 
-})
+// })
 
-test("TL003-017 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
+// test("TL003-017 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+//     await test.step("Login Admin And land To Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-            contentType: "image/png",
-            body: screenshot
-        })
-
-
-
-    })
-    await test.step("Click Prize Drop Section", async () => {
-
-        //click Prize Drop Section
-        await guesstheScorePage.clickGuessTheScoreSection()
-
-    })
-
-    await test.step("now click on start button on Admin site", async () => {
-        // await prizeDropPage.clickstartbutton()
-
-        // await prizeDropPage.clickStartGameOkBtn()
-    })
-    let newTab = null;
-    let newmobilePreviewPage: mobilePreviewPage
-
-    await test.step("now open the game in mobile view", async () => {
-
-        //click Mobile Link Btn
-        await MainMenu.clickMobileLinkBtn()
-        //now click on open button
-        newTab = await MainMenu.clickMobileLinkOpenBtn()
-        newmobilePreviewPage = new mobilePreviewPage(newTab)
-        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-    })
-
-    await test.step("Input Additional Information For Mobile Screen", async () => {
-        await newmobilePreviewPage.typephoneno()
-        await newmobilePreviewPage.selectbirthdate()
-        await newmobilePreviewPage.typeAge()
-        await newmobilePreviewPage.typeemail()
-        await newmobilePreviewPage.typezip()
-        await newmobilePreviewPage.clicksubmit()
-    })
-
-    await test.step("Verify Spanish Language Applaid Successfully", async () => {
-        await newmobilePreviewPage.clickMyProfile()
-        await newmobilePreviewPage.clickOkBtn()
-        await newmobilePreviewPage.verifyRussianLanguageApplaidSuccessfully()
+//         const screenshot = await page.screenshot();
+//         await testInfo.attach("login screenshot", {
+//             contentType: "image/png",
+//             body: screenshot
+//         })
 
 
 
+//     })
+//     await test.step("Click Prize Drop Section", async () => {
 
-    })
+//         //click Prize Drop Section
+//         await guesstheScorePage.clickGuessTheScoreSection()
 
-})
+//     })
+
+//     await test.step("now click on start button on Admin site", async () => {
+//         // await prizeDropPage.clickstartbutton()
+
+//         // await prizeDropPage.clickStartGameOkBtn()
+//     })
+//     let newTab = null;
+//     let newmobilePreviewPage: mobilePreviewPage
+
+//     await test.step("now open the game in mobile view", async () => {
+
+//         //click Mobile Link Btn
+//         await MainMenu.clickMobileLinkBtn()
+//         //now click on open button
+//         newTab = await MainMenu.clickMobileLinkOpenBtn()
+//         newmobilePreviewPage = new mobilePreviewPage(newTab)
+//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
+//     })
+
+//     await test.step("Input Additional Information For Mobile Screen", async () => {
+//         await newmobilePreviewPage.typephoneno()
+//         await newmobilePreviewPage.selectbirthdate()
+//         await newmobilePreviewPage.typeAge()
+//         await newmobilePreviewPage.typeemail()
+//         await newmobilePreviewPage.typezip()
+//         await newmobilePreviewPage.clicksubmit()
+//     })
+
+//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
+//         await newmobilePreviewPage.clickMyProfile()
+//         await newmobilePreviewPage.clickOkBtn()
+//         await newmobilePreviewPage.verifyRussianLanguageApplaidSuccessfully()
+
+
+
+
+//     })
+
+// })
 
 
 test("TL003-018 | Validate User Selectable Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
@@ -1208,111 +1208,111 @@ test("TL003-019 | Validate User Selectable Francias Language Change Properly Sho
 
 })
 
-test("TL003-020 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+// test("TL003-020 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
+//     await test.step("Login Admin and Land to Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.mainMenuBtn();
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickHomeAvater();
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.mainMenuBtn();
 
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickMobileDesign();
-    })
+//     })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await MainMenu.clickMobileDesign();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickLanguagePage();
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickLanguagePage();
+//     })
 
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserForceLanguageOption()
-    })
+//     await test.step("Login Admin and Land to Home Screen", async () => {
+//         await languagePage.clickUserForceLanguageOption()
+//     })
 
-    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-        //Verify click on the user profile selectable input field
-        await languagePage.clickForceLanguageInputField()
-        await languagePage.selectFranciasLanguage()
-        await page.waitForLoadState("networkidle")
-
-
-    })
+//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+//         //Verify click on the user profile selectable input field
+//         await languagePage.clickForceLanguageInputField()
+//         await languagePage.selectFranciasLanguage()
+//         await page.waitForLoadState("networkidle")
 
 
-
-})
-
-test("TL003-021 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-            contentType: "image/png",
-            body: screenshot
-        })
+//     })
 
 
 
-    })
-    await test.step("Click Prize Drop Section", async () => {
+// })
 
-        //click Prize Drop Section
-        await guesstheScorePage.clickGuessTheScoreSection()
+// test("TL003-021 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+//     await test.step("Login Admin And land To Home Screen", async () => {
 
-    })
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
-    await test.step("now click on start button on Admin site", async () => {
-        // await prizeDropPage.clickstartbutton()
-
-        // await prizeDropPage.clickStartGameOkBtn()
-    })
-    let newTab = null;
-    let newmobilePreviewPage: mobilePreviewPage
-
-    await test.step("now open the game in mobile view", async () => {
-
-        //click Mobile Link Btn
-        await MainMenu.clickMobileLinkBtn()
-        //now click on open button
-        newTab = await MainMenu.clickMobileLinkOpenBtn()
-        newmobilePreviewPage = new mobilePreviewPage(newTab)
-        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-    })
-
-    await test.step("Input Additional Information For Mobile Screen", async () => {
-        await newmobilePreviewPage.typephoneno()
-        await newmobilePreviewPage.selectbirthdate()
-        await newmobilePreviewPage.typeAge()
-        await newmobilePreviewPage.typeemail()
-        await newmobilePreviewPage.typezip()
-        await newmobilePreviewPage.clicksubmit()
-    })
-
-    await test.step("Verify Spanish Language Applaid Successfully", async () => {
-        await newmobilePreviewPage.clickMyProfile()
-        await newmobilePreviewPage.clickOkBtn()
-        await newmobilePreviewPage.verifyFranciasLanguageApplaidSuccessfully()
+//         const screenshot = await page.screenshot();
+//         await testInfo.attach("login screenshot", {
+//             contentType: "image/png",
+//             body: screenshot
+//         })
 
 
 
+//     })
+//     await test.step("Click Prize Drop Section", async () => {
 
-    })
+//         //click Prize Drop Section
+//         await guesstheScorePage.clickGuessTheScoreSection()
 
-})
+//     })
+
+//     await test.step("now click on start button on Admin site", async () => {
+//         // await prizeDropPage.clickstartbutton()
+
+//         // await prizeDropPage.clickStartGameOkBtn()
+//     })
+//     let newTab = null;
+//     let newmobilePreviewPage: mobilePreviewPage
+
+//     await test.step("now open the game in mobile view", async () => {
+
+//         //click Mobile Link Btn
+//         await MainMenu.clickMobileLinkBtn()
+//         //now click on open button
+//         newTab = await MainMenu.clickMobileLinkOpenBtn()
+//         newmobilePreviewPage = new mobilePreviewPage(newTab)
+//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
+//     })
+
+//     await test.step("Input Additional Information For Mobile Screen", async () => {
+//         await newmobilePreviewPage.typephoneno()
+//         await newmobilePreviewPage.selectbirthdate()
+//         await newmobilePreviewPage.typeAge()
+//         await newmobilePreviewPage.typeemail()
+//         await newmobilePreviewPage.typezip()
+//         await newmobilePreviewPage.clicksubmit()
+//     })
+
+//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
+//         await newmobilePreviewPage.clickMyProfile()
+//         await newmobilePreviewPage.clickOkBtn()
+//         await newmobilePreviewPage.verifyFranciasLanguageApplaidSuccessfully()
+
+
+
+
+//     })
+
+// })
 
 test("TL003-022 | Validate User Selectable English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
 
@@ -1430,6 +1430,547 @@ test("TL003-023 | Validate User Selectable English Language Change Properly Show
 
 })
 
+
+
+
+//Forced Language Section Start Here
+
+test("TL003-013 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("click main menu button", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("click mobile design ", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("click language page", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+    })
+
+    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectEnglishLanguage()
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectJapaneseLanguage()
+        await languagePage.verifyJapaneseLanguageSelectSuccessfully()
+
+    })
+
+
+
+})
+
+test("TL003-014 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+        })
+
+
+
+    })
+    await test.step("Click Prize Drop Section", async () => {
+
+        //click Prize Drop Section
+        await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("now click on start button on Admin site", async () => {
+        // await prizeDropPage.clickstartbutton()
+
+        // await prizeDropPage.clickStartGameOkBtn()
+    })
+    let newTab = null;
+    let newmobilePreviewPage: mobilePreviewPage
+
+    await test.step("now open the game in mobile view", async () => {
+
+        //click Mobile Link Btn
+        await MainMenu.clickMobileLinkBtn()
+        //now click on open button
+        newTab = await MainMenu.clickMobileLinkOpenBtn()
+        newmobilePreviewPage = new mobilePreviewPage(newTab)
+        // await MainMenu.click_closebutton_in_mobilelinkmodal()
+    })
+
+    await test.step("Input Additional Information For Mobile Screen", async () => {
+        await newmobilePreviewPage.typephoneno()
+        await newmobilePreviewPage.selectbirthdate()
+        await newmobilePreviewPage.typeAge()
+        await newmobilePreviewPage.typeemail()
+        await newmobilePreviewPage.typezip()
+        await newmobilePreviewPage.clicksubmit()
+    })
+
+    await test.step("Verify Spanish Language Applaid Successfully", async () => {
+        await newmobilePreviewPage.clickMyProfile()
+        await newmobilePreviewPage.clickOkBtn()
+        await newmobilePreviewPage.verifyJapaneseLanguageApplaidSuccessfully()
+
+
+
+
+    })
+
+})
+
+test("TL003-015 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+    })
+
+    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectSpanishLanguage()
+        await menuPage.clickMenuPage()
+        await languagePage.clickLanguagePage()
+        await page.waitForLoadState("networkidle")
+        await languagePage.verifySpanishLanguageText()
+
+    })
+
+
+
+})
+
+test("TL003-016 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+        })
+
+
+
+    })
+    await test.step("Click Prize Drop Section", async () => {
+
+        //click Prize Drop Section
+        await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("now click on start button on Admin site", async () => {
+        // await prizeDropPage.clickstartbutton()
+
+        // await prizeDropPage.clickStartGameOkBtn()
+    })
+    let newTab = null;
+    let newmobilePreviewPage: mobilePreviewPage
+
+    await test.step("now open the game in mobile view", async () => {
+
+        //click Mobile Link Btn
+        await MainMenu.clickMobileLinkBtn()
+        //now click on open button
+        newTab = await MainMenu.clickMobileLinkOpenBtn()
+        newmobilePreviewPage = new mobilePreviewPage(newTab)
+        // await MainMenu.click_closebutton_in_mobilelinkmodal()
+    })
+
+    await test.step("Input Additional Information For Mobile Screen", async () => {
+        await newmobilePreviewPage.typephoneno()
+        await newmobilePreviewPage.selectbirthdate()
+        await newmobilePreviewPage.typeAge()
+        await newmobilePreviewPage.typeemail()
+        await newmobilePreviewPage.typezip()
+        await newmobilePreviewPage.clicksubmit()
+    })
+
+    await test.step("Verify Spanish Language Applaid Successfully", async () => {
+        await newmobilePreviewPage.clickMyProfile()
+        await newmobilePreviewPage.clickOkBtn()
+        await newmobilePreviewPage.verifySpanishLanguageApplaidSuccessfully()
+
+
+
+
+    })
+
+})
+
+test("TL003-017 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+    })
+
+    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectArabicLanguage()
+        await page.waitForLoadState("networkidle")
+
+
+    })
+
+
+
+})
+
+test("TL003-018 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+        })
+
+
+
+    })
+    await test.step("Click Prize Drop Section", async () => {
+
+        //click Prize Drop Section
+        await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("now click on start button on Admin site", async () => {
+        // await prizeDropPage.clickstartbutton()
+
+        // await prizeDropPage.clickStartGameOkBtn()
+    })
+    let newTab = null;
+    let newmobilePreviewPage: mobilePreviewPage
+
+    await test.step("now open the game in mobile view", async () => {
+
+        //click Mobile Link Btn
+        await MainMenu.clickMobileLinkBtn()
+        //now click on open button
+        newTab = await MainMenu.clickMobileLinkOpenBtn()
+        newmobilePreviewPage = new mobilePreviewPage(newTab)
+        // await MainMenu.click_closebutton_in_mobilelinkmodal()
+    })
+
+    await test.step("Input Additional Information For Mobile Screen", async () => {
+        await newmobilePreviewPage.typephoneno()
+        await newmobilePreviewPage.selectbirthdate()
+        await newmobilePreviewPage.typeAge()
+        await newmobilePreviewPage.typeemail()
+        await newmobilePreviewPage.typezip()
+        await newmobilePreviewPage.clicksubmit()
+    })
+
+    await test.step("Verify Spanish Language Applaid Successfully", async () => {
+        await newmobilePreviewPage.clickMyProfile()
+        await newmobilePreviewPage.clickOkBtn()
+        await newmobilePreviewPage.verifyArabicLanguageApplaidSuccessfully()
+
+
+
+
+    })
+
+})
+
+
+test("TL003-019 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+    })
+
+    await test.step("Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectRussianLanguage()
+        await languagePage.verifyRussianLanguageSuccessfullySelected()
+        
+
+
+    })
+
+
+
+})
+
+test("TL003-020 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+        })
+
+
+
+    })
+    await test.step("Click Prize Drop Section", async () => {
+
+        //click Prize Drop Section
+        await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("now click on start button on Admin site", async () => {
+        // await prizeDropPage.clickstartbutton()
+
+        // await prizeDropPage.clickStartGameOkBtn()
+    })
+    let newTab = null;
+    let newmobilePreviewPage: mobilePreviewPage
+
+    await test.step("now open the game in mobile view", async () => {
+
+        //click Mobile Link Btn
+        await MainMenu.clickMobileLinkBtn()
+        //now click on open button
+        newTab = await MainMenu.clickMobileLinkOpenBtn()
+        newmobilePreviewPage = new mobilePreviewPage(newTab)
+        // await MainMenu.click_closebutton_in_mobilelinkmodal()
+    })
+
+    await test.step("Input Additional Information For Mobile Screen", async () => {
+        await newmobilePreviewPage.typephoneno()
+        await newmobilePreviewPage.selectbirthdate()
+        await newmobilePreviewPage.typeAge()
+        await newmobilePreviewPage.typeemail()
+        await newmobilePreviewPage.typezip()
+        await newmobilePreviewPage.clicksubmit()
+    })
+
+    await test.step("Verify Spanish Language Applaid Successfully", async () => {
+        await newmobilePreviewPage.clickMyProfile()
+        await newmobilePreviewPage.clickOkBtn()
+        await newmobilePreviewPage.verifyRussianLanguageApplaidSuccessfully()
+
+
+
+
+    })
+
+})
+
+test("TL003-021 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+    })
+
+    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectFranciasLanguage()
+        await page.waitForLoadState("networkidle")
+
+
+    })
+
+
+
+})
+
+test("TL003-022 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+        })
+
+
+
+    })
+    await test.step("Click Prize Drop Section", async () => {
+
+        //click Prize Drop Section
+        await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("now click on start button on Admin site", async () => {
+        // await prizeDropPage.clickstartbutton()
+
+        // await prizeDropPage.clickStartGameOkBtn()
+    })
+    let newTab = null;
+    let newmobilePreviewPage: mobilePreviewPage
+
+    await test.step("now open the game in mobile view", async () => {
+
+        //click Mobile Link Btn
+        await MainMenu.clickMobileLinkBtn()
+        //now click on open button
+        newTab = await MainMenu.clickMobileLinkOpenBtn()
+        newmobilePreviewPage = new mobilePreviewPage(newTab)
+        // await MainMenu.click_closebutton_in_mobilelinkmodal()
+    })
+
+    await test.step("Input Additional Information For Mobile Screen", async () => {
+        await newmobilePreviewPage.typephoneno()
+        await newmobilePreviewPage.selectbirthdate()
+        await newmobilePreviewPage.typeAge()
+        await newmobilePreviewPage.typeemail()
+        await newmobilePreviewPage.typezip()
+        await newmobilePreviewPage.clicksubmit()
+    })
+
+    await test.step("Verify Spanish Language Applaid Successfully", async () => {
+        await newmobilePreviewPage.clickMyProfile()
+        await newmobilePreviewPage.clickOkBtn()
+        await newmobilePreviewPage.verifyFranciasLanguageApplaidSuccessfully()
+
+
+
+
+    })
+
+})
+
 test("TL003-024 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
@@ -1535,545 +2076,6 @@ test("TL003-025 | Validate Forced Language English Language Change Properly Show
     })
 
 })
-
-
-//Forced Language Section Start Here
-
-// test.skip("TL003-013 | Validate Forced Language Japanese Language Change Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickHomeAvater();
-//     })
-//     await test.step("click main menu button", async () => {
-//         await MainMenu.mainMenuBtn();
-
-//     })
-//     await test.step("click mobile design ", async () => {
-//         await MainMenu.clickMobileDesign();
-//     })
-
-//     await test.step("click language page", async () => {
-//         await languagePage.clickLanguagePage();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickUserForceLanguageOption()
-//     })
-
-//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-//         //Verify click on the user profile selectable input field
-
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectEnglishLanguage()
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectJapaneseLanguage()
-//         await languagePage.verifyJapaneseLanguageSelectSuccessfully()
-
-//     })
-
-
-
-// })
-
-// test.skip("TL003-014 | Validate Forced Language Japanese Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-//     await test.step("Login Admin And land To Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         const screenshot = await page.screenshot();
-//         await testInfo.attach("login screenshot", {
-//             contentType: "image/png",
-//             body: screenshot
-//         })
-
-
-
-//     })
-//     await test.step("Click Prize Drop Section", async () => {
-
-//         //click Prize Drop Section
-//         await guesstheScorePage.clickGuessTheScoreSection()
-
-//     })
-
-//     await test.step("now click on start button on Admin site", async () => {
-//         // await prizeDropPage.clickstartbutton()
-
-//         // await prizeDropPage.clickStartGameOkBtn()
-//     })
-//     let newTab = null;
-//     let newmobilePreviewPage: mobilePreviewPage
-
-//     await test.step("now open the game in mobile view", async () => {
-
-//         //click Mobile Link Btn
-//         await MainMenu.clickMobileLinkBtn()
-//         //now click on open button
-//         newTab = await MainMenu.clickMobileLinkOpenBtn()
-//         newmobilePreviewPage = new mobilePreviewPage(newTab)
-//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
-//     })
-
-//     await test.step("Input Additional Information For Mobile Screen", async () => {
-//         await newmobilePreviewPage.typephoneno()
-//         await newmobilePreviewPage.selectbirthdate()
-//         await newmobilePreviewPage.typeAge()
-//         await newmobilePreviewPage.typeemail()
-//         await newmobilePreviewPage.typezip()
-//         await newmobilePreviewPage.clicksubmit()
-//     })
-
-//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
-//         await newmobilePreviewPage.clickMyProfile()
-//         await newmobilePreviewPage.clickOkBtn()
-//         await newmobilePreviewPage.verifyJapaneseLanguageApplaidSuccessfully()
-
-
-
-
-//     })
-
-// })
-
-// test.skip("TL003-015 | Validate Forced Language Spanish Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickHomeAvater();
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.mainMenuBtn();
-
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickMobileDesign();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickLanguagePage();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickUserForceLanguageOption()
-//     })
-
-//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-//         //Verify click on the user profile selectable input field
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectSpanishLanguage()
-//         await menuPage.clickMenuPage()
-//         await languagePage.clickLanguagePage()
-//         await page.waitForLoadState("networkidle")
-//         await languagePage.verifySpanishLanguageText()
-
-//     })
-
-
-
-// })
-
-// test.skip("TL003-016 | Validate Forced Language Spanish Language Change Properly Show in Mobile Screen", async ({ loginPage, MainMenu, guesstheScorePage, prizeDropPage, functions, page, }, testInfo) => {
-//     await test.step("Login Admin And land To Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         const screenshot = await page.screenshot();
-//         await testInfo.attach("login screenshot", {
-//             contentType: "image/png",
-//             body: screenshot
-//         })
-
-
-
-//     })
-//     await test.step("Click Prize Drop Section", async () => {
-
-//         //click Prize Drop Section
-//         await guesstheScorePage.clickGuessTheScoreSection()
-
-//     })
-
-//     await test.step("now click on start button on Admin site", async () => {
-//         // await prizeDropPage.clickstartbutton()
-
-//         // await prizeDropPage.clickStartGameOkBtn()
-//     })
-//     let newTab = null;
-//     let newmobilePreviewPage: mobilePreviewPage
-
-//     await test.step("now open the game in mobile view", async () => {
-
-//         //click Mobile Link Btn
-//         await MainMenu.clickMobileLinkBtn()
-//         //now click on open button
-//         newTab = await MainMenu.clickMobileLinkOpenBtn()
-//         newmobilePreviewPage = new mobilePreviewPage(newTab)
-//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
-//     })
-
-//     await test.step("Input Additional Information For Mobile Screen", async () => {
-//         await newmobilePreviewPage.typephoneno()
-//         await newmobilePreviewPage.selectbirthdate()
-//         await newmobilePreviewPage.typeAge()
-//         await newmobilePreviewPage.typeemail()
-//         await newmobilePreviewPage.typezip()
-//         await newmobilePreviewPage.clicksubmit()
-//     })
-
-//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
-//         await newmobilePreviewPage.clickMyProfile()
-//         await newmobilePreviewPage.clickOkBtn()
-//         await newmobilePreviewPage.verifySpanishLanguageApplaidSuccessfully()
-
-
-
-
-//     })
-
-// })
-
-// test.skip("TL003-017 | Validate Forced Language Arabic Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickHomeAvater();
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.mainMenuBtn();
-
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickMobileDesign();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickLanguagePage();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickUserForceLanguageOption()
-//     })
-
-//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-//         //Verify click on the user profile selectable input field
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectArabicLanguage()
-//         await page.waitForLoadState("networkidle")
-
-
-//     })
-
-
-
-// })
-
-// test.skip("TL003-018 | Validate Forced Language Arabic Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-//     await test.step("Login Admin And land To Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         const screenshot = await page.screenshot();
-//         await testInfo.attach("login screenshot", {
-//             contentType: "image/png",
-//             body: screenshot
-//         })
-
-
-
-//     })
-//     await test.step("Click Prize Drop Section", async () => {
-
-//         //click Prize Drop Section
-//         await guesstheScorePage.clickGuessTheScoreSection()
-
-//     })
-
-//     await test.step("now click on start button on Admin site", async () => {
-//         // await prizeDropPage.clickstartbutton()
-
-//         // await prizeDropPage.clickStartGameOkBtn()
-//     })
-//     let newTab = null;
-//     let newmobilePreviewPage: mobilePreviewPage
-
-//     await test.step("now open the game in mobile view", async () => {
-
-//         //click Mobile Link Btn
-//         await MainMenu.clickMobileLinkBtn()
-//         //now click on open button
-//         newTab = await MainMenu.clickMobileLinkOpenBtn()
-//         newmobilePreviewPage = new mobilePreviewPage(newTab)
-//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
-//     })
-
-//     await test.step("Input Additional Information For Mobile Screen", async () => {
-//         await newmobilePreviewPage.typephoneno()
-//         await newmobilePreviewPage.selectbirthdate()
-//         await newmobilePreviewPage.typeAge()
-//         await newmobilePreviewPage.typeemail()
-//         await newmobilePreviewPage.typezip()
-//         await newmobilePreviewPage.clicksubmit()
-//     })
-
-//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
-//         await newmobilePreviewPage.clickMyProfile()
-//         await newmobilePreviewPage.clickOkBtn()
-//         await newmobilePreviewPage.verifyArabicLanguageApplaidSuccessfully()
-
-
-
-
-//     })
-
-// })
-
-
-// test.skip("TL003-019 | Validate Forced Language Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickHomeAvater();
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.mainMenuBtn();
-
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickMobileDesign();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickLanguagePage();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickUserForceLanguageOption()
-//     })
-
-//     await test.step("Verify Admin Select Profile flow Language", async () => {
-//         //Verify click on the user profile selectable input field
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectRussianLanguage()
-//         await languagePage.verifyRussianLanguageSuccessfullySelected()
-        
-
-
-//     })
-
-
-
-// })
-
-// test.skip("TL003-020 | Validate Forced Language Russian Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-//     await test.step("Login Admin And land To Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         const screenshot = await page.screenshot();
-//         await testInfo.attach("login screenshot", {
-//             contentType: "image/png",
-//             body: screenshot
-//         })
-
-
-
-//     })
-//     await test.step("Click Prize Drop Section", async () => {
-
-//         //click Prize Drop Section
-//         await guesstheScorePage.clickGuessTheScoreSection()
-
-//     })
-
-//     await test.step("now click on start button on Admin site", async () => {
-//         // await prizeDropPage.clickstartbutton()
-
-//         // await prizeDropPage.clickStartGameOkBtn()
-//     })
-//     let newTab = null;
-//     let newmobilePreviewPage: mobilePreviewPage
-
-//     await test.step("now open the game in mobile view", async () => {
-
-//         //click Mobile Link Btn
-//         await MainMenu.clickMobileLinkBtn()
-//         //now click on open button
-//         newTab = await MainMenu.clickMobileLinkOpenBtn()
-//         newmobilePreviewPage = new mobilePreviewPage(newTab)
-//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
-//     })
-
-//     await test.step("Input Additional Information For Mobile Screen", async () => {
-//         await newmobilePreviewPage.typephoneno()
-//         await newmobilePreviewPage.selectbirthdate()
-//         await newmobilePreviewPage.typeAge()
-//         await newmobilePreviewPage.typeemail()
-//         await newmobilePreviewPage.typezip()
-//         await newmobilePreviewPage.clicksubmit()
-//     })
-
-//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
-//         await newmobilePreviewPage.clickMyProfile()
-//         await newmobilePreviewPage.clickOkBtn()
-//         await newmobilePreviewPage.verifyRussianLanguageApplaidSuccessfully()
-
-
-
-
-//     })
-
-// })
-
-// test.skip("TL003-021 | Validate Forced Language Francias Language Change Functionality Working Properly on Admin Side", async ({ loginPage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickHomeAvater();
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.mainMenuBtn();
-
-//     })
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await MainMenu.clickMobileDesign();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickLanguagePage();
-//     })
-
-//     await test.step("Login Admin and Land to Home Screen", async () => {
-//         await languagePage.clickUserForceLanguageOption()
-//     })
-
-//     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-//         //Verify click on the user profile selectable input field
-//         await languagePage.clickForceLanguageInputField()
-//         await languagePage.selectFranciasLanguage()
-//         await page.waitForLoadState("networkidle")
-
-
-//     })
-
-
-
-// })
-
-// test.skip("TL003-022 | Validate Forced Language Francias Language Change Properly Show in Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-//     await test.step("Login Admin And land To Home Screen", async () => {
-
-//         await page.goto('/admin/#/sign-in')
-//         await loginPage.login(data.username, data.password)
-//         const title = await page.title();
-//         expect(title).toBe('DXP Admin')
-
-//         const screenshot = await page.screenshot();
-//         await testInfo.attach("login screenshot", {
-//             contentType: "image/png",
-//             body: screenshot
-//         })
-
-
-
-//     })
-//     await test.step("Click Prize Drop Section", async () => {
-
-//         //click Prize Drop Section
-//         await guesstheScorePage.clickGuessTheScoreSection()
-
-//     })
-
-//     await test.step("now click on start button on Admin site", async () => {
-//         // await prizeDropPage.clickstartbutton()
-
-//         // await prizeDropPage.clickStartGameOkBtn()
-//     })
-//     let newTab = null;
-//     let newmobilePreviewPage: mobilePreviewPage
-
-//     await test.step("now open the game in mobile view", async () => {
-
-//         //click Mobile Link Btn
-//         await MainMenu.clickMobileLinkBtn()
-//         //now click on open button
-//         newTab = await MainMenu.clickMobileLinkOpenBtn()
-//         newmobilePreviewPage = new mobilePreviewPage(newTab)
-//         // await MainMenu.click_closebutton_in_mobilelinkmodal()
-//     })
-
-//     await test.step("Input Additional Information For Mobile Screen", async () => {
-//         await newmobilePreviewPage.typephoneno()
-//         await newmobilePreviewPage.selectbirthdate()
-//         await newmobilePreviewPage.typeAge()
-//         await newmobilePreviewPage.typeemail()
-//         await newmobilePreviewPage.typezip()
-//         await newmobilePreviewPage.clicksubmit()
-//     })
-
-//     await test.step("Verify Spanish Language Applaid Successfully", async () => {
-//         await newmobilePreviewPage.clickMyProfile()
-//         await newmobilePreviewPage.clickOkBtn()
-//         await newmobilePreviewPage.verifyFranciasLanguageApplaidSuccessfully()
-
-
-
-
-//     })
-
-// })
 
 
 
