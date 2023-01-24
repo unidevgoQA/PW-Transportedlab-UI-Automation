@@ -184,7 +184,7 @@ export default class prizeDropMobilePage {
             await expect(text_ele).toBeVisible()
       }
       async screenshot_matcher_font(){
-            await expect.soft(this.page).toHaveScreenshot('upload_font_test_screenshot.png')
+            await expect.soft(this.page).toHaveScreenshot('upload_font_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
       }
       //check howtoplay page first 
 

@@ -920,6 +920,10 @@ export default class prizeDropPage {
 
         }
 
+        async click_delete_button_added_banner(){
+                await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-up2ccm"]').click()
+        }
+
         async verifyMarketingMassageText() {
                 const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Marketing Message']")
                 expect(ele).toContainText("Marketing Message")
@@ -971,6 +975,11 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('iframe').locator('//td[text()="10"]')
                 await expect(ele).toBeVisible()
         }
+        async verify_awardall_button(){
+                const ele = this.page.frameLocator('iframe').locator('//button[text()="Award All"]')
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
+        }
 
         async clickAddNewPrizeBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Award All']/following-sibling::button")
@@ -985,6 +994,12 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('iframe').locator("//button[text()='Award All']/following-sibling::button")
                 await expect(ele).toBeVisible()
                 
+        }
+        async click_edit_prize_button(){
+                const back=this.page.frameLocator('iframe').locator('//button[text()="Edit"]').last()
+                await expect(back).toBeVisible()
+                await back.click({button:'left'})      
+
         }
 
         async inputCouponName() {
@@ -1051,7 +1066,7 @@ export default class prizeDropPage {
 
 
         async clickAnalyticsSection() {
-                await this.page.frameLocator('iframe').locator("//p[text()='Analytics']").last().click({force:true})
+                await this.page.frameLocator('iframe').locator("//p[text()='Analytics']").first().click({button:'left'})
 
         }
 
@@ -1070,10 +1085,21 @@ export default class prizeDropPage {
 
         async downloadAnlytics() {
                 // Click text=Export 
+               
                 const [download] = await Promise.all([
                         this.page.waitForEvent('download'),
-                        this.page.frameLocator('iframe').locator("(//button[text()='Export'])[1]").click()
-                ]);
+                        this.page.frameLocator('iframe').locator('//button[text()="Export"]').first().click({button:'left'})
+             ])
+               const suggestedFileName = download.suggestedFilename()
+               const filePath = 'Prize_drop_analytics_data_from_test_automation' + suggestedFileName
+               await download.saveAs(filePath)
+                expect(existsSync(filePath)).toBeTruthy()
+        }
+
+        async click_date_header(){
+              const date_header= this.page.frameLocator('iframe').locator('//span[text()="Date"]')
+              await expect(date_header).toBeVisible()
+              await date_header.dblclick({button:'left',delay:500})  
         }
 
 

@@ -22,7 +22,8 @@ export default class functions {
         }
 
         async select_font(){
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]').click({button:'left'})
+                const font_ele= this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]').last()
+                await font_ele.click({button:'left'})
         }
 
         async delete_font(){

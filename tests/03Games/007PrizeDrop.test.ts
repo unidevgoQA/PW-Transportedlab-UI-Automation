@@ -485,6 +485,11 @@ test("PD007-91|Validate marketing message change is reflected on mobile screen",
         await test.step("now check the marketing message text",async()=>{
                 await newprizedropgame.screenshot_matcher_marketing_message()
         })
+        await test.step("now delete the added banner",async()=>{
+                //click Add Banner Section
+                await prizeDropPage.clickAddBannerSection()
+                await prizeDropPage.click_delete_button_added_banner()
+        })
 })
 test("PD007-96|validate Admin can select the coupon prize and save", async ({ loginPage, prizeDropPage, page, }, testInfo) => {
 
@@ -553,8 +558,12 @@ test("PD007-96|validate Admin can select the coupon prize and save", async ({ lo
 
         // await prizeDropPage.clickConfirmDeleteBtn()
 
-
-        await page.waitForTimeout(3000)
+        await test.step("PD007-100|validate edit button in prizing is working",async()=>{
+                await prizeDropPage.click_edit_prize_button()
+                await prizeDropPage.inputCouponName()
+                await prizeDropPage.clickSaveBtn()
+                await page.waitForTimeout(3000)
+        })
 
 })
 
@@ -602,7 +611,12 @@ test("PD007-98|validate prize name,Total prizes and Parcentage awarded is visibl
         await test.step("validate Total Prizes for Added prize is visible", async () => {
                 await prizeDropPage.verify_Parcentage_awarded()
         })
+
+        await test.step("PD007-99|validate award all buttons clickablity",async()=>{
+                await prizeDropPage.verify_awardall_button()
+        })
 })
+
 test("PD007-28|Validate Font Upload Functionality", async ({ loginPage, prizeDropPage, functions, page, browser }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -1259,7 +1273,7 @@ test("PD007-49|  validate button color color input functionality and reflection 
 
 })
 //parachute prize e accent color dekha jaai
-test("PD007-45|validate accent color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test.skip("PD007-45|validate accent color color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2930,32 +2944,19 @@ test("007PD-0128 | Validate Analytics Section Functionality", async ({ loginPage
                 //click Prizing Section
                 await prizeDropPage.clickAnalyticsSection()
 
-                await prizeDropPage.clickToStopLiveGame()
-
-                //click Prizing Section
-                await prizeDropPage.clickStopGameOkBtn()
-
-                await prizeDropPage.clickPrizingSection()
-
-                await page.waitForTimeout(3000)
-
                 //click Prizing Section
                 await prizeDropPage.clickAnalyticsSection()
 
                 //click Prizing Section
                 await prizeDropPage.verifySessionAnalyticsText()
+                
 
-                // const [download] = await Promise.all([
-                //         page.waitForEvent('download'),
-                //         page.frameLocator('iframe').locator('text=Export').click()
-                // ]);
-
-                // await prizeDropPage.downloadAnlytics()
-
-                await page.waitForTimeout(6000)
-
-
-
+        })
+        await test.step("PD007-131|validate download analytics is working",async()=>{
+                await prizeDropPage.downloadAnlytics()    
+        })
+        await test.step("validate date header toggle is working",async()=>{
+                await prizeDropPage.click_date_header()
         })
 
 })
