@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
     // "012Trivia.test.ts",
-    "guesstheScore.test.ts",
+    // "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
 
@@ -49,7 +49,7 @@ const config: PlaywrightTestConfig = {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  // globalTeardown: require.resolve("./mailer.js"),
+  globalTeardown: require.resolve("./mailer.js"),
 
 
 

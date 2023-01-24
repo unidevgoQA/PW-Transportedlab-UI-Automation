@@ -144,7 +144,13 @@ export default class languagePage {
         async selectFranciasLanguage() {
                 const ele = this.page.locator("//li[text()='Francias']");
                 expect(ele).toBeVisible()
-                await ele.click({ force: true })
+                await ele.click({button:'left',delay:1000})
+        }
+
+        async clickOutSideOfLanguageSelectionModal() {
+                const ele = this.page.locator("//div[@id='menu-']//div[1]");
+                expect(ele).toBeVisible()
+                await ele.click({button:'left',delay:1000})
         }
 
         //select language type Russian

@@ -164,6 +164,7 @@ export default class mobilePreviewPage {
               expect(btn).toBeVisible()
               await btn.click({ force: true })           
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -303,6 +304,7 @@ export default class mobilePreviewPage {
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
 
 
 
@@ -374,6 +376,14 @@ export default class mobilePreviewPage {
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("MenuBar_HideAlignment_UI.png") 
+
+       }
+
+       async verifyMenuBarHideAlignmentSuccessfullyAppliedOnMobileScreen() {
+
+              const btn = this.page.locator("//p[text()='HOME']")
+              expect(btn).toBeHidden()              
+              await this.page.waitForLoadState('domcontentloaded');
 
        }
 

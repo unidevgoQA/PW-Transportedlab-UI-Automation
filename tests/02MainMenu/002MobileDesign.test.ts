@@ -6,6 +6,55 @@ import { readFileSync } from 'fs'
 const clipboard = require('clipboardy')
 
 
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+
+
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        await MainMenu.clickHomeAvater();
+        await MainMenu.mainMenuBtn();
+        await MainMenu.clickMobileDesign();
+
+        //Click on the menu page
+        await menuPage.clickMenuPage()
+        //verify font text
+        await menuPage.checkFontsText();
+
+        //Verify upload font text
+        await menuPage.checkUploadFontText();
+
+        await menuPage.deleteUploadedFont()
+
+        await functions.fontUploadFunction()
+        await menuPage.clickToUploadFont()
+        await menuPage.verifyFontUploadedSuccessfully()        
+
+        await menuPage.clickBackgroundColorInputField()
+        await menuPage.inputBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+        await menuPage.clickTextColorInputField()
+        await menuPage.inputTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+
+        await menuPage.clickActiveBackgroundColorInputField()
+        await menuPage.inputActiveBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+
+        await menuPage.clickActiveTextColorInputField()
+        await menuPage.inputActiveTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+
+        await menuPage.selectBottomAlignmentMenuBar()
+
+})
 
 test("MD002-001 | Validate Font upload functionality", async ({ loginPage, MainMenu, page }) => {
 
