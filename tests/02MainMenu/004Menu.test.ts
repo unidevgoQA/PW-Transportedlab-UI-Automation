@@ -737,7 +737,7 @@ test("004M-017 | Validate  Menu Bar  Hide Alignment Successfully Applied in Mobi
                 // await newmobilePreviewPage.clickHowToPlayBtn()
                 // await newmobilePreviewPage.clickPrizeSection()
                 // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
-                await newmobilePreviewPage.verifyMenuBarHideAlignmentSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.verifyMenuBarHideAlignmentSuccessfullyAppliedOnMobileScreen()
 
         })
 

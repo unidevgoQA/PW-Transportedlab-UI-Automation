@@ -63,7 +63,6 @@ export default class menuPage {
                 if (ele != null)
                         await ele.click({button:'left'});
                 else throw new Error("Menu Page Element Is Not Found")
-
                 await this.page.waitForLoadState("networkidle")
         }
 
@@ -86,7 +85,9 @@ export default class menuPage {
                 }
                 else throw new Error("Main Menu Font Upload Element Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(3000)
+
+                // await this.page.waitForLoadState("networkidle")
         }
 
         async verifyUploadFontText() {

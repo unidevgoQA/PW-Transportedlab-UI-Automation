@@ -754,7 +754,7 @@ export default class guesstheScorePage {
 
 
         async clickriderroster() {
-                await this.page.frameLocator('iframe').locator("//h6[text()='test_by_Automation']/parent::div/following-sibling::div//div//div//p[text()='Rider Roster']").click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Rider Roster']").last().click()
         }
         async clickaddriderbutton() {
                 await this.page.waitForTimeout(1000)
@@ -864,7 +864,7 @@ export default class guesstheScorePage {
         // game settings
 
         async clickgamesettings() {
-                await this.page.frameLocator('iframe').locator("//h6[text()='test_by_Automation']/parent::div/following-sibling::div//div//div//p[text()='Game Settings']").click()
+                await this.page.frameLocator('iframe').locator("//p[text()='Game Settings']").last().click()
         }
 
         async typeincorrectguesscore() {
@@ -886,7 +886,7 @@ export default class guesstheScorePage {
         //edit section
 
         async clickeditsection() {
-                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Auto']/parent::div/following-sibling::div//div//div//p[text()='Edit']")
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Edit']").last()
                 expect(ele).toBeVisible()
                 await ele.click()
         }
@@ -917,8 +917,8 @@ export default class guesstheScorePage {
                 await expect(ele).toBeVisible()
         }
         async verifynewConfigrationText() {
-                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Auto']")
-                expect(ele).toContainText('Auto')
+                const ele = this.page.frameLocator('iframe').locator("//h6[text()='Default']")
+                expect(ele).toContainText('Default')
         }
         async verifyStartBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Start']").last()

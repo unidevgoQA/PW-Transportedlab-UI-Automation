@@ -40,7 +40,8 @@ export default class MobileDesign {
         const ele = this.page.locator('text=Mobile Design')
         expect(ele).toContainText('Mobile Design')
         await ele.click()
-        await this.page.waitForLoadState('domcontentloaded');
+        await this.page.waitForLoadState("networkidle");
+        await this.page.waitForTimeout(2000)
     }
 
     async mobileDesign() {
@@ -661,24 +662,33 @@ export default class MobileDesign {
 
     async deleteUploadedLandscapeBG() {
 
-        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
-        if ((ele == true)) {
+        // let ele = await this.page.locator("//button[@aria-label='Delete']").isVisible()
+        // if ((ele == true)) {
+        //     // console.log("delete Uploaded Landscape BG ")
+        //     await this.page
+        //         .locator("//button[@aria-label='Delete']")
+        //         .click()
+        // }
+        // await this.page.waitForLoadState("networkidle")
+
+        let deleteBtn = await this.page.locator("(//button[@aria-label='Delete'])[5]").isVisible()
+
+        if ((deleteBtn == true)) {
             // console.log("delete Uploaded Landscape BG ")
             await this.page
-                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .locator("(//button[@aria-label='Delete'])[5]")
                 .click()
         }
-        await this.page.waitForLoadState("networkidle")
 
 
     }
     async deleteUploadedPortraitBG() {
 
-        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        let ele = await this.page.locator("(//button[@aria-label='Delete'])[4]").isVisible()
         if ((ele == true)) {
             // console.log("delete Uploaded Portrait BG ")
             await this.page
-                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .locator("(//button[@aria-label='Delete'])[4]")
                 .click({ force: true })
         }
 
@@ -689,11 +699,11 @@ export default class MobileDesign {
 
     async deleteUploadedLandscapeBGHeader() {
 
-        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        let ele = await this.page.locator("(//button[@aria-label='Delete'])[3]").isVisible()
         if ((ele == true)) {
             // console.log("delete Uploaded Landscape BG Header ")
             await this.page
-                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .locator("(//button[@aria-label='Delete'])[3]")
                 .click({ force: true })
         }
 
@@ -704,11 +714,11 @@ export default class MobileDesign {
 
     async deleteUploadedPortraitBGHeader() {
 
-        let ele = await this.page.locator("(//div[@class='MuiBox-root css-1tejaop'])[1]").isVisible()
+        let ele = await this.page.locator("(//button[@aria-label='Delete'])[2]").isVisible()
         if ((ele == true)) {
             // console.log("delete Uploaded Portrait BG Header ")
             await this.page
-                .locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                .locator("(//button[@aria-label='Delete'])[2]")
                 .click()
         }
 
@@ -720,10 +730,10 @@ export default class MobileDesign {
 
     async deleteUploadedMainLogo() {
 
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-8eu9qp']//button)[2]").isVisible()
+        const ele = await this.page.locator("(//button[@aria-label='Delete'])[1]").isVisible()
         if ((ele == true)) {
             // console.log("delete Uploaded Portrait BG Header ")
-            await this.page.locator("(//div[@class='MuiBox-root css-8eu9qp']//button)[2]")
+            await this.page.locator("(//button[@aria-label='Delete'])[1]")
                 .click()
         }
 

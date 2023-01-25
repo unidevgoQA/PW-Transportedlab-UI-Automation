@@ -21,6 +21,15 @@ export default class functions {
                 })
         }
 
+        
+
+        async uploadJsonFile() {
+                const filePath0 = "testData/Riders.json"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+        }
+
         async select_font(){
                 const font_ele= this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]').last()
                 await font_ele.click({button:'left'})
