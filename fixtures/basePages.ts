@@ -17,6 +17,7 @@ import BaseFunctions from "@base-function/baseFunctions";
 import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import mobilePreviewPage from "@pages/mobilePreview.page";
+import triviaMobilePage from "@pages/trivia_mobile_game.page";
 
 
 

@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { readFileSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 export default class triviaPage {
         // [x: string]: any;
 
@@ -38,7 +38,19 @@ export default class triviaPage {
                 newConfigrationText : '//p[text()="New Configuration"]',
                 cancelConfigration : "//button[text()='CANCEL']",
                 withoutdata : "(//div[@class='MuiDialogContent-root css-3n2qrj'])[2]",
-                lessthanzthreeChracterdata : "//p[text()='Please input more than 3 characters']"
+                //lessthanzthreeChracterdata : "//p[text()='Please input more than 3 characters']",
+                startBtn : "//button[text()='Start']",
+                okBtn : "//button[text()='Ok']",
+                RounderrorMessage: '//div[@class="MuiDialogContent-root css-3n2qrj"]',
+                mobileLinkBtn : '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]',
+                MobileLinkPopupClose : "//div[@class='MuiBox-root css-1xnxzwa']",
+                mobileLinkText: "//h2[text()='Mobile Link']",
+                mobileLinkOpenBtn: '//a[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]',
+                mobileLinkCopyBtn : "//button[@aria-label='Copy Link']",
+                errorMessageIfCongigrationfieldIsBlank:"//p[text()='Please input more than 3 characters']",
+                mobileLinkQRCode: '//div[@class="MuiDialogContent-root css-9tte1s"]',
+                saveQRCode : "//button[text()='Save QR Code']",
+                copyQRcodeBtn: "//button[text()='Copy QR Code']",
 
         }
 
@@ -425,7 +437,104 @@ export default class triviaPage {
         }
        
  
+async clickStartBtn(){
+        const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn)
+        if(ele != null){
+            expect(ele.first()).toBeVisible()
+            await ele.first().click()
+            //this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).first().click()
+        }
+        else throw new Error("Start button is not visible")
+}
+async clickOkBtn(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn)
+        if(ele != null){
+               ele.click()
+        }
+        else throw new Error("Ok button is not visible")
+}
+async errorMessageIfRoundIsNotCreated(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage)
+        if(ele != null){
+               expect(ele).toContainText("Please create a round")
+        }
+        else throw new Error("Error message is not visible")
+}
+async clickMobileLinkBtn(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkBtn)
+        if(ele != null){
+               expect(ele.last()).toBeVisible()
+               ele.last().click()
+        }
+        else throw new Error("Mobile Link button is not visible")
+}
+async clickMobileLinkPopupClose(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileLinkPopupClose)
+               expect(ele).toBeVisible()
+               await ele.click()
+               //ele.last().click()
+        
+        
+}
+async verifyMobileLinkText(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkText)
+        if(ele != null){
+               expect(ele).toContainText("Mobile Link")
+        }
+        else throw new Error("Mobile Link text is not visible")
+}
+async clickMobileLinkOpenBtn() {
 
+        // Click text=Open Link
+        const [page1] = await Promise.all([
+                this.page.waitForEvent('popup'),
+                this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkOpenBtn).click()
+        ]);
+
+        return page1;
+
+
+}
+async clickMobileLinkCopyBtn(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkCopyBtn)
+        if(ele != null){
+               expect(ele).toBeVisible()
+               await ele.click()
+        }
+        else throw new Error("Mobile Link copy button is not visible")
+}
+async verifyerrorMessageIfCongigrationfieldIsBlank(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageIfCongigrationfieldIsBlank)
+        if(ele != null){
+                expect(ele).toContainText("Please input more than 3 characters")
+        }
+        else throw new Error("Error message is not shown")
+
+}
+async vreifymobileLinkQRCode(){
+        const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkQRCode)
+        if(ele != null){
+                expect(ele).toBeVisible()
+        }
+        else throw new Error("Mobile link QR Code is not visible")
+}
+async validateSaveQRCode(){
+        const [download] = await Promise.all([
+                this.page.waitForEvent('download'),
+                this.page.frameLocator('iframe').locator(this.triviaPageElements.saveQRCode).click()
+      ])
+      const suggestedFileName = download.suggestedFilename()
+      const filePath = 'QRCode' + suggestedFileName
+      await download.saveAs(filePath)
+      expect(existsSync(filePath)).toBeTruthy()
+    }
+    async clickCopyQRCodeBtn(){
+      const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.copyQRcodeBtn)
+        if(ele != null){
+                expect(ele).toBeVisible()
+            await ele.click()
+        }
+    }
 
 
 }
