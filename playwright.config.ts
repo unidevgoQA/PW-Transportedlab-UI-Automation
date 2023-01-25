@@ -9,11 +9,11 @@ const config: PlaywrightTestConfig = {
 
     // "001Login.test.ts",
     // "002MobileDesign.test.ts",
-    // "003Language.test.ts",
+    "003Language.test.ts",
     // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
+    // "007PrizeDrop.test.ts",
     // "008TugOfWar.test.ts",
     //"009LiveWall.test.ts",    
     // "010Arcade.test.ts",
