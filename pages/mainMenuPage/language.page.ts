@@ -90,7 +90,7 @@ export default class languagePage {
         //Language Controls Elable disable btn Element
         async clickUserSelectableRadioBtn() {
 
-                await this.page.locator("//span[text()='User Selectable']").click({ force: true })
+                await this.page.locator("(//input[@type='radio'])[1]").dblclick({button:"left", delay: 1000})
 
                 await this.page.waitForTimeout(3000)
 
@@ -145,6 +145,7 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Francias']");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
+                await this.page.waitForTimeout(2000)
         }
 
         async clickOutSideOfLanguageSelectionModal() {
@@ -158,6 +159,7 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Russian']");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
+                await this.page.waitForTimeout(2000)
                 
         }
 
@@ -172,6 +174,7 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Arabic']");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
+                await this.page.waitForTimeout(2000)
         }
 
         //select language type Spanish
@@ -179,7 +182,7 @@ export default class languagePage {
                 const ele = this.page.locator("//li[text()='Spanish']");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
-                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
         }
 
         async verifySpanishLanguageText() {
@@ -342,10 +345,11 @@ export default class languagePage {
 
         //Language Controls Elable disable btn Element
         async clickUserForceLanguageOption() {
-                const ele = this.page.locator("//span[text()='Forced Language']");
+                const ele = this.page.locator("(//input[@type='radio'])[2]");
                 expect(ele).toBeVisible()
-                await ele.click({ force: true })
+                await ele.dblclick({button:"left", delay:1000})
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
         }
 
 

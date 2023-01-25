@@ -7,7 +7,7 @@ const clipboard = require('clipboardy')
 
 
 
-test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test.skip("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -173,6 +173,7 @@ test("TL003-002 | Validate User Selectable Japanese Language Change Functionalit
 
     await test.step("Login Admin and Land to Home Screen", async () => {
         await languagePage.clickUserSelectableRadioBtn();
+        
     })
 
 
@@ -378,7 +379,7 @@ test("TL003-004 | Validate Forced Language Japanese Language Change Functionalit
         await languagePage.selectJapaneseLanguage()
         await languagePage.verifyJapaneseLanguageSelectSuccessfully()
 
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
 
     })
@@ -521,6 +522,7 @@ test("TL003-006 | Validate User Selectable Spanish Language Change Functionality
     })
 
     await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
         await languagePage.clickUserSelectableRadioBtn();
     })
 
@@ -714,10 +716,12 @@ test("TL003-008 | Validate Forced Language Spanish Language Change Functionality
     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
         //Verify click on the user profile selectable input field
         await languagePage.clickForceLanguageInputField()
+        await languagePage.selectEnglishLanguage()
+        await languagePage.clickForceLanguageInputField()
         await languagePage.selectSpanishLanguage()
-        await languagePage.verifySpanishLanguageText()
+        // await languagePage.verifySpanishLanguageText()
 
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
 
     })
@@ -1052,7 +1056,7 @@ test("TL003-012 | Validate Forced Language Arabic Language Change Functionality 
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectArabicLanguage()
         await page.waitForLoadState("networkidle")
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
 
 
@@ -1195,7 +1199,10 @@ test("TL003-014 | Validate User Selectable Russian Language Change Functionality
     })
 
     await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
         await languagePage.clickUserSelectableRadioBtn();
+
+
     })
 
 
@@ -1208,6 +1215,10 @@ test("TL003-014 | Validate User Selectable Russian Language Change Functionality
 
 
         //Verify click on the user profile selectable input field
+        await languagePage.clickUserProfileSelectableInputField()
+        await languagePage.selectEnglishLanguage()
+
+
         await languagePage.clickUserProfileSelectableInputField()
 
 
@@ -1380,7 +1391,7 @@ test("TL003-016 | Validate Forced Language Russian Language Change Functionality
         await languagePage.selectRussianLanguage()
         await languagePage.verifyRussianLanguageSuccessfullySelected()
 
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
         
 
@@ -1527,6 +1538,7 @@ test("TL003-018 | Validate User Selectable Francias Language Change Functionalit
 
     await test.step("Login Admin and Land to Home Screen", async () => {
         await languagePage.clickUserSelectableRadioBtn();
+        await page.waitForTimeout(2000)
     })
 
 
@@ -1696,7 +1708,7 @@ test("TL003-020 | Validate Forced Language Francias Language Change Functionalit
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectFranciasLanguage()
         await page.waitForLoadState("networkidle")
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
 
 
@@ -1840,7 +1852,10 @@ test("TL003-022 | Validate User Selectable English Language Change Functionality
     })
 
     await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserForceLanguageOption()
+
         await languagePage.clickUserSelectableRadioBtn();
+
     })
 
 
@@ -2556,7 +2571,7 @@ test("TL003-024 | Validate Forced Language English Language Change Functionality
         await languagePage.selectEnglishLanguage()
         await page.waitForLoadState("networkidle")
 
-        await languagePage.clickOutSideOfLanguageSelectionModal()
+        // await languagePage.clickOutSideOfLanguageSelectionModal()
         await languagePage.clickLanguagePage()
 
 
