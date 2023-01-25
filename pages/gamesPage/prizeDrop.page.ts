@@ -270,6 +270,23 @@ export default class prizeDropPage {
 
         }
 
+        async wrong_image_uploader(){
+                const filePath0 = "testData/fonts/Thin.otf"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+ 
+        }
+        async validate_wrong_file_typetext(){
+                const wrong = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="File type is not supported"]')
+                if(await wrong.isVisible()){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Ok"]').click()
+                }
+        }
         async fullscreenlogoupload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
@@ -1001,6 +1018,11 @@ export default class prizeDropPage {
                 await back.click({button:'left'})      
 
         }
+        async click_delete_prize_button(){
+                const del= this.page.frameLocator('iframe').locator('//button[text()="Delete"]').last()
+                await expect(del).toBeVisible()
+                await del.click({button:'left'})
+        }
 
         async inputCouponName() {
                 const ele = await this.page.frameLocator('iframe').locator("//input[@placeholder='Coupon name']")
@@ -1217,7 +1239,7 @@ async clickEditSection() {
 
 async inputEditGameTitle() {
         const ele = await this.page.frameLocator('iframe').locator('input[type="text"]')
-        await ele.fill("Auto")
+        await ele.fill("Auto_Edited")
 
 }
 async clickEditBtn(){
@@ -1233,7 +1255,7 @@ async clickEditBtn(){
 
         }
         async confirmDeleteBtn() {
-                await this.page.frameLocator('iframe').locator("//button[text()='Delete']").click();
+                await this.page.frameLocator('iframe').locator("//button[text()='Delete']").last().click();
 
         }
 
