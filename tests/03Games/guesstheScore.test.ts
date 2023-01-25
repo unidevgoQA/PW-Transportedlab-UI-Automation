@@ -1871,6 +1871,7 @@ await test.step("provide values in form field of mobile view and submit", async(
         await newguessthescoregame.typeemail()
         await newguessthescoregame.typezip()
         await newguessthescoregame.clicksubmit()
+        await page.waitForTimeout(2000)
 })
 
     
@@ -1878,9 +1879,14 @@ await test.step("provide values in form field of mobile view and submit", async(
 await test.step("now validate button color change is visible on mobile screen",async () =>{
     //await newguessthescoregame.checksbuttonColor()
     //await newguessthescoregame.screenshot_matcher_backgroundimage()
+<<<<<<< Updated upstream
     await newguessthescoregame.clcikHomePageInMobileScreen()
     await newguessthescoregame.verifyButtonColorSuccessfullyAppliedInMobileScreen()
 
+=======
+    await page.waitForTimeout(2000)
+    await newguessthescoregame.screenshot_matcher_buttoncolor()
+>>>>>>> Stashed changes
 })
 })
     
@@ -2560,7 +2566,7 @@ test("0013GTS-047 |Validate Banner  Image upload change is being reflected on mo
             await newguessthescoregame.typeAge()
             await newguessthescoregame.typezip()
             await newguessthescoregame.clicksubmit()
-           // await newTab.waitForTimeout(4000)
+           await newTab.waitForTimeout(4000)
             // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
             //newTab.close()
       })

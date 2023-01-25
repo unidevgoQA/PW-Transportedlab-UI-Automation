@@ -1476,11 +1476,12 @@ test.only("009LW-023 | Validate VIP Game Link Successfully Copy in system clipbo
               await liveWallPage.clickCloseBtn()
         })
               let URL =''
+              let livewallmobilepage: livewallMobilePage
  await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
                         URL = clipboard.readSync();
                         console.log(URL);
                 })
-    let livewallmobilepage: livewallMobilePage
+    
        
  await test.step("Now open copy link on mobile",async()=>{
          livewallmobilepage = new livewallMobilePage(page)
