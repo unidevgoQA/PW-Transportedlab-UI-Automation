@@ -41,6 +41,8 @@ const test = baseTest.extend<{
     BaseFunctions: BaseFunctions;
     prizedropMobilePage: prizeDropMobilePage;
     mobilePreviewPage: mobilePreviewPage;
+    triviamobilePage : triviaMobilePage;
+
 
 
 }>({

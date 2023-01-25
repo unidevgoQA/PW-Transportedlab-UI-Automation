@@ -32,6 +32,7 @@ export default class triviaMobilePage {
          }
 
          async typephoneno(){
+<<<<<<< Updated upstream
                 await this.page.locator('//input[@name="phone"]').type('+8801568703919')
          }
          async typeemail(){
@@ -39,6 +40,15 @@ export default class triviaMobilePage {
          }
          async typeAge(){
                 await this.page.locator('//input[@name="age"]').type('24')
+=======
+                await this.page.locator('//input[@name="phone"]').type('+8801851703506')
+         }
+         async typeemail(){
+                await this.page.locator('//input[@name="email"]').type("AutomationTest@test.com")
+         }
+         async typeAge(){
+                await this.page.locator('//input[@name="age"]').type('23')
+>>>>>>> Stashed changes
                 
          }
          async selectbirthdate(){
@@ -57,6 +67,7 @@ export default class triviaMobilePage {
          }
 
          async selecthomepage(){
+<<<<<<< Updated upstream
                
             await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
@@ -74,4 +85,13 @@ export default class triviaMobilePage {
 
        return page1;
        }
+=======
+                await this.page.locator('//p[text()="HOME"]//parent::button').click()
+         }
+         async GoTo(URL : string){
+              //console.log(URL)
+              await this.page.goto(URL)
+              await this.page.waitForTimeout(3000)
+         }
+>>>>>>> Stashed changes
     }

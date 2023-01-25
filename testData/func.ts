@@ -601,6 +601,9 @@ export default class functions {
         getRandomName() {
                 return "Auto" + Date.now() + "Name"
         }
+        async clickAnonymouLogin(){
+                
+        }
 
 
 }

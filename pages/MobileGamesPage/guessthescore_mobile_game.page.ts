@@ -228,8 +228,11 @@ export default class guesstheScoreMobilePage {
                      await expect.soft(ele).toHaveScreenshot("avatar_image_screenshot.png")
                }
                async screenshot_matcher_buttoncolor(){
-                  const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
-                  await expect.soft(ele).toHaveScreenshot("buttoncolor_image_screenshot.png")
+                  const ele =  this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
+                  expect.soft(await this.page.screenshot({
+                        fullPage : true
+                     })).toMatchSnapshot("buttoncolor_image_screenshot.png")
+            
             }
             async verifyButtonColorSuccessfullyAppliedInMobileScreen(){
                   const ele = await this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")

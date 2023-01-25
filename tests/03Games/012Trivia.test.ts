@@ -3648,15 +3648,22 @@ test("012TV-037 | Validate add button does not work without data.", async ({ log
             await triviaPage.clickAddConfigrationBtn()
       })
       await test.step("Validate add button does not work without data",async()=>{
+<<<<<<< Updated upstream
            
             await triviaPage.verifyerrorMessageIfCongigrationfieldIsBlank()
             await triviaPage.clickOkBtn()
             await triviaPage.clickCancelConfigrationBtn()
+=======
+            await triviaPage.verifyErrorMessage()
+            await triviaPage.clickOkBtn()
+            //await triviaPage.
+>>>>>>> Stashed changes
       })
 
 
       
 })
+<<<<<<< Updated upstream
 test("012TV-038 | Validate start button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
@@ -4083,4 +4090,289 @@ test.only("012TV-051 | Validate Copy QR code is working", async ({ loginPage, fu
 
       
 })
+=======
+test("012TV-038 | Validate start button is visible", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+>>>>>>> Stashed changes
 
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate start  button", async () => {
+            await triviaPage.clickStartBtn()
+            //await triviaPage.clickOkBtn()
+
+      })
+
+      // await test.step("Now validate Live  button",async()=>{
+      //       await triviaPage.clickLiveBtn()
+      //       await triviaPage.clickOkBtn()
+      // })
+     
+
+
+      
+})
+test("012TV-039 | Validate error message if round is  not created.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate start  button", async () => {
+            await triviaPage.clickStartBtn()
+            await triviaPage.clickOkBtn()
+
+      })
+
+      await test.step("Validate error message if round is  not created.",async()=>{
+            await triviaPage.verifyRoundError()
+            await triviaPage.clickOkBtn()
+      })
+     
+
+
+      
+})
+test("012TV-040 | Validate mobile link button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate mobile link button", async () => {
+            await triviaPage.clickMobileLinkBtn()
+
+      })
+     
+
+
+      
+})
+test("012TV-041 | Validate mobile link button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate mobile link button is working", async () => {
+            await triviaPage.clickMobileLinkBtn()
+            await triviaPage.clickMobileLinkCloseBtn()
+
+      })
+     
+
+
+      
+})
+
+test("012TV-042 | Validate mobile link button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate mobile link button is working", async () => {
+            await triviaPage.clickMobileLinkBtn()
+            await triviaPage.clickMobileLinkCloseBtn()
+
+      })
+     
+
+
+      
+})
+
+
+test("012TV-043 | Validate mobile link text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Now validate mobile link text is visible", async () => {
+            await triviaPage.clickMobileLinkBtn()
+            await triviaPage.verifyMobileLinkText()
+            await triviaPage.clickMobileLinkCloseBtn()
+
+      })
+     
+
+
+      
+})
+test("012TV-044 | Validate Open link button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      let newTab=null;
+      let triviamobilepage :triviaMobilePage
+      await test.step("Validate Open link button is working on mobile screen", async () => {
+              
+      
+    
+             await triviaPage.clickMobileLinkBtn()     
+             //now click on open button
+             newTab = await triviaPage.clickMobileLinkOpenBtn()
+             triviamobilepage = new triviaMobilePage(newTab)
+             await triviamobilepage.typephoneno()
+             await triviamobilepage.typeemail()
+             await triviamobilepage.selectbirthdate()
+             await triviamobilepage.typeAge()
+             await triviamobilepage.typezip()
+             await triviamobilepage.clicksubmit()
+
+      })
+     
+
+
+      
+})
+test.only("012TV-045 | Validate copy link button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Click mibile link button",async()=>{
+            await triviaPage.clickMobileLinkBtn()
+      })
+      await test.step("Click mibile link copy button",async()=>{
+            await triviaPage.clickMobileLinkCopyBtn()
+      })
+      //let newTab=null;
+      let URL = ''
+
+      let triviamobilepage :triviaMobilePage
+     // let livewallmobilepage: livewallMobilePage
+      await test.step("now copy the contents from system clipboard(URL Here)", async() =>{
+                             URL = clipboard.readSync();
+                             console.log(URL);
+                     })
+         
+            
+      await test.step("Now open copy link on mobile",async()=>{
+            triviamobilepage = new triviaMobilePage(page)
+             await triviamobilepage.GoTo(URL)
+                     
+            
+             })
+      await test.step("Now provide aditional user information", async () => {
+              
+      
+    
+            // await triviaPage.clickMobileLinkBtn()     
+             //now click on open button
+            // newTab = await triviaPage.clickMobileLinkOpenBtn()
+             //triviamobilepage = new triviaMobilePage(newTab)
+             await triviamobilepage.typephoneno()
+             await triviamobilepage.typeemail()
+             await triviamobilepage.selectbirthdate()
+             await triviamobilepage.typeAge()
+             await triviamobilepage.typezip()
+             await triviamobilepage.clicksubmit()
+
+      })
+     
+
+
+      
+})

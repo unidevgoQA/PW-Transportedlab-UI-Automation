@@ -60,8 +60,13 @@
       "line": 0,
       "specs": [
         {
+<<<<<<< Updated upstream
           "title": "012TV-051 | Validate Copy QR code is working",
           "ok": false,
+=======
+          "title": "012TV-045 | Validate copy link button is working.",
+          "ok": true,
+>>>>>>> Stashed changes
           "tags": [],
           "tests": [
             {
@@ -73,6 +78,7 @@
               "results": [
                 {
                   "workerIndex": 0,
+<<<<<<< Updated upstream
                   "status": "failed",
                   "duration": 79137,
                   "error": {
@@ -87,6 +93,14 @@
                         "line": 71
                       },
                       "message": "page.waitForEvent: Timeout 60000ms exceeded while waiting for event \"popup\"\n=========================== logs ===========================\nwaiting for event \"popup\"\n============================================================\n\n\u001b[90m   at \u001b[39mpages/MobileGamesPage/trivia_mobile_game.page.ts:71\n\n\u001b[0m \u001b[90m 69 |\u001b[39m           \u001b[90m//await this.page.locator(\"/\").click()\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 70 |\u001b[39m           \u001b[36mconst\u001b[39m [page1] \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 71 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'popup'\u001b[39m)\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 72 |\u001b[39m             \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[32m\"//div[@id='qr-content']//a[1]\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[0m\n\u001b[0m \u001b[90m 73 |\u001b[39m     ])\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 74 |\u001b[39m\u001b[0m\n\n\u001b[2m    at triviaMobilePage.openGameusingQRCode (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/trivia_mobile_game.page.ts:71:23)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:4067:43\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:4057:7\u001b[22m"
+=======
+                  "status": "passed",
+                  "duration": 22132,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "https://qa-1.testingdxp.com/?gameId=trivia&configurationId=63ceccac7f69ff3f75be62dc\n"
+>>>>>>> Stashed changes
                     }
                   ],
                   "stdout": [],
@@ -95,6 +109,7 @@
                   "steps": [
                     {
                       "title": "Login Admin",
+<<<<<<< Updated upstream
                       "duration": 9348
                     },
                     {
@@ -107,6 +122,36 @@
                     }
                   ],
                   "startTime": "2023-01-25T14:01:37.459Z",
+=======
+                      "duration": 6643
+                    },
+                    {
+                      "title": "Click On The Trivia Section",
+                      "duration": 1863
+                    },
+                    {
+                      "title": "Click mibile link button",
+                      "duration": 2827
+                    },
+                    {
+                      "title": "Click mibile link copy button",
+                      "duration": 822
+                    },
+                    {
+                      "title": "now copy the contents from system clipboard(URL Here)",
+                      "duration": 67
+                    },
+                    {
+                      "title": "Now open copy link on mobile",
+                      "duration": 4128
+                    },
+                    {
+                      "title": "Now provide aditional user information",
+                      "duration": 3714
+                    }
+                  ],
+                  "startTime": "2023-01-24T20:49:30.730Z",
+>>>>>>> Stashed changes
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -116,12 +161,16 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
+<<<<<<< Updated upstream
                       "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-051-Validate-Copy-QR-code-is-working/test-failed-1.png"
                     },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
                       "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-051-Validate-Copy-QR-code-is-working/test-failed-2.png"
+=======
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-045-Validate-copy-link-button-is-working-/test-finished-1.png"
+>>>>>>> Stashed changes
                     }
                   ],
                   "errorLocation": {
@@ -134,9 +183,15 @@
               "status": "unexpected"
             }
           ],
+<<<<<<< Updated upstream
           "id": "923949df3e7701a35fec-62e3cf656999b7ef3441",
           "file": "tests/03Games/012Trivia.test.ts",
           "line": 4030,
+=======
+          "id": "923949df3e7701a35fec-748b0ff80e59b058cd3e",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3881,
+>>>>>>> Stashed changes
           "column": 6
         }
       ]
