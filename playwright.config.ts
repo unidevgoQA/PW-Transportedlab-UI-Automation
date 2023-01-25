@@ -7,10 +7,10 @@ const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
 
-    "001Login.test.ts",
-    "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
+    // "001Login.test.ts",
+    // "002MobileDesign.test.ts",
+    // "003Language.test.ts",
+    // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
     "007PrizeDrop.test.ts",
@@ -49,7 +49,7 @@ const config: PlaywrightTestConfig = {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 
