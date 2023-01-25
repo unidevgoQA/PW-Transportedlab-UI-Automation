@@ -480,7 +480,7 @@ test("PD007-91|Validate marketing message change is reflected on mobile screen",
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step("now check the marketing message text",async()=>{
                 await newprizedropgame.screenshot_matcher_marketing_message()
@@ -1468,7 +1468,7 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots to validate update', async () => {
                  await newprizedropgame.screenshot_matcher_fullscreen_logo()
@@ -1564,7 +1564,7 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.screenshot_matcher_game_title_image()
@@ -1666,7 +1666,7 @@ test.skip("PD007-55|Validate Frame image upload and its reflection on mobile scr
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now click on start button', async () => {
                 await newprizedropgame.click_start()
@@ -1772,7 +1772,7 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                   await newprizedropgame.screenshot_matcher_sponsor_image()
@@ -1868,7 +1868,7 @@ test(" PD007-67| validate Team logo upload and its reflection on mobile screen",
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.screenshot_matcher_team_logo()
@@ -1967,7 +1967,7 @@ test("PD007-63| validate Loading image upload and its reflection on mobile scree
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
 
         //need to start game from admin
@@ -2073,7 +2073,7 @@ test("PD007-70|validate Background video upload and its reflection on mobile scr
 
         await test.step("now validate the change in mobile view", async () => {
                 await newprizedropgame.selecthomepage()
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.video_checker_background_video()
@@ -2268,7 +2268,7 @@ test("PD007-10|validate How to play video upload and its reflection on mobile sc
 
         await test.step("now validate the change in mobile view", async () => {
                 await newprizedropgame.selecthowtoplaypage()
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.video_checker_how_to_play_video()
@@ -2459,7 +2459,7 @@ test("PD007-79|validate rules video upload and its reflection on mobile screen",
 
         await test.step("now validate the change in mobile view", async () => {
                 await newprizedropgame.selectrulespage()
-                await newprizedropgame.wait_for_elements_to_load()
+                await page.waitForTimeout(4000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.video_checker_rules_video()
