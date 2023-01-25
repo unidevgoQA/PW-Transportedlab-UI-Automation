@@ -112,7 +112,7 @@ export default class prizeDropMobilePage {
 
         //Image validations here
         async wait_for_elements_to_load() {
-              await this.page.waitForLoadState('networkidle')
+              await this.page.waitForLoadState('networkidle',{timeout:3000})
         }
         async wait_for_uploaded_frame_to_load() {
             await this.page.waitForLoadState('networkidle')

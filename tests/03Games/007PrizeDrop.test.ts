@@ -937,7 +937,7 @@ test("007PD-012 | Validate Game Link Successfully Copy in system clipboard", asy
 
 
 
-test("PD007-47|  Validate text Color Input Functionality and reflection on mobile screen", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("PD007-47|  Validate text Color Input Functionality and reflection on mobile screen", async ({ loginPage, browser,MainMenu,languagePage,menuPage,singupPage ,prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -953,6 +953,36 @@ test("PD007-47|  Validate text Color Input Functionality and reflection on mobil
 
 
 
+        })
+        await test.step('check the menu related settings', async()=>{
+                await MainMenu.clickHomeAvater()
+                await MainMenu.mainMenuBtn()
+                await MainMenu.mobileDesign()
+                await MainMenu.clickClearAllBtn()
+                await languagePage.clickLanguagePage()
+                await languagePage.clickUserForceLanguageOption()
+                await languagePage.clickForceLanguageInputField()
+                await languagePage.selectEnglishLanguage()
+                await menuPage.clickMenuPage()
+                await menuPage.clickBottomAlignmentBtn()
+                await menuPage.click_Background_ColorPicker()
+                await menuPage.clickplusbuttonswatches()
+                await menuPage.clickColorPickerSaveBtn()
+                await menuPage.click_text_color_Picker()
+                await menuPage.clickplusbuttonswatches()
+                await menuPage.clickColorPickerSaveBtn()
+                await menuPage.click_Active_Background_ColorPicker()
+                await menuPage.clickplusbuttonswatches()
+                await menuPage.clickColorPickerSaveBtn()
+                await menuPage.click_active_text_color_Picker()
+                await menuPage.clickplusbuttonswatches()
+                await menuPage.clickColorPickerSaveBtn()
+                await singupPage.clickSignUpPage()
+                await singupPage.clickPhoneNumberCheckBox()
+                await singupPage.clickEmailAddressCheckBox()
+                await singupPage.clickAgeCheckBox()
+                await singupPage.clickDateOfBirthCheckBox()
+                await singupPage.clickPostalCodeCheckBox()
         })
         await test.step("navigate to color section and click clear all button", async () => {
 
@@ -1426,15 +1456,21 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
+        await test.step("PD007-105|validate error if wrong file is selected as full screen logo",async() =>{
+                  //click Prize Drop Section
+                  await prizeDropPage.clickPrizeDropSection()
+
+                  //click Game Design
+                  await prizeDropPage.clickGameDesign()
+                   //click on full screenlogo
+                await prizeDropPage.fullscreenlogoupload()
+                //upload a wrong file
+                await prizeDropPage.wrong_image_uploader()
+
+                await prizeDropPage.validate_wrong_file_typetext()
+        })
         await test.step("PD007-50|navigate to Game design section and upload a full screen logo", async () => {
 
-                //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.fullscreenlogoupload()
 
                 await prizeDropPage.Image_uploader_For_Fullcreenlogo()
 
@@ -1522,15 +1558,21 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-52|navigate to Game design section and upload a game title logo", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as game title logo",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.Game_title_image_upload()
+                 //click on full screenlogo
+              await prizeDropPage.Game_title_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-52|navigate to Game design section and upload a game title logo", async () => {
+
 
                 await prizeDropPage.Image_uploader_For_Game_title_image()
 
@@ -1572,7 +1614,7 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
         //here we can delete the element after its done
 })
 //need mobile access for this one
-test.skip("PD007-55|Validate Frame image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,languagePage,singupPage }, testInfo) => {
+test("PD007-55|Validate Frame image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1619,15 +1661,20 @@ test.skip("PD007-55|Validate Frame image upload and its reflection on mobile scr
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-54| navigate to Game design section and upload a frame image", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as frame image",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.Frame_image_upload()
+                 //click on full screenlogo
+              await prizeDropPage.Frame_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-54| navigate to Game design section and upload a frame image", async () => {
 
                 await prizeDropPage.Image_uploader_For_Frame_image()
 
@@ -1730,15 +1777,21 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-60|navigate to Game design section and upload a sponsor image", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as game title logo",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.Sponsor_image_upload()
+                 //click on full screenlogo
+              await prizeDropPage.Sponsor_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-60|navigate to Game design section and upload a sponsor image", async () => {
+
 
                 await prizeDropPage.Image_uploader_For_sponsor_image()
 
@@ -1826,16 +1879,22 @@ test(" PD007-67| validate Team logo upload and its reflection on mobile screen",
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-66|navigate to Game design section and upload a Team logo", async () => {
-
-                //click Prize Drop Section
+        await test.step("PD007-105|validate error if wrong file is selected as team logo",async() =>{
+                // //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on Team logo
-                await prizeDropPage.Team_logo_upload()
+                //  //click on full screenlogo
+              await prizeDropPage.Team_logo_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-66|navigate to Game design section and upload a Team logo", async () => {
 
+              
                 await prizeDropPage.Image_uploader_For_Team_logo()
 
                 await page.waitForTimeout(4000)
@@ -1921,15 +1980,20 @@ test("PD007-63| validate Loading image upload and its reflection on mobile scree
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-62|navigate to Game design section and upload a loading image", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as loading image",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.Loading_image_upload()
+                //  //click on full screenlogo
+              await prizeDropPage.Loading_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-62|navigate to Game design section and upload a loading image", async () => {
 
                 await prizeDropPage.Image_uploader_For_Loading_image()
 
@@ -2126,15 +2190,21 @@ test("PD007-73|validate How to play image upload and its reflection on mobile sc
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-71|navigate to Game design section and upload a how to play image", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as how to play image",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.how_to_play_image_upload()
+                //  //click on full screenlogo
+              await prizeDropPage.how_to_play_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-71| upload a how to play image", async () => {
+
 
                 await prizeDropPage.Image_uploader_For_howtoplay_logo()
 
@@ -2321,15 +2391,21 @@ test("PD007-76|validate rules image upload and its reflection on mobile screen",
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-75|navigate to Game design section and upload a rulesimage", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as rules image",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.rules_image_upload()
+                //  //click on full screenlogo
+              await prizeDropPage.rules_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-75|navigate to Game design section and upload a rulesimage", async () => {
+
 
                 await prizeDropPage.Image_uploader_For_rulesimage()
 
@@ -2512,15 +2588,21 @@ test("PD007-77|validate splash image upload and its reflection on mobile screen"
                 await singupPage.clickDateOfBirthCheckBox()
                 await singupPage.clickPostalCodeCheckBox()
         })
-        await test.step("PD007-77|navigate to Game design section and upload a splash image", async () => {
-
+        await test.step("PD007-105|validate error if wrong file is selected as splash image",async() =>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
-                //click on full screenlogo
-                await prizeDropPage.splash_image_upload()
+                //  //click on full screenlogo
+              await prizeDropPage.splash_image_upload()
+              //upload a wrong file
+              await prizeDropPage.wrong_image_uploader()
+              
+              await prizeDropPage.validate_wrong_file_typetext()
+      })
+        await test.step("PD007-77|navigate to Game design section and upload a splash image", async () => {
+
 
                 await prizeDropPage.Image_uploader_For_splashscreen()
 
@@ -2980,27 +3062,31 @@ test("007PD-0129 | Validate Game Edit And Delete Functionality", async ({ loginP
 
 
         })
-
-        await test.step("008TOFW-00 | Verify Game Delete Functionality", async () => {
-
+        await test.step("verify game edit functionality",async()=>{
                 await prizeDropPage.clickEditSection()
 
                 await prizeDropPage.inputEditGameTitle()
 
-                await prizeDropPage.clickEditBtn()
+                await prizeDropPage.clickEditBtn() 
+        })
+        await test.step("PD007-104|validate delete section in added prize is working",async()=>{
+                await prizeDropPage.clickPrizingSection()
+                await prizeDropPage.click_delete_prize_button()
+                await prizeDropPage.confirmDeleteBtn()
+        })
 
-                await prizeDropPage.clickStartGameOkBtn()
-
+        await test.step("PD007-102|Validate delete section in prize drop is working", async () => {
 
                 //click Game Delete Btn
                 await prizeDropPage.clickGameDeleteBtn()
 
                 await page.waitForTimeout(2000)
 
-                //confirm Delete Btn
-                await prizeDropPage.confirmDeleteBtn()
-                await page.waitForTimeout(4000)
-
+        })
+        await test.step("PD007-103|Validate delete modal text is working",async()=>{
+                     //confirm Delete Btn
+                     await prizeDropPage.confirmDeleteBtn()
+                     await page.waitForTimeout(4000)
         })
 
 })
