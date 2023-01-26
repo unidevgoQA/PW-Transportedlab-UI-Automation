@@ -51,7 +51,7 @@ export default class singupPage {
                 if ((ele == true)){                                                
                         await this.page.click(this.signUpPageElements.signUpPage)
                 }
-                else throw new Error("Sign Up Page Element Is Not Found")
+                else throw new Error("Sign Up Page SignUP Button Element Is Not Visible")
                 await this.page.waitForLoadState("networkidle")
                 
         }
@@ -74,6 +74,15 @@ export default class singupPage {
                 
         }
 
+        async uncheckSocialMediaLoginRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).isChecked()
+                if ((ele == true)){
+                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({button: "left", delay: 1000})
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                
+        }
+
         async clickSocialMediaLoginPhoneNumberValidationRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).isChecked()
                 if ((ele == false)){
@@ -82,6 +91,16 @@ export default class singupPage {
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
                 
         }
+
+        async clickSocialMediaLoginEmailValidationRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).isChecked()
+                if ((ele == false)){
+                        await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).click({button: "left", delay: 1000})
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                
+        }
+  
   
 
         //Check Registration Options Text

@@ -8,7 +8,7 @@ import { readFileSync } from 'fs'
 
 
 
-test("005SU-001 | Validate Admin Successfully Select Socal Media Login ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("005SU-001 | Validate Admin Successfully Check Socal Media Login From Admin Side ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
    await test.step("Login Admin And Land to Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -35,7 +35,7 @@ await test.step("Login Admin And Land to Home Screen", async () => {
      
 })
 
-test("005SU-002 | Validate Socal Media Login Option Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-002 | Validate Socal Media Login With Google Functionality Successfully works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -71,7 +71,7 @@ test("005SU-002 | Validate Socal Media Login Option Successfully Show on Mobile 
                 
         })
         await test.step("Input Additional Information For Mobile Screen", async () => {
-                googleLoginPage = await newmobilePreviewPage.verifyLoginWithGoogleIconIsVisible()
+                googleLoginPage = await newmobilePreviewPage.clickLoginWithGoogleIconIsVisible()
                 googleLoginPage = new mobilePreviewPage(googleLoginPage)
                 await googleLoginPage.inputEamilForLoginWithGoogle()
                 await googleLoginPage.clickSignInWithGoogleWindowNextBtn()
@@ -89,7 +89,7 @@ test("005SU-002 | Validate Socal Media Login Option Successfully Show on Mobile 
 
 })
 
-test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-003 | Validate Socal Media Login With Facebook Functionality Successfully works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -146,7 +146,7 @@ test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile 
 
 })
 
-test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-004 | Validate Socal Media Login With Microsoft Functionality Successfully works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -182,12 +182,12 @@ test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile 
                 
         })
         await test.step("Input Additional Information For Mobile Screen", async () => {
-                googleLoginPage = await newmobilePreviewPage.clickLoginWithFacebookIconIsVisible()
+                googleLoginPage = await newmobilePreviewPage.clickLoginWithMicrosoftIconIsVisible()
                 googleLoginPage = new mobilePreviewPage(googleLoginPage)
-                await googleLoginPage.inputEamilForLoginWithFacebook()
-                await googleLoginPage.inputPasswordForLoginWithFacebook()
-                await googleLoginPage.clickSignInWithFacebookWindowLoginBtn()
-                await googleLoginPage.clickContineuWithFacebookBtn()
+                await googleLoginPage.inputEamilForLoginWithMicrosoft()
+                await googleLoginPage.clickNextBtnOnMicrosoftWindow()
+                await googleLoginPage.inputPasswordForLoginWithMicrosoft()
+                await googleLoginPage.clickSignInBtnOnMicrosoftWindow()
 
                 // await googleLoginPage.inputPasswordForLoginWithGoogle()
                 // await googleLoginPage.clickSignInWithGoogleWindowNextBtn()
@@ -202,8 +202,35 @@ test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile 
        
 
 })
+
+test("005SU-005 | Validate Admin Successfully Unchecked Socal Media Login Option ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
      
-test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()          
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-006 | Validate Social Media Login Options Hide Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -238,16 +265,14 @@ test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile 
                 newmobilePreviewPage = new mobilePreviewPage(newTab)                
                 
         })
-        await test.step("Input Additional Information For Mobile Screen", async () => {
-                googleLoginPage = await newmobilePreviewPage.clickLoginWithFacebookIconIsVisible()
-                googleLoginPage = new mobilePreviewPage(googleLoginPage)
-                await googleLoginPage.inputEamilForLoginWithFacebook()
-                await googleLoginPage.inputPasswordForLoginWithFacebook()
-                await googleLoginPage.clickSignInWithFacebookWindowLoginBtn()
-                await googleLoginPage.clickContineuWithFacebookBtn()
+        await test.step("Validation on mobile Screen", async () => {
 
-                // await googleLoginPage.inputPasswordForLoginWithGoogle()
-                // await googleLoginPage.clickSignInWithGoogleWindowNextBtn()
+                await newmobilePreviewPage.verifyLoginWithGoogleIconIsHidden()
+                await newmobilePreviewPage.verifyLoginWithFacebookIconIsHidden()
+                await newmobilePreviewPage.verifyLoginWithMicrosoftIconIsHidden()
+
+                
+             
 
 
                
@@ -259,11 +284,168 @@ test("005SU-003 | Validate Socal Media Login Option Successfully Show on Mobile 
        
 
 })
+
+test("005SU-007 | Validate Admin Successfully Check Phone Varification Option From Admin Side ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
      
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()          
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-008 | Validate Phone Number Validation Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
 
 
 
+        })
 
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.verifyLoginWithPhoneNumberIsVisible()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-009 | Validate Admin Successfully Check Email Validation Option From Admin Side ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickSocialMediaLoginEmailValidationRadioBtn()          
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-010 | Validate Email Validation Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.verifyLoginWithEmailInputFieldIsVisible()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
 
 
 

@@ -113,8 +113,54 @@ export default class mobilePreviewPage {
        }
 
        
+       async verifyLoginWithGoogleIconIsHidden() {         
+              await this.page.waitForSelector("//img[@alt='Logotype']")
+              const ele = await this.page.locator("//button[@aria-label='Sign Up with Google']").isHidden()
+           if ((ele == true)){
+                  
+           }
+           else throw new Error("Mobile Welcome Screen Login With Google option Is Not Hidden After Uncheck Social Media Option From Admin Side")
+    }
+
+    async verifyLoginWithPhoneNumberIsVisible() {         
+       await this.page.waitForSelector("//img[@alt='Logotype']")
+       const ele = await this.page.locator("//input[@type='tel']").isVisible()
+    if ((ele == true)){
+           
+    }
+    else throw new Error("Mobile Welcome Screen Login With Phone Number option Is Not Visible After check Login With Phone Varification Option From Admin Side")
+}
+
+async verifyLoginWithEmailInputFieldIsVisible() {         
+       await this.page.waitForSelector("//img[@alt='Logotype']")
+       const ele = await this.page.locator("//input[@type='email']").isVisible()
+    if ((ele == true)){
+           
+    }
+    else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
+}
+
+    
 
        
+       
+       async verifyLoginWithFacebookIconIsHidden() {         
+              
+                 const ele = await this.page.locator("//button[@aria-label='Sign Up with Facebook']").isHidden()
+              if ((ele == true)){
+                     
+              }
+              else throw new Error("Mobile Welcome Screen Login With Facebook option Is Not Hidden After Uncheck Social Media Option From Admin Side")
+       }
+
+       async verifyLoginWithMicrosoftIconIsHidden() {         
+              
+              const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isHidden()
+           if ((ele == true)){
+                  
+           }
+           else throw new Error("Mobile Welcome Screen Login With Microsoft option Is Not Hidden After Uncheck Social Media Option From Admin Side")
+    }
 
        async clickLoginWithFacebookIconIsVisible() {
               
@@ -178,13 +224,68 @@ export default class mobilePreviewPage {
        
 
        async clickLoginWithMicrosoftIconIsVisible() {
-              const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isVisible()
-              if ((ele == true)){
+
+              const [page1] = await Promise.all([
+                     this.page.waitForEvent('popup'),
+                     this.page.locator("//button[@aria-label='Sign Up with Microsoft']").click()
+                 ]);
+                 await this.page.waitForLoadState("networkidle")
+                 return page1;
+
+              // const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isVisible()
+              // if ((ele == true)){
+              //        await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").click()
                      
-              }
-              else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
+              // }
+              // else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
        }
 
+       async inputEamilForLoginWithMicrosoft() {
+              await this.page.waitForNavigation()
+              const ele = await this.page.locator(`[type="email"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator('[type="email"]').type("unidevgo@outlook.com")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Login With Microsoft Eamil Input Option Is not Visible")
+              
+       }
+
+       async clickNextBtnOnMicrosoftWindow() {              
+              const ele = await this.page.locator(`[type="submit"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(`[type="submit"]`).click({force:true})
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
+             await this.page.waitForLoadState()
+              
+       }
+
+       async inputPasswordForLoginWithMicrosoft() {
+              
+              const ele = await this.page.locator(`[type="password"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator('[type="password"]').type("SecretPassword1@34")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Password Input Field Is not Visible")
+              
+       }
+
+       async clickSignInBtnOnMicrosoftWindow() {              
+              const ele = await this.page.locator(`[type="submit"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(`[type="submit"]`).click({force:true})
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
+             await this.page.waitForLoadState()
+              
+       }
+
+
+       
        
 
        
