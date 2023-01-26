@@ -30,9 +30,15 @@ export default class singupPage {
                 addNewSetWindowSaveBtn: "//button[text()='Save']",
                 profilePictureSetDialogBox: "//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//div[1]",
                 selectLastProfile: "//li[@role='option']",
+                selectDefultProfile: "//li[@data-value='default']",
                 autoAssignCheckBox: "//input[@value='autoAssignAvatars']",
                 profileSetEditBtn: "//button[text()='Edit']",
-                profileSetDeleteBtn: "//button[text()='Delete']"
+                profileSetDeleteBtn: "//button[text()='Delete']",
+                phoneNumberCheckBox: "(//label[text()='Url or link']/following::input)[1]",
+                emailAddressCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
+                ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
+                dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
+                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]"
 
 
         }
@@ -45,63 +51,259 @@ export default class singupPage {
         //                 this.page = page;
         //         }
 
+        async clickAdditionalInfoPhoneNumberCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.click(this.signUpPageElements.phoneNumberCheckBox)
+                }
+
+        }
+
+        async clickAdditionalInfoEmailAddressCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.click(this.signUpPageElements.emailAddressCheckBox)
+                }
+
+        }
+
+        async clickAdditionalInfoAgeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.ageCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.click(this.signUpPageElements.ageCheckBox)
+                }
+
+        }
+
+        async clickAdditionalInfoDateOfBirthCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.click(this.signUpPageElements.dateOfBirthCheckBox)
+                }
+
+        }
+
+        async clickAdditionalInfoZipCodeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.zipCodeCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.click(this.signUpPageElements.zipCodeCheckBox)
+                }
+
+        }
 
         async clickSignUpPage() {
                 let ele = await this.page.locator(this.signUpPageElements.signUpPage).isVisible()
-                if ((ele == true)){                                                
+                if ((ele == true)) {
                         await this.page.click(this.signUpPageElements.signUpPage)
                 }
                 else throw new Error("Sign Up Page SignUP Button Element Is Not Visible")
                 await this.page.waitForLoadState("networkidle")
-                
+
         }
 
         async verifyRegistrationOptionsText() {
                 let ele = await this.page.locator(this.signUpPageElements.registrationOptionsText).textContent()
-                if ((ele === "Registration Options:")){
+                if ((ele === "Registration Options:")) {
 
                 }
                 else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
-                
+
         }
 
         async clickSocialMediaLoginRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).isChecked()
-                if ((ele == false)){
-                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({button: "left", delay: 1000})
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
-                
+
         }
 
         async uncheckSocialMediaLoginRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).isChecked()
-                if ((ele == true)){
-                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({button: "left", delay: 1000})
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
-                
+
         }
+
+        async clickAnonymousLoginOption() {
+                let ele = await this.page.locator(this.signUpPageElements.anonymousLoginRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.anonymousLoginRadioBtn).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+
+        }
+
+        async clickUserAgeMust13YearsOrOlderOptionRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.thirteenOrOlderRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.thirteenOrOlderRadioBtn).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+
+        }
+
+        async clickUserAgeCustomOrOlderOptionRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.customOrOlderRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.customOrOlderRadioBtn).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")               
+
+        }
+
+        async inputUserAgeCustomOrOlder() {
+                await this.page.waitForSelector(this.signUpPageElements.customOrOlderInputField)
+                let ele = await this.page.locator(this.signUpPageElements.customOrOlderInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customOrOlderInputField).fill("15")
+                }
+                else throw new Error("Sign Up Page Registration Options input User Age Custom Or Older Input Field Not Visible")
+
+        }
+
+        async clickUserAgeuserDefinedOptionRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.userDefinedRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.userDefinedRadioBtn).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+
+        }
+        async inputFirstUserAgeuserDefined() {
+                await this.page.waitForSelector(this.signUpPageElements.userDefinedFirstInputField)
+                let ele = await this.page.locator(this.signUpPageElements.userDefinedFirstInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.userDefinedFirstInputField).fill("20")
+                }
+                else throw new Error("Sign Up Page Registration Options User Age user Defined First Input Field Not Visible")
+
+        }
+
+        async inputSecondUserAgeuserDefined() {
+                await this.page.waitForSelector(this.signUpPageElements.userDefinedSecondInputField)
+                let ele = await this.page.locator(this.signUpPageElements.userDefinedSecondInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.userDefinedSecondInputField).fill("30")
+                }
+                else throw new Error("Sign Up Page Registration Options User Age user Defined Second Input Field Not Visible")
+
+        }
+
+        async automaticallyAssignUserName() {
+                
+                let ele = await this.page.locator(this.signUpPageElements.automaticAssignUserNameEnableDisableBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.automaticAssignUserNameEnableDisableBtn).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Registration Options input User Age user Defined Second Input Field Not Visible")
+
+        }
+
+        async InputAutomaticallyAssignUserName() {
+                await this.page.waitForSelector(this.signUpPageElements.automaticAssignUserNamePrifizInputField)
+                let ele = await this.page.locator(this.signUpPageElements.automaticAssignUserNamePrifizInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.automaticAssignUserNamePrifizInputField).fill("Devid")
+                }
+                else throw new Error("Sign Up Page Registration Options Automatically Assign UserName Input Field Not Visible")
+
+        }
+        
+
+        async clickProfilePictureAddNewSetBtn() {                
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetBtn).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Button is not visible ")
+
+        }
+
+        async inputProfilePictureSetTitle() { 
+                await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField)               
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David Con")
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Title Field is not visible ")
+
+        }
+
+        async uploadSetProfilePicture() {
+                             
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowUploadPictureInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowUploadPictureInputField).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Window, Picture Upload Element is not visible ")
+
+        }
+
+        async clickSetProfilePictureWindowSaveBtn() {
+                await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSaveBtn)
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Window, Save Button Element is not visible ")
+
+        }
+
+        async clickProfilePictureSetDialogBox() {
+                await this.page.waitForSelector(this.signUpPageElements.profilePictureSetDialogBox)
+                let ele = await this.page.locator(this.signUpPageElements.profilePictureSetDialogBox).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.profilePictureSetDialogBox).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Dialog Box Element is not visible ")
+
+        }
+
+        async selectAutoAssaigProfilePicture() {
+                await this.page.waitForSelector(this.signUpPageElements.selectDefultProfile)
+                let ele = await this.page.locator(this.signUpPageElements.selectDefultProfile).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.selectLastProfile).last().click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Auto Assaig Profile Picture List is not visible ")
+
+        }
+
+        async clickAutoAssignRadioBtn() {                
+                let ele = await this.page.locator(this.signUpPageElements.autoAssignCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.autoAssignCheckBox).click({ button: "left", delay: 1000 })
+                }
+                // else throw new Error("Sign Up Page Auto Assaig Profile Picture List is not visible ")
+
+        }
+
+
+
 
         async clickSocialMediaLoginPhoneNumberValidationRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).isChecked()
-                if ((ele == false)){
-                        await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).click({button: "left", delay: 1000})
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
-                
+
         }
 
         async clickSocialMediaLoginEmailValidationRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).isChecked()
-                if ((ele == false)){
-                        await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).click({button: "left", delay: 1000})
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
-                
+
         }
-  
-  
+
+
 
         //Check Registration Options Text
         async checkRegistrationOptionPage() {

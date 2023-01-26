@@ -130,7 +130,7 @@ test("005SU-003 | Validate Socal Media Login With Facebook Functionality Success
                 await googleLoginPage.inputEamilForLoginWithFacebook()
                 await googleLoginPage.inputPasswordForLoginWithFacebook()
                 await googleLoginPage.clickSignInWithFacebookWindowLoginBtn()
-                await googleLoginPage.clickContineuWithFacebookBtn()
+                // await googleLoginPage.clickContineuWithFacebookBtn()
 
                 // await googleLoginPage.inputPasswordForLoginWithGoogle()
                 // await googleLoginPage.clickSignInWithGoogleWindowNextBtn()
@@ -431,6 +431,483 @@ test("005SU-010 | Validate Email Validation Options Functionality Successfully W
         await test.step("Validation on mobile Screen", async () => {
 
                 await newmobilePreviewPage.verifyLoginWithEmailInputFieldIsVisible()
+                await newmobilePreviewPage.inputEamilForLoginWithEmail()
+                await newmobilePreviewPage.clickSignInBtn()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-011 | Validate Admin Successfully Check Anonymous Login Option From Admin Side ", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()   
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-012 | Validate Anonymous Login Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-013 | Validate Admin Successfully Check Users age must be 13 years or older Option From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()
+             await singupPage.clickUserAgeMust13YearsOrOlderOptionRadioBtn()   
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-014 | Validate Users age must be 13 years or older Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-015 | Validate Admin Successfully Check define age or older to register Option From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()
+             await singupPage.clickUserAgeCustomOrOlderOptionRadioBtn()
+             await singupPage.inputUserAgeCustomOrOlder()   
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-016 | Validate Check define age or older to register Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-017 | Validate Admin Successfully Check Options for user defined age Option From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()
+             await singupPage.clickUserAgeuserDefinedOptionRadioBtn()
+             await singupPage.inputFirstUserAgeuserDefined()
+             await singupPage.inputSecondUserAgeuserDefined()
+
+
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-018 | Validate Options for user defined age Options Functionality Successfully Works on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
+
+test("005SU-019 | Validate Automatically assign username Functionality Successfully Works From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()
+             await singupPage.automaticallyAssignUserName()
+             await singupPage.InputAutomaticallyAssignUserName()
+
+
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-020 | Validate Automatically assign username Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+                await newmobilePreviewPage.clickMyProfile()
+                await newmobilePreviewPage.clickOkBtn()
+                await newmobilePreviewPage.verifyAutomaticallyAssignUserName()
   
 
                 
@@ -448,9 +925,118 @@ test("005SU-010 | Validate Email Validation Options Functionality Successfully W
 })
 
 
+test("005SU-021 | Validate Add New Set For User Profile Picture Functionality Successfully Works From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()
+             await singupPage.clickProfilePictureAddNewSetBtn()
+             await singupPage.inputProfilePictureSetTitle()
+             await singupPage.uploadSetProfilePicture()
+             await functions.fileUploadCropperWithoutIframe()
+             await singupPage.clickSetProfilePictureWindowSaveBtn()
+
+             await singupPage.clickProfilePictureSetDialogBox()
+             await singupPage.selectAutoAssaigProfilePicture()
+
+             await singupPage.clickAutoAssignRadioBtn()
+
+
+             
+
+
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+test("005SU-022 | Validate Admin Selected Profile Picture Successfully Show on Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
 
 
 
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+                await newmobilePreviewPage.clickMyProfile()
+                await newmobilePreviewPage.clickOkBtn()
+                await newmobilePreviewPage.clickProfilePictureEditButton()
+                await newmobilePreviewPage.verifyAutoAssaignProfilePictureUpdatedSuccessfully()
+
+                
+  
+
+                
+             
+
+
+               
+
+
+             
+        })
+
+       
+
+})
 
 
 

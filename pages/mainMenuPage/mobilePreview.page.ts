@@ -140,7 +140,52 @@ async verifyLoginWithEmailInputFieldIsVisible() {
     else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
 }
 
+async verifyAutomaticallyAssignUserName() {         
+       await this.page.waitForSelector("//img[@alt='User avatar']")
+       const ele = await this.page.locator("#usernameField").textContent()
+    if (expect(ele?.includes("david"))){
+           console.log("Automatically Assign User Name Updated Successfully")
+    }
+    else throw new Error("Automatically Assign User Name Is Not Updated Successfully ")
+}
+
+async clickProfilePictureEditButton() {         
+       
+       const ele = await this.page.locator("//button[@active='true']").isVisible()
+    if ((ele == true)){
+       await this.page.locator("//button[@active='true']").click({ button: "left", delay: 1000 })
+    }
+    else throw new Error("My Profile Page Profile Picture Edit Button Is Not Visible")
+}
+
+async verifyAutoAssaignProfilePictureUpdatedSuccessfully() {         
+       await this.page.waitForSelector("#alert-dialog-title")
+       const ele = await this.page.locator("//div[@class='MuiBox-root css-6nzrs3']//div[1]").isVisible()       
+    if ((ele == true)){
+         console.log("Auto Assaign Profile Picture Updated Successfully")
+    }
+    else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not visiable")
+}
+
+
+async inputEamilForLoginWithEmail() {         
+       await this.page.waitForSelector("//img[@alt='Logotype']")
+       const ele = await this.page.locator("//input[@type='email']").isVisible()
+    if ((ele == true)){
+       await this.page.locator("//input[@type='email']").fill("ss.unidev@gmail.com")
+    }
+    else throw new Error("Mobile Welcome Screen Login With Email Input Field Is Not Visible After check Login With Email Validation Option From Admin Side")
+}
+
+async clickSignInBtn() {       
+      
+       const ele = await this.page.locator("(//button[@type='button'])[1]").isVisible()
+    if ((ele == true)){
+       await this.page.locator("(//button[@type='button'])[1]").click()
+    }
+    else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
     
+}    
 
        
        

@@ -273,6 +273,7 @@ export default class functions {
 
                 // const imageText = await this.page.locator("text='Image'")
                 // expect(imageText).toContainText("Image")
+                await this.page.waitForSelector("//div[text()='Upload Pictures']")
 
                 const ratioText = await this.page.locator("text='Ratio:'")
                 expect.soft(ratioText).toContainText("Ratio:")

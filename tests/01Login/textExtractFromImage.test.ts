@@ -8,6 +8,7 @@ test("Tesseract - Image to text", async ({ page }) => {
     await page.waitForSelector("//h1[text()='Sign in']");
 //     await page.click('#best_deal_div >> text=X', { force: true, delay: 2000 });
     const images = await page.$$("//p[text()='Sign in and start managing your Games!']");
+    expect(images).toMatchSnapshot("login-page-UI.png")
     for await (let img of images) {
         const name = Date.now();
         await img.screenshot({ path: `${name}.png` });
@@ -15,7 +16,7 @@ test("Tesseract - Image to text", async ({ page }) => {
     }
 });
 
-test.only("Tesseracts - Image to text", async ({ page }) => {
+test("Tesseracts - Image to text", async ({ page }) => {
 
     await page.goto("/admin/#/sign-in");
     await page.waitForSelector("//h1[text()='Sign in']");
@@ -48,3 +49,21 @@ test('example test', async ({ page }) => {
     await page.waitForSelector("//h1[text()='Sign in']");
     expect(await page.textContent("//p[text()='Sign in and start managing your Games!']")).toMatchSnapshot('hero.txt');
   });
+
+
+  test("Tesseractss - Image to text", async ({ page }) => {
+
+    await page.goto("/admin/#/sign-in");
+    await page.waitForSelector("//h1[text()='Sign in']");
+
+    expect(await page.locator(`//p[text()='Sign in and start managing your Games!']`)).toMatchSnapshot('demo.png');
+//     await page.click('#best_deal_div >> text=X', { force: true, delay: 2000 });
+    // const images = await page.$$("//p[text()='Sign in and start managing your Games!']");
+    
+    // for await (let img of images) {
+    //     const name = Date.now();
+    //     await img.screenshot({ path: `login-page-UI.png` });
+    //     // await convertToText(`${name}.png`)
+    // }
+    // expect(images).toMatchSnapshot("login-page-UI.png")
+});
