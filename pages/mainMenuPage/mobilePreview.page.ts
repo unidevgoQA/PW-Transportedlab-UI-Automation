@@ -58,9 +58,141 @@ export default class mobilePreviewPage {
               await expect(ele).toBeVisible()
        }
 
+       async clickLoginWithGoogleIconIsVisible() {
+              await this.page.waitForSelector("//button[@aria-label='Sign Up with Google']")
+
+
+              const [page1] = await Promise.all([
+                     this.page.waitForEvent('popup'),
+                     this.page.locator("//button[@aria-label='Sign Up with Google']").click()
+                 ]);
+                 await this.page.waitForLoadState("networkidle")
+                 return page1;
+
+
+       //        const ele = await this.page.locator("//button[@aria-label='Sign Up with Google']").isVisible()
+       //        if ((ele == true)){
+       //               await this.page.locator("//button[@aria-label='Sign Up with Google']").click({button:"left", delay:1000})
+                     
+       //       }
+       //       else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
+       //       await this.page.waitForLoadState("networkidle")
+              
+       }
+
+       async inputEamilForLoginWithGoogle() {
+              await this.page.waitForNavigation()
+              const ele = await this.page.locator(`[type="email"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator('[type="email"]').type("ss.unidev@gmail.com")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
+              
+       }
+
+       async clickSignInWithGoogleWindowNextBtn() {              
+              const ele = await this.page.locator(`(//button[@type='button']//span)[2]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(`(//button[@type='button']//span)[2]`).click({delay:1000})
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Google Window Next Btn Is not Visible")
+              
+       }
+
+       async inputPasswordForLoginWithGoogle() {
+              await this.page.waitForNavigation()
+              const ele = await this.page.locator(`//input[@type='password']`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator("//input[@type='password']").fill("Ilovemymother1@34")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Google Window Password Input Field Is not Visible")
+              
+       }
+
+       
+
+       
+
+       async clickLoginWithFacebookIconIsVisible() {
+              
+              
+              const [page1] = await Promise.all([
+                     this.page.waitForEvent('popup'),
+                     this.page.locator("//button[@aria-label='Sign Up with Facebook']").click()
+                 ]);
+                 await this.page.waitForLoadState("networkidle")
+                 return page1;
+
+              //    const ele = await this.page.locator("//button[@aria-label='Sign Up with Facebook']").isVisible()
+              // if ((ele == true)){
+                     
+              // }
+              // else throw new Error("Mobile Welcome Screen Login With Facbook option Is not Visible")
+       }
+
+       async inputEamilForLoginWithFacebook() {
+              await this.page.waitForNavigation()
+              const ele = await this.page.locator(`#email`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator('#email').type("ss.unidev@gmail.com")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Login With Facebook Eamil Input Option Is not Visible")
+              
+       }
+
+       async inputPasswordForLoginWithFacebook() {
+              
+              const ele = await this.page.locator(`[type="password"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator('[type="password"]').fill("SecretPassword1@34")
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Password Input Field Is not Visible")
+              
+       }
+
+       async clickSignInWithFacebookWindowLoginBtn() {              
+              const ele = await this.page.locator(`[type="submit"]`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(`[type="submit"]`).click({force:true})
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Login Btn Is not Visible")
+             await this.page.waitForLoadState()
+              
+       }
+
+       async clickContineuWithFacebookBtn() {
+              await this.page.waitForSelector("(//div[@role='button']//div)[3]")
+              const ele = await this.page.locator("(//div[@role='button']//div)[3]").isVisible()
+              if ((ele == true)){
+                     await this.page.locator("(//div[@role='button']//div)[3]").click()
+              }
+              else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
+       }
+
+       
+
+       async clickLoginWithMicrosoftIconIsVisible() {
+              const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isVisible()
+              if ((ele == true)){
+                     
+              }
+              else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
+       }
+
+       
+
+       
+
        async typephoneno() {
               await this.page.locator('//input[@name="phone"]').type('+8801851703506')
        }
+       
        async typeemail() {
               await this.page.locator('//input[@name="email"]').type("AutomationTest@test.com")
        }

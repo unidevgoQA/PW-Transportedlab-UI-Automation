@@ -30,38 +30,59 @@ export default class singupPage {
                 addNewSetWindowSaveBtn: "//button[text()='Save']",
                 profilePictureSetDialogBox: "//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//div[1]",
                 selectLastProfile: "//li[@role='option']",
-                autoAssignCheckBox: "//input[@value='autoAssignAvatars']", 
+                autoAssignCheckBox: "//input[@value='autoAssignAvatars']",
                 profileSetEditBtn: "//button[text()='Edit']",
                 profileSetDeleteBtn: "//button[text()='Delete']"
 
 
         }
+        // export default class singupPage {
+        //         [x: string]: any;
+
+        //         private page: Page;
+        //         static buffer: void;
+        //         constructor(page: Page) {
+        //                 this.page = page;
+        //         }
 
 
-
-
-
-
-
-
-
-
-// export default class singupPage {
-//         [x: string]: any;
-
-//         private page: Page;
-//         static buffer: void;
-//         constructor(page: Page) {
-//                 this.page = page;
-//         }
-        
-
-        //Click SignUp Page Button Element
         async clickSignUpPage() {
-                const locator = this.page.locator("//p[text()='Sign Up']")
-                expect(locator).toContainText('Sign Up')
-                await locator.click()
+                let ele = await this.page.locator(this.signUpPageElements.signUpPage).isVisible()
+                if ((ele == true)){                                                
+                        await this.page.click(this.signUpPageElements.signUpPage)
+                }
+                else throw new Error("Sign Up Page Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
+                
         }
+
+        async verifyRegistrationOptionsText() {
+                let ele = await this.page.locator(this.signUpPageElements.registrationOptionsText).textContent()
+                if ((ele === "Registration Options:")){
+
+                }
+                else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                
+        }
+
+        async clickSocialMediaLoginRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).isChecked()
+                if ((ele == false)){
+                        await this.page.locator(this.signUpPageElements.socialMediaLoginsBtn).click({button: "left", delay: 1000})
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                
+        }
+
+        async clickSocialMediaLoginPhoneNumberValidationRadioBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).isChecked()
+                if ((ele == false)){
+                        await this.page.locator(this.signUpPageElements.phoneValidationRadioBtn).click({button: "left", delay: 1000})
+                }
+                // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                
+        }
+  
 
         //Check Registration Options Text
         async checkRegistrationOptionPage() {
@@ -198,17 +219,17 @@ export default class singupPage {
                 // expect(ele).toBeVisible()
                 // await ele.check()
 
-                              
-                        const ele = await this.page.locator("//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]").isChecked()
-                           if ((ele == false)) {
-                                // console.log("click Automataclly Assign Username Btn")
-                                await this.page
-                                        .locator("//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]")
-                                                .click()
-                           }        
-                   
-                           
-                   
+
+                const ele = await this.page.locator("//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]").isChecked()
+                if ((ele == false)) {
+                        // console.log("click Automataclly Assign Username Btn")
+                        await this.page
+                                .locator("//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]")
+                                .click()
+                }
+
+
+
 
 
                 // if ((await this.page.locator("(//input[@type='checkbox'])[2]"))) {
@@ -265,7 +286,7 @@ export default class singupPage {
                 expect.soft(locator).toContainText("Upload Pictures")
         }
 
-        async uploadProfileSet() {          
+        async uploadProfileSet() {
                 await this.page.click("div.MuiBox-root.css-v2612")
         }
         async clickSaveBtn() {
@@ -336,7 +357,7 @@ export default class singupPage {
 
                 // expect(await this.page.locator("(//label[text()='Url or link']/following::input)[1]").isChecked()).toBeTruthy()
 
-               
+
 
                 let ele = await this.page.locator("(//label[text()='Url or link']/following::input)[1]").isChecked()
 
@@ -412,14 +433,14 @@ export default class singupPage {
         }
 
         async verifyCustomQuestionText() {
-                
+
                 const locator = this.page.locator("//p[text()='Custom Question']")
                 expect.soft(locator).toContainText("Custom Question")
         }
 
 
         async verifyCustomQuestionTypeText() {
-                
+
                 const locator = this.page.locator("//h5[text()='Custom Question Type']")
                 expect.soft(locator).toContainText("Custom Question Type")
         }
@@ -435,7 +456,7 @@ export default class singupPage {
                 }
         }
         async inputFreeFormCustomQuestion() {
-                
+
                 const locator = this.page.locator("#P19892275832")
                 expect.soft(locator).toBeVisible()
                 await locator.fill("How many older do you have?")
@@ -453,7 +474,7 @@ export default class singupPage {
         }
 
         async clickCustomQuestionWindowSaveBtn() {
-                
+
                 const locator = this.page.locator("//button[text()='Save']")
                 expect.soft(locator).toBeVisible()
                 await locator.click()
@@ -476,9 +497,9 @@ export default class singupPage {
 
                 await inputmultipuleField.fill("Demo Data")
 
-                
+
         }
-        
+
 
         async clickAddChoiceBtn() {
 
@@ -489,10 +510,10 @@ export default class singupPage {
                         await this.page.locator("//button[text()='Add Choice']").click()
 
                 }
-        }  
+        }
 
         async inputChoiceText() {
-                
+
                 const locator = this.page.locator("(//label[text()='Give some description here...']/following::input)[1]")
                 expect.soft(locator).toBeVisible()
                 await locator.fill("Choice One")
@@ -543,7 +564,7 @@ export default class singupPage {
 
         async clcikAddCustomOptionIn() {
 
-                
+
 
                 let ele = await this.page.locator("//button[text()='Add Custom Opt-In']")
                 expect(ele).toBeVisible()
@@ -564,7 +585,7 @@ export default class singupPage {
                         await this.page.locator("//input[@value='sms']").click()
 
                 }
-        }       
+        }
         async clcikEmailCheckBox() {
 
                 let ele = await this.page.locator("//input[@value='email']").isVisible()
@@ -574,8 +595,8 @@ export default class singupPage {
                         await this.page.locator("//input[@value='email']").click()
 
                 }
-        }  
-        
+        }
+
         async clcikCustomCheckBox() {
 
                 let ele = await this.page.locator("//input[@value='custom']").isVisible()
@@ -585,53 +606,53 @@ export default class singupPage {
                         await this.page.locator("//input[@value='custom']").click()
 
                 }
-        }  
+        }
         async inputCustomBackendName() {
 
                 let ele = await this.page.locator("//textarea[@rows='1']").isVisible()
 
                 if ((ele == true)) {
-                        
+
                         await this.page.locator("//textarea[@rows='1']").fill("BackEnd Name")
 
                 }
-        } 
+        }
 
         async inputCustomOptionsDiscription() {
 
                 let ele = await this.page.locator("//textarea[@rows='6']").isVisible()
 
                 if ((ele == true)) {
-                        
+
                         await this.page.locator("//textarea[@rows='6']").fill("In publishing and graphic design, Lorem ipsum is a placeholder ")
 
                 }
-        } 
+        }
 
-        
+
         async clickAutoCheckCheckbox() {
 
                 let ele = await this.page.locator("//label[text()='Give some description here...']/following::input").isVisible()
 
                 if ((ele == true)) {
-                        
+
                         await this.page.locator("//label[text()='Give some description here...']/following::input").click()
 
                 }
-        } 
+        }
 
         async clickCustomOptionInSaveBtn() {
 
                 let ele = await this.page.locator("//button[text()='Save']").isVisible()
 
                 if ((ele == true)) {
-                        
+
                         await this.page.locator("//button[text()='Save']")
 
                 }
-        } 
+        }
 
-        
+
 
 
 

@@ -1,10 +1,11 @@
 import { Page } from "@playwright/test";
 
 export default class BaseFunctions {
-    static waitAndClick(firstQRCode: string) {
-      throw new Error("Method not implemented.");
-    }
+    // static waitAndClick(firstQRCode: string) {
+    //   throw new Error("Method not implemented.");
+    // }
     static goto: any;
+        static waitAndClick: any;
 
     constructor(private page: Page) { }
 

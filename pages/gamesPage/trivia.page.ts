@@ -15,23 +15,6 @@ export default class triviaPage {
                 inputConfigrationsName : "(//input[@id='P0-0'])[2]",
                 addConfigurationBtn : "//button[text()='ADD']",
                 newConfigrationText : '//p[text()="New Configuration"]',
-<<<<<<< Updated upstream
-                cancelConfigration : "//button[text()='CANCEL']",
-                withoutdata : "(//div[@class='MuiDialogContent-root css-3n2qrj'])[2]",
-                //lessthanzthreeChracterdata : "//p[text()='Please input more than 3 characters']",
-                startBtn : "//button[text()='Start']",
-                okBtn : "//button[text()='Ok']",
-                RounderrorMessage: '//div[@class="MuiDialogContent-root css-3n2qrj"]',
-                mobileLinkBtn : '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]',
-                MobileLinkPopupClose : "//div[@class='MuiBox-root css-1xnxzwa']",
-                mobileLinkText: "//h2[text()='Mobile Link']",
-                mobileLinkOpenBtn: '//a[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]',
-                mobileLinkCopyBtn : "//button[@aria-label='Copy Link']",
-                errorMessageIfCongigrationfieldIsBlank:"//p[text()='Please input more than 3 characters']",
-                mobileLinkQRCode: '//div[@class="MuiDialogContent-root css-9tte1s"]',
-                saveQRCode : "//button[text()='Save QR Code']",
-                copyQRcodeBtn: "//button[text()='Copy QR Code']",
-=======
                 cancelConfigrationBtn : "//button[text()='CANCEL']",
                 blankconfigrationfield : "(//div[@class='MuiDialogContent-root css-3n2qrj'])[2]",
                 configurationLessthanzthreeChracterdata : "//p[text()='Please input more than 3 characters']",
@@ -46,7 +29,6 @@ export default class triviaPage {
                 mobileLinkCopyBtn : "//button[@aria-label='Copy Link']",
 
 
->>>>>>> Stashed changes
 
         }
 
