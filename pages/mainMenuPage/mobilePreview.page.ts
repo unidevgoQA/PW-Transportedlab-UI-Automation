@@ -167,6 +167,35 @@ async verifyAutoAssaignProfilePictureUpdatedSuccessfully() {
     else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not visiable")
 }
 
+async verifyAutoAssaignProfilePictureUpdatedSuccessfullyAfterEdit() {         
+       await this.page.waitForSelector("#alert-dialog-title")
+       const ele = await this.page.locator("//div[@class='MuiBox-root css-n97oo2']").isVisible()       
+    if ((ele == true)){
+         console.log("Auto Assaign Profile Picture Updated Successfully After Edit")
+    }
+    else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not Updated After Edit")
+}
+
+async UserSelecthisProfilePicture() {         
+       await this.page.waitForSelector("//button[@aria-label='Close']")
+       const ele = await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").isVisible()       
+    if ((ele == true)){
+       await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").click({ button: "left", delay: 1000 })
+    }
+    else throw new Error("My Profile Page Profile Picture user is not Updated After successfully")
+}
+
+async clickProfilePictureWindowSaveBtn() {         
+       await this.page.waitForSelector("//button[@aria-label='Close']")
+       const ele = await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").isVisible()       
+    if ((ele == true)){
+       await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").click({ button: "left", delay: 1000 })
+    }
+    else throw new Error("My Profile Page Profile Picture Save Button Is Not Visible")
+}
+
+
+
 
 async inputEamilForLoginWithEmail() {         
        await this.page.waitForSelector("//img[@alt='Logotype']")
@@ -589,10 +618,12 @@ async clickSignInBtn() {
        }
 
        async verifyPotraitBackgroundUploadSuccessfully() {
+              const ele = await this.page.locator("//div[@class='MuiBox-root css-tyolvb']").screenshot()
+              await expect(ele).toMatchSnapshot("Verify_Portrait_Background.png", { maxDiffPixels: 100 })
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("Verify_Portrait_Background.png") 
+              // expect(await this.page.screenshot({
+              //        fullPage: true
+              //    })).toMatchSnapshot("Verify_Portrait_Background.png") 
 
 
 

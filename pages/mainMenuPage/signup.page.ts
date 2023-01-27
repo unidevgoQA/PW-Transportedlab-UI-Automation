@@ -25,9 +25,11 @@ export default class singupPage {
                 automaticAssignUserNameEnableDisableBtn: "//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]",
                 automaticAssignUserNamePrifizInputField: "(//span[text()='Automatically assign username']/following::input)[1]",
                 addNewSetBtn: "//button[text()='Add New Set']",
+                profileNameAfterEdit: "//div[text()='David']",
                 addNewSetWindowSetTitleInputField: "#headlineField",
                 addNewSetWindowUploadPictureInputField: "//div[@class='MuiBox-root css-v2612']",
                 addNewSetWindowSaveBtn: "//button[text()='Save']",
+                uploadedProfilePictureDeleteBtn: "//div[@class='MuiBox-root css-76t8yr']//button[1]",                
                 profilePictureSetDialogBox: "//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//div[1]",
                 selectLastProfile: "//li[@role='option']",
                 selectDefultProfile: "//li[@data-value='default']",
@@ -273,6 +275,79 @@ export default class singupPage {
 
         }
 
+        async editAutoAssaigProfilePicture() {
+                await this.page.waitForSelector(this.signUpPageElements.profileSetEditBtn)
+                let ele = await this.page.locator(this.signUpPageElements.profileSetEditBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.profileSetEditBtn).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Auto Assaig Profile Picture Edit Button is not visible ")
+
+        }
+
+        async editProfilePictureSetTitle() { 
+                await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField)               
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David Con")
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Title Field is not visible ")
+
+        }
+
+        async deleteUploadedProfilePicture() { 
+                              
+                let ele = await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Delete Button Is not visible ")
+
+        }
+
+        async editUploadedSetProfilePicture() {
+                             
+                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowUploadPictureInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowUploadPictureInputField).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Window, Picture Upload Element is not visible ")
+
+                const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                expect.soft(chooseBtn).toContainText("Choose File")
+                const filePath0 = "testData/logos/profile.png"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+                await chooseBtn.click()
+
+                const cropperSaveBtn = await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]")
+                expect(cropperSaveBtn).toContainText("Save")
+                await cropperSaveBtn.click()
+
+        }
+
+        async verifyAutoAssignProfileSuccessfullyEdited() { 
+                await this.page.waitForSelector(this.signUpPageElements.profileNameAfterEdit)               
+                let ele = await this.page.locator(this.signUpPageElements.profileNameAfterEdit).textContent()
+                if ((ele === "David Con")) {
+                        
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Title Not Edited successfully")
+
+        }
+
+        async deleteAutoAssignProfile() { 
+                await this.page.waitForSelector(this.signUpPageElements.profileSetDeleteBtn)               
+                let ele = await this.page.locator(this.signUpPageElements.profileSetDeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.profileSetDeleteBtn).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error("Sign Up Page Profile Picture Add New Set Not Deleted successfully")
+
+        }
+
+        //div[text()='David']
         async clickAutoAssignRadioBtn() {                
                 let ele = await this.page.locator(this.signUpPageElements.autoAssignCheckBox).isChecked()
                 if ((ele == false)) {
