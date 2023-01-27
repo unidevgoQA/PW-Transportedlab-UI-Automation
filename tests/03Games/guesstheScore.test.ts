@@ -1879,14 +1879,9 @@ await test.step("provide values in form field of mobile view and submit", async(
 await test.step("now validate button color change is visible on mobile screen",async () =>{
     //await newguessthescoregame.checksbuttonColor()
     //await newguessthescoregame.screenshot_matcher_backgroundimage()
-<<<<<<< Updated upstream
     await newguessthescoregame.clcikHomePageInMobileScreen()
     await newguessthescoregame.verifyButtonColorSuccessfullyAppliedInMobileScreen()
 
-=======
-    await page.waitForTimeout(2000)
-    await newguessthescoregame.screenshot_matcher_buttoncolor()
->>>>>>> Stashed changes
 })
 })
     
