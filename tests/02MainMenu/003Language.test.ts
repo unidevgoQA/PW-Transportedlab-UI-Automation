@@ -649,17 +649,10 @@ test("TL003-014 | Validate User Selectable Russian Language Change Functionality
 
 
         //Verify click on the user profile selectable input field
-        await languagePage.clickUserProfileSelectableInputField()
-        await languagePage.selectEnglishLanguage()
-
-
-        await languagePage.clickUserProfileSelectableInputField()
-
-
-
+        // await languagePage.clickUserProfileSelectableInputField()
         // await languagePage.selectEnglishLanguage()
-        // await languagePage.selectFranciasLanguage()
-        // await languagePage.deselectRussianLanguage()
+
+        await languagePage.clickUserProfileSelectableInputField()
 
         await languagePage.selectRussianLanguage()
 
@@ -667,10 +660,6 @@ test("TL003-014 | Validate User Selectable Russian Language Change Functionality
 
         await languagePage.clickLanguagePage()
 
-
-        // await languagePage.deselectFranciasLanguage()
-
-        // await languagePage.deselectEnglishLanguage()
         })
 
         await test.step("Click Prize Drop Section", async () => {

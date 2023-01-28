@@ -922,7 +922,7 @@ export default class MobileDesign {
     async clickToUploadPortraitBackground() {
 
         // const popupPromise = this.page.waitForEvent('popup');
-        await this.page.locator("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]").click();
+        await this.page.locator("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]").click({button: "left", delay: 1000});
         // const popup = await popupPromise;
         // Wait for the popup to load.
         // await popup.waitForLoadState('load');
@@ -1005,7 +1005,7 @@ export default class MobileDesign {
     async clickToUploadLandscapeBackground() {
 
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-        await ele.click({ force: true })
+        await ele.click({button: "left", delay: 1000})
 
 
 

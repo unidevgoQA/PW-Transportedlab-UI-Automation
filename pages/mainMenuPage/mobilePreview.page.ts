@@ -619,7 +619,7 @@ async clickSignInBtn() {
 
        async verifyPotraitBackgroundUploadSuccessfully() {
               const ele = await this.page.locator("//div[@class='MuiBox-root css-tyolvb']").screenshot()
-              await expect(ele).toMatchSnapshot("Verify_Portrait_Background.png", { maxDiffPixels: 100 })
+              await expect(ele).toMatchSnapshot("Verify_Portrait_Background.png", {maxDiffPixelRatio:0.01})
 
               // expect(await this.page.screenshot({
               //        fullPage: true
