@@ -1018,7 +1018,7 @@ export default class prizeDropPage {
                 await back.click({button:'left'})      
 
         }
-        async click_delete_prize_button(){
+        async click_delete_prize_button(){                
                 const del= this.page.frameLocator('iframe').locator('//button[text()="Delete"]').last()
                 await expect(del).toBeVisible()
                 await del.click({button:'left'})

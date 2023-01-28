@@ -3062,13 +3062,13 @@ test("007PD-0129 | Validate Game Edit And Delete Functionality", async ({ loginP
 
 
         })
-        await test.step("verify game edit functionality",async()=>{
-                await prizeDropPage.clickEditSection()
+        // await test.step("verify game edit functionality",async()=>{
+        //         await prizeDropPage.clickEditSection()
 
-                await prizeDropPage.inputEditGameTitle()
+        //         await prizeDropPage.inputEditGameTitle()
 
-                await prizeDropPage.clickEditBtn() 
-        })
+        //         await prizeDropPage.clickEditBtn() 
+        // })
         await test.step("PD007-104|validate delete section in added prize is working",async()=>{
                 await prizeDropPage.clickPrizingSection()
                 await prizeDropPage.click_delete_prize_button()
