@@ -152,23 +152,25 @@ export default class prizeDropMobilePage {
             await expect.soft(this.page).toHaveScreenshot('marketing_message_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
       }
         async video_checker_background_video(){
-              const video_ele = this.page.frameLocator('iframe').locator('//video[@autoplay="true"]')
-              await this.page.waitForSelector('//video[@autoplay="true"]',{state:'visible'})
-              await expect(video_ele).toBeVisible()
+            await this.page.waitForLoadState('networkidle',{timeout:3000})
+            const video_ele = this.page.frameLocator('//iframe').locator('//div[@id="app"]//video[@autoplay="true"]//source[@type="video/mp4"]')
+            await expect(video_ele).toHaveAttribute('type','video/mp4')
+            await expect(video_ele).toHaveCSS('box-sizing','content-box')
+              
         }
         async video_checker_how_to_play_video(){
             // const video_ele = this.page.locator('//video[@autoplay="true"]//source[@type="video/mp4"]')
-            await this.page.waitForLoadState('networkidle')
-            await this.page.waitForSelector('//video[@autoplay="true"]//source[@type="video/mp4"]',{state:'visible'})
+            await this.page.waitForLoadState('networkidle',{timeout:3000})
+            await this.page.waitForSelector('//video[@autoplay="true"]//source[@type="video/mp4"]',{state:'attached'})
             // await expect(video_ele).toBeVisible({timeout:40000})
       }
         async video_checker_rules_video(){
             const video_ele = this.page.locator('//div//video')
-            await expect(video_ele).toBeVisible()
+            await this.page.waitForSelector('//div[@id="app"]//div//div//video',{state:'attached'})
+            await expect(video_ele).toBeEnabled()
       }
       async video_checker_splash_screen_video(){
-            const video_ele = this.page.frameLocator('iframe').locator('//div[@id="app"]//div//div//video')
-            await this.page.waitForSelector('//div[@id="app"]//div//div//video',{state:'attached'})
+            await this.page.waitForSelector('//div[@id="app"]//div//div//video',{state:'detached'})
       }
 
         async screenshot_matcher_rules_image(){

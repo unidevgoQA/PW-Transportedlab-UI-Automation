@@ -137,7 +137,42 @@ export default class prizeDropPage {
         async clickToUploadFont() {
                 const ele = this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]//preceding-sibling::div')
                 await expect(ele).toBeVisible()
-                await ele.click()
+                await ele.click({button:'left'})
+        }
+        async handle_alert(){
+               this.page.on('dialog', async dialog => {
+                        // Verify type of dialog
+                        expect(dialog.type()).toContain('alert');   
+                        
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        
+                        //click on alert ok button
+                        await dialog.accept();
+                      });
+        }
+        async wrong_font_uploader_click(){
+                const filePath0 = "testData/images/HTP.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+ 
+        }
+       
+        async font_uploader_click(){
+                const filePath0 = "testData/fonts/Midnight.ttf"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+ 
         }
 
         async clickClearAllBtn() {
@@ -161,7 +196,7 @@ export default class prizeDropPage {
         // solid dropdowns 
 
         async validate_solid_horizontal_vertical_dropdown(){
-                await this.page.frameLocator('.css-r99fy3').locator('//div[text()="Solid"]').click()
+                await this.page.frameLocator('.css-r99fy3').locator('//div[@aria-haspopup="listbox"]').first().click()
         }
 
         async click_solid_button(){
@@ -171,6 +206,16 @@ export default class prizeDropPage {
         async click_horizontal_button(){
                 await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Horizontal"]').click()
         }
+        async click_vertical_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Vertical"]').click()
+        }
+        async click_diagonal_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Diagonal"]').click()
+        }
+        async click_radial_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Radial"]').click()
+        }
+        
         //opacity slider
         async opacity_slider_visiblity() {
                 const ele =  this.page.frameLocator('.css-r99fy3').locator('//input[@aria-label="Alpha" and @aria-valuetext="100%"]')
@@ -1317,11 +1362,11 @@ async clickEditBtn(){
         }
 
         // Mobilepage functions start from here
-
         //rich text editor game settings
         async typestandbymessage(text:string) {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('//p[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]')
                 await expect(ele).toBeVisible()
+                await ele.fill('   ')
                 await ele.fill(` ${text}`)
         }
         async clickleftalignedstandbymessage() {

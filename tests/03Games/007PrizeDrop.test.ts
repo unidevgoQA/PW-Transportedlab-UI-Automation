@@ -439,6 +439,7 @@ test("PD007-91|Validate marketing message change is reflected on mobile screen",
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -646,11 +647,16 @@ test("PD007-28|Validate Font Upload Functionality", async ({ loginPage, prizeDro
                await functions.check_upload_font_text()
 
         })
+        // await test.step("PD007-128|Validate error message if wrong file is selected as font",async()=>{
+
+        //         await functions.wrong_font_uploader()
+        //         await prizeDropPage.clickToUploadFont()
+        //         await prizeDropPage.handle_alert()
+
+        // })
         await test.step("PD007-28|Validate Font Upload Functionality", async () => {
         
-                //UploadFont
-                await functions.fontUploadFunction()
-                await prizeDropPage.clickToUploadFont()
+                await prizeDropPage.font_uploader_click()
 
                  await page.waitForTimeout(4000)
                 //click Clear All Btn
@@ -700,6 +706,7 @@ test("PD007-29|validate uploaded font is being reflected on mobile view", async(
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -780,6 +787,12 @@ test("PD007-123|now validate delete font button is working", async({ loginPage, 
                   //click Game Design
                   await prizeDropPage.clickGameDesign()
   
+        })
+        await test.step("PD007-128|Validate error message if wrong file is selected as font",async()=>{
+
+                await prizeDropPage.handle_alert()
+                await functions.wrong_font_uploader()
+
         })
         await test.step("now delete the uploaded font", async() =>{
                 await functions.delete_font()
@@ -978,6 +991,7 @@ test("PD007-47|  Validate text Color Input Functionality and reflection on mobil
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1143,9 +1157,19 @@ test("007PD-16 | validate main color input functionality and reflection on mobil
 
         })
 
-        // await test.step("validate solid dropdowns are working properly",async()=>{
-        //         await prizeDropPage
-        // })
+        await test.step("validate solid dropdowns are working properly",async()=>{
+        
+                await prizeDropPage.validate_solid_horizontal_vertical_dropdown()
+                await prizeDropPage.click_horizontal_button()
+                await prizeDropPage.validate_solid_horizontal_vertical_dropdown()
+                await prizeDropPage.click_vertical_button()
+                await prizeDropPage.validate_solid_horizontal_vertical_dropdown()
+                await prizeDropPage.click_diagonal_button()
+                await prizeDropPage.validate_solid_horizontal_vertical_dropdown()
+                await prizeDropPage.click_radial_button()
+                await prizeDropPage.validate_solid_horizontal_vertical_dropdown()
+                await prizeDropPage.click_solid_button()
+        })
 
         await test.step("PD007-36|Validate RGB sections are visible in  'main color' section and working", async () => {
 
@@ -1450,6 +1474,7 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1552,6 +1577,7 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1655,6 +1681,7 @@ test("PD007-55|Validate Frame image upload and its reflection on mobile screen",
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1771,6 +1798,7 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1873,6 +1901,7 @@ test(" PD007-67| validate Team logo upload and its reflection on mobile screen",
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -1974,6 +2003,7 @@ test("PD007-63| validate Loading image upload and its reflection on mobile scree
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2075,19 +2105,8 @@ test("PD007-70|validate Background video upload and its reflection on mobile scr
                 await languagePage.selectEnglishLanguage()
                 await menuPage.clickMenuPage()
                 await menuPage.clickBottomAlignmentBtn()
-                await menuPage.click_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_Active_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_active_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2184,6 +2203,7 @@ test("PD007-73|validate How to play image upload and its reflection on mobile sc
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2274,19 +2294,8 @@ test("PD007-10|validate How to play video upload and its reflection on mobile sc
                 await languagePage.selectEnglishLanguage()
                 await menuPage.clickMenuPage()
                 await menuPage.clickBottomAlignmentBtn()
-                await menuPage.click_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_Active_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_active_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2385,6 +2394,7 @@ test("PD007-76|validate rules image upload and its reflection on mobile screen",
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2473,19 +2483,8 @@ test("PD007-79|validate rules video upload and its reflection on mobile screen",
                 await languagePage.selectEnglishLanguage()
                 await menuPage.clickMenuPage()
                 await menuPage.clickBottomAlignmentBtn()
-                await menuPage.click_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_Active_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_active_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2582,6 +2581,7 @@ test("PD007-77|validate splash image upload and its reflection on mobile screen"
                 await menuPage.clickplusbuttonswatches()
                 await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2666,19 +2666,8 @@ test("PD007-125|validate splash video upload and its reflection on mobile screen
                 await languagePage.selectEnglishLanguage()
                 await menuPage.clickMenuPage()
                 await menuPage.clickBottomAlignmentBtn()
-                await menuPage.click_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_Active_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_active_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
+                await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
                 await singupPage.clickEmailAddressCheckBox()
                 await singupPage.clickAgeCheckBox()
@@ -2758,12 +2747,14 @@ test("PD007-86|validate standby message test and its reflection on mobile screen
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
-
+                await prizeDropPage.clickGameDesign()
+                await prizeDropPage.check_splash_video_availablity()
                 //click Game Settings
                 await prizeDropPage.clickGameSettings()
 
         })
         await test.step("PD007-83|Now validate standby message text editor functionalities ", async () => {
+
                 await prizeDropPage.typestandbymessage('automation test message for standby editor')
                 await prizeDropPage.clickboldstandbymessageeditor()
                 await prizeDropPage.clickitalicstandbymessageeditor()
