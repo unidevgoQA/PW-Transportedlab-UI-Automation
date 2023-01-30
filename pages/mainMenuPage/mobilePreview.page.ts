@@ -417,27 +417,38 @@ async clickSignInBtn() {
 
        }
 
+       async varifyMyProfileSuccessfullySelectedAsEntryScreen() {
+              const ele = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']//parent::button")
+              await expect(ele).toHaveAttribute('aria-pressed','true')
+              // if ((await expect(ele).toHaveAttribute('aria-pressed','true'))){
+           
+              // }
+              // else throw new Error("Mobile Welcome Screen Login With Phone Number")
+
+       }
+
        async verifyRulesEntryIsApplyed() {
-              expect(await this.page.locator("//button[@value='rules']")).toBeTruthy()
+              const ele = await this.page.locator("//div[@img='assets/RulesIcon.5ce8250e.svg']//parent::button")
+              await expect(ele).toHaveAttribute('aria-pressed','true')
               // expect(await this.page.locator("//button[@value='rules']")).toBeChecked()
 
        }
 
        async verifyHomeEntryIsApplyed() {
-              expect(await this.page.locator("//button[@value='rules']")).toBeTruthy()
-              // expect(await this.page.locator("//button[@value='rules']")).toBeChecked()
+              const ele = await this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")
+              await expect(ele).toHaveAttribute('aria-pressed','true')
 
        }
 
        async verifyHowToPlayEntryIsApplyed() {
-              expect(await this.page.locator("//button[@value='howToPlay']")).toBeTruthy()
+              const ele = await this.page.locator("//div[@img='assets/HowToPlayIcon.c5748446.svg']//parent::button")
+              await expect(ele).toHaveAttribute('aria-pressed','true')
 
        }
 
        async verifyPrizeEntryIsApplyed() {
-              await this.page.waitForSelector("//div[text()='No Won Prize']")
-              const ele = await this.page.locator("//div[text()='No Won Prize']")
-              expect(ele).toContainText("No Won Prize")
+              const ele = await this.page.locator("//div[@img='assets/PrizeIcon.fe356ae7.svg']//parent::button")
+              await expect(ele).toHaveAttribute('aria-pressed','true')
 
 
 
@@ -478,9 +489,9 @@ async clickSignInBtn() {
        }
 
        async clickMyProfile() {
-              const btn = this.page.locator("(//button[@type='button'])[5]");
+              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']//parent::button");
               expect(btn).toBeVisible()
-              await btn.click({ force: true })
+              await btn.click({ button: "left", delay:1000 })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
 

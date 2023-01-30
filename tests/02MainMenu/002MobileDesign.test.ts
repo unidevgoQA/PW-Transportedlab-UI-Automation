@@ -328,6 +328,8 @@ test("MD002-007 | Validate Entry Screen As User Profile Applied Successfully on 
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
                 await newmobilePreviewPage.clickOkBtn()
+                await newmobilePreviewPage.clickMyProfile()
+                await newmobilePreviewPage.varifyMyProfileSuccessfullySelectedAsEntryScreen()
                 await newmobilePreviewPage.verifyUserNameInputFieldTitle()
         })
 
@@ -370,7 +372,7 @@ test("MD002-008 | Validate Admin Successfully Select Entry Screen As Role", asyn
 
 })
 
-test("MD002-009 | Validate Entry Screen As Role Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test("MD002-009 | Validate Entry Screen As Rules Applied Successfully on Mobile Screen", async ({ loginPage,MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

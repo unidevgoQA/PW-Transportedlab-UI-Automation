@@ -1277,6 +1277,8 @@ test("005SU-026 | Validate Admin Edited Profile Picture Successfully Show on Mob
 
 
 
+
+
 // test("005SU-001 | Verify SignUp Page Functionality", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
 
 
