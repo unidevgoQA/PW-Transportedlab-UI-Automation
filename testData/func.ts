@@ -20,6 +20,16 @@ export default class functions {
                         await filechooser.setFiles([filePath0]);
                 })
         }
+        
+        async wrong_font_uploader(){
+                const filePath0 = "testData/images/title.jpg"
+                this.page.on("filechooser", async (filechooser) => {
+                        await filechooser.setFiles([filePath0]);
+                })
+                const ele = this.page.frameLocator('iframe').locator('//p[text()="Upload Font"]//preceding-sibling::div')
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
+        }
 
         
 
