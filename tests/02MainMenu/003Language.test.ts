@@ -54,7 +54,10 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
 
 
     await menuPage.selectBottomAlignmentMenuBar()
-
+    await languagePage.clickLanguagePage()
+    await languagePage.clickUserForceLanguageOption()
+    await languagePage.clickForceLanguageInputField()
+    await languagePage.selectEnglishLanguage()
 })
 
 test("TL003-001 | Validate Deselete All User Selectable Language Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
