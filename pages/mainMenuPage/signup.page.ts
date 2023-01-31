@@ -40,7 +40,21 @@ export default class singupPage {
                 emailAddressCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
                 ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
                 dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
-                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]"
+                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
+                urlTextInputField: "(//label[text()='Text']/following::input)[1]",
+                errorMessageForUrlTextInputField: "//p[text()='Incorrect entry.']",
+                urlLinkInputField: "//label[text()='Url or link']/following-sibling::div",
+                errorMassgeForUrlInputField: "//p[text()='Incorrect entry.']",
+                addNewUrlBtn: "//button[text()='Add New Url']",
+                addedLinkAndText: "//h6[text()='Added Links and Text']",
+                deletAddedUrlLink: "(//div[@class='MuiBox-root css-10a3ccs'])[1]",
+                customModerCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                addNewQuestionBtn: "//button[text()='Add question']",
+                signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
+                customQuestionScreenRadioBtn: "//input[@value='customQuestionScreen']",
+                customeOptionInCheckBox: "//span[text()='Custom Opt-In']",
+                addCustomQuestionInBtn: "//button[text()='Add Custom Opt-In']"
+
 
 
         }

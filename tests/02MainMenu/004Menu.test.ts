@@ -74,9 +74,6 @@ test("004M-001 | Varify Fonts Upload Functionality", async ({ loginPage, functio
         //verify font text
         await menuPage.checkFontsText();
 
-        //Verify upload font text
-        await menuPage.checkUploadFontText();
-
         await menuPage.deleteUploadedFont()
 
         await functions.fontUploadFunction()

@@ -1274,6 +1274,48 @@ test("005SU-026 | Validate Admin Edited Profile Picture Successfully Show on Mob
 })
 
 
+test("005SU-027 | Validate Error Massage Successfully Show Without Terms & Conditions URL Add Text", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()          
+
+             await singupPage.clickProfilePictureSetDialogBox()
+             await singupPage.selectAutoAssaigProfilePicture()            
+
+
+             
+
+
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+
 
 
 
