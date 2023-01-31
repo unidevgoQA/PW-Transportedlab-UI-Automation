@@ -43,12 +43,12 @@ export default class singupPage {
                 zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
                 urlTextInputField: "(//label[text()='Text']/following::input)[1]",
                 errorMessageForUrlTextInputField: "//p[text()='Incorrect entry.']",
-                urlLinkInputField: "//label[text()='Url or link']/following-sibling::div",
+                urlLinkInputField: "(//label[text()='Url or link']/following::textarea)[1]",
                 errorMassgeForUrlInputField: "//p[text()='Incorrect entry.']",
                 addNewUrlBtn: "//button[text()='Add New Url']",
                 addedLinkAndText: "//h6[text()='Added Links and Text']",
-                deletAddedUrlLink: "(//div[@class='MuiBox-root css-10a3ccs'])[1]",
-                customModerCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                deletAddedUrlLink: "//div[@class='MuiBox-root css-grxo2d']//button[1]",
+                customQuestionCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
                 addNewQuestionBtn: "//button[text()='Add question']",
                 signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
                 customQuestionScreenRadioBtn: "//input[@value='customQuestionScreen']",
@@ -67,10 +67,58 @@ export default class singupPage {
         //                 this.page = page;
         //         }
 
+        async uncheckAdditionalInfoPhoneNumberCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoEmailAddressCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.emailAddressCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoAgeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.ageCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.ageCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoDateOfBirthCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoZipCodeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.zipCodeCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.zipCodeCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoCustomQuestionCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
         async clickAdditionalInfoPhoneNumberCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.phoneNumberCheckBox)
+                        await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -78,7 +126,7 @@ export default class singupPage {
         async clickAdditionalInfoEmailAddressCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.emailAddressCheckBox)
+                        await this.page.locator(this.signUpPageElements.emailAddressCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -86,7 +134,7 @@ export default class singupPage {
         async clickAdditionalInfoAgeCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.ageCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.ageCheckBox)
+                        await this.page.locator(this.signUpPageElements.ageCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -94,7 +142,7 @@ export default class singupPage {
         async clickAdditionalInfoDateOfBirthCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.dateOfBirthCheckBox)
+                        await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -102,7 +150,7 @@ export default class singupPage {
         async clickAdditionalInfoZipCodeCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.zipCodeCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.zipCodeCheckBox)
+                        await this.page.locator(this.signUpPageElements.zipCodeCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -148,6 +196,26 @@ export default class singupPage {
                 let ele = await this.page.locator(this.signUpPageElements.addNewUrlBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.addNewUrlBtn).click({ button: "left", delay: 1000 })
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async iftermsAndConditionUrlLinkAvailableThanDeleteIt() {
+                let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
+                        
+                }
+                // else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async deleteTermsAndConditionAddedUrlLink() {
+                let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
                         
                 }
                 else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
@@ -440,6 +508,7 @@ export default class singupPage {
                         await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                await this.page.waitForTimeout(2000)
 
         }
 

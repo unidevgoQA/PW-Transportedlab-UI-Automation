@@ -1,14 +1,47 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-export default class mobilePreviewPage {
-       // [x: string]: any;
 
+export default class mobilePreviewPage {
        private page: Page;
-       // static buffer: void;
        constructor(page: Page) {
-              this.page = page;
-              page.setViewportSize({ width: 390, height: 844 })
+                            this.page = page;
+                            page.setViewportSize({ width: 390, height: 844 })
+                     }
+
+       private mainMenuPageElements = {
+               additionalphoneNumberInputField: `//input[@name="phone"]`,
+               additionalEmailInputField: `//input[@name="email"]`,
+               additionalAgeInputField: `//input[@name="age"]`,
+               additionalDatePickerInputField: `//input[@aria-label='Choose date']`,
+               additionalDateInputField: "(//input[@id='additionalbirthDate'])[2]",
+               additionalDateEditBtn: `//button[@aria-label='calendar view is open, go to text input view']`,
+               additionalDatePickerOkBtn: "//button[text()='OK']",
+               additionalDatePickerLabel: "//label[@for='additionalbirthDate']",
+               additionalZipCodeInputField: `//input[@name="zipCode"]`,
+               additionalZipCodeInputFieldLabel: "//label[@for='additionalzipCode']",
+               additionalSubmitBtn: "//button[@type='submit']"
+
+               
+
+
        }
+
+
+
+
+// export default class mobilePreviewPage {
+//        // [x: string]: any;
+
+
+
+       
+
+//        private page: Page;
+//        // static buffer: void;
+//        constructor(page: Page) {
+//               this.page = page;
+//               page.setViewportSize({ width: 390, height: 844 })
+//        }
 
        async clickTriviaSectionForOpenMobileScreen() {
               const ele = this.page.locator("//p[text()='Trivia']")
@@ -358,7 +391,139 @@ async clickSignInBtn() {
               
        }
 
+       async inputPhoneNumberForAditionalInfo() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalphoneNumberInputField)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalphoneNumberInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalphoneNumberInputField).fill("+8801051703506")
+                     
+             }
+             else throw new Error("Aditional Information Phone NUmber Input Field Is not visible In User Side")
+             
+              
+       }
 
+       async inputAgeForAditionalInfo() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalAgeInputField)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalAgeInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalAgeInputField).fill("22")
+                     
+             }
+             else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async inputEmailForAditionalInfo() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalEmailInputField)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalEmailInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalEmailInputField).fill("demo@email.com")
+                     
+             }
+             else throw new Error("Aditional Information Email Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async clickAdditionalDatePickterInputField() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalDatePickerLabel)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalDatePickerInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalDatePickerInputField).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Date Picker Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async clickAdditionalDateEditBtn() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalDateEditBtn)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalDateEditBtn).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalDateEditBtn).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Date Picker Edit Button Is not visible In User Side")
+             
+              
+       }
+
+       async inputAdditionalDate() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalDateInputField)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalDateInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalDateInputField).fill("01/31/2000")
+                     
+             }
+             else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async clickAdditionalDateDatePickerOkBtn() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalDatePickerOkBtn)            
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalDatePickerOkBtn).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalDatePickerOkBtn).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Date Picker Ok Button Is not visible In User Side")
+             
+              
+       }
+
+       async clickSubmitButton() {                         
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalSubmitBtn).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalSubmitBtn).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Submit Button Is not visible In User Side On Welcome Screen")
+             
+              
+       }
+
+       async inputAdditionalZipCode() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.additionalZipCodeInputFieldLabel)                       
+              const ele = await this.page.locator(this.mainMenuPageElements.additionalZipCodeInputFieldLabel).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.additionalZipCodeInputField).fill("1217")
+                     
+             }
+             else throw new Error("Aditional Information Zip Code Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async clickTermsAndConditionsLink() {  
+              await this.page.waitForSelector("img[alt='Logotype']")            
+              const ele = await this.page.locator(`.css-71bno7`).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(`.css-71bno7`).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Mobile Welcome Screen Tems And Condition Link Is not Visiable")
+             await this.page.waitForLoadState("networkidle")
+              
+       }
+
+       async verifyTermsAndConditionsPageSuccessfullyShowOnMobileScreen() {  
+              await this.page.waitForSelector("//p[contains(@class,'MuiTypography-root MuiTypography-body1')]")            
+              const ele = await this.page.frameLocator('iframe').locator(`.logo`).isVisible()
+              if ((ele == true)){
+                    
+                     
+             }
+             else throw new Error("Terms And Conditions Page does not Show On MobileScreen")
+             await this.page.waitForLoadState()
+              
+       }
+
+
+       
        
        
 

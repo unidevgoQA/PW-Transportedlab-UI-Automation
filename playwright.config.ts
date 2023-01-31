@@ -18,7 +18,7 @@ const config: PlaywrightTestConfig = {
     //"009LiveWall.test.ts",    
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
-    // "012Trivia.test.ts",
+    "012Trivia.test.ts",
     // "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
@@ -67,7 +67,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'msedge',
-    viewport: { width: 1280, height: 720 },
+    viewport: { width: 1420, height: 920 },
     ignoreHTTPSErrors: true,
     
   

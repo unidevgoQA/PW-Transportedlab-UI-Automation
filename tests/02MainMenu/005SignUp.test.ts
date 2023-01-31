@@ -1361,7 +1361,87 @@ test("005SU-028 | Validate Error Massage Successfully Show Without Terms & Condi
 })
 
 
-test("005SU-030 | Validate Admin Successfully Add Terms & Conditions URL Using Valid Data", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("005SU-029 | Validate Admin Successfully Add Terms & Conditions URL Using Valid Data", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText()
+             await singupPage.clickSocialMediaLoginRadioBtn()   
+             await singupPage.clickSocialMediaLoginEmailValidationRadioBtn()  
+             await singupPage.iftermsAndConditionUrlLinkAvailableThanDeleteIt()
+             await singupPage.inputAddUrlText()
+             await singupPage.inputAddUrlLink()
+             await singupPage.clickAddNewUrlBtn()
+                       
+
+     
+     })        
+    
+     
+     
+             
+          
+})
+
+test("005SU-031 | Validate Terms & Conditions URL Link Successfully Show in Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.clickTermsAndConditionsLink() 
+                await newmobilePreviewPage.verifyTermsAndConditionsPageSuccessfullyShowOnMobileScreen()         
+     
+        })
+
+       
+
+})
+
+test("005SU-032 | Validate Admin Successfully Delete Terms & Conditions URL From Sign Up Page", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
      
                      await page.goto('/admin/#/sign-in')
@@ -1380,10 +1460,8 @@ test("005SU-030 | Validate Admin Successfully Add Terms & Conditions URL Using V
              await singupPage.verifyRegistrationOptionsText() 
              await singupPage.uncheckSocialMediaLoginRadioBtn()   
              await singupPage.clickAnonymousLoginOption()  
-             await singupPage.inputAddUrlText()
-             await singupPage.inputAddUrlLink()
-             await singupPage.clickAddNewUrlBtn()
-             await singupPage.verifyAddUrlUrlInputErrorAlertShowSuccessfully()           
+             await singupPage.deleteTermsAndConditionAddedUrlLink()
+                       
 
      
      })
@@ -1391,11 +1469,9 @@ test("005SU-030 | Validate Admin Successfully Add Terms & Conditions URL Using V
           
      await test.step("Enable All The Additional Information", async () => {
 
-        await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
-        await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
-        await singupPage.clickAdditionalInfoAgeCheckbox()   
-        await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
-        await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+        await singupPage.clickSocialMediaLoginRadioBtn()   
+        await singupPage.clickAnonymousLoginOption()  
+
 
 
 })
@@ -1404,6 +1480,495 @@ test("005SU-030 | Validate Admin Successfully Add Terms & Conditions URL Using V
              
           
 })
+
+
+test("005SU-033 | Validate Admin Successfully Check Phone Number As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoPhoneNumberCheckbox() 
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-034 | Validate Additional Information Phone Number Show in Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.inputPhoneNumberForAditionalInfo() 
+                await newmobilePreviewPage.clickSubmitButton()         
+     
+        })
+
+       
+
+})
+
+test("005SU-035 | Validate Admin Successfully Check Email Address As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoEmailAddressCheckbox() 
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        // await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-036 | Validate Additional Information Email Address Show in Mobile Scree", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.inputEmailForAditionalInfo() 
+                await newmobilePreviewPage.clickSubmitButton()         
+     
+        })
+
+       
+
+})
+
+test("005SU-037 | Validate Admin Successfully Check Age As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoAgeCheckbox() 
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        // await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-038 | Validate Additional Information Age Show in Mobile Scree", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.inputAgeForAditionalInfo() 
+                await newmobilePreviewPage.clickSubmitButton()         
+     
+        })
+
+       
+
+})
+
+test("005SU-039 | Validate Admin Successfully Check Data Of Birth As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoDateOfBirthCheckbox() 
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        // await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-040 | Validate Additional Information Data Of Birth Show in Mobile Scree", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.clickAdditionalDatePickterInputField() 
+                await newmobilePreviewPage.clickAdditionalDateEditBtn() 
+                await newmobilePreviewPage.inputAdditionalDate() 
+                await newmobilePreviewPage.clickAdditionalDateDatePickerOkBtn() 
+                await newmobilePreviewPage.clickSubmitButton()         
+     
+        })
+
+       
+
+})
+
+test("005SU-041 | Validate Admin Successfully Check Zip Code / Postal Code As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoZipCodeCheckbox() 
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        // await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-042 | Validate Additional Information Zip Code / Postal Code Show in Mobile Scree", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.inputAdditionalZipCode()
+                await newmobilePreviewPage.clickSubmitButton()         
+     
+        })
+
+       
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
