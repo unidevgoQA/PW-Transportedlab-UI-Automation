@@ -40,7 +40,21 @@ export default class singupPage {
                 emailAddressCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
                 ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
                 dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
-                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]"
+                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
+                urlTextInputField: "(//label[text()='Text']/following::input)[1]",
+                errorMessageForUrlTextInputField: "//p[text()='Incorrect entry.']",
+                urlLinkInputField: "//label[text()='Url or link']/following-sibling::div",
+                errorMassgeForUrlInputField: "//p[text()='Incorrect entry.']",
+                addNewUrlBtn: "//button[text()='Add New Url']",
+                addedLinkAndText: "//h6[text()='Added Links and Text']",
+                deletAddedUrlLink: "(//div[@class='MuiBox-root css-10a3ccs'])[1]",
+                customModerCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                addNewQuestionBtn: "//button[text()='Add question']",
+                signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
+                customQuestionScreenRadioBtn: "//input[@value='customQuestionScreen']",
+                customeOptionInCheckBox: "//span[text()='Custom Opt-In']",
+                addCustomQuestionInBtn: "//button[text()='Add Custom Opt-In']"
+
 
 
         }
@@ -130,6 +144,56 @@ export default class singupPage {
 
         }
 
+        async clickAddNewUrlBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.addNewUrlBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewUrlBtn).click({ button: "left", delay: 1000 })
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async inputAddUrlText() {
+                let ele = await this.page.locator(this.signUpPageElements.urlTextInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.urlTextInputField).fill("Terms & Conditions")
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Text Input Field is not visible")
+
+        }
+
+        async inputAddUrlLink() {
+                let ele = await this.page.locator(this.signUpPageElements.urlLinkInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.urlLinkInputField).fill("https://demos.co.uk/terms-conditions/")
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Input Field is not visible")
+
+        }
+
+        async verifyAddUrlUrlInputErrorAlertShowSuccessfully() {
+                let ele = await this.page.locator(this.signUpPageElements.errorMassgeForUrlInputField).textContent()
+                if ((ele === "Incorrect entry.")) {
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Url Input Field Error Alert is not visible")
+
+        }
+
+        async verifyAddUrlTextFieldErrorAlertShowSuccessfully() {
+                let ele = await this.page.locator(this.signUpPageElements.errorMessageForUrlTextInputField).textContent()
+                if ((ele === "Incorrect entry.")) {
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Text Input Field Error Alert is not visible")
+
+        }
+
+
+
         async clickAnonymousLoginOption() {
                 let ele = await this.page.locator(this.signUpPageElements.anonymousLoginRadioBtn).isChecked()
                 if ((ele == false)) {
@@ -138,6 +202,7 @@ export default class singupPage {
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
 
         }
+
 
         async clickUserAgeMust13YearsOrOlderOptionRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.thirteenOrOlderRadioBtn).isChecked()

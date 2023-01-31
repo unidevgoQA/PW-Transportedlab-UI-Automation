@@ -1274,6 +1274,136 @@ test("005SU-026 | Validate Admin Edited Profile Picture Successfully Show on Mob
 })
 
 
+test("005SU-027 | Validate Error Massage Successfully Show Without Terms & Conditions URL Add Text", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()  
+             await singupPage.clickAddNewUrlBtn()
+             await singupPage.verifyAddUrlTextFieldErrorAlertShowSuccessfully()        
+
+           
+
+
+             
+
+
+             await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+             await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+             await singupPage.clickAdditionalInfoAgeCheckbox()   
+             await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+             await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+     
+     })
+     
+     
+             
+          
+})
+
+
+test("005SU-028 | Validate Error Massage Successfully Show Without Terms & Conditions URL Add URL", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()  
+             await singupPage.inputAddUrlText()
+             await singupPage.clickAddNewUrlBtn()
+             await singupPage.verifyAddUrlUrlInputErrorAlertShowSuccessfully()           
+
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+        await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+        await singupPage.clickAdditionalInfoAgeCheckbox()   
+        await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+        await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+
+})
+     
+     
+             
+          
+})
+
+
+test("005SU-030 | Validate Admin Successfully Add Terms & Conditions URL Using Valid Data", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()  
+             await singupPage.inputAddUrlText()
+             await singupPage.inputAddUrlLink()
+             await singupPage.clickAddNewUrlBtn()
+             await singupPage.verifyAddUrlUrlInputErrorAlertShowSuccessfully()           
+
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+
+        await singupPage.clickAdditionalInfoPhoneNumberCheckbox()   
+        await singupPage.clickAdditionalInfoEmailAddressCheckbox()   
+        await singupPage.clickAdditionalInfoAgeCheckbox()   
+        await singupPage.clickAdditionalInfoDateOfBirthCheckbox()   
+        await singupPage.clickAdditionalInfoZipCodeCheckbox()   
+
+
+})
+     
+     
+             
+          
+})
 
 
 

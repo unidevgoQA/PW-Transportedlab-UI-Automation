@@ -11,7 +11,7 @@ const config: PlaywrightTestConfig = {
     "002MobileDesign.test.ts",
     "003Language.test.ts",
     "004Menu.test.ts",
-    // "005SignUp.test.ts",
+    "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
     "007PrizeDrop.test.ts",
     // "008TugOfWar.test.ts",
@@ -45,11 +45,11 @@ const config: PlaywrightTestConfig = {
 
 
 
-  // reporter: [["html", {
-  //   open: "never"
-  // }], ["allure-playwright"], ['./My-Reporter.js']],
+  reporter: [["html", {
+    open: "never"
+  }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  // globalTeardown: require.resolve("./mailer.js"),
+  globalTeardown: require.resolve("./mailer.js"),
 
 
 

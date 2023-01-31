@@ -58,11 +58,11 @@ export default class menuPage {
 
         //Menu Page Button Element
         async clickMenuPage() {
-
-                const ele = this.page.locator(this.menuPageElements.menuPage)
-                if (ele != null)
-                        await ele.click({button:'left'});
-                else throw new Error("Menu Page Element Is Not Found")
+                const ele = await this.page.locator(this.menuPageElements.menuPage).isVisible()
+                if (ele == true)
+                await this.page.locator(this.menuPageElements.menuPage).click({button:"left", delay:1000})
+                else throw new Error("Main Menu | Menu Button Element Is Not Found")
+                await this.page.waitForLoadState("networkidle")
         }
 
         async deleteUploadedFont() {
