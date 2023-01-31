@@ -63,7 +63,6 @@ export default class menuPage {
                 if (ele != null)
                         await ele.click({button:'left'});
                 else throw new Error("Menu Page Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
         }
 
         async deleteUploadedFont() {
