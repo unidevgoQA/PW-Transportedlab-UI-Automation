@@ -19,9 +19,6 @@ import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import mobilePreviewPage from "@pages/mobilePreview.page";
 import triviaMobilePage from "@pages/trivia_mobile_game.page";
 
-
-
-
 const test = baseTest.extend<{
     loginPage: LoginPage;
     MainMenu: MobileDesign;
