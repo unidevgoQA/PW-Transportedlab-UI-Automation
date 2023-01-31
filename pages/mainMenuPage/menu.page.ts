@@ -10,7 +10,7 @@ export default class menuPage {
         }
 
         private menuPageElements = {
-                menuPage: "//p[text()='Menus']",
+                menuPage: "//p[text()='Menu']",
                 uploadFont: "//div[@class='MuiBox-root css-v2612']",
                 fontUplodInputFieldText: "//p[text()='Upload Font']",
                 uploadFontTitle: "//p[text()='Midnight']",
