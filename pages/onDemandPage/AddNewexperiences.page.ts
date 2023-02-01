@@ -1326,7 +1326,7 @@ export default class addnewexperiencePage {
                         await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
                 else throw new Error("Error empty input alert Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
+                //await this.page.waitForLoadState("networkidle")
         }
 
         async invalidLengthAlertengagement() {
