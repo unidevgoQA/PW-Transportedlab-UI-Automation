@@ -23,6 +23,8 @@ test("011ANE-001 | Validate Image Section", async ({ loginPage, liveWallPage, ad
 
       await addnewexperiencePage.ImageBtn();
       await addnewexperiencePage.ImageBtn();
+      await addnewexperiencePage.EmptywebtitleAlert();
+      await addnewexperiencePage.invalidLengthAlert();
       await addnewexperiencePage.inputTitleName()
       await addnewexperiencePage.enabledIconCheckBox();
       await addnewexperiencePage.checkHeaderText();
@@ -43,6 +45,16 @@ test("011ANE-001 | Validate Image Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.clickTopAlignmentBtn();
       await addnewexperiencePage.clickCenterAlignmentBtn();
       await addnewexperiencePage.clickBottomAlignmentBtn();
+
+      await addnewexperiencePage.imageUploadBUtton();      
+      await functions.fontUploadFunction();
+      await addnewexperiencePage.chooseImage();
+      await addnewexperiencePage.invalidFiletypeAlert();
+      await addnewexperiencePage.invalidfiletypealertOkbtn();
+      await addnewexperiencePage.ImagemodalClosebtn();
+      await addnewexperiencePage.ImageUploadFunction();
+
+      //await addnewexperiencePage.invalidImageUploadFunction();
       await addnewexperiencePage.clickSaveBtn();
       await page.waitForTimeout(6000)
 
@@ -76,6 +88,7 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.clickaddnewex();
 
       await addnewexperiencePage.clickVideoBtn();
+      await addnewexperiencePage.InvalidtitleAlertVideo();
       await addnewexperiencePage.checkTitleName();
       await addnewexperiencePage.checkHeader();
       await addnewexperiencePage.HeaderVTextBtn();
@@ -84,6 +97,8 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.VselectMedium();
       await addnewexperiencePage.HeaderVTextBtn();
       await addnewexperiencePage.VselectSmall();
+     
+  
       await addnewexperiencePage.videoUploadFunction();
 
       await page.waitForTimeout(10000)
@@ -100,22 +115,47 @@ test("011ANE-002 | Validate Video Section", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.enableaudioCheckBox();
       await addnewexperiencePage.AutoplayvdoCheckBox();
       await page.waitForTimeout(6000)
+      
+      
       await addnewexperiencePage.clickVSaveBtn();
 
       await page.waitForTimeout(5000)
 
       
             
-      await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
-      await page.waitForTimeout(2000)
-      await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
-      await page.waitForTimeout(3000)
+      // await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
+      // await page.waitForTimeout(2000)
+      // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
+      // await page.waitForTimeout(3000)
+
+
+})
+test("011ANE-003 | Validate Video upload button", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+      await page.goto('/admin/#/sign-in')
+      await loginPage.login(data.username, data.password)
+      const title = await page.title();
+      expect(title).toBe('DXP Admin')
+
+      const screenshot = await page.screenshot();
+      await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+      })
+
+
+      await addnewexperiencePage.clickHomeAvater();
+      await addnewexperiencePage.onDemandBtn();
+      await addnewexperiencePage.clickaddnewex();
+
+      await addnewexperiencePage.clickVideoBtn();
+      await functions.bannerImageUploadFunction();
+      await addnewexperiencePage.videoUploadBTN();
 
 
 })
 
 
-test("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-004 | Validate Web Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')
@@ -158,14 +198,46 @@ test("011ANE-003 | Validate Web Section", async ({ loginPage, liveWallPage, addn
       await page.waitForTimeout(5000)
 
             
-      await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
-      await page.waitForTimeout(2000)
-      await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
-      await page.waitForTimeout(3000)
+      // await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
+      // await page.waitForTimeout(2000)
+      // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
+      // await page.waitForTimeout(3000)
 
 })
 
-test("011ANE-004 | Validate Engagement Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-005 | Validate negative scenario web", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+      await page.goto('/admin/#/sign-in')
+      await loginPage.login(data.username, data.password)
+      const title = await page.title();
+      expect(title).toBe('DXP Admin')
+
+      const screenshot = await page.screenshot();
+      await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+      })
+      await addnewexperiencePage.clickHomeAvater();
+      await addnewexperiencePage.onDemandBtn();
+      await addnewexperiencePage.clickaddnewex();
+
+      await addnewexperiencePage.WebBtn();
+
+
+      await addnewexperiencePage.EmptywebtitleAlertweb();
+      await functions.fontUploadFunction();
+      await addnewexperiencePage.imageUploadBUttonweb();
+      await addnewexperiencePage.chooseImageweb();
+      await addnewexperiencePage.invalidFiletypeAlertweb();
+      await addnewexperiencePage.invalidfiletypealertOkbtnweb();
+      await addnewexperiencePage.ImagemodalClosebtnweb();
+      
+
+
+
+
+})
+
+test("011ANE-006 | Validate Engagement Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')
@@ -203,13 +275,40 @@ test("011ANE-004 | Validate Engagement Section", async ({ loginPage, liveWallPag
       await page.waitForTimeout(5000)
 
             
-      await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
-      await page.waitForTimeout(2000)
-      await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
-      await page.waitForTimeout(3000)
+      // await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
+      // await page.waitForTimeout(2000)
+      // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
+      // await page.waitForTimeout(3000)
 })
 
-test("011ANE-005 | Validate Poll Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+
+test("011ANE-007 | Validate Engagement section negative senarios", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+
+// await test.step("Login Admin And land To Home Screen", async () => {
+
+await page.goto('/admin/#/sign-in')
+await loginPage.login(data.username, data.password)
+const title = await page.title();
+expect(title).toBe('DXP Admin')
+
+const screenshot = await page.screenshot();
+await testInfo.attach("login screenshot", {
+      contentType: "image/png",
+      body: screenshot
+})
+
+await addnewexperiencePage.clickHomeAvater();
+await addnewexperiencePage.onDemandBtn();
+await addnewexperiencePage.clickaddnewex();
+
+await addnewexperiencePage.EngagementBtn();
+await addnewexperiencePage.Emptyengagementtitle();
+await addnewexperiencePage.invalidLengthAlertengagement();
+// await addnewexperiencePage.EngagementModalCancellation();
+
+
+})
+test("011ANE-008 | Validate Poll Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')
@@ -294,13 +393,47 @@ test("011ANE-005 | Validate Poll Section", async ({ loginPage, liveWallPage, add
 
             
             
-      await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
-      await page.waitForTimeout(2000)
-      await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
-      await page.waitForTimeout(3000)
+      // await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
+      // await page.waitForTimeout(2000)
+      // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
+      // await page.waitForTimeout(3000)
 })
 
-test("011ANE-006 | Validate Trivia Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+
+test("011ANE-009 | Validate Negative Scenario Poll Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+       // await test.step("Login Admin And land To Home Screen", async () => {
+
+       await page.goto('/admin/#/sign-in')
+       await loginPage.login(data.username, data.password)
+       const title = await page.title();
+       expect(title).toBe('DXP Admin')
+ 
+       const screenshot = await page.screenshot();
+       await testInfo.attach("login screenshot", {
+             contentType: "image/png",
+             body: screenshot
+       })
+ 
+       await addnewexperiencePage.clickHomeAvater();
+       await addnewexperiencePage.onDemandBtn();
+       await addnewexperiencePage.clickaddnewex();
+ 
+       await addnewexperiencePage.PollBtn();
+       await addnewexperiencePage.invalidTitleAlertPoll();
+       await addnewexperiencePage.invalidLengthAlertPoll();
+       await addnewexperiencePage.AddAnswer();
+       await addnewexperiencePage.invalidAlertforAnswer();
+       await addnewexperiencePage.imageUploadBUtton();      
+      await functions.fontUploadFunction();
+      await addnewexperiencePage.chooseImage();
+      await addnewexperiencePage.invalidFiletypeAlert();
+      await addnewexperiencePage.invalidfiletypealertOkbtn();
+      await addnewexperiencePage.ImagemodalClosebtn();
+
+
+})
+
+test("011ANE-0010 | Validate Negative scenario Trivia Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
 
       await page.goto('/admin/#/sign-in')
@@ -396,9 +529,40 @@ test("011ANE-006 | Validate Trivia Section", async ({ loginPage, liveWallPage, a
 
             
             
-      await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
-      await page.waitForTimeout(2000)
-      await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
-      await page.waitForTimeout(3000)
-})
+      // await addnewexperiencePage.clickNewlyAddedExpThreeDotBtn()
+      // await page.waitForTimeout(2000)
+      // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
+      // await page.waitForTimeout(3000)
+}) 
 
+test("011ANE-0011 | Validate Trivia Section", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+      // await test.step("Login Admin And land To Home Screen", async () => {
+
+      await page.goto('/admin/#/sign-in')
+      await loginPage.login(data.username, data.password)
+      const title = await page.title();
+      expect(title).toBe('DXP Admin')
+
+      const screenshot = await page.screenshot();
+      await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+      })
+
+      await addnewexperiencePage.clickHomeAvater();
+      await addnewexperiencePage.onDemandBtn();
+      await addnewexperiencePage.clickaddnewex();
+      await page.waitForTimeout(6000)
+
+      await addnewexperiencePage.TriviaBtn();
+      await addnewexperiencePage.invalidTitleAlerttrivia();
+      await addnewexperiencePage.invalidLengthAlerttrivia();
+      await addnewexperiencePage.TrAddAnswer();
+      await addnewexperiencePage.invalidAlertforAnswertrivia();
+      await addnewexperiencePage.imageUploadBUtton();      
+      await functions.fontUploadFunction();
+      await addnewexperiencePage.chooseImage();
+      await addnewexperiencePage.invalidFiletypeAlert();
+      await addnewexperiencePage.invalidfiletypealertOkbtn();
+      await addnewexperiencePage.ImagemodalClosebtn();
+})
