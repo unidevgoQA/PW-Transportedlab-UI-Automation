@@ -293,7 +293,7 @@ async clickSignInBtn() {
        }
 
        async inputEamilForLoginWithFacebook() {
-              await this.page.waitForNavigation()
+              await this.page.waitForSelector(`#email`)
               const ele = await this.page.locator(`#email`).isVisible()
               if ((ele == true)){
                      await this.page.locator('#email').type("ss.unidev@gmail.com")

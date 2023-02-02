@@ -25,7 +25,7 @@ export default class singupPage {
                 automaticAssignUserNameEnableDisableBtn: "//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')]",
                 automaticAssignUserNamePrifizInputField: "(//span[text()='Automatically assign username']/following::input)[1]",
                 addNewSetBtn: "//button[text()='Add New Set']",
-                profileNameAfterEdit: "//div[text()='David Con']",
+                profileNameAfterEdit: "//div[text()='David']",
                 addNewSetWindowSetTitleInputField: "#headlineField",
                 addNewSetWindowUploadPictureInputField: "//div[@class='MuiBox-root css-v2612']",
                 addNewSetWindowSaveBtn: "//button[text()='Save']",
@@ -233,7 +233,7 @@ export default class singupPage {
         async inputCustomQuestionAddChoiceDiscription() {
                 let ele = await this.page.locator(this.signUpPageElements.choiceInputField).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.choiceInputField).type("Demo Choice")
+                        await this.page.locator(this.signUpPageElements.choiceInputField).fill("Demo Choice")
                 }
                 else throw new Error("Sign Up Page Add New Custom Question Window Add Choice Input Field Element Is not Visible")
 
@@ -575,6 +575,7 @@ export default class singupPage {
                         await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Window, Save Button Element is not visible ")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -612,14 +613,14 @@ export default class singupPage {
                 await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField)               
                 let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David Con")
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David")
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Title Field is not visible ")
 
         }
 
         async deleteUploadedProfilePicture() { 
-                              
+                await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField) 
                 let ele = await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).click({ button: "left", delay: 1000 })
@@ -653,7 +654,7 @@ export default class singupPage {
         async verifyAutoAssignProfileSuccessfullyEdited() { 
                 await this.page.waitForSelector(this.signUpPageElements.profileNameAfterEdit)               
                 let ele = await this.page.locator(this.signUpPageElements.profileNameAfterEdit).textContent()
-                if ((ele === "David Con")) {
+                if ((ele === "David")) {
                         
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Title Not Edited successfully")

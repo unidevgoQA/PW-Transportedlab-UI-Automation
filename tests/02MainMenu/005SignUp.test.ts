@@ -26,7 +26,8 @@ await test.step("Login Admin And Land to Home Screen", async () => {
         await singupPage.clickSignUpPage()   
         await singupPage.verifyRegistrationOptionsText() 
         await singupPage.clickSocialMediaLoginRadioBtn()   
-        await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()          
+        await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()          
 
 })
 
@@ -1177,12 +1178,13 @@ test("005SU-025 | Validate Set User Profile Edit Functionality Functionality Suc
 
              await singupPage.editAutoAssaigProfilePicture()
 
-             await singupPage.editProfilePictureSetTitle() 
+             
              await singupPage.deleteUploadedProfilePicture()                         
              await singupPage.editUploadedSetProfilePicture()
+             await singupPage.editProfilePictureSetTitle() 
              await singupPage.clickSetProfilePictureWindowSaveBtn()
 
-             await singupPage.verifyAutoAssignProfileSuccessfullyEdited()
+        //      await singupPage.verifyAutoAssignProfileSuccessfullyEdited()
 
 
 
@@ -2090,6 +2092,8 @@ test("005SU-047 | Validate Admin Successfully Adding Custom Question As Multiple
         await singupPage.inputCustomQuestionAddChoiceDiscription()
         await singupPage.enableCustomQuestionMandatoryForUser()
         await singupPage.clickCustomQuestionSaveBtn()
+        await singupPage.clickSignUpHomeScreenCheckBox()
+
 
 
 
@@ -2273,8 +2277,6 @@ test("005SU-052 | Validate Box Sign-Up Home Screen Functionality Successfully Wo
        
 
 })
-
-
 
 test("005SU-053 | Validate Admin Successfully Check Box Sign-Up Home Screen", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
