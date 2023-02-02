@@ -24,7 +24,61 @@ const clipboard = require("clipboardy");
 //         })
 
 
+test("Validate to popup close button.",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+           // await test.step("Login Admin And land To Home Screen", async () => {
 
+           await page.goto('/admin/#/sign-in')
+           await loginPage.login(data.username, data.password)
+   
+           const title = await page.title();
+           expect(title).toBe('DXP Admin')
+   
+           const screenshot = await page.screenshot();
+           await testInfo.attach("login screenshot", {
+                   contentType: "image/png",
+                   body: screenshot
+           })
+   
+   
+   
+           // })
+           // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+   
+   
+           //click Live Wall Section
+           await liveWallPage.clickLiveWallSection()
+           await liveWallPage.validate_warning_stop_message_text()
+})
+test("validate Add new configuration for Fansee is working",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+        }) 
+        await test.step("validate add new instance is working",async()=>{
+                await liveWallPage.click_plus_button()
+                await liveWallPage.add_new_config_name()
+                await liveWallPage.clickSaveBtn()
+        })    
+})
 test("009LW-001 | Validate Font Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -45,20 +99,16 @@ test("009LW-001 | Validate Font Upload Functionality", async ({ loginPage, liveW
         // })
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
-
+        
         //click Live Wall Section
         await liveWallPage.clickLiveWallSection()
 
-        //click Game Stop Btn
-        await liveWallPage.clickGameStopBtn()
-
-
+        await liveWallPage.remove_message_popup()
+        
+        await liveWallPage.click_trippledot()
         //click Design Page
         await liveWallPage.clickDesignPage()
 
-
-        //click Design Page
-        await liveWallPage.clickDesignPage()
         //verify Fonts Title Text
         await liveWallPage.verifyFontsTitleText()
 
@@ -85,18 +135,19 @@ test("009LW-001 | Validate Font Upload Functionality", async ({ loginPage, liveW
         // })
 
 })
-test("009LW-002 | Validate Color Input Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009LW-002 | Validate BackgroundColorPicker Color Input Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
         })
 
 
@@ -105,105 +156,85 @@ test("009LW-002 | Validate Color Input Functionality", async ({ loginPage, liveW
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
 
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                //click Design Page
+                await liveWallPage.clickDesignPage()
+        })
 
-        //click Design Page
-        await liveWallPage.clickDesignPage()
-        await page.waitForTimeout(2000)
-
-        await liveWallPage.clickDesignPage()
 
 
         //click Clear Btn
-        await liveWallPage.clickClearBtn()
+        // await liveWallPage.clickClearBtn()
+        await test.step("now work with back-ground color ",async()=>{
+                await liveWallPage.verify_image_upload_text()
 
-        await page.waitForTimeout(2000)
+                //click Background Color Picker Input Field
+                await liveWallPage.clickBackgroundColorPickerInputField()
+        
+                await liveWallPage.clickplusbuttonswatches()
+                await liveWallPage.clickdeletebuttonswatches()
 
-        //verify Fonts Title Text
-        await liveWallPage.verifyFontsTitleText()
-
-
-        //click Background Color Picker Input Field
-        await liveWallPage.clickBackgroundColorPickerInputField()
-
-
-        //input Background First RGB Color
-        await liveWallPage.inputBackgroundFirstRGBColor()
-
-
-        //input Background Box Color RGB Second
-        await liveWallPage.inputBackgroundBoxColorRGBSecond()
-
-
-
-        //input Background Box Color RGB Third
-        await liveWallPage.inputBackgroundBoxColorRGBThird()
-
-
-
-        //input Background Box Color Opacity
-        await liveWallPage.inputBackgroundBoxColorOpacity()
-
-
-
-        //input Background Box Color HEX Color
-        await liveWallPage.inputBackgroundBoxColorHEXColor()
-
-
-
-        //click Save Btn
-        await liveWallPage.clickSaveBtn()
-
-        await page.waitForTimeout(2000)
-
-
-
-        //click Font Color Picker Input Field
-        await liveWallPage.clickFontColorPickerInputField()
-
-
-
-        //input Font First RGB Color
-        await liveWallPage.inputFontFirstRGBColor()
-
-
-
-        //input Font Box Color RGB Second
-        await liveWallPage.inputFontBoxColorRGBSecond()
-
-        //input Font Box Color RGB Third
-        await liveWallPage.inputFontBoxColorRGBThird()
-
-        //input Font Box Color Opacity
-        await liveWallPage.inputFontBoxColorOpacity()
-
-        //input Font Box Color HEX Color
-        await liveWallPage.inputFontBoxColorHEXColor()
-
-        //click Save Btn
-        await liveWallPage.clickSaveBtn()
-
-
-        await page.waitForTimeout(6000)
-
-
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_horizontal_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_vertical_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_radial_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_diagonal_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_solid_button()
+                //input Background First RGB Color
+                await liveWallPage.inputBackgroundFirstRGBColor()
+        
+        
+                //input Background Box Color RGB Second
+                await liveWallPage.inputBackgroundBoxColorRGBSecond()
+        
+        
+        
+                //input Background Box Color RGB Third
+                await liveWallPage.inputBackgroundBoxColorRGBThird()
+        
+        
+        
+                //input Background Box Color Opacity
+                await liveWallPage.inputBackgroundBoxColorOpacity()
+        
+        
+        
+                //input Background Box Color HEX Color
+                await liveWallPage.inputBackgroundBoxColorHEXColor()
+        
+        
+        
+                //click Save Btn
+                await liveWallPage.clickSaveBtn()
+        
+                await page.waitForTimeout(2000)
+        
+                // })
+        })
         // })
 
 })
+test("Validate Font ColorPicker Color Input Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
-test("009LW-003 | Validate Upload Image Delete Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
         })
 
 
@@ -212,58 +243,68 @@ test("009LW-003 | Validate Upload Image Delete Functionality", async ({ loginPag
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                //click Design Page
+                await liveWallPage.clickDesignPage()
+        })
+  
+      await test.step("validate font color input functionality",async()=>{
+                  //click Font Color Picker Input Field
+           await liveWallPage.clickFontColorPickerInputField()
 
 
-        //click Design Page
-        await liveWallPage.clickDesignPage()
-        await page.waitForTimeout(2000)
-        await liveWallPage.clickDesignPage()
+           await liveWallPage.clickplusbuttonswatches()
+           await liveWallPage.clickdeletebuttonswatches()
 
-
-
-        //delete Uploaded Feed Left Image
-        await liveWallPage.deleteUploadedFeedLeftImage()
-
-        //delete Uploaded Feed Image
-        await liveWallPage.deleteUploadedFeedImage()
-        //delete Uploaded Output Background
-        await liveWallPage.deleteUploadedOutputBackground()
-        //delete Uploaded Output Frame
-        await liveWallPage.deleteUploadedOutputFrame()
-        //delete Uploaded FullScreen Logo
-        await liveWallPage.deleteUploadedFullScreenLogo()
-        //delete Uploaded Mobile Frame
-        await liveWallPage.deleteUploadedMobileFrame()
-        //delete Uploaded Background
-        await liveWallPage.deleteUploadedBackground()
-
-        await page.waitForTimeout(2000)
-
-        await functions.frameUploadFunction()
-        //click To Upload Mobile Frame
-        await liveWallPage.clickToUploadMobileFrame()
-        await functions.fileUploadCropper()
-
-
-        await page.waitForTimeout(8000)
-
-        // })
-
+           await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+           await liveWallPage.click_horizontal_button()
+           await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+           await liveWallPage.click_vertical_button()
+           await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+           await liveWallPage.click_radial_button()
+           await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+           await liveWallPage.click_diagonal_button()
+           await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+           await liveWallPage.click_solid_button()
+           //input Font First RGB Color
+           await liveWallPage.inputFontFirstRGBColor()
+   
+   
+   
+           //input Font Box Color RGB Second
+           await liveWallPage.inputFontBoxColorRGBSecond()
+   
+           //input Font Box Color RGB Third
+           await liveWallPage.inputFontBoxColorRGBThird()
+   
+           //input Font Box Color Opacity
+           await liveWallPage.inputFontBoxColorOpacity()
+   
+           //input Font Box Color HEX Color
+           await liveWallPage.inputFontBoxColorHEXColor()
+   
+           //click Save Btn
+           await liveWallPage.clickSaveBtn()
+      })
+   
 })
+test("Validate countdown ColorPicker Color Input Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
-test("009LW-004 | Validate Image Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
         })
 
 
@@ -272,85 +313,406 @@ test("009LW-004 | Validate Image Upload Functionality", async ({ loginPage, live
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
 
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                //click Design Page
+                await liveWallPage.clickDesignPage()
+        })
+  
+      await test.step("validate font color input functionality",async()=>{
+                  //click Font Color Picker Input Field
+           await liveWallPage.click_countdown_ColorPicker_InputField()
 
-        //click Design Page
-        await liveWallPage.clickDesignPage()
-        await page.waitForTimeout(2000)
-        await liveWallPage.clickDesignPage()
+      })
+      await test.step("validate swatches section is working",async()=>{
+                await liveWallPage.clickplusbuttonswatches()
+                await liveWallPage.clickdeletebuttonswatches()
 
-        await page.waitForTimeout(4000)
-
-        //click ToUpload Feed Right Image
-        await functions.logoImageUploadFunction()
-        await liveWallPage.clickToUploadFeedRightImage()
-        await functions.fileUploadCropper()
-
-        //click ToUpload FeedImage
-        await liveWallPage.clickToUploadFeedLeftImage()
-        await functions.fileUploadCropper()
-
-
-        //click To Upload Feed Image
-        await liveWallPage.clickToUploadFeedImage()
-        await functions.fileUploadCropper()
-
-        //click ToUpload Output Background
-        await liveWallPage.clickToUploadOutputBackground()
-        await functions.fileUploadCropper()
-
-
-        //click To Upload Output Frame
-        await liveWallPage.clickToUploadOutputFrame()
-        await functions.fileUploadCropper()
-
-
-        //click To Upload FullScreen Logo
-        await liveWallPage.clickToUploadFullScreenLogo()
-        await functions.fileUploadCropper()
-
-
-
-        //click To Upload Background
-        await liveWallPage.clickToUploadBackground()
-        await functions.fileUploadCropper()
-
-
-        await page.waitForTimeout(8000)
-
-        // })
-
-})
-
-
-test("009LW-005 | Validate Display Messages Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
+      })
+      await test.step("validate solid_horizontal_vertical_dropdowns are working",async()=>{
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_horizontal_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_vertical_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_radial_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_diagonal_button()
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_solid_button()
         })
 
+           //input Font First RGB Color
+        await test.step("now upload count_down_colors ",async()=>{
+                await liveWallPage.inputFontFirstRGBColor()
+   
+   
+   
+                //input Font Box Color RGB Second
+                await liveWallPage.inputFontBoxColorRGBSecond()
+        
+                //input Font Box Color RGB Third
+                await liveWallPage.inputFontBoxColorRGBThird()
+        
+                //input Font Box Color Opacity
+                await liveWallPage.inputFontBoxColorOpacity()
+        
+                //input Font Box Color HEX Color
+                await liveWallPage.inputFontBoxColorHEXColor()
+        
+                //click Save Btn
+                await liveWallPage.clickSaveBtn()
+        })
+          
+   
+})
+test("009LW-004 | Validate Mobile Background Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
 
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
         // })
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
 
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        }) 
 
-        //click Design Page
-        await liveWallPage.clickDesignPage()
-        await page.waitForTimeout(2000)
-        await liveWallPage.clickDesignPage()
+        await test.step("now mobile background image",async()=>{
+                 //click ToUpload Feed Right Image
+                await liveWallPage.mobile_background_image_upload()
+                await liveWallPage.Image_uploader_For_mobile_background()
+                await liveWallPage.wait_mobile_back_upload()
+        })
+
+})
+test("009LW-004 | Validate Mobile Homescreen logo Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.mobile_home_screen_logo_upload()
+                await liveWallPage.Image_uploader_For_mobile_home_screen_logo()
+                await liveWallPage.wait_mobile_Home_screen_upload()
+        })
+})
+test("009LW-004 | Validate Output Background Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.output_background_upload()
+                await liveWallPage.Image_uploader_For_output_background()
+                await liveWallPage.wait_OutPut_background()
+        })
+})
+test("009LW-004 | Validate Left Image (1:1 Output) Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.left_image_1_1_upload()
+                await liveWallPage.Image_uploader_For_left_image_1_1()
+                await liveWallPage.wait_left_image_1_1_upload()
+        })
+})
+test("009LW-004 | Validate Mobile Frame Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.mobile_frame_upload()
+                await liveWallPage.Image_uploader_For_mobile_frame()
+                await liveWallPage.wait_mobile_frame_upload()
+        })
+})
+test("009LW-004 | Validate Output Frame (9:16 Output) Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.OutputFrame_9_16_upload()
+                await liveWallPage.Image_uploader_For_OutputFrame_9_16()
+                await liveWallPage.wait_OutputFrame_9_16_upload()
+        })
+})
+test("009LW-004 | Validate Banner Image (9:16 Output) Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.bannner_image_9_16_upload()
+                await liveWallPage.Image_uploader_For_bannner_image_9_16()
+                await liveWallPage.wait_bannner_image_9_16_upload()
+        })
+})
+test("009LW-004 | Validate Right Image (1:1 Output) Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.right_image_1_1_upload()
+                await liveWallPage.Image_uploader_For_right_image_1_1()
+                await liveWallPage.wait_right_image_1_1_upload()
+        })
+})
+test("009LW-004 | Validate 1:1 Fallback Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.Fallback_1_1_upload()
+                await liveWallPage.Image_uploader_For_Fallback_1_1()
+                await liveWallPage.wait_Fallback_1_1_upload()
+        })
+})
+test("009LW-004 | Validate 9:16 Fallback Upload Functionality",async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works",async()=>{
+                await liveWallPage.Fallback_9_16_upload()
+                await liveWallPage.Image_uploader_For_Fallback_9_16()
+                await liveWallPage.wait_Fallback_9_16_upload()
+        })
+})
+test("009LW-005 | Validate Pre-Live Text Messages Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        // await test.step("Login Admin And land To Home Screen", async () => {
+
+        await test.step("login admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design",async()=>{
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+                
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+
 
         //input Pre Live Text
         await liveWallPage.inputPreLiveText()
@@ -403,170 +765,173 @@ test("009LW-005 | Validate Display Messages Functionality", async ({ loginPage, 
         await liveWallPage.preLiveInputBoxRemove()
 
 
+        // //input Post Live Text
+        // await liveWallPage.inputPostLiveText()
+        // await liveWallPage.postLiveInputBoxFonts()
+        // await liveWallPage.postLiveInputBoxArial()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.postLiveInputBoxNormal()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH1()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH2()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH3()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH4()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH5()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockH6()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBlockquote()
+        // await liveWallPage.postLiveInputBoxBlocktype()
+
+        // await liveWallPage.postLiveInputBoxBold()
+        // await liveWallPage.postLiveInputBoxItalic()
+        // await liveWallPage.postLiveInputBoxUnderline()
+        // await liveWallPage.postLiveInputBoxsikethrough()
+        // await liveWallPage.postLiveInputBoxColorpk()
+        // await liveWallPage.postLiveInputBoxTextcl()
+        // await liveWallPage.postLiveInputBoxGreencl()
+        // await liveWallPage.postLiveInputBoxColorpk()
+
+        // await liveWallPage.postLiveInputBoxHighlightcl()
+        // await liveWallPage.postLiveInputBoxHighlightgrn()
+        // await liveWallPage.postLiveInputBoxLeft()
+        // await liveWallPage.postLiveInputBoxCenter()
+        // await liveWallPage.postLiveInputBoxRight()
+        // await liveWallPage.postLiveInputBoxOutdent()
+        // await liveWallPage.postLiveInputBoxIndent()
+        // await liveWallPage.postLiveInputBoxOrdered()
+        // await liveWallPage.postLiveInputBoxUnOrdered()
+        // await liveWallPage.postLiveInputBoxRemove()
+
         //input Post Live Text
-        await liveWallPage.postLiveInputBoxFonts()
-        await liveWallPage.postLiveInputBoxArial()
-        await liveWallPage.postLiveInputBoxBlocktype()
-        await liveWallPage.postLiveInputBoxNormal()
-        await liveWallPage.postLiveInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH1()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxFonts()
+        // await liveWallPage.standByInputBoxArial()
+        // await liveWallPage.standByInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxNormal()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH2()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH1()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH3()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH2()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH4()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH3()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH5()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH4()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockH6()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH5()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBlockquote()
-        await liveWallPage.postLiveInputBoxBlocktype()
+        // await liveWallPage.standByInputBoxBlockH6()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxBold()
-        await liveWallPage.postLiveInputBoxItalic()
-        await liveWallPage.postLiveInputBoxUnderline()
-        await liveWallPage.postLiveInputBoxsikethrough()
-        await liveWallPage.postLiveInputBoxColorpk()
-        await liveWallPage.postLiveInputBoxTextcl()
-        await liveWallPage.postLiveInputBoxGreencl()
-        await liveWallPage.postLiveInputBoxColorpk()
+        // await liveWallPage.standByInputBoxBlockquote()
+        // await liveWallPage.standByInputBoxBlocktype()
 
-        await liveWallPage.postLiveInputBoxHighlightcl()
-        await liveWallPage.postLiveInputBoxHighlightgrn()
-        await liveWallPage.postLiveInputBoxLeft()
-        await liveWallPage.postLiveInputBoxCenter()
-        await liveWallPage.postLiveInputBoxRight()
-        await liveWallPage.postLiveInputBoxOutdent()
-        await liveWallPage.postLiveInputBoxIndent()
-        await liveWallPage.postLiveInputBoxOrdered()
-        await liveWallPage.postLiveInputBoxUnOrdered()
-        await liveWallPage.postLiveInputBoxRemove()
+        // await liveWallPage.standByInputBoxBold()
+        // await liveWallPage.standByInputBoxItalic()
+        // await liveWallPage.standByInputBoxUnderline()
+        // await liveWallPage.standByInputBoxsikethrough()
+        // await liveWallPage.standByInputBoxColorpk()
+        // await liveWallPage.standByInputBoxTextcl()
+        // await liveWallPage.standByInputBoxGreencl()
+        // await liveWallPage.standByInputBoxColorpk()
 
-        //input Post Live Text
-        await liveWallPage.inputPostLiveText()
-
-        await liveWallPage.standByInputBoxFonts()
-        await liveWallPage.standByInputBoxArial()
-        await liveWallPage.standByInputBoxBlocktype()
-        await liveWallPage.standByInputBoxNormal()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH1()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH2()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH3()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH4()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH5()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockH6()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBlockquote()
-        await liveWallPage.standByInputBoxBlocktype()
-
-        await liveWallPage.standByInputBoxBold()
-        await liveWallPage.standByInputBoxItalic()
-        await liveWallPage.standByInputBoxUnderline()
-        await liveWallPage.standByInputBoxsikethrough()
-        await liveWallPage.standByInputBoxColorpk()
-        await liveWallPage.standByInputBoxTextcl()
-        await liveWallPage.standByInputBoxGreencl()
-        await liveWallPage.standByInputBoxColorpk()
-
-        await liveWallPage.standByInputBoxHighlightcl()
-        await liveWallPage.standByInputBoxHighlightgrn()
-        await liveWallPage.standByInputBoxLeft()
-        await liveWallPage.standByInputBoxCenter()
-        await liveWallPage.standByInputBoxRight()
-        await liveWallPage.standByInputBoxOutdent()
-        await liveWallPage.standByInputBoxIndent()
-        await liveWallPage.standByInputBoxOrdered()
-        await liveWallPage.standByInputBoxUnOrdered()
-        await liveWallPage.standByInputBoxRemove()
+        // await liveWallPage.standByInputBoxHighlightcl()
+        // await liveWallPage.standByInputBoxHighlightgrn()
+        // await liveWallPage.standByInputBoxLeft()
+        // await liveWallPage.standByInputBoxCenter()
+        // await liveWallPage.standByInputBoxRight()
+        // await liveWallPage.standByInputBoxOutdent()
+        // await liveWallPage.standByInputBoxIndent()
+        // await liveWallPage.standByInputBoxOrdered()
+        // await liveWallPage.standByInputBoxUnOrdered()
+        // await liveWallPage.standByInputBoxRemove()
 
         //input StandBy Message
-        await liveWallPage.inputStandByMessage()
+        // await liveWallPage.inputStandByMessage()
 
 
-        //click Bold Option For PreLive Text
-        await liveWallPage.clickBoldOptionForPreLiveText()
+        // //click Bold Option For PreLive Text
+        // await liveWallPage.clickBoldOptionForPreLiveText()
 
 
-        await liveWallPage.lowConnectionMassageInputBoxFonts()
-        await liveWallPage.lowConnectionMassageInputBoxArial()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
-        await liveWallPage.lowConnectionMassageInputBoxNormal()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxFonts()
+        // await liveWallPage.lowConnectionMassageInputBoxArial()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxNormal()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH1()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH1()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH2()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH2()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH3()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH3()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH4()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH4()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH5()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH5()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockH6()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockH6()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBlockquote()
-        await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+        // await liveWallPage.lowConnectionMassageInputBoxBlockquote()
+        // await liveWallPage.lowConnectionMassageInputBoxBlocktype()
 
-        await liveWallPage.lowConnectionMassageInputBoxBold()
-        await liveWallPage.lowConnectionMassageInputBoxItalic()
-        await liveWallPage.lowConnectionMassageInputBoxUnderline()
-        await liveWallPage.lowConnectionMassageInputBoxsikethrough()
-        await liveWallPage.lowConnectionMassageInputBoxColorpk()
-        await liveWallPage.lowConnectionMassageInputBoxTextcl()
-        await liveWallPage.lowConnectionMassageInputBoxGreencl()
-        await liveWallPage.lowConnectionMassageInputBoxColorpk()
+        // await liveWallPage.lowConnectionMassageInputBoxBold()
+        // await liveWallPage.lowConnectionMassageInputBoxItalic()
+        // await liveWallPage.lowConnectionMassageInputBoxUnderline()
+        // await liveWallPage.lowConnectionMassageInputBoxsikethrough()
+        // await liveWallPage.lowConnectionMassageInputBoxColorpk()
+        // await liveWallPage.lowConnectionMassageInputBoxTextcl()
+        // await liveWallPage.lowConnectionMassageInputBoxGreencl()
+        // await liveWallPage.lowConnectionMassageInputBoxColorpk()
 
-        await liveWallPage.lowConnectionMassageInputBoxHighlightcl()
-        await liveWallPage.lowConnectionMassageInputBoxHighlightgrn()
-        await liveWallPage.lowConnectionMassageInputBoxLeft()
-        await liveWallPage.lowConnectionMassageInputBoxCenter()
-        await liveWallPage.lowConnectionMassageInputBoxRight()
-        await liveWallPage.lowConnectionMassageInputBoxOutdent()
-        await liveWallPage.lowConnectionMassageInputBoxIndent()
-        await liveWallPage.lowConnectionMassageInputBoxOrdered()
-        await liveWallPage.lowConnectionMassageInputBoxUnOrdered()
-        await liveWallPage.lowConnectionMassageInputBoxRemove()
+        // await liveWallPage.lowConnectionMassageInputBoxHighlightcl()
+        // await liveWallPage.lowConnectionMassageInputBoxHighlightgrn()
+        // await liveWallPage.lowConnectionMassageInputBoxLeft()
+        // await liveWallPage.lowConnectionMassageInputBoxCenter()
+        // await liveWallPage.lowConnectionMassageInputBoxRight()
+        // await liveWallPage.lowConnectionMassageInputBoxOutdent()
+        // await liveWallPage.lowConnectionMassageInputBoxIndent()
+        // await liveWallPage.lowConnectionMassageInputBoxOrdered()
+        // await liveWallPage.lowConnectionMassageInputBoxUnOrdered()
+        // await liveWallPage.lowConnectionMassageInputBoxRemove()
 
-        await liveWallPage.inputLowConnectionMassage()
+        // await liveWallPage.inputLowConnectionMassage()
 
-        await page.waitForTimeout(4000)
+        // await page.waitForTimeout(4000)
 
-        // })
+        // // })
 
 
 
 })
+test("validate Post live Text message functionality",async()=>{
 
-test("009LW-006 | Validate Live Selfie Cam Link Open Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+})
+
+test.skip("009LW-006 | Validate Live Selfie Cam Link Open Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -883,7 +1248,7 @@ test.skip("009LW-009 | Validate OutPut Section", async ({ loginPage, liveWallPag
 
 })
 
-test("009LW-0010 | Validate QR Code Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test.skip("009LW-0010 | Validate QR Code Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -947,7 +1312,7 @@ test("009LW-0010 | Validate QR Code Section", async ({ loginPage, liveWallPage, 
 
 })
 
-test("009LW-0011 | Validate Analytics Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test.skip("009LW-0011 | Validate Analytics Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1042,7 +1407,7 @@ test.skip("009LW-012 | Validate Live Selfie Cam OutPut Link open in Mobile", asy
 
 
 })
-test.only("009LW-0013 | Validate mobile link button visible and clickable", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009LW-0013 | Validate mobile link button visible and clickable", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1073,7 +1438,7 @@ await test.step("Validate mobile link button visible and clickable",async()=>{
 
 
 })
-test.only("009LW-0014 | Validate Mobile Link text is  visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009LW-0014 | Validate Mobile Link text is  visible", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
         await page.goto('/admin/#/sign-in')
