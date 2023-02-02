@@ -789,6 +789,7 @@ export default class MobileDesign {
                 .click({ force: true })
         }
         await this.page.waitForLoadState('networkidle')
+        await this.page.waitForTimeout(3000)
 
 
 

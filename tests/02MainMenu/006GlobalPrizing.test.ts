@@ -361,6 +361,9 @@ test("006GP-001 | Verify Global Prizing Section", async ({ loginPage, MainMenu, 
 })
 
 
+
+
+
 // test("006GP-002 | Varify Global Prizing Typography Section", async ({ loginPage, MainMenu, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
 
 

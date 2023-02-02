@@ -1152,7 +1152,6 @@ test("005SU-024 | Validate Admin Delete Profile Picture Successfully Show on Mob
 
 })
 
-
 test("005SU-025 | Validate Set User Profile Edit Functionality Functionality Successfully Works From Admin Side", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
      
@@ -1954,14 +1953,439 @@ test("005SU-042 | Validate Additional Information Zip Code / Postal Code Show in
 
 })
 
+test("005SU-043 | Validate Admin Successfully Check Custom Question As Additional Info", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+        await singupPage.deleteCustomQuestion()
+        await singupPage.clickAdditionalCustomQuestionCheckBox()
+        await singupPage.clickAdditionalCustomAddQuestionBtn()
+        await singupPage.clickFreeFormCheckBox()
+        await singupPage.inputCustomQuestionDiscription()
+        await singupPage.enableCustomQuestionMandatoryForUser()
+        await singupPage.clickCustomQuestionSaveBtn()
 
 
 
+        
+
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        // await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-044 | Validate Custom Question As Additional Info Successfully Show on mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
 
 
 
+        })
 
 
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.inputCustomQuestionForUser()
+                await newmobilePreviewPage.clickAddNewQuestionSubmitBtn()         
+     
+        })
+
+       
+
+})
+
+test("005SU-047 | Validate Admin Successfully Adding Custom Question As Multiple Choice", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+        await singupPage.deleteCustomQuestion()
+        await singupPage.clickAdditionalCustomQuestionCheckBox()
+        await singupPage.clickAdditionalCustomAddQuestionBtn()
+        await singupPage.clickMultipleChoiceCheckBox()
+        await singupPage.inputCustomQuestionDiscription()
+        await singupPage.clickCustomQuestionAddChoiceBtn()
+        await singupPage.inputCustomQuestionAddChoiceDiscription()
+        await singupPage.enableCustomQuestionMandatoryForUser()
+        await singupPage.clickCustomQuestionSaveBtn()
+
+
+
+        
+
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        // await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+
+test("005SU-048 | Validate Added Custom Question As Multiple Choice Successfully Show on mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.clickCustomChoiceCheckBox()
+                await newmobilePreviewPage.clickAddNewQuestionSubmitBtn()         
+     
+        })
+
+       
+
+})
+
+test("005SU-051 | Validate Admin Successfully Check Box Sign-Up Home Screen", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+        await singupPage.clickAdditionalCustomQuestionCheckBox()
+        await singupPage.clickAdditionalCustomQuestionInCheckBox()
+        await singupPage.deleteCustomQuestionIn()
+        await singupPage.clickAddCustomQuestionInCheckBox()
+        await singupPage.clickSignUpHomeScreenCheckBox()
+        await singupPage.clickAddCustomQuestionInBtn()
+        await singupPage.clickSmsCheckBox()
+        await singupPage.inputCustomOptionPrompt()
+        await singupPage.clickCustomOptionPromptAutoCheckBox()
+        await singupPage.inputCustomOptionPrompt()
+        await singupPage.clickCustomQuestionSaveBtn()
+        
+        
+
+
+
+        
+
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        // await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+test("005SU-052 | Validate Box Sign-Up Home Screen Functionality Successfully Work On Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.clickCustomChoiceCheckBox()
+                await newmobilePreviewPage.clickAddNewQuestionSubmitBtn()         
+     
+        })
+
+       
+
+})
+
+
+
+test("005SU-053 | Validate Admin Successfully Check Box Sign-Up Home Screen", async ({ loginPage, MainMenu,functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+        await test.step("Login Admin And Land to Home Screen", async () => {
+     
+                     await page.goto('/admin/#/sign-in')
+                     await loginPage.login(data.username, data.password)
+                     const title = await page.title();
+                     expect(title).toBe('DXP Admin')
+     
+                     await MainMenu.clickHomeAvater();
+                     await MainMenu.mainMenuBtn();
+                     await MainMenu.clickMobileDesign();           
+     
+     })
+     
+     await test.step("Login Admin And Land to Home Screen", async () => {
+             await singupPage.clickSignUpPage()   
+             await singupPage.verifyRegistrationOptionsText() 
+             await singupPage.uncheckSocialMediaLoginRadioBtn()   
+             await singupPage.clickAnonymousLoginOption()           
+     
+     })
+
+          
+     await test.step("Enable All The Additional Information", async () => {
+        
+
+        await singupPage.clickAdditionalCustomQuestionCheckBox()
+        await singupPage.clickAdditionalCustomQuestionInCheckBox()
+        await singupPage.deleteCustomQuestionIn()
+        await singupPage.clickAddCustomQuestionInCheckBox()
+        await singupPage.clickTopOfCustomQuestionCheckBox()
+        await singupPage.clickAddCustomQuestionInBtn()
+        await singupPage.clickSmsCheckBox()
+        await singupPage.inputCustomOptionPrompt()
+        await singupPage.clickCustomOptionPromptAutoCheckBox()
+        await singupPage.inputCustomOptionPrompt()
+        await singupPage.clickCustomQuestionSaveBtn()
+
+
+
+        
+
+
+})
+
+await test.step("Disable All The Additional Information", async () => {
+
+        await singupPage.uncheckAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.uncheckAdditionalInfoEmailAddressCheckbox()
+        await singupPage.uncheckAdditionalInfoAgeCheckbox()
+        await singupPage.uncheckAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.uncheckAdditionalInfoZipCodeCheckbox()
+        // await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        
+
+
+})
+     
+     
+             
+          
+})
+
+
+test("005SU-054 | Validate Box Sign-Up Home Screen Functionality Successfully Work On Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+
+
+
+        })
+
+
+        await test.step("Click Guess The Scrore Section", async () => {
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+      
+        let newTab = null;
+        let googleLoginPage = null
+        let newmobilePreviewPage: mobilePreviewPage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await newmobilePreviewPage.clickCustomChoiceCheckBoxWhenCustomQuestionInTop()
+                await newmobilePreviewPage.clickAddNewQuestionSubmitBtn()         
+     
+        })
+
+       
+
+})
 
 
 

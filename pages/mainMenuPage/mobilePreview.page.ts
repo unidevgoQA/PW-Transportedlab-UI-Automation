@@ -19,7 +19,13 @@ export default class mobilePreviewPage {
                additionalDatePickerLabel: "//label[@for='additionalbirthDate']",
                additionalZipCodeInputField: `//input[@name="zipCode"]`,
                additionalZipCodeInputFieldLabel: "//label[@for='additionalzipCode']",
-               additionalSubmitBtn: "//button[@type='submit']"
+               additionalSubmitBtn: "//button[@type='submit']",
+               customQuestionSectionTitle: "//p[text()='Questionnaire & Opt-Ins']",
+               customQuestionInputField: "//input[@placeholder='Give some description here...']",
+               submitBtn: "//button[text()='Submit']",
+               choiceCheckBox: "//input[@type='checkbox']",
+               choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
+               homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']"
 
                
 
@@ -165,7 +171,7 @@ export default class mobilePreviewPage {
 }
 
 async verifyLoginWithEmailInputFieldIsVisible() {         
-       await this.page.waitForSelector("//img[@alt='Logotype']")
+       await this.page.waitForSelector("//input[@type='email']")
        const ele = await this.page.locator("//input[@type='email']").isVisible()
     if ((ele == true)){
            
@@ -494,6 +500,66 @@ async clickSignInBtn() {
                      
              }
              else throw new Error("Aditional Information Zip Code Input Field Is not visible In User Side")
+             
+              
+       }
+
+       async inputCustomQuestionForUser() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)                       
+              const ele = await this.page.locator(this.mainMenuPageElements.customQuestionInputField).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.customQuestionInputField).fill("Demo Ans")
+                     
+             }
+             else throw new Error("Aditional Information Custom Question Input Field Is not visible In User Side")
+             
+              
+       }
+       
+
+       async clickCustomChoiceCheckBoxWhenCustomQuestionInTop() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)
+              const ele = await this.page.locator(this.mainMenuPageElements.choiceCheckBoxWhenCustomQuestionInTop).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.choiceCheckBoxWhenCustomQuestionInTop).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
+             
+              
+       }
+
+       async clickCustomChoiceCheckBox() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)
+              const ele = await this.page.locator(this.mainMenuPageElements.choiceCheckBox).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.choiceCheckBox).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
+             
+              
+       }
+       async clickAddNewQuestionSubmitBtn() {  
+                                     
+              const ele = await this.page.locator(this.mainMenuPageElements.submitBtn).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.submitBtn).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Aditional Information Custom Question Section Submit Button Is not visible In User Side")
+             
+              
+       }
+
+       async verifyMyProfileSuccessfullyClick() {  
+              await this.page.waitForSelector(this.mainMenuPageElements.homeAvater)
+              const ele = await this.page.locator(this.mainMenuPageElements.homeAvater).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mainMenuPageElements.homeAvater).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Sign UP Home Screen Functionality Does not Work After Successfully Check SignUp Home Screen Radio From Admin Side")
              
               
        }
