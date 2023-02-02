@@ -6,8 +6,7 @@ import { readFileSync } from 'fs'
 const clipboard = require('clipboardy')
 
 
-
-test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -51,97 +50,24 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
     await menuPage.clickActiveTextColorInputField()
     await menuPage.inputActiveTextColor()
     await menuPage.clickColorPickerWindowSaveBtn()
-
-
     await menuPage.selectBottomAlignmentMenuBar()
+
+    await singupPage.clickSignUpPage()
+    await singupPage.clickAnonymousLoginOption()
+    await singupPage.clickAdditionalInfoPhoneNumberCheckbox()
+    await singupPage.clickAdditionalInfoEmailAddressCheckbox()
+    await singupPage.clickAdditionalInfoAgeCheckbox()
+    await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
+    await singupPage.clickAdditionalInfoZipCodeCheckbox()
+    await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
     await languagePage.clickLanguagePage()
     await languagePage.clickUserForceLanguageOption()
     await languagePage.clickForceLanguageInputField()
     await languagePage.selectEnglishLanguage()
-})
-
-test("TL003-001 | Validate Deselete All User Selectable Language Functionality Working Properly on Admin Side", async ({ loginPage, MainMenu, languagePage, page, }, testInfo) => {
-
-
-    await test.step("Login Admin and Land to Home Screen", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-    })
-
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickHomeAvater();
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.mainMenuBtn();
-
-    })
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await MainMenu.clickMobileDesign();
-    })
-
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickLanguagePage();
-    })
-
-    await test.step("Login Admin and Land to Home Screen", async () => {
-        await languagePage.clickUserSelectableRadioBtn();
-    })
 
 
 
-
-    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-
-
-
-
-
-        //Verify click on the user profile selectable input field
-        await languagePage.clickUserProfileSelectableInputField()
-
-
-        await languagePage.deselectJapaneseLanguage()
-        await languagePage.deselectSpanishLanguage()
-        await languagePage.deselectArabicLanguage()
-        await languagePage.deselectRussianLanguage()
-        await languagePage.deselectFranciasLanguage()
-        await languagePage.deselectEnglishLanguage()
-
-
-
-
-        // await languagePage.selectJapaneseLanguage()
-
-        // await languagePage.deselectSpanishLanguage()
-
-        // await languagePage.deselectArabicLanguage()
-        // await languagePage.deselectRussianLanguage()
-
-
-        // await languagePage.deselectFranciasLanguage()
-
-        // await languagePage.deselectEnglishLanguage()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    })
 
 
 

@@ -6,7 +6,7 @@ import { readFileSync } from 'fs'
 const clipboard = require('clipboardy')
 
 
-test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -50,9 +50,26 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
         await menuPage.clickActiveTextColorInputField()
         await menuPage.inputActiveTextColor()
         await menuPage.clickColorPickerWindowSaveBtn()
-
-
         await menuPage.selectBottomAlignmentMenuBar()
+
+        await singupPage.clickSignUpPage()
+        await singupPage.clickAnonymousLoginOption()
+        await singupPage.clickAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.clickAdditionalInfoEmailAddressCheckbox()
+        await singupPage.clickAdditionalInfoAgeCheckbox()
+        await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.clickAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        await languagePage.clickLanguagePage()
+        await languagePage.clickUserForceLanguageOption()
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectEnglishLanguage()
+
+
+
+
+
 
 })
 
