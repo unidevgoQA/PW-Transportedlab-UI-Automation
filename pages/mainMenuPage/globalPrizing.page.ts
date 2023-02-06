@@ -56,7 +56,7 @@ export default class globalPrizingPage {
 
         //p[text()='Drag your image here, or browse']
         async uploadPrizeImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/logos/PotraitBanner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
@@ -567,7 +567,7 @@ export default class globalPrizingPage {
         }
 
         async BcImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/logos/PotraitBanner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
@@ -586,7 +586,7 @@ export default class globalPrizingPage {
 
         }
         async LgImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/logos/PotraitBanner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();
@@ -601,7 +601,7 @@ export default class globalPrizingPage {
 
         }
         async FgImage() {
-                const buffer = readFileSync('./videos/a.png');
+                const buffer = readFileSync('testData/logos/PotraitBanner.png');
                 // Create the DataTransfer and File
                 const dataTransfer = await this.page.evaluateHandle((data) => {
                         const dt = new DataTransfer();

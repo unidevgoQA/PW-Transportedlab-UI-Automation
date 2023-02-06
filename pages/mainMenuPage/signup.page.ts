@@ -40,23 +40,94 @@ export default class singupPage {
                 emailAddressCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
                 ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
                 dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
-                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]"
+                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
+                urlTextInputField: "(//label[text()='Text']/following::input)[1]",
+                errorMessageForUrlTextInputField: "//p[text()='Incorrect entry.']",
+                urlLinkInputField: "(//label[text()='Url or link']/following::textarea)[1]",
+                errorMassgeForUrlInputField: "//p[text()='Incorrect entry.']",
+                addNewUrlBtn: "//button[text()='Add New Url']",
+                addedLinkAndText: "//h6[text()='Added Links and Text']",
+                deletAddedUrlLink: "//div[@class='MuiBox-root css-grxo2d']//button[1]",
+                customQuestionCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                customQuestionInCheckBox: "//input[@type='checkbox']",
+                addNewQuestionBtn: "//button[text()='Add question']",
+                signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
+                customQuestionScreenRadioBtn: "//input[@value='customQuestionScreen']",
+                customeOptionInCheckBox: "//span[text()='Custom Opt-In']",
+                addCustomQuestionInBtn: "//button[text()='Add Custom Opt-In']",
+                clickFreeFormCheckBox: "//input[@value='freeform']",
+                multiChoiceCheckBox: "//input[@value='multipleChoice']",
+                customQuestionDiscriptionInputField: "//h5[contains(@class,'MuiTypography-root MuiTypography-h5')]/following::textarea[@rows='6']",
+                addChoiceBtn: "//button[text()='Add Choice']",
+                choiceInputField: "(//label[text()='Give some description here...']/following::input)[1]",
+                customQuestionMendotoryCheckBox: "(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]",
+                customQuestionSaveBtn: "//button[text()='Save']",
+                deleteAddedCustomQuestion: "(//div[@class='MuiBox-root css-1519m8w']//button)[2]",
+                smsCheckBox: "//input[@value='sms']",
+                customQuestionPromptInputField: "(//label[text()='Give some description here...']/following::textarea)[1]",
+                customQuestionPromptAutoCheckBox: "//h4/following::input[@type='checkbox']",
+                customOptionInCheckBox: "(//span[text()='Custom Opt-In']/preceding::input[@type='checkbox'])[1]",
+                addedCustomQuestionInDeleteBtn: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[3]"
 
+
+
+
+
+
+        }        
+
+        async uncheckAdditionalInfoPhoneNumberCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({button:"left", delay:1000})
+                }
 
         }
-        // export default class singupPage {
-        //         [x: string]: any;
 
-        //         private page: Page;
-        //         static buffer: void;
-        //         constructor(page: Page) {
-        //                 this.page = page;
-        //         }
+        async uncheckAdditionalInfoEmailAddressCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.emailAddressCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoAgeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.ageCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.ageCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoDateOfBirthCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoZipCodeCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.zipCodeCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.zipCodeCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async uncheckAdditionalInfoCustomQuestionCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
 
         async clickAdditionalInfoPhoneNumberCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.phoneNumberCheckBox)
+                        await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -64,7 +135,7 @@ export default class singupPage {
         async clickAdditionalInfoEmailAddressCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.emailAddressCheckBox)
+                        await this.page.locator(this.signUpPageElements.emailAddressCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -72,7 +143,7 @@ export default class singupPage {
         async clickAdditionalInfoAgeCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.ageCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.ageCheckBox)
+                        await this.page.locator(this.signUpPageElements.ageCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -80,7 +151,7 @@ export default class singupPage {
         async clickAdditionalInfoDateOfBirthCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.dateOfBirthCheckBox)
+                        await this.page.locator(this.signUpPageElements.dateOfBirthCheckBox).click({button:"left", delay:1000})
                 }
 
         }
@@ -88,10 +159,191 @@ export default class singupPage {
         async clickAdditionalInfoZipCodeCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.zipCodeCheckBox).isChecked()
                 if ((ele == false)) {
-                        await this.page.click(this.signUpPageElements.zipCodeCheckBox)
+                        await this.page.locator(this.signUpPageElements.zipCodeCheckBox).click({button:"left", delay:1000})
                 }
 
         }
+
+        async clickAdditionalCustomQuestionCheckBox() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionCheckBox).click({button:"left", delay:1000})
+                }
+
+        }
+
+        
+        async clickAdditionalCustomQuestionInCheckBox() {
+                // await this.page.waitForSelector(this.signUpPageElements.customQuestionInCheckBox)
+                let ele = await this.page.getByRole('checkbox', { name: 'Custom Opt-In' }).isChecked()
+                if ((ele == false)) {
+                        await this.page.getByRole('checkbox', { name: 'Custom Opt-In' }).click({button:"left", delay:1000})
+                }
+
+        }
+
+        async clickAdditionalCustomAddQuestionBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.addNewQuestionBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewQuestionBtn).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Button Is not Visible")
+
+        }
+
+        async clickFreeFormCheckBox() {
+                await this.page.waitForSelector(this.signUpPageElements.clickFreeFormCheckBox)
+                let ele = await this.page.locator(this.signUpPageElements.clickFreeFormCheckBox).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.clickFreeFormCheckBox).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window FreeForm Check Box Element Is not Visible")
+
+        }
+
+        
+        async clickMultipleChoiceCheckBox() {
+                await this.page.waitForSelector(this.signUpPageElements.multiChoiceCheckBox)
+                let ele = await this.page.locator(this.signUpPageElements.multiChoiceCheckBox).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.multiChoiceCheckBox).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window Multi Choice Check Box Element Is not Visible")
+
+        }
+
+        async inputCustomQuestionDiscription() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionDiscriptionInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionDiscriptionInputField).type("Demo Custom Question")
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window FreeForm Discription Input Field Element Is not Visible")
+
+        }
+
+        async clickCustomQuestionAddChoiceBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.addChoiceBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addChoiceBtn).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Add ChoiceBtn Button Element Is not Visible")
+
+        }
+
+        async inputCustomQuestionAddChoiceDiscription() {
+                let ele = await this.page.locator(this.signUpPageElements.choiceInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.choiceInputField).fill("Demo Choice")
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window Add Choice Input Field Element Is not Visible")
+
+        }
+
+        async enableCustomQuestionMandatoryForUser() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionMendotoryCheckBox).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionMendotoryCheckBox).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+
+        async clickCustomQuestionSaveBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionSaveBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionSaveBtn).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+
+        async deleteCustomQuestion() {
+                let ele = await this.page.locator(this.signUpPageElements.deleteAddedCustomQuestion).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.deleteAddedCustomQuestion).click({button:"left", delay:1000})
+                }
+                // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+        
+
+        async deleteCustomQuestionIn() {
+                let ele = await this.page.locator(this.signUpPageElements.addedCustomQuestionInDeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addedCustomQuestionInDeleteBtn).click({button:"left", delay:1000})
+                }
+                // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+
+        async clickSignUpHomeScreenCheckBox() {
+                let ele = await this.page.locator(this.signUpPageElements.signUpHomeScreenRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.signUpHomeScreenRadioBtn).click({button:"left", delay:1000})
+                }
+                // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+
+        async clickTopOfCustomQuestionCheckBox() {
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionScreenRadioBtn).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionScreenRadioBtn).click({button:"left", delay:1000})
+                }
+                // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
+
+        }
+
+        async clickAddCustomQuestionInCheckBox() {
+                let ele = await this.page.locator(this.signUpPageElements.customOptionInCheckBox).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customOptionInCheckBox).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add Custom Question In Radio button Element Is not Visible")
+
+        }
+
+        async clickAddCustomQuestionInBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.addCustomQuestionInBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addCustomQuestionInBtn).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add CustomQuestion In Button Element Is not Visible")
+
+        }
+
+        async clickSmsCheckBox() {
+                await this.page.waitForSelector(this.signUpPageElements.smsCheckBox)
+                let ele = await this.page.locator(this.signUpPageElements.smsCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.smsCheckBox).click({button:"left", delay:1000})
+                }
+                else throw new Error("Sign Up Page Add Custom Question Sms Check Box Element Is not Visible")
+
+        }
+
+        async inputCustomOptionPrompt() {
+                
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionPromptInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionPromptInputField).type("I Agree")
+                }
+                else throw new Error("Sign Up Page custom Question Prompt Input Field Element Is not Visible")
+                await this.page.waitForTimeout(2000)
+
+        }
+
+        async clickCustomOptionPromptAutoCheckBox() {
+                
+                let ele = await this.page.locator(this.signUpPageElements.customQuestionPromptAutoCheckBox).isChecked()
+                if ((ele == false)) {
+                        await this.page.locator(this.signUpPageElements.customQuestionPromptAutoCheckBox).check()
+                }
+                else throw new Error("Sign Up Page custom Question Prompt Auto Check Box Element Is not Visible")
+
+        }
+
+
 
         async clickSignUpPage() {
                 let ele = await this.page.locator(this.signUpPageElements.signUpPage).isVisible()
@@ -130,6 +382,76 @@ export default class singupPage {
 
         }
 
+        async clickAddNewUrlBtn() {
+                let ele = await this.page.locator(this.signUpPageElements.addNewUrlBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.addNewUrlBtn).click({ button: "left", delay: 1000 })
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async iftermsAndConditionUrlLinkAvailableThanDeleteIt() {
+                let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
+                        
+                }
+                // else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async deleteTermsAndConditionAddedUrlLink() {
+                let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+
+        }
+
+        async inputAddUrlText() {
+                let ele = await this.page.locator(this.signUpPageElements.urlTextInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.urlTextInputField).fill("Terms & Conditions")
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Text Input Field is not visible")
+
+        }
+
+        async inputAddUrlLink() {
+                let ele = await this.page.locator(this.signUpPageElements.urlLinkInputField).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.urlLinkInputField).fill("https://demos.co.uk/terms-conditions/")
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Input Field is not visible")
+
+        }
+
+        async verifyAddUrlUrlInputErrorAlertShowSuccessfully() {
+                let ele = await this.page.locator(this.signUpPageElements.errorMassgeForUrlInputField).textContent()
+                if ((ele === "Incorrect entry.")) {
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Url Input Field Error Alert is not visible")
+
+        }
+
+        async verifyAddUrlTextFieldErrorAlertShowSuccessfully() {
+                let ele = await this.page.locator(this.signUpPageElements.errorMessageForUrlTextInputField).textContent()
+                if ((ele === "Incorrect entry.")) {
+                        
+                }
+                else throw new Error("Main Menu | Sign Up Page Add Url Text Input Field Error Alert is not visible")
+
+        }
+
+
+
         async clickAnonymousLoginOption() {
                 let ele = await this.page.locator(this.signUpPageElements.anonymousLoginRadioBtn).isChecked()
                 if ((ele == false)) {
@@ -138,6 +460,7 @@ export default class singupPage {
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
 
         }
+
 
         async clickUserAgeMust13YearsOrOlderOptionRadioBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.thirteenOrOlderRadioBtn).isChecked()
@@ -252,6 +575,7 @@ export default class singupPage {
                         await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Window, Save Button Element is not visible ")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -289,14 +613,14 @@ export default class singupPage {
                 await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField)               
                 let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David Con")
+                        await this.page.locator(this.signUpPageElements.addNewSetWindowSetTitleInputField).fill("David")
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Title Field is not visible ")
 
         }
 
         async deleteUploadedProfilePicture() { 
-                              
+                await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSetTitleInputField) 
                 let ele = await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.uploadedProfilePictureDeleteBtn).click({ button: "left", delay: 1000 })
@@ -330,7 +654,7 @@ export default class singupPage {
         async verifyAutoAssignProfileSuccessfullyEdited() { 
                 await this.page.waitForSelector(this.signUpPageElements.profileNameAfterEdit)               
                 let ele = await this.page.locator(this.signUpPageElements.profileNameAfterEdit).textContent()
-                if ((ele === "David Con")) {
+                if ((ele === "David")) {
                         
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Title Not Edited successfully")
@@ -375,6 +699,7 @@ export default class singupPage {
                         await this.page.locator(this.signUpPageElements.emailValidationRadioBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -741,16 +1066,7 @@ export default class singupPage {
                 expect.soft(locator).toContainText("Custom Question Type")
         }
 
-        async clickFreeFormCheckBox() {
-
-                let ele = await this.page.locator("//input[@value='freeform']").isVisible()
-
-                if ((ele == true)) {
-                        // console.log("Click on the FreeForm Checkbox")
-                        await this.page.locator("//input[@value='freeform']").click()
-
-                }
-        }
+        
         async inputFreeFormCustomQuestion() {
 
                 const locator = this.page.locator("#P19892275832")
@@ -776,16 +1092,7 @@ export default class singupPage {
                 await locator.click()
         }
 
-        async clickMultipleChoiceCheckBox() {
-
-                let ele = await this.page.locator("//input[@value='multipleChoice']").isVisible()
-
-                if ((ele == true)) {
-                        // console.log("Click on the multipleChoice Checkbox")
-                        await this.page.locator("//input[@value='multipleChoice']").click()
-
-                }
-        }
+       
 
         async inputMultipuleFieldData() {
 
@@ -816,16 +1123,7 @@ export default class singupPage {
         }
 
 
-        async deleteCustomQuestion() {
 
-                let ele = await this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[1]").isVisible()
-
-                if ((ele == true)) {
-                        // console.log("Delete Custom Question")
-                        await this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[1]").click()
-
-                }
-        }
 
         async clcikSignUpShowOnHomeCheckbox() {
 

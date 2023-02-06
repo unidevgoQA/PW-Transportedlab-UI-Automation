@@ -299,7 +299,7 @@ export default class prizeDropPage {
         async delete_background_image(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').dblclick({button:'left',delay:200})
                 }
         }
         async Image_uploader_for_maincolorcheck() {
@@ -351,6 +351,10 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
+        async full_screen_logo_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+              await expect(edit_image_button).toBeVisible({timeout:6000}) 
+        }
 
         async Game_title_image_upload(){
                 const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
@@ -370,6 +374,10 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
+        async game_tile_wait(){
+                const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+               await expect(edit_image_button).toBeVisible({timeout:60000}) 
+        }
         async Frame_image_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
@@ -387,6 +395,10 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
+        }
+        async frame_image_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible({timeout:60000})
         }
 
         async Sponsor_image_upload(){
@@ -406,6 +418,10 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
+        }
+        async sponsor_image_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+               await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         async Team_logo_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
@@ -444,6 +460,11 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
+
+        async wait_loading_image(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible({timeout:60000})
+        }
         //background video xpath might change, check here 
 
         async select_background_video(){
@@ -454,9 +475,13 @@ export default class prizeDropPage {
         async check_Background_video_availablity(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:300})
                 }
                
+        }
+        async background_video_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         async Video_uploader_For_Background_video(){
                 const filePath0 = "testData/videos/video.mp4"
@@ -468,6 +493,26 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 
+        }
+        async wrong_Video_uploader_For_background_video(){
+                this.page.on('dialog', async dialog => {
+                        // Verify type of dialog
+                        expect(dialog.type()).toContain('alert');   
+                        
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        
+                        //click on alert ok button
+                        await dialog.accept();
+                      });
+                const filePath0 = "testData/images/icon.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
+                ]);
+                await fileChooser.setFiles([filePath0]);
         }
 
 
@@ -494,15 +539,35 @@ export default class prizeDropPage {
         }
         async select_Howtoplay_video(){
                 
-                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//input[@value="video"]').dblclick({button:'left',delay:1000})
+                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//input[@value="video"]').dblclick({button:'left',delay:500})
                
         }
         async check_Howtoplay_video_availablity(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:400})
                 }
                
+        }
+        async wrong_Video_uploader_For_Howtoplay_video(){
+                this.page.on('dialog', async dialog => {
+                        // Verify type of dialog
+                        expect(dialog.type()).toContain('alert');   
+                        
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        
+                        //click on alert ok button
+                        await dialog.accept();
+                      });
+                const filePath0 = "testData/images/icon.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
+                ]);
+                await fileChooser.setFiles([filePath0]);
         }
         async Video_uploader_For_Howtoplay_video(){
                 const filePath0 = "testData/videos/video.mp4"
@@ -514,6 +579,10 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 
+        }
+        async howtoplay_video_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         async rules_image_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
@@ -531,7 +600,8 @@ export default class prizeDropPage {
                         this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
                 ]);
                 await fileChooser.setFiles([filePath0]);
-                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+                await this.page.waitForLoadState('networkidle',{timeout:30000})  
         }
         async select_rules_video(){
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//input[@value="video"]').dblclick({button:'left',delay:1000})
@@ -540,7 +610,7 @@ export default class prizeDropPage {
         async check_rules_video_availablity(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:300})
                 }
                
         }
@@ -554,6 +624,30 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 
+        }
+        async rules_video_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible() 
+        }
+        async wrong_Video_uploader_For_rules_video(){
+                this.page.on('dialog', async dialog => {
+                        // Verify type of dialog
+                        expect(dialog.type()).toContain('alert');   
+                        
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        
+                        //click on alert ok button
+                        await dialog.accept();
+                      });
+                const filePath0 = "testData/images/icon.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
+                ]);
+                await fileChooser.setFiles([filePath0]);
         }
         async splash_image_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
@@ -596,6 +690,10 @@ export default class prizeDropPage {
                 ]);
                 await fileChooser.setFiles([filePath0]);
                 
+        }
+        async splash_video_wait(){
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         //start accent color section element
 
@@ -669,7 +767,7 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[1]')
                 await expect(ele).toBeVisible()
                 await ele.fill("  ")
-                await ele.type("189")
+                await ele.type("189",{delay:100})
                 //await this.page.waitForSelector('//div[@aria-label="Color"]')
                 //div[@fill="hsla(180, 100%, 87%, 1)"] ei selector ta waitforselector die kora jabe
                 await this.page.waitForTimeout(500)
@@ -680,7 +778,7 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[2]')
                 await expect(ele).toBeVisible()
                 await ele.fill("  ")
-                await ele.type("179")
+                await ele.type("179",{delay:100})
                 await this.page.waitForTimeout(500)
 
         }
@@ -690,7 +788,7 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('.css-r99fy3').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[3]')
                 await expect(ele).toBeVisible()
                 await ele.fill("  ")
-                await ele.type("229")
+                await ele.type("229",{delay:100})
                 await this.page.waitForTimeout(500)
 
         }
