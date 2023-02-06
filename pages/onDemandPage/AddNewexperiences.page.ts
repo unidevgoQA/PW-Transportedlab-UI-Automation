@@ -1,15 +1,59 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
+import BaseFunctions from "@base-function/baseFunctions";
+
 export default class addnewexperiencePage {
-      [x: string]: any;
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
+        }
 
-      private page: Page;
-      static login: any;
-      static buffer: void;
+        private addNewExperiencePageElement = {
+                menuPage: "//p[text()='Menu']",
+                LengthAlert: "//p[contains(@class,'MuiFormHelperText-root Mui-error')]",
+                Imageupload : " //div[@class='MuiBox-root css-v2612']",
+                ChooseImageButton: "//button[text()='Choose File']",
+                InvalidFiletypeAlertmodal: "//p[text()='File type is not supported']",
+                InvalidFiletypeAlertokbtn: "//button[text()='Ok']",
+                Imageuploadclosebutton: "//button[@aria-label='Close']",
+                Invalidtitlealertvdo : "//p[contains(@class,'MuiFormHelperText-root Mui-error')]",
+                VideoUploadBTtN: "//div[@class='MuiBox-root css-v2612']",
+                Invalidimageuploadbtnweb: "//div[@class='MuiBox-root css-v2612']",
+                Invalidalertweb: "//p[contains(@class,'MuiFormHelperText-root Mui-error')]",
 
-      constructor(page: Page) {
-            this.page = page;
-      }
+               
+                
+
+        
+                
+                
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+// export default class addnewexperiencePage {
+//       [x: string]: any;
+
+//       private page: Page;
+//       static login: any;
+//       static buffer: void;
+
+//       constructor(page: Page) {
+//             this.page = page;
+//       }
 
 
 
@@ -189,7 +233,7 @@ export default class addnewexperiencePage {
       }
       //click Bottom Alignment button
       async clickNewlyAddedExpThreeDotBtn() {
-            const ele = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])").last()
+            const ele = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[2]").last()
             await ele.click({force:true})
 
 
@@ -197,7 +241,7 @@ export default class addnewexperiencePage {
 
       //click Bottom Alignment button
       async clickNewlyAddedExprienceDeleteBtn() {
-            const ele = this.page.locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]/following-sibling::li").last()
+            const ele = this.page.locator("(//p[text()='Delete'])[2]").last()
             // expect(ele).toBeVisible()
             await ele.click({force:true})
 
@@ -284,12 +328,10 @@ export default class addnewexperiencePage {
       }
 
       async PlayvdoCheckBox() {
-            const ele = await this.page.locator("//span[text()='Enable Play Video']").isVisible()
+            const ele = await this.page.locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").isVisible()
             if ((ele == true)) {
                   // console.log("enabled Home Icon Check Box")
-                  await this.page
-                        .locator("//span[text()='Enable Play Video']")
-                        .click()
+                  await this.page.locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").click()
             }
       }
 
@@ -490,14 +532,14 @@ export default class addnewexperiencePage {
       //////////////////////////// Implement EngagementBtn
 
       async EngagementBtn() {
-            const locator = this.page.locator("(//p[text()='Engagement'])[1]")
+            const locator = this.page.locator("//p[text()='Game/Engagement']")
             //expect(locator).toContainText('Image')
             await locator.click()
 
       }
 
       async EngTitleText() {
-            const locator = this.page.locator("//input[@placeholder='Title']")
+            const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
             expect(locator).toBeVisible()
             await locator.fill("Auto Engagement Title")
       }
@@ -505,41 +547,44 @@ export default class addnewexperiencePage {
       //select from dropdown
 
       async EngdropdownBtn() {
-            await this.page.click("(//div[@role='button'])[1]")
+            await this.page.click("(//div[@role='button'])[2]")
       }
 
       async Engagement_1() {
-            await this.page.click("//li[text()='Engagement_1']")
+            await this.page.click("(//li[@backgroundcolor='#212936'])[2]")
 
       }
 
       async Engagement_2() {
-            await this.page.click("//li[text()='Engagement_2']")
+            await this.page.click("(//li[@backgroundcolor='#212936'])[3]")
 
       }
       async Engagement_3() {
-            await this.page.click("//li[text()='Engagement_3']")
+            await this.page.click("//li[@data-value='Engagement_3']")
 
+      }
+      async None(){
+            await this.page.click("(//li[@backgroundcolor='#212936'])[1]")
       }
 
       //select from configuration
 
       async Configuration() {
-            await this.page.click("(//div[@role='button'])[2]")
+            await this.page.click("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[3]")
 
       }
 
       async Configuration_1() {
-            await this.page.click("//li[text()='Configuration_1']")
+            await this.page.click("//li[@data-value='Configuration_1']")
 
       }
 
       async Configuration_2() {
-            await this.page.click("//li[text()='Configuration_2']")
+            await this.page.click("//li[@data-value='Configuration_2']")
 
       }
       async Configuration_3() {
-            await this.page.click("//li[text()='Configuration_3']")
+            await this.page.click("//li[@data-value='Configuration_3']")
 
       }
 
@@ -559,7 +604,7 @@ export default class addnewexperiencePage {
       }
 
       async Fonts() {
-            await this.page.click("//span[text()='Font']")
+            await this.page.click("//a[.='Font']")
 
       }
 
@@ -702,7 +747,7 @@ export default class addnewexperiencePage {
       }
 
       async FontSize() {
-            await this.page.click("//div[@role='button']")
+            await this.page.click("(//div[@role='button'])[2]")
 
       }
 
@@ -740,7 +785,7 @@ export default class addnewexperiencePage {
       }
 
       async uploadImage() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
@@ -966,7 +1011,7 @@ export default class addnewexperiencePage {
       }
 
       async TrFontSize() {
-            await this.page.click("//div[@role='button']")
+            await this.page.click("(//div[@role='button'])[2]")
 
       }
 
@@ -990,7 +1035,7 @@ export default class addnewexperiencePage {
       }
 
       async TrAnswer_1() {
-            const locator = this.page.locator("//input[@type='text' and @id='P-1361192122']")
+            const locator = this.page.locator("//input[@placeholder='Type here text...']")
             expect(locator).toBeVisible()
             await locator.fill("Demo Answer For Automation")
       }
@@ -1018,7 +1063,7 @@ export default class addnewexperiencePage {
       // }
 
       async TruploadImage() {
-            const buffer = readFileSync('./videos/a.png');
+            const buffer = readFileSync('testData/images/banner.png');
             // Create the DataTransfer and File
             const dataTransfer = await this.page.evaluateHandle((data) => {
                   const dt = new DataTransfer();
@@ -1083,8 +1128,345 @@ export default class addnewexperiencePage {
             await locator.click()
       }
 
+      async EmptywebtitleAlert() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("//div[@class='MuiBox-root css-v2612']")
+            await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error emoty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+        async invalidLengthAlert() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.fill("    ");
+
+            const ele = await this.page.locator(this.addNewExperiencePageElement.LengthAlert).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.LengthAlert, { force: true })
+                }
+                else throw new Error("Invalid length alert is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+        async invalidImageUploadFunction() {
+            // const buffer = readFileSync('testData/csv/csv.csv');
+            // // Create the DataTransfer and File
+            // const dataTransfer = await this.page.evaluateHandle((data) => {
+            //       const dt = new DataTransfer();
+            //       // Convert the buffer to a hex array
+            //       const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
+            //       dt.items.add(file);
+            //       return dt;
+            // }, buffer);
+
+            // // Now dispatch
+            // await this.page.dispatchEvent("//div[@class='MuiBox-root css-v2612']", 'drop', { dataTransfer });
 
 
-}
+      }
+      async imageUploadBUtton(){
+            const ele = await this.page.locator(this.addNewExperiencePageElement.Imageupload).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.Imageupload, { force: true })
+                }
+                else throw new Error("Image Upload button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+
+      }
+      async chooseImage() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.ChooseImageButton).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.ChooseImageButton, { force: true })
+                }
+                else throw new Error("Choose image button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+
+      }
+      async invalidFiletypeAlert() {
+
+            const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal, { force: true })
+                }
+                else throw new Error("Invalid File Type Alert is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+      }
+      async invalidfiletypealertOkbtn() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertokbtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.InvalidFiletypeAlertokbtn, { force: true })
+                }
+                else throw new Error("Invalid File Type Alert Ok button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+      }
+      async ImagemodalClosebtn() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.Imageuploadclosebutton).isVisible()
+            if ((ele == true)) {
+                    await this.page.click(this.addNewExperiencePageElement.Imageuploadclosebutton, { force: true })
+            }
+            else throw new Error("Close button is not visible")
+
+            await this.page.waitForLoadState("networkidle")
+
+      }
+      async InvalidtitleAlertVideo() {
+            const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error emoty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+
+      }
+      async videoUploadBTN() {
+            //await this.page.locator("//button[@aria-label='Delete']").click()
+            const ele = await this.page.locator(this.addNewExperiencePageElement.VideoUploadBTtN).isVisible()
+            if ((ele == true)) {
+                    await this.page.click(this.addNewExperiencePageElement.VideoUploadBTtN, { force: true })
+            }
+            else throw new Error("Video Upload button is not visible")
+
+            //await this.page.waitForLoadState("networkidle")
+      }
+
+
+      async imageUploadBUttonweb(){
+            const ele = await this.page.locator(this.addNewExperiencePageElement.Invalidimageuploadbtnweb).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.Invalidimageuploadbtnweb, { force: true })
+                }
+                else throw new Error("Image Upload button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+
+      }
+      async chooseImageweb() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.ChooseImageButton).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.ChooseImageButton, { force: true })
+                }
+                else throw new Error("Choose image button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+
+      }
+      async invalidFiletypeAlertweb() {
+
+            const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal, { force: true })
+                }
+                else throw new Error("Invalid File Type Alert is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+      }
+      async invalidfiletypealertOkbtnweb() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertokbtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.click(this.addNewExperiencePageElement.InvalidFiletypeAlertokbtn, { force: true })
+                }
+                else throw new Error("Invalid File Type Alert Ok button is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+      }
+      async ImagemodalClosebtnweb() {
+            const ele = await this.page.locator(this.addNewExperiencePageElement.Imageuploadclosebutton).isVisible()
+            if ((ele == true)) {
+                    await this.page.click(this.addNewExperiencePageElement.Imageuploadclosebutton, { force: true })
+            }
+            else throw new Error("Close button is not visible")
+
+            await this.page.waitForLoadState("networkidle")
+
+      }
+      async EmptywebtitleAlertweb() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("//div[@class='MuiBox-root css-v2612']")
+            await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error emoty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+
+
+        async Emptyengagementtitle() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("(//div[@role='button'])[2]")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error empty input alert Is Not Found")
+
+                //await this.page.waitForLoadState("networkidle")
+        }
+
+        async invalidLengthAlertengagement() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.fill("    ");
+
+            const ele = await this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if ((ele == true)) {
+                  await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                }
+                else throw new Error("Invalid length alert is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+      //   async EngagementModalCancellation(){
+
+      //       const locator = await this.page.locator("//div[@class='MuiBox-root css-1ydarmv']")
+      //       await locator.click()
+      //   }
+      async invalidTitleAlertPoll(){
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("//p[text()='Question']")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error empty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+
+      } 
+
+
+      async invalidLengthAlertPoll() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.fill("    ");
+
+            const ele = await this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if ((ele == true)) {
+                  await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                }
+                else throw new Error("Invalid length alert is not visible")
+
+                await this.page.waitForLoadState("networkidle")
+        }
+        async invalidAlertforAnswer() {
+            const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
+            expect(locator).toBeVisible();
+            await locator.click();
+            await this.page.click("//div[@class='MuiBox-root css-1nfqfy6']")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("(//p[contains(@class,'MuiFormHelperText-root Mui-error')])[2]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("(//p[contains(@class,'MuiFormHelperText-root Mui-error')])[2]")
+                else throw new Error("Error empty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+
+        }
+
+        async invalidTitleAlerttrivia(){
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("//p[text()='Question']")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                else throw new Error("Error empty input alert Is Not Found")
+
+                //await this.page.waitForLoadState("networkidle")
+
+      } 
+
+
+      async invalidLengthAlerttrivia() {
+            const locator = this.page.locator("//input[@placeholder='Title']")
+            expect(locator).toBeVisible()
+            await locator.fill("    ");
+
+            const ele = await this.page.locator("//p[contains(@class,'MuiFormHelperText-root Mui-error')]").isVisible()
+                if ((ele == true)) {
+                  await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
+                }
+                else throw new Error("Invalid length alert is not visible")
+
+                //await this.page.waitForLoadState("networkidle")
+        }
+        async invalidAlertforAnswertrivia() {
+            const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
+            expect(locator).toBeVisible()
+            await locator.click();
+            await this.page.click("//div[@class='MuiBox-root css-1nfqfy6']")
+            //await this.page.click("//button[text()='Cancel']")
+
+            const ele = this.page.locator("(//p[contains(@class,'MuiFormHelperText-root Mui-error')])[2]").isVisible()
+                if (ele != null)
+                        await this.page.isVisible("(//p[contains(@class,'MuiFormHelperText-root Mui-error')])[2]")
+                else throw new Error("Error empty input alert Is Not Found")
+
+                await this.page.waitForLoadState("networkidle")
+
+        }
+        async deletetheengagementExperiences(){
+            const Engagement = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[3]")
+            expect(Engagement).toBeVisible();
+            await Engagement.click();
+            const Engagement_delete = this.page.locator("(//p[text()='Delete'])[3]")
+            expect(Engagement_delete).toBeVisible()
+            await Engagement_delete.click();
+        }
+        async deleteWebExperiences(){
+            const Web = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[2]")
+            expect(Web).toBeVisible();
+            await Web.click();
+            const web_delete = this.page.locator("(//p[text()='Delete'])[2]")
+            expect(web_delete).toBeVisible();
+            await web_delete.click();
+        }
+        async deleteVideoExperiences(){
+            const video = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[1]")
+            expect(video).toBeVisible();
+            await video.click();
+            const video_delete = this.page.locator("(//p[text()='Delete'])[1]")
+            expect(video_delete).toBeVisible();
+            await video_delete.click();
+        }
+
+
+      }
+
+      
+      
+
+
 
 
