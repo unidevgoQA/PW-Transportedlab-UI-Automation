@@ -9,8 +9,8 @@ const config: PlaywrightTestConfig = {
 
     // "001Login.test.ts",
     // "002MobileDesign.test.ts",
-    // "003Language.test.ts",
-    // "004Menu.test.ts",
+    "003Language.test.ts",
+    "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
     //"007PrizeDrop.test.ts",
@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
     //"012Trivia.test.ts",
-    "guesstheScore.test.ts",
+    // "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
 

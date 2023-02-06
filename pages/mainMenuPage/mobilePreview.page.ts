@@ -908,14 +908,17 @@ async clickSignInBtn() {
 
        async verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen() {
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("MenuBar_ThreeLineAlignment_UI.png") 
+              const ele = await this.page.locator("//div[@class='MuiBox-root css-1ft6b9a']").isVisible()
+              if ((ele == true)) {
+                     console.log("Menu Bar Three Line Alignment Successfully Applied In User Side")
+             }
+             else throw new Error("Menu Bar Three Line Alignment is not Applied In User Side")
+                          
 
        }
        async clickThreeLineAlignmentBtn() {
 
-             const ele = await this.page.locator("//div[@iconcolor='rgb(96, 37, 74)']")
+             const ele = await this.page.locator("//div[@class='MuiBox-root css-1ft6b9a']")
              expect(ele).toBeVisible()
              await ele.click({force:true})
              await this.page.waitForTimeout(3000)

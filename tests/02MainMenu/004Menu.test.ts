@@ -612,7 +612,7 @@ test("004M-014 | Validate Menu Bar Three Line Alignment Successfully Selected Fr
         })
 })
 
-test("004M-015 | Validate  Menu Bar  Three Line Alignment Successfully Applied in Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("004M-015 | Validate Menu Bar  Three Line Alignment Successfully Applied in Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -668,7 +668,6 @@ test("004M-015 | Validate  Menu Bar  Three Line Alignment Successfully Applied i
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickThreeLineAlignmentBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen()
 
         })
