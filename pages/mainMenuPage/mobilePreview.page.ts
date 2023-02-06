@@ -667,7 +667,11 @@ async clickSignInBtn() {
 
        async verifyHomeEntryIsApplyed() {
               const ele = await this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true')
+              await expect(ele).toHaveAttribute('aria-pressed','true' )
+              // if ((await (expect(this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")).toHaveAttribute("'aria-pressed','true'"))){
+
+              // }
+              
 
        }
 
@@ -983,11 +987,8 @@ async clickSignInBtn() {
        async clickHomeBtn() {
               const btn = this.page.locator("//button[@value='home']");
               expect(btn).toBeVisible()
-              await btn.click({ force: true })
-              await this.page.waitForLoadState('domcontentloaded');
-
-
-
+              await btn.click({button:"left", delay:1000})
+              await this.page.waitForLoadState("networkidle");
        }
 
 

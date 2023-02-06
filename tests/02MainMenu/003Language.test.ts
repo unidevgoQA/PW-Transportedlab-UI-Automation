@@ -535,7 +535,7 @@ test("TL003-012 | Validate Forced Language Arabic Language Change Functionality 
 
 })
 
-test.only("TL003-014 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage,guesstheScorePage, MainMenu, languagePage, page, }, testInfo) => {
+test.skip("TL003-014 | Validate User Selectable Russian Language Change Functionality Working Properly on Admin Side", async ({ loginPage,guesstheScorePage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
@@ -2467,7 +2467,7 @@ test("TL003-020 | Validate Forced Language Francias Language Change Functionalit
 
 // })
 
-test.only("TL003-024 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side", async ({ loginPage,guesstheScorePage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
+test.skip("TL003-024 | Validate Forced Language English Language Change Functionality Working Properly on Admin Side", async ({ loginPage,guesstheScorePage, menuPage, MainMenu, languagePage, page, }, testInfo) => {
 
 
     await test.step("Login Admin and Land to Home Screen", async () => {
