@@ -566,3 +566,26 @@ test("011ANE-0011 | Validate Trivia Section", async ({ loginPage, liveWallPage, 
       await addnewexperiencePage.invalidfiletypealertOkbtn();
       await addnewexperiencePage.ImagemodalClosebtn();
 })
+
+test("011ANE-0012 | Validate The Delete Functionalities Of The Experiences", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+
+      await page.goto('/admin/#/sign-in')
+      await loginPage.login(data.username, data.password)
+      const title = await page.title();
+      expect(title).toBe('DXP Admin')
+
+      const screenshot = await page.screenshot();
+      await testInfo.attach("login screenshot", {
+            contentType: "image/png",
+            body: screenshot
+      })
+
+      await addnewexperiencePage.clickHomeAvater();
+      await addnewexperiencePage.onDemandBtn();
+      await addnewexperiencePage.deletetheengagementExperiences();
+      await addnewexperiencePage.deleteWebExperiences();
+      await addnewexperiencePage.deleteVideoExperiences();
+
+
+
+})

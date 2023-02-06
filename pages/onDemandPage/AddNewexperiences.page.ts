@@ -328,12 +328,10 @@ export default class addnewexperiencePage {
       }
 
       async PlayvdoCheckBox() {
-            const ele = await this.page.locator("//span[text()='Enable Play Video']").isVisible()
+            const ele = await this.page.locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").isVisible()
             if ((ele == true)) {
                   // console.log("enabled Home Icon Check Box")
-                  await this.page
-                        .locator("//span[text()='Enable Play Video']")
-                        .click()
+                  await this.page.locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").click()
             }
       }
 
@@ -1245,7 +1243,7 @@ export default class addnewexperiencePage {
             }
             else throw new Error("Video Upload button is not visible")
 
-            await this.page.waitForLoadState("networkidle")
+            //await this.page.waitForLoadState("networkidle")
       }
 
 
@@ -1379,7 +1377,7 @@ export default class addnewexperiencePage {
         }
         async invalidAlertforAnswer() {
             const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
-            expect(locator).toBeVisible()
+            expect(locator).toBeVisible();
             await locator.click();
             await this.page.click("//div[@class='MuiBox-root css-1nfqfy6']")
             //await this.page.click("//button[text()='Cancel']")
@@ -1405,7 +1403,7 @@ export default class addnewexperiencePage {
                         await this.page.isVisible("//p[contains(@class,'MuiFormHelperText-root Mui-error')]")
                 else throw new Error("Error empty input alert Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
+                //await this.page.waitForLoadState("networkidle")
 
       } 
 
@@ -1421,7 +1419,7 @@ export default class addnewexperiencePage {
                 }
                 else throw new Error("Invalid length alert is not visible")
 
-                await this.page.waitForLoadState("networkidle")
+                //await this.page.waitForLoadState("networkidle")
         }
         async invalidAlertforAnswertrivia() {
             const locator = this.page.locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
@@ -1437,6 +1435,30 @@ export default class addnewexperiencePage {
 
                 await this.page.waitForLoadState("networkidle")
 
+        }
+        async deletetheengagementExperiences(){
+            const Engagement = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[3]")
+            expect(Engagement).toBeVisible();
+            await Engagement.click();
+            const Engagement_delete = this.page.locator("(//p[text()='Delete'])[3]")
+            expect(Engagement_delete).toBeVisible()
+            await Engagement_delete.click();
+        }
+        async deleteWebExperiences(){
+            const Web = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[2]")
+            expect(Web).toBeVisible();
+            await Web.click();
+            const web_delete = this.page.locator("(//p[text()='Delete'])[2]")
+            expect(web_delete).toBeVisible();
+            await web_delete.click();
+        }
+        async deleteVideoExperiences(){
+            const video = this.page.locator("(//div[@class='MuiBox-root css-gk83b7'])[1]")
+            expect(video).toBeVisible();
+            await video.click();
+            const video_delete = this.page.locator("(//p[text()='Delete'])[1]")
+            expect(video_delete).toBeVisible();
+            await video_delete.click();
         }
 
 
