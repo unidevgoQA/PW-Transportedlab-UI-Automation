@@ -750,7 +750,7 @@ test("008TOFW-008 | Varify Thank You Section", async ({ loginPage, tugOfWarPage,
 
 })
 
-test("008TOFW-009 | Verify Game Design", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.only("008TOFW-009 | Verify Game Design", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
 
 
@@ -769,7 +769,7 @@ test("008TOFW-009 | Verify Game Design", async ({ loginPage, tugOfWarPage, funct
         await tugOfWarPage.clickTugOfWarPage()
         await page.waitForTimeout(3000)
 
-        await tugOfWarPage.clickGameSettingsBtn()
+        await tugOfWarPage.clickGameSettingFromTheNewlyAddedGame()
 
         await page.waitForTimeout(3000)
 

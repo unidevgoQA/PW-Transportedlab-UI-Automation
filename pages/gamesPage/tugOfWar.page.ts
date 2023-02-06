@@ -1127,6 +1127,16 @@ export default class tugOfWarPage {
 
         }
 
+        async clickGameSettingFromTheNewlyAddedGame() {
+                
+                const ele = await this.page.frameLocator("iframe").locator("//p[text()='Game Settings']").last()
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+
+        
+
 
         async clickUploadFontBtn() {
 
