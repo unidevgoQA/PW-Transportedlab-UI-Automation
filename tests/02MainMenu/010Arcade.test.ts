@@ -4,6 +4,9 @@ import * as data from "@testData/login.cred.json"
 import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 
+
+
+
 test("010A-001| Arcade settings related tests", async ({ MainMenu, arcadePage, menuPage, loginPage, page, }, testInfo) => {
 
     await test.step("Login admin and land to arcade", async () => {

@@ -8,7 +8,7 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs';
 const clipboard = require('clipboardy')
 
-test.skip("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 

@@ -1,13 +1,108 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-export default class arcadePage {
-        [x: string]: any;
+import BaseFunctions from "@base-function/baseFunctions";
 
-        private page: Page;
-        static buffer: void;
-        constructor(page: Page) {
-                this.page = page;
+export default class arcadePage {
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
         }
+
+        private arcadePageElements = {
+                arcadePage: "//p[text()='Arcade']",
+                fontsTitleText: "//h4[text()='Fonts']",
+                uploadFontTitleText: "//p[text()='Upload Font']",
+                uploadedFontTitleText: "//p[text()='Midnight']",
+                uploadedFontDeleteBtn: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]",
+                arcadeSettingsTitleText: "//h4[text()='Arcade Settings']",
+                addOutSideGameBtn: "//button[text()='Add Outside Game']",
+                addOutSideGameModalTitleText: "//h1[text()='Add Outside Game']",
+                gameUrlTitleText: "//p[text()='Game Url']",
+                gameUrlInputField: "(//p[text()='Game Url']/following::input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
+                gameNameTitleText: "//p[text()='Game Name']",
+                gameNameInputField: "//p[text()='Game Name']/following::input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+                addOutSideGameModalSaveBtn: "//button[text()='Save']",
+                imageTypeText: "//h4[text()='Image Type']",
+                addNewSetBtn: "//button[text()='Add New Set']",
+                squareBtn: "//p[text()='Square']",
+                rectangleBtn: "//p[text()='Rectangle']",
+                logoHeaderTitleText: "//p[text()='Logo / Header']",
+                logoHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
+                logoHeaderDeleteBtn: "//button[@title='Delete']",                
+                logoHeaderEditBtn: "(//button[@aria-label='Edit'])[1]",
+                gameListTitleText: "//p[text()='Games']",
+                firstGameDragAndDropBtn: "(//div[@role='button'])[1]",
+                firstGameEditBtn: "(//button[@title='Edit']//div)[1]",
+                firstGameNameInputField: "(//input[@placeholder='Enter game name'])[1]",
+                firstGameGamesSelctionInputField: "(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[1]",
+                
+                phoneNumberCheckBox: "(//label[text()='Url or link']/following::input)[1]",
+                emailAddressCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
+                ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
+                dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
+                zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
+                urlTextInputField: "(//label[text()='Text']/following::input)[1]",
+                errorMessageForUrlTextInputField: "//p[text()='Incorrect entry.']",
+                urlLinkInputField: "(//label[text()='Url or link']/following::textarea)[1]",
+                errorMassgeForUrlInputField: "//p[text()='Incorrect entry.']",
+                addNewUrlBtn: "//button[text()='Add New Url']",
+                addedLinkAndText: "//h6[text()='Added Links and Text']",
+                deletAddedUrlLink: "//div[@class='MuiBox-root css-grxo2d']//button[1]",
+                customQuestionCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                customQuestionInCheckBox: "//input[@type='checkbox']",
+                addNewQuestionBtn: "//button[text()='Add question']",
+                signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
+                customQuestionScreenRadioBtn: "//input[@value='customQuestionScreen']",
+                customeOptionInCheckBox: "//span[text()='Custom Opt-In']",
+                addCustomQuestionInBtn: "//button[text()='Add Custom Opt-In']",
+                clickFreeFormCheckBox: "//input[@value='freeform']",
+                multiChoiceCheckBox: "//input[@value='multipleChoice']",
+                customQuestionDiscriptionInputField: "//h5[contains(@class,'MuiTypography-root MuiTypography-h5')]/following::textarea[@rows='6']",
+                addChoiceBtn: "//button[text()='Add Choice']",
+                choiceInputField: "(//label[text()='Give some description here...']/following::input)[1]",
+                customQuestionMendotoryCheckBox: "(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]",
+                customQuestionSaveBtn: "//button[text()='Save']",
+                deleteAddedCustomQuestion: "(//div[@class='MuiBox-root css-1519m8w']//button)[2]",
+                smsCheckBox: "//input[@value='sms']",
+                customQuestionPromptInputField: "(//label[text()='Give some description here...']/following::textarea)[1]",
+                customQuestionPromptAutoCheckBox: "//h4/following::input[@type='checkbox']",
+                customOptionInCheckBox: "(//span[text()='Custom Opt-In']/preceding::input[@type='checkbox'])[1]",
+                addedCustomQuestionInDeleteBtn: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[3]"
+
+
+
+
+
+
+        }   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export default class arcadePage {
+//         [x: string]: any;
+
+//         private page: Page;
+//         static buffer: void;
+//         constructor(page: Page) {
+//                 this.page = page;
+//         }
+
+
+
         async checkFontsText() {
                 const ele = this.page.locator("(//h4[text()='Fonts'])[1]")
                 expect(ele).toContainText('Fonts')

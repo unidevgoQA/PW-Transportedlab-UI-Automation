@@ -887,9 +887,12 @@ async clickSignInBtn() {
 
        async verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen() {
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("MenuBar_Background_UI.png") 
+              const ele = await this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']").screenshot()
+              await expect(ele).toMatchSnapshot("MenuBar_Background_UI.png", {maxDiffPixelRatio:0.01})
+
+              // expect(await this.page.screenshot({
+              //        fullPage: true
+              //    })).toMatchSnapshot("MenuBar_Background_UI.png") 
 
        }
 

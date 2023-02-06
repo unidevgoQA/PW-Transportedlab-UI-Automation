@@ -339,10 +339,98 @@ test("006GP-001 | Verify Global Prizing Section", async ({ loginPage, MainMenu, 
 
         })
 
+
+
+})
+
+
+test("006GP-002 | Validate Admin Successfully Select The Global Added Prize in A Game", async ({ loginPage, MainMenu,prizeDropPage, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+
+
+        await test.step("Login Admin And Land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+   
+                await MainMenu.clickHomeAvater();
+                await MainMenu.mainMenuBtn();
+
+
+
+
+        })
+
+        await test.step("verify Admin Successfully Typography Section", async () => {
+        await prizeDropPage.clickPrizeDropSection()
+        await prizeDropPage.clickDefultGamePrizingSection()
+        await prizeDropPage.clickAddNewPrizeBtn()
+      
+
+
+
+        })
+
+        
+        await test.step("validate Admin can input the coupon name and amount of awarding , awarded", async () => {
+                await prizeDropPage.inputCouponName()
+
+                await prizeDropPage.inputAmountOfAwarding()
+
+                await prizeDropPage.inputPercentageAwarded()
+        })
+
+        await test.step("validate Admin can select the coupon prize and save", async () => {
+                await prizeDropPage.clickCouponPrizeSelectBtn()
+                await page.waitForTimeout(3000)
+
+                await prizeDropPage.verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection()
+                await prizeDropPage.selectCouponCreatedFromGlobalPrizing()
+
+
+                await prizeDropPage.clickSaveBtn()
+                await page.waitForTimeout(3000)
+
+        })
+
+
+})
+
+
+
+test("006GP-007 | Verify Admin Successfully Delete Add New Prize", async ({ loginPage, MainMenu, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+
+
+        await test.step("Login Admin And Land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+   
+                await MainMenu.clickHomeAvater();
+                await MainMenu.mainMenuBtn();
+
+                                //click Global Prizing Page
+                                await globalPrizingPage.clickGlobalPrizingPage()
+
+        })
+
+     
+   
+
         await test.step("006GP-007 | Verify Admin Successfully Delete Add New Prize", async () => {
 
                 //search Prize
+                await globalPrizingPage.clickSearchInputField()
                 await globalPrizingPage.searchPrize()
+
+           
+
+                await page.waitForTimeout(3000)
 
                 //delete Prize
                 await globalPrizingPage.deletePrize()
@@ -359,8 +447,6 @@ test("006GP-001 | Verify Global Prizing Section", async ({ loginPage, MainMenu, 
 
 
 })
-
-
 
 
 

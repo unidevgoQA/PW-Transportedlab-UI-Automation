@@ -1117,6 +1117,11 @@ export default class prizeDropPage {
 
         }
 
+        async clickDefultGamePrizingSection() {                
+                const ele = await this.page.frameLocator('iframe').locator(`//p[text()='Prizing']`).first()
+                await ele.click({button:"left", delay:1000})
+        }
+
         async verifyPrizingListText() {
                 const ele = this.page.frameLocator('iframe').locator("//h4[text()='Prizing List']")
                 await expect(ele).toContainText("Prizing List")
@@ -1192,6 +1197,16 @@ export default class prizeDropPage {
                 const ele = await this.page.frameLocator('iframe').locator("(//button[text()='Select'])[1]")
                 await ele.click()
         }
+        async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
+                expect(ele).toContainText("Auto Test")
+        }
+
+        async selectCouponCreatedFromGlobalPrizing() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
+                await ele.click()
+        }
+
         async clickSaveBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 await ele.click()
