@@ -13,13 +13,13 @@ const config: PlaywrightTestConfig = {
     // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
-    "007PrizeDrop.test.ts",
+    //"007PrizeDrop.test.ts",
     // "008TugOfWar.test.ts",
     //"009LiveWall.test.ts",    
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
-    "012Trivia.test.ts",
-    // "guesstheScore.test.ts",
+    //"012Trivia.test.ts",
+    "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
 
@@ -57,7 +57,6 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
     baseURL: "https://qa-1.testingdxp.com/",
-
     launchOptions: {
       // args: ["--start-maximized"],
       slowMo: 100
@@ -69,8 +68,6 @@ const config: PlaywrightTestConfig = {
     channel: 'chrome',
     viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
-    
-  
   // permissions: ["camera"],
   
 

@@ -79,4 +79,77 @@ export default class triviaMobilePage {
 
        return page1;
        }
+
+       async verifyFontAppliedSuccessfullyInMobileScreen(){
+              expect.soft(await this.page.screenshot({
+                    fullPage: true
+                })).toMatchSnapshot("Font-Uploaded-UI.png")
+       }
+       async verifyGameTitleLogoAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                    fullPage: true
+                })).toMatchSnapshot("Game_Title_logo.png")
+       }
+       async verifySponsorLogoAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                    fullPage: true
+                })).toMatchSnapshot("Sponsor_logo.png")
+       }
+       async verifyTeamLogoAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                    fullPage: true
+                })).toMatchSnapshot("Team_Logo.png")
+       }
+       async clickHomeBtn(){
+              const ele = await this.page.locator("//button[@value='home']//div[1]").isVisible()
+              if(ele == true){
+                     await this.page.locator("//button[@value='home']//div[1]").click({force:true})
+              }
+              else throw new Error("Home button is not visible")
+             // await this.page.waitForLoadState("networkidle")
+              await this.page.waitForTimeout(3000)
+       }
+       async verifyBackgroundcolor(){
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("Background_color.png")
+              //const ele = this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-vfsi4s"]')
+              // const color = await ele.evaluate((ele) =>{
+              //        return window.getComputedStyle(ele).getPropertyValue("background-")
+              // })
+              //expect(color).toBe("rgb(28,130,0)")
+              //await expect.soft(ele).toHaveCSS("background","rgb(16, 10, 124)");
+        }
+        async verifyGeneralButtonTextcolor(){
+              const ele = this.page.frameLocator('iframe').locator("//div[text()='Time Remaining']")
+              // const color = await ele.evaluate((ele) =>{
+              //        return window.getComputedStyle(ele).getPropertyValue("background-")
+              // })
+              //expect(color).toBe("rgb(28,130,0)")
+              await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
+              //button[contains(@class,'MuiButtonBase-root MuiButton-root')]
+        }
+        async verifyButtonBackgroundcolor(){
+              const ele = this.page.frameLocator('iframe').locator("//button[contains(@class,'MuiButtonBase-root MuiButton-root')]")
+              // const color = await ele.evaluate((ele) =>{
+              //        return window.getComputedStyle(ele).getPropertyValue("background-")//button[contains(@class,'MuiButtonBase-root MuiButton-root')]
+              // })
+              //expect(color).toBe("rgb(28,130,0)")
+              await expect.soft(ele).toHaveCSS("background-color","rgb(16, 10, 124)")
+              
+        }
+        async verifyButtonBackgroundColor(){
+              const ele = await this.page.frameLocator('iframe').locator("//button[contains(@class,'MuiButtonBase-root MuiButton-root')]")
+              await expect.soft(ele).toHaveScreenshot('Button_Background_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+       }
+       async verifyQuestionTextColor(){
+              const ele =  this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-vyy8gz"]')
+              await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
+              
+       }
+       async verifyQuestionBackgroundColor(){
+              const ele =  this.page.frameLocator('iframe').locator("css-101u4pc")
+              await expect.soft(ele).toHaveCSS("background","rgb(16, 10, 124)")
+              
+       }
     }

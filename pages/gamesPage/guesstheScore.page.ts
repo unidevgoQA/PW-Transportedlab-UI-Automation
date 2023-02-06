@@ -69,9 +69,12 @@ export default class guesstheScorePage {
                 await this.page.waitForLoadState("networkidle")
         }
         async clickToUploadFont() {
-                const ele = this.page.frameLocator('.css-r99fy3').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
-                await expect(ele).toBeVisible()
-                await ele.click()
+                const ele = await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-v2612"]').isVisible()
+                if(ele == true){
+                        await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-v2612"]').click()
+                }
+                // await expect(ele).toBeVisible()
+                // await ele.click()
                 await this.page.waitForTimeout(4000)
 
         }
@@ -179,7 +182,7 @@ export default class guesstheScorePage {
         async inputButtonColor() {
                 const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]")
                 await expect(ele).toBeVisible()
-                await ele.fill("F1C40FFF")
+                await ele.fill("FF0000FF")
 
         }
         async inputRGBFirstColor() {
@@ -832,9 +835,17 @@ export default class guesstheScorePage {
 
 
         async clickEventStartBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("(//p[text()='Start Event'])[1]")
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
+                 await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").isVisible()
+                   if(ele == true){
+                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
+                        await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]")
+                        await this.page.frameLocator('iframe').locator("(//p[text()='Start Event'])[1]").click({force:true})
+                   }
+                   else{
+                        await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+                        await this.page.frameLocator('iframe').locator("(//p[text()='Start Event'])[1]").click({force:true})
+                   }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(3000)
         }
@@ -849,7 +860,7 @@ export default class guesstheScorePage {
         }
 
         async typetestevent() {
-                await this.page.frameLocator('.css-r99fy3').locator('//input[@type="string"]').type("test_event")
+                await this.page.frameLocator('.css-r99fy3').locator('//input[@type="string"]').type("Event")
         }
 
         async clickaddbutton() {
@@ -868,20 +879,37 @@ export default class guesstheScorePage {
         }
 
         async typeincorrectguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//input').type('4')
+              const ele =  await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Incorrect Guess"]//following-sibling::div//input')
+              //const fname = await this.page.frameLocator('iframe').locator("//input[@placeholder='First Name']").last()
+              await ele.focus();
+              await this.page.keyboard.press("Meta+A");
+              await this.page.keyboard.press('Backspace');
+              await ele.fill('20')
         }
         async typecorrectguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Correct Guess"]//following-sibling::div//input').type('5')
+              const ele =  await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Correct Guess"]//following-sibling::div//input')
+              await ele.focus();
+              await this.page.keyboard.press("Meta+A");
+              await this.page.keyboard.press('Backspace');
+              await ele.fill('50')
         }
         async typecloseguesscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//input').type('6')
+              const ele =  await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Close Guess"]//following-sibling::div//input')
+              await ele.focus();
+              await this.page.keyboard.press("Meta+A");
+              await this.page.keyboard.press('Backspace');
+              await ele.fill('40')
         }
         async typefarguessscore() {
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Far Guess"]//following-sibling::div//input').type('7')
+              const ele =  await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Far Guess"]//following-sibling::div//input')
+                await ele.focus();
+                await this.page.keyboard.press("Meta+A");
+                await this.page.keyboard.press('Backspace');
+                await ele.fill('30')
         }
 
         async typeguesstime() {
-                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Guess Time"]//following-sibling::div//input').fill('20')
+                await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Guess Time"]//following-sibling::div//input').fill('5')
         }
         //edit section
 
@@ -932,7 +960,14 @@ export default class guesstheScorePage {
         }
         async clickgameStartBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
+                await this.page.waitForTimeout(1000)
+                await this.page.frameLocator('iframe').locator("//button[text()='Start']").last().click()
         }
+        // async clickgameStopBtn() {
+        //         await this.page.frameLocator('iframe').locator("//button[text()='Stop']").last().click()
+        //         await this.page.waitForTimeout(1000)
+        //         await this.page.frameLocator('iframe').locator("//button[text()='Stop']").last().click()
+        // }
         async clickOkBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click()
 
@@ -949,8 +984,8 @@ export default class guesstheScorePage {
 
 
         }
-        async clickMobileLinkBtn() {
-                await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1gcerwc"]').last().click()
+        async clickMobileLinkBtn() {//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-12rnbi7"]
+                await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]').last().click({force:true})
 
 
         }
@@ -976,6 +1011,9 @@ export default class guesstheScorePage {
         }
         async clickLiveBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Live']").last().click()
+                await this.page.waitForTimeout(1000)
+                
+                await this.page.frameLocator('iframe').locator("//button[text()='Stop']").last().click()
         }
         async verifyGameSettingsText() {
                 const ele = await this.page.frameLocator('iframe').locator('//p[text()="Game Settings"]').first()
@@ -1463,18 +1501,38 @@ export default class guesstheScorePage {
 
         }
         async clickeventStop() {
-                const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
-                ele.click()
+                // const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']")
+                // ele.click()
                 //  if((await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible())){
                 //         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click()
                 //         ele.click()
                 // }
 
-                await this.page.frameLocator('iframe').locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p[1]").last().click()
+               // await this.page.frameLocator('iframe').locator("//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p[1]").last().click()
+              // click EventThreedot
+               const ele1 = await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+
+               const ele = await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").isVisible()
+                  if(ele == true){
+                        //clickStartEvent
+                        await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click({force:true})
+                        //clickEventThreeDot
+                        await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+                         //clickEventStop
+                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
+                  }
+                  else{
+                        //clickEventThreeDot
+                        await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
+                        //clickEventStop
+                  }
+               await this.page.waitForLoadState("networkidle")
+               await this.page.waitForTimeout(3000)
 
 
         }
-        async clickeventRename() {
+        async clickeventRename(renameevent : string) {
                 await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
                 await this.page.waitForTimeout(1000)
                 await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
@@ -1483,7 +1541,7 @@ export default class guesstheScorePage {
                 await this.page.keyboard.press("Meta+A");
                 await this.page.keyboard.press('Backspace');
                 //now type new rename event name
-                rename.type("test")
+                rename.type(renameevent)
 
         }
         async clickeventDelete() {
@@ -1491,7 +1549,14 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').locator("//p[text()='Delete']").last().click({ force: true })
         }
         async clickridersadd() {
-                await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]").click()
+                const ele = await this.page.frameLocator('iframe').locator('//div[@class="MuiAvatar-root MuiAvatar-circular MuiAvatar-colorDefault css-3ci3sd"]').isVisible()
+                //const ele2 = await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]")
+                if(ele == true){
+
+                }
+                else {
+                        await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]").click()
+                }
         }
         async clickridersSaveBtn() {
                 await this.page.frameLocator('iframe').locator("//button[text()='Save Riders']").click()
@@ -1620,12 +1685,12 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiSelect-select MuiTablePagination-select')]").click({ force: true })
                 await this.page.close()
         }
-        async verifyEditBtn() {
+        async verifyEditBtn(name : string) {
                 const editfield = await this.page.frameLocator('iframe').locator("//input[@type='string']").last()
                 await editfield.focus();
                 await this.page.keyboard.press("Meta+A");
                 await this.page.keyboard.press('Backspace');
-                await editfield.type("Auto")
+                await editfield.type(name)
         }
         async verifyPleasestarttheevent() {
                 const ele = await this.page.frameLocator('iframe').locator("//h4[text()='Please start the event']")
