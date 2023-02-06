@@ -17,22 +17,25 @@ export default class liveWallPage {
     clear_all_color_button: "//button[text()='Clear All']",
     image_upload_text: '//p[text()="Image Upload"]',
     color_picker_swatches: '//button[@aria-label="Add Color"]',
-    delete_button_in_swatches:'//button[@aria-label="delete"]',
-    solid_ele:'//li[text()="Solid"]',
-    Horizontal_ele:'//li[text()="Horizontal"]',
-    Vertical_ele:'//li[text()="Vertical"]',
-    Diagonal_ele:'//li[text()="Diagonal"]',
-    Radial_ele:'//li[text()="Radial"]',
-    Solid_dropdown:'//div[@aria-haspopup="listbox"]',
-    countdown_color_picker:"//p[text()='Countdown Color']/following-sibling::button",
-    RGB_red_color:'(//input[@type="text"])[1]',
+    delete_button_in_swatches: '//button[@aria-label="delete"]',
+    solid_ele: '//li[text()="Solid"]',
+    Horizontal_ele: '//li[text()="Horizontal"]',
+    Vertical_ele: '//li[text()="Vertical"]',
+    Diagonal_ele: '//li[text()="Diagonal"]',
+    Radial_ele: '//li[text()="Radial"]',
+    Solid_dropdown: '//div[@aria-haspopup="listbox"]',
+    countdown_color_picker: "//p[text()='Countdown Color']/following-sibling::button",
+    RGB_red_color: '(//input[@type="text"])[1]',
     RGB_green_color: '(//input[@type="text"])[2]',
     RGB_blue_color: '(//input[@type="text"])[3]',
     RGB_opacity_color: '(//input[@type="text"])[4]',
     RGB_Hex_color: '(//input[@type="text"])[5]',
-    add_instance:'//p[text()="Instances"]//parent::div//button',
-    input_config_name:'//h2[text()="Configuration"]//following-sibling::div//input[@type="text"]',
-    input_pre_live_text_element:'//h5[text()="Pre-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]'
+    add_instance: '//p[text()="Instances"]//parent::div//button',
+    input_config_name: '//h2[text()="Configuration"]//following-sibling::div//input[@type="text"]',
+    input_pre_live_text_element: '//h5[text()="Pre-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
+    input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
+    input_stand_by_message_element: '//h5[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
+    input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]'
   }
 
 
@@ -86,23 +89,23 @@ export default class liveWallPage {
     // console.log("Successfully Click To Tug of War Page ")
   }
   //add new instance
-  async click_plus_button(){
-      const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.add_instance)
-      if(await ele.isVisible()){
-        await ele.click({button:'left'})
-      }
-      else{
-        throw new Error("Either the instances text or plus button is not visible")
-      }
+  async click_plus_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.add_instance)
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' })
+    }
+    else {
+      throw new Error("Either the instances text or plus button is not visible")
+    }
   }
-  async add_new_config_name(){
-      const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.input_config_name)
-      if(await ele.isVisible()){
-        await ele.type("Auto")
-      }
-      else{
-        throw new Error("Either the configurations text or plus button is not visible or the type operation failed")
-      }
+  async add_new_config_name() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.input_config_name)
+    if (await ele.isVisible()) {
+      await ele.type("Auto")
+    }
+    else {
+      throw new Error("Either the configurations text or plus button is not visible or the type operation failed")
+    }
   }
   async remove_message_popup() {
     await this.page.frameLocator('//iframe').locator('//h5[text()="FanSee"]').click({ button: 'left', force: true })
@@ -240,13 +243,13 @@ export default class liveWallPage {
     const ele = this.page
       .frameLocator(this.Fansee_page_elements.iframe)
       .locator(this.Fansee_page_elements.countdown_color_picker);
-      if(await ele.isVisible()){
-        await ele.click({ force: true });
-      }
-      else{
-        throw new Error('Either countdown color picker is missing or its not visible in DOM')
-      }
-      
+    if (await ele.isVisible()) {
+      await ele.click({ force: true });
+    }
+    else {
+      throw new Error('Either countdown color picker is missing or its not visible in DOM')
+    }
+
   }
   async clickplusbuttonswatches() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.color_picker_swatches)
@@ -266,7 +269,7 @@ export default class liveWallPage {
       throw new Error("Either Delete button of last swatch is missing or its not visible")
     }
   }
-  async validate_solid_horizontal_vertical_dropdown(){
+  async validate_solid_horizontal_vertical_dropdown() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Solid_dropdown).first()
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
@@ -274,20 +277,20 @@ export default class liveWallPage {
     else {
       throw new Error("Either solid dropdown  is missing or its not visible in this color picker")
     }
-}
+  }
 
-async click_solid_button(){
-    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.solid_ele)
+  async click_solid_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.solid_ele)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
     else {
       throw new Error("Either list text  solid is missing or its not visible")
     }
-}
+  }
 
-async click_horizontal_button(){
-    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Horizontal_ele)
+  async click_horizontal_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Horizontal_ele)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
@@ -295,9 +298,9 @@ async click_horizontal_button(){
       throw new Error("Either list text  horizontal is missing or its not visible")
     }
 
-}
-async click_vertical_button(){
-    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Vertical_ele)
+  }
+  async click_vertical_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Vertical_ele)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
@@ -305,25 +308,25 @@ async click_vertical_button(){
       throw new Error("Either list text vertical button is missing or its not visible")
     }
 
-}
-async click_diagonal_button(){
-    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Diagonal_ele)
+  }
+  async click_diagonal_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Diagonal_ele)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
     else {
       throw new Error("Either list text diagonal is missing or its not visible")
     }
-}
-async click_radial_button(){
-    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Radial_ele)
+  }
+  async click_radial_button() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Radial_ele)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
     else {
       throw new Error("Either list text radial is missing or its not visible")
     }
-}
+  }
 
   async inputFontFirstRGBColor() {
     const ele = await this.page
@@ -360,7 +363,7 @@ async click_radial_button(){
     await ele.fill("F1C41FFF");
   }
   //countdown_color_input
-  async input_Red_Color(value:string) {
+  async input_Red_Color(value: string) {
     const ele = await this.page
       .frameLocator("iframe")
       .locator('(//input[@type="text"])[1]');
@@ -368,27 +371,27 @@ async click_radial_button(){
     await ele.fill(value);
   }
 
-  async input_green_color(value:string) {
+  async input_green_color(value: string) {
     const ele = await this.page
       .frameLocator("iframe")
       .locator('(//input[@type="text"])[2]');
     await ele.fill(value);
   }
-  async input_blue_color(value:string) {
+  async input_blue_color(value: string) {
     const ele = await this.page
       .frameLocator("iframe")
       .locator('(//input[@type="text"])[3]');
     await ele.fill(value);
   }
 
-  async inputColorOpacity(value:string) {
+  async inputColorOpacity(value: string) {
     const ele = await this.page
       .frameLocator("iframe")
       .locator('(//input[@type="text"])[4]');
     await ele.fill(value);
   }
 
-  async inputHEXColor(value:string) {
+  async inputHEXColor(value: string) {
     const ele = await this.page
       .frameLocator("iframe")
       .locator('(//input[@type="text"])[5]');
@@ -504,236 +507,236 @@ async click_radial_button(){
         .click();
     }
   }
-//Mobile Background
-async mobile_background_image_upload(){
-    const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Edit"]')
-    if( await edit_image_button.isVisible() ){
-            await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  //Mobile Background
+  async mobile_background_image_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
     }
-    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_mobile_background(){
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_mobile_background() {
     const filePath0 = "testData/images/mobile_back.jpg"
     const [fileChooser] = await Promise.all([
-            // It is important to call waitForEvent before click to set up waiting.
-            this.page.waitForEvent('filechooser'),
-            // Opens the file chooser.
-            this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
     ]);
     await fileChooser.setFiles([filePath0]);
-    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_mobile_back_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
-   await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Mobile Home Screen Logo
-async mobile_home_screen_logo_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_mobile_home_screen_logo(){
-  const filePath0 = "testData/images/Fullscreen.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_mobile_Home_screen_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Output Background
-async output_background_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  async wait_mobile_back_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_output_background(){
-  const filePath0 = "testData/images/TitleBanner.jpg"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_OutPut_background(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//left_image(1:1 output)
-async left_image_1_1_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  //Mobile Home Screen Logo
+  async mobile_home_screen_logo_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_left_image_1_1(){
-  const filePath0 = "testData/images/potrait.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_left_image_1_1_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Mobile Frame
-async mobile_frame_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  async Image_uploader_For_mobile_home_screen_logo() {
+    const filePath0 = "testData/images/Fullscreen.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_mobile_frame(){
-  const filePath0 = "testData/Frames/mobileFrame.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_mobile_frame_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Output Frame (9:16 Output)
-async OutputFrame_9_16_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  async wait_mobile_Home_screen_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_OutputFrame_9_16(){
-  const filePath0 = "testData/images/9_16_output_test.jpg"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_OutputFrame_9_16_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Banner Image (9:16 Output)
-async bannner_image_9_16_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  //Output Background
+  async output_background_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_bannner_image_9_16(){
-  const filePath0 = "testData/images/banner.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_bannner_image_9_16_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//Right Image (1:1 Output)
-async right_image_1_1_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  async Image_uploader_For_output_background() {
+    const filePath0 = "testData/images/TitleBanner.jpg"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_right_image_1_1(){
-  const filePath0 = "testData/images/potrait.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_right_image_1_1_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//1:1 Fallback
-async Fallback_1_1_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  async wait_OutPut_background() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_Fallback_1_1(){
-  const filePath0 = "testData/images/potrait.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_Fallback_1_1_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
-//9:16 Fallback
-async Fallback_9_16_upload(){
-  const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Edit"]')
-  if( await edit_image_button.isVisible() ){
-          await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+  //left_image(1:1 output)
+  async left_image_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
-  await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-}
-async Image_uploader_For_Fallback_9_16(){
-  const filePath0 = "testData/images/potrait.png"
-  const [fileChooser] = await Promise.all([
-          // It is important to call waitForEvent before click to set up waiting.
-          this.page.waitForEvent('filechooser'),
-          // Opens the file chooser.
-          this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-  ]);
-  await fileChooser.setFiles([filePath0]);
-  await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-}
-async wait_Fallback_9_16_upload(){
-const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
- await expect(edit_image_button).toBeVisible({timeout:60000})
-}
+  async Image_uploader_For_left_image_1_1() {
+    const filePath0 = "testData/images/potrait.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_left_image_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //Mobile Frame
+  async mobile_frame_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_mobile_frame() {
+    const filePath0 = "testData/Frames/mobileFrame.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_mobile_frame_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //Output Frame (9:16 Output)
+  async OutputFrame_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_OutputFrame_9_16() {
+    const filePath0 = "testData/images/9_16_output_test.jpg"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_OutputFrame_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //Banner Image (9:16 Output)
+  async bannner_image_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_bannner_image_9_16() {
+    const filePath0 = "testData/images/banner.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_bannner_image_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //Right Image (1:1 Output)
+  async right_image_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_right_image_1_1() {
+    const filePath0 = "testData/images/potrait.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_right_image_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //1:1 Fallback
+  async Fallback_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_Fallback_1_1() {
+    const filePath0 = "testData/images/potrait.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_Fallback_1_1_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
+  //9:16 Fallback
+  async Fallback_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Edit"]')
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+    }
+    await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async Image_uploader_For_Fallback_9_16() {
+    const filePath0 = "testData/images/potrait.png"
+    const [fileChooser] = await Promise.all([
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+    ]);
+    await fileChooser.setFiles([filePath0]);
+    await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+  }
+  async wait_Fallback_9_16_upload() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
+    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+  }
   //Dispaly Massage Section Element From Here
 
 
@@ -892,117 +895,180 @@ const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[te
     const ele = this.page
       .frameLocator("iframe")
       .locator(
-       this.Fansee_page_elements.input_pre_live_text_element
+        this.Fansee_page_elements.input_pre_live_text_element
       );
     await expect(ele).toBeVisible();
     await ele.fill('  ')
     await ele.fill(
       ' In publishing and graphic design, Lorem ipsum is a placeholder'
     );
-    
+
+  }
+  async input_post_live_text() {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(
+        this.Fansee_page_elements.input_post_live_text_element
+      );
+    if (await ele.isVisible()) {
+      await ele.fill('  ')
+      await ele.fill(
+        'test For post live message'
+      );
+    } else {
+      throw new Error("The editor for post live text element is not found as visible to playwright")
+    }
+
   }
 
 
   async postLiveInputBoxFonts() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[2]").click()
   }
 
   async postLiveInputBoxArial() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
   }
 
   async postLiveInputBoxBlocktype() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[2]").click()
 
   }
   async postLiveInputBoxNormal() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
   }
 
   async postLiveInputBoxBlockH1() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
   }
   async postLiveInputBoxBlockH2() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
   }
   async postLiveInputBoxBlockH3() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
   }
   async postLiveInputBoxBlockH4() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
   }
   async postLiveInputBoxBlockH5() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
   }
   async postLiveInputBoxBlockH6() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
   }
   async postLiveInputBoxBlockquote() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
   }
 
   async postLiveInputBoxBold() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[2]").click()
 
   }
 
   async postLiveInputBoxItalic() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[2]").click()
 
   }
 
   async postLiveInputBoxUnderline() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[2]").click()
 
   }
 
   async postLiveInputBoxsikethrough() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[2]").click()
 
   }
 
   async postLiveInputBoxColorpk() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[2]").click()
 
   }
 
   async postLiveInputBoxTextcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
   }
 
   async postLiveInputBoxGreencl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[2]").click()
 
   }
 
   async postLiveInputBoxHighlightcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
   }
 
   async postLiveInputBoxHighlightgrn() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[2]").click()
 
   }
   async postLiveInputBoxLeft() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[2]").click()
 
   }
   async postLiveInputBoxCenter() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[2]").click()
 
   }
   async postLiveInputBoxRight() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[2]").click()
 
   }
   async postLiveInputBoxOutdent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[2]").click()
 
   }
   async postLiveInputBoxIndent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[2]").click()
 
   }
@@ -1010,17 +1076,23 @@ const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[te
 
 
   async postLiveInputBoxOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[2]").click()
 
   }
 
 
   async postLiveInputBoxUnOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[2]").click()
 
   }
 
   async postLiveInputBoxRemove() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_post_live_text_element).selectText()
+
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[2]").click()
 
   }
@@ -1184,13 +1256,19 @@ const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//p[te
 
 
   async inputStandByMessage() {
-    const ele = await this.page
+    const ele = this.page
       .frameLocator("iframe")
-      .locator("(//ul[@class='public-DraftStyleDefault-ul']//li)[2]");
-    expect(ele).toBeVisible();
-    await ele.fill(
-      "In publishing Text"
-    );
+      .locator(
+        this.Fansee_page_elements.input_stand_by_message_element
+      );
+    if (await ele.isVisible()) {
+      await ele.fill('  ')
+      await ele.fill(
+        ' test For stand by message'
+      );
+    } else {
+      throw new Error("The editor for post live text element is not found as visible to playwright")
+    }
   }
 
   async clickBoldOptionForPreLiveText() {

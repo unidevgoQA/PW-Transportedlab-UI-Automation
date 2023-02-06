@@ -756,13 +756,20 @@ test("009LW-005 | Validate Pre-Live Text Messages Functionality", async ({ login
                 await liveWallPage.clickDesignPage()
         })
 
+        await test.step('009FanSee-144|	Validate Pre-Live Text input is working',async()=>{
+                   //input Pre Live Text
+                await liveWallPage.inputPreLiveText()
 
-        //input Pre Live Text
-        await liveWallPage.inputPreLiveText()
+        })
 
-        await liveWallPage.preLiveInputBoxFonts()
-        await liveWallPage.preLiveInputBoxArial()
-        await liveWallPage.preLiveInputBoxBlocktype()
+        await test.step("009FanSee-145|	Validate Pre-Live Text Font Selection DropDown Option is visible and clickable.",async()=>{
+                 
+                await liveWallPage.preLiveInputBoxFonts()
+                await liveWallPage.preLiveInputBoxArial()
+        })
+        
+        await test.step('009FanSee-157|	Validate Pre-Live Text blocktypes: Normal,H1,H2,H3 etc are working',async()=>{
+                await liveWallPage.preLiveInputBoxBlocktype()
         await liveWallPage.preLiveInputBoxNormal()
         await liveWallPage.preLiveInputBoxBlocktype()
 
@@ -786,27 +793,67 @@ test("009LW-005 | Validate Pre-Live Text Messages Functionality", async ({ login
 
         await liveWallPage.preLiveInputBoxBlockquote()
         await liveWallPage.preLiveInputBoxBlocktype()
+        })
+        
 
+       await test.step('009FanSee-147|	Validate Pre-Live Text is Bold.',async()=>{
         await liveWallPage.preLiveInputBoxBold()
+       })
+
+       await test.step('009FanSee-148|	Validate Pre-Live Text is Italic.',async()=>{
         await liveWallPage.preLiveInputBoxItalic()
+       })
+
+       await test.step('009FanSee-149|	Validate Pre-Live Text is Underline.',async()=>{
         await liveWallPage.preLiveInputBoxUnderline()
+       })
+       await test.step('009FanSee-150|	Validate Pre-Live Text is Strikethrough.',async()=>{
+           
         await liveWallPage.preLiveInputBoxsikethrough()
+       })
+       await test.step('009FanSee-151|	Validate Pre-Live Text is Color picker.',async()=>{
         await liveWallPage.preLiveInputBoxColorpk()
         await liveWallPage.preLiveInputBoxTextcl()
         await liveWallPage.preLiveInputBoxGreencl()
         await liveWallPage.preLiveInputBoxColorpk()
-
         await liveWallPage.preLiveInputBoxHighlightcl()
         await liveWallPage.preLiveInputBoxHighlightgrn()
+       })
+    
+
+    await test.step('009FanSee-158|Validate Pre-Live Text Font Tag is start Left.',async()=>{
         await liveWallPage.preLiveInputBoxLeft()
+    })
+    await test.step('009FanSee-159|Validate Pre-Live Text Font Tag is start Center.',async()=>{
         await liveWallPage.preLiveInputBoxCenter()
+    })
+
+    await test.step('009FanSee-160|Validate Pre-Live Text Font Tag is start Right.',async()=>{
         await liveWallPage.preLiveInputBoxRight()
+    })
+    
+    await test.step('009FanSee-152|Validate Pre-Live Text is outdent.',async()=>{
         await liveWallPage.preLiveInputBoxOutdent()
+    })
+
+    await test.step('009FanSee-153|Validate Pre-Live Text is Indent.',async()=>{
         await liveWallPage.preLiveInputBoxIndent()
+    })
+
+    await test.step('009FanSee-154|Validate Pre-Live Text is Ordered.',async()=>{
+         
         await liveWallPage.preLiveInputBoxOrdered()
+    })
+    await test.step('009FanSee-155|Validate Pre-Live Text is Unordered.',async()=>{
         await liveWallPage.preLiveInputBoxUnOrdered()
+    })
+
+    await test.step('009FanSee-156|Validate Pre-Live Text is Remove(Styles) Only.',async()=>{
+          
         await liveWallPage.preLiveInputBoxRemove()
 
+    })  
+      
 
         // //input Post Live Text
         // await liveWallPage.inputPostLiveText()
@@ -970,10 +1017,192 @@ test("009LW-005 | Validate Pre-Live Text Messages Functionality", async ({ login
 
 
 })
-test("validate Post live Text message functionality", async () => {
+test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate post live text message is working",async() =>{
+                await liveWallPage.input_post_live_text()
+        })
+        await test.step("009FanSee-164|	Validate Post-Live Text Font and arial selections are working",async()=>{
+                await liveWallPage.postLiveInputBoxFonts()
+                await liveWallPage.postLiveInputBoxArial()
+        })
+        await test.step('009FanSee-165|	Validate Post-Live Text is Bold.',async()=>{
+                await liveWallPage.postLiveInputBoxBold()
+        })
+        await test.step('009FanSee-166|	Validate Post-Live Text is Italic.',async()=>[
+                await liveWallPage.postLiveInputBoxItalic()
+        ])
+        await test.step('009FanSee-167|	Validate Post-Live Text is Underline.',async()=>{
+                await liveWallPage.postLiveInputBoxUnderline()
+        })
+        await test.step('009FanSee-168|	Validate Post-Live Text is Strikethrough.',async()=>{
+                await liveWallPage.postLiveInputBoxsikethrough()
+        })
+        await test.step('009FanSee-169|	Validate Post-Live Text is Color picker.',async()=>{
+                await liveWallPage.postLiveInputBoxColorpk()
+                await liveWallPage.postLiveInputBoxGreencl()
+                await liveWallPage.postLiveInputBoxColorpk()
+                await liveWallPage.postLiveInputBoxTextcl()
+        })
+        await test.step('009FanSee-170|	Validate Post-Live Text is outdent',async()=>{
+                await liveWallPage.postLiveInputBoxOutdent()
+        })
+        await test.step('009FanSee-171|	Validate Post-Live Text is Indent',async()=>{
+                await liveWallPage.postLiveInputBoxIndent()
+        })
+        await test.step('009FanSee-172|	Validate Post-Live Text is Ordered.',async()=>{
+                await liveWallPage.postLiveInputBoxOrdered()
+        })
+        await test.step('009FanSee-173|	Validate Post-Live Text is Unordered',async()=>{
+                await liveWallPage.postLiveInputBoxUnOrdered()
+        })
+        await test.step('009FanSee-174|	Validate Post-Live Text is Remove(Styles) Only',async()=>{
+                await liveWallPage.postLiveInputBoxRemove()
+        })
+        await test.step('009FanSee-175|	Validate Post-Live Text blockquotes are working',async()=>{
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH1()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH2()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH3()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH4()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH5()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockH6()
+                await liveWallPage.postLiveInputBoxBlocktype()
+                await liveWallPage.postLiveInputBoxBlockquote()
+        })
+        await test.step('009FanSee-176|	Validate Post-Live Text Font Tag is start Left.',async()=>{
+                await liveWallPage.postLiveInputBoxLeft()
+        })
+        await test.step('009FanSee-177|	Validate Post-Live Text Font Tag is start Center.',async()=>{
+                await liveWallPage.postLiveInputBoxCenter()
+        })
+        await test.step('009FanSee-178|	Validate Post-Live Text Font Tag is start Right',async()=>{
+                await liveWallPage.postLiveInputBoxRight()
+        })
 })
+test("009FanSee-163|Validate Standby Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+        
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("009FanSee-181|	Validate Stand By Message box input is working",async() =>{
+                await liveWallPage.inputStandByMessage()
+        })
+        await test.step("009FanSee-182|	Validate Stand By Message Font Tag Selection DropDown Option is visible and clickable.",async()=>{
+                await liveWallPage.standByInputBoxFonts()
+                await liveWallPage.standByInputBoxArial()
+        })
+        await test.step('009FanSee-193|	Validate Stand By Message blocktypes are working',async()=>{
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH1()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH2()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH3()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH4()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH5()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockH6()
+                await liveWallPage.standByInputBoxBlocktype()
+                await liveWallPage.standByInputBoxBlockquote()
+        })
+        await test.step('009FanSee-183|	Validate Stand By Message is Bold.',async()=>{
+                await liveWallPage.standByInputBoxBold()
+        })
+        await test.step('009FanSee-184|	Validate Stand By Message is Italic..',async()=>[
+                await liveWallPage.standByInputBoxItalic()
+        ])
+        await test.step('009FanSee-185|	Validate Stand By Message is Underline.',async()=>{
+                await liveWallPage.standByInputBoxUnderline()
+        })
+        
+        await test.step('009FanSee-186|	Validate Stand By Message is Strikethrough.',async()=>{
+                await liveWallPage.standByInputBoxsikethrough()
+        })
+        await test.step('009FanSee-187|	Validate Stand By Message is Color picker.',async()=>{
+                await liveWallPage.standByInputBoxColorpk()
+                await liveWallPage.standByInputBoxGreencl()
+                await liveWallPage.standByInputBoxColorpk()
+                await liveWallPage.standByInputBoxTextcl()
+        })
+        await test.step('009FanSee-188|	Validate Stand By Message is outdent.',async()=>{
+                await liveWallPage.standByInputBoxOutdent()
+        })
+        await test.step('009FanSee-189|	Validate Stand By Message is Indent.',async()=>{
+                await liveWallPage.standByInputBoxIndent()
+        })
+        await test.step('009FanSee-190|	Validate Stand By Message is Ordered.',async()=>{
+                await liveWallPage.standByInputBoxOrdered()
+        })
+        await test.step('009FanSee-191|	Validate Stand By Message is Unordered.',async()=>{
+                await liveWallPage.standByInputBoxUnOrdered()
+        })
+        await test.step('009FanSee-192|	Validate Stand By Message is Remove(Styles) Only.',async()=>{
+                await liveWallPage.standByInputBoxRemove()
+        })
+     
+        await test.step('009FanSee-194|	Validate Stand By Message Font Tag is start Left..',async()=>{
+                await liveWallPage.standByInputBoxLeft()
+        })
+        await test.step('009FanSee-195|	Validate Stand By Message Font Tag is start Center.',async()=>{
+                await liveWallPage.standByInputBoxCenter()
+        })
+        await test.step('009FanSee-196|	Validate Stand By Message Font Tag is start Right.',async()=>{
+                await liveWallPage.standByInputBoxRight()
+        })
+})
 test.skip("009LW-006 | Validate Live Selfie Cam Link Open Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
