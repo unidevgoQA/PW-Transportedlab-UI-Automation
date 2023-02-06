@@ -832,11 +832,11 @@ export default class triviaPage {
                 }
                 else throw new Error("Add round button  is not visible")
         }
-        async inputAddRoundName(){
+        async inputAddRoundName(RoundName : string){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAddRoundfield)
                 if(ele != null){
                         expect(ele).toBeVisible()
-                        await ele.type("Round1")
+                        await ele.type(RoundName)
                 }
                 else throw new Error("Add round input field  is not visible")
         }
@@ -913,6 +913,9 @@ export default class triviaPage {
         }
         getRandomName() {
                 return "Auto" + Date.now() + "Config"
+        }
+        getRandomNameForRoundName() {
+                return "Auto" + Date.now() + "Round"
         }
 
         async clickOutputBtn(){
