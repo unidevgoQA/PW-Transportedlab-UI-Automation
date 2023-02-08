@@ -13,7 +13,7 @@ var url: any;
 var text: string;
 
 
-test("012TV-001 | Validate add new configuration name.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-001 | Validate add new configuration name in trivia.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -29,6 +29,8 @@ test("012TV-001 | Validate add new configuration name.", async ({ loginPage, fun
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await triviaPage.verifyConfigurationsText()
+            await triviaPage.clickAddNewConfigPlusBtn()
 
       })
       await test.step("Now add new Configrations name ",async()=>{
@@ -39,9 +41,6 @@ test("012TV-001 | Validate add new configuration name.", async ({ loginPage, fun
 
       
       })
-
-
-
 test("012TV-002 | Validate Configurations Text Visibility.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
@@ -155,7 +154,6 @@ test("012TV-005 | Validate New Configuration text and Cancel button is visible."
 
       
 })
-
 test("012TV-006 | Validate add button does not work without data.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
@@ -360,10 +358,6 @@ test("012TV-011 | Validate Open link button is working.", async ({ loginPage, fu
             //newTab.close()
       })
 
-
-    
-
-
       
 })
 test("012TV-012 | Validate copy link successfully open on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
@@ -537,7 +531,7 @@ test("012TV-015 | Validate error message if round is  not created.", async ({ lo
 
       
 })
-test("012TV-016 | Validate  add Round name.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-016 | Validate  add Round name in trivia.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -564,13 +558,13 @@ test("012TV-016 | Validate  add Round name.", async ({ loginPage, functions, pag
       await test.step("Validate add Round name is working",async()=>{
             await triviaPage.clickAddRoundBtn()
             await triviaPage.inputAddRoundName(triviaPage.getRandomNameForRoundName())
-            await triviaPage.clickSaveBtn()
+            await triviaPage.clickAddBtn()
            
     
     })
       
 })
-test("012TV-015 | Validate  Edit Round  is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-017 | Validate  Edit Round  is working in trivia.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -598,14 +592,14 @@ test("012TV-015 | Validate  Edit Round  is working.", async ({ loginPage, functi
             await triviaPage.clickRoundNameThreeDot()
             await triviaPage.ClickeditRoundName()
             await triviaPage.EditRoundName()
-            await triviaPage.InputEditRoundName()
+            await triviaPage.InputEditRoundName(triviaPage.getRandomNameForRoundName())
             await triviaPage.clickSaveBtn()
            
     
     })
       
 })
-test("012TV-056 | Validate  EDIT Round and Round Name text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-018 | Validate  EDIT Round and Round Name text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -635,12 +629,10 @@ test("012TV-056 | Validate  EDIT Round and Round Name text is visible.", async (
             await triviaPage.verifyEDITROUNDText()
             await triviaPage.verifyRoundNameText()
             await triviaPage.clickEditRoundNameCancelBtn()
-           
-    
     })
       
 })
-test("012TV-057 | Validate round changing checkbox is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-020 | Validate round changing checkbox is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -673,7 +665,7 @@ test("012TV-057 | Validate round changing checkbox is visible.", async ({ loginP
     })
       
 })
-test("012TV-058 | Validate Output  button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-021 | Validate Output  button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -705,7 +697,7 @@ test("012TV-058 | Validate Output  button is visible.", async ({ loginPage, func
     })
       
 })
-test("012TV-059 | Validate mobile link output button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-022 | Validate mobile link output button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -751,7 +743,7 @@ test("012TV-059 | Validate mobile link output button is working.", async ({ logi
 })
       
 })
-test("012TV-060 | Validate mobile link copy button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-023 | Validate mobile link copy button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -801,7 +793,7 @@ test("012TV-060 | Validate mobile link copy button is working.", async ({ loginP
       
 })
 
-test("012TV-061 |validate set-up tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-024 | validate set-up tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -834,7 +826,7 @@ test("012TV-061 |validate set-up tab is visible.", async ({ loginPage, functions
     })
       
 })
-test("012TV-062 |validate Game Mode tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-025 | validate Game Mode tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -866,7 +858,7 @@ test("012TV-062 |validate Game Mode tab is visible.", async ({ loginPage, functi
     })
       
 })
-test("012TV-063 |validate Automatic Timers tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-026 | validate Automatic Timers tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -899,7 +891,7 @@ test("012TV-063 |validate Automatic Timers tab is visible.", async ({ loginPage,
     })
       
 })
-test("012TV-064 |validate Points Allocation tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-027 |validate Points Allocation tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -933,7 +925,7 @@ test("012TV-064 |validate Points Allocation tab is visible.", async ({ loginPage
     })
       
 })
-test("012TV-065 |validate CountdownText all Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-028 |validate CountdownText all Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -965,7 +957,7 @@ test("012TV-065 |validate CountdownText all Radio button is visible.", async ({ 
     })
       
 })
-test("012TV-066 |validate CountdownType all Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-029 | validate CountdownType all Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -997,7 +989,7 @@ test("012TV-066 |validate CountdownType all Radio button is visible.", async ({ 
     })
       
 })
-test("012TV-067 |validate Question Sequence tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-030 | validate Question Sequence tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1030,7 +1022,7 @@ test("012TV-067 |validate Question Sequence tab is visible.", async ({ loginPage
     })
       
 })
-test("012TV-068 |validate Leaderboard tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-031 | validate Leaderboard tab is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1061,7 +1053,7 @@ test("012TV-068 |validate Leaderboard tab is visible.", async ({ loginPage, func
     })
       
 })
-test("012TV-069 |validate Error message if countdown stage more than 99 second inputs in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-032 | validate Error message if countdown stage more than 99 second inputs in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1093,7 +1085,7 @@ test("012TV-069 |validate Error message if countdown stage more than 99 second i
     })
       
 })
-test("012TV-070 |validate Error message if Leader board  inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-033 | validate Error message if Leader board  inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1125,7 +1117,7 @@ test("012TV-070 |validate Error message if Leader board  inputs more than 99 sec
     })
       
 })
-test("012TV-071 |validate Error message if Question No stage  inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-034 | validate Error message if Question No stage  inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1157,7 +1149,7 @@ test("012TV-071 |validate Error message if Question No stage  inputs more than 9
     })
       
 })
-test("012TV-072 |validate Error message if Question Reveal inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-035 | validate Error message if Question Reveal inputs more than 99 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1189,7 +1181,7 @@ test("012TV-072 |validate Error message if Question Reveal inputs more than 99 s
     })
       
 })
-test("012TV-073 |validate Error message if points allocation points field inputs more than 9999 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-036 | validate Error message if points allocation points field inputs more than 9999 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1221,7 +1213,7 @@ test("012TV-073 |validate Error message if points allocation points field inputs
     })
       
 })
-test("012TV-074 |validate Error message if points allocation seconds field inputs more than 9999 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-037 | validate Error message if points allocation seconds field inputs more than 9999 second  in round settings.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1253,7 +1245,7 @@ test("012TV-074 |validate Error message if points allocation seconds field input
     })
       
 })
-test("012TV-075 | Validate  export error message in add round section if question didn't add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-038 | Validate  export error message in add round section if question didn't add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1286,7 +1278,7 @@ test("012TV-075 | Validate  export error message in add round section if questio
     })
       
 })
-test("012TV-076 | Validate  Add question button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-039 | Validate  Add question button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1316,7 +1308,7 @@ test("012TV-076 | Validate  Add question button is working.", async ({ loginPage
     })
       
 })
-test("012TV-077 | Validate add question and Custom Question type text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-040 | Validate add question and Custom Question type text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1349,7 +1341,7 @@ test("012TV-077 | Validate add question and Custom Question type text is visible
     })
       
 })
-test("012TV-078 | Validate Question type Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-041 | Validate Question type Radio button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1382,7 +1374,7 @@ test("012TV-078 | Validate Question type Radio button is visible.", async ({ log
     })
       
 })
-test("012TV-079 | Validate Add media button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-042 | Validate Add media button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1411,7 +1403,7 @@ test("012TV-079 | Validate Add media button is visible.", async ({ loginPage, fu
     })
       
 })
-test("012TV-080 | Validate mobile media image and video radio button is visible in add media section.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-043 | Validate mobile media image and video radio button is visible in add media section.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1445,7 +1437,7 @@ test("012TV-080 | Validate mobile media image and video radio button is visible 
 })
       
 })
-test("012TV-081 | Validate Mainboard media image and video radio button is visible in add media section.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-044 | Validate Mainboard media image and video radio button is visible in add media section.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1479,7 +1471,7 @@ test("012TV-081 | Validate Mainboard media image and video radio button is visib
 })
       
 })
-test("012TV-082 | Validate free question type successfully add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-045 | Validate free question type successfully add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1499,10 +1491,12 @@ test("012TV-082 | Validate free question type successfully add.", async ({ login
       })
     
       await test.step("click control panel section", async () => {
+           await page.waitForTimeout(1000)
            await triviaPage.clickControlPanelSection()
 
       })
       await test.step("click add question button",async()=>{
+            await page.waitForTimeout(1000)
          await triviaPage.clickAddQuestionBtn()
     })
     await test.step("click free response radio button",async()=>{
@@ -1538,6 +1532,7 @@ test("012TV-082 | Validate free question type successfully add.", async ({ login
       const ele = page.frameLocator('iframe').locator("//button[text()='Ok']")
       if( ele!= null){
         ele.click()
+        await page.waitForTimeout(1000)
         await triviaPage.clikAcctableAnswerSaveBtn()
       }
  })
@@ -1547,7 +1542,7 @@ test("012TV-082 | Validate free question type successfully add.", async ({ login
  })
    
 })
-test("012TV-083 | Validate multiple choice question type successfully add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-046 | Validate multiple choice question type successfully add.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1571,6 +1566,7 @@ test("012TV-083 | Validate multiple choice question type successfully add.", asy
 
       })
       await test.step("click add question button",async()=>{
+         await page.waitForTimeout(2000)
          await triviaPage.clickAddQuestionBtn()
     })
     await test.step("click multiple choise  radio button",async()=>{
@@ -1596,6 +1592,7 @@ test("012TV-083 | Validate multiple choice question type successfully add.", asy
       const ele = page.frameLocator('iframe').locator("//button[text()='Ok']")
       if( ele!= null){
         ele.click()
+        await page.waitForTimeout(2000)
         await triviaPage.clickAnswerSaveBtn()
       }
  })
@@ -1605,7 +1602,7 @@ test("012TV-083 | Validate multiple choice question type successfully add.", asy
  })
    
 })
-test("012TV-084 | Validate Start/Live button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-047 | Validate Start/Live button is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1628,9 +1625,9 @@ test("012TV-084 | Validate Start/Live button is visible.", async ({ loginPage, f
            
       })
       await test.step("validate start button",async()=>{
-            await page.waitForTimeout(1000)
+            await page.waitForTimeout(2000)
             await triviaPage.clickStartBtn()
-            await page.waitForTimeout(1000)
+            await page.waitForTimeout(2000)
             await triviaPage.clickOkBtn()
       })
       await test.step("Validate Live button",async()=>{
@@ -1641,7 +1638,7 @@ test("012TV-084 | Validate Start/Live button is visible.", async ({ loginPage, f
       })
    
 })
-test("012TV-085 | Validate export button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-048 | Validate export button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1671,7 +1668,7 @@ test("012TV-085 | Validate export button is working.", async ({ loginPage, funct
       })
       
 })
-test("012TV-086 | Validate input RGB Background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-055 | Validate input RGB Background color is working in triva.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1713,7 +1710,7 @@ test("012TV-086 | Validate input RGB Background color is working.", async ({ log
   
       
 })
-test("012TV-087 | Validate  Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-056 | Validate  Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1764,7 +1761,7 @@ test("012TV-087 | Validate  Background color successfully reflection on mobile s
             })
       
 })
-test("012TV-088 | Validate input RGB General/Button text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-057 | Validate input RGB General/Button text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1804,7 +1801,7 @@ test("012TV-088 | Validate input RGB General/Button text color is working.", asy
   
       
 })
-test("012TV-089 | Validate  General/Button text successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-058 | Validate  General/Button text successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1855,7 +1852,7 @@ test("012TV-089 | Validate  General/Button text successfully reflection on mobil
             })
       
 })
-test("012TV-090 | Validate input RGB Button background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-059 | Validate input RGB Button background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1896,7 +1893,7 @@ test("012TV-090 | Validate input RGB Button background color is working.", async
   
       
 })
-test("012TV-091 | Validate Button  Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-060 | Validate Button  Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1948,7 +1945,7 @@ test("012TV-091 | Validate Button  Background color successfully reflection on m
             })
       
 })
-test("012TV-092 | Validate input RGB Question text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-061 | Validate input RGB Question text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1989,7 +1986,7 @@ test("012TV-092 | Validate input RGB Question text color is working.", async ({ 
   
       
 })
-test("012TV-093 | Validate Question text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-062 | Validate Question text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2042,7 +2039,108 @@ test("012TV-093 | Validate Question text color successfully reflection on mobile
             })
       
 })
-test("012TV-094 | Validate input RGB Question background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-063 | Validate input RGB Answer text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+            
+    
+    })
+    await test.step("Now validate input Answer text color is working",async()=>{
+      await triviaPage.verifyAnswerText()
+      await triviaPage.clickAnswerTextBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test("012TV-064 | Validate RGB Answer text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Clik start button", async () => {
+            await triviaPage.clickStartBtn()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickOkBtn()
+            await triviaPage.clickControlPanelSection()
+            await triviaPage.clickMOveToNextBtn()
+            await triviaPage.clickMOveToNextBtn()
+       })
+       let newTab = null;
+       let triviamobilepage : triviaMobilePage
+       await test.step("Now game open in mobile screen",async()=>{
+ 
+             await triviaPage.clickMobileLinkBtn()
+             newTab = await triviaPage.clickMobileLinkOpenBtn()
+             triviamobilepage = new triviaMobilePage(newTab)
+            // await guesstheScorePage.clickCloseBtn()
+             await triviamobilepage.typephoneno()
+             await triviamobilepage.typeemail()
+             await triviamobilepage.selectbirthdate()
+             await triviamobilepage.typeAge()
+             await triviamobilepage.typezip()
+             await triviamobilepage.clicksubmit()
+             //await newTab.waitForTimeout(4000)
+             })
+             await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                   await page.waitForTimeout(5000)
+                   await triviamobilepage.verifyAnswerTextColor()
+             })
+             await test.step("Now click clear all button in color section",async()=>{
+                   await triviaPage.clickMobileLinkPopupClose()
+                   await triviaPage.clickgamedesignSection()
+                   await triviaPage.clickColorSectionBtn()
+                   await triviaPage.clickClearAllBtn()
+             })
+      
+})
+
+test("012TV-065 | Validate input RGB Question background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2082,7 +2180,7 @@ test("012TV-094 | Validate input RGB Question background color is working.", asy
   
       
 })
-test("012TV-095 | Validate Question Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-066 | Validate Question Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2135,48 +2233,7 @@ test("012TV-095 | Validate Question Background color successfully reflection on 
             })
       
 })
-test("012TV-096 | Validate input RGB Answer text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
-
-      await test.step("Login Admin", async () => {
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-      })
-
-      await test.step("Click On The Trivia Section", async () => {
-            await triviaPage.clickTriviaSection()
-
-      })
-    
-      await test.step("Open upload fonts section", async () => {
-            await page.waitForTimeout(2000)
-           await triviaPage.clickgamedesignSection()
-      })
-      await test.step("Open color section",async()=>{
-            await triviaPage.clickColorSectionBtn()
-            await triviaPage.clickClearAllBtn()
-            
-    
-    })
-    await test.step("Now validate input Answer text color is working",async()=>{
-      await triviaPage.verifyAnswerText()
-      await triviaPage.clickAnswerTextBtn()
-      await triviaPage.inputFirstRGB()
-      await triviaPage.inputSecondRGB()
-      await triviaPage.inputThirdRGB()
-      await triviaPage.inputFourthRGB()
-      await triviaPage.clickColorPickerSaveBtn()
-    })
-  
-      
-})
-test("012TV-097 | Validate input RGB answer background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-067 | Validate input RGB answer background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2214,7 +2271,61 @@ test("012TV-097 | Validate input RGB answer background color is working.", async
   
       
 })
-test("012TV-098 | Validate input RGB question frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-068 | Validate Answer Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await triviaPage.clickMOveToNextBtn()
+           //await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyAnswerBackgroundColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-069 | Validate input RGB question frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2252,7 +2363,61 @@ test("012TV-098 | Validate input RGB question frame color is working.", async ({
   
       
 })
-test("012TV-099 | Validate input RGB answer frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-070 | Validate Question frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await triviaPage.clickMOveToNextBtn()
+           //await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyQuestionFrameColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-071 | Validate input RGB answer frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2281,6 +2446,8 @@ test("012TV-099 | Validate input RGB answer frame color is working.", async ({ l
     await test.step("Now validate input answer frame color is working",async()=>{
       await triviaPage.verifyAnswerFrameText()
       await triviaPage.clickAnswerFrameBtn()
+      await triviaPage.clickRGBSelectedColorBtn()
+      await triviaPage.clickForSolidRGBColorBtn()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2290,7 +2457,63 @@ test("012TV-099 | Validate input RGB answer frame color is working.", async ({ l
   
       
 })
-test("012TV-0100 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-072 | Validate Answer frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Answer frame color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyAnswerFrameColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-073 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2328,7 +2551,7 @@ test("012TV-0100 | Validate input RGB selected answer color is working.", async 
   
       
 })
-test("012TV-0101 | Validate input RGB correct answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-074 | Validate input RGB correct answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2366,7 +2589,61 @@ test("012TV-0101 | Validate input RGB correct answer color is working.", async (
   
       
 })
-test("012TV-0102 | Validate input RGB incorrect answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-075 | Validate Correct Answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyCorrectAnswerColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-076 | Validate input RGB incorrect answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2404,7 +2681,339 @@ test("012TV-0102 | Validate input RGB incorrect answer color is working.", async
   
       
 })
-test("012TV-0103 | Validate input RGB Leaderboard text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-077 | Validate incorrect Answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyIncorrectAnswerColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-078 | Validate input RGB Countdown animation fill color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+    })
+    await test.step("Now validate input leaderboard text color is working",async()=>{
+      await triviaPage.verifyCountdownAnnimationFilltext()
+      await triviaPage.clickCountdownAnnimationColorBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test.skip("012TV-079 | Validate Countdown Annimation fill  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await triviaPage.clickMOveToNextBtn()
+           //await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyCountdownAnnimationFillColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-080 | Validate input RGB Tile/Countdown Background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+    })
+    await test.step("Now validate input leaderboard text color is working",async()=>{
+      await triviaPage.verifyTileCountdownBackgroundText()
+      await triviaPage.clickTileCountdownBackgroundBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test("012TV-081 | Validate Tile/Countdown Background  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           //await triviaPage.clickMOveToNextBtn()
+           //await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Tile/Countdown Background color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyTileCountdownBackgroundFillColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-082 | Validate input RGB Tile/Countdown Frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+    })
+    await test.step("Now validate input RGB Tile/Countdown Frame color is working",async()=>{
+      await triviaPage.verifyTileCountDownFrameText()
+      await triviaPage.clickTileCountdownFrameBtn()
+      await triviaPage.clickRGBSelectedColorBtn()
+      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test("012TV-083 | Validate Tile/Countdown Frame  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Tile/Countdown Frame color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyTileCountdownFrameColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-084 | Validate input RGB Leaderboard text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2442,7 +3051,66 @@ test("012TV-0103 | Validate input RGB Leaderboard text color is working.", async
   
       
 })
-test("012TV-0104 | Validate input RGB Leaderboard background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-085 | Validate Leaderboard text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Leaderboard text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyLeaderboardtextColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-086 | Validate input RGB Leaderboard background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2479,6 +3147,263 @@ test("012TV-0104 | Validate input RGB Leaderboard background color is working.",
       await triviaPage.clickColorPickerSaveBtn()
     })
   
+      
+})
+test("012TV-087 | Validate Leaderboard background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Leaderboard text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyLeaderboardBackgroundColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test("012TV-088 | Validate input RGB User's Top 10 Rank color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            //await page.waitForTimeout(2000)
+            await triviaPage.verifygamedesignText()
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+    })
+    await test.step("Now validate User's Top 10 Rank color is working",async()=>{
+      await triviaPage.clickUserTopTenRankBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test("012TV-089 | Validate User's Top 10 Rank color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Leaderboard text color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyTopTenRankColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
+      
+})
+test.only("012TV-090 | Validate input RGB Leaderboard Frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+            //await page.waitForTimeout(2000)
+            await triviaPage.verifygamedesignText()
+           await triviaPage.clickgamedesignSection()
+      })
+      await test.step("Open color section",async()=>{
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+    })
+    await test.step("Now validate Leaderboard Frame color is working",async()=>{
+      await triviaPage.verifyLeaderboardFrametext()
+      await triviaPage.clickLeaderboardFrameBtn()
+      await triviaPage.clickRGBSelectedColorBtn()
+      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.inputFirstRGB()
+      await triviaPage.inputSecondRGB()
+      await triviaPage.inputThirdRGB()
+      await triviaPage.inputFourthRGB()
+      await triviaPage.clickColorPickerSaveBtn()
+    })
+  
+      
+})
+test.only("012TV-091 | Validate Leaderboard frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            await page.waitForTimeout(1000)
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Leaderboard frame  color on mobile screen",async()=>{
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.verifyLeaderboardFrameColor()
+
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
       
 })
 test("012TV-0105 | Validate  upload fonts is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {

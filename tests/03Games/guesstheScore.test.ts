@@ -4051,8 +4051,8 @@ test("0013GTS-086 | Validate game status Live after click start event.", async({
        await guesstheScorePage.clickeventStart()
        await guesstheScorePage.clickLiveBtn()
        //await guesstheScorePage.clickStartGameOkBtn()
-       await guesstheScorePage.clicksLiveGameOkBtn()
-       //await guesstheScorePage.clickeventStop()
+      // await guesstheScorePage.clicksLiveGameOkBtn()
+       await guesstheScorePage.clickeventStop()
       
        
    })
@@ -4123,7 +4123,7 @@ test("0023GTS-088 | Validate Edit button is working guess The score.",async({log
    
     
 })
-test.skip("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -4154,5 +4154,3 @@ test.skip("0013GTS-089 | Validate delete event is working.", async({loginPage, g
    })
 
 })
-
-

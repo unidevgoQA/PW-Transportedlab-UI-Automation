@@ -9,8 +9,8 @@ const config: PlaywrightTestConfig = {
 
     // "001Login.test.ts",
     // "002MobileDesign.test.ts",
-    "003Language.test.ts",
-    "004Menu.test.ts",
+   // "003Language.test.ts",
+   // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
     //"007PrizeDrop.test.ts",
@@ -18,8 +18,8 @@ const config: PlaywrightTestConfig = {
     //"009LiveWall.test.ts",    
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
-    //"012Trivia.test.ts",
-    // "guesstheScore.test.ts",
+     "012Trivia.test.ts",
+      //"guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
 
@@ -65,7 +65,7 @@ const config: PlaywrightTestConfig = {
   permissions: ["microphone","camera","clipboard-read","clipboard-write"],
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
-    channel: 'chrome',
+    channel: 'msedge',
     viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
   // permissions: ["camera"],
