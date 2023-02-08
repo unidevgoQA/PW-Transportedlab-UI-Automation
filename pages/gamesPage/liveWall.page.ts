@@ -25,17 +25,28 @@ export default class liveWallPage {
     Radial_ele: '//li[text()="Radial"]',
     Solid_dropdown: '//div[@aria-haspopup="listbox"]',
     countdown_color_picker: "//p[text()='Countdown Color']/following-sibling::button",
-    RGB_red_color: '(//input[@type="text"])[1]',
-    RGB_green_color: '(//input[@type="text"])[2]',
-    RGB_blue_color: '(//input[@type="text"])[3]',
-    RGB_opacity_color: '(//input[@type="text"])[4]',
-    RGB_Hex_color: '(//input[@type="text"])[5]',
+    RGB_red_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[1]',
+    RGB_green_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[2]',
+    RGB_blue_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[3]',
+    RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
+    RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
     add_instance: '//p[text()="Instances"]//parent::div//button',
     input_config_name: '//h2[text()="Configuration"]//following-sibling::div//input[@type="text"]',
     input_pre_live_text_element: '//h5[text()="Pre-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_stand_by_message_element: '//h5[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
-    input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]'
+    input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
+    live_countdown_timer_toggle:'//span[text()="Live Countdown Timer"]//preceding-sibling::span//input',
+    show_username_to_mainboard_toggle:'//p[text()="Show Username to Mainboard"]//following-sibling::span//input',
+    enable_camera_flip_toggle:'//p[text()="Enable Camera Flip"]//following-sibling::span//input',
+    hour_ele_controls:"//label[text()='Hours']//following-sibling::div//input",
+    minutes_ele_controls:"//label[text()='Minutes']//following-sibling::div//input",
+    seconds_ele_controls:"//label[text()='Seconds']//following-sibling::div//input",
+    mobile_button:"//button[@aria-label='Mobile']",
+    refresH_button:"//button[@aria-label='Refresh']",
+    Vip_button:'//button[@aria-label="Vip"]',
+    Mobile_link_text:'//h2[text()="Mobile Link"]',
+    Vip_link_text:'//h2[text()="VIP Link"]'
   }
 
 
@@ -126,6 +137,19 @@ export default class liveWallPage {
     else {
       throw new Error("Either element is not found or element visiblity is hidden");
     }
+  }
+
+  async clickAdminPage() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Admin']").last();
+      if (await ele.isVisible()) {
+        await ele.click({ button: 'left' });
+      }
+      else {
+        throw new Error("Either button element is not found or element visiblity is hidden");
+      };
   }
 
 
@@ -227,10 +251,16 @@ export default class liveWallPage {
     await ele.fill("F1C42FFF");
   }
   async clickSaveBtn() {
-    const ele = await this.page
+    const ele = this.page
       .frameLocator("iframe")
       .locator("//button[text()='Save']");
-    await ele.click();
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    
+    }
+    else{
+      throw new Error('The save button is not visible or an issue with the click')
+    }
   }
 
   async clickFontColorPickerInputField() {
@@ -364,38 +394,68 @@ export default class liveWallPage {
   }
   //countdown_color_input
   async input_Red_Color(value: string) {
-    const ele = await this.page
+    const ele = this.page
       .frameLocator("iframe")
-      .locator('(//input[@type="text"])[1]');
-    expect(ele).toBeVisible();
-    await ele.fill(value);
+      .locator(this.Fansee_page_elements.RGB_red_color);
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.type(value,{delay:1000})
+    }
+    else{
+      throw new Error(" THe red color input box for this color picker is not visible")
+    }
   }
 
   async input_green_color(value: string) {
-    const ele = await this.page
+    const ele = this.page
       .frameLocator("iframe")
-      .locator('(//input[@type="text"])[2]');
-    await ele.fill(value);
+      .locator(this.Fansee_page_elements.RGB_green_color);
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.type(value,{delay:1000})
+    }
+    else{
+      throw new Error(" THe Green color input box for this color picker is not visible")
+    }
   }
   async input_blue_color(value: string) {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[3]');
-    await ele.fill(value);
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.RGB_blue_color);
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.type(value,{delay:1000})
+    }
+    else{
+      throw new Error(" THe blue color input box for this color picker is not visible")
+    }
   }
 
   async inputColorOpacity(value: string) {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[4]');
-    await ele.fill(value);
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.RGB_opacity_color);
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.type(value,{delay:1400})
+    }
+    else{
+      throw new Error(" THe opacity color input box for this color picker is not visible")
+    }
   }
 
   async inputHEXColor(value: string) {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[5]');
-    await ele.fill(value);
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.RGB_Hex_color);
+    if(await ele.isVisible()){
+      await ele.clear()
+      await ele.focus()
+      await ele.type(value,{delay:1400})
+    }
+    else{
+      throw new Error(" THe Hex color input box for this color picker is not visible")
+    }
   }
 
   async deleteUploadedFeedRightImage() {
@@ -1133,105 +1193,154 @@ export default class liveWallPage {
 
 
   async standByInputBoxFonts() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[3]").click()
   }
 
   async standByInputBoxArial() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
   }
 
   async standByInputBoxBlocktype() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[3]").click()
 
   }
   async standByInputBoxNormal() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
   }
 
   async standByInputBoxBlockH1() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
   }
   async standByInputBoxBlockH2() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
   }
   async standByInputBoxBlockH3() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
   }
   async standByInputBoxBlockH4() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
   }
   async standByInputBoxBlockH5() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
   }
   async standByInputBoxBlockH6() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
   }
   async standByInputBoxBlockquote() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
   }
 
   async standByInputBoxBold() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[3]").click()
 
   }
 
   async standByInputBoxItalic() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[3]").click()
 
   }
 
   async standByInputBoxUnderline() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[3]").click()
 
   }
 
   async standByInputBoxsikethrough() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[3]").click()
 
   }
 
   async standByInputBoxColorpk() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[3]").click()
 
   }
 
   async standByInputBoxTextcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
   }
 
   async standByInputBoxGreencl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[3]").click()
 
   }
 
   async standByInputBoxHighlightcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
   }
 
   async standByInputBoxHighlightgrn() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[3]").click()
 
   }
   async standByInputBoxLeft() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[3]").click()
 
   }
   async standByInputBoxCenter() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[3]").click()
 
   }
   async standByInputBoxRight() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[3]").click()
 
   }
   async standByInputBoxOutdent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[3]").click()
 
   }
   async standByInputBoxIndent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[3]").click()
 
   }
@@ -1239,17 +1348,23 @@ export default class liveWallPage {
 
 
   async standByInputBoxOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[3]").click()
 
   }
 
 
   async standByInputBoxUnOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[3]").click()
 
   }
 
   async standByInputBoxRemove() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[3]").click()
 
   }
@@ -1267,7 +1382,7 @@ export default class liveWallPage {
         ' test For stand by message'
       );
     } else {
-      throw new Error("The editor for post live text element is not found as visible to playwright")
+      throw new Error("The editor for standby text element is not found as visible to playwright")
     }
   }
 
@@ -1278,108 +1393,175 @@ export default class liveWallPage {
     expect(ele).toBeVisible();
     await ele.click();
   }
+  // low connection message from here 
+  async inputLowConnectionMassage() {
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(
+      this.Fansee_page_elements.input_low_connection_message_element
+    );
+  if (await ele.isVisible()) {
+    await ele.fill('  ')
+    await ele.fill(
+      ' test For Low connection message'
+    );
+  } else {
+    throw new Error("The editor for low connection  text element is not found as visible to playwright")
+  }
+
+  }
 
 
   async lowConnectionMassageInputBoxFonts() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[4]").click()
   }
 
   async lowConnectionMassageInputBoxArial() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
   }
 
   async lowConnectionMassageInputBoxBlocktype() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[4]").click()
 
   }
   async lowConnectionMassageInputBoxNormal() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()
 
   }
 
   async lowConnectionMassageInputBoxBlockH1() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H1']").click()
   }
   async lowConnectionMassageInputBoxBlockH2() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H2']").click()
   }
   async lowConnectionMassageInputBoxBlockH3() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H3']").click()
   }
   async lowConnectionMassageInputBoxBlockH4() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H4']").click()
   }
   async lowConnectionMassageInputBoxBlockH5() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H5']").click()
   }
   async lowConnectionMassageInputBoxBlockH6() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='H6']").click()
   }
   async lowConnectionMassageInputBoxBlockquote() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//li[text()='Blockquote']").click()
   }
 
   async lowConnectionMassageInputBoxBold() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Bold']//img[1])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxItalic() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Italic']//img[1])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxUnderline() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Underline']//img[1])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxsikethrough() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Strikethrough']//img[1])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxColorpk() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Color Picker']//img)[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxTextcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//span[text()='Text']").click()
 
   }
 
   async lowConnectionMassageInputBoxGreencl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxHighlightcl() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("//span[text()='Highlight']").click()
 
   }
 
   async lowConnectionMassageInputBoxHighlightgrn() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//span[@class='rdw-colorpicker-cube'])[4]").click()
 
   }
   async lowConnectionMassageInputBoxLeft() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Left'])[4]").click()
 
   }
   async lowConnectionMassageInputBoxCenter() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Center']//img[1])[4]").click()
 
   }
   async lowConnectionMassageInputBoxRight() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Right']//img[1])[4]").click()
 
   }
   async lowConnectionMassageInputBoxOutdent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Outdent']//img[1])[4]").click()
 
   }
   async lowConnectionMassageInputBoxIndent() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Indent']//img[1])[4]").click()
 
   }
@@ -1387,27 +1569,88 @@ export default class liveWallPage {
 
 
   async lowConnectionMassageInputBoxOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Ordered']//img[1])[4]").click()
 
   }
 
 
   async lowConnectionMassageInputBoxUnOrdered() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Unordered']//img[1])[4]").click()
 
   }
 
   async lowConnectionMassageInputBoxRemove() {
+    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_low_connection_message_element).selectText()
+   
     await this.page.frameLocator("iframe").locator("(//div[@title='Remove(styles) only']//img[1])[4]").click()
 
   }
 
-  async inputLowConnectionMassage() {
-    await this.page.frameLocator("iframe").locator("(//ul[@class='public-DraftStyleDefault-ul']//li)[4]")
-      .fill("Massage For Low Connection")
-
+  // controls section from here
+  async click_live_countdown_timer_toggle(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle)
+    if(await ele.isVisible()){
+      await ele.dblclick({button:'left',delay:600})
+    }
+    else{
+      throw new Error("Live countdown timer toggle is not visible")
+    }
   }
-
+  async click_show_username_to_mainboard_toggle(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_mainboard_toggle)
+    if(await ele.isVisible()){
+      await ele.dblclick({button:'left',delay:600})
+    }
+    else{
+      throw new Error("Show Username to Mainboard toggle is not visible")
+    }
+  }
+  async click_enable_camera_flipt_toggle(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle)
+    if(await ele.isVisible()){
+      await ele.dblclick({button:'left',delay:600})
+    }
+    else{
+      throw new Error("Enable camera flip toggle is not visible")
+    }
+  }
+  async type_hours_in_control(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.hour_ele_controls)
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.fill("  ")
+      await ele.fill('34')
+    }
+    else{
+      throw new Error("Hours section element is not visible")
+    }
+  }
+  async type_minutes_in_control(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.minutes_ele_controls)
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.fill("  ")
+      await ele.fill('43')
+    }
+    else{
+      throw new Error("Minutes section element is not visible")
+    }
+  }
+  async type_seconds_in_control(){
+    const ele= this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.seconds_ele_controls)
+    if(await ele.isVisible()){
+      await ele.focus()
+      await ele.fill("  ")
+      await ele.fill('53')
+    }
+    else{
+      throw new Error("Minutes section element is not visible")
+    }
+  }
 
   //Live Wall Home page 
   async clickGameStartBtn() {
@@ -1456,12 +1699,31 @@ export default class liveWallPage {
   }
 
   //Live Wall Home page 
-  async clickMobileQRCode() {
-    const ele = await this.page
+  async click_Mobile_button() {
+    const ele = this.page
       .frameLocator("iframe")
-      .locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//img)[2]");
+      .locator(this.Fansee_page_elements.mobile_button);
     await ele.click();
   }
+  async click_VIP_button() {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.Fansee_page_elements.Vip_button);
+    await ele.click();
+  }
+
+  async click_open_link_button(){
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator('//a[@aria-label="Open Link"]')
+      if(await ele.isVisible()){
+        await ele.click()
+      }
+      else{
+        throw new Error('Issue with the open link visiblity')
+      }
+  }
+  
 
   //Live Wall Home page 
   async clickCopyQRCodeBtn() {
@@ -1471,13 +1733,59 @@ export default class liveWallPage {
     await ele.click();
   }
 
+  async Validate_mobile_link_text(){
+    const ele= this.page.
+    frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.Mobile_link_text)
+    if(await ele.isEnabled()){
+      await expect(ele).toBeVisible()
+    }
+    else{
+      throw new Error("Mobile link Header text is missing in the modal")
+    }
+  }
+  async Validate_Vip_link_text(){
+    const ele= this.page.
+    frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.Vip_link_text)
+    if(await ele.isEnabled()){
+      await expect(ele).toBeVisible()
+    }
+    else{
+      throw new Error("VIP link Header text is missing in the modal")
+    }
+  }
+
   //Live Wall Home page 
-  async clickSaveQRCodeBtn() {
-    const ele = await this.page
+  async checkSaveQRCodeBtn() {
+    const ele = this.page
       .frameLocator("iframe")
       .locator("//button[text()='Save QR Code']");
-    await ele.click();
+      if(await ele.isVisible()){
+      }
+      else{
+        throw new Error("Check the visiblity for Save QR code button, its invisible to DOM")
+      }
+    
   }
+  async validateDownload(){
+                
+    const [download] = await Promise.all([
+             this.page.waitForEvent('download'),
+             this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save QR Code"]').click()
+  ])
+    const suggestedFileName = download.suggestedFilename()
+   
+    if(suggestedFileName.match('Fan-See-Qr')){
+      const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
+      await download.saveAs(filePath)
+      expect(existsSync(filePath)).toBeTruthy()
+    }
+    else{
+      throw new Error("There is a problem with your download,may be you have changed the file name please Add the string Fan-See-QR to the Qr file name")
+    }
+    
+}
 
   //Live Wall Home page 
   async clickQRCodeWindowCloseBtn() {
@@ -1591,30 +1899,13 @@ export default class liveWallPage {
     expect(ele).toBeVisible()
     await ele.click();
   }
-  async clickMobileLinkBtn() {
-    const ele = this.page.frameLocator("iframe").locator('(//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1pejgza"])[2]')
-    expect(ele).toBeVisible()
-    await ele.click({ force: true })
-    //await this.page.waitForLoadState("networkidle")
-  }
   async clickAdminSection() {
     const ele = this.page.frameLocator("iframe").locator("//button[@aria-label='Admin']")
     expect(ele).toBeVisible()
     await ele.click({ force: true })
     //await this.page.waitForLoadState("networkidle")
   }
-  async verifyMobileLinkText() {
-    const ele = this.page.frameLocator("iframe").locator("//h2[text()='Mobile Link']")
-    expect(ele).toContainText("Mobile Link")
-  }
-  async verifyQRScreencode() {
-    const ele = this.page.frameLocator("iframe").locator('//div[@class="MuiDialogContent-root css-9tte1s"]')
-    expect(ele).toBeVisible()
-  }
-  async verifyVIPQRScreencode() {
-    const ele = this.page.frameLocator("iframe").locator('//div[@class="MuiDialogContent-root css-9tte1s"]')
-    expect(ele).toBeVisible()
-  }
+  
   async clickCopyLinkBtn() {
     const ele = this.page.frameLocator("iframe").locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]')
     expect(ele).toBeVisible()
@@ -1672,7 +1963,7 @@ export default class liveWallPage {
     const ele = this.page.frameLocator('iframe').locator("//h2[text()='Output Screen Link']")
     expect(ele).toContainText("Output Screen Link")
   }
-
+  
 
 
 

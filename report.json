@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "009LW-005 | Validate Pre-Live Text Messages Functionality",
+          "title": "009FanSee-20|Validate open link in VIP QR code is working",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,86 +74,30 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 24462,
+                  "duration": 19765,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "login admin",
-                      "duration": 7093
+                      "title": "login to admin",
+                      "duration": 10568
                     },
                     {
-                      "title": "now navigate to fanseepage and open Game Design",
-                      "duration": 2649
+                      "title": "009FanSee-6|navigate to fanseepage and open Admin page",
+                      "duration": 5582
                     },
                     {
-                      "title": "009FanSee-144|\tValidate Pre-Live Text input is working",
-                      "duration": 404
+                      "title": "009FanSee-9|Validate Mobile QR Code button visible and clickable.",
+                      "duration": 252
                     },
                     {
-                      "title": "009FanSee-145|\tValidate Pre-Live Text Font Selection DropDown Option is visible and clickable.",
-                      "duration": 1225
-                    },
-                    {
-                      "title": "009FanSee-157|\tValidate Pre-Live Text blocktypes: Normal,H1,H2,H3 etc are working",
-                      "duration": 6154
-                    },
-                    {
-                      "title": "009FanSee-147|\tValidate Pre-Live Text is Bold.",
-                      "duration": 356
-                    },
-                    {
-                      "title": "009FanSee-148|\tValidate Pre-Live Text is Italic.",
-                      "duration": 358
-                    },
-                    {
-                      "title": "009FanSee-149|\tValidate Pre-Live Text is Underline.",
-                      "duration": 360
-                    },
-                    {
-                      "title": "009FanSee-150|\tValidate Pre-Live Text is Strikethrough.",
-                      "duration": 373
-                    },
-                    {
-                      "title": "009FanSee-151|\tValidate Pre-Live Text is Color picker.",
-                      "duration": 2134
-                    },
-                    {
-                      "title": "009FanSee-158|Validate Pre-Live Text Font Tag is start Left.",
-                      "duration": 359
-                    },
-                    {
-                      "title": "009FanSee-159|Validate Pre-Live Text Font Tag is start Center.",
-                      "duration": 358
-                    },
-                    {
-                      "title": "009FanSee-160|Validate Pre-Live Text Font Tag is start Right.",
-                      "duration": 359
-                    },
-                    {
-                      "title": "009FanSee-152|Validate Pre-Live Text is outdent.",
-                      "duration": 357
-                    },
-                    {
-                      "title": "009FanSee-153|Validate Pre-Live Text is Indent.",
-                      "duration": 345
-                    },
-                    {
-                      "title": "009FanSee-154|Validate Pre-Live Text is Ordered.",
-                      "duration": 387
-                    },
-                    {
-                      "title": "009FanSee-155|Validate Pre-Live Text is Unordered.",
-                      "duration": 360
-                    },
-                    {
-                      "title": "009FanSee-156|Validate Pre-Live Text is Remove(Styles) Only.",
-                      "duration": 357
+                      "title": "009FanSee-14|\tvalidate open link in Normal QR code is working",
+                      "duration": 2831
                     }
                   ],
-                  "startTime": "2023-02-06T13:23:06.812Z",
+                  "startTime": "2023-02-08T10:34:55.468Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -163,7 +107,12 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-009LiveWall-009LW-005-Validate-Pre-Live-Text-Messages-Functionality\\test-finished-1.png"
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-009LiveWall-009FanSee-20-Validate-open-link-in-VIP-QR-code-is-working\\test-finished-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "e:\\transported_labs\\transporte_labs_updated\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-009LiveWall-009FanSee-20-Validate-open-link-in-VIP-QR-code-is-working\\test-finished-2.png"
                     }
                   ]
                 }
@@ -171,9 +120,9 @@
               "status": "expected"
             }
           ],
-          "id": "ce540cedefba1f39420a-46844baba2fddc710ef3",
+          "id": "ce540cedefba1f39420a-2ea0a7108dce3c92c3c1",
           "file": "tests/03Games/009LiveWall.test.ts",
-          "line": 731,
+          "line": 1641,
           "column": 5
         }
       ]
