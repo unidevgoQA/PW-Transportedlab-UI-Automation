@@ -8,7 +8,7 @@ export default class mobilePreviewPage {
                             page.setViewportSize({ width: 390, height: 844 })
                      }
 
-       private mainMenuPageElements = {
+       private mobilePreviewPageElements = {
                additionalphoneNumberInputField: `//input[@name="phone"]`,
                additionalEmailInputField: `//input[@name="email"]`,
                additionalAgeInputField: `//input[@name="age"]`,
@@ -25,7 +25,14 @@ export default class mobilePreviewPage {
                submitBtn: "//button[text()='Submit']",
                choiceCheckBox: "//input[@type='checkbox']",
                choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
-               homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']"
+               homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+               arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
+               prizeDropGameText: "//p[text()='Prize Drop']",
+               outSideGameTitleText: "//p[text()='Auto Game']",
+               squareImage: ".css-v74x4d>>nth=1",
+               rectangulerImageType: ".css-rk019r>>nth=1",
+               arcadeSectionlogoHeader: ".css-n8k4mt"
+
 
                
 
@@ -139,6 +146,59 @@ export default class mobilePreviewPage {
              else throw new Error("Mobile Welcome Screen Sign In With Google Window Next Btn Is not Visible")
               
        }
+
+       async clickArcadeSection() {
+              
+              const ele = await this.page.locator(this.mobilePreviewPageElements.arcadeSectionInMobileScreen).isVisible()
+              if ((ele == true)){
+                     await this.page.locator(this.mobilePreviewPageElements.arcadeSectionInMobileScreen).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Mobile Screen Arcade Game Section Is Not Visiable") 
+             await this.page.waitForLoadState("networkidle")             
+       }
+
+       async verifyAddOutSideGameSuccessfullyShowOnMobileScreen() {
+              
+              const ele = await this.page.locator(this.mobilePreviewPageElements.outSideGameTitleText).textContent()
+              if ((ele === "Auto Game")){
+                     // await this.page.locator(this.mobilePreviewPageElements.outSideGameTitleText).click({button:"left", delay: 1000})
+                     
+             }
+             else throw new Error("Add Out Side Game Successfully Show On Mobile Screen")                          
+       }
+
+
+       async verifyFontSuccessfullyAppliedInMobileScreeen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.prizeDropGameText)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.prizeDropGameText).screenshot()
+              expect(ele).toMatchSnapshot("arcade-font-uploaded-ui.png")
+                         
+       }
+
+       async verifySquareImageTypeSuccessfullyAppliedInMobileScreeen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.squareImage)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.squareImage)
+              expect(ele).toHaveCSS("width", "156px")
+                         
+       }
+
+       async verifyRectanglerImageTypeSuccessfullyAppliedInMobileScreeen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.rectangulerImageType)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.rectangulerImageType)
+              expect(ele).toHaveCSS("width", "331.5px")
+                         
+       }
+
+       async verifyLogoHeaderSuccessfullyAppliedInMobileScreeen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.arcadeSectionlogoHeader)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.arcadeSectionlogoHeader).screenshot()
+              expect(ele).toMatchSnapshot("arcade-logoHeader-uploaded-ui.png")
+                         
+       }
+
+       
+
 
        async inputPasswordForLoginWithGoogle() {
               await this.page.waitForNavigation()
@@ -398,10 +458,10 @@ async clickSignInBtn() {
        }
 
        async inputPhoneNumberForAditionalInfo() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalphoneNumberInputField)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalphoneNumberInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalphoneNumberInputField)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalphoneNumberInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalphoneNumberInputField).fill("+8801051703506")
+                     await this.page.locator(this.mobilePreviewPageElements.additionalphoneNumberInputField).fill("+8801051703506")
                      
              }
              else throw new Error("Aditional Information Phone NUmber Input Field Is not visible In User Side")
@@ -410,10 +470,10 @@ async clickSignInBtn() {
        }
 
        async inputAgeForAditionalInfo() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalAgeInputField)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalAgeInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalAgeInputField)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalAgeInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalAgeInputField).fill("22")
+                     await this.page.locator(this.mobilePreviewPageElements.additionalAgeInputField).fill("22")
                      
              }
              else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
@@ -422,10 +482,10 @@ async clickSignInBtn() {
        }
 
        async inputEmailForAditionalInfo() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalEmailInputField)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalEmailInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalEmailInputField)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalEmailInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalEmailInputField).fill("demo@email.com")
+                     await this.page.locator(this.mobilePreviewPageElements.additionalEmailInputField).fill("demo@email.com")
                      
              }
              else throw new Error("Aditional Information Email Input Field Is not visible In User Side")
@@ -434,10 +494,10 @@ async clickSignInBtn() {
        }
 
        async clickAdditionalDatePickterInputField() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalDatePickerLabel)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalDatePickerInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerLabel)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalDatePickerInputField).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerInputField).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Date Picker Input Field Is not visible In User Side")
@@ -446,10 +506,10 @@ async clickSignInBtn() {
        }
 
        async clickAdditionalDateEditBtn() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalDateEditBtn)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalDateEditBtn).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateEditBtn)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDateEditBtn).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalDateEditBtn).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDateEditBtn).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Date Picker Edit Button Is not visible In User Side")
@@ -458,10 +518,10 @@ async clickSignInBtn() {
        }
 
        async inputAdditionalDate() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalDateInputField)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalDateInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateInputField)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDateInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalDateInputField).fill("01/31/2000")
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDateInputField).fill("01/31/2000")
                      
              }
              else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
@@ -470,10 +530,10 @@ async clickSignInBtn() {
        }
 
        async clickAdditionalDateDatePickerOkBtn() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalDatePickerOkBtn)            
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalDatePickerOkBtn).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerOkBtn)            
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerOkBtn).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalDatePickerOkBtn).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerOkBtn).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Date Picker Ok Button Is not visible In User Side")
@@ -482,9 +542,9 @@ async clickSignInBtn() {
        }
 
        async clickSubmitButton() {                         
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalSubmitBtn).isVisible()
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalSubmitBtn).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalSubmitBtn).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.additionalSubmitBtn).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Submit Button Is not visible In User Side On Welcome Screen")
@@ -493,10 +553,10 @@ async clickSignInBtn() {
        }
 
        async inputAdditionalZipCode() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.additionalZipCodeInputFieldLabel)                       
-              const ele = await this.page.locator(this.mainMenuPageElements.additionalZipCodeInputFieldLabel).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalZipCodeInputFieldLabel)                       
+              const ele = await this.page.locator(this.mobilePreviewPageElements.additionalZipCodeInputFieldLabel).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.additionalZipCodeInputField).fill("1217")
+                     await this.page.locator(this.mobilePreviewPageElements.additionalZipCodeInputField).fill("1217")
                      
              }
              else throw new Error("Aditional Information Zip Code Input Field Is not visible In User Side")
@@ -505,10 +565,10 @@ async clickSignInBtn() {
        }
 
        async inputCustomQuestionForUser() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)                       
-              const ele = await this.page.locator(this.mainMenuPageElements.customQuestionInputField).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)                       
+              const ele = await this.page.locator(this.mobilePreviewPageElements.customQuestionInputField).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.customQuestionInputField).fill("Demo Ans")
+                     await this.page.locator(this.mobilePreviewPageElements.customQuestionInputField).fill("Demo Ans")
                      
              }
              else throw new Error("Aditional Information Custom Question Input Field Is not visible In User Side")
@@ -518,10 +578,10 @@ async clickSignInBtn() {
        
 
        async clickCustomChoiceCheckBoxWhenCustomQuestionInTop() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)
-              const ele = await this.page.locator(this.mainMenuPageElements.choiceCheckBoxWhenCustomQuestionInTop).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.choiceCheckBoxWhenCustomQuestionInTop).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.choiceCheckBoxWhenCustomQuestionInTop).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBoxWhenCustomQuestionInTop).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
@@ -530,10 +590,10 @@ async clickSignInBtn() {
        }
 
        async clickCustomChoiceCheckBox() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.customQuestionSectionTitle)
-              const ele = await this.page.locator(this.mainMenuPageElements.choiceCheckBox).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.choiceCheckBox).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.choiceCheckBox).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBox).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
@@ -542,9 +602,9 @@ async clickSignInBtn() {
        }
        async clickAddNewQuestionSubmitBtn() {  
                                      
-              const ele = await this.page.locator(this.mainMenuPageElements.submitBtn).isVisible()
+              const ele = await this.page.locator(this.mobilePreviewPageElements.submitBtn).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.submitBtn).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.submitBtn).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Aditional Information Custom Question Section Submit Button Is not visible In User Side")
@@ -553,10 +613,10 @@ async clickSignInBtn() {
        }
 
        async verifyMyProfileSuccessfullyClick() {  
-              await this.page.waitForSelector(this.mainMenuPageElements.homeAvater)
-              const ele = await this.page.locator(this.mainMenuPageElements.homeAvater).isVisible()
+              await this.page.waitForSelector(this.mobilePreviewPageElements.homeAvater)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.homeAvater).isVisible()
               if ((ele == true)){
-                     await this.page.locator(this.mainMenuPageElements.homeAvater).click({button:"left", delay: 1000})
+                     await this.page.locator(this.mobilePreviewPageElements.homeAvater).click({button:"left", delay: 1000})
                      
              }
              else throw new Error("Sign UP Home Screen Functionality Does not Work After Successfully Check SignUp Home Screen Radio From Admin Side")

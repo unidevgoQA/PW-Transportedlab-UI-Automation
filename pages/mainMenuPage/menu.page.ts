@@ -31,6 +31,7 @@ export default class menuPage {
                 howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]", 
+                lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]"
 
         }
 
@@ -74,6 +75,14 @@ export default class menuPage {
 
 
 
+        }
+
+        async enableLastGame() {
+                const ele = await this.page.locator(this.menuPageElements.lastGameEnableDisableBtn).isChecked()
+                if (ele == false){
+                await this.page.locator(this.menuPageElements.lastGameEnableDisableBtn).check({force:true})
+                }                
+                
         }
 
         //Upload Fonts Header Text Elemant
