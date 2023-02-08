@@ -59,7 +59,7 @@ const config: PlaywrightTestConfig = {
     baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
       // args: ["--start-maximized"],
-      slowMo: 100
+      slowMo: 200
       
   },
   permissions: ["microphone","camera","clipboard-read","clipboard-write"],
