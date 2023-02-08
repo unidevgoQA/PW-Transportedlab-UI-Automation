@@ -403,11 +403,7 @@ test.only("010A-011 | Validate Admin Successfully Delete Game Logo For Fanatics-
         })
     
         await arcadePage.deleteFanaticsLogo()    
-        await functions.fileUploadCropperWithoutIframe()
-       
-    
-        
-    
+        await functions.fileUploadCropperWithoutIframe()   
         
     })
 

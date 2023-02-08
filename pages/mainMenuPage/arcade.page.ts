@@ -31,16 +31,16 @@ export default class arcadePage {
                 rectangleBtn: "//p[text()='Rectangle']",
                 logoHeaderTitleText: "//p[text()='Logo / Header']",
                 logoHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
-                logoHeaderDeleteBtn: "//p[text()='Logo / Header']/following::div[@class='MuiBox-root css-1tejaop']",                
+                logoHeaderDeleteBtn: "//p[text()='Logo / Header']/following::div[@class='MuiBox-root css-1tejaop']",
                 logoHeaderEditBtn: "(//button[@aria-label='Edit'])[1]",
                 gameListTitleText: "//p[text()='Games']",
                 firstGameDragAndDropBtn: "(//div[@role='button'])[1]",
                 firstGameEditBtn: "(//button[@title='Edit']//div)[1]",
                 firstGameNameInputField: "(//input[@placeholder='Enter game name'])[1]",
-                firstGameGamesSelctionInputField: "(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[1]",                
+                firstGameGamesSelctionInputField: "(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[1]",
                 lastOutSideGameCheckBox: "//input[@type='checkbox']>>nth=-2",
                 lastOutSideGameDeleteBtn: "//div[@icon='assets/delete.d492d3e8.svg']",
-                secondLastOutSideGameDeleteBtn: "//div[@icon='assets/delete.d492d3e8.svg>>nth=-1']",  
+                secondLastOutSideGameDeleteBtn: "//div[@icon='assets/delete.d492d3e8.svg>>nth=-1']",
                 firstGameLogoEditBtn: "(//button[@title='Edit'])[1]",
                 fanaticsFilterWebGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[8]",
                 guessTheScroeGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[7]",
@@ -56,7 +56,7 @@ export default class arcadePage {
                 noiseMeterGameLogoEdit: "(//button[@aria-label='Edit'])[4]",
                 tugOfWarGameLogoEdit: "(//button[@aria-label='Edit'])[3]",
                 prizeDropGameLogoEdit: "(//button[@aria-label='Edit'])[2]",
-               
+
 
                 ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
                 dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
@@ -95,12 +95,12 @@ export default class arcadePage {
 
 
         }
-       
+
 
         async clickArcadePage() {
                 let ele = await this.page.locator(this.arcadePageElements.arcadePage).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.arcadePage).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.arcadePage).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Element Is not Visible")
                 await this.page.waitForLoadState("networkidle")
@@ -109,7 +109,7 @@ export default class arcadePage {
 
         async verifyFontTextIsVisible() {
                 let ele = await this.page.locator(this.arcadePageElements.fontsTitleText).textContent()
-                if ((ele === "Fonts")) {                        
+                if ((ele === "Fonts")) {
                 }
                 else throw new Error("Main Menu Arcade Page Fonts Title Text Is not Visible")
 
@@ -117,7 +117,7 @@ export default class arcadePage {
 
         async verifyUploadFontTextIsVisible() {
                 let ele = await this.page.locator(this.arcadePageElements.uploadFontTitleText).textContent()
-                if ((ele === "Upload Font")) {                        
+                if ((ele === "Upload Font")) {
                 }
                 else throw new Error("Main Menu Arcade Page Upload Fonts Title Text Is not Visible")
 
@@ -126,16 +126,16 @@ export default class arcadePage {
         async deleteUploadFont() {
                 let ele = await this.page.locator(this.arcadePageElements.uploadedFontDeleteBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.uploadedFontDeleteBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.uploadedFontDeleteBtn).click({ button: "left", delay: 1000 })
                 }
-                else {console.log("There was no uploaded Font Visiable For Arcade Section Go To Next Step")}
+                else { console.log("There was no uploaded Font Visiable For Arcade Section Go To Next Step") }
 
         }
 
         async uploadFontForArcadeSection() {
                 let ele = await this.page.locator(this.arcadePageElements.uploadFont).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.uploadFont).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.uploadFont).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Font Upload Element Is not Visible")
 
@@ -145,7 +145,7 @@ export default class arcadePage {
                 await this.page.waitForSelector(this.arcadePageElements.uploadedFontTitleText)
                 let ele = await this.page.locator(this.arcadePageElements.uploadedFontTitleText).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.uploadedFontTitleText).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.uploadedFontTitleText).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Uploaded Font Element Is not Visible")
 
@@ -156,7 +156,7 @@ export default class arcadePage {
                 if ((ele == true)) {
                         // await this.page.locator(this.arcadePageElements.secondLastOutSideGameDeleteBtn).click({button:"left", delay:1000})
                         // await this.page.waitForTimeout(3000)
-                        await this.page.locator(this.arcadePageElements.lastOutSideGameDeleteBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.lastOutSideGameDeleteBtn).click({ button: "left", delay: 1000 })
                 }
                 // else throw new Error("Main Menu Arcade Page OutSide Game Delete Button Is not Visible")
 
@@ -166,16 +166,16 @@ export default class arcadePage {
                 await this.page.waitForSelector(this.arcadePageElements.arcadeSettingsTitleText)
                 let ele = await this.page.locator(this.arcadePageElements.arcadeSettingsTitleText).textContent()
                 if ((ele === "Arcade Settings")) {
-                        
+
                 }
                 else throw new Error("Main Menu Arcade Page Arcade SEttings Title Text Is not Visible")
 
         }
 
-        async clickAddOutSideGameBtn() {                
+        async clickAddOutSideGameBtn() {
                 let ele = await this.page.locator(this.arcadePageElements.addOutSideGameBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.addOutSideGameBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.addOutSideGameBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Add OutSide Game Button Is not Visible")
 
@@ -185,13 +185,13 @@ export default class arcadePage {
                 await this.page.waitForSelector(this.arcadePageElements.addOutSideGameModalTitleText)
                 let ele = await this.page.locator(this.arcadePageElements.addOutSideGameModalTitleText).textContent()
                 if ((ele === "Add Outside Game")) {
-                        
+
                 }
                 else throw new Error("Main Menu Arcade Page Add OutSide Game Window Add Outside Game Title Text Is not Visible")
 
         }
 
-        async inputAddOutSideGameUrl() {                
+        async inputAddOutSideGameUrl() {
                 let ele = await this.page.locator(this.arcadePageElements.gameUrlInputField).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.gameUrlInputField).fill("https://www.lipsum.com/")
@@ -201,7 +201,7 @@ export default class arcadePage {
         }
 
 
-        async inputAddOutSideGameName() {                
+        async inputAddOutSideGameName() {
                 let ele = await this.page.locator(this.arcadePageElements.gameNameInputField).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.gameNameInputField).fill("Auto Game")
@@ -210,16 +210,16 @@ export default class arcadePage {
 
         }
 
-        async addOutSideGameModalSaveBtn() {                
+        async addOutSideGameModalSaveBtn() {
                 let ele = await this.page.locator(this.arcadePageElements.addOutSideGameModalSaveBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.addOutSideGameModalSaveBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.addOutSideGameModalSaveBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Add OutSide Game Modal Save Button Is not Visible")
 
         }
 
-        async enableNewlyAddedGame() { 
+        async enableNewlyAddedGame() {
                 let ele = await this.page.locator(this.arcadePageElements.lastOutSideGameCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.locator(this.arcadePageElements.lastOutSideGameCheckBox).check()
@@ -228,64 +228,64 @@ export default class arcadePage {
 
         }
 
-        async clickSquareBtn() {                
+        async clickSquareBtn() {
                 let ele = await this.page.locator(this.arcadePageElements.squareBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.squareBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.squareBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Square Button Is not Visible")
 
         }
 
-        async clickRectanglerBtn() {                
+        async clickRectanglerBtn() {
                 let ele = await this.page.locator(this.arcadePageElements.rectangleBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.rectangleBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.rectangleBtn).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Rectangle Button Is not Visible")
 
         }
         async verifyImageTypeTitleText() {
-                await this.page.waitForSelector(this.arcadePageElements.imageTypeText)                
+                await this.page.waitForSelector(this.arcadePageElements.imageTypeText)
                 let ele = await this.page.locator(this.arcadePageElements.imageTypeText).textContent()
                 if ((ele === "Logo / Header")) {
-                        
+
                 }
                 else throw new Error("Main Menu Arcade Page Image Type Title Text Is not Visible")
 
         }
 
-        async uploadFirstGameLogo() {                
+        async uploadFirstGameLogo() {
                 let ele = await this.page.locator(this.arcadePageElements.firstGameLogoEditBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.firstGameLogoEditBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.firstGameLogoEditBtn).click({ button: "left", delay: 1000 })
                 }
-                else{console.log("Main Menu Arcade Page First Game Logo Edit Btn Is not Visible")}
+                else { console.log("Main Menu Arcade Page First Game Logo Edit Btn Is not Visible") }
 
         }
-        async verifyLogoHeaderTitleText() {                
+        async verifyLogoHeaderTitleText() {
                 let ele = await this.page.locator(this.arcadePageElements.logoHeaderTitleText).textContent()
                 if ((ele === "Logo / Header")) {
-                        
+
                 }
                 else throw new Error("Main Menu Arcade Page Logo Header Title Text Is not Visible")
 
         }
 
-        async deleteArcadeLogoHeader() {                
+        async deleteArcadeLogoHeader() {
                 let ele = await this.page.locator(this.arcadePageElements.logoHeaderDeleteBtn).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.logoHeaderDeleteBtn).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.logoHeaderDeleteBtn).click({ button: "left", delay: 1000 })
                 }
-                else{console.log("Main Menu Arcade Page Logo Header Is not Visible")}
+                else { console.log("Main Menu Arcade Page Logo Header Is not Visible") }
 
         }
 
-        async clickLogoHeaderUploadInputField() {                
-                await this.page.waitForSelector(this.arcadePageElements.logoHeaderUploadInputField)                
+        async clickLogoHeaderUploadInputField() {
+                await this.page.waitForSelector(this.arcadePageElements.logoHeaderUploadInputField)
                 let ele = await this.page.locator(this.arcadePageElements.logoHeaderUploadInputField).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.logoHeaderUploadInputField).click({button:"left", delay:1000})
+                        await this.page.locator(this.arcadePageElements.logoHeaderUploadInputField).click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Main Menu Arcade Page Logo Header Upload Input Field Is not Visible")
                 // await this.page.waitForSelector(this.arcadePageElements.logoHeaderDeleteBtn)
@@ -294,73 +294,82 @@ export default class arcadePage {
 
 
 
-        async verifyLogoHerderSuccesfullyUploaded() {                
+        async verifyLogoHerderSuccesfullyUploaded() {
                 await this.page.waitForSelector(this.arcadePageElements.logoHeaderDeleteBtn)
                 let ele = await this.page.locator(this.arcadePageElements.logoHeaderDeleteBtn).isVisible()
-                if ((ele == true)) { 
-                        console.log("Main Menu Arcade Page Logo Header Is Uploaed Successfully")                       
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Page Logo Header Is Uploaed Successfully")
                 }
                 else throw new Error("Main Menu Arcade Page Logo Header Is not uploeded Successfully")
 
         }
 
 
-        async deleteFanaticsLogo() {                
-                
+        async deleteFanaticsLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).click({button:"left", delay:1000})
-                        
-                }              
-                
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).click({ button: "left", delay: 1000 })
+
+                }
+
 
         }
 
-        async deleteGuessTheScroeLogo() {                
-                
+        async deleteGuessTheScroeLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).click({ button: "left", delay: 1000 })
+                }
         }
-        async deleteTriviaLogo() {                
-                
+        async deleteTriviaLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.TriviaGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.TriviaGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.TriviaGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                }
         }
 
-        async deleteLiveWallLogo() {                
-                
+        async deleteLiveWallLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({ button: "left", delay: 1000 })
+                }
         }
 
-        async deleteNoiseMeterLogo() {                
-                
+        async deleteNoiseMeterLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).click({ button: "left", delay: 1000 })
+                }
         }
 
-        async deleteTugOfWarLogo() {                
-                
+        async deleteTugOfWarLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).click({ button: "left", delay: 1000 })
+                }
         }
 
-        async deletePrizeDropLogo() {                
-                
+        async deletePrizeDropLogo() {
+
                 let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).isVisible()
-                if ((ele == true)) { 
-                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({button:"left", delay:1000})                    
-                }              
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({ button: "left", delay: 1000 })
+                }
         }
 
 
@@ -387,46 +396,46 @@ export default class arcadePage {
                 // Now dispatch
                 await this.page.dispatchEvent("//div[@class='MuiBox-root css-v2612']", 'drop', { dataTransfer });
         }
-        async clickDeletefont(){
+        async clickDeletefont() {
                 const ele = this.page.locator("//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeIconSmall MuiButton-containedSizeIconSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeIconSmall MuiButton-containedSizeIconSmall css-1r4p8ew'] >> nth=0")
                 await expect(ele).toBeVisible()
                 await ele.click()
         }
 
-        async checkArcadesettingtext(){
+        async checkArcadesettingtext() {
                 const ele = this.page.locator("(//h4[text()='Arcade Settings'])[1]")
                 expect(ele).toContainText('Arcade Settings')
         }
-        async clickaddOutsidegame(){
+        async clickaddOutsidegame() {
                 const ele = this.page.locator("//button[text()='Add Outside Game']")
                 expect(ele).toContainText('Add Outside Game')
                 await ele.click()
         }
-        async clickclosebutton(){
-                const closebutton= this.page.locator("//div[@class='MuiBox-root css-1ydarmv']//parent::button")
+        async clickclosebutton() {
+                const closebutton = this.page.locator("//div[@class='MuiBox-root css-1ydarmv']//parent::button")
                 await expect(closebutton).toBeVisible()
                 await closebutton.click()
         }
 
-        
+
         async verifyImageTypeText() {
-         
+
                 const ele = await this.page.locator("//h4[text()='Image Type']")
                 expect.soft(ele).toContainText("Image Type")
-          
+
 
         }
 
-        
 
-        async addnewgame(){
-                const gameUrl=this.page.locator('#P-12890536272')
+
+        async addnewgame() {
+                const gameUrl = this.page.locator('#P-12890536272')
                 await gameUrl.type("https://garrett.testingdxp.com/")
 
                 const gamename = this.page.locator('#P2184981822')
                 await gamename.type("Auto")
 
-                const savebutton= this.page.locator("//button[text()='Save']")
+                const savebutton = this.page.locator("//button[text()='Save']")
                 await savebutton.click()
         }
 
@@ -445,21 +454,21 @@ export default class arcadePage {
 
 
         async clickToUploadLogoHeader() {
-         
+
                 const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
                 expect.soft(ele).toBeVisible()
                 await ele.click()
 
         }
 
-       async clickChooseBtn() {
-         
+        async clickChooseBtn() {
+
                 const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
                 expect.soft(ele).toBeVisible()
                 await ele.click()
 
         }
-        
+
 
 
 
@@ -470,7 +479,7 @@ export default class arcadePage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
                                 .locator("//p[text()='Square']")
-                                .click({force:true})
+                                .click({ force: true })
                 }
 
 
@@ -483,7 +492,7 @@ export default class arcadePage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
                                 .locator("//p[text()='Rectangle']")
-                                .click({force:true})
+                                .click({ force: true })
                 }
 
 
@@ -565,7 +574,7 @@ export default class arcadePage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page
                                 .locator("//li[@data-value='Default']")
-                                .click({force:true})
+                                .click({ force: true })
                 }
 
 
@@ -606,7 +615,7 @@ export default class arcadePage {
 
 
         }
-        
+
 
 
         async clickToSelectDefultLiveWall() {
@@ -622,7 +631,7 @@ export default class arcadePage {
         }
 
         async clickOutSideGameDeleteBtn() {
-                await this.page.locator("//div[@icon='assets/delete.d492d3e8.svg']").last().click({force:true})
+                await this.page.locator("//div[@icon='assets/delete.d492d3e8.svg']").last().click({ force: true })
                 // let ele = await this.page.locator("//div[@class='MuiBox-root css-flxl8s']").last().isVisible()
                 // if ((ele == true)) {
                 //         // console.log("Enable Stage to be skip and jump to next one")
@@ -646,7 +655,6 @@ export default class arcadePage {
 
         }
 
-        
 
 
 
@@ -654,5 +662,6 @@ export default class arcadePage {
 
 
 
-        
-    }
+
+
+}
