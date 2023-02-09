@@ -66,6 +66,8 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectEnglishLanguage()
 
+        
+
 
 
 

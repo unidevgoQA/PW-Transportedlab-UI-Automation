@@ -105,19 +105,9 @@ test("TL003-002 | Validate User Selectable Japanese Language Change Functionalit
         
     })
 
-
-
-
     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
-
-
-
-
-
         //Verify click on the user profile selectable input field
         await languagePage.clickUserProfileSelectableInputField()
-
-
         // await languagePage.deselectJapaneseLanguage()
 
         await languagePage.selectJapaneseLanguage()
@@ -233,9 +223,6 @@ test("TL003-006 | Validate User Selectable Spanish Language Change Functionality
         await languagePage.clickUserForceLanguageOption()
         await languagePage.clickUserSelectableRadioBtn();
     })
-
-
-
 
     await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
 
@@ -1073,6 +1060,7 @@ test("TL003-008 | Validate Forced Language Spanish Language Change Functionality
         await languagePage.selectEnglishLanguage()
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectSpanishLanguage()
+        await page.waitForTimeout(2000)
         // await languagePage.verifySpanishLanguageText()
 
         // await languagePage.clickOutSideOfLanguageSelectionModal()

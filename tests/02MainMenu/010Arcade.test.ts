@@ -317,7 +317,7 @@ test("010A-008 | Validate Admin Square Select Image Type Game Successfully Show 
             await newmobilePreviewPage.clicksubmit()
     })
 
-    await test.step("Verify Japanese Language Applaid Successfully", async () => {
+    await test.step("Validate Mobile Screen", async () => {
             await newmobilePreviewPage.clickArcadeSection()
             await newmobilePreviewPage.verifySquareImageTypeSuccessfullyAppliedInMobileScreeen()
             

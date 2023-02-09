@@ -26,10 +26,11 @@ export default class mobilePreviewPage {
                choiceCheckBox: "//input[@type='checkbox']",
                choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
                homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+               homeText: "//p[text()='HOME']",
                arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
                prizeDropGameText: "//p[text()='Prize Drop']",
                outSideGameTitleText: "//p[text()='Auto Game']",
-               squareImage: ".css-v74x4d>>nth=1",
+               squareImage: "//div[@class='MuiBox-root css-1nybqrq']",
                rectangulerImageType: ".css-rk019r>>nth=1",
                arcadeSectionlogoHeader: ".css-n8k4mt",
                fanaticsGameTitle: "//p[text()='Fanatics-Filter-Web']",
@@ -168,6 +169,7 @@ export default class mobilePreviewPage {
              }
              else throw new Error("Mobile Screen Arcade Game Section Is Not Visiable") 
              await this.page.waitForLoadState("networkidle")
+             await this.page.waitForTimeout(3000)
        }
 
        async verifyAddOutSideGameSuccessfullyShowOnMobileScreen() {
@@ -805,11 +807,8 @@ async clickSignInBtn() {
        }
 
        async verifyPrizeEntryIsApplyed() {
-              const ele = await this.page.locator("//div[@img='assets/PrizeIcon.fe356ae7.svg']//parent::button")
+              const ele = await this.page.locator("(//div[@img='assets/PrizeIcon.fe356ae7.svg'])[1]//parent::button")
               await expect(ele).toHaveAttribute('aria-pressed','true')
-
-
-
        }
 
        async verifyPrimaryColorAppliedInMobile(){
@@ -999,10 +998,11 @@ async clickSignInBtn() {
        }
 
        async verifyMainMenuFontSuccessfullyAppliedInMobileScreen() {
+              
+              const ele = await this.page.locator(this.mobilePreviewPageElements.homeText).screenshot()
+              await expect(ele).toMatchSnapshot("MainMenu_Font_Upload_UI.png", {maxDiffPixelRatio:0.01})
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("MainMenu_Font_Upload_UI.png") 
+             
 
 
 

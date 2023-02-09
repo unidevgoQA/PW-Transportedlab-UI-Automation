@@ -18,8 +18,8 @@ const config: PlaywrightTestConfig = {
     "009LiveWall.test.ts",    
     "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
-    // "012Trivia.test.ts",
-    // "guesstheScore.test.ts",
+    "012Trivia.test.ts",
+    "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
         
 

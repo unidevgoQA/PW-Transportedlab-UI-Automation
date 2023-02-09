@@ -100,7 +100,8 @@ export default class MobileDesign {
             this.page.waitForEvent('popup'),
             this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
         ]);
-        await this.page.waitForLoadState("networkidle")
+        // await this.page.waitForLoadState("networkidle")
+        await this.page.waitForTimeout(3000)
         return page1;
         
 
