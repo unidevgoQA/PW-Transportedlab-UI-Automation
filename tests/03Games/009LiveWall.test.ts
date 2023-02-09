@@ -1492,45 +1492,7 @@ test("009FanSee-20|Validate open link in VIP QR code is working",async({ loginPa
                  await browser.contexts()[0].pages()[1].waitForSelector("(//div[@id='app'])[1]",{state:'visible'})
         })
 })
-test.skip("009LW-0011 | Validate Analytics Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
 
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-
-
-        //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
-
-        //click Analytics Btn
-        await liveWallPage.clickAnalyticsBtn()
-
-        await page.waitForTimeout(2000)
-        await liveWallPage.clickAnalyticsBtn()
-        await page.waitForTimeout(2000)
-
-        // //download Anlytics
-        // await liveWallPage.downloadAnlytics()
-        //click Analytics Page Back Btn
-        await liveWallPage.clickAnalyticsPageBackBtn()
-        //click Game Stop Btn
-        await liveWallPage.clickGameStopBtn()
-
-        await page.waitForTimeout(2000)
-
-
-
-
-})
 
 test.skip("009LW-016 | Validate mobile  Link open in Mobile screen", async ({ loginPage, triviaPage, liveWallPage, functions, page, browser }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
@@ -1712,6 +1674,78 @@ test.skip("009LW-026 | Validate Output Screen Link text is visible.", async ({ l
                 await liveWallPage.clickRefreshBtn()
                 await liveWallPage.clickOutputLinkBtn()
                 await liveWallPage.verifyOutputScreenLinkText()
+        })
+})
+test('009FanSee-223|validate Analytics section is working',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+
+        await test.step("009FanSee-124|	navigate to fanseepage and open analytics page", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.click_analytics_Page()
+        })
+
+        await test.step('009FanSee-224|validate Export section in Analytics is working',async()=>{
+                await liveWallPage.validate_Download_exports()
+        })
+})
+test('009FanSee-225|validate prizing section in new instance is working',async({ loginPage, liveWallPage, functions, page }, testInfo) =>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+
+        await test.step("009FanSee-124|	navigate to fanseepage and open analytics page", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.click_prizing_Page()
+        })
+        await test.step('009FanSee-226|	validate add new prize button is working',async ()=>{
+                await liveWallPage.click_AddNewPrizeBtn()
+        })
+        await test.step('009FanSee-231|	validate Back_button in add new prize is working',async ()=>{
+                await liveWallPage.back_button()
+        })
+        await test.step('009FanSee-125|	Validate title in prizing section works',async ()=>{
+                await liveWallPage.click_AddNewPrizeBtn() 
+                await liveWallPage.input_title_prize("Automation_test_prize")
+        })
+        await test.step('009FanSee-126|	Validate total prize in add new prize works',async()=>{
+                await liveWallPage.input_total_prize('100')
+        })
+        await test.step('009FanSee-127|	Validate distribution type auto manual toggle works',async()=>{
+                await liveWallPage.click_auto_distribution_type()
+                await liveWallPage.click_manual_distribution_type()       
+        })
+
+        await test.step('009FanSee-128|	validate Chance field input is working',async()=>{
+                await liveWallPage.input_chance_amount('100')
+
         })
 })
 

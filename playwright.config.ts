@@ -58,7 +58,7 @@ const config: PlaywrightTestConfig = {
     navigationTimeout: 30 * 7000,
     baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
-      // args: ["--start-maximized"],
+      //  args: ["--start-maximized"],
       slowMo: 100
       
   },
@@ -66,7 +66,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'msedge',
-    viewport: { width: 1700, height: 920 },
+    // viewport: { width: 1080, height: 1920 },
     ignoreHTTPSErrors: true,
   // permissions: ["camera"],
   

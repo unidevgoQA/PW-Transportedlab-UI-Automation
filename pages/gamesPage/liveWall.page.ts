@@ -46,7 +46,19 @@ export default class liveWallPage {
     refresH_button:"//button[@aria-label='Refresh']",
     Vip_button:'//button[@aria-label="Vip"]',
     Mobile_link_text:'//h2[text()="Mobile Link"]',
-    Vip_link_text:'//h2[text()="VIP Link"]'
+    Vip_link_text:'//h2[text()="VIP Link"]',
+    title_input:'//p[text()="Title"]//following-sibling::div//input',
+    total_prize_input:'//p[text()="Total Prize"]//following-sibling::div//input',
+    Distribution_type_manual:"//p[text()='Manual']//parent::button",
+    distribution_type_auto:"//p[text()='Automatic']//parent::button",
+    condition_type_prize_dropdown:"//p[text()='Condition Type']//following-sibling::div//input[@placeholder='Select Condition Type']",
+    condition_type_list:"//li[text()='Participation']",
+    condition_type_time:"//li[text()='Time']",
+    condition_type_Made_output:"//li[text()='Made Output']",
+    chance_input:'//h6[text()="Chance"]//following-sibling::div//input',
+    input_coupon_tag:'//p[text()="Select Coupon"]//following-sibling::div//div',
+    coupon_item:'//p[text()="Name"]',
+    select_button_coupons:'//button[text()="Select"]'
   }
 
 
@@ -151,6 +163,99 @@ export default class liveWallPage {
         throw new Error("Either button element is not found or element visiblity is hidden");
       };
   }
+  async click_analytics_Page() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Analytics']").first();
+      if (await ele.isVisible()) {
+        await ele.click({ button: 'left' });
+      }
+      else {
+        throw new Error("Either button element is not found or element visiblity is hidden");
+      };
+  }
+  async click_prizing_Page() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Prizing']").last();
+      if (await ele.isVisible()) {
+        await ele.click({ button: 'left' });
+      }
+      else {
+        throw new Error("Either button element is not found or element visiblity is hidden");
+      };
+  }
+  //prizing section Here
+  async click_AddNewPrizeBtn() {
+    const ele = this.page.frameLocator('iframe').locator('//button[text()="Add New Prize"]')
+    await expect(ele).toBeVisible()
+    await ele.click({button:'left'})
+  }
+  async back_button(){
+    const ele = this.page.frameLocator('iframe').locator('//div//img')
+    await expect(ele).toBeVisible()
+    await ele.click({button:'left'})
+  }
+  async input_title_prize(value: string){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.title_input)
+    if(await ele.isVisible()){
+      await ele.fill(value)
+    }
+    else{
+      throw new Error('Title input element is not visible')
+    }
+  }
+  async input_total_prize(value: string){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.title_input)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+      await ele.fill(value)
+    }
+    else{
+      throw new Error('Total prize input element is not visible')
+    }
+  }
+  async click_manual_distribution_type(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.Distribution_type_manual)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('Manual distribution toggle is not visible')
+    }
+  }
+  async click_auto_distribution_type(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.distribution_type_auto)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('Auto distribution toggle is not visible')
+    }
+  }
+  async input_chance_amount(value: string){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.chance_input)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+      await ele.fill(value,{timeout:1000})
+    }
+    else{
+      throw new Error('Total prize input element is not visible')
+    }
+  }
+
 
 
   async clickClearBtn() {
@@ -1786,6 +1891,24 @@ export default class liveWallPage {
     }
     
 }
+async validate_Download_exports(){
+                
+  const [download] = await Promise.all([
+           this.page.waitForEvent('download'),
+           this.page.frameLocator('.css-r99fy3').locator('//button[text()="Export"]').first().click()
+])
+  const suggestedFileName = download.suggestedFilename()
+ 
+  if(suggestedFileName.match('Fan_see')){
+    const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
+    await download.saveAs(filePath)
+    expect(existsSync(filePath)).toBeTruthy()
+  }
+  else{
+    throw new Error("There is a problem with your download,may be you have changed the file name please Add the string Fan-See-QR to the Qr file name")
+  }
+  
+}
 
   //Live Wall Home page 
   async clickQRCodeWindowCloseBtn() {
@@ -1852,12 +1975,6 @@ export default class liveWallPage {
     await ele.click();
   }
 
-  async clickAnalyticsBtn() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator("//button[text()='Analytics']");
-    await ele.click({ force: true });
-  }
 
 
   async downloadAnlytics() {
