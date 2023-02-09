@@ -12,12 +12,12 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
           "008TugOfWar.test.ts"
@@ -43,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
-    "rootDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-001 | Add New Configuration",
+          "title": "008TOFW-0016 | Validate Sponsor Logo Upload Successfully from admin side ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,17 +74,17 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 27642,
+                  "duration": 44878,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T17:19:57.766Z",
+                  "startTime": "2023-02-09T18:35:39.093Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-001-Add-New-Configuration\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-0016-Validate-Sponsor-Logo-Upload-Successfully-from-admin-side-\\test-finished-1.png"
                     }
                   ]
                 }
@@ -92,13 +92,13 @@
               "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-d693d36eb2a06419291e",
+          "id": "26becc8c701c81079457-1d042dfb134ba57e3e19",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 11,
-          "column": 5
+          "line": 374,
+          "column": 6
         },
         {
-          "title": "008TOFW-002 | Navigate to the game setiing",
+          "title": "008TOFW-0016 | Gasme Tistle Image Upload",
           "ok": true,
           "tags": [],
           "tests": [
@@ -112,221 +112,25 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 25760,
+                  "duration": 86556,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T17:20:25.552Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-002-Navigate-to-the-game-setiing\\test-finished-1.png"
-                    }
-                  ]
+                  "startTime": "2023-02-09T18:36:24.468Z",
+                  "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-e46f004722d8bf31260d",
+          "id": "26becc8c701c81079457-e109e4f7426375c0dc9a",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 64,
-          "column": 5
+          "line": 394,
+          "column": 6
         },
         {
-          "title": "008TOFW-003 | Font Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 24324,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:20:51.315Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-003-Font-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-d3d97e28ecddcd78d653",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 81,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-004 | Verify Primary Color Section",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 25265,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:21:15.643Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-004-Verify-Primary-Color-Section\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-80c43afa44dc113c1f7b",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 97,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-005 | Verify Secondary Color Section",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 25087,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:21:40.910Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Verify-Secondary-Color-Section\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-84c99acc167ec9790129",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 129,
-          "column": 5
-        },
-        {
-          "title": "08TOFW-006 | Verify0 Text Color Section",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 17190,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:22:05.998Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-08TOFW-006-Verify0-Text-Color-Section\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-32a53cb2f50f52661e8e",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 159,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-007 | Verify Image Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 31828,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:22:23.191Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-007-Verify-Image-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-944f558eddcf362e3001",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 189,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-008 | Verify Mobile Background Upload",
+          "title": "008TOFW-0016 | Gsame Title Image Upload",
           "ok": false,
           "tags": [],
           "tests": [
@@ -340,744 +144,72 @@
                 {
                   "workerIndex": 0,
                   "status": "failed",
-                  "duration": 18958,
+                  "duration": 2165,
                   "error": {
-                    "message": "mobile backgroud Element Is Not Found",
-                    "stack": "Error: mobile backgroud Element Is Not Found\n    at tugOfWarPage.mobilebackgroudUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1685:20)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:247:9"
+                    "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================",
+                    "stack": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:423:20"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
+                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts",
                         "column": 20,
-                        "line": 1685
+                        "line": 423
                       },
-                      "message": "Error: mobile backgroud Element Is Not Found\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:1685\n\n\u001b[0m \u001b[90m 1683 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39mmobileUploadBackground)\u001b[33m.\u001b[39mclick()\u001b[0m\n\u001b[0m \u001b[90m 1684 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1685 |\u001b[39m         \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"mobile backgroud Element Is Not Found\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1686 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1687 |\u001b[39m         \u001b[90m//await this.page.waitForTimeout(3000)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1688 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.mobilebackgroudUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1685:20)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:247:9\u001b[22m"
+                      "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n\n\u001b[90m   at \u001b[39mtests\\03Games\\008TugOfWar.test.ts:423\n\n\u001b[0m \u001b[90m 421 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 422 |\u001b[39m test\u001b[33m.\u001b[39monly(\u001b[32m\"008TOFW-0016 | Gsame Title Image Upload\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ loginPage\u001b[33m,\u001b[39m tugOfWarPage\u001b[33m,\u001b[39m functions\u001b[33m,\u001b[39m page\u001b[33m,\u001b[39m }\u001b[33m,\u001b[39m testInfo) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 423 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/#/sign-in'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 424 |\u001b[39m         \u001b[36mawait\u001b[39m loginPage\u001b[33m.\u001b[39mlogin(data\u001b[33m.\u001b[39musername\u001b[33m,\u001b[39m data\u001b[33m.\u001b[39mpassword)\u001b[0m\n\u001b[0m \u001b[90m 425 |\u001b[39m         \u001b[36mconst\u001b[39m title \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mtitle()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 426 |\u001b[39m         expect(title)\u001b[33m.\u001b[39mtoBe(\u001b[32m'DXP Admin'\u001b[39m)\u001b[0m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:423:20\u001b[22m"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T17:22:55.021Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-008-Verify-Mobile-Background-Upload\\test-failed-1.png"
-                    }
-                  ],
+                  "startTime": "2023-02-09T18:37:51.027Z",
+                  "attachments": [],
                   "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
+                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts",
                     "column": 20,
-                    "line": 1685
+                    "line": 423
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "26becc8c701c81079457-18ced34b67c971f79ace",
+          "id": "26becc8c701c81079457-f8d52b0cad99994cf13c",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 237,
-          "column": 5
+          "line": 422,
+          "column": 6
         },
         {
-          "title": "008TOFW-009 | Verify Send By Message Input Field",
+          "title": "008TOFW-0016 | Gasme Titsle Image Upload",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 300000,
+              "timeout": 0,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "status": "passed",
-                  "duration": 15332,
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T17:23:14.762Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-009-Verify-Send-By-Message-Input-Field\\test-finished-1.png"
-                    }
-                  ]
+                  "startTime": "2023-02-09T18:37:54.530Z",
+                  "attachments": []
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
-          "id": "26becc8c701c81079457-147e61f0f5874f67fb80",
+          "id": "26becc8c701c81079457-68b5b257861dccbf0e94",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 258,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0010 | Invalid Image Alert",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "status": "passed",
-                  "duration": 40486,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:23:30.214Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0010-Invalid-Image-Alert\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-3eea41265f3bea6b919c",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 270,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0011 | Invalid Mobile Background Upload Alert",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "status": "failed",
-                  "duration": 15954,
-                  "error": {
-                    "message": "mobile backgroud Element Is Not Found",
-                    "stack": "Error: mobile backgroud Element Is Not Found\n    at tugOfWarPage.mobilebackgroudUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1685:20)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:299:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 20,
-                        "line": 1685
-                      },
-                      "message": "Error: mobile backgroud Element Is Not Found\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:1685\n\n\u001b[0m \u001b[90m 1683 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39mmobileUploadBackground)\u001b[33m.\u001b[39mclick()\u001b[0m\n\u001b[0m \u001b[90m 1684 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1685 |\u001b[39m         \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"mobile backgroud Element Is Not Found\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1686 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1687 |\u001b[39m         \u001b[90m//await this.page.waitForTimeout(3000)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1688 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.mobilebackgroudUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1685:20)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:299:9\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:24:10.703Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0011-Invalid-Mobile-Background-Upload-Alert\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 20,
-                    "line": 1685
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "26becc8c701c81079457-d57ca4f14e4d8385e1c5",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 289,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0012 | Navigate to the stages Page ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "status": "passed",
-                  "duration": 19720,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:24:27.459Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0012-Navigate-to-the-stages-Page-\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-acaabcbbb4598c0e2cee",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 306,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0013 | Input Custom Mobile Waiting Message ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "status": "passed",
-                  "duration": 44421,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:24:47.300Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0013-Input-Custom-Mobile-Waiting-Message-\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-68e2f3ba202fc859467c",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 318,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0014 | Video Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "status": "passed",
-                  "duration": 29538,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:25:31.728Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0014-Video-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-ffd9a859ab0eb564e0e3",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 331,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0015 | Image Upload",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "status": "failed",
-                  "duration": 242180,
-                  "error": {
-                    "message": "page.waitForLoadState: Timeout 210000ms exceeded.",
-                    "stack": "page.waitForLoadState: Timeout 210000ms exceeded.\n    at tugOfWarPage.ImageChooseFile (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1675:25)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:363:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 25,
-                        "line": 1675
-                      },
-                      "message": "page.waitForLoadState: Timeout 210000ms exceeded.\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:1675\n\n\u001b[0m \u001b[90m 1673 |\u001b[39m         \u001b[90m//await this.page.waitForTimeout(3000)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1674 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1675 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForLoadState(\u001b[32m\"networkidle\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1676 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1677 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1678 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.ImageChooseFile (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1675:25)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:363:9\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:26:01.267Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0015-Image-Upload\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 25,
-                    "line": 1675
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "26becc8c701c81079457-d070ef9951e75616baeb",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 348,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0016 | Game Title Image Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "status": "passed",
-                  "duration": 37022,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:30:04.184Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0016-Game-Title-Image-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-a4e61907758eb985b92b",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 370,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0017 | Team Logo Upload",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "status": "failed",
-                  "duration": 37507,
-                  "error": {
-                    "message": "Choose file Element Is Not Found",
-                    "stack": "Error: Choose file Element Is Not Found\n    at tugOfWarPage.ImageChooseFile (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1671:20)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:403:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 20,
-                        "line": 1671
-                      },
-                      "message": "Error: Choose file Element Is Not Found\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:1671\n\n\u001b[0m \u001b[90m 1669 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39m\u001b[33mImageChoosefilebutton\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[0m\n\u001b[0m \u001b[90m 1670 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1671 |\u001b[39m         \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Choose file Element Is Not Found\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1672 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1673 |\u001b[39m         \u001b[90m//await this.page.waitForTimeout(3000)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1674 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.ImageChooseFile (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1671:20)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:403:9\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:30:41.326Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0017-Team-Logo-Upload\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 20,
-                    "line": 1671
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "26becc8c701c81079457-65703114c0f892355a70",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 389,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0018 | Sponsor Logo Upload",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 4,
-                  "status": "failed",
-                  "duration": 19569,
-                  "error": {
-                    "message": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================",
-                    "stack": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================\n    at tugOfWarPage.SponsorLogoUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:2099:119)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:418:28"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 119,
-                        "line": 2099
-                      },
-                      "message": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:2099\n\n\u001b[0m \u001b[90m 2097 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 2098 |\u001b[39m \u001b[36masync\u001b[39m \u001b[33mSponsorLogoUploadClick\u001b[39m(){\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2099 |\u001b[39m         \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39m\u001b[33mSponsorLOgoUploadBTN\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                                                                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2100 |\u001b[39m         \u001b[36mif\u001b[39m ((ele \u001b[33m==\u001b[39m \u001b[36mtrue\u001b[39m)) {\u001b[0m\n\u001b[0m \u001b[90m 2101 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 2102 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39m\u001b[33mSponsorLOgoUploadBTN\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[0m\n\n\u001b[2m    at tugOfWarPage.SponsorLogoUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:2099:119)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:418:28\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:31:19.582Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0018-Sponsor-Logo-Upload\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 119,
-                    "line": 2099
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "26becc8c701c81079457-cf83e28cddd05f7e520a",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 407,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0019 | Preview Checkbox",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "passed",
-                  "duration": 23236,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:31:39.999Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0019-Preview-Checkbox\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-dca08d08b2edf7314af5",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 425,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0020 | Jump to next Checkbox",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "passed",
-                  "duration": 38102,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:32:03.356Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0020-Jump-to-next-Checkbox\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-a2e460c8efb0032704d4",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 438,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0021 | Invalid Image Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "passed",
-                  "duration": 25328,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:32:41.462Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0021-Invalid-Image-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-bedc87f4304479373ec9",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 451,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0022 | Invalid Game Title Image Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "passed",
-                  "duration": 23940,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:33:06.794Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0022-Invalid-Game-Title-Image-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-de7dda29e61603bb04f4",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 471,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0023 | INavalid Team Logo Image Upload",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "passed",
-                  "duration": 24106,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:33:30.739Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0023-INavalid-Team-Logo-Image-Upload\\test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-60424d8fe90ecf496834",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 490,
-          "column": 5
-        },
-        {
-          "title": "008TOFW-0024 | Inavalid Sponsor Logo Image Upload",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 5,
-                  "status": "failed",
-                  "duration": 18655,
-                  "error": {
-                    "message": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================",
-                    "stack": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================\n    at tugOfWarPage.SponsorLogoUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:2099:119)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:520:28"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 119,
-                        "line": 2099
-                      },
-                      "message": "locator.isVisible: Error: strict mode violation: locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']') resolved to 3 elements:\n    1) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > div > .MuiBox-root').first()\n    2) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > div > div > .MuiBox-root')\n    3) <div class=\"MuiBox-root css-v2612\"></div> aka locator('div:nth-child(2) > div:nth-child(3) > div > div > div > .MuiBox-root')\n\n=========================== logs ===========================\n  checking visibility of frameLocator('iframe').locator('xpath=//div[@class=\\'MuiBox-root css-v2612\\']')\n============================================================\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:2099\n\n\u001b[0m \u001b[90m 2097 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 2098 |\u001b[39m \u001b[36masync\u001b[39m \u001b[33mSponsorLogoUploadClick\u001b[39m(){\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 2099 |\u001b[39m         \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39m\u001b[33mSponsorLOgoUploadBTN\u001b[39m)\u001b[33m.\u001b[39misVisible()\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                                                                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 2100 |\u001b[39m         \u001b[36mif\u001b[39m ((ele \u001b[33m==\u001b[39m \u001b[36mtrue\u001b[39m)) {\u001b[0m\n\u001b[0m \u001b[90m 2101 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 2102 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39m\u001b[33mSponsorLOgoUploadBTN\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[0m\n\n\u001b[2m    at tugOfWarPage.SponsorLogoUploadClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:2099:119)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:520:28\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-09T17:33:54.849Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0024-Inavalid-Sponsor-Logo-Image-Upload\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 119,
-                    "line": 2099
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "26becc8c701c81079457-6001280d561ff72b2dfe",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 509,
-          "column": 5
+          "line": 447,
+          "column": 6
         }
       ]
     }

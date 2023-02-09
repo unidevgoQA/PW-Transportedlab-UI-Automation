@@ -28,6 +28,8 @@ export default class tugOfWarPage {
                 imageUploadbtn: "(//div[@class='MuiBox-root css-v2612'])[2]",
                 ImageChoosefilebutton: "//button[text()='Choose File']",
                 mobileUploadBackground: "(//div[@class='MuiBox-root css-v2612'])[3]",
+                moibleBackgroundDeleteBtn: "(//button[@aria-label='Delete'])[2]",
+                mainBoardBackgroundDeleteBtn: "//button[@aria-label='Delete']",
                 mobileBackgroundChoosefile: "//button[text()='Choose File']",
                 sendBymessagefield: "(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
                 secondaryColorPickerbtn: "//button[@background='#FF3B30']",
@@ -61,7 +63,19 @@ export default class tugOfWarPage {
                 VideoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 SelectImageUploadBTN:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
                 ImageuploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
-                GameTitleImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
+                titleBackgroundImageUploadBTN:"//div[@class='MuiBox-root css-v2612']",
+                GameTitleImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[2]",
+                teamLogoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[3]",
+                sponsorLogoUploadBtn:"(//div[@class='MuiBox-root css-v2612'])[4]",
+                titileBackgroundLogoDeleteBtn: "//button[@aria-label='Delete']",
+                GameTitleBackgroundLogoDeleteBtn: "(//button[@aria-label='Delete'])[2]",
+               teamLogoBackgroundLogoDeleteBtn: "(//button[@aria-label='Delete'])[3]",
+               sponsorLogoBackgroundLogoDeleteBtn: "(//button[@aria-label='Delete'])[4]",
+
+
+
+
+
                 ImageDeleteBTN:"(//button[@title='Delete']//div)[1]",
                 TeamLogoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 SponsorLOgoUploadBTN:"//div[@class='MuiBox-root css-v2612']",
@@ -1677,6 +1691,26 @@ async ImageChooseFile() {
 
 
 }
+
+async deleteMobileBackground() {
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.moibleBackgroundDeleteBtn).isVisible()
+        if ((ele == true)) {
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.moibleBackgroundDeleteBtn).click({button:"left", delay: 1000})
+        }
+        else {console.log("Tug Of War Game Design Mobile Background Is not found")}
+}
+
+
+async deleteMainBoardBackground() {
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.mainBoardBackgroundDeleteBtn).isVisible()
+        if ((ele == true)) {
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.mainBoardBackgroundDeleteBtn).click({button:"left", delay: 1000})
+        }
+        else {console.log("Tug Of War Game Design Main Board Background Is not found")}
+
+ 
+
+}
 async mobilebackgroudUploadClick() {
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.mobileUploadBackground).isVisible()
         if ((ele == true)) {
@@ -2083,6 +2117,51 @@ async GameTitleImageUploadClick(){
 
         //await this.page.waitForLoadState("networkidle")
 }
+
+async clickSponsorLogoInputField(){
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.sponsorLogoUploadBtn).isVisible()
+        if ((ele == true)) {
+                await this.page.waitForTimeout(3000)
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.sponsorLogoUploadBtn).click()
+        }
+        else throw  new Error("Game Title Image Upload Element Is Not Found")
+
+        //await this.page.waitForTimeout(3000)
+
+        //await this.page.waitForLoadState("networkidle")
+}
+
+async clickTeamLogoInputField(){
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.teamLogoUploadBTN).isVisible()
+        if ((ele == true)) {
+                await this.page.waitForTimeout(3000)
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.teamLogoUploadBTN).click({button:"left", delay:1000})
+        }
+        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        
+}
+
+
+async clickGameTitleImageUploadInputField(){
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.GameTitleImageUploadBTN).isVisible()
+        if ((ele == true)) {
+                await this.page.waitForTimeout(3000)
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.GameTitleImageUploadBTN).click({button:"left", delay:1000})
+        }
+        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        
+}
+
+async titleBackgroundImageUploadInputField(){
+        const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.titleBackgroundImageUploadBTN).isVisible()
+        if ((ele == true)) {
+                await this.page.waitForTimeout(3000)
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.titleBackgroundImageUploadBTN).click({button:"left", delay:1000})
+        }
+        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        
+}
+
 async TeamLogoUploadClick(){
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.TeamLogoUploadBTN).isVisible()
         if ((ele == true)) {

@@ -234,7 +234,7 @@ test("008TOFW-007 | Verify Image Upload", async ({ loginPage, tugOfWarPage, func
 
 
 
-test("008TOFW-008 | Verify Mobile Background Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-008 | Verify Mobile Background is Successfully Upload from admin", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -244,11 +244,15 @@ test("008TOFW-008 | Verify Mobile Background Upload", async ({ loginPage, tugOfW
         //click Tug Of War Page
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.mobilebackgroudUploadClick();
+        await tugOfWarPage.deleteMobileBackground()
+        await tugOfWarPage.deleteMainBoardBackground()
 
-        await functions.logoImageUploadFunction();
-        await tugOfWarPage.mobilebackgroundChoosefile();
-        await functions.fileUploadCropper();
+        await page.waitForTimeout(3000)
+        await functions.portraitBackgroundImageUploadHelper()
+        await page.waitForTimeout(2000)
+
+        await tugOfWarPage.mobilebackgroudUploadClick();
+        await functions.fileUploadCropper()
         await page.waitForTimeout(3000)
        // await tugOfWarPage.IMageUploadSavebtnClick();
         await page.waitForTimeout(3000)
@@ -367,7 +371,8 @@ test("008TOFW-0015 | Image Upload", async ({ loginPage, tugOfWarPage, functions,
         
 
 })
-test("008TOFW-0016 | Game Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+test.only("008TOFW-0016 | Validate Sponsor Logo Upload Successfully from admin side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -378,14 +383,88 @@ test("008TOFW-0016 | Game Title Image Upload", async ({ loginPage, tugOfWarPage,
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.navigateTotheConfig();
         await tugOfWarPage.stagesBTnClick();
+        await page.waitForTimeout(3000)
+        await functions.portraitBackgroundImageUploadHelper()
+        await tugOfWarPage.clickSponsorLogoInputField();
+        await functions.fileUploadCropper();       
+        //await tugOfWarPage.GameTitleImgDeleteClick();
+        await page.waitForTimeout(3000)
+})
+
+
+test.only("008TOFW-0016 | Gasme Tistle Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+
+        //click Tug Of War Page
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
+        await tugOfWarPage.stagesBTnClick();
+        await page.waitForTimeout(3000)
+        await functions.portraitBackgroundImageUploadHelper()
+       
+
+        await tugOfWarPage.clickTeamLogoInputField();
+        await functions.fileUploadCropper();
+
         await tugOfWarPage.GameTitleImageUploadClick();
-        await functions.logoImageUploadFunction();
-        await page.waitForTimeout(3000);
-        await tugOfWarPage.ImageChooseFile();
+        await functions.fileUploadCropper();
+
+
+        await tugOfWarPage.titleBackgroundImageUploadInputField();
         await functions.fileUploadCropper();
         //await tugOfWarPage.GameTitleImgDeleteClick();
         await page.waitForTimeout(3000)
 })
+
+test.only("008TOFW-0016 | Gsame Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+
+        //click Tug Of War Page
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
+        await tugOfWarPage.stagesBTnClick();
+        await page.waitForTimeout(3000)
+        await functions.portraitBackgroundImageUploadHelper()
+       
+        await tugOfWarPage.GameTitleImageUploadClick();
+        await functions.fileUploadCropper();
+
+
+        await tugOfWarPage.titleBackgroundImageUploadInputField();
+        await functions.fileUploadCropper();
+        //await tugOfWarPage.GameTitleImgDeleteClick();
+        await page.waitForTimeout(3000)
+})
+
+
+test.only("008TOFW-0016 | Gasme Titsle Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+
+        //click Tug Of War Page
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
+        await tugOfWarPage.stagesBTnClick();
+        await page.waitForTimeout(3000)
+        await functions.portraitBackgroundImageUploadHelper()
+       
+        await tugOfWarPage.titleBackgroundImageUploadInputField();
+        await functions.fileUploadCropper();
+        //await tugOfWarPage.GameTitleImgDeleteClick();
+        await page.waitForTimeout(3000)
+})
+
 test("008TOFW-0017 | Team Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
