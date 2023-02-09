@@ -20,17 +20,7 @@
         "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts",
-          "002MobileDesign.test.ts",
-          "003Language.test.ts",
-          "004Menu.test.ts",
-          "005SignUp.test.ts",
-          "006GlobalPrizing.test.ts",
-          "007PrizeDrop.test.ts",
-          "009LiveWall.test.ts",
-          "010Arcade.test.ts",
-          "011AddNewExperiences.test.ts",
-          "guesstheScore.test.ts"
+          "010Arcade.test.ts"
         ],
         "timeout": 300000
       }
@@ -70,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "010A-011 | Validate Admin Successfully Delete Game Logo For Fanatics-Filter-Web",
+          "title": "010A-020 | Validate Admin Successfully Disable Fanatics-Filter-Web Game",
           "ok": true,
           "tags": [],
           "tests": [
@@ -84,7 +74,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 21056,
+                  "duration": 18829,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
@@ -92,15 +82,15 @@
                   "steps": [
                     {
                       "title": "Login admin and land to arcade",
-                      "duration": 17556
+                      "duration": 17298
                     }
                   ],
-                  "startTime": "2023-02-08T11:30:47.836Z",
+                  "startTime": "2023-02-09T05:28:59.293Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-010Arcade-010A-011-Validate-A-575d2-sfully-Delete-Game-Logo-For-Fanatics-Filter-Web\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-010Arcade-010A-020-Validate-Admin-Successfully-Disable-Fanatics-Filter-Web-Game\\test-finished-1.png"
                     }
                   ]
                 }
@@ -108,263 +98,10 @@
               "status": "expected"
             }
           ],
-          "id": "e20982d1e4ae30b1b040-2da7aef386b416fbbdeb",
+          "id": "e20982d1e4ae30b1b040-54b1bd8312bb56c05994",
           "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 389,
+          "line": 661,
           "column": 6
-        },
-        {
-          "title": "010A-012 | Validate Admin Successfully Delete Game Logo For Guess The Scroe",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 76872,
-                  "error": {
-                    "message": "page.waitForSelector: Timeout 60000ms exceeded.\n=========================== logs ===========================\nwaiting for locator('xpath=//button[text()=\\'Choose File\\']') to be visible\n============================================================",
-                    "stack": "page.waitForSelector: Timeout 60000ms exceeded.\n=========================== logs ===========================\nwaiting for locator('xpath=//button[text()=\\'Choose File\\']') to be visible\n============================================================\n    at functions.fileUploadCropperWithoutIframe (D:\\Work Station\\Unidevgo\\Playwright\\testData\\func.ts:286:33)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:432:25"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\testData\\func.ts",
-                        "column": 33,
-                        "line": 286
-                      },
-                      "message": "page.waitForSelector: Timeout 60000ms exceeded.\n=========================== logs ===========================\nwaiting for locator('xpath=//button[text()=\\'Choose File\\']') to be visible\n============================================================\n\n\u001b[90m   at \u001b[39mtestData\\func.ts:286\n\n\u001b[0m \u001b[90m 284 |\u001b[39m                 \u001b[90m// const imageText = await this.page.locator(\"text='Image'\")\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 285 |\u001b[39m                 \u001b[90m// expect(imageText).toContainText(\"Image\")\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 286 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m\"//button[text()='Choose File']\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 287 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 288 |\u001b[39m                 \u001b[36mconst\u001b[39m ratioText \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"text='Ratio:'\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 289 |\u001b[39m                 expect\u001b[33m.\u001b[39msoft(ratioText)\u001b[33m.\u001b[39mtoContainText(\u001b[32m\"Ratio:\"\u001b[39m)\u001b[0m\n\n\u001b[2m    at functions.fileUploadCropperWithoutIframe (D:\\Work Station\\Unidevgo\\Playwright\\testData\\func.ts:286:33)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:432:25\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login admin and land to arcade",
-                      "duration": 15151
-                    }
-                  ],
-                  "startTime": "2023-02-08T11:31:09.336Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-010Arcade-010A-012-Validate-Admin-Successfully-Delete-Game-Logo-For-Guess-The-Scroe\\test-failed-1.png"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\testData\\func.ts",
-                    "column": 33,
-                    "line": 286
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-abea94bdf70806c92b9e",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 415,
-          "column": 6
-        },
-        {
-          "title": "010A-013 | Validate Admin Successfully Delete Game Logo For Trivia",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "status": "interrupted",
-                  "duration": 15062,
-                  "error": {
-                    "message": "\u001b[31mTest timeout of 300000ms exceeded.\u001b[39m"
-                  },
-                  "errors": [
-                    {
-                      "message": "\u001b[31mTest timeout of 300000ms exceeded.\u001b[39m"
-                    },
-                    {
-                      "location": {
-                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\arcade.page.ts",
-                        "column": 33,
-                        "line": 105
-                      },
-                      "message": "page.waitForLoadState: Navigation failed because page was closed!\n\n\u001b[90m   at \u001b[39mpages\\mainMenuPage\\arcade.page.ts:105\n\n\u001b[0m \u001b[90m 103 |\u001b[39m                 }\u001b[0m\n\u001b[0m \u001b[90m 104 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Main Menu Arcade Page Element Is not Visible\"\u001b[39m)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 105 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForLoadState(\u001b[32m\"networkidle\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 106 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 107 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 108 |\u001b[39m\u001b[0m\n\n\u001b[2m    at arcadePage.clickArcadePage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\arcade.page.ts:105:33)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:453:13\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:443:9\u001b[22m"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login admin and land to arcade",
-                      "duration": 14866,
-                      "error": {
-                        "message": "page.waitForLoadState: Navigation failed because page was closed!",
-                        "stack": "page.waitForLoadState: Navigation failed because page was closed!\n    at arcadePage.clickArcadePage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\arcade.page.ts:105:33)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:453:13\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\010Arcade.test.ts:443:9"
-                      }
-                    }
-                  ],
-                  "startTime": "2023-02-08T11:32:27.742Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-010Arcade-010A-013-Validate-Admin-Successfully-Delete-Game-Logo-For-Trivia\\test-failed-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-295ea45a31be063a55a9",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 441,
-          "column": 10
-        },
-        {
-          "title": "010A-014 | Validate Admin Successfully Delete Game Logo For Live Wall",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-08T11:32:48.871Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-861e4134d4c465e14842",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 467,
-          "column": 10
-        },
-        {
-          "title": "010A-015 | Validate Admin Successfully Delete Game Logo For Noise Meter",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-08T11:32:48.871Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-8cc5613568c42cbc3131",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 493,
-          "column": 10
-        },
-        {
-          "title": "010A-016 | Validate Admin Successfully Delete Game Logo For Tug Of War",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-08T11:32:48.871Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-30ecac0918f8b55df210",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 518,
-          "column": 10
-        },
-        {
-          "title": "010A-017 | Validate Admin Successfully Delete Game Logo For Prize Drop",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 0,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-02-08T11:32:48.871Z",
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "e20982d1e4ae30b1b040-146e72d3a977a64f03c5",
-          "file": "tests/02MainMenu/010Arcade.test.ts",
-          "line": 544,
-          "column": 10
         }
       ]
     }

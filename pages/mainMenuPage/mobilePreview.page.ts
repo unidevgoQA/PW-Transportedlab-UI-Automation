@@ -31,7 +31,19 @@ export default class mobilePreviewPage {
                outSideGameTitleText: "//p[text()='Auto Game']",
                squareImage: ".css-v74x4d>>nth=1",
                rectangulerImageType: ".css-rk019r>>nth=1",
-               arcadeSectionlogoHeader: ".css-n8k4mt"
+               arcadeSectionlogoHeader: ".css-n8k4mt",
+               fanaticsGameTitle: "//p[text()='Fanatics-Filter-Web']",
+               gussTheScroeGameTitle: "//p[text()='Guess The Score']",
+               triviaGameTitle: "//p[text()='Trivia']",
+               liveWallGameTitle: "//p[text()='Live Wall']",
+               noiseMeterGameTitle: "//p[text()='Noise Meter']",
+               tugOfWarGameTitle: "//p[text()='Tug of War']",
+               prizeDropGameTitle: "//p[text()='Prize Drop']",
+
+
+
+
+
 
 
                
@@ -155,7 +167,7 @@ export default class mobilePreviewPage {
                      
              }
              else throw new Error("Mobile Screen Arcade Game Section Is Not Visiable") 
-             await this.page.waitForLoadState("networkidle")             
+             await this.page.waitForLoadState("networkidle")
        }
 
        async verifyAddOutSideGameSuccessfullyShowOnMobileScreen() {
@@ -175,6 +187,57 @@ export default class mobilePreviewPage {
               expect(ele).toMatchSnapshot("arcade-font-uploaded-ui.png")
                          
        }
+
+       async verifyFanaticsLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.fanaticsGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.fanaticsGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-FanaticsLogo-uploaded-ui.png")
+                         
+       }
+
+       async verifyGussTheScroeGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.gussTheScroeGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.gussTheScroeGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-gussTheScroeGame-uploaded-ui.png")
+                         
+       }
+
+       async verifyTriviaGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.triviaGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.triviaGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-triviaGame-uploaded-ui.png")
+                         
+       }
+
+       async verifyLiveWallGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.liveWallGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.liveWallGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-liveWallGameLogo-uploaded-ui.png")
+                         
+       }
+
+       async verifyNoiseMeterGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.noiseMeterGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.noiseMeterGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-noiseMeterGameLogo-uploaded-ui.png")
+                         
+       }
+
+       async verifyTugOfWarGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.tugOfWarGameTitle)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.tugOfWarGameTitle).screenshot()
+              expect(ele).toMatchSnapshot("arcade-tugOfWarGameLogo-uploaded-ui.png")
+                         
+       }
+
+       async verifyPrizeDropGameLogoSuccessfullyUplodedInMobileScreen() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.prizeDropGameText)
+              const ele = await this.page.locator(this.mobilePreviewPageElements.prizeDropGameText).screenshot()
+              expect(ele).toMatchSnapshot("arcade-gussTheScroeGameTitle-uploaded-ui.png")
+                         
+       }
+
+       
 
        async verifySquareImageTypeSuccessfullyAppliedInMobileScreeen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.squareImage)

@@ -42,13 +42,13 @@ export default class arcadePage {
                 lastOutSideGameDeleteBtn: "//div[@icon='assets/delete.d492d3e8.svg']",
                 secondLastOutSideGameDeleteBtn: "//div[@icon='assets/delete.d492d3e8.svg>>nth=-1']",
                 firstGameLogoEditBtn: "(//button[@title='Edit'])[1]",
-                fanaticsFilterWebGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[8]",
-                guessTheScroeGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[7]",
-                TriviaGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[6]",
-                liveWAllGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[5]",
-                noiseMeterGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[4]",
-                tugOfWarGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[3]",
-                prizeDropGameLogoInput: "(//div[@class='MuiBox-root css-vjb914'])[2]",
+                fanaticsFilterWebGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[7]",
+                guessTheScroeGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[6]",
+                TriviaGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[5]",
+                liveWAllGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[4]",
+                noiseMeterGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[3]",
+                tugOfWarGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[2]",
+                prizeDropGameLogoInput: "(//div[@class='MuiBox-root css-pvw61w'])[1]",
                 fanaticsFilterWebGameLogoEdit: "(//button[@aria-label='Edit'])[8]",
                 guessTheScroeGameLogoEdit: "(//button[@aria-label='Edit'])[7]",
                 TriviaGameLogoEdit: "(//button[@aria-label='Edit'])[6]",
@@ -56,9 +56,14 @@ export default class arcadePage {
                 noiseMeterGameLogoEdit: "(//button[@aria-label='Edit'])[4]",
                 tugOfWarGameLogoEdit: "(//button[@aria-label='Edit'])[3]",
                 prizeDropGameLogoEdit: "(//button[@aria-label='Edit'])[2]",
+                fanaticsGameChecbox: "//input[@type='checkbox']>>nth=1",
+                guessTheScroeGameChecbox: "(//input[@type='checkbox'])[6]",
+                TriviaGameChecbox: "(//input[@type='checkbox'])[5]",
+                liveWallGameChecbox: "(//input[@type='checkbox'])[4]",
+                noiseMeterGameChecbox: "(//input[@type='checkbox'])[3]",
+                tugOfWarGameChecbox: "(//input[@type='checkbox'])[2]",
+                prizeDropGameChecbox: "(//input[@type='checkbox'])[1]",                
 
-
-                ageCheckBox: "(//span[text()='Email Address']/following::input)[1]",
                 dateOfBirthCheckBox: "(//span[text()='Age']/following::input)[1]",
                 zipCodeCheckBox: "(//span[text()='Date of Birth']/following::input)[1]",
                 urlTextInputField: "(//label[text()='Text']/following::input)[1]",
@@ -248,7 +253,7 @@ export default class arcadePage {
         async verifyImageTypeTitleText() {
                 await this.page.waitForSelector(this.arcadePageElements.imageTypeText)
                 let ele = await this.page.locator(this.arcadePageElements.imageTypeText).textContent()
-                if ((ele === "Logo / Header")) {
+                if ((ele === "Image Type")) {
 
                 }
                 else throw new Error("Main Menu Arcade Page Image Type Title Text Is not Visible")
@@ -310,7 +315,15 @@ export default class arcadePage {
                 let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).click({ button: "left", delay: 1000 })
-
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
 
 
@@ -321,6 +334,15 @@ export default class arcadePage {
                 let ele = await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
         }
         async deleteTriviaLogo() {
@@ -345,6 +367,15 @@ export default class arcadePage {
                 let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
         }
 
@@ -353,6 +384,15 @@ export default class arcadePage {
                 let ele = await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
         }
 
@@ -361,16 +401,199 @@ export default class arcadePage {
                 let ele = await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
         }
 
         async deletePrizeDropLogo() {
 
-                let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).isVisible()
+                let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector("//button[text()='Choose File']")
+                        const chooseBtn = await this.page.locator("//button[text()='Choose File']")
+                        expect.soft(chooseBtn).toContainText("Choose File")
+                        const filePath0 = "testData/logos/PotraitBanner.png"
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await chooseBtn.click()
+                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
                 }
         }
+
+        
+        async uploadFanaticsFilterWebLogo() {
+                await this.page.waitForSelector(this.arcadePageElements.fanaticsFilterWebGameLogoInput)
+                let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Fanatics Filter Web Logo Input Field Is Not Visible")
+               
+        }
+
+        async verifyFanaticsFilterWebLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.prizeDropGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Fanatics Filter Web Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Fanatics Filter Web Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async uploadGuessTheScroeLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Guess The Scroe Logo Input Field Is Not Visible")
+        }
+
+        async verifyGuessTheScroeLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.tugOfWarGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.tugOfWarGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Guess The Score Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Guess The Score Logo Is Not Uploaded Successfully")
+                
+        }
+
+        
+        async uploadTriviaLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.TriviaGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.TriviaGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Trivia Logo Input Field Is Not Visible")
+        }
+
+        async verifyTriviaLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.noiseMeterGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.noiseMeterGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Trivia Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Trivia Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async uploadLiveWallLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.liveWAllGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Trivia Logo Input Field Is Not Visible")
+        }
+
+        async verifyLiveWallLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.liveWAllGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.liveWAllGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Live Wall Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Live Wall Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async uploadNoiseMeterLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.noiseMeterGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.noiseMeterGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Noise Meter Logo Input Field Is Not Visible")
+        }
+
+        async verifyNoiseMeterLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.TriviaGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.TriviaGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Noise Meter Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Noise Meter Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async uploadTugOfWarLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.tugOfWarGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.tugOfWarGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Tug Of War Game Logo Input Field Is Not Visible")
+        }
+
+        async verifyTugOfWarLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.guessTheScroeGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.guessTheScroeGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Tug Of War Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Tug Of War Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async uploadPrizeDropLogo() {
+
+                let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoInput).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.prizeDropGameLogoInput).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Prize Drop  Game Logo Input Field Is Not Visible")
+        }
+
+        async verifyPrizeDropLogoUploadSuccessfully() {
+                await this.page.waitForSelector(this.arcadePageElements.fanaticsFilterWebGameLogoEdit)
+                let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoEdit).isVisible()
+                if ((ele == true)) {
+                        console.log("Main Menu Arcade Section Prize Drop Logo Upload Successfully")                        
+                }
+                else throw new Error("Main Menu Arcade Section Prize Drop Logo Is Not Uploaded Successfully")
+                
+        }
+
+        async disableFanaticsGame() {
+                await this.page.waitForSelector(this.arcadePageElements.fanaticsGameChecbox)
+                await this.page.locator(this.arcadePageElements.fanaticsGameChecbox).dblclick({force:true})
+
+                // let ele = await this.page.locator(this.arcadePageElements.fanaticsGameChecbox).isChecked()
+                // if ((ele == true)) {
+                //         await this.page.locator(this.arcadePageElements.fanaticsGameChecbox).uncheck()                    
+                // }
+                // else {console.log("Main Menu Arcade Page Fanatics Game Enable/Disable Button Is Check");}
+                
+        }
+
+        async disableGuessTheScroeGame() {
+
+                let ele = await this.page.locator(this.arcadePageElements.guessTheScroeGameChecbox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.arcadePageElements.guessTheScroeGameChecbox).click({ button: "left", delay: 1000 })                        
+                }
+                else throw new Error("Main Menu Arcade Page Fanatics Game Enable/Disable Button Is Not Visible")
+        }
+
+
+
+
+
+
+
+
 
 
         async checkFontsText() {
