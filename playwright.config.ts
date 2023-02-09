@@ -66,7 +66,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'msedge',
-    // viewport: { width: 1080, height: 1920 },
+    viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
   // permissions: ["camera"],
   
