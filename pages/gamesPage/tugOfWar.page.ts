@@ -67,8 +67,7 @@ export default class tugOfWarPage {
         async clickTugOfWarPage() {
                 const locator = this.page.locator('text=Tug of War')
                 expect(locator).toContainText('Tug of War')
-                await locator.click({ button: "left", delay: 1000 })
-                // console.log("Successfully Click To Tug of War Page ")
+                await locator.click({ button: "left", delay: 1000 })                
                 await this.page.waitForLoadState("networkidle");
         }
 

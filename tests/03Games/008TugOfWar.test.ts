@@ -276,6 +276,7 @@ test.only("008TOFW-0010 | Invalid Image Alert", async ({ loginPage, tugOfWarPage
 
         //click Tug Of War Page
         await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
         
         await tugOfWarPage.imageUploadButtonClick();
         await functions.fontUploadFunction();

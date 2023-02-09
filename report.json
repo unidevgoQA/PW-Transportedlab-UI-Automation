@@ -12,12 +12,12 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
           "008TugOfWar.test.ts"
@@ -43,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
-    "rootDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -61,7 +61,7 @@
       "specs": [
         {
           "title": "008TOFW-0010 | Invalid Image Alert",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -73,41 +73,23 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 10664,
-                  "error": {
-                    "message": "Image Upload Element Is Not Found",
-                    "stack": "Error: Image Upload Element Is Not Found\n    at tugOfWarPage.imageUploadButtonClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1644:20)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:280:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 20,
-                        "line": 1644
-                      },
-                      "message": "Error: Image Upload Element Is Not Found\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:1644\n\n\u001b[0m \u001b[90m 1642 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mgameSettingPageElements\u001b[33m.\u001b[39mimageUploadbtn)\u001b[33m.\u001b[39mclick({ button\u001b[33m:\u001b[39m \u001b[32m\"left\"\u001b[39m\u001b[33m,\u001b[39m delay\u001b[33m:\u001b[39m \u001b[35m1000\u001b[39m })\u001b[0m\n\u001b[0m \u001b[90m 1643 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 1644 |\u001b[39m         \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Image Upload Element Is Not Found\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m      |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1645 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1646 |\u001b[39m         \u001b[90m//await this.page.waitForTimeout(3000)\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 1647 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.imageUploadButtonClick (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:1644:20)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:280:9\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 21657,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T05:44:52.659Z",
+                  "startTime": "2023-02-09T05:52:08.659Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0010-Invalid-Image-Alert\\test-failed-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-0010-Invalid-Image-Alert\\test-finished-1.png"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 20,
-                    "line": 1644
-                  }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "26becc8c701c81079457-3eea41265f3bea6b919c",
