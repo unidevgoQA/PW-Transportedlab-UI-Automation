@@ -12,12 +12,12 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
+        "outputDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "D:/Work Station/Unidevgo/Playwright",
+        "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
         "testIgnore": [],
         "testMatch": [
           "008TugOfWar.test.ts"
@@ -43,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
-    "rootDir": "D:/Work Station/Unidevgo/Playwright",
+    "configFile": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
+    "rootDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-0016 | Validate Sponsor Logo Upload Successfully from admin side ",
+          "title": "008TOFW-001 | Add New Configuration",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,17 +74,17 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 44878,
+                  "duration": 26413,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T18:35:39.093Z",
+                  "startTime": "2023-02-10T08:26:56.482Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-0016-Validate-Sponsor-Logo-Upload-Successfully-from-admin-side-\\test-finished-1.png"
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-001-Add-New-Configuration\\test-finished-1.png"
                     }
                   ]
                 }
@@ -92,13 +92,13 @@
               "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-1d042dfb134ba57e3e19",
+          "id": "26becc8c701c81079457-d693d36eb2a06419291e",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 374,
-          "column": 6
+          "line": 11,
+          "column": 5
         },
         {
-          "title": "008TOFW-0016 | Gasme Tistle Image Upload",
+          "title": "008TOFW-002 | Navigate to the game setiing",
           "ok": true,
           "tags": [],
           "tests": [
@@ -112,26 +112,32 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 86556,
+                  "duration": 29172,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T18:36:24.468Z",
-                  "attachments": []
+                  "startTime": "2023-02-10T08:27:23.151Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-002-Navigate-to-the-game-setiing\\test-finished-1.png"
+                    }
+                  ]
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-e109e4f7426375c0dc9a",
+          "id": "26becc8c701c81079457-e46f004722d8bf31260d",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 394,
-          "column": 6
+          "line": 64,
+          "column": 5
         },
         {
-          "title": "008TOFW-0016 | Gsame Title Image Upload",
-          "ok": false,
+          "title": "008TOFW-003 | Font Upload",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -143,73 +149,841 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 2165,
-                  "error": {
-                    "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================",
-                    "stack": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:423:20"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts",
-                        "column": 20,
-                        "line": 423
-                      },
-                      "message": "page.goto: Navigation failed because page was closed!\n=========================== logs ===========================\nnavigating to \"https://qa-1.testingdxp.com/admin/#/sign-in\", waiting until \"load\"\n============================================================\n\n\u001b[90m   at \u001b[39mtests\\03Games\\008TugOfWar.test.ts:423\n\n\u001b[0m \u001b[90m 421 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 422 |\u001b[39m test\u001b[33m.\u001b[39monly(\u001b[32m\"008TOFW-0016 | Gsame Title Image Upload\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ loginPage\u001b[33m,\u001b[39m tugOfWarPage\u001b[33m,\u001b[39m functions\u001b[33m,\u001b[39m page\u001b[33m,\u001b[39m }\u001b[33m,\u001b[39m testInfo) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 423 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'/admin/#/sign-in'\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 424 |\u001b[39m         \u001b[36mawait\u001b[39m loginPage\u001b[33m.\u001b[39mlogin(data\u001b[33m.\u001b[39musername\u001b[33m,\u001b[39m data\u001b[33m.\u001b[39mpassword)\u001b[0m\n\u001b[0m \u001b[90m 425 |\u001b[39m         \u001b[36mconst\u001b[39m title \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mtitle()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 426 |\u001b[39m         expect(title)\u001b[33m.\u001b[39mtoBe(\u001b[32m'DXP Admin'\u001b[39m)\u001b[0m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:423:20\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 20959,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T18:37:51.027Z",
-                  "attachments": [],
-                  "errorLocation": {
-                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts",
-                    "column": 20,
-                    "line": 423
-                  }
+                  "startTime": "2023-02-10T08:27:52.331Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-003-Font-Upload\\test-finished-1.png"
+                    }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-f8d52b0cad99994cf13c",
+          "id": "26becc8c701c81079457-d3d97e28ecddcd78d653",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 422,
-          "column": 6
+          "line": 81,
+          "column": 5
         },
         {
-          "title": "008TOFW-0016 | Gasme Titsle Image Upload",
+          "title": "008TOFW-004 | Verify Primary Color Section",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 0,
+              "timeout": 300000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 25028,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-09T18:37:54.530Z",
-                  "attachments": []
+                  "startTime": "2023-02-10T08:28:13.299Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-004-Verify-Primary-Color-Section\\test-finished-1.png"
+                    }
+                  ]
                 }
               ],
-              "status": "skipped"
+              "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-68b5b257861dccbf0e94",
+          "id": "26becc8c701c81079457-80c43afa44dc113c1f7b",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 447,
-          "column": 6
+          "line": 97,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-005 | Verify Secondary Color Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 23576,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:28:38.335Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Verify-Secondary-Color-Section\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-84c99acc167ec9790129",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 129,
+          "column": 5
+        },
+        {
+          "title": "08TOFW-006 | Verify0 Text Color Section",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 16373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:29:01.915Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-08TOFW-006-Verify0-Text-Color-Section\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-32a53cb2f50f52661e8e",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 159,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-007 | Verify Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 33384,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:29:18.295Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-007-Verify-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-944f558eddcf362e3001",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 189,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-008 | Verify Mobile Background is Successfully Upload from admin",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 32164,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Tug Of War Game Design Mobile Background Is not found\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:29:51.691Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-008-Verify-Mobile-Background-is-Successfully-Upload-from-admin\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-44b4219c74e1fc7574b7",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 237,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-009 | Verify Send By Message Input Field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 15958,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:30:23.867Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-009-Verify-Send-By-Message-Input-Field\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-147e61f0f5874f67fb80",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 262,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0010 | Invalid Image Alert",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 18822,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:30:39.834Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0010-Invalid-Image-Alert\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-3eea41265f3bea6b919c",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 274,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0011 | Invalid Mobile Background Upload Alert",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 18681,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:30:58.665Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0011-Invalid-Mobile-Background-Upload-Alert\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-d57ca4f14e4d8385e1c5",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 293,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0012 | Navigate to the stages Page ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 19532,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:31:17.355Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0012-Navigate-to-the-stages-Page-\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-acaabcbbb4598c0e2cee",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 310,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0013 | Input Custom Mobile Waiting Message ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 21922,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:31:36.896Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0013-Input-Custom-Mobile-Waiting-Message-\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-68e2f3ba202fc859467c",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 322,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0014 | Video Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 28624,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:31:58.825Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0014-Video-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-ffd9a859ab0eb564e0e3",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 335,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0015 | Validate Sponsor Logo Upload Successfully from admin side ",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 28223,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:32:27.457Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0015-Validate-Sponsor-Logo-Upload-Successfully-from-admin-side-\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-57a274c5878895283cee",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 375,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0016 | Team Logo Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 33783,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:32:55.687Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0016-Team-Logo-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-7f876d2bd410639d1b00",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 398,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0017 | Gsame Title Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 35563,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:33:29.484Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0017-Gsame-Title-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-bc07679f20f57cb39975",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 425,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0018 | Title Background Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 33680,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:34:05.062Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0018-Title-Background-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-55ad6c4ade4d6423f0a6",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 450,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0019 | Preview Checkbox",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 21685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:34:38.752Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0019-Preview-Checkbox\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-dca08d08b2edf7314af5",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 506,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0021 | Inavalid Sponsor Logo Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 20061,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Game Title Image Upload Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Choose file Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert OK Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Cancel Element Is Not Found\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:35:00.444Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0021-Inavalid-Sponsor-Logo-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-bbee8ee9442448fe0258",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 535,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0022 | INavalid Team Logo Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 22234,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Team Logo Element Is no found\n"
+                    },
+                    {
+                      "text": "Choose file Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert OK Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Cancel Element Is Not Found\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:35:20.509Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0022-INavalid-Team-Logo-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-7d72ded2dc8878719294",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 558,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0023 | Invalid Game Title Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 22734,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Game Title Image Upload Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Choose file Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Invalid Alert OK Element Is Not Found\n"
+                    },
+                    {
+                      "text": "Cancel Element Is Not Found\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:35:42.749Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0023-Invalid-Game-Title-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-13ef0ac3cfb3e30e7041",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 582,
+          "column": 5
+        },
+        {
+          "title": "008TOFW-0024 | Invalid Title Image Upload",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 32852,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-10T08:36:05.491Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-0024-Invalid-Title-Image-Upload\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-c2e9210fa28193ecd40e",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 608,
+          "column": 5
         }
       ]
     }

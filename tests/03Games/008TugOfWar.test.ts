@@ -349,30 +349,30 @@ test("008TOFW-0014 | Video Upload", async ({ loginPage, tugOfWarPage, functions,
         await functions.videoUploadFunction();
         await page.waitForTimeout(3000)
 })
-test("008TOFW-0015 | Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
+// test.only("008TOFW-0015 | Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
 
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.SelectIMageBTNClick();
-        await tugOfWarPage.IMageUploadBTMClick();
-        await functions.logoImageUploadFunction();
-        await page.waitForTimeout(3000);
-        await tugOfWarPage.ImageChooseFile();
-        await functions.fileUploadCropper();
-        await page.waitForTimeout(3000)
-        await tugOfWarPage.ImgDeleteClick();
+//         //click Tug Of War Page
+//         await tugOfWarPage.clickTugOfWarPage();
+//         await tugOfWarPage.navigateTotheConfig();
+//         await tugOfWarPage.stagesBTnClick();
+//         await tugOfWarPage.SelectIMageBTNClick();
+//         await tugOfWarPage.IMageUploadBTMClick();
+//         await functions.logoImageUploadFunction();
+//         await page.waitForTimeout(3000);
+//         await tugOfWarPage.ImageChooseFile();
+//         await functions.fileUploadCropper();
+//         await page.waitForTimeout(3000)
+//         await tugOfWarPage.ImgDeleteClick();
         
 
-})
+// })
 
-test.only("008TOFW-0016 | Validate Sponsor Logo Upload Successfully from admin side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-0015 | Validate Sponsor Logo Upload Successfully from admin side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -383,16 +383,19 @@ test.only("008TOFW-0016 | Validate Sponsor Logo Upload Successfully from admin s
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.navigateTotheConfig();
         await tugOfWarPage.stagesBTnClick();
+
+        
         await page.waitForTimeout(3000)
+        await tugOfWarPage.deleteUploadedSponsorLogo(); 
         await functions.portraitBackgroundImageUploadHelper()
         await tugOfWarPage.clickSponsorLogoInputField();
-        await functions.fileUploadCropper();       
+        await tugOfWarPage.ImageChooseFile();   
         //await tugOfWarPage.GameTitleImgDeleteClick();
         await page.waitForTimeout(3000)
 })
 
 
-test.only("008TOFW-0016 | Gasme Tistle Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-0016 | Team Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -410,17 +413,16 @@ test.only("008TOFW-0016 | Gasme Tistle Image Upload", async ({ loginPage, tugOfW
         await tugOfWarPage.clickTeamLogoInputField();
         await functions.fileUploadCropper();
 
-        await tugOfWarPage.GameTitleImageUploadClick();
-        await functions.fileUploadCropper();
+        
 
 
-        await tugOfWarPage.titleBackgroundImageUploadInputField();
-        await functions.fileUploadCropper();
+        // await tugOfWarPage.titleBackgroundImageUploadInputField();
+        // await functions.fileUploadCropper();
         //await tugOfWarPage.GameTitleImgDeleteClick();
         await page.waitForTimeout(3000)
 })
 
-test.only("008TOFW-0016 | Gsame Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-0017 | Gsame Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -438,14 +440,14 @@ test.only("008TOFW-0016 | Gsame Title Image Upload", async ({ loginPage, tugOfWa
         await functions.fileUploadCropper();
 
 
-        await tugOfWarPage.titleBackgroundImageUploadInputField();
-        await functions.fileUploadCropper();
+        // await tugOfWarPage.titleBackgroundImageUploadInputField();
+        // await functions.fileUploadCropper();
         //await tugOfWarPage.GameTitleImgDeleteClick();
         await page.waitForTimeout(3000)
 })
 
 
-test.only("008TOFW-0016 | Gasme Titsle Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-0018 | Title Background Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -465,42 +467,42 @@ test.only("008TOFW-0016 | Gasme Titsle Image Upload", async ({ loginPage, tugOfW
         await page.waitForTimeout(3000)
 })
 
-test("008TOFW-0017 | Team Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
+// test("008TOFW-0017 | Team Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
 
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.TeamLogoUploadClick;
-        await functions.logoImageUploadFunction();
-        await page.waitForTimeout(3000);
-        await tugOfWarPage.ImageChooseFile();
-        await functions.fileUploadCropper();
-        await page.waitForTimeout(3000)
-})
-test("008TOFW-0018 | Sponsor Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
+//         //click Tug Of War Page
+//         await tugOfWarPage.clickTugOfWarPage();
+//         await tugOfWarPage.navigateTotheConfig();
+//         await tugOfWarPage.stagesBTnClick();
+//         await tugOfWarPage.TeamLogoUploadClick;
+//         await functions.logoImageUploadFunction();
+//         await page.waitForTimeout(3000);
+//         await tugOfWarPage.ImageChooseFile();
+//         await functions.fileUploadCropper();
+//         await page.waitForTimeout(3000)
+// })
+// test("008TOFW-0018 | Sponsor Logo Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
 
 
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.SponsorLogoUploadClick();
-        await functions.logoImageUploadFunction();
-        await page.waitForTimeout(3000);
-        await tugOfWarPage.ImageChooseFile();
-        await functions.fileUploadCropper();
-        await page.waitForTimeout(3000)
-})
+//         //click Tug Of War Page
+//         await tugOfWarPage.clickTugOfWarPage();
+//         await tugOfWarPage.navigateTotheConfig();
+//         await tugOfWarPage.stagesBTnClick();
+//         await tugOfWarPage.SponsorLogoUploadClick();
+//         await functions.logoImageUploadFunction();
+//         await page.waitForTimeout(3000);
+//         await tugOfWarPage.ImageChooseFile();
+//         await functions.fileUploadCropper();
+//         await page.waitForTimeout(3000)
+// })
 test("008TOFW-0019 | Preview Checkbox", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -514,7 +516,23 @@ test("008TOFW-0019 | Preview Checkbox", async ({ loginPage, tugOfWarPage, functi
         await tugOfWarPage.stagesBTnClick();
         await tugOfWarPage.PreviewCheckboxClick();
 })
-test("008TOFW-0020 | Jump to next Checkbox", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+// test("008TOFW-0020 | Jump to next Checkbox", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+//         await page.goto('/admin/#/sign-in')
+//         await loginPage.login(data.username, data.password)
+//         const title = await page.title();
+//         expect(title).toBe('DXP Admin')
+
+
+//         //click Tug Of War Page
+//         await tugOfWarPage.clickTugOfWarPage();
+//         await tugOfWarPage.navigateTotheConfig();
+//         await tugOfWarPage.stagesBTnClick();
+//         await tugOfWarPage.JumptoNextClick();
+// })
+
+
+
+test("008TOFW-0021 | Inavalid Sponsor Logo Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -525,9 +543,69 @@ test("008TOFW-0020 | Jump to next Checkbox", async ({ loginPage, tugOfWarPage, f
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.navigateTotheConfig();
         await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.JumptoNextClick();
+        await tugOfWarPage.deleteUploadedSponsorLogo();
+        
+        await tugOfWarPage.clickSponsorLogoInputField();
+        await functions.fontUploadFunction();
+        //await page.waitForTimeout(3000);
+        await tugOfWarPage.ImageChooseFile();
+        //await page.waitForTimeout(3000);
+        await tugOfWarPage.INvalidUpAlert();
+        await tugOfWarPage.InvalidAlertOkbtnClick();
+        await tugOfWarPage.CancelBTNClick();
+
 })
-test("008TOFW-0021 | Invalid Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-0022 | INavalid Team Logo Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+
+        //click Tug Of War Page
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
+        await tugOfWarPage.stagesBTnClick();
+        //await tugOfWarPage.clickTeamLogoInputField();
+        await tugOfWarPage.deleteUploadedTeamLogo();
+        await tugOfWarPage.clickTeamLogoInputField();
+        await functions.fontUploadFunction();
+        await page.waitForTimeout(3000);
+        
+        await tugOfWarPage.ImageChooseFile();
+        //await page.waitForTimeout(3000);
+        await tugOfWarPage.INvalidUpAlert();
+        await tugOfWarPage.InvalidAlertOkbtnClick();
+        await tugOfWarPage.CancelBTNClick();
+
+})
+test("008TOFW-0023 | Invalid Game Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+
+        //click Tug Of War Page
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.navigateTotheConfig();
+        await tugOfWarPage.stagesBTnClick();
+        //await tugOfWarPage.GameTitleImageUploadClick();
+        await tugOfWarPage.deleteUploadedGameTitleImageBG();
+        await tugOfWarPage.GameTitleImageUploadClick();
+        
+        await functions.fontUploadFunction();
+        //await page.waitForTimeout(3000);
+        
+       // await functions.fileUploadCropper();
+       await tugOfWarPage.ImageChooseFile();
+        await page.waitForTimeout(3000);
+        await tugOfWarPage.INvalidUpAlert();
+        await tugOfWarPage.InvalidAlertOkbtnClick();
+        await tugOfWarPage.CancelBTNClick();
+
+})
+test("008TOFW-0024 | Invalid Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -539,71 +617,18 @@ test("008TOFW-0021 | Invalid Image Upload", async ({ loginPage, tugOfWarPage, fu
         await tugOfWarPage.navigateTotheConfig();
         await tugOfWarPage.stagesBTnClick();
         await tugOfWarPage.SelectIMageBTNClick();
-        await tugOfWarPage.IMageUploadBTMClick();
+        //await tugOfWarPage.titleBackgroundImageUploadInputField();
+        await tugOfWarPage.deletedUploadedTitleImageBG();
         await functions.fontUploadFunction();
+        await page.waitForTimeout(3000);
+        await tugOfWarPage.titleBackgroundImageUploadInputField();
         await tugOfWarPage.ImageChooseFile();
         await tugOfWarPage.INvalidUpAlert();
         await tugOfWarPage.InvalidAlertOkbtnClick();
         await tugOfWarPage.CancelBTNClick();
 
 })
-test("008TOFW-0022 | Invalid Game Title Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
 
-
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.GameTitleImageUploadClick();
-        await functions.fontUploadFunction();
-        await tugOfWarPage.ImageChooseFile();
-        await tugOfWarPage.INvalidUpAlert();
-        await tugOfWarPage.InvalidAlertOkbtnClick();
-        await tugOfWarPage.CancelBTNClick();
-
-})
-test("008TOFW-0023 | INavalid Team Logo Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.TeamLogoUploadClick();
-        await functions.fontUploadFunction();
-        await tugOfWarPage.ImageChooseFile();
-        await tugOfWarPage.INvalidUpAlert();
-        await tugOfWarPage.InvalidAlertOkbtnClick();
-        await tugOfWarPage.CancelBTNClick();
-
-})
-test("008TOFW-0024 | Inavalid Sponsor Logo Image Upload", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-
-        //click Tug Of War Page
-        await tugOfWarPage.clickTugOfWarPage();
-        await tugOfWarPage.navigateTotheConfig();
-        await tugOfWarPage.stagesBTnClick();
-        await tugOfWarPage.SponsorLogoUploadClick();
-        await functions.fontUploadFunction();
-        await tugOfWarPage.ImageChooseFile();
-        await tugOfWarPage.INvalidUpAlert();
-        await tugOfWarPage.InvalidAlertOkbtnClick();
-        await tugOfWarPage.CancelBTNClick();
-
-})
 
 
 

@@ -184,7 +184,7 @@ export default class functions {
 
                 const chooseBtn = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
                 expect.soft(chooseBtn).toContainText("Choose File")
-                await chooseBtn.click()
+                await chooseBtn.click({ button: "left", delay: 1000 })
 
                 // const deviceScreenSizeText = await this.page.frameLocator('iframe').locator("text='Device Screen Size:'")
                 // expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")

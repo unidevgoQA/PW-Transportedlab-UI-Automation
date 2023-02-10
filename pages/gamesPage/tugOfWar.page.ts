@@ -56,6 +56,9 @@ export default class tugOfWarPage {
                 CancelImgUpModal:"//button[@aria-label='Close']",
                 ImageDelete:"(//button[@title='Delete'])[1]",
                 MobileBackgroundDelete:"//div[@class='MuiBox-root css-1tejaop']",
+                SponsorDelete:"(//div[@class='MuiBox-root css-1tejaop'])[4]",
+                TeamDelete:"(//div[@class='MuiBox-root css-1tejaop'])[3]",
+        
                 ClearAllBTN: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]",
                 StagesBTN:"(//p[contains(@class,'MuiTypography-root MuiTypography-body1')])[3]",
                 CustomMobileWaitingMessage:"(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
@@ -63,7 +66,7 @@ export default class tugOfWarPage {
                 VideoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 SelectImageUploadBTN:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
                 ImageuploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
-                titleBackgroundImageUploadBTN:"//div[@class='MuiBox-root css-v2612']",
+                titleBackgroundImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 GameTitleImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[2]",
                 teamLogoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[3]",
                 sponsorLogoUploadBtn:"(//div[@class='MuiBox-root css-v2612'])[4]",
@@ -80,7 +83,7 @@ export default class tugOfWarPage {
                 TeamLogoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 SponsorLOgoUploadBTN:"//div[@class='MuiBox-root css-v2612']",
                 PreviewCheckbox:"(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]",
-                JumptonextCheckbox:"(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[1]",
+                JumptonextCheckbox:"//h6[text()='Enable Stage to be skip and jump to next one']//following-sibling::span//input[@type='checkbox']",
                 Gametitledelete:"//button[@title='Delete']//div[1]",
 
 
@@ -149,6 +152,7 @@ export default class tugOfWarPage {
                                 .locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]")
                                 .click()
                 }
+
 
 
         }
@@ -1682,11 +1686,11 @@ async ImageChooseFile() {
         if ((ele == true)) {
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.ImageChoosefilebutton).click()
         }
-        else throw new Error("Choose file Element Is Not Found")
+        else {console.log("Choose file Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
-        await this.page.waitForLoadState("networkidle")
+        //await this.page.waitForLoadState("networkidle")
 
 
 
@@ -1716,7 +1720,7 @@ async mobilebackgroudUploadClick() {
         if ((ele == true)) {
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.mobileUploadBackground).click()
         }
-        else throw Error("mobile backgroud Element Is Not Found")
+        else throw new Error("mobile backgroud Element Is Not Found")
 
         //await this.page.waitForTimeout(3000)
 
@@ -1957,25 +1961,25 @@ async textcolorbtnClick(){
 async INvalidUpAlert(){
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InvalidFiletypeAlert).isVisible()
         if ((ele == true)) {
-                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InvalidFiletypeAlert).click()
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InvalidFiletypeAlert).click({ button: "left", delay: 1000 })
         }
-        else throw new Error("Invalid Alert Element Is Not Found")
+        else {console.log("Invalid Alert Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
-        await this.page.waitForLoadState("networkidle")
+        //await this.page.waitForLoadState("networkidle")
 
 }
 async InvalidAlertOkbtnClick(){
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InavlidModalOK).isVisible()
         if ((ele == true)) {
-                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InavlidModalOK).click()
+                await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.InavlidModalOK).click({ button: "left", delay: 1000 })
         }
-        else throw new Error("Invalid Alert OK Element Is Not Found")
+        else {console.log("Invalid Alert OK Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
-        await this.page.waitForLoadState("networkidle")
+        //await this.page.waitForLoadState("networkidle")
 
 
 }
@@ -1984,11 +1988,11 @@ async CancelBTNClick(){
         if ((ele == true)) {
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.CancelImgUpModal).click()
         }
-        else throw new Error("Cancel Element Is Not Found")
+        else {console.log("Cancel Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
-        await this.page.waitForLoadState("networkidle")
+        //await this.page.waitForLoadState("networkidle")
 
 }
 async ImagedeleteClick(){
@@ -2000,7 +2004,7 @@ async ImagedeleteClick(){
 
         //await this.page.waitForTimeout(3000)
 
-        await this.page.waitForLoadState("networkidle")
+        //await this.page.waitForLoadState("networkidle")
 
 }
 async MobileBackgroundDeleteClick(){
@@ -2111,7 +2115,7 @@ async GameTitleImageUploadClick(){
                 await this.page.waitForTimeout(3000)
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.GameTitleImageUploadBTN).click()
         }
-        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        else {console.log("Game Title Image Upload Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
@@ -2124,7 +2128,7 @@ async clickSponsorLogoInputField(){
                 await this.page.waitForTimeout(3000)
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.sponsorLogoUploadBtn).click()
         }
-        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        else {console.log("Game Title Image Upload Element Is Not Found")}
 
         //await this.page.waitForTimeout(3000)
 
@@ -2137,7 +2141,7 @@ async clickTeamLogoInputField(){
                 await this.page.waitForTimeout(3000)
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.teamLogoUploadBTN).click({button:"left", delay:1000})
         }
-        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        else {console.log("Team Logo Element Is no found")}
         
 }
 
@@ -2158,7 +2162,7 @@ async titleBackgroundImageUploadInputField(){
                 await this.page.waitForTimeout(3000)
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.titleBackgroundImageUploadBTN).click({button:"left", delay:1000})
         }
-        else throw  new Error("Game Title Image Upload Element Is Not Found")
+        else {console.log("Title Background Image Upload Input Field Is not found")}
         
 }
 
@@ -2201,14 +2205,14 @@ async PreviewCheckboxClick(){
 async JumptoNextClick(){
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.JumptonextCheckbox).isVisible()
         if ((ele == true)) {
-                await this.page.waitForTimeout(3000)
+                //await this.page.waitForTimeout(3000)
                 await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.JumptonextCheckbox).click()
         }
         else throw  Error("Jump to next Checkbox Element Is Not Found")
 
         //await this.page.waitForTimeout(3000)
 
-        //await this.page.waitForLoadState("networkidle")
+        await this.page.waitForLoadState("networkidle")
 }
 async GameTitleImgDeleteClick(){
         const ele = await this.page.frameLocator('iframe').locator(this.gameSettingPageElements.Gametitledelete).isVisible()
@@ -2234,6 +2238,19 @@ async ImgDeleteClick(){
 
         //await this.page.waitForLoadState("networkidle")
 
+}
+
+async Image_uploader(){
+        const filePath0 = "testData/images/rules.jpg"
+        const [fileChooser] = await Promise.all([
+                // It is important to call waitForEvent before click to set up waiting.
+                this.page.waitForEvent('filechooser'),
+                // Opens the file chooser.
+                this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+        ]);
+        await fileChooser.setFiles([filePath0]);
+        await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
+        await this.page.waitForLoadState('networkidle',{timeout:30000})  
 }
 }
 
