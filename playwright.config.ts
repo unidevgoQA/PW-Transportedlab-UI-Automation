@@ -49,7 +49,7 @@ const config: PlaywrightTestConfig = {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
   
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 
@@ -66,7 +66,7 @@ const config: PlaywrightTestConfig = {
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'msedge',
-    viewport: { width: 1700, height: 920 },
+    // viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
   // permissions: ["camera"],
   

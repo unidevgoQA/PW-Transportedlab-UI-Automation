@@ -7,6 +7,7 @@ import { readFileSync } from 'fs'
 import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import BaseFunctions from "@base-function/baseFunctions";
 import livewallMobilePage from '../../pages/MobileGamesPage/livewall_mobile_game.page';
+import liveWallPage from "@pages/liveWall.page";
 //import liveWallMobilePage from "@pages/liveWallMobile.page";
 
 let url: any;
@@ -65,7 +66,7 @@ test("009FanSee-4|validate Add new configuration for Fansee is working", async (
         await test.step("009FanSee-6|now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.clickLiveWallSection()
 
-                await liveWallPage.remove_message_popup()
+                 await liveWallPage.remove_message_popup()
 
                 await liveWallPage.click_trippledot()
         })
@@ -393,24 +394,21 @@ test("009FanSee-67|Validate countdown ColorPicker Color Input Functionality", as
 
         //input Font First RGB Color
         await test.step("now upload count_down_colors ", async () => {
-                await liveWallPage.inputFontFirstRGBColor()
-
-
+                await liveWallPage.input_Red_Color('43')
 
                 //input Font Box Color RGB Second
-                await liveWallPage.inputFontBoxColorRGBSecond()
+                await liveWallPage.input_green_color('189')
 
                 //input Font Box Color RGB Third
-                await liveWallPage.inputFontBoxColorRGBThird()
+                await liveWallPage.input_blue_color('221')
 
                 //input Font Box Color Opacity
-                await liveWallPage.inputFontBoxColorOpacity()
+                await liveWallPage.inputColorOpacity('98')
 
                 //input Font Box Color HEX Color
-                await liveWallPage.inputFontBoxColorHEXColor()
-
+                await liveWallPage.inputHEXColor('2BBDDDFF')
                 //click Save Btn
-                await liveWallPage.clickSaveBtn()
+                await liveWallPage.clickSaveBtnColorpicker()
         })
 
 
@@ -730,7 +728,7 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
                 await liveWallPage.wait_Fallback_9_16_upload()
         })
 })
-test("009LW-005|Validate Pre-Live Text Messages Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-130|validate prelive text message functionalities", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
         await test.step("login admin", async () => {
@@ -1717,7 +1715,7 @@ test('009FanSee-225|validate prizing section in new instance is working',async({
                 })
         })
 
-        await test.step("009FanSee-124|	navigate to fanseepage and open analytics page", async () => {
+        await test.step("009FanSee-132|	navigate  to fansee and click prizing page", async () => {
                 await liveWallPage.clickLiveWallSection()
 
                 await liveWallPage.remove_message_popup()
@@ -1745,7 +1743,32 @@ test('009FanSee-225|validate prizing section in new instance is working',async({
 
         await test.step('009FanSee-128|	validate Chance field input is working',async()=>{
                 await liveWallPage.input_chance_amount('100')
+        })
+})
+test('009FanSee-131|Validate Delete section in new config is working',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("navigate to fanseepage ", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                
+        })
+
+        await test.step("now click on Delete section",async()=>{
+                await liveWallPage.delete_config_section()
         })
 })
 
