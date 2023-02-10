@@ -12,7 +12,7 @@ export default class liveWallPage {
   //=======================================================
   //▶▶Start Element
   private Fansee_page_elements = {
-    tripplebutton: '//h5[text()="FanSee"]//parent::div/preceding-sibling::button',
+    tripplebutton: '//h5[text()="Default"]//parent::div/preceding-sibling::button',
     iframe: '.css-r99fy3',
     clear_all_color_button: "//button[text()='Clear All']",
     image_upload_text: '//p[text()="Image Upload"]',
@@ -131,7 +131,7 @@ export default class liveWallPage {
     }
   }
   async remove_message_popup() {
-    await this.page.frameLocator('//iframe').locator('//h5[text()="FanSee"]').click({ button: 'left', force: true })
+    await this.page.frameLocator('//iframe').locator('//h5[text()="Default"]').click({ button: 'left',force:true })
   }
   async clickDesignPage() {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
@@ -203,6 +203,7 @@ export default class liveWallPage {
     .frameLocator(this.Fansee_page_elements.iframe)
     .locator(this.Fansee_page_elements.title_input)
     if(await ele.isVisible()){
+      await ele.fill(' ')
       await ele.fill(value)
     }
     else{
@@ -361,7 +362,19 @@ export default class liveWallPage {
       .locator("//button[text()='Save']");
     if(await ele.isVisible()){
       await ele.click({button:'left'})
-    
+      await this.page.waitForEvent('worker')
+    }
+    else{
+      throw new Error('The save button is not visible or an issue with the click')
+    }
+  }
+  async clickSaveBtnColorpicker() {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Save']");
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+      await this.page.waitForSelector("//h3[text()='Color Picker']//following-sibling::button",{state:'hidden'})
     }
     else{
       throw new Error('The save button is not visible or an issue with the click')
@@ -463,40 +476,6 @@ export default class liveWallPage {
     }
   }
 
-  async inputFontFirstRGBColor() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[1]');
-    expect(ele).toBeVisible();
-    await ele.fill("34");
-  }
-
-  async inputFontBoxColorRGBSecond() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[2]');
-    await ele.fill("115");
-  }
-  async inputFontBoxColorRGBThird() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[3]');
-    await ele.fill("224");
-  }
-
-  async inputFontBoxColorOpacity() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[4]');
-    await ele.fill("90");
-  }
-
-  async inputFontBoxColorHEXColor() {
-    const ele = this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[5]');
-    await ele.fill("F1C41FFF");
-  }
   //countdown_color_input
   async input_Red_Color(value: string) {
     const ele = this.page
@@ -504,7 +483,8 @@ export default class liveWallPage {
       .locator(this.Fansee_page_elements.RGB_red_color);
     if(await ele.isVisible()){
       await ele.focus()
-      await ele.type(value,{delay:1000})
+      await ele.fill(' ')
+      await ele.type(value,{delay:500})
     }
     else{
       throw new Error(" THe red color input box for this color picker is not visible")
@@ -517,7 +497,8 @@ export default class liveWallPage {
       .locator(this.Fansee_page_elements.RGB_green_color);
     if(await ele.isVisible()){
       await ele.focus()
-      await ele.type(value,{delay:1000})
+      await ele.fill(' ')
+      await ele.type(value,{delay:500})
     }
     else{
       throw new Error(" THe Green color input box for this color picker is not visible")
@@ -529,7 +510,8 @@ export default class liveWallPage {
     .locator(this.Fansee_page_elements.RGB_blue_color);
     if(await ele.isVisible()){
       await ele.focus()
-      await ele.type(value,{delay:1000})
+      await ele.fill(' ')
+      await ele.type(value,{delay:500})
     }
     else{
       throw new Error(" THe blue color input box for this color picker is not visible")
@@ -542,7 +524,8 @@ export default class liveWallPage {
     .locator(this.Fansee_page_elements.RGB_opacity_color);
     if(await ele.isVisible()){
       await ele.focus()
-      await ele.type(value,{delay:1400})
+      await ele.fill(' ')
+      await ele.type(value,{delay:400})
     }
     else{
       throw new Error(" THe opacity color input box for this color picker is not visible")
@@ -554,9 +537,9 @@ export default class liveWallPage {
     .frameLocator("iframe")
     .locator(this.Fansee_page_elements.RGB_Hex_color);
     if(await ele.isVisible()){
-      await ele.clear()
+      await ele.fill(' ')
       await ele.focus()
-      await ele.type(value,{delay:1400})
+      await ele.type(value,{delay:400})
     }
     else{
       throw new Error(" THe Hex color input box for this color picker is not visible")
@@ -2079,6 +2062,17 @@ async validate_Download_exports(){
     await this.page.waitForTimeout(1000)
     const ele = this.page.frameLocator('iframe').locator("//h2[text()='Output Screen Link']")
     expect(ele).toContainText("Output Screen Link")
+  }
+
+  //delete config section
+  async delete_config_section(){
+    const ele = this.page.frameLocator('iframe').
+    locator("//button[text()='Delete']").last()
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+      //may need to discard this code letter
+      await this.page.waitForSelector('//p[text()="Auto"]',{state:'detached'})
+    }
   }
   
 
