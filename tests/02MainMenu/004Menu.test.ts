@@ -323,7 +323,7 @@ test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Sc
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()                
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -409,7 +409,7 @@ test("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()                
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -495,7 +495,7 @@ test("004M-011 | Validate  Menu Bar Active Text Color Successfully Applied In Mo
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()                
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.verifyMenuBarActivTextColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -663,6 +663,9 @@ test("004M-015 | Validate Menu Bar  Three Line Alignment Successfully Applied in
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickThreeLineAlignmentBtn()
                 await newmobilePreviewPage.clickPrizeSection()
+                // await newmobilePreviewPage.validateMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen()
+                // await newmobilePreviewPage.clickPrizeSection()
+
                 await newmobilePreviewPage.verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen()
 
         })
@@ -820,7 +823,7 @@ test("004M-019 | Validate  Menu Bar  Bottom Alignment Successfully Applied in Mo
                 await newmobilePreviewPage.clicksubmit()
         })
 
-        await test.step("Verify Japanese Language Applaid Successfully", async () => {
+        await test.step("Validate in mobile screen", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
                 // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()

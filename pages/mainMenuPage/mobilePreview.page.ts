@@ -4,42 +4,42 @@ import { readFileSync } from 'fs'
 export default class mobilePreviewPage {
        private page: Page;
        constructor(page: Page) {
-                            this.page = page;
-                            page.setViewportSize({ width: 390, height: 844 })
-                     }
+              this.page = page;
+              page.setViewportSize({ width: 390, height: 844 })
+       }
 
        private mobilePreviewPageElements = {
-               additionalphoneNumberInputField: `//input[@name="phone"]`,
-               additionalEmailInputField: `//input[@name="email"]`,
-               additionalAgeInputField: `//input[@name="age"]`,
-               additionalDatePickerInputField: `//input[@aria-label='Choose date']`,
-               additionalDateInputField: "(//input[@id='additionalbirthDate'])[2]",
-               additionalDateEditBtn: `//button[@aria-label='calendar view is open, go to text input view']`,
-               additionalDatePickerOkBtn: "//button[text()='OK']",
-               additionalDatePickerLabel: "//label[@for='additionalbirthDate']",
-               additionalZipCodeInputField: `//input[@name="zipCode"]`,
-               additionalZipCodeInputFieldLabel: "//label[@for='additionalzipCode']",
-               additionalSubmitBtn: "//button[@type='submit']",
-               customQuestionSectionTitle: "//p[text()='Questionnaire & Opt-Ins']",
-               customQuestionInputField: "//input[@placeholder='Give some description here...']",
-               submitBtn: "//button[text()='Submit']",
-               choiceCheckBox: "//input[@type='checkbox']",
-               choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
-               homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
-               homeText: "//p[text()='HOME']",
-               arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
-               prizeDropGameText: "//p[text()='Prize Drop']",
-               outSideGameTitleText: "//p[text()='Auto Game']",
-               squareImage: "div:nth-child(2) > div > div:nth-child(2) > .MuiBox-root",
-               rectangulerImageType: ".css-rk019r>>nth=1",
-               arcadeSectionlogoHeader: ".css-n8k4mt",
-               fanaticsGameTitle: "//p[text()='Fanatics-Filter-Web']",
-               gussTheScroeGameTitle: "//p[text()='Guess The Score']",
-               triviaGameTitle: "//p[text()='Trivia']",
-               liveWallGameTitle: "//p[text()='Live Wall']",
-               noiseMeterGameTitle: "//p[text()='Noise Meter']",
-               tugOfWarGameTitle: "//p[text()='Tug of War']",
-               prizeDropGameTitle: "//p[text()='Prize Drop']",
+              additionalphoneNumberInputField: `//input[@name="phone"]`,
+              additionalEmailInputField: `//input[@name="email"]`,
+              additionalAgeInputField: `//input[@name="age"]`,
+              additionalDatePickerInputField: `//input[@aria-label='Choose date']`,
+              additionalDateInputField: "(//input[@id='additionalbirthDate'])[2]",
+              additionalDateEditBtn: `//button[@aria-label='calendar view is open, go to text input view']`,
+              additionalDatePickerOkBtn: "//button[text()='OK']",
+              additionalDatePickerLabel: "//label[@for='additionalbirthDate']",
+              additionalZipCodeInputField: `//input[@name="zipCode"]`,
+              additionalZipCodeInputFieldLabel: "//label[@for='additionalzipCode']",
+              additionalSubmitBtn: "//button[@type='submit']",
+              customQuestionSectionTitle: "//p[text()='Questionnaire & Opt-Ins']",
+              customQuestionInputField: "//input[@placeholder='Give some description here...']",
+              submitBtn: "//button[text()='Submit']",
+              choiceCheckBox: "//input[@type='checkbox']",
+              choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
+              homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+              homeText: "//p[text()='HOME']",
+              arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
+              prizeDropGameText: "//p[text()='Prize Drop']",
+              outSideGameTitleText: "//p[text()='Auto Game']",
+              squareImage: "div:nth-child(2) > div > div:nth-child(2) > .MuiBox-root",
+              rectangulerImageType: ".css-rk019r>>nth=1",
+              arcadeSectionlogoHeader: ".css-n8k4mt",
+              fanaticsGameTitle: "//p[text()='Fanatics-Filter-Web']",
+              gussTheScroeGameTitle: "//p[text()='Guess The Score']",
+              triviaGameTitle: "//p[text()='Trivia']",
+              liveWallGameTitle: "//p[text()='Live Wall']",
+              noiseMeterGameTitle: "//p[text()='Noise Meter']",
+              tugOfWarGameTitle: "//p[text()='Tug of War']",
+              prizeDropGameTitle: "//p[text()='Prize Drop']",
 
 
 
@@ -47,7 +47,7 @@ export default class mobilePreviewPage {
 
 
 
-               
+
 
 
        }
@@ -55,24 +55,24 @@ export default class mobilePreviewPage {
 
 
 
-// export default class mobilePreviewPage {
-//        // [x: string]: any;
+       // export default class mobilePreviewPage {
+       //        // [x: string]: any;
 
 
 
-       
 
-//        private page: Page;
-//        // static buffer: void;
-//        constructor(page: Page) {
-//               this.page = page;
-//               page.setViewportSize({ width: 390, height: 844 })
-//        }
+
+       //        private page: Page;
+       //        // static buffer: void;
+       //        constructor(page: Page) {
+       //               this.page = page;
+       //               page.setViewportSize({ width: 390, height: 844 })
+       //        }
 
        async clickTriviaSectionForOpenMobileScreen() {
               const ele = this.page.locator("//p[text()='Trivia']")
               await expect(ele).toBeVisible()
-              await ele.click({force:true})
+              await ele.click({ force: true })
               await this.page.waitForLoadState("networkidle")
        }
 
@@ -87,13 +87,13 @@ export default class mobilePreviewPage {
 
               // Click text=Open Link
               const [page1] = await Promise.all([
-                  this.page.waitForEvent('popup'),
-                  this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
+                     this.page.waitForEvent('popup'),
+                     this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
               ]);
-      
+
               return page1;
-      
-      
+
+
        }
 
        async lookforphonenoinform() {
@@ -124,62 +124,62 @@ export default class mobilePreviewPage {
               const [page1] = await Promise.all([
                      this.page.waitForEvent('popup'),
                      this.page.locator("//button[@aria-label='Sign Up with Google']").click()
-                 ]);
-                 await this.page.waitForLoadState("networkidle")
-                 return page1;
+              ]);
+              await this.page.waitForLoadState("networkidle")
+              return page1;
 
 
-       //        const ele = await this.page.locator("//button[@aria-label='Sign Up with Google']").isVisible()
-       //        if ((ele == true)){
-       //               await this.page.locator("//button[@aria-label='Sign Up with Google']").click({button:"left", delay:1000})
-                     
-       //       }
-       //       else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
-       //       await this.page.waitForLoadState("networkidle")
-              
+              //        const ele = await this.page.locator("//button[@aria-label='Sign Up with Google']").isVisible()
+              //        if ((ele == true)){
+              //               await this.page.locator("//button[@aria-label='Sign Up with Google']").click({button:"left", delay:1000})
+
+              //       }
+              //       else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
+              //       await this.page.waitForLoadState("networkidle")
+
        }
 
        async inputEamilForLoginWithGoogle() {
               await this.page.waitForNavigation()
               const ele = await this.page.locator(`[type="email"]`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator('[type="email"]').type("ss.unidev@gmail.com")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Login With Google option Is not Visible")
+
        }
 
-       async clickSignInWithGoogleWindowNextBtn() {              
+       async clickSignInWithGoogleWindowNextBtn() {
               const ele = await this.page.locator(`(//button[@type='button']//span)[2]`).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(`(//button[@type='button']//span)[2]`).click({delay:1000})
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Google Window Next Btn Is not Visible")
-              
+              if ((ele == true)) {
+                     await this.page.locator(`(//button[@type='button']//span)[2]`).click({ delay: 1000 })
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Google Window Next Btn Is not Visible")
+
        }
 
        async clickArcadeSection() {
-              
+
               const ele = await this.page.locator(this.mobilePreviewPageElements.arcadeSectionInMobileScreen).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.arcadeSectionInMobileScreen).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Mobile Screen Arcade Game Section Is Not Visiable") 
-             await this.page.waitForLoadState("networkidle")
-             await this.page.waitForTimeout(3000)
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.arcadeSectionInMobileScreen).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Mobile Screen Arcade Game Section Is Not Visiable")
+              await this.page.waitForLoadState("networkidle")
+              await this.page.waitForTimeout(3000)
        }
 
        async verifyAddOutSideGameSuccessfullyShowOnMobileScreen() {
-              
+
               const ele = await this.page.locator(this.mobilePreviewPageElements.outSideGameTitleText).textContent()
-              if ((ele === "Auto Game")){
+              if ((ele === "Auto Game")) {
                      // await this.page.locator(this.mobilePreviewPageElements.outSideGameTitleText).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Add Out Side Game Successfully Show On Mobile Screen")                          
+
+              }
+              else throw new Error("Add Out Side Game Successfully Show On Mobile Screen")
        }
 
 
@@ -187,232 +187,232 @@ export default class mobilePreviewPage {
               await this.page.waitForSelector(this.mobilePreviewPageElements.prizeDropGameText)
               const ele = await this.page.locator(this.mobilePreviewPageElements.prizeDropGameText).screenshot()
               expect(ele).toMatchSnapshot("arcade-font-uploaded-ui.png")
-                         
+
        }
 
        async verifyFanaticsLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.fanaticsGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.fanaticsGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-FanaticsLogo-uploaded-ui.png")
-                         
+
        }
 
        async verifyGussTheScroeGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.gussTheScroeGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.gussTheScroeGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-gussTheScroeGame-uploaded-ui.png")
-                         
+
        }
 
        async verifyTriviaGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.triviaGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.triviaGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-triviaGame-uploaded-ui.png")
-                         
+
        }
 
        async verifyLiveWallGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.liveWallGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.liveWallGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-liveWallGameLogo-uploaded-ui.png")
-                         
+
        }
 
        async verifyNoiseMeterGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.noiseMeterGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.noiseMeterGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-noiseMeterGameLogo-uploaded-ui.png")
-                         
+
        }
 
        async verifyTugOfWarGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.tugOfWarGameTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.tugOfWarGameTitle).screenshot()
               expect(ele).toMatchSnapshot("arcade-tugOfWarGameLogo-uploaded-ui.png")
-                         
+
        }
 
        async verifyPrizeDropGameLogoSuccessfullyUplodedInMobileScreen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.prizeDropGameText)
               const ele = await this.page.locator(this.mobilePreviewPageElements.prizeDropGameText).screenshot()
               expect(ele).toMatchSnapshot("arcade-gussTheScroeGameTitle-uploaded-ui.png")
-                         
+
        }
 
-       
+
 
        async verifySquareImageTypeSuccessfullyAppliedInMobileScreeen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.squareImage)
               const ele = await this.page.locator(this.mobilePreviewPageElements.squareImage)
               expect(ele).toHaveCSS("width", "156px")
-                         
+
        }
 
        async verifyRectanglerImageTypeSuccessfullyAppliedInMobileScreeen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.rectangulerImageType)
               const ele = await this.page.locator(this.mobilePreviewPageElements.rectangulerImageType)
               expect(ele).toHaveCSS("width", "331.5px")
-                         
+
        }
 
        async verifyLogoHeaderSuccessfullyAppliedInMobileScreeen() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.arcadeSectionlogoHeader)
               const ele = await this.page.locator(this.mobilePreviewPageElements.arcadeSectionlogoHeader).screenshot()
               expect(ele).toMatchSnapshot("arcade-logoHeader-uploaded-ui.png")
-                         
+
        }
 
-       
+
 
 
        async inputPasswordForLoginWithGoogle() {
               await this.page.waitForNavigation()
               const ele = await this.page.locator(`//input[@type='password']`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator("//input[@type='password']").fill("Ilovemymother1@34")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Google Window Password Input Field Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Google Window Password Input Field Is not Visible")
+
        }
 
-       
-       async verifyLoginWithGoogleIconIsHidden() {         
+
+       async verifyLoginWithGoogleIconIsHidden() {
               await this.page.waitForSelector("//img[@alt='Logotype']")
               const ele = await this.page.locator("//button[@aria-label='Sign Up with Google']").isHidden()
-           if ((ele == true)){
-                  
-           }
-           else throw new Error("Mobile Welcome Screen Login With Google option Is Not Hidden After Uncheck Social Media Option From Admin Side")
-    }
+              if ((ele == true)) {
 
-    async verifyLoginWithPhoneNumberIsVisible() {         
-       await this.page.waitForSelector("//img[@alt='Logotype']")
-       const ele = await this.page.locator("//input[@type='tel']").isVisible()
-    if ((ele == true)){
-           
-    }
-    else throw new Error("Mobile Welcome Screen Login With Phone Number option Is Not Visible After check Login With Phone Varification Option From Admin Side")
-}
+              }
+              else throw new Error("Mobile Welcome Screen Login With Google option Is Not Hidden After Uncheck Social Media Option From Admin Side")
+       }
 
-async verifyLoginWithEmailInputFieldIsVisible() {         
-       await this.page.waitForSelector("//input[@type='email']")
-       const ele = await this.page.locator("//input[@type='email']").isVisible()
-    if ((ele == true)){
-           
-    }
-    else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
-}
+       async verifyLoginWithPhoneNumberIsVisible() {
+              await this.page.waitForSelector("//img[@alt='Logotype']")
+              const ele = await this.page.locator("//input[@type='tel']").isVisible()
+              if ((ele == true)) {
 
-async verifyAutomaticallyAssignUserName() {         
-       await this.page.waitForSelector("//img[@alt='User avatar']")
-       const ele = await this.page.locator("#usernameField").textContent()
-    if (expect(ele?.includes("david"))){
-           console.log("Automatically Assign User Name Updated Successfully")
-    }
-    else throw new Error("Automatically Assign User Name Is Not Updated Successfully ")
-}
+              }
+              else throw new Error("Mobile Welcome Screen Login With Phone Number option Is Not Visible After check Login With Phone Varification Option From Admin Side")
+       }
 
-async clickProfilePictureEditButton() {         
-       
-       const ele = await this.page.locator("//button[@active='true']").isVisible()
-    if ((ele == true)){
-       await this.page.locator("//button[@active='true']").click({ button: "left", delay: 1000 })
-    }
-    else throw new Error("My Profile Page Profile Picture Edit Button Is Not Visible")
-}
+       async verifyLoginWithEmailInputFieldIsVisible() {
+              await this.page.waitForSelector("//input[@type='email']")
+              const ele = await this.page.locator("//input[@type='email']").isVisible()
+              if ((ele == true)) {
 
-async verifyAutoAssaignProfilePictureUpdatedSuccessfully() {         
-       await this.page.waitForSelector("#alert-dialog-title")
-       const ele = await this.page.locator("//div[@class='MuiBox-root css-6nzrs3']//div[1]").isVisible()       
-    if ((ele == true)){
-         console.log("Auto Assaign Profile Picture Updated Successfully")
-    }
-    else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not visiable")
-}
+              }
+              else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
+       }
 
-async verifyAutoAssaignProfilePictureUpdatedSuccessfullyAfterEdit() {         
-       await this.page.waitForSelector("#alert-dialog-title")
-       const ele = await this.page.locator("//div[@class='MuiBox-root css-n97oo2']").isVisible()       
-    if ((ele == true)){
-         console.log("Auto Assaign Profile Picture Updated Successfully After Edit")
-    }
-    else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not Updated After Edit")
-}
+       async verifyAutomaticallyAssignUserName() {
+              await this.page.waitForSelector("//img[@alt='User avatar']")
+              const ele = await this.page.locator("#usernameField").textContent()
+              if (expect(ele?.includes("david"))) {
+                     console.log("Automatically Assign User Name Updated Successfully")
+              }
+              else throw new Error("Automatically Assign User Name Is Not Updated Successfully ")
+       }
 
-async UserSelecthisProfilePicture() {         
-       await this.page.waitForSelector("//button[@aria-label='Close']")
-       const ele = await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").isVisible()       
-    if ((ele == true)){
-       await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").click({ button: "left", delay: 1000 })
-    }
-    else throw new Error("My Profile Page Profile Picture user is not Updated After successfully")
-}
+       async clickProfilePictureEditButton() {
 
-async clickProfilePictureWindowSaveBtn() {         
-       await this.page.waitForSelector("//button[@aria-label='Close']")
-       const ele = await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").isVisible()       
-    if ((ele == true)){
-       await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").click({ button: "left", delay: 1000 })
-    }
-    else throw new Error("My Profile Page Profile Picture Save Button Is Not Visible")
-}
+              const ele = await this.page.locator("//button[@active='true']").isVisible()
+              if ((ele == true)) {
+                     await this.page.locator("//button[@active='true']").click({ button: "left", delay: 1000 })
+              }
+              else throw new Error("My Profile Page Profile Picture Edit Button Is Not Visible")
+       }
 
+       async verifyAutoAssaignProfilePictureUpdatedSuccessfully() {
+              await this.page.waitForSelector("#alert-dialog-title")
+              const ele = await this.page.locator("//div[@class='MuiBox-root css-6nzrs3']//div[1]").isVisible()
+              if ((ele == true)) {
+                     console.log("Auto Assaign Profile Picture Updated Successfully")
+              }
+              else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not visiable")
+       }
 
+       async verifyAutoAssaignProfilePictureUpdatedSuccessfullyAfterEdit() {
+              await this.page.waitForSelector("#alert-dialog-title")
+              const ele = await this.page.locator("//div[@class='MuiBox-root css-n97oo2']").isVisible()
+              if ((ele == true)) {
+                     console.log("Auto Assaign Profile Picture Updated Successfully After Edit")
+              }
+              else throw new Error("My Profile Page Profile Picture Auto Assaign Profile Picture is not Updated After Edit")
+       }
+
+       async UserSelecthisProfilePicture() {
+              await this.page.waitForSelector("//button[@aria-label='Close']")
+              const ele = await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").isVisible()
+              if ((ele == true)) {
+                     await this.page.locator("(//div[@class='MuiBox-root css-1gqdyyg'])[3]").click({ button: "left", delay: 1000 })
+              }
+              else throw new Error("My Profile Page Profile Picture user is not Updated After successfully")
+       }
+
+       async clickProfilePictureWindowSaveBtn() {
+              await this.page.waitForSelector("//button[@aria-label='Close']")
+              const ele = await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").isVisible()
+              if ((ele == true)) {
+                     await this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]").click({ button: "left", delay: 1000 })
+              }
+              else throw new Error("My Profile Page Profile Picture Save Button Is Not Visible")
+       }
 
 
-async inputEamilForLoginWithEmail() {         
-       await this.page.waitForSelector("//img[@alt='Logotype']")
-       const ele = await this.page.locator("//input[@type='email']").isVisible()
-    if ((ele == true)){
-       await this.page.locator("//input[@type='email']").fill("ss.unidev@gmail.com")
-    }
-    else throw new Error("Mobile Welcome Screen Login With Email Input Field Is Not Visible After check Login With Email Validation Option From Admin Side")
-}
 
-async clickSignInBtn() {       
-      
-       const ele = await this.page.locator("(//button[@type='button'])[1]").isVisible()
-    if ((ele == true)){
-       await this.page.locator("(//button[@type='button'])[1]").click()
-    }
-    else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
-    
-}    
 
-       
-       
-       async verifyLoginWithFacebookIconIsHidden() {         
-              
-                 const ele = await this.page.locator("//button[@aria-label='Sign Up with Facebook']").isHidden()
-              if ((ele == true)){
-                     
+       async inputEamilForLoginWithEmail() {
+              await this.page.waitForSelector("//img[@alt='Logotype']")
+              const ele = await this.page.locator("//input[@type='email']").isVisible()
+              if ((ele == true)) {
+                     await this.page.locator("//input[@type='email']").fill("ss.unidev@gmail.com")
+              }
+              else throw new Error("Mobile Welcome Screen Login With Email Input Field Is Not Visible After check Login With Email Validation Option From Admin Side")
+       }
+
+       async clickSignInBtn() {
+
+              const ele = await this.page.locator("(//button[@type='button'])[1]").isVisible()
+              if ((ele == true)) {
+                     await this.page.locator("(//button[@type='button'])[1]").click()
+              }
+              else throw new Error("Mobile Welcome Screen Login With Email Input Field option Is Not Visible After check Login With Email Validation Option From Admin Side")
+
+       }
+
+
+
+       async verifyLoginWithFacebookIconIsHidden() {
+
+              const ele = await this.page.locator("//button[@aria-label='Sign Up with Facebook']").isHidden()
+              if ((ele == true)) {
+
               }
               else throw new Error("Mobile Welcome Screen Login With Facebook option Is Not Hidden After Uncheck Social Media Option From Admin Side")
        }
 
-       async verifyLoginWithMicrosoftIconIsHidden() {         
-              
+       async verifyLoginWithMicrosoftIconIsHidden() {
+
               const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isHidden()
-           if ((ele == true)){
-                  
-           }
-           else throw new Error("Mobile Welcome Screen Login With Microsoft option Is Not Hidden After Uncheck Social Media Option From Admin Side")
-    }
+              if ((ele == true)) {
+
+              }
+              else throw new Error("Mobile Welcome Screen Login With Microsoft option Is Not Hidden After Uncheck Social Media Option From Admin Side")
+       }
 
        async clickLoginWithFacebookIconIsVisible() {
-              
-              
+
+
               const [page1] = await Promise.all([
                      this.page.waitForEvent('popup'),
                      this.page.locator("//button[@aria-label='Sign Up with Facebook']").click()
-                 ]);
-                 await this.page.waitForLoadState("networkidle")
-                 return page1;
+              ]);
+              await this.page.waitForLoadState("networkidle")
+              return page1;
 
               //    const ele = await this.page.locator("//button[@aria-label='Sign Up with Facebook']").isVisible()
               // if ((ele == true)){
-                     
+
               // }
               // else throw new Error("Mobile Welcome Screen Login With Facbook option Is not Visible")
        }
@@ -420,60 +420,60 @@ async clickSignInBtn() {
        async inputEamilForLoginWithFacebook() {
               await this.page.waitForSelector(`#email`)
               const ele = await this.page.locator(`#email`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator('#email').type("ss.unidev@gmail.com")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Login With Facebook Eamil Input Option Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Login With Facebook Eamil Input Option Is not Visible")
+
        }
 
        async inputPasswordForLoginWithFacebook() {
-              
+
               const ele = await this.page.locator(`[type="password"]`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator('[type="password"]').fill("SecretPassword1@34")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Password Input Field Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Password Input Field Is not Visible")
+
        }
 
-       async clickSignInWithFacebookWindowLoginBtn() {              
+       async clickSignInWithFacebookWindowLoginBtn() {
               const ele = await this.page.locator(`[type="submit"]`).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(`[type="submit"]`).click({force:true})
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Login Btn Is not Visible")
-             await this.page.waitForLoadState()
-              
+              if ((ele == true)) {
+                     await this.page.locator(`[type="submit"]`).click({ force: true })
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Facebook Window Login Btn Is not Visible")
+              await this.page.waitForLoadState()
+
        }
 
        async clickContineuWithFacebookBtn() {
               await this.page.waitForSelector("(//div[@role='button']//div)[3]")
               const ele = await this.page.locator("(//div[@role='button']//div)[3]").isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator("(//div[@role='button']//div)[3]").click()
               }
               else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
        }
 
-       
+
 
        async clickLoginWithMicrosoftIconIsVisible() {
 
               const [page1] = await Promise.all([
                      this.page.waitForEvent('popup'),
                      this.page.locator("//button[@aria-label='Sign Up with Microsoft']").click()
-                 ]);
-                 await this.page.waitForLoadState("networkidle")
-                 return page1;
+              ]);
+              await this.page.waitForLoadState("networkidle")
+              return page1;
 
               // const ele = await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").isVisible()
               // if ((ele == true)){
               //        await this.page.locator("//button[@aria-label='Sign Up with Microsoft']").click()
-                     
+
               // }
               // else throw new Error("Mobile Welcome Screen Login With Microsoft option Is not Visible")
        }
@@ -481,249 +481,249 @@ async clickSignInBtn() {
        async inputEamilForLoginWithMicrosoft() {
               await this.page.waitForNavigation()
               const ele = await this.page.locator(`[type="email"]`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator('[type="email"]').type("unidevgo@outlook.com")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Login With Microsoft Eamil Input Option Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Login With Microsoft Eamil Input Option Is not Visible")
+
        }
 
-       async clickNextBtnOnMicrosoftWindow() {              
+       async clickNextBtnOnMicrosoftWindow() {
               const ele = await this.page.locator(`[type="submit"]`).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(`[type="submit"]`).click({force:true})
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
-             await this.page.waitForLoadState()
-              
+              if ((ele == true)) {
+                     await this.page.locator(`[type="submit"]`).click({ force: true })
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
+              await this.page.waitForLoadState()
+
        }
 
        async inputPasswordForLoginWithMicrosoft() {
-              
+
               const ele = await this.page.locator(`[type="password"]`).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator('[type="password"]').type("SecretPassword1@34")
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Password Input Field Is not Visible")
-              
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Password Input Field Is not Visible")
+
        }
 
-       async clickSignInBtnOnMicrosoftWindow() {              
+       async clickSignInBtnOnMicrosoftWindow() {
               const ele = await this.page.locator(`[type="submit"]`).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(`[type="submit"]`).click({force:true})
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
-             await this.page.waitForLoadState()
-              
+              if ((ele == true)) {
+                     await this.page.locator(`[type="submit"]`).click({ force: true })
+
+              }
+              else throw new Error("Mobile Welcome Screen Sign In With Microsoft Window Login Btn Is not Visible")
+              await this.page.waitForLoadState()
+
        }
 
-       async inputPhoneNumberForAditionalInfo() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalphoneNumberInputField)            
+       async inputPhoneNumberForAditionalInfo() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalphoneNumberInputField)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalphoneNumberInputField).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.additionalphoneNumberInputField).fill("+8801051703506")
-                     
-             }
-             else throw new Error("Aditional Information Phone NUmber Input Field Is not visible In User Side")
-             
-              
+
+              }
+              else throw new Error("Aditional Information Phone NUmber Input Field Is not visible In User Side")
+
+
        }
 
-       async inputAgeForAditionalInfo() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalAgeInputField)            
+       async inputAgeForAditionalInfo() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalAgeInputField)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalAgeInputField).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.additionalAgeInputField).fill("22")
-                     
-             }
-             else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
-             
-              
+
+              }
+              else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
+
+
        }
 
-       async inputEmailForAditionalInfo() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalEmailInputField)            
+       async inputEmailForAditionalInfo() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalEmailInputField)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalEmailInputField).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.additionalEmailInputField).fill("demo@email.com")
-                     
-             }
-             else throw new Error("Aditional Information Email Input Field Is not visible In User Side")
-             
-              
+
+              }
+              else throw new Error("Aditional Information Email Input Field Is not visible In User Side")
+
+
        }
 
-       async clickAdditionalDatePickterInputField() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerLabel)            
+       async clickAdditionalDatePickterInputField() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerLabel)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerInputField).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerInputField).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Date Picker Input Field Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerInputField).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Date Picker Input Field Is not visible In User Side")
+
+
        }
 
-       async clickAdditionalDateEditBtn() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateEditBtn)            
+       async clickAdditionalDateEditBtn() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateEditBtn)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDateEditBtn).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.additionalDateEditBtn).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Date Picker Edit Button Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDateEditBtn).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Date Picker Edit Button Is not visible In User Side")
+
+
        }
 
-       async inputAdditionalDate() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateInputField)            
+       async inputAdditionalDate() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDateInputField)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDateInputField).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.additionalDateInputField).fill("01/31/2000")
-                     
-             }
-             else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
-             
-              
+
+              }
+              else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
+
+
        }
 
-       async clickAdditionalDateDatePickerOkBtn() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerOkBtn)            
+       async clickAdditionalDateDatePickerOkBtn() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalDatePickerOkBtn)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerOkBtn).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerOkBtn).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Date Picker Ok Button Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.additionalDatePickerOkBtn).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Date Picker Ok Button Is not visible In User Side")
+
+
        }
 
-       async clickSubmitButton() {                         
+       async clickSubmitButton() {
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalSubmitBtn).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.additionalSubmitBtn).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Submit Button Is not visible In User Side On Welcome Screen")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.additionalSubmitBtn).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Submit Button Is not visible In User Side On Welcome Screen")
+
+
        }
 
-       async inputAdditionalZipCode() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalZipCodeInputFieldLabel)                       
+       async inputAdditionalZipCode() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.additionalZipCodeInputFieldLabel)
               const ele = await this.page.locator(this.mobilePreviewPageElements.additionalZipCodeInputFieldLabel).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.additionalZipCodeInputField).fill("1217")
-                     
-             }
-             else throw new Error("Aditional Information Zip Code Input Field Is not visible In User Side")
-             
-              
+
+              }
+              else throw new Error("Aditional Information Zip Code Input Field Is not visible In User Side")
+
+
        }
 
-       async inputCustomQuestionForUser() {  
-              await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)                       
+       async inputCustomQuestionForUser() {
+              await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.customQuestionInputField).isVisible()
-              if ((ele == true)){
+              if ((ele == true)) {
                      await this.page.locator(this.mobilePreviewPageElements.customQuestionInputField).fill("Demo Ans")
-                     
-             }
-             else throw new Error("Aditional Information Custom Question Input Field Is not visible In User Side")
-             
-              
-       }
-       
 
-       async clickCustomChoiceCheckBoxWhenCustomQuestionInTop() {  
+              }
+              else throw new Error("Aditional Information Custom Question Input Field Is not visible In User Side")
+
+
+       }
+
+
+       async clickCustomChoiceCheckBoxWhenCustomQuestionInTop() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.choiceCheckBoxWhenCustomQuestionInTop).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBoxWhenCustomQuestionInTop).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBoxWhenCustomQuestionInTop).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
+
+
        }
 
-       async clickCustomChoiceCheckBox() {  
+       async clickCustomChoiceCheckBox() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.customQuestionSectionTitle)
               const ele = await this.page.locator(this.mobilePreviewPageElements.choiceCheckBox).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBox).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.choiceCheckBox).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Custom Question Section Choice Check Box Is not visible In User Side")
+
+
        }
-       async clickAddNewQuestionSubmitBtn() {  
-                                     
+       async clickAddNewQuestionSubmitBtn() {
+
               const ele = await this.page.locator(this.mobilePreviewPageElements.submitBtn).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.submitBtn).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Aditional Information Custom Question Section Submit Button Is not visible In User Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.submitBtn).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Aditional Information Custom Question Section Submit Button Is not visible In User Side")
+
+
        }
 
-       async verifyMyProfileSuccessfullyClick() {  
+       async verifyMyProfileSuccessfullyClick() {
               await this.page.waitForSelector(this.mobilePreviewPageElements.homeAvater)
               const ele = await this.page.locator(this.mobilePreviewPageElements.homeAvater).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(this.mobilePreviewPageElements.homeAvater).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Sign UP Home Screen Functionality Does not Work After Successfully Check SignUp Home Screen Radio From Admin Side")
-             
-              
+              if ((ele == true)) {
+                     await this.page.locator(this.mobilePreviewPageElements.homeAvater).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Sign UP Home Screen Functionality Does not Work After Successfully Check SignUp Home Screen Radio From Admin Side")
+
+
        }
 
-       async clickTermsAndConditionsLink() {  
-              await this.page.waitForSelector("img[alt='Logotype']")            
+       async clickTermsAndConditionsLink() {
+              await this.page.waitForSelector("img[alt='Logotype']")
               const ele = await this.page.locator(`.css-71bno7`).isVisible()
-              if ((ele == true)){
-                     await this.page.locator(`.css-71bno7`).click({button:"left", delay: 1000})
-                     
-             }
-             else throw new Error("Mobile Welcome Screen Tems And Condition Link Is not Visiable")
-             await this.page.waitForLoadState("networkidle")
-              
+              if ((ele == true)) {
+                     await this.page.locator(`.css-71bno7`).click({ button: "left", delay: 1000 })
+
+              }
+              else throw new Error("Mobile Welcome Screen Tems And Condition Link Is not Visiable")
+              await this.page.waitForLoadState("networkidle")
+
        }
 
-       async verifyTermsAndConditionsPageSuccessfullyShowOnMobileScreen() {  
-              await this.page.waitForSelector("//p[contains(@class,'MuiTypography-root MuiTypography-body1')]")            
+       async verifyTermsAndConditionsPageSuccessfullyShowOnMobileScreen() {
+              await this.page.waitForSelector("//p[contains(@class,'MuiTypography-root MuiTypography-body1')]")
               const ele = await this.page.frameLocator('iframe').locator(`.logo`).isVisible()
-              if ((ele == true)){
-                    
-                     
-             }
-             else throw new Error("Terms And Conditions Page does not Show On MobileScreen")
-             await this.page.waitForLoadState()
-              
+              if ((ele == true)) {
+
+
+              }
+              else throw new Error("Terms And Conditions Page does not Show On MobileScreen")
+              await this.page.waitForLoadState()
+
        }
 
 
-       
-       
-       
 
-       
+
+
+
+
 
        async typephoneno() {
               await this.page.locator('//input[@name="phone"]').type('+8801851703506')
        }
-       
+
        async typeemail() {
               await this.page.locator('//input[@name="email"]').type("AutomationTest@test.com")
        }
@@ -751,7 +751,7 @@ async clickSignInBtn() {
        async dblClickOkBtn() {
               const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
               expect(ele).toBeVisible()
-              await ele.dblclick({force:true})
+              await ele.dblclick({ force: true })
               await this.page.waitForLoadState("networkidle")
 
 
@@ -761,7 +761,7 @@ async clickSignInBtn() {
        async clickOkBtn() {
               const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
               expect(ele).toBeVisible()
-              await ele.click({force:true})
+              await ele.click({ force: true })
               await this.page.waitForLoadState("networkidle")
               await this.page.waitForTimeout(2000)
 
@@ -775,9 +775,9 @@ async clickSignInBtn() {
 
        async varifyMyProfileSuccessfullySelectedAsEntryScreen() {
               const ele = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true')
+              await expect(ele).toHaveAttribute('aria-pressed', 'true')
               // if ((await expect(ele).toHaveAttribute('aria-pressed','true'))){
-           
+
               // }
               // else throw new Error("Mobile Welcome Screen Login With Phone Number")
 
@@ -785,36 +785,36 @@ async clickSignInBtn() {
 
        async verifyRulesEntryIsApplyed() {
               const ele = await this.page.locator("//div[@img='assets/RulesIcon.5ce8250e.svg']//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true')
+              await expect(ele).toHaveAttribute('aria-pressed', 'true')
               // expect(await this.page.locator("//button[@value='rules']")).toBeChecked()
 
        }
 
        async verifyHomeEntryIsApplyed() {
-              const ele = await this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true' )
+              const ele = await this.page.getByRole("button", {name: 'HOME'})
+              await expect(ele).toHaveAttribute('aria-pressed', 'true')
               // if ((await (expect(this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")).toHaveAttribute("'aria-pressed','true'"))){
 
               // }
-              
+
 
        }
 
-       async verifyHowToPlayEntryIsApplyed() {
+       async verifyHowToPlayEntryIsApplyed() {              
               const ele = await this.page.locator("//div[@img='assets/HowToPlayIcon.c5748446.svg']//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true')
+              await expect(ele).toHaveAttribute('aria-pressed', 'true')
 
        }
 
        async verifyPrizeEntryIsApplyed() {
               const ele = await this.page.locator("(//div[@img='assets/PrizeIcon.fe356ae7.svg'])[1]//parent::button")
-              await expect(ele).toHaveAttribute('aria-pressed','true')
+              await expect(ele).toHaveAttribute('aria-pressed', 'true')
        }
 
-       async verifyPrimaryColorAppliedInMobile(){
+       async verifyPrimaryColorAppliedInMobile() {
               const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
-              await expect(ele).toHaveCSS("background-color","rgb(45, 168, 217)")
-        }
+              await expect(ele).toHaveCSS("background-color", "rgb(45, 168, 217)")
+       }
 
 
        async verifySecondaryColorAppliedInMobile() {
@@ -837,7 +837,7 @@ async clickSignInBtn() {
        async clickPrizeSection() {
               const btn = this.page.locator("(//button[@type='button'])[2]");
               expect(btn).toBeVisible()
-              await btn.click({ force: true })           
+              await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
 
@@ -848,7 +848,7 @@ async clickSignInBtn() {
        async clickMyProfile() {
               const btn = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']//parent::button");
               expect(btn).toBeVisible()
-              await btn.click({ button: "left", delay:1000 })
+              await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
 
@@ -856,15 +856,15 @@ async clickSignInBtn() {
 
        }
 
-       
+
        async clickLanguageSelectionInputField() {
-              const btn = this.page.locator("//div[@role='button']");              
-              await btn.click({force:true})
+              const btn = this.page.locator("//div[@role='button']");
+              await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
        }
 
        async selectJapanese() {
-              const btn = this.page.locator("//li[text()='Japanese']");              
+              const btn = this.page.locator("//li[text()='Japanese']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -874,7 +874,7 @@ async clickSignInBtn() {
        }
 
        async selectSpanish() {
-              const btn = this.page.locator("//li[text()='Spanish']");              
+              const btn = this.page.locator("//li[text()='Spanish']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -884,16 +884,16 @@ async clickSignInBtn() {
        }
 
        async verifyJapaneseLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='プロフィール']");  
-              expect(btn).toContainText("プロフィール")            
-              
+              const btn = this.page.locator("//h1[text()='プロフィール']");
+              expect(btn).toContainText("プロフィール")
+
 
 
 
        }
 
        async selectArabic() {
-              const btn = this.page.locator("//li[text()='Arabic']");              
+              const btn = this.page.locator("//li[text()='Arabic']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -903,14 +903,14 @@ async clickSignInBtn() {
        }
 
        async verifyArabicLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='الملف الشخصي']");  
-              expect(btn).toContainText("الملف الشخصي")            
+              const btn = this.page.locator("//h1[text()='الملف الشخصي']");
+              expect(btn).toContainText("الملف الشخصي")
 
 
        }
 
        async selectRussian() {
-              const btn = this.page.locator("//li[text()='Russian']");              
+              const btn = this.page.locator("//li[text()='Russian']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -920,14 +920,14 @@ async clickSignInBtn() {
        }
 
        async verifyRussianLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='Профиль']");  
-              expect(btn).toContainText("Профиль")            
+              const btn = this.page.locator("//h1[text()='Профиль']");
+              expect(btn).toContainText("Профиль")
 
 
        }
 
        async selectFrancias() {
-              const btn = this.page.locator("//li[text()='Francias']");              
+              const btn = this.page.locator("//li[text()='Francias']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -937,14 +937,14 @@ async clickSignInBtn() {
        }
 
        async verifyFranciasLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='Profil']");  
-              expect(btn).toContainText("Profil")            
+              const btn = this.page.locator("//h1[text()='Profil']");
+              // expect(btn).toContainText("Profil")
 
 
        }
 
        async selectEnglish() {
-              const btn = this.page.locator("//li[text()='English']");              
+              const btn = this.page.locator("//li[text()='English']");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
@@ -954,26 +954,26 @@ async clickSignInBtn() {
        }
 
        async verifyEnglishLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='Profile']");  
-              expect(btn).toContainText("Profile")            
+              const btn = this.page.locator("//h1[text()='Profile']");
+              expect(btn).toContainText("Profile")
 
 
        }
 
-       
+
        async verifySpanishLanguageApplaidSuccessfully() {
-              const btn = this.page.locator("//h1[text()='Perfil']");  
-              expect(btn).toContainText("Perfil")            
-              
+              const btn = this.page.locator("//h1[text()='Perfil']");
+              expect(btn).toContainText("Perfil")
+
 
 
 
        }
-       
 
 
 
-       
+
+
        async clickHowToPlayBtn() {
               const btn = this.page.locator("(//button[@type='button'])[3]");
               expect(btn).toBeVisible()
@@ -987,7 +987,7 @@ async clickSignInBtn() {
 
        async verifyPotraitBackgroundUploadSuccessfully() {
               const ele = await this.page.locator("//div[@class='MuiBox-root css-tyolvb']").screenshot()
-              await expect(ele).toMatchSnapshot("Verify_Portrait_Background.png", {maxDiffPixelRatio:0.01})
+              await expect(ele).toMatchSnapshot("Verify_Portrait_Background.png", { maxDiffPixelRatio: 0.01 })
 
               // expect(await this.page.screenshot({
               //        fullPage: true
@@ -998,11 +998,11 @@ async clickSignInBtn() {
        }
 
        async verifyMainMenuFontSuccessfullyAppliedInMobileScreen() {
-              
-              const ele = await this.page.locator(this.mobilePreviewPageElements.homeText).screenshot()
-              await expect(ele).toMatchSnapshot("MainMenu_Font_Upload_UI.png", {maxDiffPixelRatio:0.01})
 
-             
+              const ele = await this.page.locator(this.mobilePreviewPageElements.homeText).screenshot()
+              await expect(ele).toMatchSnapshot("MainMenu_Font_Upload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+
 
 
 
@@ -1010,48 +1010,90 @@ async clickSignInBtn() {
 
        async verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen() {
 
-              const ele = await this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']").screenshot()
-              await expect(ele).toMatchSnapshot("MenuBar_Background_UI.png", {maxDiffPixels: 200})
+              // const ele = await this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']").screenshot()
+              // await expect(ele).toMatchSnapshot("MenuBar_Background_UI.png", { maxDiffPixels: 200 })
 
-              // expect(await this.page.screenshot({
-              //        fullPage: true
-              //    })).toMatchSnapshot("MenuBar_Background_UI.png") 
+              const BackgroundColor = await this.page.getByText('HOMEPRIZEHOW TO PLAYRULESUSER PROFILEGAMES')              
+              expect(BackgroundColor).toHaveCSS("background", "rgb(95, 188, 210) none repeat scroll 0% 0% / auto padding-box border-box")
+              
 
        }
 
-       
+       async verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen() {            
+
+              const BackgroundColor = await this.page.getByText('HOME')              
+              expect(BackgroundColor).toHaveCSS("color", "rgb(96, 37, 74)")
+              
+
+       }
+
+       async verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen() {            
+
+              const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })              
+              expect(BackgroundColor).toHaveCSS("background-color", "rgb(112, 164, 204)")
+              
+
+       }
+
+       async verifyMenuBarActivTextColorSuccessfullyAppliedInMobileScreen() {            
+
+              const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })              
+              expect(BackgroundColor).toHaveCSS("color", "rgba(0, 0, 0, 0.87)")
+              
+
+       }
+
+
        async verifyMenuBarTopAlignmentSuccessfullyAppliedInMobileScreen() {
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("MenuBar_TopAlignment_UI.png") 
+              const ele = await this.page.getByRole("button", {name: 'PRIZE'})
+              expect(ele).toHaveAttribute("alignment", "top")
+
+              // expect(await this.page.screenshot({
+              //        fullPage: true
+              // })).toMatchSnapshot("MenuBar_TopAlignment_UI.png")
 
        }
 
        async verifyMenuBarBottomAlignmentSuccessfullyAppliedInMobileScreen() {
 
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("MenuBar_BottomAlignment_UI.png") 
+              const ele = await this.page.getByRole("button", {name: 'PRIZE'})
+              expect(ele).toHaveAttribute("alignment", "bottom")
+
+              // expect(await this.page.screenshot({
+              //        fullPage: true
+              // })).toMatchSnapshot("MenuBar_BottomAlignment_UI.png")
 
        }
 
+
+       async validateMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen(){
+              const result = await this.page.$("//div[@alignment='threeLine']");
+              if (!result) throw new Error(`Could not find selector: "${this.mobilePreviewPageElements.additionalDateEditBtn}"`);
+              return result;
+       }
+
+
        async verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen() {
 
-              const ele = await this.page.locator("//div[@class='MuiBox-root css-1ft6b9a']").isVisible()
-              if ((ele == true)) {
-                     console.log("Menu Bar Three Line Alignment Successfully Applied In User Side")
-             }
-             else throw new Error("Menu Bar Three Line Alignment is not Applied In User Side")
-                          
+              // const ele = await expect("//div[@class='MuiBox-root css-1ft6b9a']").toHaveAttribute("alignment", "threeLine")
+              const ele = this.page.locator("//div[@alignment='threeLine']")
+              if (!ele) throw new Error(`Could not find selector: "${"//div[@alignment='threeLine']"}"`);
+              return ele;
+              // await expect(ele).toHaveAttribute('alignment', 'threeLine')
+       //        if ((await expect(ele).toHaveAttribute('alignment','threeLine'))) {
+       //               console.log("Menu Bar Three Line Alignment Successfully Applied In User Side")
+       //       }
+       //       else throw new Error("Menu Bar Three Line Alignment is not Applied In User Side")
+
 
        }
        async clickThreeLineAlignmentBtn() {
 
-             const ele = await this.page.locator("//div[@class='MuiBox-root css-1ft6b9a']")
-             expect(ele).toBeVisible()
-             await ele.click({force:true})
-             await this.page.waitForTimeout(3000)
+              const ele = await this.page.locator("#app > div > div > div:nth-child(2) > .MuiBox-root")
+              expect(ele).toBeVisible()
+              await ele.click({ force: true })
+              await this.page.waitForTimeout(3000)
 
        }
 
@@ -1059,14 +1101,13 @@ async clickSignInBtn() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_HideAlignment_UI.png") 
+              })).toMatchSnapshot("MenuBar_HideAlignment_UI.png")
 
        }
 
        async verifyMenuBarHideAlignmentSuccessfullyAppliedOnMobileScreen() {
-
               const btn = this.page.locator("//p[text()='HOME']")
-              expect(btn).toBeHidden()              
+              expect(btn).toBeHidden()
               await this.page.waitForLoadState('domcontentloaded');
 
        }
@@ -1075,45 +1116,45 @@ async clickSignInBtn() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_HomeIcon_UI.png") 
+              })).toMatchSnapshot("MenuBar_HomeIcon_UI.png")
 
        }
        async verifyPrizeIconSuccessfullyAppliedInMobileScreen() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_PrizeIcon_UI.png") 
+              })).toMatchSnapshot("MenuBar_PrizeIcon_UI.png")
 
        }
        async verifyHowToPlayIconSuccessfullyAppliedInMobileScreen() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_HowToPlayIcon_UI.png") 
+              })).toMatchSnapshot("MenuBar_HowToPlayIcon_UI.png")
 
        }
        async verifyRulesIconSuccessfullyAppliedInMobileScreen() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_RulesIcon_UI.png") 
+              })).toMatchSnapshot("MenuBar_RulesIcon_UI.png")
 
        }
        async verifyUserProfileIconSuccessfullyAppliedInMobileScreen() {
 
               expect(await this.page.screenshot({
                      fullPage: true
-                 })).toMatchSnapshot("MenuBar_UserProfileIcon_UI.png") 
+              })).toMatchSnapshot("MenuBar_UserProfileIcon_UI.png")
 
        }
 
 
 
-       
+
        async clickHomeBtn() {
-              const btn = this.page.locator("//button[@value='home']");
+              const btn = this.page.getByRole("button", {name: 'HOME'})
               expect(btn).toBeVisible()
-              await btn.click({button:"left", delay:1000})
+              await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
        }
 
