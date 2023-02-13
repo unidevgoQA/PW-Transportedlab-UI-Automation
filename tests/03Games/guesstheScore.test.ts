@@ -152,182 +152,6 @@ await test.step("Now game open in mobile screen",async()=>{
     
 })
 
-test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
-    await test.step("Login Admin And land To guess the score", async () => {
-
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-            await guesstheScorePage.clickGuessTheScoreSection()
-
-    })
-
-    await test.step("validate open the color section works", async () =>{
-        await guesstheScorePage.clickGameDesign()
-        await guesstheScorePage.opencolorssection()
-        
-    })
-   
-    await test.step("Validate background Color Input Functionality", async () => {
-           //click solid dropdown
-            
-        
-        // await guesstheScorePage.clickGuessTheScoreSection()
-       
-        
-        // await page.waitForTimeout(4000)
-
-        await guesstheScorePage.verifyBackgroundColorText()
-
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickBackgroundColorPicker()
-       // await guesstheScorePage.clickSolidDropdowns()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    await test.step("Validate Text Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clicktextColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    // await test.step("Validate Header Color Input Functionality", async() =>{
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickHeaderColorPicker()
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickplusbuttonswatches()
-    //     await guesstheScorePage.inputRGBFirstColor()
-    //     await guesstheScorePage.inputRGBSecondColor()
-    //     await guesstheScorePage.inputRGBThirdColor()
-    //     await guesstheScorePage.inputRGBColorOpacity()
-    //     await guesstheScorePage.inputRGBColorHex()
-    //     await guesstheScorePage.clickdeletebuttonswatches()
-    //     await guesstheScorePage.clickColorPickerSaveBtn()
-    // })
-
-    await test.step("Validate buttons Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.buttonstextColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    // await test.step("Validate maindBoard background Color Input Functionality", async() =>{
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.MainboardBackgroundColorPicker()
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickplusbuttonswatches()
-    //     await guesstheScorePage.inputRGBFirstColor()
-    //     await guesstheScorePage.inputRGBSecondColor()
-    //     await guesstheScorePage.inputRGBThirdColor()
-    //     await guesstheScorePage.inputRGBColorOpacity()
-    //     await guesstheScorePage.inputRGBColorHex()
-    //     await guesstheScorePage.clickdeletebuttonswatches()
-    //     await guesstheScorePage.clickColorPickerSaveBtn()
-    // })
-
-    await test.step("Validate Event title font Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.EventtitlefontColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    await test.step("Validate timer circle Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.TimerCircleColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    await test.step("Validate wood Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.WoodColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-    await test.step("Validate gameplay score text Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.gameplayscoretextColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-    
-    await test.step("Validate timer background Color Input Functionality", async() =>{
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.TimerBackgroundColorPicker()
-        await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.inputRGBFirstColor()
-        await guesstheScorePage.inputRGBSecondColor()
-        await guesstheScorePage.inputRGBThirdColor()
-        await guesstheScorePage.inputRGBColorOpacity()
-        await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-    
-})
-
 test("0013GTS-005 |validate image upload section in guess the score works.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -552,16 +376,15 @@ test("0013GTS-007 |validate game settings option is working.", async({ loginPage
 
     })
     await test.step("validate scores section is working",async ()=>{
-        await guesstheScorePage.typeincorrectguesscore()
         await guesstheScorePage.typecorrectguesscore()
         await guesstheScorePage.typecloseguesscore()
         await guesstheScorePage.typefarguessscore()
+        await guesstheScorePage.typeincorrectguesscore()
     })
     await test.step("validate times section is working",async ()=>{
         await guesstheScorePage.typeguesstime()
     })
 })
-
 test.skip("0013GTS-009 |validate edit and delete section is working",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
@@ -732,14 +555,11 @@ test("0013GTS-013 | Validate start/live button is visible.",async({ loginPage, g
 
         await guesstheScorePage.clickGuessTheScoreSection()
         await page.waitForTimeout(2000)
+        await guesstheScorePage.clickGameDesign()
        
 
     })
     await test.step("Validate start/live button is visible", async()=>{
-     
-       // await guesstheScorePage.clickAddNewConfigPlusBtn()
-        // await guesstheScorePage.verifynewConfigrationText()
-        // await await page.waitForTimeout(2000);
         await guesstheScorePage.verifyStartBtn()
          await page.waitForTimeout(2000);
         await guesstheScorePage.clickgameStartBtn()
@@ -1065,16 +885,13 @@ test("0023GTS-022 | Validate save QR code is working.",async({loginPage,  guesst
             })
             await guesstheScorePage.clickGuessTheScoreSection()
             await page.waitForTimeout(2000)
+            await guesstheScorePage.clickGameDesign()
 
 
 
     })
     await test.step("Click mobile link button",async()=>{
         await guesstheScorePage.clickMobileLinkBtn()
-    })
-    await test.step("Validate Save QR Code text",async()=>{
-        await page.waitForTimeout(2000)
-        await guesstheScorePage.verifySaveQRCodeText()
     })
     await test.step("Working Save QR Code",async()=>{
         await guesstheScorePage.validateSaveQRCode()
@@ -1232,7 +1049,7 @@ test("0013GTS-025 | Validate game status on mobile if start /live button is clic
 
 
     })
-
+           await guesstheScorePage.clickGameDesign()
 
             await guesstheScorePage.clickgameStartBtn()
 
@@ -1242,6 +1059,7 @@ test("0013GTS-025 | Validate game status on mobile if start /live button is clic
 
             //click Mobile Link Btn
             await guesstheScorePage.clickMobileLinkBtn()
+            await page.waitForTimeout(1000)
             //now click on open button
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
@@ -1435,65 +1253,6 @@ test("0013GTS-030 | Validate RGB sections are visible in color picker.",async({l
    
     
 })
-test("0013GTS-031 |Validate swatches change visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land on guess the score", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-        await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
-       
-
-    })
-    await test.step("Now click swatches color plus button",async()=>{
-        await guesstheScorePage.clickGameDesign()
-        await guesstheScorePage.opencolorssection()
-        await guesstheScorePage.clickbuttoncolorpicker()
-        await guesstheScorePage.clickplusbuttonswatches()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-   
-let newTab=null;
-let newguessthescoregame :guesstheScoreMobilePage
-
-await test.step("now open the game in mobile view", async() =>{
-      
-          //click Mobile Link Btn
-        await guesstheScorePage.clickMobileLinkBtn()
-         //now click on open button
-        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-        newguessthescoregame = new guesstheScoreMobilePage(newTab)
-       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
-      
-    })
-await test.step("provide values in form field of mobile view and submit", async() =>{
-        await newguessthescoregame.typephoneno()
-        await newguessthescoregame.selectbirthdate()
-        await newguessthescoregame.typeAge()
-        await newguessthescoregame.typeemail()
-        await newguessthescoregame.typezip()
-        await newguessthescoregame.clicksubmit()
-        await page.waitForTimeout(3000)
-        
-})
-await test.step("now verify swatches color change on mobile screen",async()=>{
-   // await newguessthescoregame.verifySwatchesColorSuccessfullyAppliedInMobileScreen()
-    await newguessthescoregame.verifySwatchesColor()
-})
-    
-
-
-})
 test("0013GTS-032 |Validate background color change is visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
@@ -1516,9 +1275,16 @@ test("0013GTS-032 |Validate background color change is visible on mobile screen.
 
     await test.step("now click on start button on Admin site", async() =>{
         await guesstheScorePage.clickGameDesign()
-        // await guesstheScorePage.clickStartBtn()
-        // await guesstheScorePage.clickStartGameOkBtn()
 })
+await test.step("Open Image Upload Section",async()=>{
+    await guesstheScorePage.openimagesection()
+    await guesstheScorePage.deleteUploadedMobileBanner()
+    await guesstheScorePage.deleteUploadedMobileSponsorLogo()
+    await guesstheScorePage.deleteUploadedMobileGameTitleLogo()
+    await guesstheScorePage.deleteUploadedMobileBackground()
+
+})
+
 let newTab=null;
 let newguessthescoregame :guesstheScoreMobilePage
 
@@ -1529,7 +1295,6 @@ await test.step("now open the game in mobile view", async() =>{
          //now click on open button
         newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
         newguessthescoregame = new guesstheScoreMobilePage(newTab)
-       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
       
 
 await test.step("provide values in form field of mobile view and submit", async() =>{
@@ -1580,261 +1345,6 @@ await test.step("now validate background color change is visible on mobile scree
     // await guesstheScorePage.clickLiveBtn()
     // await guesstheScorePage.clicksLiveGameOkBtn()
 })
-test("0013GTS-033 |Validate Text color change is visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land on guess the score", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-        await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
-       
-
-    })
-
-    await test.step("now click on start button on Admin site", async() =>{
-         await guesstheScorePage.clickGameDesign()
-    //     await guesstheScorePage.clickStartBtn()
-
-    //    await guesstheScorePage.clickStartGameOkBtn()
-})
-let newTab=null;
-let newguessthescoregame :guesstheScoreMobilePage
-
-await test.step("now open the game in mobile view", async() =>{
-      
-          //click Mobile Link Btn
-        await guesstheScorePage.clickMobileLinkBtn()
-         //now click on open button
-        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-        newguessthescoregame = new guesstheScoreMobilePage(newTab)
-       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
-      
-
-await test.step("provide values in form field of mobile view and submit", async() =>{
-        await newguessthescoregame.typephoneno()
-        await newguessthescoregame.selectbirthdate()
-        await newguessthescoregame.typeAge()
-        await newguessthescoregame.typeemail()
-        await newguessthescoregame.typezip()
-        await newguessthescoregame.clicksubmit()
-})
-await test.step("validate Admin can change the Text color settings successfully",async() =>{
-    //verify Text Color Text
-   //await guesstheScorePage.verifyTextColorsText()
-
-    //click Text Color Picker
-    //await guesstheScorePage.clickColorPickerSaveBtn()
-    await guesstheScorePage.clickCloseBtn()
-})
-    await guesstheScorePage.opencolorssection()
-     await page.waitForTimeout(1000)
-     await guesstheScorePage.clicktextColorPicker()
-     await page.waitForTimeout(1000)
-    
-
-    //input Text RGR First Color
-    await guesstheScorePage.inputRGBFirstColor()
-
-    //input Text RGR Second Color
-    await guesstheScorePage.inputRGBSecondColor()
-
-    //input Text RGR Third Color
-    await guesstheScorePage.inputRGBThirdColor()
-
-    //input Text RGR Four Color
-    await guesstheScorePage.inputRGBColorOpacity()
-
-    //input Text RGR Five Color
-    await guesstheScorePage.inputRGBColorHex()
-    await page.waitForTimeout(2000)
-    await guesstheScorePage.verifyColorPickerText()
-    //click Color Picker SaveBtn
-    await guesstheScorePage.clickColorPickerSaveBtn()
-    await page.waitForTimeout(2000)
-})       
-await test.step("now validate text color change is visible on mobile",async () =>{
-    await newguessthescoregame.verifyTextColor()
-})
-})
-test("0013GTS-034 |Validate Button color successfully change from mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land on guess the score", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-        await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
-       
-
-    })
-
-    await test.step("now click on start button on Admin site", async() =>{
-        await guesstheScorePage.clickGameDesign()
-        
-await test.step("validate Admin can change background color change is visible on mobile screen",async() =>{
-    //verify Text Color Text
-   //await guesstheScorePage.verifyTextColorsText()
-
-    //click Text Color Picker
-    //await guesstheScorePage.clickColorPickerSaveBtn()
-    // await guesstheScorePage.clickCloseBtn()
-})
-    await guesstheScorePage.opencolorssection()
-     await page.waitForTimeout(1000)
-     await guesstheScorePage.clickbuttoncolorpicker()
-     await page.waitForTimeout(2000)
-    
-     await guesstheScorePage.inputButtonColor()   
-
-    //click Color Picker SaveBtn
-    await guesstheScorePage.clickColorPickerSaveBtn()
-})  
-let newTab=null;
-let newguessthescoregame :guesstheScoreMobilePage
-
-await test.step("now open the game in mobile view", async() =>{
-      
-          //click Mobile Link Btn
-        await guesstheScorePage.clickMobileLinkBtn()
-         //now click on open button
-        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-        newguessthescoregame = new guesstheScoreMobilePage(newTab)
-       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
-       await guesstheScorePage.clickCloseBtn()
-      
-    })
-await test.step("provide values in form field of mobile view and submit", async() =>{
-        await newguessthescoregame.typephoneno()
-        await newguessthescoregame.selectbirthdate()
-        await newguessthescoregame.typeAge()
-        await newguessthescoregame.typeemail()
-        await newguessthescoregame.typezip()
-        await newguessthescoregame.clicksubmit()
-        await page.waitForTimeout(3000)
-        
-})     
-    await test.step("Now verify button color change on mobile screen",async()=>{
-       //await newguessthescoregame.verifyButtonColorSuccessfullyAppliedInMobileScreen()
-       await newguessthescoregame.verifyButtonColor()
-    })
-
-})
-
-test("0013GTS-035 | Validate Wood Color Input From Admin Side.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
-    await test.step("Login Admin And land To Home Screen", async () => {
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-            await guesstheScorePage.clickGuessTheScoreSection()
-            await page.waitForTimeout(2000)
-            await guesstheScorePage.clickGameDesign()
-
-
-
-    })
-    await test.step("Click Open ColorSection",async()=>{
-        await guesstheScorePage.opencolorssection()
-    })
-    await test.step("Click Background Color Picker Button",async()=>{
-        await guesstheScorePage.clickwoodcolorpicker()
-    })
-    await test.step("Validate RGB sections are visible in color picker",async()=>{
-        await guesstheScorePage.verifyRGBText()
-        await guesstheScorePage.verifyRGBFirstColorInputField()
-        await guesstheScorePage.verifyRGBSecondColorInputField()
-        await guesstheScorePage.verifyRGBThirdColorInputField()
-        await guesstheScorePage.verifyRGBOpacityColorInputField()
-        await guesstheScorePage.verifyRGBHexColorInputField()
-
-        await guesstheScorePage.selectColorNumberTwo()
-        await guesstheScorePage.clickColorPickerSaveBtn()
-    })
-
-
-   
-    
-})
-
-test("0013GTS-036 |Validate Wood Color Successfully Uploaed In mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land on guess the score", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-        await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
-       
-
-    })
-
-    await test.step("now click on start button on Admin site", async() =>{
-        //await guesstheScorePage.clickGameDesign()
-        // await guesstheScorePage.clickStartBtn()
-
-        //await guesstheScorePage.clickStartGameOkBtn()
-})
-let newTab=null;
-let newguessthescoregame :guesstheScoreMobilePage
-
-await test.step("now open the game in mobile view", async() =>{
-      
-          //click Mobile Link Btn
-        await guesstheScorePage.clickMobileLinkBtn()
-         //now click on open button
-        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-        newguessthescoregame = new guesstheScoreMobilePage(newTab)
-       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
-      
-    })
-await test.step("provide values in form field of mobile view and submit", async() =>{
-        await newguessthescoregame.typephoneno()
-        await newguessthescoregame.selectbirthdate()
-        await newguessthescoregame.typeAge()
-        await newguessthescoregame.typeemail()
-        await newguessthescoregame.typezip()
-        await newguessthescoregame.clicksubmit()
-        await newguessthescoregame.clcikHomePageInMobileScreen()
-        await newguessthescoregame.verifyTodaysLineUpBtnText()
-        await newguessthescoregame.verifyWoodColorUpdatedSuccessfully()
-        
-})
-    
-
-
-})
-
 test("0013GTS-037 |validate error if Add New Configuration is clicked without name provided.", async ({ loginPage,  guesstheScorePage,  page, }, testInfo) => {
 
 
@@ -2388,6 +1898,487 @@ test("0013GTS-049 | Validate Banner  Image upload change is being reflected on m
       })
 
 })
+test("0013GTS-031 |Validate swatches change visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+    await test.step("Now click swatches color plus button",async()=>{
+        await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.opencolorssection()
+        await guesstheScorePage.clickbuttoncolorpicker()
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+   
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+    })
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+        await page.waitForTimeout(3000)
+        
+})
+await test.step("now verify swatches color change on mobile screen",async()=>{
+   // await newguessthescoregame.verifySwatchesColorSuccessfullyAppliedInMobileScreen()
+    await newguessthescoregame.verifySwatchesColor()
+})
+    
+
+
+})
+test("0013GTS-033 |Validate Text color change is visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now input text color Admin site", async() =>{
+         await guesstheScorePage.clickGameDesign()
+
+
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clicktextColorPicker()
+     await page.waitForTimeout(1000)
+    
+     
+    //input Text RGR First Color
+    await guesstheScorePage.inputRGBFirstColor()
+
+    //input Text RGR Second Color
+    await guesstheScorePage.inputRGBSecondColor()
+
+    //input Text RGR Third Color
+    await guesstheScorePage.inputRGBThirdColor()
+
+    //input Text RGR Four Color
+    await guesstheScorePage.inputRGBColorOpacity()
+
+    //input Text RGR Five Color
+    await guesstheScorePage.inputRGBColorHex()
+    
+    
+    await page.waitForTimeout(2000)
+    await guesstheScorePage.verifyColorPickerText()
+    await guesstheScorePage.clickRGBFirstColor()
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+    await page.waitForTimeout(2000)
+})      
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+      
+})
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+}) 
+await test.step("now validate text color change is visible on mobile",async () =>{
+    await page.waitForTimeout(2000)
+    await newguessthescoregame.verifyTextColor()
+})
+})
+test("0013GTS-034 |Validate Button color successfully change from mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        await guesstheScorePage.clickGameDesign()
+        
+await test.step("validate Admin can change background color change is visible on mobile screen",async() =>{
+    //verify Text Color Text
+   //await guesstheScorePage.verifyTextColorsText()
+
+    //click Text Color Picker
+    //await guesstheScorePage.clickColorPickerSaveBtn()
+    // await guesstheScorePage.clickCloseBtn()
+})
+    await guesstheScorePage.opencolorssection()
+     await page.waitForTimeout(1000)
+     await guesstheScorePage.clickbuttoncolorpicker()
+     await page.waitForTimeout(2000)
+    
+     await guesstheScorePage.inputButtonColor()   
+     await page.waitForTimeout(1000)
+    //click Color Picker SaveBtn
+    await guesstheScorePage.clickColorPickerSaveBtn()
+})  
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+       await guesstheScorePage.clickCloseBtn()
+      
+    })
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+        await page.waitForTimeout(3000)
+        
+})     
+    await test.step("Now verify button color change on mobile screen",async()=>{
+       //await newguessthescoregame.verifyButtonColorSuccessfullyAppliedInMobileScreen()
+       await newguessthescoregame.verifyButtonColor()
+    })
+
+})
+
+test("0013GTS-035 | Validate Wood Color Input From Admin Side.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+    await test.step("Login Admin And land To Home Screen", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+            await page.waitForTimeout(2000)
+            await guesstheScorePage.clickGameDesign()
+
+
+
+    })
+    await test.step("Click Open ColorSection",async()=>{
+        await guesstheScorePage.opencolorssection()
+    })
+    await test.step("Click Background Color Picker Button",async()=>{
+        await guesstheScorePage.clickwoodcolorpicker()
+    })
+    await test.step("Validate RGB sections are visible in color picker",async()=>{
+        await guesstheScorePage.verifyRGBText()
+        await guesstheScorePage.verifyRGBFirstColorInputField()
+        await guesstheScorePage.verifyRGBSecondColorInputField()
+        await guesstheScorePage.verifyRGBThirdColorInputField()
+        await guesstheScorePage.verifyRGBOpacityColorInputField()
+        await guesstheScorePage.verifyRGBHexColorInputField()
+
+        await guesstheScorePage.selectColorNumberTwo()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+
+   
+    
+})
+
+test("0013GTS-036 |Validate Wood Color Successfully Uploaed In mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land on guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+       
+
+    })
+
+    await test.step("now click on start button on Admin site", async() =>{
+        //await guesstheScorePage.clickGameDesign()
+        // await guesstheScorePage.clickStartBtn()
+
+        //await guesstheScorePage.clickStartGameOkBtn()
+})
+let newTab=null;
+let newguessthescoregame :guesstheScoreMobilePage
+
+await test.step("now open the game in mobile view", async() =>{
+      
+          //click Mobile Link Btn
+        await guesstheScorePage.clickMobileLinkBtn()
+         //now click on open button
+        newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+        newguessthescoregame = new guesstheScoreMobilePage(newTab)
+       //await guesstheScorePage.click_closebutton_in_mobilelinkmodal()
+      
+    })
+await test.step("provide values in form field of mobile view and submit", async() =>{
+        await newguessthescoregame.typephoneno()
+        await newguessthescoregame.selectbirthdate()
+        await newguessthescoregame.typeAge()
+        await newguessthescoregame.typeemail()
+        await newguessthescoregame.typezip()
+        await newguessthescoregame.clicksubmit()
+        await newguessthescoregame.clcikHomePageInMobileScreen()
+        await newguessthescoregame.verifyTodaysLineUpBtnText()
+        await newguessthescoregame.verifyWoodColorUpdatedSuccessfully()
+        
+})
+    
+
+
+})
+test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+    await test.step("Login Admin And land To guess the score", async () => {
+
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+            await guesstheScorePage.clickGuessTheScoreSection()
+
+    })
+
+    await test.step("validate open the color section works", async () =>{
+        await guesstheScorePage.clickGameDesign()
+        await guesstheScorePage.opencolorssection()
+        
+    })
+   
+    await test.step("Validate background Color Input Functionality", async () => {
+           //click solid dropdown
+            
+        
+        // await guesstheScorePage.clickGuessTheScoreSection()
+       
+        
+        // await page.waitForTimeout(4000)
+
+        await guesstheScorePage.verifyBackgroundColorText()
+
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickBackgroundColorPicker()
+       // await guesstheScorePage.clickSolidDropdowns()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate Text Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clicktextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    // await test.step("Validate Header Color Input Functionality", async() =>{
+    //     await page.waitForTimeout(1000)
+    //     await guesstheScorePage.clickHeaderColorPicker()
+    //     await page.waitForTimeout(1000)
+    //     await guesstheScorePage.clickplusbuttonswatches()
+    //     await guesstheScorePage.inputRGBFirstColor()
+    //     await guesstheScorePage.inputRGBSecondColor()
+    //     await guesstheScorePage.inputRGBThirdColor()
+    //     await guesstheScorePage.inputRGBColorOpacity()
+    //     await guesstheScorePage.inputRGBColorHex()
+    //     await guesstheScorePage.clickdeletebuttonswatches()
+    //     await guesstheScorePage.clickColorPickerSaveBtn()
+    // })
+
+    await test.step("Validate buttons Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.buttonstextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    // await test.step("Validate maindBoard background Color Input Functionality", async() =>{
+    //     await page.waitForTimeout(1000)
+    //     await guesstheScorePage.MainboardBackgroundColorPicker()
+    //     await page.waitForTimeout(1000)
+    //     await guesstheScorePage.clickplusbuttonswatches()
+    //     await guesstheScorePage.inputRGBFirstColor()
+    //     await guesstheScorePage.inputRGBSecondColor()
+    //     await guesstheScorePage.inputRGBThirdColor()
+    //     await guesstheScorePage.inputRGBColorOpacity()
+    //     await guesstheScorePage.inputRGBColorHex()
+    //     await guesstheScorePage.clickdeletebuttonswatches()
+    //     await guesstheScorePage.clickColorPickerSaveBtn()
+    // })
+
+    await test.step("Validate Event title font Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.EventtitlefontColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate timer circle Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.TimerCircleColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate wood Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.WoodColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+
+    await test.step("Validate gameplay score text Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.gameplayscoretextColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+    
+    await test.step("Validate timer background Color Input Functionality", async() =>{
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.TimerBackgroundColorPicker()
+        await page.waitForTimeout(1000)
+        await guesstheScorePage.clickplusbuttonswatches()
+        await guesstheScorePage.inputRGBFirstColor()
+        await guesstheScorePage.inputRGBSecondColor()
+        await guesstheScorePage.inputRGBThirdColor()
+        await guesstheScorePage.inputRGBColorOpacity()
+        await guesstheScorePage.inputRGBColorHex()
+        await guesstheScorePage.clickdeletebuttonswatches()
+        await guesstheScorePage.clickColorPickerSaveBtn()
+    })
+    
+})
 test("0013GTS-050 | Validate rider roster tab is visible.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -2509,45 +2500,9 @@ test("0013GTS-052 | validate game operation settings are working.",async({ login
         await guesstheScorePage.clickridersadd()
         await guesstheScorePage.clickridersSaveBtn()
         //delete event
-        await guesstheScorePage.clickeventDelete()
+        //await guesstheScorePage.clickeventDelete()
     })
 })
-test("0013GTS-053 | Validate rider import functionality.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land game design of guess the score", async () => {
-
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-
-        await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(1000)
-
-    })
-
-    await test.step("Validate rider roster tab is visible",async()=>{
-       await guesstheScorePage.verifyriderrosterText()
-       await guesstheScorePage.clickriderrostersection()
-       await page.waitForTimeout(2000)
-       await guesstheScorePage.verifyAllRidersText()
-       await functions.uploadJsonFile()
-       await guesstheScorePage.clickToUploadRider()
-       await page.waitForTimeout(5000)
-
-       await guesstheScorePage.verifyimportBtn()
-       await page.waitForTimeout(1000)
-      // await guesstheScorePage.verifyexportBtn()
-        
-
-    })
-   
-}) 
 test("0013GTS-054 | Validate add rider button is working.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -2743,6 +2698,42 @@ test("0013GTS-060 | Validate error message if save button is clicked without rid
    })
 
 })
+test("0013GTS-053 | Validate rider import functionality.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(2000)
+        await guesstheScorePage.clickriderroster()
+    })
+
+    await test.step("Validate rider roster tab is visible",async()=>{
+       //await guesstheScorePage.verifyriderrosterText()
+       await guesstheScorePage.clickriderrostersection()
+       await page.waitForTimeout(2000)
+       await guesstheScorePage.verifyAllRidersText()
+       await functions.uploadJsonFile()
+       await guesstheScorePage.clickToUploadRider()
+       await page.waitForTimeout(5000)
+
+       await guesstheScorePage.verifyimportBtn()
+       await page.waitForTimeout(1000)
+      // await guesstheScorePage.verifyexportBtn()
+        
+
+    })
+   
+}) 
 test("0013GTS-061 | Validate upload avatar is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -3006,10 +2997,9 @@ test("0013GTS-069 |Validate start event is working.", async({loginPage, guessthe
     })
    await test.step("Now clickStart & clickStop event is working.",async()=>{
        await guesstheScorePage.clickgameoperationssection()
-       await guesstheScorePage.clickeventStart()
-       await guesstheScorePage.clickeventStop()
+       await guesstheScorePage.clickEventStartBtn()  
+       await guesstheScorePage.verifyLiveBtn()
    })
-
 })
 
 test.skip("0013GTS-070 | Validate uploaded avatar is reflected on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
@@ -3086,16 +3076,9 @@ test("0013GTS-071 | Validate Incorrect guess message reflection on mobile screen
             })
             await guesstheScorePage.clickGuessTheScoreSection()
             await page.waitForTimeout(1000)
-            await guesstheScorePage.clickGameDesign()
+            //await guesstheScorePage.clickGameDesign()
+            await guesstheScorePage.clickgameoperationssection() 
 
-    })
-
-    await test.step("now open the game in mobile view", async() =>{
-                     
-
-        await guesstheScorePage.clickgameoperationssection() 
-       
-        // await guesstheScorePage.clickMoveToNextBtn()
     })
     
        
@@ -3124,7 +3107,7 @@ test("0013GTS-071 | Validate Incorrect guess message reflection on mobile screen
                 // await guesstheScorePage.clickgameoperationssection() 
                 //await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()  
-                await page.waitForTimeout(1000)          
+                await page.waitForTimeout(2000)          
                 await guesstheScorePage.clickMoveToNextBtn()
                 await page.waitForTimeout(1000) 
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3259,8 +3242,7 @@ test("0013GTS-073 | Validate In-Gate header  text reflection on mobile screen.",
        
             let newTab=null;
             let newguessthescoregame :guesstheScoreMobilePage
-    await test.step("now open the game in mobile view", async() =>{
-            await guesstheScorePage.clickGameDesign()
+            //await guesstheScorePage.clickGameDesign()
             await guesstheScorePage.clickgameoperationssection()
             //await guesstheScorePage.clickeventStart() 
             //await guesstheScorePage.clickMoveToNextBtn() 
@@ -3287,7 +3269,7 @@ test("0013GTS-073 | Validate In-Gate header  text reflection on mobile screen.",
            // await newTab.waitForTimeout(4000)
             // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
             //newTab.close()
-      })
+    
      await test.step("Now click start event",async()=>{
         await guesstheScorePage.clickEventStartBtn()
         await page.waitForTimeout(1000)
@@ -3315,53 +3297,46 @@ test("0013GTS-074 |Validate Riding header  message reflection on mobile screen."
                     contentType: "image/png",
                     body: screenshot
             })
-            await guesstheScorePage.clickGuessTheScoreSection()
-            await page.waitForTimeout(1000)
-
+           
     })
-       
-            let newTab=null;
-            let newguessthescoregame :guesstheScoreMobilePage
-    await test.step("now open the game in mobile view", async() =>{
-            await guesstheScorePage.clickGameDesign()
-            await guesstheScorePage.clickgameoperationssection()
-            //await guesstheScorePage.clickeventStart() 
-            //await guesstheScorePage.clickMoveToNextBtn() 
-               
-    await test.step("Now game open in mobile screen",async()=>{
-            await guesstheScorePage.clickMobileLinkBtn()
-            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-            newguessthescoregame = new guesstheScoreMobilePage(newTab)
-            await guesstheScorePage.clickCloseBtn()
-            await newTab.waitForTimeout(4000)
-            await newguessthescoregame.typephoneno()
-            await newguessthescoregame.typeemail()
-            await newguessthescoregame.selectbirthdate()
-            await newguessthescoregame.typeAge()
-            await newguessthescoregame.typezip()
-            await newguessthescoregame.clicksubmit()
-            await newguessthescoregame.clickTodaysLineUpBtn()
-            await page.waitForTimeout(1000)
-            await newguessthescoregame.clickCurrentEventBtn()
-            await page.waitForTimeout(1000)
-            })
-            
-           // await newTab.waitForTimeout(4000)
-            // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
-            //newTab.close()
-      })
-     await test.step("Now click start even",async()=>{
+    await guesstheScorePage.clickGuessTheScoreSection()
+    await page.waitForTimeout(1000)
+    await guesstheScorePage.clickgameoperationssection()
+   
         await guesstheScorePage.clickEventStartBtn()
-        await guesstheScorePage.clickreridingBtn()
         await guesstheScorePage.clickMoveToNextBtn()
-       await guesstheScorePage.clickMoveToNextBtn()
+        await guesstheScorePage.clickMoveToNextBtn()
+     let newTab=null;
+     let newguessthescoregame :guesstheScoreMobilePage
+        
+await test.step("Now game open in mobile screen",async()=>{
+     await guesstheScorePage.clickMobileLinkBtn()
+     newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
+     newguessthescoregame = new guesstheScoreMobilePage(newTab)
+     await guesstheScorePage.clickCloseBtn()
+     await newTab.waitForTimeout(4000)
+     await newguessthescoregame.typephoneno()
+     await newguessthescoregame.typeemail()
+     await newguessthescoregame.selectbirthdate()
+     await newguessthescoregame.typeAge()
+     await newguessthescoregame.typezip()
+     await newguessthescoregame.clicksubmit()
+     await newguessthescoregame.clickTodaysLineUpBtn()
+     await page.waitForTimeout(1000)
+     await newguessthescoregame.clickCurrentEventBtn()
+     await page.waitForTimeout(1000)
      })
+     
+    // await newTab.waitForTimeout(4000)
+     // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
+     //newTab.close()
+
      await test.step("Now validate re-ride  hedader text on mobile screen",async()=>{
         await page.waitForTimeout(2000)
         await newguessthescoregame.verifyreriderText()
 
      })
-    // await guesstheScorePage.clickeventStop()
+    await guesstheScorePage.clickLiveBtn()
 
 
 })
@@ -3380,17 +3355,14 @@ test("0013GTS-075 | Validate Correct guess message reflection on mobile screen."
             })
             await guesstheScorePage.clickGuessTheScoreSection()
             await page.waitForTimeout(1000)
-            await guesstheScorePage.clickGameDesign()
+            //await guesstheScorePage.clickGameDesign()
 
     })
-
-    await test.step("now open the game in mobile view", async() =>{
                      
 
-        await guesstheScorePage.clickgameoperationssection() 
+        
        
-        // await guesstheScorePage.clickMoveToNextBtn()
-    })
+
     
        
             let newTab=null;
@@ -3398,7 +3370,7 @@ test("0013GTS-075 | Validate Correct guess message reflection on mobile screen."
   
     
     await test.step("Now game open in mobile screen",async()=>{
-
+            await guesstheScorePage.clickgameoperationssection() 
             await guesstheScorePage.clickMobileLinkBtn()
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
@@ -3467,7 +3439,7 @@ test("0013GTS-076 | Validate Close guess message reflection on mobile screen.", 
             })
             await guesstheScorePage.clickGuessTheScoreSection()
             await page.waitForTimeout(1000)
-            await guesstheScorePage.clickGameDesign()
+            //await guesstheScorePage.clickGameDesign()
 
     })
 
@@ -3557,20 +3529,9 @@ test("0013GTS-077 | Validate Far guess message reflection on mobile screen.", as
             await guesstheScorePage.clickGameDesign()
 
     })
-
-    await test.step("now open the game in mobile view", async() =>{
-                     
-
-        await guesstheScorePage.clickgameoperationssection() 
-       
-        // await guesstheScorePage.clickMoveToNextBtn()
-    })
-    
-       
+        await guesstheScorePage.clickgameoperationssection()  
             let newTab=null;
             let newguessthescoregame :guesstheScoreMobilePage
-  
-    
     await test.step("Now game open in mobile screen",async()=>{
 
             await guesstheScorePage.clickMobileLinkBtn()
@@ -3728,22 +3689,13 @@ test("0013GTS-079 | Validate earned points is visible on mobile screen.", async(
             await guesstheScorePage.clickGameDesign()
 
     })
-
-    await test.step("now open the game in mobile view", async() =>{
-                     
-
-        await guesstheScorePage.clickgameoperationssection() 
-       
-        // await guesstheScorePage.clickMoveToNextBtn()
-    })
-    
-       
+                    
             let newTab=null;
             let newguessthescoregame :guesstheScoreMobilePage
   
-    
+            await guesstheScorePage.clickgameoperationssection() 
     await test.step("Now game open in mobile screen",async()=>{
-
+            
             await guesstheScorePage.clickMobileLinkBtn()
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
@@ -3761,7 +3713,6 @@ test("0013GTS-079 | Validate earned points is visible on mobile screen.", async(
                 // await page.bringToFront()                
                 // await guesstheScorePage.clickgameoperationssection() 
                 // await guesstheScorePage.clickgameoperationssection() 
-                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()            
                 await guesstheScorePage.clickMoveToNextBtn()
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3793,10 +3744,10 @@ test("0013GTS-079 | Validate earned points is visible on mobile screen.", async(
         await page.waitForTimeout(1000)
         await newguessthescoregame.verifyEarnedPointsText()
         await newguessthescoregame.verifyEarnedPoints()
-       // await guesstheScorePage.clickeventStop()
+       
 
      })
-
+     await guesstheScorePage.clickLiveBtn()
 })
 test.skip("0013GTS-080 | Validate Re-Ride button is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
@@ -4051,8 +4002,8 @@ test("0013GTS-086 | Validate game status Live after click start event.", async({
        await guesstheScorePage.clickeventStart()
        await guesstheScorePage.clickLiveBtn()
        //await guesstheScorePage.clickStartGameOkBtn()
-       await guesstheScorePage.clicksLiveGameOkBtn()
-       //await guesstheScorePage.clickeventStop()
+      // await guesstheScorePage.clicksLiveGameOkBtn()
+       await guesstheScorePage.clickeventStop()
       
        
    })
@@ -4123,7 +4074,7 @@ test("0023GTS-088 | Validate Edit button is working guess The score.",async({log
    
     
 })
-test.skip("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -4154,5 +4105,3 @@ test.skip("0013GTS-089 | Validate delete event is working.", async({loginPage, g
    })
 
 })
-
-
