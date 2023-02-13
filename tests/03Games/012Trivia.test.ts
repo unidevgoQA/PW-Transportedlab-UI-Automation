@@ -2051,7 +2051,7 @@ test("012TV-062 | Validate Question text color successfully reflection on mobile
             })
       
 })
-test.only("012TV-063 | Validate input RGB Answer text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-063 | Validate input RGB Answer text color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2094,7 +2094,7 @@ test.only("012TV-063 | Validate input RGB Answer text color is working.", async 
   
       
 })
-test.only("012TV-064 | Validate RGB Answer text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-064 | Validate RGB Answer text color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
