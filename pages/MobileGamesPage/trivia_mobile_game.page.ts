@@ -12,17 +12,26 @@ export default class triviaMobilePage {
         private triviaMobilePageElements = {
               answerBackground:"//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]",
               questionFrame:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
-              correctAnswer:"(//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')])[2]",
+              correctAnswer:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
               incorrectAnswer:"(//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')])[1]",
               countdownAnimationfill:"//div[@class='MuiBox-root css-1htopk5']",
               TileCountdownBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
               TileCountdownFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
-              answerframe:"(//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')])[1]",
+              answerframe:"//div[@class='MuiBox-root css-cv3yux']",
               leaderboardText:"//div[text()='Your Rank']",
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
                userTopTenRank:"(//td[contains(@class,'MuiTableCell-root MuiTableCell-body')])[1]",
-               LeaderboardFrame:'//div[@class="MuiBox-root css-ghglrv"]',
+               LeaderboardFrame:'//div[@class="MuiBox-root css-1b3x2tr"]',
+               LeaderboardAccent:"//th[text()='Names']"
+               //GameTiteleName:
         }
+        async verifyGameTitleName(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardAccent).isVisible()
+              if(ele == true){
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardAccent)).toHaveCSS("color","rgb(16, 10, 124)")
+              }
+              else throw new Error("Triva mobile leaderboard frame color not visible in leaderboard section")
+       }
 
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
@@ -162,7 +171,7 @@ export default class triviaMobilePage {
               
        }
        async verifyQuestionBackgroundColor(){
-              const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1drt7y6']")
+              const ele =  this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1oadw05"]')
               await expect.soft(ele).toHaveCSS("background-color","rgb(16, 10, 124)")
               
        }
@@ -185,7 +194,7 @@ export default class triviaMobilePage {
        async verifyAnswerFrameColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe).isVisible()
               if(ele == true){
-                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe)).toHaveCSS("background-color","rgb(16, 10, 124)")
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe)).toHaveCSS("border-color","rgb(16, 10, 124)")
               }
               else throw new Error("Triva mobile question background field is not visible")
        }
@@ -255,14 +264,22 @@ export default class triviaMobilePage {
        async verifyLeaderboardFrameColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardFrame).isVisible()
               if(ele == true){
-                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardFrame)).toHaveCSS("border-top-color","rgb(16, 10, 124)")
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardFrame)).toHaveCSS("border-color","rgb(16, 10, 124)")
               }
-              else throw new Error("Triva mobile User Top 10 Rank is not visible in leaderboard section")
+              else throw new Error("Triva mobile leaderboard frame color not visible in leaderboard section")
+       }
+       async verifyLeaderboardAccentColor(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardAccent).isVisible()
+              if(ele == true){
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.LeaderboardAccent)).toHaveCSS("color","rgb(16, 10, 124)")
+              }
+              else throw new Error("Triva mobile leaderboard frame color not visible in leaderboard section")
        }
        async verifyAnswerTextColor(){
               const ele =  this.page.frameLocator('iframe').locator('(//input[@class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled css-mjavz1"])[2]')
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
               
        }
+       
      
     }

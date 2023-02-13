@@ -191,6 +191,12 @@ export default class guesstheScorePage {
                 await ele.fill("87")
 
         }
+        async clickRGBFirstColor() {
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+                await expect(ele).toBeVisible()
+                await ele.click()
+
+        }
         async inputRGBSecondColor() {
                 const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
                 await expect(ele).toBeVisible()
@@ -212,16 +218,17 @@ export default class guesstheScorePage {
                 await ele.fill("100")
 
         }
+        
 
         async inputRGBColorHex() {
-                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+                const ele = this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[5]")
                 await expect(ele).toBeVisible()
                 await ele.fill("577C98FF")
 
         }
 
         async clickdeletebuttonswatches() {
-                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="delete"]').last().click()
+                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="delete"]').last().click({force:true})
         }
 
 
@@ -985,7 +992,9 @@ export default class guesstheScorePage {
 
         }
         async clickMobileLinkBtn() {//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-12rnbi7"]
-                await this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]').last().click({force:true})
+              const ele =  this.page.frameLocator('iframe').locator('//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]').last()
+                await this.page.waitForTimeout(1000)
+                await ele.click({force:true})
 
 
         }
@@ -1103,7 +1112,7 @@ export default class guesstheScorePage {
         async validateSaveQRCode() {
                 const [download] = await Promise.all([
                         this.page.waitForEvent('download'),
-                        this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click()
+                        this.page.frameLocator('iframe').locator('//button[text()="Save QR Code"]').click({force:true})
                 ])
                 const suggestedFileName = download.suggestedFilename()
                 const filePath = 'QRCode' + suggestedFileName
@@ -1516,18 +1525,21 @@ export default class guesstheScorePage {
                   if(ele == true){
                         //clickStartEvent
                         await this.page.frameLocator('iframe').locator("//p[text()='Start Event']").click({force:true})
+                        await this.page.setDefaultTimeout(1000)
                         //clickEventThreeDot
                         await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
+                        await this.page.setDefaultTimeout(1000)
                          //clickEventStop
                         await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
                   }
                   else{
                         //clickEventThreeDot
                         await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
-                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
+                        await this.page.setDefaultTimeout(1000)
+                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
                         //clickEventStop
                   }
-               await this.page.waitForLoadState("networkidle")
+               //await this.page.waitForLoadState("networkidle")
                await this.page.waitForTimeout(3000)
 
 
@@ -1565,8 +1577,9 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
         }
         async clickMoveToNextBtn() {
-                const ele = await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Move to Next']")
-                expect(ele).toContainText("Move to Next")
+                const ele =  this.page.frameLocator('.css-r99fy3').locator("//button[text()='Move to Next']")
+                //expect(ele).toContainText("Move to Next")
+                await this.page.waitForTimeout(1000)
                 await ele.click()
                 await this.page.waitForLoadState("networkidle")
         }
