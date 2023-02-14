@@ -697,7 +697,7 @@ export default class mobilePreviewPage {
 
               }
               else throw new Error("Mobile Welcome Screen Tems And Condition Link Is not Visiable")
-              await this.page.waitForLoadState("networkidle")
+              await this.page.waitForTimeout(4000)
 
        }
 

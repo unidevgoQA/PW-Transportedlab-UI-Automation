@@ -1,13 +1,69 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-export default class tugOfWarPage {
-        // [x: string]: any;
 
+
+
+
+
+export default class tugOfWarPage {
         private page: Page;
-        static buffer: void;
         constructor(page: Page) {
                 this.page = page;
         }
+
+        private tugOfWarPageElements = {
+                tugOfWarText: `text=Tug of War`,
+                configrationTitleText: "Configurations",
+                buttonListIteam: "listitem",
+                addNewConfigPlusBtn: "button",
+                newConfigTitleText: `New Configuration`,
+                configInputField: `textbox`,
+                configAddBtn: `ADD`,
+                errorAlertMassage: "Incorrect configuration name",
+                gameStageBtn: `//p[text()='Stages']`,
+                gameSettingsBtn: "//p[text()='Game Settings']",
+                fontUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[1]",
+                fontTitleText: `//h4[text()='Fonts']`,
+                uploadedFontTitleText: "//p[text()='Midnight']",
+                colorsTitleText: "//h4[text()='Colors']",
+                primaryColorTitleText: "//p[text()='Primary Color']",
+                primaryColorInputFieldBtn: "//p[text()='Primary Color']/following-sibling::button",
+                primaryColorInputField: `[maxlength="8"]`,
+                colorInputWindowSaveBtn: "//button[text()='Save']",
+                secondaryColorTitleText: "//p[text()='Secondary Color']",
+                secondaryColorInputField: "//p[text()='Secondary Color']/following-sibling::button",
+                textColorTitleText: "//p[text()='Text Color']",
+                textColorInputField: "//p[text()='Text Color']/following-sibling::button",
+                clearAllBtn: "//button[text()='Clear All']",
+                mainboardTitleText: "//h5[text()='Mainboard Background']",
+                mainBoardImageUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
+                mobileBackgroundTitleText: "//h5[text()='Mobile Background']",
+                mobileBackgroundUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[3]",
+                standByMassageTitleText: "//h6[text()='Stand By Message']",
+                standbyMassageInputFiled: "//textarea[@placeholder='Type message']",
+                fontDeleteBtn: "//p[text()='Aa']/following-sibling::button",
+                qrCodeBtn: `[data-testid="QrCodeIcon"]`,
+                opneLinkInNewTab: "//a[@aria-label='Open Link']",
+
+                gussTheScroeGameTitle: "//p[text()='Guess The Score']",
+                triviaGameTitle: "//p[text()='Trivia']",
+                liveWallGameTitle: "//p[text()='Live Wall']",
+                noiseMeterGameTitle: "//p[text()='Noise Meter']",
+                tugOfWarGameTitle: "//p[text()='Tug of War']",
+                prizeDropGameTitle: "//p[text()='Prize Drop']",
+
+
+
+
+
+
+
+
+
+
+        }
+
+
 
 
 
@@ -16,11 +72,212 @@ export default class tugOfWarPage {
 
         //click Tug Of War Page
         async clickTugOfWarPage() {
-                const locator = this.page.locator('text=Tug of War')
-                expect(locator).toContainText('Tug of War')
-                await locator.click()
-                // console.log("Successfully Click To Tug of War Page ")
+                await this.page.waitForSelector(this.tugOfWarPageElements.tugOfWarText)
+                const ele = await this.page.locator(this.tugOfWarPageElements.tugOfWarText).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.tugOfWarPageElements.tugOfWarText).click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.tugOfWarText}"`)
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
         }
+
+        //click Tug Of War Page
+        async clickGameSettingsSection() {                                
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().isVisible()
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
+                await this.page.waitForLoadState("networkidle")
+        }
+
+        async clickQrCodeBtn() {                                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.qrCodeBtn).last()
+                if (await ele.isVisible()) {
+                         await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
+                await this.page.waitForLoadState("networkidle")
+                
+        }
+
+        async clickOpenLinkInNewTab() {
+
+                // Click text=Open Link
+                const [page1] = await Promise.all([
+                    this.page.waitForEvent('popup'),
+                    this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.opneLinkInNewTab).click({button:"left"})
+                ]);
+                // await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(3000)
+                return page1;
+                
+        }
+
+        async verifyFontTitleText() {                
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.fontTitleText).textContent()
+                if ((ele == "Fonts")) {
+                       console.log("Tug Of War Game Settins Font Text Element Is Successfully visiable");
+                       
+                }
+                else throw new Error(`Tug Of War Game Settins Font Text Element Is Not visiable, Could not find locator: "${this.tugOfWarPageElements.fontTitleText}"`)
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(3000)
+        }
+
+        async deleteUploadedFont() {                                                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.fontDeleteBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000})
+                }
+                else {console.log("Tug of war Game Settings Section Have No Uploaded Font Visible");
+                }
+                
+        }
+
+        async clickOnTheFontUploadInputField() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.fontUploadInputField)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000})
+                }
+                else throw new Error(`Tug Of War Game Settins Font Upload Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.fontUploadInputField}"`)
+                await this.page.waitForTimeout(4000)
+                
+        }
+
+        async selectUploadedFont() {                
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.uploadedFontTitleText).isVisible({timeout: 9000})
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.uploadedFontTitleText).click({ button: "left", delay: 1000, timeout: 9000})
+                }
+                else throw new Error(`Tug Of War Game Settins Uploaded Font Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.uploadedFontTitleText}"`)
+                
+        }
+
+        async clickClearAllBtn() {                
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.clearAllBtn).isVisible({timeout: 9000})
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.clearAllBtn).click({ button: "left", delay: 1000, timeout: 9000})
+                }
+                else throw new Error(`Tug Of War Game Settins Font Upload Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.clearAllBtn}"`)
+                
+        }
+
+        async verifyPrimaryColorTitleText() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorTitleText)
+                if (await ele.isVisible()) {
+                        await expect(ele).toContainText("Primary Color")
+                }
+                else throw new Error(`Tug Of War Game Settins Primary Color Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorTitleText}"`)
+                
+        }
+
+        async clickPrimaryColorInputField() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputFieldBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({button:"left", delay:1000})
+                }
+                else throw new Error(`Tug Of War Game Settins Primary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputFieldBtn}"`)
+                await this.page.waitForTimeout(2000)          
+        }
+
+        async inputPrimaryColor() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
+                if (await ele.isVisible()) {
+                        await ele.fill("355C7D", {timeout: 3000})
+                }
+                else throw new Error(`Tug Of War Game Settins Primary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)          
+        }
+
+        async clickColorInputFieldSaveBtn() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.colorInputWindowSaveBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({button:"left", delay:1000})
+                }
+                else throw new Error(`Tug Of War Game Settins Primary Color Input Window Save Btn Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.colorInputWindowSaveBtn}"`)          
+        }
+
+
+
+        async verifySecondaryColorTitleText() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.secondaryColorTitleText)
+                if (await ele.isVisible()) {
+                        await expect(ele).toContainText("Secondary Color")
+                }
+                else throw new Error(`Tug Of War Game Settins Secondary Color Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.secondaryColorTitleText}"`)
+                
+        }
+
+        async clickSecondaryColorInputField() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.secondaryColorInputField)
+                if (await ele.isVisible()) {
+                        await ele.click({button:"left", delay:1000})
+                }
+                else throw new Error(`Tug Of War Game Settins Secondary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputFieldBtn}"`)
+                await this.page.waitForTimeout(2000)          
+        }
+
+        async inputSecondaryColor() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
+                if (await ele.isVisible()) {
+                        await ele.fill("6C5B7B", {timeout: 3000})
+                }
+                else throw new Error(`Tug Of War Game Settins Secondary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)          
+        }
+
+
+        
+        async verifyTextColorTitleText() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.textColorTitleText)
+                if (await ele.isVisible()) {
+                        await expect(ele).toContainText("Text Color")
+                }
+                else throw new Error(`Tug Of War Game Settins Text Color Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.textColorTitleText}"`)
+                
+        }
+
+        async clickTextColorInputField() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.textColorInputField)
+                if (await ele.isVisible()) {
+                        await ele.click({button:"left", delay:1000})
+                }
+                else throw new Error(`Tug Of War Game Settins Text Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.textColorInputField}"`)
+                await this.page.waitForTimeout(2000)          
+        }
+
+        async inputTextColor() {                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
+                if (await ele.isVisible()) {
+                        await ele.fill("FFFFFFFF", {timeout: 3000})
+                }
+                else throw new Error(`Tug Of War Game Settins Text Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)          
+        }
+
+
+
+
+
+
+
+        async inputConfigurationName(name: string) {
+                const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
+                await ele.fill(name)
+
+        }
+
+
+        async clickStagesBtn() {
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().isVisible()
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Stage Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameStageBtn}"`)
+                await this.page.waitForLoadState("networkidle")
+
+
+        }
+
 
         async clickTitleStageTab() {
                 //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
@@ -286,7 +543,7 @@ export default class tugOfWarPage {
 
         }
 
-        
+
         async inputSelectionStageSecondTeamName() {
                 await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]").fill("Jone")
 
@@ -295,7 +552,7 @@ export default class tugOfWarPage {
 
 
 
-        
+
 
         async inputNumberOfTeams() {
                 const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
@@ -303,7 +560,7 @@ export default class tugOfWarPage {
 
         }
 
-        
+
         async clickFirstTeamLogoUploadIcon() {
                 const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
                 await ele.click()
@@ -311,7 +568,7 @@ export default class tugOfWarPage {
         }
         async enableAdjustableSelection() {
                 const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
-                await ele.click({force:true})
+                await ele.click({ force: true })
 
         }
 
@@ -921,13 +1178,13 @@ export default class tugOfWarPage {
 
         }
 
-        
-        
+
+
 
 
         async fileUploadCropper() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
-                await ele.click({force:true})
+                await ele.click({ force: true })
 
                 const saveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 await saveBtn.click()
@@ -1007,7 +1264,7 @@ export default class tugOfWarPage {
 
         }
 
-        
+
         async clickInputAutoResetTimer() {
                 const ele = await this.page.frameLocator('iframe').locator("input.MuiInputBase-input.MuiOutlinedInput-input")
                 await ele.click()
@@ -1023,11 +1280,11 @@ export default class tugOfWarPage {
 
 
         async clickCustomThankYouMassageCheckBox() {
-                
+
 
                 await this.page.frameLocator('iframe').locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").click()
-                
-        
+
+
         }
 
 
@@ -1053,7 +1310,7 @@ export default class tugOfWarPage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
                                 .locator('text=AutoStagesGame SettingsDelete >> p').last()
-                                .click({force:true})
+                                .click({ force: true })
                 }
 
                 await this.page.waitForTimeout(3000)
@@ -1063,19 +1320,20 @@ export default class tugOfWarPage {
                         // console.log("Enable Stage to be skip and jump to next one")
                         await this.page.frameLocator('iframe')
                                 .locator("//button[text()='Delete']")
-                                .click({force:true})
+                                .click({ force: true })
                 }
 
 
-               
+
 
 
         }
 
 
         async clickAddNewConfigPlusBtn() {
+                await this.page.waitForTimeout(2000)
                 const ele = await this.page.frameLocator('iframe').locator("(//h5[text()='Configurations']/following-sibling::button)[1]")
-                await ele.click()
+                await ele.click({ button: 'left', delay: 1000 })
 
         }
 
@@ -1087,22 +1345,13 @@ export default class tugOfWarPage {
 
 
 
-        async inputConfigurationName() {
-                const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
-                await ele.fill("Auto")
 
-        }
 
         async clickAddBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
                 expect(ele).toBeVisible()
                 await ele.click()
-
-        }
-
-        async clickStagesBtn() {
-                await this.page.frameLocator('iframe').locator("text=AutoStagesGame SettingsDelete >> p").first().click()
-
+                await this.page.waitForLoadState("networkidle")
 
         }
 
@@ -1128,14 +1377,14 @@ export default class tugOfWarPage {
         }
 
         async clickGameSettingFromTheNewlyAddedGame() {
-                
+
                 const ele = await this.page.frameLocator("iframe").locator("//p[text()='Game Settings']").last()
                 expect(ele).toBeVisible()
                 await ele.click()
 
         }
 
-        
+
 
 
         async clickUploadFontBtn() {
@@ -1325,7 +1574,7 @@ export default class tugOfWarPage {
         }
 
 
-        
+
 
         //🔚 Closed Game Design Section Element 
         //=======================================================
@@ -1369,7 +1618,9 @@ export default class tugOfWarPage {
         }
 
 
-
+        getRandomName() {
+                return "Auto" + Date.now() + "Name"
+        }
 
 }
 

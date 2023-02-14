@@ -14,7 +14,7 @@ const config: PlaywrightTestConfig = {
     "005SignUp.test.ts",
     "006GlobalPrizing.test.ts",
     "007PrizeDrop.test.ts",
-    // "008TugOfWar.test.ts",
+    "008TugOfWar.test.ts",
     "009LiveWall.test.ts",    
     "010Arcade.test.ts",
     "011AddNewExperiences.test.ts",     

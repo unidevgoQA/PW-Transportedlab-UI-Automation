@@ -6,7 +6,72 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 
 
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
+
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        await MainMenu.clickHomeAvater();
+        await MainMenu.mainMenuBtn();
+        await MainMenu.clickMobileDesign();
+
+        //Click on the menu page
+        await menuPage.clickMenuPage()
+        //verify font text
+        await menuPage.checkFontsText();
+
+        //Verify upload font text
+        await menuPage.checkUploadFontText();
+
+        await menuPage.deleteUploadedFont()
+
+        await functions.fontUploadFunction()
+        await menuPage.clickToUploadFont()
+        await menuPage.verifyFontUploadedSuccessfully()        
+
+        await menuPage.clickBackgroundColorInputField()
+        await menuPage.inputBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+        await menuPage.clickTextColorInputField()
+        await menuPage.inputTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+
+        await menuPage.clickActiveBackgroundColorInputField()
+        await menuPage.inputActiveBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+
+
+        await menuPage.clickActiveTextColorInputField()
+        await menuPage.inputActiveTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+        await menuPage.selectBottomAlignmentMenuBar()
+
+        await singupPage.clickSignUpPage()
+        await singupPage.clickAnonymousLoginOption()
+        await singupPage.clickAdditionalInfoPhoneNumberCheckbox()
+        await singupPage.clickAdditionalInfoEmailAddressCheckbox()
+        await singupPage.clickAdditionalInfoAgeCheckbox()
+        await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
+        await singupPage.clickAdditionalInfoZipCodeCheckbox()
+        await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+        await languagePage.clickLanguagePage()
+        await languagePage.clickUserForceLanguageOption()
+        await languagePage.clickForceLanguageInputField()
+        await languagePage.selectEnglishLanguage()
+
+
+
+
+
+
+})
 
 test("010A-001 | Validate Admin Successfully Upload Font For Arcade Section", async ({ MainMenu, arcadePage,functions, menuPage, loginPage, page, }, testInfo) => {
 
