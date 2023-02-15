@@ -1080,7 +1080,7 @@ export default class liveWallPage {
     }
   }
   //Mobile Background
-  async select_image_for_left_image_1_1_output(){
+  async select_image_for_mobile_background(){
       const ele =this.page.
       frameLocator(this.Fansee_page_elements.iframe)
       .locator("//p[text()='Mobile Background']//following-sibling::div//span[text()='Image']")
