@@ -940,7 +940,7 @@ export default class MobileDesign {
 
     async verifyPotraitBackgroundUploadSuccessfully() {
 
-        await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
+        await this.page.waitForSelector("//button[@aria-label='Delete']")
 
 
 
@@ -949,7 +949,7 @@ export default class MobileDesign {
 
     async verifyLandscapeBackgroundUploadSuccessfully() {
 
-        await this.page.waitForSelector("//h5[text()='Landscape Background']/following::button[@title='Delete']//div[1]")
+        await this.page.waitForSelector("//button[@aria-label='Delete']")
 
 
 
@@ -1005,7 +1005,7 @@ export default class MobileDesign {
 
 
     async clickToUploadLandscapeBackground() {
-
+        await this.page.waitForTimeout(2000)
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
         await ele.click({button: "left", delay: 1000})
 

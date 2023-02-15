@@ -1297,7 +1297,7 @@ export default class liveWallPage {
     await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[3]").click()
 
   }
-  async standByInputBoxNormal() {
+  async standByInputBoxNormal() {    
     await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_stand_by_message_element).selectText()
    
     await this.page.frameLocator("iframe").locator("//li[text()='Normal']").click()

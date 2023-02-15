@@ -98,6 +98,7 @@ test("008TOFW-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, fu
 
 
         await tugOfWarPage.clickStagesBtn()
+        await tugOfWarPage.clickGameStartBtn()
 
 
 
@@ -428,9 +429,647 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen", 
 })
 
 
+test.skip(" 008TOFW-012 | Validate Game Settings  Mainboard Background Image Successfully Upload From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
 
 
 
+
+})
+
+test.skip("008TOFW-013 | Validate Uploaded Mainboard Background Image Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+
+
+test.skip("008TOFW-014 | Validate Game Settings  Mobile Background Image Successfully Upload From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip("008TOFW-015 | Validate Uploaded Mobile Background Image Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+test.skip(" 008TOFW-016 | Validate Game Settings  Stand by Massage Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip("008TOFW-017 | Validate Stand By Massage Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+test.only(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage() 
+        await tugOfWarPage.clickStagesBtn()        
+
+        await tugOfWarPage.clickGameStopBtn()
+        await tugOfWarPage.verifyCustomMobileWaitingMassageTitleText()
+
+
+        await tugOfWarPage.inputCustomMobileWaitingMassage()
+       
+        
+
+
+
+
+})
+
+test("008TOFW-019 | Validate Custom Mobile Waiting Message Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+test.skip("008TOFW-020 | Validate Title Stage Title Background Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip("008TOFW-021 | Validate Title Background Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+test.skip("008TOFW-022 | Validate Title Stage Game Title Image Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip(" 008TOFW-023 | Validate Game Title Image Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+
+test.skip("008TOFW-024| Validate Title Stage Team Logo Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip("008TOFW-025 | Validate Team Logo Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
+
+
+test.skip("008TOFW-026 | Validate Title Stage Sponsor Logo Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin') 
+
+        await tugOfWarPage.clickTugOfWarPage()     
+
+        await tugOfWarPage.clickGameSettingsSection()
+        // await tugOfWarPage.clickClearAllBtn()
+
+        await tugOfWarPage.delteMobileBackgroundImage()
+        await tugOfWarPage.delteMainBoardBackgroundImage()
+
+
+        await tugOfWarPage.verifyMainBoardBackgroundTitleText()
+        await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
+        
+
+
+
+
+})
+
+test.skip("008TOFW-027 | Validate Sponsor Logo Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Login Admin And land To Home Screen", async () => {
+
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("Click Guess The Scrore Section", async () => {
+                await tugOfWarPage.clickTugOfWarPage()
+        })
+      
+        let newTab = null;        
+        let tugOfWarMobilePages: tugOfWarMobilePage
+
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await tugOfWarPage.clickQrCodeBtn()
+                //now click on open button
+                newTab = await tugOfWarPage.clickOpenLinkInNewTab()
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
+                
+        })
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
+                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                await tugOfWarMobilePages.inputAdditionalDate()
+                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+
+                await tugOfWarMobilePages.inputAgeForAditionalInfo()
+                await tugOfWarMobilePages.inputEmailForAditionalInfo()
+                await tugOfWarMobilePages.inputAdditionalZipCode()
+                await tugOfWarMobilePages.clickSubmitButton()          
+             
+             
+        })
+
+        await test.step("Validation on mobile Screen", async () => {
+
+                await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
+                     
+             
+             
+        })
+
+})
 
 
 

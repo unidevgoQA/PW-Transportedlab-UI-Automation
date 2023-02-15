@@ -117,6 +117,7 @@ export default class arcadePage {
                 if ((ele === "Fonts")) {
                 }
                 else throw new Error("Main Menu Arcade Page Fonts Title Text Is not Visible")
+                
 
         }
 
@@ -312,9 +313,9 @@ export default class arcadePage {
 
         async deleteFanaticsLogo() {
 
-                let ele = await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).isVisible()
+                let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoEdit).isVisible()
                 if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.prizeDropGameLogoEdit).click({ button: "left", delay: 1000 })
+                        await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoEdit).click({ button: "left", delay: 1000 })
                         await this.page.waitForSelector("//button[text()='Choose File']")
                         const chooseBtn = await this.page.locator("//button[text()='Choose File']")
                         expect.soft(chooseBtn).toContainText("Choose File")
@@ -431,7 +432,7 @@ export default class arcadePage {
         }
 
         
-        async uploadFanaticsFilterWebLogo() {
+        async uploadFanaticsFilterWebLogo() {                
                 await this.page.waitForSelector(this.arcadePageElements.fanaticsFilterWebGameLogoInput)
                 let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput).isVisible()
                 if ((ele == true)) {
