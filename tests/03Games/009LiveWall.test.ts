@@ -281,6 +281,11 @@ test("009FanSee-58|validate Font color picker is working", async ({ loginPage, l
                 //009FanSee-56|	Validate Font Color text is visible and button is clickable.
                 await liveWallPage.clickFontColorPickerInputField()
         })
+        await test.step("009FanSee-59|	Validate Font color picker plus button is visible and clickable.", async () => {
+                await liveWallPage.clickplusbuttonswatches()
+                await liveWallPage.clickdeletebuttonswatches()
+                         
+        })
         
         await test.step("009FanSee-60|	Validate Font color picker horizantol section", async () => {
                 await liveWallPage.validate_solid_horizontal_vertical_dropdown()
@@ -301,12 +306,7 @@ test("009FanSee-58|validate Font color picker is working", async ({ loginPage, l
                 await liveWallPage.click_solid_button()
                 
         })
-        await test.step("009FanSee-59|	Validate Font color picker plus button is visible and clickable.", async () => {
-                await liveWallPage.clickplusbuttonswatches()
-                await liveWallPage.clickdeletebuttonswatches()
-              
-                
-        })
+     
 
 
         await test.step("009FanSee-65|	Validate Font color picker RGB is working", async () => {
@@ -443,6 +443,7 @@ test("009FanSee-80|Validate Mobile Background Upload Functionality", async ({ lo
 
         await test.step("now mobile background image", async () => {
                 //click ToUpload Feed Right Image
+                await liveWallPage.select_image_for_mobile_background()
                 await liveWallPage.mobile_background_image_upload()
                 await liveWallPage.Image_uploader_For_mobile_background()
                 await liveWallPage.wait_mobile_back_upload()
@@ -506,6 +507,7 @@ test("009FanSee-81|Validate Output Background Upload Functionality", async ({ lo
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
+                await liveWallPage.select_image_for_output_background()
                 await liveWallPage.output_background_upload()
                 await liveWallPage.Image_uploader_For_output_background()
                 await liveWallPage.wait_OutPut_background()
@@ -536,7 +538,7 @@ test("009FanSee-82|Validate Left Image (1:1 Output) Upload Functionality", async
                 await liveWallPage.click_trippledot()
                 await liveWallPage.clickDesignPage()
         })
-        await test.step("validate mobile home screen logo upload works", async () => {
+        await test.step("Validate Left Image (1:1 Output) Upload upload works", async () => {
                 await liveWallPage.left_image_1_1_upload()
                 await liveWallPage.Image_uploader_For_left_image_1_1()
                 await liveWallPage.wait_left_image_1_1_upload()
@@ -692,6 +694,7 @@ test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPa
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
+                await liveWallPage.select_image_for_fallback_1_1()
                 await liveWallPage.Fallback_1_1_upload()
                 await liveWallPage.Image_uploader_For_Fallback_1_1()
                 await liveWallPage.wait_Fallback_1_1_upload()
@@ -723,6 +726,7 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
+                await liveWallPage.select_image_for_fallback_9_16()
                 await liveWallPage.Fallback_9_16_upload()
                 await liveWallPage.Image_uploader_For_Fallback_9_16()
                 await liveWallPage.wait_Fallback_9_16_upload()
@@ -1731,7 +1735,7 @@ test('009FanSee-225|validate prizing section in new instance is working',async({
         })
         await test.step('009FanSee-125|	Validate title in prizing section works',async ()=>{
                 await liveWallPage.click_AddNewPrizeBtn() 
-                await liveWallPage.input_title_prize("Automation_test_prize")
+                await liveWallPage.input_title_prize('Automation_test_')
         })
         await test.step('009FanSee-126|	Validate total prize in add new prize works',async()=>{
                 await liveWallPage.input_total_prize('100')
@@ -1743,6 +1747,63 @@ test('009FanSee-225|validate prizing section in new instance is working',async({
 
         await test.step('009FanSee-128|	validate Chance field input is working',async()=>{
                 await liveWallPage.input_chance_amount('100')
+        })
+        await test.step("009FanSee-134|	Validate condition type time is working",async()=>{
+                await liveWallPage.click_condtion_type()
+                await liveWallPage.click_condtion_type_Time()
+        })
+        await test.step("009FanSee-133|	validate condition type participation is working",async()=>{
+                 await liveWallPage.click_condtion_type()
+                await liveWallPage.click_condtion_type_participation()
+        })
+
+        await test.step("009FanSee-134|	Validate condition type time is working",async()=>{
+                await liveWallPage.click_condtion_type()
+                await liveWallPage.click_condtion_type_Made_output()
+        })
+        await test.step('009FanSee-128|	validate coupon selection is working',async()=>{
+                await liveWallPage.click_button_to_start_selecting_coupon()
+                await liveWallPage.select_first_coupon()
+                await liveWallPage.confirm_select_coupon()
+               
+        })
+        await test.step("009FanSee-227|validate Add new prize process is working",async()=>{
+                await liveWallPage.clickSaveBtn()
+        })
+        // await test.step('009FanSee-136|	validate edit prize button is working',async()=>{
+        //         await liveWallPage.click_prize_edit_button()
+        //         await liveWallPage.input_title_prize('Automation_prize_edited')
+        //         await liveWallPage.clickSaveBtn()
+        // })
+
+       
+})
+test('009FanSee-228|validate Distribute all manual prize button is clickable',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+
+        await test.step("009FanSee-132|	navigate  to fansee and click prizing page", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.click_prizing_Page()
+        })
+        
+        await test.step('click on distribute all manual prize button',async()=>{
+                await liveWallPage.click_distribute_all_manual_PrizeBtn()
+                await liveWallPage.verify_all_manual_Prize_distributed_confirmation()
         })
 })
 test('009FanSee-131|Validate Delete section in new config is working',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
@@ -1771,4 +1832,248 @@ test('009FanSee-131|Validate Delete section in new config is working',async({ lo
                 await liveWallPage.delete_config_section()
         })
 })
+test('009FanSee-229|validate Admin section functionalities',async({ loginPage, liveWallPage, functions, page,browser }, testInfo )=> {
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("navigate to fanseepage and click admin ", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                
+        })
+        await test.step('009FanSee-91|Validate Refresh button is visible and refreshable.',async ()=>{
+                await liveWallPage.click_refresh_button()
+        })
+
+        await test.step('009FanSee-92|Validate 1:1 Mobile toggle in Admin is working',async()=>{
+                await liveWallPage.click_1_1_mobile_button()
+        })
+        await test.step('009FanSee-93|validate 9:16 Mobile toggle in Admin is working',async()=>{
+                await liveWallPage.click_9_16_mobile_button()
+        })
+
+        await test.step('009FanSee-94|Validate 16:9 Mainboard toggle in admin is working',async()=>{
+                await liveWallPage.click_16_9_mainboard_toggle()
+        })
+        await test.step('009FanSee-95|Validate 4:1 Mainboard toggle in admin is working',async()=>{
+                await liveWallPage.click_4_1_mainboard_toggle()
+        })
+        await test.step('009FanSee-97|validate Feed count Multiple is working',async()=>{
+                await liveWallPage.click_feedcount_multiple()
+        })
+        await test.step('009FanSee-96|validate Feed count Single toggle is working',async()=>{
+                await liveWallPage.click_feedcount_single()
+        })
+        await test.step('009FanSee-98|validate signal strength dropdowns are Visible and clickable',async()=>{
+                await liveWallPage.click_signal_dropdown()
+        })
+        await test.step('009FanSee-138|	Validate strong signal selection is working',async()=>{
+                await liveWallPage.select_strong_signal()
+        })
+        await test.step('009FanSee-139|	validate weak signal selection is working',async()=>{
+                // await liveWallPage.click_signal_dropdown()
+                await liveWallPage.select_weak_signal()
+        })
+        await test.step('009FanSee-140|	Validate decent signal selection is working',async()=>{
+                
+                await liveWallPage.select_decent_signal()
+        })
+        await test.step("009FanSee-99|validate VIP only dropdowns are visible and clickable",async()=>{
+                await liveWallPage.close_signal_dropdown()
+                await liveWallPage.toggle_vip_only_dropdowns()
+        })
+        await test.step('009FanSee-100|validate Start button is visible and clickable',async() =>{
+                await liveWallPage.click_start_button()
+        })
+        await test.step('009FanSee-101|Validate Cue,live,delete button visiblitys',async()=>{
+                await liveWallPage.click_cue_button()
+                await liveWallPage.click_Live_button()
+                await liveWallPage.click_delete_button()
+        })
+        await test.step('009FanSee-233|validate stop button in admin section is working',async() =>{
+                await liveWallPage.click_stop_button()
+        })
+
+        await test.step('009FanSee-102|Validate search user name field is working',async() =>{
+                await liveWallPage.type_in_search_username('Test_by_automation')
+        })
+        await test.step('009FanSee-103|Validate Mainboard output screen link button is working',async() =>{
+               await liveWallPage.click_output_screen_link() 
+        })
+
+        await test.step('009FanSee-104|	Validate open link in output screen link is working',async() =>{
+               await liveWallPage.click_open_link_button()
+               await browser.contexts()[0].pages()[1].bringToFront()
+        })
+       
+})
+test('009FanSee-141|validate cue section functionalities',async({loginPage, liveWallPage, functions, page,browser }, testInfo) => {
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("navigate to fanseepage and click cue section", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.click_cue_Page()
+                
+        }) 
+        
+        await test.step('009FanSee-22|Validate Enable auto rotation toggle is working',async () =>{
+                await liveWallPage.toggle_auto_rotation()
+        })
+
+        await test.step('009FanSee-23|Validate seconds input in Enable auto rotatio is working',async ()=>{
+                await liveWallPage.input_seconds_enable_auto_rotation('87')
+        })
+        await test.step('009FanSee-24|Validate Mobile 1:1 toggle in cue is working',async()=>{
+                await liveWallPage.click_1_1_mobile_button()
+        })
+        await test.step('009FanSee-25|Validate Mobile 9:16 toggle in cue is working',async()=>{
+                await liveWallPage.click_9_16_mobile_button()
+        })
+
+        await test.step('009FanSee-26|Validate Mainboard 16:9 toggle is working',async()=>{
+                await liveWallPage.click_16_9_mainboard_toggle()
+        })
+        await test.step('009FanSee-27|Validate Maiboard 4:1 toggle is working',async()=>{
+                await liveWallPage.click_4_1_mainboard_toggle()
+        })
+        await test.step('009FanSee-29|Validate feedcount multiple toggle is working',async()=>{
+                await liveWallPage.click_feedcount_multiple()
+        })
+        await test.step('009FanSee-28|validate feedcount single toggle is working ',async()=>{
+                await liveWallPage.click_feedcount_single()
+        })
+
+        await test.step('009FanSee-30|	Validate start button in cue screen is working',async()=>{
+                await liveWallPage.click_start_button()
+        })
+        await test.step('009FanSee-31|Validate output link button in cue screen is working',async() =>{
+                await liveWallPage.click_output_screen_link() 
+         })
+ 
+         await test.step('009FanSee-32|Validate open link button in cue screen is working',async() =>{
+                await liveWallPage.click_open_link_button()
+                // await browser.contexts()[0].pages()[1].bringToFront()
+         })
+
+         await test.step('009FanSee-33|	Validate close button in output screen link is working',async()=>{
+                await browser.contexts()[0].pages()[0].bringToFront()
+                await liveWallPage.clickCloseBtn()
+         })
+
+         await test.step('009FanSee-36|	Validate live, alert uncue section visiblitys',async()=>{
+                await liveWallPage.click_live_button_cue()
+                await liveWallPage.click_alert_button_cue()
+                await liveWallPage.click_uncue_button_cue()
+         })
+
+         await test.step('009FanSee-142|validate stop button in cue section is working',async()=>{
+                await liveWallPage.click_stop_button()
+         })
+
+})
+test('009FanSee-232|validate favourite section is working',async({loginPage, liveWallPage, functions, page,browser }, testInfo)=>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("navigate to fanseepage and click cue section", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.click_favourite_Page()
+                
+        })     
+        await test.step('009FanSee-106|	Validate Refresh button is visible and refreshable.',async()=>{
+                await liveWallPage.click_refresh_button()
+        })
+        await test.step('v009FanSee-107|Validate 1:1 Mobile toggle in Admin is working',async()=>{
+                await liveWallPage.click_1_1_mobile_button()
+        })
+        await test.step('009FanSee-108|	validate 9:16 Mobile toggle in Admin is working',async()=>{
+                await liveWallPage.click_9_16_mobile_button()
+        })
+        await test.step('009FanSee-109|	Validate 16:9 Mainboard toggle in admin is working',async()=>{
+                await liveWallPage.click_16_9_mainboard_toggle()
+        })
+        await test.step('009FanSee-110|	Validate 4:1 Mainboard toggle in admin is working',async()=>{
+                await liveWallPage.click_4_1_mainboard_toggle()
+        })
+        await test.step('009FanSee-111|	validate Feed count Single toggle is working',async()=>{
+                await liveWallPage.click_feedcount_single()
+        })
+        await test.step('009FanSee-112|	validate Feed count Multiple is working',async()=>{
+                await liveWallPage.click_feedcount_multiple()
+        })
+        await test.step('009FanSee-113|	validate signal strength dropdowns are Visible and clickable',async()=>{
+                await liveWallPage.click_signal_dropdown()
+                await liveWallPage.select_strong_signal()
+                await liveWallPage.select_weak_signal()
+                await liveWallPage.select_decent_signal()
+                await liveWallPage.close_signal_dropdown()
+        })
+
+        await test.step('009FanSee-115|validate Start button is visible and clickable',async()=>{
+                await liveWallPage.click_start_button()
+        })
+        
+        await test.step('009FanSee-116|Validate Cue,live,delete button visiblitys in favourite',async()=>{
+                await liveWallPage.click_cue_button()
+                await liveWallPage.click_Live_button()
+                await liveWallPage.click_delete_button()
+        })
+
+        await test.step('009FanSee-117|	Validate search user name field is working',async()=>{
+                await liveWallPage.type_in_search_username('Test')
+        })
+
+        await test.step('009FanSee-118|	Validate Mainboard output screen link button is working',async()=>{
+                await liveWallPage.click_output_screen_link()            
+        })
+        await test.step('009FanSee-119|	Validate open link in output screen link is working',async()=>{
+                await liveWallPage.click_open_link_button()
+                await liveWallPage.clickCloseBtn()
+        })
+
+        await test.step('009FanSee-114|	 validate stop button is visible and clickable',async()=>{
+                await liveWallPage.click_stop_button()
+        })
+})
+
 
