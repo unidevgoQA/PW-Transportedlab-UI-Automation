@@ -1634,13 +1634,15 @@ test("012TV-047 | Validate Start/Live button is visible.", async ({ loginPage, f
       })
       await test.step("validate start button",async()=>{
             await page.waitForTimeout(2000)
-            await triviaPage.clickStartBtn()
+            //await triviaPage.clickStartBtn()
+            await triviaPage.clickstart()
             await page.waitForTimeout(2000)
             await triviaPage.clickOkBtn()
       })
       await test.step("Validate Live button",async()=>{
             await page.waitForTimeout(1000)
-            await triviaPage.clickLiveBtn()
+           await triviaPage.clicklive()
+           // await triviaPage.clickLiveBtn()
             await page.waitForTimeout(1000)
             await triviaPage.clickOkBtn()
       })
@@ -1673,6 +1675,107 @@ test("012TV-048 | Validate export button is working.", async ({ loginPage, funct
            await triviaPage.clickExportBtn()
            await triviaPage.validateExportBtn()
            await page.waitForTimeout(1000)
+      })
+      
+})
+test.skip("012TV-049 | Validate Export  popup close button is working in control panel section.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Click Control panel",async()=>{
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Click add question button", async () => {
+           
+           await triviaPage.clickExportBtn()
+           await triviaPage.clickExportPopupCloseBtn()
+           await page.waitForTimeout(1000)
+      })
+      
+})
+test.skip("012TV-050 | Validate preview toggle is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Validate preview toggle is working.",async()=>{
+            await triviaPage.clickgamedesignSection()
+            await triviaPage.clickPreviewToggleBtn()
+            await triviaPage.clickPreviewToggleBtn()
+      })
+      
+})
+test.skip("012TV-051 | Validate game mode toggle is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Validate preview toggle is working.",async()=>{
+            await triviaPage.clickgamedesignSection()
+      })
+      
+})
+test("012TV-052 | Validate Output Screen Link text is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+      await test.step("Validate preview toggle is working.",async()=>{
+            await triviaPage.clickgamedesignSection()
       })
       
 })
@@ -3873,8 +3976,8 @@ test("012TV-0105 | Validate input Question No Screen header is working.", async 
             await triviaPage.clickGameSettingsSection()
             await page.waitForTimeout(1000)
             await triviaPage.verifyQuestionNoScreenHeaderText()
-            await triviaPage.clickQuestionNo_Font_Arial_dopdown()
-            await triviaPage.clickQuestionNo_dopdown_Font()
+            // await triviaPage.clickQuestionNo_Font_Arial_dopdown()
+            // await triviaPage.clickQuestionNo_dopdown_Font()
             //await triviaPage.clickQuestionNoHeader_dopdown()
             //await triviaPage.clickQuestionNoHeader_Normal()
             await triviaPage.inputQuestionNoScreenHeader()
@@ -3988,6 +4091,7 @@ test("012TV-0108 | Validate Pre Game settings is working.", async ({ loginPage, 
             await triviaPage.clickPreGameMessageOutdent()
             await triviaPage.clickPreGameMessageOrdered()
             await triviaPage.clickPreGameMessageUnordered()
+            await triviaPage.clickPreGameMessageOrdered()
 
             
 
@@ -4061,7 +4165,7 @@ test("012TV-0110 | Validate Post Game settings is working.", async ({ loginPage,
   
       
 })
-test("012TV-0105 | Validate  upload fonts is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0111 | Validate  upload fonts is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4100,7 +4204,7 @@ test("012TV-0105 | Validate  upload fonts is working.", async ({ loginPage, func
     })
       
 })
-test("012TV-0106 | Validate  upload fonts successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0112 | Validate  upload fonts successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4153,7 +4257,7 @@ test("012TV-0106 | Validate  upload fonts successfully reflection on mobile scre
             })
       
 })
-test("012TV-0107 | Validate  upload game title logo is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0113 | Validate Admin side upload game title logo is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4180,107 +4284,23 @@ test("012TV-0107 | Validate  upload game title logo is working.", async ({ login
             
     
     })
-    await test.step("Now delete trivia all uploads if already uploaded",async()=>{
-      await triviaPage.deleteGameTitleLogo()
-      await triviaPage.deleteTeamLogoBtn()
-      await triviaPage.deleteSponsorLogoBtn()
-      await triviaPage.deleteMainboardBackgroundBtn()
-      await triviaPage.deleteMobileBackgroundBtn()
+    await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
     })
     await test.step("Now validate game title logo upload",async()=>{
-      await triviaPage.verifyGameTitleText()
       await functions.portraitBackgroundImageUploadHelper()
       await triviaPage.clickGametitleupload()
       await functions.fileUploadCropper()
-      await page.waitForTimeout(3000)
-    })
-      
-})
-test.skip("012TV-0108 | Validate  upload Game title logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
-
-      await test.step("Login Admin", async () => {
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-      })
-
-      await test.step("Click On The Trivia Section", async () => {
-            await triviaPage.clickTriviaSection()
-            await triviaPage.clickControlPanelSection()
-      })
-    
-      await test.step("Clik start button", async () => {
-           await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
-      })
-      let newTab = null;
-      let triviamobilepage : triviaMobilePage
-      await test.step("Now game open in mobile screen",async()=>{
-
-            await triviaPage.clickMobileLinkBtn()
-            newTab = await triviaPage.clickMobileLinkOpenBtn()
-            triviamobilepage = new triviaMobilePage(newTab)
-           // await guesstheScorePage.clickCloseBtn()
-            await triviamobilepage.typephoneno()
-            await triviamobilepage.typeemail()
-            await triviamobilepage.selectbirthdate()
-            await triviamobilepage.typeAge()
-            await triviamobilepage.typezip()
-            await triviamobilepage.clicksubmit()
-            //await newTab.waitForTimeout(4000)
-            })
-            await test.step("Now verify fornt",async()=>{
-                  await page.waitForTimeout(5000)
-                  await triviamobilepage.clickHomeBtn()
-                  await triviamobilepage.verifyGameTitleLogoAppliedSuccessfullyInMobileScreen()
-            })
-      
-})
-test("012TV-0109 | Validate  upload Team  logo image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
-
-      await test.step("Login Admin", async () => {
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-      })
-
-      await test.step("Click On The Trivia Section", async () => {
-            await triviaPage.clickTriviaSection()
-
-      })
-    
-      await test.step("Open upload fonts section", async () => {
-           await triviaPage.clickgamedesignSection()
-      })
-      await test.step("Open upload and dialogs section",async()=>{
-            await triviaPage.openUploadAndDialogsSection()
-            
-    
-    })
-    await test.step("Now validate game title logo upload",async()=>{
-      //await triviaPage.deleteTeamLogoBtn()
       await triviaPage.verifyGameTitleText()
-      await functions.logoImageUploadFunction()
-      await triviaPage.clickTeamLogoUpload()
-      //await triviaPage.click
-      await functions.fileUploadCropper()
+      await triviaPage.verifysuccessfullyuploadGameTitleLogo()
       await page.waitForTimeout(3000)
     })
       
 })
-test.skip("012TV-0110 | Validate  upload Team  logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0114 | Validate  upload Game title logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4296,12 +4316,9 @@ test.skip("012TV-0110 | Validate  upload Team  logo successfully reflection on m
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickControlPanelSection()
-      })
-    
-      await test.step("Clik start button", async () => {
-           await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
+            await triviaPage.clickgamedesignSection()
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -4321,12 +4338,12 @@ test.skip("012TV-0110 | Validate  upload Team  logo successfully reflection on m
             })
             await test.step("Now verify fornt",async()=>{
                   await page.waitForTimeout(5000)
-                  await triviamobilepage.clickHomeBtn()
+                 // await triviamobilepage.clickHomeBtn()
                   await triviamobilepage.verifyGameTitleLogoAppliedSuccessfullyInMobileScreen()
             })
       
 })
-test("012TV-0111 | Validate  upload Sponsor  logo image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0115 | Validate  Admin side upload Team  logo image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4349,21 +4366,27 @@ test("012TV-0111 | Validate  upload Sponsor  logo image is working.", async ({ l
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open upload and dialogs section",async()=>{
-            await triviaPage.openUploadAndDialogsSection()
-            
-    
+            await triviaPage.openUploadAndDialogsSection()  
     })
+    await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
+    })
+    
     await test.step("Now validate game title logo upload",async()=>{
-      await triviaPage.verifySponsorLogoText()
+      await triviaPage.clickTeamLogoUpload()
       await functions.logoImageUploadFunction()
-      await triviaPage.clickSponsorLogoUpload()
       //await triviaPage.click
       await functions.fileUploadCropper()
+      await triviaPage.verifyGameTitleText()
+      await triviaPage.verifysuccessfullyuploadTeamLogoBtn()
       await page.waitForTimeout(3000)
     })
       
 })
-test.skip("012TV-0112 | Validate  upload Sponsor  logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0116 | Validate  upload Team  logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4379,13 +4402,11 @@ test.skip("012TV-0112 | Validate  upload Sponsor  logo successfully reflection o
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickControlPanelSection()
+            await triviaPage.clickgamedesignSection()
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
       })
     
-      await test.step("Clik start button", async () => {
-           await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
-      })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
       await test.step("Now game open in mobile screen",async()=>{
@@ -4404,12 +4425,94 @@ test.skip("012TV-0112 | Validate  upload Sponsor  logo successfully reflection o
             })
             await test.step("Now verify fornt",async()=>{
                   await page.waitForTimeout(5000)
-                  await triviamobilepage.clickHomeBtn()
+                  //await triviamobilepage.clickHomeBtn()
+                  await triviamobilepage.verifyTeamLogoAppliedSuccessfullyInMobileScreen()
+            })
+      
+})
+test("012TV-0117 | Validate  Admin side upload Sponsor  logo image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+           await triviaPage.clickgamedesignSection()
+           await triviaPage.openUploadAndDialogsSection()
+      })
+      await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+            for(var i = 1; i <= 5; i++){
+                  await triviaPage.deleteImageandLogos()
+            }
+          })
+    await test.step("Now validate game title logo upload",async()=>{
+      await triviaPage.clickSponsorLogoUpload()
+      await functions.logoImageUploadFunction()
+      await functions.fileUploadCropper()
+      await triviaPage.verifySponsorLogoText()
+      await triviaPage.verifysuccessfullyuploadSponsorLogoBtn()
+      //await page.waitForTimeout(5000)
+    })
+      
+})
+test("012TV-0118 | Validate  upload Sponsor  logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickgamedesignSection()
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify sponsor logo",async()=>{
+                  await page.waitForTimeout(5000)
+                  //await triviamobilepage.clickHomeBtn()
                   await triviamobilepage.verifySponsorLogoAppliedSuccessfullyInMobileScreen()
             })
       
 })
-test("012TV-0113 | Validate  upload Mainboard background image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0119 | Validate  upload Mainboard background image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4436,17 +4539,65 @@ test("012TV-0113 | Validate  upload Mainboard background image is working.", asy
             
     
     })
+    await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
+    })
     await test.step("Now validate game title logo upload",async()=>{
-      await triviaPage.verifyMainboardBackgroundText()
-      await functions.logoImageUploadFunction()
       await triviaPage.clickMainboardBackgroundBtn()
       //await triviaPage.click
+      await functions.logoImageUploadFunction()
       await functions.fileUploadCropper()
-      await page.waitForTimeout(5000)
+      await triviaPage.verifyMainboardBackgroundText()
+      await triviaPage.verifysuccessfullyuploadMainboardBackgroundBtn()
+      //await page.waitForTimeout(5000)
     })
       
 })
-test("012TV-0114 | Validate  upload Mobile background image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0120 | Validate  upload mainboard background image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickOutputBtn()
+            newTab = await triviaPage.clickOutputScreenLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+            await newTab.waitForTimeout(7000)
+      //      // await guesstheScorePage.clickCloseBtn()
+      //       await triviamobilepage.typephoneno()
+      //       await triviamobilepage.typeemail()
+      //       await triviamobilepage.selectbirthdate()
+      //       await triviamobilepage.typeAge()
+      //       await triviamobilepage.typezip()
+      //       await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Mainboard Background  image in output screen",async()=>{
+                  
+                  await triviamobilepage.verifyMainboardBackgroundAppliedSuccessfullyInMobileScreen()
+            })
+      
+})
+test("012TV-0121 | Validate Admin side upload Mobile background image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4473,15 +4624,847 @@ test("012TV-0114 | Validate  upload Mobile background image is working.", async 
             
     
     })
+    await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
+    })
     await test.step("Now validate game title logo upload",async()=>{
-      await triviaPage.verifyMobileBackgroundText()
-      await functions.logoImageUploadFunction()
+      
+     
       await triviaPage.clickMobileBackgroundBtn()
+      await functions.logoImageUploadFunction()
       //await triviaPage.click
       await functions.fileUploadCropper()
-      await page.waitForTimeout(5000)
+      await triviaPage.verifyMobileBackgroundText()
+      await triviaPage.verifysuccessfullyuploadMobileBackgroundBtn()
+      //await page.waitForTimeout(5000)
     })
       
+})
+test("012TV-0122 | Validate  upload mobile background image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify sponsor logo",async()=>{
+                  await page.waitForTimeout(5000)
+                  //await triviamobilepage.clickHomeBtn()
+                  await triviamobilepage.verifyMobiledBackgroundAppliedSuccessfullyInMobileScreen()
+            })
+      
+})
+test("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+
+      })
+    
+      await test.step("Open upload fonts section", async () => {
+           await triviaPage.clickgamedesignSection()
+           await triviaPage.openUploadAndDialogsSection()
+      })
+     
+    await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
+      
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
+    })
+    await test.step("Open Banner image section",async()=>{
+      await triviaPage.openAddBannerSection()
+      for(var i = 1; i <= 5; i++){
+            await triviaPage.deleteImageandLogos()
+      }
+      
+
+})
+    await test.step("Now validate Banner image upload",async()=>{
+      
+     
+      await triviaPage.clickBannerImageUploadBtn()
+      await functions.logoImageUploadFunction()
+      await functions.fileUploadCropper()
+      await triviaPage.verifyMarketingmessageText()
+
+ 
+    })
+      
+})
+test("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            await triviaPage.clickgamedesignSection()
+            await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
+
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify sponsor logo",async()=>{
+                  await page.waitForTimeout(5000)
+                  //await triviamobilepage.clickHomeBtn()
+                  await triviamobilepage.verifyBannerImageAppliedSuccessfullyInMobileScreen()
+            })
+      
+})
+test("012TV-0125 | Validate Admin side prizing section is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+
+      
+     
+            
+})
+test("012TV-0126 | Validate  Admin side Add New Prize button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+
+      
+     
+            
+})
+test("012TV-0127 | Validate input Add New Prize Title  is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Cola()
+
+      
+     
+            
+})
+test("012TV-0128 | Validate input field Add New Prize Total Prize No  is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Cola()
+            await triviaPage.InputTotalPrizeNo()
+
+      
+     
+            
+})
+test("012TV-0129 | Validate  Add New Prize section distribution manual and automatic type is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Cola()
+            await triviaPage.InputTotalPrizeNo()
+            await triviaPage.verifyDistributionTypetext()
+            await triviaPage.clickDistibutionType_Automatic()
+            await triviaPage.clickDistibutionType_Manual()
+            
+})
+test("012TV-0130 | Validate  Add New Prize section condition  type dropdown button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Cola()
+            await triviaPage.InputTotalPrizeNo()
+            await triviaPage.verifyDistributionTypetext()
+            await triviaPage.clickDistibutionType_Automatic()
+            await triviaPage.clickDistibutionType_Manual()
+            await triviaPage.verifyCondutionTypetext()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_multipleGamePlay()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Points()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Time()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Rank()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Particiption()
+      
+            
+})
+test("012TV-0131 | Validate  Add New prize for manual is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Cola()
+            await triviaPage.InputTotalPrizeNo()
+            await triviaPage.verifyDistributionTypetext()
+            //await triviaPage.clickDistibutionType_Automatic()
+            await triviaPage.clickDistibutionType_Manual()
+            await triviaPage.verifyCondutionTypetext()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_multipleGamePlay()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Points()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Time()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Rank()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Particiption()
+            await triviaPage.clickCouponBtn()
+            await triviaPage.clickcoupon_Cola()
+            // await triviaPage.
+             await triviaPage.SelectCoupon()
+             await page.waitForTimeout(1000)
+             await triviaPage.clickSaveBtn()
+      
+            
+})
+test("012TV-0132 | Validate  prize won manually distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+                  await triviaPage.clickMobileLinkBtn()
+                  newTab = await triviaPage.clickMobileLinkOpenBtn()
+                  triviamobilepage = new triviaMobilePage(newTab)
+            // await guesstheScorePage.clickCloseBtn()
+                  await triviamobilepage.typephoneno()
+                  await triviamobilepage.typeemail()
+                  await triviamobilepage.selectbirthdate()
+                  await triviamobilepage.typeAge()
+                  await triviamobilepage.typezip()
+                  await triviamobilepage.clicksubmit()
+                  await newTab.waitForTimeout(4000)
+                  await triviaPage.clickMobileLinkPopupClose()
+                   await triviaPage.clickStartBtn()
+                   await triviaPage.clickOkBtn()
+                  
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.inputQuestionAnswer()
+                  await triviamobilepage.clickSubmittBtn()
+
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviamobilepage.clickMultipleChoise1()
+                  await triviaPage.clickPrizingSection()
+                  await page.waitForTimeout(1000)
+                  await triviaPage.clickcouponDistributionAllManualPrize()
+                  await triviaPage.clickControlPanelSection()
+                  await page.waitForTimeout(1000)
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+
+
+            })
+            await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
+                  await triviamobilepage.verifyAddNewPrize_ManualDistribution_Cola()
+            })
+            
+      
+})
+test("012TV-0133 | Validate  prize won manually distribution  save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+                  await triviaPage.clickMobileLinkBtn()
+                  newTab = await triviaPage.clickMobileLinkOpenBtn()
+                  triviamobilepage = new triviaMobilePage(newTab)
+            // await guesstheScorePage.clickCloseBtn()
+                  await triviamobilepage.typephoneno()
+                  await triviamobilepage.typeemail()
+                  await triviamobilepage.selectbirthdate()
+                  await triviamobilepage.typeAge()
+                  await triviamobilepage.typezip()
+                  await triviamobilepage.clicksubmit()
+                  await newTab.waitForTimeout(4000)
+                  await triviaPage.clickMobileLinkPopupClose()
+                   await triviaPage.clickStartBtn()
+                   await triviaPage.clickOkBtn()
+                  
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.inputQuestionAnswer()
+                  await triviamobilepage.clickSubmittBtn()
+
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviamobilepage.clickMultipleChoise1()
+                  await triviaPage.clickPrizingSection()
+                  await page.waitForTimeout(1000)
+                  await triviaPage.clickcouponDistributionAllManualPrize()
+                  await triviaPage.clickControlPanelSection()
+                  await page.waitForTimeout(1000)
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+
+
+            })
+            await test.step("Now verify Add New Prize Manual distribution save to phone button is working on mobile screen",async()=>{
+                  await triviamobilepage.validateSaveToPhoneBtn()
+            })
+            
+      
+})
+test("012TV-0134 | Validate  Add New prize Distribution for Automatic  is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            await triviaPage.clickPrizingSection()
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.verifyDatahasnotbeencreatedText()
+            await triviaPage.clickAddNewPrizeBtn()
+            await triviaPage.verifyAddNewPrizeText()
+            await triviaPage.InputAddNewPrizeTitlename_Burger()
+            await triviaPage.InputTotalPrizeNo()
+            await triviaPage.verifyDistributionTypetext()
+            await triviaPage.clickDistibutionType_Automatic()
+            //await triviaPage.clickDistibutionType_Manual()
+            await triviaPage.verifyCondutionTypetext()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_multipleGamePlay()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Points()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Time()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Rank()
+            await triviaPage.clickConditionType_dropdownBtn()
+            await triviaPage.clickConditionType_Particiption()
+            await triviaPage.clickCouponBtn()
+            await triviaPage.clickcoupon_Burger()
+            // await triviaPage.
+             await triviaPage.SelectCoupon()
+             await page.waitForTimeout(1000)
+             await triviaPage.clickSaveBtn()
+      
+            
+})
+test("012TV-0135 | Validate  prize won Automatic distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+                  await triviaPage.clickMobileLinkBtn()
+                  newTab = await triviaPage.clickMobileLinkOpenBtn()
+                  triviamobilepage = new triviaMobilePage(newTab)
+            // await guesstheScorePage.clickCloseBtn()
+                  await triviamobilepage.typephoneno()
+                  await triviamobilepage.typeemail()
+                  await triviamobilepage.selectbirthdate()
+                  await triviamobilepage.typeAge()
+                  await triviamobilepage.typezip()
+                  await triviamobilepage.clicksubmit()
+                  await newTab.waitForTimeout(4000)
+                  await triviaPage.clickMobileLinkPopupClose()
+                   await triviaPage.clickStartBtn()
+                   await triviaPage.clickOkBtn()
+                  
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.inputQuestionAnswer()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.clickSubmittBtn()
+
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviamobilepage.clickMultipleChoise1()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+
+
+            })
+            await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
+                  await triviamobilepage.verifyAddNewPrize_AutomaticDistribution_Burger()
+            })
+            
+      
+})
+test("012TV-0136 | Validate  prize won Automatic distribution save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+            
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+                  await triviaPage.clickMobileLinkBtn()
+                  newTab = await triviaPage.clickMobileLinkOpenBtn()
+                  triviamobilepage = new triviaMobilePage(newTab)
+            // await guesstheScorePage.clickCloseBtn()
+                  await triviamobilepage.typephoneno()
+                  await triviamobilepage.typeemail()
+                  await triviamobilepage.selectbirthdate()
+                  await triviamobilepage.typeAge()
+                  await triviamobilepage.typezip()
+                  await triviamobilepage.clicksubmit()
+                  await newTab.waitForTimeout(4000)
+                  await triviaPage.clickMobileLinkPopupClose()
+                   await triviaPage.clickStartBtn()
+                   await triviaPage.clickOkBtn()
+                  
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.inputQuestionAnswer()
+                  await page.waitForTimeout(1000)
+                  await triviamobilepage.clickSubmittBtn()
+
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviamobilepage.clickMultipleChoise1()
+                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickMOveToNextBtn()
+                  await page.waitForTimeout(1000)
+
+
+            })
+            await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
+                  await triviamobilepage.validateSaveToPhoneBtn()
+            })
+            
+      
+})
+test("012TV-0137 | Validate  Add New prize  edit button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            
+            await triviaPage.clickgamedesignSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickPrizingSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.validateAddNewPrizeEditBtn()
+            await triviaPage.InputTotalPrizeNo()
+            await triviaPage.clickDistibutionType_Manual()
+            await triviaPage.clickSaveBtn()
+           
+      
+            
+})
+test("012TV-0138 | Validate  Add New prize  delete  button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            
+            await triviaPage.clickgamedesignSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickPrizingSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.verifyPrizingListText()
+            await triviaPage.clickAddNewPrizeDeleteBtn()
+            await triviaPage.verifyDeleteprizeText()
+            await triviaPage.clickOkBtn()
+           
+      
+            
+})
+test("012TV-0139 | Validate  Analytics section is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            
+            await triviaPage.clickgamedesignSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickAnalyticsSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.verifySessionAnalyticsText()
+            await triviaPage.verifyDateText()
+            await triviaPage.verifyQRScansText()
+            await triviaPage.verifyTotalPlayersText()
+            await triviaPage.verifyUniqueUsersPlayedText()
+            await triviaPage.verifyReturningUsersText()
+            await triviaPage.verifyTotalTimePlayedText()
+            await triviaPage.verifyActionText()
+
+            
+           
+      
+            
+})
+test("012TV-0140 | Validate  Analytics section Export button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            
+            await triviaPage.clickgamedesignSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickAnalyticsSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.verifySessionAnalyticsText()
+            await triviaPage.verifyDateText()
+            await triviaPage.verifyQRScansText()
+            await triviaPage.verifyTotalPlayersText()
+            await triviaPage.verifyUniqueUsersPlayedText()
+            await triviaPage.verifyReturningUsersText()
+            await triviaPage.verifyTotalTimePlayedText()
+            await triviaPage.verifyActionText()
+            await triviaPage.validateAnalyticsExportBtn()
+
+            
+           
+      
+            
+})
+test.skip("012TV-0141 | Validate Trivia delete configuration is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+           await page.waitForTimeout(2000)
+      })
+            
+            await triviaPage.clickgamedesignSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.clickDeleteSection()
+            await triviaPage.clickConfirmDeleteCongigurationBtn()
+
+            
 })
 
       

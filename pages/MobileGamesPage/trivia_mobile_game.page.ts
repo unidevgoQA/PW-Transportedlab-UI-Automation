@@ -22,7 +22,17 @@ export default class triviaMobilePage {
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
                userTopTenRank:"(//td[contains(@class,'MuiTableCell-root MuiTableCell-body')])[1]",
                LeaderboardFrame:'//div[@class="MuiBox-root css-1b3x2tr"]',
-               LeaderboardAccent:"//th[text()='Names']"
+               LeaderboardAccent:"//th[text()='Names']",
+               gameTitleImage:"//div[@class='MuiBox-root css-5ffore']",
+               teamlogo:'//div[@class="MuiBox-root css-ebl92s"]',
+               sponsorlogo:'//div[@class="MuiBox-root css-ebl92s"]',
+               submittBtn:"//button[text()='Submit']",
+               Multiplechoise1:"(//div[@class='MuiBox-root css-1pt9sse']//p)[1]",
+               Multiplechoise2:"(//div[@class='css-101u4pc'])[3]]",
+               addnewPrize:"//div[contains(@class,'swiper-slide swiper-slide-visible')]",
+               SaveToPhoneBtn:"//button[text()='Save to phone']",
+               
+               
                //GameTiteleName:
         }
         async verifyGameTitleName(){
@@ -110,18 +120,51 @@ export default class triviaMobilePage {
        }
        async verifyGameTitleLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
-                    fullPage: true
-                })).toMatchSnapshot("Game_Title_logo.png")
+                     fullPage: true
+                 })).toMatchSnapshot("Game_Title_Logo.png")
        }
        async verifySponsorLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
-                    fullPage: true
-                })).toMatchSnapshot("Sponsor_logo.png")
+                     fullPage: true
+                 })).toMatchSnapshot("Sponsor_Logo.png")
+              
+       }
+       async verifyMainboardBackgroundAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("Mainboard_Background.png")
+       }
+       async verifyMobiledBackgroundAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("Mobile_Background.png")
+       }
+       async verifyBannerImageAppliedSuccessfullyInMobileScreen(){
+              expect(await this.page.screenshot({
+                     fullPage: true
+                 })).toMatchSnapshot("Banner_Image.png")
        }
        async verifyTeamLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
-                    fullPage: true
-                })).toMatchSnapshot("Team_Logo.png")
+                     fullPage: true
+                 })).toMatchSnapshot("Team_Logo.png")
+              
+       }
+       async verifyAddNewPrize_ManualDistribution_Cola(){
+              const ele = await this.page.locator(this.triviaMobilePageElements.addnewPrize).isVisible()
+              if(ele == true){
+                     await expect(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Manual_Cola.png')
+              }
+              else throw new Error('Trivia Add new manual distribution prize is not visible on mobile screen')
+              
+       }
+       async verifyAddNewPrize_AutomaticDistribution_Burger(){
+              const ele = await this.page.locator(this.triviaMobilePageElements.addnewPrize).isVisible()
+              if(ele == true){
+                     await expect(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Automatic_Burger.png')
+              }
+              else throw new Error('Trivia Add new manual distribution prize is not visible on mobile screen')
+              
        }
        async clickHomeBtn(){
               const ele = await this.page.locator("//button[@value='home']//div[1]").isVisible()
@@ -280,6 +323,41 @@ export default class triviaMobilePage {
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
               
        }
-       
+       async inputQuestionAnswer(){
+              const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").isVisible()
+             if(ele == true){
+              await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").fill('PNG')
+             }
+              
+       }
+       async clickSubmittBtn(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.submittBtn).isVisible()
+              if(ele == true){
+                     await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.submittBtn).click({button:"left",delay:1000})
+              }
+              else throw new Error("Triva submitt button is not visible on mobile screen")
+       }
+       async clickMultipleChoise1(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise1).isVisible()
+              if(ele == true){
+                     await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise1).click({button:"left",delay:1000})
+              }
+              else throw new Error("Triva Multiple choise first button is not visible")
+       }
+       async clickMultipleChoise2(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise2).isVisible()
+              if(ele == true){
+                     await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise2).click({button:"left",delay:1000})
+              }
+              else throw new Error("Triva Multiple choise Second button is not visible")
+       }
+       async validateSaveToPhoneBtn() {
+              await this.page.waitForTimeout(1000)
+              const [download] = await Promise.all([
+                      this.page.waitForEvent('download'),
+                      this.page.locator(this.triviaMobilePageElements.SaveToPhoneBtn).click({force:true})
+              ])
+              const suggestedFileName = download.suggestedFilename()
+      }
      
     }
