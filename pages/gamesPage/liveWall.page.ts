@@ -31,6 +31,26 @@ export default class liveWallPage {
     RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
     RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
     add_instance: '//p[text()="Instances"]//parent::div//button',
+    edit_button_mobile_background:'//p[text()="Mobile Background"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
+    delete_button_mobile_background:"//p[text()='Mobile Background']//following-sibling::div[2]//button[@aria-label='Delete']",
+    edit_upload_button_mobile_home_screen_logo:'//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_mobile_home_screen_logo:"//p[text()='Mobile Home Screen Logo']//following-sibling::div//button[@aria-label='Delete']",
+    edit_button_output_background:'//p[text()="Output Background"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
+    edit_button_left_image_1_1_output:'//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_left_image_1_1_output:"//p[text()='Left Image (1:1 Output)']//following-sibling::div//button[@aria-label='Delete']",
+    edit_button_mobile_frame:'//p[text()="Mobile Frame"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_mobile_frame:"//p[text()='Mobile Frame']//following-sibling::div//button[@aria-label='Delete']",
+    edit_button_Output_Frame_9_16_output:'//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_Output_frame_9_16_output:"//p[text()='Output Frame (9:16 Output)']//following-sibling::div//button[@aria-label='Delete']",
+    edit_button_banner_image_9_16_output:'//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_banner_image_9_16_output:"//p[text()='Banner Image (9:16 Output)']//following-sibling::div//button[@aria-label='Delete']",
+    edit_button_right_image_1_1_output:'//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    delete_button_right_image_1_1_output:"//p[text()='Right Image (1:1 Output)']//following-sibling::div//button[@aria-label='Delete']",  
+    delete_button_output_background:"//p[text()='Output Background']//following-sibling::div[2]//button[@aria-label='Delete']", 
+    edit_button_1_1_fallback:'//p[text()="1:1 Fallback"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
+    delete_button_1_1_fallback:"//p[text()='1:1 Fallback']//following-sibling::div[2]//button[@aria-label='Delete']",
+    edit_button_9_16_fallback:'//p[text()="9:16 Fallback"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
+    delete_button_9_16_fallback:"//p[text()='9:16 Fallback']//following-sibling::div[2]//button[@aria-label='Delete']",
     input_config_name: '//h2[text()="Configuration"]//following-sibling::div//input[@type="text"]',
     input_pre_live_text_element: '//h5[text()="Pre-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
@@ -51,14 +71,38 @@ export default class liveWallPage {
     total_prize_input:'//p[text()="Total Prize"]//following-sibling::div//input',
     Distribution_type_manual:"//p[text()='Manual']//parent::button",
     distribution_type_auto:"//p[text()='Automatic']//parent::button",
-    condition_type_prize_dropdown:"//p[text()='Condition Type']//following-sibling::div//input[@placeholder='Select Condition Type']",
-    condition_type_list:"//li[text()='Participation']",
+    condition_type_prize_dropdown:"//p[text()='Condition Type']//following-sibling::div",
+    condition_type_participation:"//li[text()='Participation']",
     condition_type_time:"//li[text()='Time']",
     condition_type_Made_output:"//li[text()='Made Output']",
     chance_input:'//h6[text()="Chance"]//following-sibling::div//input',
     input_coupon_tag:'//p[text()="Select Coupon"]//following-sibling::div//div',
     coupon_item:'//p[text()="Name"]',
-    select_button_coupons:'//button[text()="Select"]'
+    select_button_coupons:'//button[text()="Select"]',
+    edit_button:'//button[text()="Edit"]',
+    refresh_button:'//button[@aria-label="Refresh"]',
+    mobile_1_1_button:'//button[@value="1:1"]',
+    mobile_9_16_button:'//button[@value="9:16"]',
+    Mainboard_16_9_button:'//button[@value="16:9"]',
+    Mainboard_4_1button:'//button[@value="4:1"]',
+    feedcount_single:'//button[@value="single"]',
+    feedcount_multiple:'//button[@value="multiple"]',
+    signal_dropdown:'//div[text()="Signal Strength"]',
+    strong_signal_ele:'//li[text()="Strong"]//span//input',
+    decent_signal_ele:'//li[text()="Decent"]//span//input',
+    weak_signal_ele:'//li[text()="Weak"]//span//input',
+    vip_only_toggle:'//p[text()="VIPs Only"]//preceding-sibling::span',
+    start_button:'//button[text()="START"]',
+    stop_button:"//button[text()='Pause Mainboard']//following-sibling::button",
+    cue_button:"//h6[text()='Cue']//preceding-sibling::button",
+    live_button:"//h6[text()='Live']//preceding-sibling::button",
+    delete_button:"//h6[text()='Delete']//preceding-sibling::button",
+    search_field:"//input[@placeholder='Search username']",
+    mainboard_button:"//button[@aria-label='Output']",
+    auto_rotation_toggle:"//p[text()='Enable Auto Rotation']//following-sibling::span",
+    auto_rotation_input_seconds:"//label[text()='Seconds']//following-sibling::div//input",
+    alert_button:"//h6[text()='Alert']//preceding-sibling::button",
+    uncue_button:"//h6[text()='Uncue']//preceding-sibling::button"
   }
 
 
@@ -187,11 +231,339 @@ export default class liveWallPage {
         throw new Error("Either button element is not found or element visiblity is hidden");
       };
   }
+  async click_cue_Page() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Cue']").last();
+      if (await ele.isVisible()) {
+        await ele.click({ button: 'left' });
+      }
+      else {
+        throw new Error("Either Cue button element is not found or element visiblity is hidden");
+      };
+  }
+  async click_favourite_Page() {
+    // await this.page.frameLocator('iframe').waitForSelector("text=Design")
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator("//button[text()='Favorites']").last();
+      if (await ele.isVisible()) {
+        await ele.click({ button: 'left' });
+      }
+      else {
+        throw new Error("Either Cue button element is not found or element visiblity is hidden");
+      };
+  }
+  //Admin section here 
+  async click_refresh_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.refresH_button).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_1_1_mobile_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.mobile_1_1_button).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+
+  async click_9_16_mobile_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.mobile_9_16_button).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_16_9_mainboard_toggle(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.Mainboard_16_9_button).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_4_1_mainboard_toggle(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.Mainboard_4_1button).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_feedcount_single(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.feedcount_single).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_feedcount_multiple(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.feedcount_multiple).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_signal_dropdown(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.signal_dropdown).last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async close_signal_dropdown(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator('//li[text()="Signal Strength"]').last();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async select_strong_signal(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.strong_signal_ele).last();
+    if (await ele.isVisible() ) {
+      if(!await ele.isChecked()){
+        await ele.click({ button: 'left' });
+      }
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async select_decent_signal(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.decent_signal_ele).last();
+    if (await ele.isVisible() ) {
+      if(!await ele.isChecked()){
+        await ele.click({ button: 'left' });
+      }
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async select_weak_signal(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.weak_signal_ele).last();
+    if (await ele.isVisible() ) {
+      if(!await ele.isChecked()){
+        await ele.click({ button: 'left' });
+      }
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async toggle_vip_only_dropdowns(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.vip_only_toggle);
+    if (await ele.isVisible() ) {
+      await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either dropdown parent element is not found or element visiblity is hidden");
+    }
+  }
+  async click_start_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.start_button);
+    if (await ele.isVisible() ) {
+      await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either start button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_stop_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.stop_button);
+    if (await ele.isVisible() ) {
+      await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async type_in_search_username(value: string){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.search_field);
+    if (await ele.isVisible() ) {
+      await ele.focus()
+      await ele.fill(value);
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+
+  async click_output_screen_link(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.mainboard_button);
+    if (await ele.isVisible() ) {
+      await ele.click({button:'left'})
+    }
+    else {
+      throw new Error("Either mainboard button element is not found or element visiblity is hidden");
+    }
+  }
+
+  async click_cue_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.cue_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_Live_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.live_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_delete_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.delete_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  //cue section here
+  async toggle_auto_rotation(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.auto_rotation_toggle).first();
+    if (await ele.isVisible() ) {
+      await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async input_seconds_enable_auto_rotation(value:string){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.auto_rotation_input_seconds).first();
+    if (await ele.isVisible() ) {
+      await ele.fill(value);
+    }
+    else {
+      throw new Error("Either input element is not found or element visiblity is hidden");
+    }
+  }
+  async click_live_button_cue(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.live_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_alert_button_cue(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.alert_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+  async click_uncue_button_cue(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.uncue_button).first();
+    if (await ele.isVisible() ) {
+      // await ele.click({button:'left'});
+    }
+    else {
+      throw new Error("Either stop button element is not found or element visiblity is hidden");
+    }
+  }
+
   //prizing section Here
   async click_AddNewPrizeBtn() {
     const ele = this.page.frameLocator('iframe').locator('//button[text()="Add New Prize"]')
     await expect(ele).toBeVisible()
     await ele.click({button:'left'})
+  }
+  async click_distribute_all_manual_PrizeBtn() {
+    const ele = this.page.frameLocator('iframe').locator('//button[text()="Distribute All Manual Prizes"]')
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }else{
+      throw new Error("Button to distribute all Manual prize is not visible")
+    }
+  }
+  async verify_all_manual_Prize_distributed_confirmation() {
+    const ele = this.page.frameLocator('iframe').locator('//p[text()="All manual prizes Already distributed"]')
+    if(await ele.isVisible()){
+
+    }else{
+      throw new Error("confirmation text that all manual prizes are distributed is not visible")
+    }
   }
   async back_button(){
     const ele = this.page.frameLocator('iframe').locator('//div//img')
@@ -203,7 +575,7 @@ export default class liveWallPage {
     .frameLocator(this.Fansee_page_elements.iframe)
     .locator(this.Fansee_page_elements.title_input)
     if(await ele.isVisible()){
-      await ele.fill(' ')
+      await ele.focus()
       await ele.fill(value)
     }
     else{
@@ -213,9 +585,10 @@ export default class liveWallPage {
   async input_total_prize(value: string){
     const ele= this.page
     .frameLocator(this.Fansee_page_elements.iframe)
-    .locator(this.Fansee_page_elements.title_input)
+    .locator(this.Fansee_page_elements.total_prize_input)
     if(await ele.isVisible()){
       await ele.click({button:'left'})
+      await ele.fill(' ')
       await ele.fill(value)
     }
     else{
@@ -253,12 +626,97 @@ export default class liveWallPage {
       await ele.fill(value,{timeout:1000})
     }
     else{
-      throw new Error('Total prize input element is not visible')
+      throw new Error('Chance input element is not visible')
     }
   }
-
-
-
+  async click_condtion_type(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.condition_type_prize_dropdown)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('condition type dropdown  element is not visible')
+    }
+  }
+  async click_condtion_type_participation(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.condition_type_participation)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('condition type participation dropdown  element is not visible')
+    }
+  }
+  async click_condtion_type_Time(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.condition_type_time)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('condition type time dropdown  element is not visible')
+    }
+  }
+  async click_condtion_type_Made_output(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.condition_type_Made_output)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('condition type Made dropdown  element is not visible')
+    }
+  }
+  async click_button_to_start_selecting_coupon(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.input_coupon_tag)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('coupon tag input element is not visible')
+    }
+  }
+  async select_first_coupon(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.coupon_item).first()
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('First coupon item element is not visible')
+    }
+  }
+  async confirm_select_coupon(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.select_button_coupons)
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('select coupon button, after selecting a coupon is not visible')
+    }
+  }
+  async click_prize_edit_button(){
+    const ele= this.page
+    .frameLocator(this.Fansee_page_elements.iframe)
+    .locator(this.Fansee_page_elements.edit_button).first()
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('Edit button is not visible')
+    }
+  }
   async clickClearBtn() {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
     const ele = this.page
@@ -322,47 +780,13 @@ export default class liveWallPage {
     await ele.click();
   }
 
-  async inputBackgroundFirstRGBColor() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[1]');
-    expect(ele).toBeVisible();
-    await ele.fill("34");
-  }
-
-  async inputBackgroundBoxColorRGBSecond() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[2]');
-    await ele.fill("115");
-  }
-  async inputBackgroundBoxColorRGBThird() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[3]');
-    await ele.fill("224");
-  }
-
-  async inputBackgroundBoxColorOpacity() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[4]');
-    await ele.fill("94");
-  }
-
-  async inputBackgroundBoxColorHEXColor() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//input[@type="text"])[5]');
-    await ele.fill("F1C42FFF");
-  }
+  
   async clickSaveBtn() {
     const ele = this.page
       .frameLocator("iframe")
       .locator("//button[text()='Save']");
     if(await ele.isVisible()){
       await ele.click({button:'left'})
-      await this.page.waitForEvent('worker')
     }
     else{
       throw new Error('The save button is not visible or an issue with the click')
@@ -656,10 +1080,24 @@ export default class liveWallPage {
     }
   }
   //Mobile Background
+  async select_image_for_left_image_1_1_output(){
+      const ele =this.page.
+      frameLocator(this.Fansee_page_elements.iframe)
+      .locator("//p[text()='Mobile Background']//following-sibling::div//span[text()='Image']")
+      if(await ele.isVisible()){
+        await ele.click({button:'left'})
+      }
+      else{
+        throw new Error('Mobile background Image selector is missing.'+`//p[text()='Mobile Background']//following-sibling::div//span[text()='Image']`)
+      }
+  }
+  async select_video_for_mobile_background(){
+    
+  }
   async mobile_background_image_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_mobile_background)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -675,8 +1113,13 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_mobile_back_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_mobile_background)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{ 
+      throw new Error('Edit/Upload button element is not visible or deleted')
+    }
   }
   //Mobile Home Screen Logo
   async mobile_home_screen_logo_upload() {
@@ -698,14 +1141,33 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_mobile_Home_screen_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Home Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_upload_button_mobile_home_screen_logo)
+    if( await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image element is')
+    }
+   
   }
   //Output Background
+  async select_image_for_output_background(){
+    const ele =this.page.
+    frameLocator(this.Fansee_page_elements.iframe)
+    .locator("//p[text()='Output Background']//following-sibling::div//span[text()='Image']")
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('Mobile background Image selector is missing.'+`//p[text()='Mobile Background']//following-sibling::div//span[text()='Image']`)
+    }
+  }
   async output_background_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_output_background)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_output_background).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -721,14 +1183,22 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_OutPut_background() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_output_background)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload button element is missing here or network issue file not uploading')
+    }
+    
   }
   //left_image(1:1 output)
   async left_image_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_left_image_1_1_output)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_left_image_1_1_output).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -744,14 +1214,20 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_left_image_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Left Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_left_image_1_1_output)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('edit/upload button element is missing here or network issue')
+    }
+    
   }
   //Mobile Frame
   async mobile_frame_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_mobile_frame)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_frame).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -767,19 +1243,30 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_mobile_frame_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Frame"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_mobile_frame)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
+    
   }
   //Output Frame (9:16 Output)
   async OutputFrame_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_Output_Frame_9_16_output)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.
+      frameLocator('(//iframe)[1]').
+      locator(this.Fansee_page_elements.delete_button_Output_frame_9_16_output).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
   async Image_uploader_For_OutputFrame_9_16() {
-    const filePath0 = "testData/images/9_16_output_test.jpg"
+    const filePath0 = "testData/images/unidevGO.jpg"
     const [fileChooser] = await Promise.all([
       // It is important to call waitForEvent before click to set up waiting.
       this.page.waitForEvent('filechooser'),
@@ -790,14 +1277,25 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_OutputFrame_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Output Frame (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_Output_Frame_9_16_output)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
+   
   }
   //Banner Image (9:16 Output)
   async bannner_image_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_banner_image_9_16_output)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').
+      locator(this.Fansee_page_elements.delete_button_banner_image_9_16_output).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -813,14 +1311,25 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_bannner_image_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Banner Image (9:16 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = 
+    this.page.frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_banner_image_9_16_output)
+    if( await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
+   
   }
   //Right Image (1:1 Output)
   async right_image_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_right_image_1_1_output)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]')
+      .locator(this.Fansee_page_elements.delete_button_right_image_1_1_output)
+      .click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -836,14 +1345,34 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_right_image_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Right Image (1:1 Output)"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_right_image_1_1_output)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
+   
   }
   //1:1 Fallback
+  async select_image_for_fallback_1_1(){
+    const ele =this.page.
+    frameLocator(this.Fansee_page_elements.iframe)
+    .locator("//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Image']")
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('1:1 Fallback selector is missing.'+`//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Image']`)
+    }
+  }
   async Fallback_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.
+    frameLocator('(//iframe)[1]').
+    locator(this.Fansee_page_elements.edit_button_1_1_fallback)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_1_1_fallback).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -859,14 +1388,31 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_Fallback_1_1_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="1:1 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_1_1_fallback)
+    if(await edit_image_button.isEnabled()){
+      await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
+   
   }
   //9:16 Fallback
+  async select_image_for_fallback_9_16(){
+    const ele =this.page.
+    frameLocator(this.Fansee_page_elements.iframe)
+    .locator("//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Image']")
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('9:16 Fallback selector is missing.'+`//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Image']`)
+    }
+  }
   async Fallback_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Edit"]')
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_9_16_fallback)
     if (await edit_image_button.isVisible()) {
-      await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//button[@title="Delete"]').click({ button: 'left' })
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_9_16_fallback).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
   }
@@ -882,8 +1428,13 @@ export default class liveWallPage {
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
   }
   async wait_Fallback_9_16_upload() {
-    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="9:16 Fallback"]//parent::div//following-sibling::div//button[@title="Edit"]')
-    await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_9_16_fallback)
+    if (await edit_image_button.isEnabled()) {
+     await expect(edit_image_button).toBeVisible({ timeout: 60000 })
+    }
+    else{
+      throw new Error('Edit/upload image/video element is missing or network issue')
+    }
   }
   //Dispaly Massage Section Element From Here
 
@@ -1901,13 +2452,6 @@ async validate_Download_exports(){
     await ele.click();
   }
 
-  async clickRefreshBtn() {
-    const ele = await this.page
-      .frameLocator("iframe")
-      .locator('(//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1pejgza"])[1]')
-    expect(ele).toBeVisible()
-    await ele.click({ force: true });
-  }
 
 
   async clickOnlyShowVIPSelfieCamEnableBtn() {
