@@ -335,7 +335,7 @@ test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Sc
 })
 
 
-test("004M-008 | Validate Menu Bar Active Background Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test.only("004M-008 | Validate Menu Bar Active Background Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -357,7 +357,7 @@ test("004M-008 | Validate Menu Bar Active Background Color Input Functionality F
         })
 })
 
-test("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied In Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+test.only("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied In Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

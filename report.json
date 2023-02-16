@@ -63,7 +63,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "004M-006 | Validate Menu Bar Text Color Input Functionality From Admin Side",
+          "title": "004M-010 | Validate Menu Bar Active Text Color Input Functionality From Admin Side",
           "ok": true,
           "tags": [],
           "tests": [
@@ -77,7 +77,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 31232,
+                  "duration": 30580,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
@@ -85,19 +85,19 @@
                   "steps": [
                     {
                       "title": "Login Admin And Land to Home Screen",
-                      "duration": 29253
+                      "duration": 26853
                     },
                     {
                       "title": "Login Admin And Land to Home Screen",
-                      "duration": 1095
+                      "duration": 1494
                     }
                   ],
-                  "startTime": "2023-02-16T12:52:34.600Z",
+                  "startTime": "2023-02-16T13:38:16.690Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-006-Validate-Menu-Bar-Text-Color-Input-Functionality-From-Admin-Side\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-010-Validate-Men-76bcc--Text-Color-Input-Functionality-From-Admin-Side\\test-finished-1.png"
                     }
                   ]
                 }
@@ -105,13 +105,13 @@
               "status": "expected"
             }
           ],
-          "id": "1743d8a90f7616040068-f34d31bcae0f29bb7237",
+          "id": "1743d8a90f7616040068-ebfaff3a71f30d625a0d",
           "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 251,
+          "line": 424,
           "column": 6
         },
         {
-          "title": "004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Screen",
+          "title": "004M-011 | Validate  Menu Bar Active Text Color Successfully Applied In Mobile Screen",
           "ok": true,
           "tags": [],
           "tests": [
@@ -125,7 +125,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 52335,
+                  "duration": 60966,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
@@ -133,11 +133,11 @@
                   "steps": [
                     {
                       "title": "Login Admin And land To Home Screen",
-                      "duration": 14265
+                      "duration": 13563
                     },
                     {
                       "title": "Click Prize Drop Section",
-                      "duration": 9132
+                      "duration": 14191
                     },
                     {
                       "title": "now click on start button on Admin site",
@@ -145,18 +145,18 @@
                     },
                     {
                       "title": "now open the game in mobile view",
-                      "duration": 7488
+                      "duration": 8569
                     },
                     {
                       "title": "Input Additional Information For Mobile Screen",
-                      "duration": 10952
+                      "duration": 13597
                     },
                     {
                       "title": "Verify Japanese Language Applaid Successfully",
-                      "duration": 9493
+                      "duration": 4633
                     }
                   ],
-                  "startTime": "2023-02-16T12:53:06.526Z",
+                  "startTime": "2023-02-16T13:38:47.992Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -166,12 +166,12 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-007-Validate-Menu-Bar-Text-Color-Successfully-Applied-In-Mobile-Screen\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-011-Validate-Men-2644a-ext-Color-Successfully-Applied-In-Mobile-Screen\\test-finished-1.png"
                     },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-007-Validate-Menu-Bar-Text-Color-Successfully-Applied-In-Mobile-Screen\\test-finished-2.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-004Menu-004M-011-Validate-Men-2644a-ext-Color-Successfully-Applied-In-Mobile-Screen\\test-finished-2.png"
                     }
                   ]
                 }
@@ -179,9 +179,9 @@
               "status": "expected"
             }
           ],
-          "id": "1743d8a90f7616040068-12e82af6233204d92596",
+          "id": "1743d8a90f7616040068-05c9768415e9465a778d",
           "file": "tests/02MainMenu/004Menu.test.ts",
-          "line": 273,
+          "line": 446,
           "column": 6
         }
       ]
