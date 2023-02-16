@@ -14,6 +14,7 @@ export default class liveWallPage {
   private Fansee_page_elements = {
     tripplebutton: '//h5[text()="Default"]//parent::div/preceding-sibling::button',
     iframe: '.css-r99fy3',
+    Queue_button:'//button[text()="Queue"]',
     clear_all_color_button: "//button[text()='Clear All']",
     image_upload_text: '//p[text()="Image Upload"]',
     color_picker_swatches: '//button[@aria-label="Add Color"]',
@@ -93,7 +94,7 @@ export default class liveWallPage {
     weak_signal_ele:'//li[text()="Weak"]//span//input',
     vip_only_toggle:'//p[text()="VIPs Only"]//preceding-sibling::span',
     start_button:'//button[text()="START"]',
-    stop_button:"//button[text()='Pause Mainboard']//following-sibling::button",
+    stop_button:"//button[text()='Clear Mainboard']//following-sibling::button",
     cue_button:"//h6[text()='Cue']//preceding-sibling::button",
     live_button:"//h6[text()='Live']//preceding-sibling::button",
     delete_button:"//h6[text()='Delete']//preceding-sibling::button",
@@ -235,7 +236,7 @@ export default class liveWallPage {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
     const ele = this.page
       .frameLocator("iframe")
-      .locator("//button[text()='Cue']").last();
+      .locator(this.Fansee_page_elements.Queue_button).last();
       if (await ele.isVisible()) {
         await ele.click({ button: 'left' });
       }
@@ -1100,6 +1101,12 @@ export default class liveWallPage {
       await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
     }
     await this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({ button: 'left' })
+  }
+  async mobile_background_image_delete() {
+    const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_mobile_background)
+    if (await edit_image_button.isVisible()) {
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
+    }
   }
   async Image_uploader_For_mobile_background() {
     const filePath0 = "testData/images/mobile_back.jpg"
@@ -2362,7 +2369,14 @@ export default class liveWallPage {
         throw new Error('Issue with the open link visiblity')
       }
   }
-  
+  async click_open_link_button_with_page(){
+    const [page1] = await Promise.all([
+      this.page.waitForEvent('popup'),
+      this.page.frameLocator('.css-r99fy3').locator('//a[@aria-label="Open Link"]').click()
+]);
+
+return page1;
+  }
 
   //Live Wall Home page 
   async clickCopyQRCodeBtn() {
@@ -2563,7 +2577,13 @@ async validate_Download_exports(){
 
   }
   async clickCloseBtn() {
-    await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]').click()
+    const ele = this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1xnxzwa"]')
+    if(await ele.isVisible()){
+      await ele.click({button:'left'})
+    }
+    else{
+      throw new Error('Close button is not visible in the modal')
+    }
   }
   async validateSaveQRCode() {
     const [download] = await Promise.all([
