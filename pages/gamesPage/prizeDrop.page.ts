@@ -299,8 +299,10 @@ export default class prizeDropPage {
         async delete_background_image(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').dblclick({button:'left',delay:200})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').dblclick({button:'left',delay:300})
+                       
                 }
+                
         }
         async Image_uploader_for_maincolorcheck() {
                 const filePath0 = "testData/images/transparent_background_image.png"
@@ -1117,6 +1119,11 @@ export default class prizeDropPage {
 
         }
 
+        async clickDefultGamePrizingSection() {                
+                const ele = await this.page.frameLocator('iframe').locator(`//p[text()='Prizing']`).first()
+                await ele.click({button:"left", delay:1000})
+        }
+
         async verifyPrizingListText() {
                 const ele = this.page.frameLocator('iframe').locator("//h4[text()='Prizing List']")
                 await expect(ele).toContainText("Prizing List")
@@ -1192,6 +1199,16 @@ export default class prizeDropPage {
                 const ele = await this.page.frameLocator('iframe').locator("(//button[text()='Select'])[1]")
                 await ele.click()
         }
+        async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
+                expect(ele).toContainText("Auto Test")
+        }
+
+        async selectCouponCreatedFromGlobalPrizing() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
+                await ele.click()
+        }
+
         async clickSaveBtn() {
                 const ele = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 await ele.click()

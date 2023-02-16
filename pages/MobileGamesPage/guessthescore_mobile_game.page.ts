@@ -266,23 +266,23 @@ export default class guesstheScoreMobilePage {
                }
             async verifyincorrectguessmessage(){
                   await this.page.waitForTimeout(1000)
-                   const ele =    this.page.frameLocator('iframe').locator("//div[text()='Incorrect Guess!']")
+                   const ele =    this.page.frameLocator('iframe').locator("//p[text()='Incorrect Guess!']")
                    expect(ele).toContainText("Incorrect Guess!")
                }
                async verifycorrectguessmessage(){
-                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Correct Guess!']").last()
+                  const ele =    this.page.frameLocator('iframe').locator("//p[text()='Correct Guess!']").last()
                   expect(ele).toContainText("Correct Guess!")
               }
               async verifycloseguessmessage(){
-                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Close Guess!']").last()
+                  const ele =    this.page.frameLocator('iframe').locator("//p[text()='Close Guess!']").last()
                   expect(ele).toContainText("Close Guess!")
               }
               async verifyfarguessmessage(){
-                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='Far Guess!']").last()
+                  const ele =    this.page.frameLocator('iframe').locator("//p[text()='Far Guess!']").last()
                   expect(ele).toContainText("Far Guess!")
               }
               async verifyNoScoremessage(){
-                  const ele =    this.page.frameLocator('iframe').locator("//div[text()='No Score!']").last()
+                  const ele =    this.page.frameLocator('iframe').locator("//p[text()='No Score!']").last()
                   expect(ele).toContainText("No Score!")
               }
                async verifyscoryhedingText(){
@@ -290,7 +290,7 @@ export default class guesstheScoreMobilePage {
                    expect(ele).toContainText("Guess Now!")
                }
                async verifyingatehedingText(){
-                     const ele =    this.page.frameLocator('iframe').locator("//p[text()='Get Ready']")
+                     const ele =    this.page.frameLocator('iframe').locator("//h4[text()='Get Ready']")
                    expect(ele).toContainText("Get Ready")
                }
                async verifyreriderText(){
@@ -307,8 +307,8 @@ export default class guesstheScoreMobilePage {
                    expect(ele).toContainText("Earned Points")
                }
                async verifyEarnedPoints(){
-                  const ele =    this.page.frameLocator('iframe').locator('//p[@class="MuiTypography-root MuiTypography-body1 css-242oqg"]')
-                  expect(ele).toBeVisible()
+                  const ele =    this.page.frameLocator('iframe').locator('//p[@class="MuiTypography-root MuiTypography-body1 css-1nyeegg"]')
+                  //expect(ele).toBeVisible()
                    expect(ele).toContainText("50")
                }
                

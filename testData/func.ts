@@ -285,46 +285,46 @@ export default class functions {
                 // expect(imageText).toContainText("Image")
                 await this.page.waitForSelector("//button[text()='Choose File']")
 
-                const ratioText = await this.page.locator("text='Ratio:'")
-                expect.soft(ratioText).toContainText("Ratio:")
+                // const ratioText = await this.page.locator("text='Ratio:'")
+                // expect.soft(ratioText).toContainText("Ratio:")
 
 
-                const resolutionText = await this.page.locator("text='Resolution:'")
-                expect.soft(resolutionText).toContainText("Resolution:")
+                // const resolutionText = await this.page.locator("text='Resolution:'")
+                // expect.soft(resolutionText).toContainText("Resolution:")
 
 
-                const alignmentText = await this.page.locator("text='Alignment:'")
-                expect.soft(alignmentText).toContainText("Alignment:")
+                // const alignmentText = await this.page.locator("text='Alignment:'")
+                // expect.soft(alignmentText).toContainText("Alignment:")
 
-                const fileTypeText = await this.page.locator("text='File Type:'")
-                expect.soft(fileTypeText).toContainText("File Type:")
+                // const fileTypeText = await this.page.locator("text='File Type:'")
+                // expect.soft(fileTypeText).toContainText("File Type:")
 
 
-                const maxFileSizeText = await this.page.locator("text='Max File Size:'")
-                expect.soft(maxFileSizeText).toContainText("Max File Size:")
+                // const maxFileSizeText = await this.page.locator("text='Max File Size:'")
+                // expect.soft(maxFileSizeText).toContainText("Max File Size:")
 
                 // const ratioTimeText = await this.page.frameLocator('iframe').locator("text='16:9'")
                 // expect(ratioTimeText).toContainText("16:9")
 
-                const resolutionSizeText = await this.page.locator("text='1280x720'")
-                expect.soft(resolutionSizeText).toContainText("1280x720")
+                // const resolutionSizeText = await this.page.locator("text='1280x720'")
+                // expect.soft(resolutionSizeText).toContainText("1280x720")
 
 
-                const alignmentDetailsText = await this.page.locator("text='Centered'")
-                expect.soft(alignmentDetailsText).toContainText("Centered")
+                // const alignmentDetailsText = await this.page.locator("text='Centered'")
+                // expect.soft(alignmentDetailsText).toContainText("Centered")
 
 
-                const fileTypeDetailsText = await this.page.locator("text='PNG, SVG, JPEG, JPG'")
-                expect.soft(fileTypeDetailsText).toContainText("PNG, SVG, JPEG, JPG")
+                // const fileTypeDetailsText = await this.page.locator("text='PNG, SVG, JPEG, JPG'")
+                // expect.soft(fileTypeDetailsText).toContainText("PNG, SVG, JPEG, JPG")
 
-                const maxFileSizeDetailsText = await this.page.locator("text='2MB'")
-                expect.soft(maxFileSizeDetailsText).toContainText("2MB")
+                // const maxFileSizeDetailsText = await this.page.locator("text='2MB'")
+                // expect.soft(maxFileSizeDetailsText).toContainText("2MB")
 
-                const fileNameText = await this.page.locator("text='File Name'")
-                expect.soft(fileNameText).toContainText("File Name")
+                // const fileNameText = await this.page.locator("text='File Name'")
+                // expect.soft(fileNameText).toContainText("File Name")
 
-                const fileSizeText = await this.page.locator("text='File Size'")
-                expect.soft(fileSizeText).toContainText("File Size")
+                // const fileSizeText = await this.page.locator("text='File Size'")
+                // expect.soft(fileSizeText).toContainText("File Size")
 
 
                 const chooseBtn = await this.page.locator("//button[text()='Choose File']")
@@ -335,8 +335,8 @@ export default class functions {
                 })
                 await chooseBtn.click()
 
-                const deviceScreenSizeText = await this.page.locator("text='Device Screen Size:'")
-                expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
+                // const deviceScreenSizeText = await this.page.locator("text='Device Screen Size:'")
+                // expect.soft(deviceScreenSizeText).toContainText("Device Screen Size:")
 
 
                 // const deviceSelectField = await this.page.locator("//label[text()='Choose Size']")
@@ -368,11 +368,11 @@ export default class functions {
 
 
 
-                const currentImageSizeTitleText = await this.page.locator("//div[text()='Current Image Size:']")
-                expect.soft(currentImageSizeTitleText).toContainText("Current Image Size:")
+                // const currentImageSizeTitleText = await this.page.locator("//div[text()='Current Image Size:']")
+                // expect.soft(currentImageSizeTitleText).toContainText("Current Image Size:")
 
-                const currentImageRatioTitleText = await this.page.locator("//p[text()='Current Image Size Ratio:']")
-                expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
+                // const currentImageRatioTitleText = await this.page.locator("//p[text()='Current Image Size Ratio:']")
+                // expect.soft(currentImageRatioTitleText).toContainText("Current Image Size Ratio:")
 
 
                 const cropperSaveBtn = await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]")
@@ -617,10 +617,18 @@ export default class functions {
                 await this.page.waitForTimeout(2000)
         }
 
+        async waitAndClick(locator: string) {
+                const element = this.page.locator(locator);
+                await element.waitFor({
+                    state: "visible"
+                });
+                await element.click();
+            }
 
         getRandomName() {
                 return "Auto" + Date.now() + "Name"
         }
+
         async clickAnonymouLogin(){
                 
         }

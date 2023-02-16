@@ -299,6 +299,7 @@ export default class languagePage {
                 const japanese = await this.page.locator("//li[@data-value='ja']")
                 expect(japanese).toBeVisible()
                 await japanese.click({button:'left',delay:1000})
+                await this.page.waitForTimeout(2000)
 
         }
 

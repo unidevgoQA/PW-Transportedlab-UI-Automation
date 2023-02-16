@@ -100,7 +100,8 @@ export default class MobileDesign {
             this.page.waitForEvent('popup'),
             this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]").click()
         ]);
-        await this.page.waitForLoadState("networkidle")
+        // await this.page.waitForLoadState("networkidle")
+        await this.page.waitForTimeout(3000)
         return page1;
         
 
@@ -939,7 +940,7 @@ export default class MobileDesign {
 
     async verifyPotraitBackgroundUploadSuccessfully() {
 
-        await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
+        await this.page.waitForSelector("//button[@aria-label='Delete']")
 
 
 
@@ -948,7 +949,7 @@ export default class MobileDesign {
 
     async verifyLandscapeBackgroundUploadSuccessfully() {
 
-        await this.page.waitForSelector("//h5[text()='Landscape Background']/following::button[@title='Delete']//div[1]")
+        await this.page.waitForSelector("//button[@aria-label='Delete']")
 
 
 
@@ -1004,7 +1005,7 @@ export default class MobileDesign {
 
 
     async clickToUploadLandscapeBackground() {
-
+        await this.page.waitForTimeout(2000)
         const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
         await ele.click({button: "left", delay: 1000})
 

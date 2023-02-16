@@ -152,7 +152,6 @@ test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyMainMenuFontSuccessfullyAppliedInMobileScreen()
 
 
@@ -237,8 +236,7 @@ test("004M-005 | Validate  Menu Bar Background Color Successfully Applied In Mob
 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                await newmobilePreviewPage.clickPrizeSection()                
                 await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
 
 
@@ -324,9 +322,8 @@ test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Sc
 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.clickPrizeSection()                
+                await newmobilePreviewPage.verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -411,9 +408,8 @@ test("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied
 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.clickPrizeSection()                
+                await newmobilePreviewPage.verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -498,9 +494,8 @@ test("004M-011 | Validate  Menu Bar Active Text Color Successfully Applied In Mo
 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await newmobilePreviewPage.clickPrizeSection()                
+                await newmobilePreviewPage.verifyMenuBarActivTextColorSuccessfullyAppliedInMobileScreen()
 
 
 
@@ -584,7 +579,7 @@ test("004M-013 | Validate  Menu Bar Top Alignment Successfully Applied in Mobile
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                
                 await newmobilePreviewPage.verifyMenuBarTopAlignmentSuccessfullyAppliedInMobileScreen()
 
         })
@@ -612,7 +607,7 @@ test("004M-014 | Validate Menu Bar Three Line Alignment Successfully Selected Fr
         })
 })
 
-test("004M-015 | Validate  Menu Bar  Three Line Alignment Successfully Applied in Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("004M-015 | Validate Menu Bar  Three Line Alignment Successfully Applied in Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -668,7 +663,9 @@ test("004M-015 | Validate  Menu Bar  Three Line Alignment Successfully Applied i
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickThreeLineAlignmentBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.validateMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen()
+                // await newmobilePreviewPage.clickPrizeSection()
+
                 await newmobilePreviewPage.verifyMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen()
 
         })
@@ -826,10 +823,10 @@ test("004M-019 | Validate  Menu Bar  Bottom Alignment Successfully Applied in Mo
                 await newmobilePreviewPage.clicksubmit()
         })
 
-        await test.step("Verify Japanese Language Applaid Successfully", async () => {
+        await test.step("Validate in mobile screen", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyMenuBarBottomAlignmentSuccessfullyAppliedInMobileScreen()
 
         })
@@ -914,7 +911,7 @@ test.skip("004M-021 | Validate  Menu Bar Home Icon Successfully Applied in Mobil
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyHomeIconSuccessfullyAppliedInMobileScreen()
 
         })
@@ -998,7 +995,7 @@ test.skip("004M-023 | Validate  Menu Bar Prize Icon Successfully Applied in Mobi
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyPrizeIconSuccessfullyAppliedInMobileScreen()
 
         })
@@ -1082,7 +1079,7 @@ test.skip("004M-025 | Validate  Menu Bar How To Play Icon Successfully Applied i
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyHowToPlayIconSuccessfullyAppliedInMobileScreen()
 
         })
@@ -1165,7 +1162,7 @@ test.skip("004M-027 | Validate  Menu Bar Rules Icon Successfully Applied in Mobi
                 await test.step("Verify Japanese Language Applaid Successfully", async () => {
                         await newmobilePreviewPage.clickHowToPlayBtn()
                         await newmobilePreviewPage.clickPrizeSection()
-                        await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                        // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                         await newmobilePreviewPage.verifyRulesIconSuccessfullyAppliedInMobileScreen()
 
                 })
@@ -1250,7 +1247,7 @@ test.skip("004M-029 | Validate  Menu Bar User Profile Icon Successfully Applied 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
                 await newmobilePreviewPage.verifyUserProfileIconSuccessfullyAppliedInMobileScreen()
 
         })

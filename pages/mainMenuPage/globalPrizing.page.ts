@@ -232,6 +232,17 @@ export default class globalPrizingPage {
 
         }
 
+        async clickSearchInputField() {
+                let ele = await this.page.locator("//input[@placeholder='Search...']")
+
+                await ele.click()
+                // const ele = await this.page.locator("//input[@placeholder='Search...']")
+                // expect(ele).toBeVisible()
+                // await ele.fill("Auto Test")
+
+
+
+        }
 
         //Deleted Prize Element
 
@@ -240,7 +251,7 @@ export default class globalPrizingPage {
 
                 if ((ele == true)) {
                         // console.log("click Limit Per User Check Box")
-                        await this.page.locator("//input[@placeholder='Search...']").fill("Auto Test")
+                        await this.page.locator("//input[@placeholder='Search...']").type("Auto Test")
 
                 }
                 // const ele = await this.page.locator("//input[@placeholder='Search...']")
@@ -253,6 +264,7 @@ export default class globalPrizingPage {
 
         async deletePrize() {
 
+                await this.page.waitForSelector("//button[text()='Delete']")
                 let ele = await this.page.locator("//button[text()='Delete']").isVisible()
 
                 if ((ele == true)) {

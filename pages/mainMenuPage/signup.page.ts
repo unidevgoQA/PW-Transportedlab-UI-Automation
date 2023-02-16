@@ -48,6 +48,7 @@ export default class singupPage {
                 addNewUrlBtn: "//button[text()='Add New Url']",
                 addedLinkAndText: "//h6[text()='Added Links and Text']",
                 deletAddedUrlLink: "//div[@class='MuiBox-root css-grxo2d']//button[1]",
+                okBtn: "//button[text()='Ok']",
                 customQuestionCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
                 customQuestionInCheckBox: "//input[@type='checkbox']",
                 addNewQuestionBtn: "//button[text()='Add question']",
@@ -261,6 +262,8 @@ export default class singupPage {
                 let ele = await this.page.locator(this.signUpPageElements.deleteAddedCustomQuestion).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.deleteAddedCustomQuestion).click({button:"left", delay:1000})
+                        await this.page.waitForSelector(this.signUpPageElements.okBtn)
+                        await this.page.click(this.signUpPageElements.okBtn)
                 }
                 // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
 
@@ -271,6 +274,8 @@ export default class singupPage {
                 let ele = await this.page.locator(this.signUpPageElements.addedCustomQuestionInDeleteBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.addedCustomQuestionInDeleteBtn).click({button:"left", delay:1000})
+                        await this.page.waitForSelector(this.signUpPageElements.okBtn)
+                        await this.page.click(this.signUpPageElements.okBtn)
                 }
                 // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
 
@@ -396,16 +401,21 @@ export default class singupPage {
                 let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector(this.signUpPageElements.okBtn)
+                        await this.page.click(this.signUpPageElements.okBtn)
+                        
                         
                 }
-                // else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")
+                else {console.log("Main Menu | Sign Up Page Add Url Button is not visible")}
 
-        }
+        }        
 
         async deleteTermsAndConditionAddedUrlLink() {
                 let ele = await this.page.locator(this.signUpPageElements.deletAddedUrlLink).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.signUpPageElements.deletAddedUrlLink).click({ button: "left", delay: 1000 })
+                        await this.page.waitForSelector(this.signUpPageElements.okBtn)
+                        await this.page.click(this.signUpPageElements.okBtn)
                         
                 }
                 else throw new Error("Main Menu | Sign Up Page Add Url Button is not visible")

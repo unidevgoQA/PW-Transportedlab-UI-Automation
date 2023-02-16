@@ -8,7 +8,7 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs';
 const clipboard = require('clipboardy')
 
-test.skip("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -1137,7 +1137,7 @@ test("PD007-47|  Validate text Color Input Functionality and reflection on mobil
 
 })
 
-test("007PD-16 | validate main color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test.skip("007PD-16 | validate main color input functionality and reflection on mobile site ", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

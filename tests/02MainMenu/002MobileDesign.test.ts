@@ -66,6 +66,8 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectEnglishLanguage()
 
+        
+
 
 
 
@@ -703,6 +705,7 @@ test("MD002-015 | Validate Entry Screen As Home Applied Successfully on Mobile S
                 await newmobilePreviewPage.typeemail()
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
+                await newmobilePreviewPage.clickHomeBtn()
                 await newmobilePreviewPage.verifyHomeEntryIsApplyed()
                 
         })
