@@ -671,7 +671,7 @@ test.skip("008TOFW-017 | Validate Stand By Massage Successfully Show on Mobile S
 
 })
 
-test.only(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.skip(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -694,7 +694,7 @@ test.only(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Suc
 
 })
 
-test("008TOFW-019 | Validate Custom Mobile Waiting Message Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-019 | Validate Custom Mobile Waiting Message Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

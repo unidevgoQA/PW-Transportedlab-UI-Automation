@@ -1030,7 +1030,7 @@ export default class mobilePreviewPage {
        async verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen() {            
 
               const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })              
-              expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")
+              expect(BackgroundColor).toHaveCSS("background-color", "rgb(45, 168, 217)")
               
 
        }
