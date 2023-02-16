@@ -1051,7 +1051,73 @@ export default class singupPage {
 
                 }
         }
+        async uncheckPhoneNumberCheckBox() {
 
+                // expect(await this.page.locator("(//label[text()='Url or link']/following::input)[1]").isChecked()).toBeTruthy()
+
+
+
+                let ele = await this.page.locator("(//label[text()='Url or link']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Radio button is not checked")
+                        await this.page.locator("(//label[text()='Url or link']/following::input)[1]").click()
+
+                }
+        }
+
+        async uncheckEmailAddressCheckBox() {
+
+                let ele = await this.page.locator("(//span[text()='Phone Number']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Click on the Email Address Checkbox")
+                        await this.page.locator("(//span[text()='Phone Number']/following::input)[1]").click()
+
+                }
+        }
+
+        async uncheckAgeCheckBox() {
+
+                let ele = await this.page.locator("(//span[text()='Email Address']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Click on the Age Checkbox")
+                        await this.page.locator("(//span[text()='Email Address']/following::input)[1]").click()
+
+                }
+        }
+        async uncheckDateOfBirthCheckBox() {
+
+                let ele = await this.page.locator("(//span[text()='Age']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Click on the Deth of Birth Checkbox")
+                        await this.page.locator("(//span[text()='Age']/following::input)[1]").click()
+
+                }
+        }
+
+        async uncheckPostalCodeCheckBox() {
+
+                let ele = await this.page.locator("(//span[text()='Date of Birth']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Click on the Postal Code Checkbox")
+                        await this.page.locator("(//span[text()='Date of Birth']/following::input)[1]").click()
+
+                }
+        }
+        async uncheckCustomQuestionCheckBox() {
+
+                let ele = await this.page.locator("(//span[text()='Zip Code / Postal Code']/following::input)[1]").isChecked()
+
+                if ((ele == true)) {
+                        // console.log("Click on the Postal Code Checkbox")
+                        await this.page.locator("(//span[text()='Zip Code / Postal Code']/following::input)[1]").uncheck()
+
+                }
+        }
         async clickAddQuestionAddBtn() {
 
                 let ele = await this.page.locator("//button[text()='Add question']").isVisible()

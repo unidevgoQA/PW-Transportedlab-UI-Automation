@@ -450,6 +450,104 @@ test("009FanSee-80|Validate Mobile Background Upload Functionality", async ({ lo
         })
 
 })
+test("000 | Select All The Menu Ready For UI Verification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+
+
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    
+        await MainMenu.clickHomeAvater();
+        await MainMenu.mainMenuBtn();
+        await MainMenu.clickMobileDesign();
+    
+        //Click on the menu page
+        await menuPage.clickMenuPage()
+        //verify font text
+        await menuPage.checkFontsText();
+    
+        //Verify upload font text
+        await menuPage.checkUploadFontText();
+    
+        await menuPage.deleteUploadedFont()
+    
+        await functions.fontUploadFunction()
+        await menuPage.clickToUploadFont()
+        await menuPage.verifyFontUploadedSuccessfully()        
+    
+        await menuPage.clickBackgroundColorInputField()
+        await menuPage.inputBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+    
+        await menuPage.clickTextColorInputField()
+        await menuPage.inputTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+    
+    
+        await menuPage.clickActiveBackgroundColorInputField()
+        await menuPage.inputActiveBackgroundColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+    
+    
+        await menuPage.clickActiveTextColorInputField()
+        await menuPage.inputActiveTextColor()
+        await menuPage.clickColorPickerWindowSaveBtn()
+    
+    
+        await menuPage.selectHideAlignmentMenuBar()
+        await singupPage.clickSignUpPage()
+        await singupPage.clickAnonymousLogin()
+        await singupPage.uncheckPhoneNumberCheckBox()
+        await singupPage.uncheckEmailAddressCheckBox()
+        await singupPage.uncheckAgeCheckBox()
+        await singupPage.uncheckDateOfBirthCheckBox()
+        await singupPage.uncheckPostalCodeCheckBox()
+    
+    })
+test("009FanSee-234|validate mobile background upload is reflected on mobile",async({ loginPage, liveWallPage, functions,browser, page }, testInfo)=>{
+        await test.step("login to admin",async()=>{
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+
+        await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
+                await liveWallPage.clickLiveWallSection()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        let newTab = null;
+        let newlivewallgame: livewallMobilePage
+        await test.step("009FanSee-9|Validate Mobile QR Code button visible and clickable.",async()=>{
+                 //click Mobile QR Code
+                 await liveWallPage.click_Mobile_button()
+                 
+        })
+       
+        await test.step('009FanSee-14|	validate open link in Normal QR code is working',async()=>{
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newlivewallgame= new livewallMobilePage(newTab)
+                await liveWallPage.clickCloseBtn()
+        })
+        await test.step('now validate background video is working',async()=>{
+                await newlivewallgame.screenshot_matcher_mobile_background()
+        })
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.mobile_background_image_delete()
+        })  
+})
 test("009FanSee-79|Validate Mobile Homescreen logo Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -1487,8 +1585,7 @@ test("009FanSee-20|Validate open link in VIP QR code is working",async({ loginPa
         
         await test.step('009FanSee-14|	validate open link in Normal QR code is working',async()=>{
                 await liveWallPage.click_open_link_button()
-                await browser.contexts()[0].pages()[1].
-                 setViewportSize({width:320,height:658})
+                await browser.contexts()[0].pages()[1].setViewportSize({width:320,height:658})
 
                  await browser.contexts()[0].pages()[1].bringToFront()
                  await browser.contexts()[0].pages()[1].waitForSelector("(//div[@id='app'])[1]",{state:'visible'})

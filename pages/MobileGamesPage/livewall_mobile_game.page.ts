@@ -9,6 +9,9 @@ export default class livewallMobilePage {
                 this.page = page;
                 page.setViewportSize({width:360,height:740})
         }
+        private livewall_mobile_game_elements={
+              pre_live_text : '//div[@class="css-0"]'
+        }
 
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
@@ -64,5 +67,11 @@ export default class livewallMobilePage {
             //console.log(URL)
             await this.page.goto(URL)
             await this.page.waitForTimeout(3000)
+       }
+       async screenshot_matcher_mobile_background(){
+              await this.page.waitForTimeout(7000)
+              await expect
+              .soft(this.page)
+              .toHaveScreenshot('mobile_background_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04,mask:[this.page.locator(this.livewall_mobile_game_elements.pre_live_text)]})
        }
     }
