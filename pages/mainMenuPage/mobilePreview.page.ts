@@ -835,7 +835,7 @@ export default class mobilePreviewPage {
 
 
        async clickPrizeSection() {
-              const btn = this.page.locator("(//button[@type='button'])[2]");
+              const btn = this.page.locator("(//div[@img='assets/PrizeIcon.fe356ae7.svg'])[1]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -846,7 +846,7 @@ export default class mobilePreviewPage {
        }
 
        async clickMyProfile() {
-              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']//parent::button");
+              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']");
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
@@ -975,7 +975,7 @@ export default class mobilePreviewPage {
 
 
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("(//button[@type='button'])[3]");
+              const btn = this.page.locator("//div[@img='assets/HowToPlayIcon.c5748446.svg']");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -1013,7 +1013,7 @@ export default class mobilePreviewPage {
               // const ele = await this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']").screenshot()
               // await expect(ele).toMatchSnapshot("MenuBar_Background_UI.png", { maxDiffPixels: 200 })
 
-              const BackgroundColor = await this.page.getByText('HOMEPRIZEHOW TO PLAYRULESUSER PROFILEGAMES')              
+              const BackgroundColor = await this.page.locator("//div[@backgroundcolor='rgb(95, 188, 210)']")              
               expect(BackgroundColor).toHaveCSS("background", "rgb(95, 188, 210) none repeat scroll 0% 0% / auto padding-box border-box")
               
 
@@ -1022,7 +1022,7 @@ export default class mobilePreviewPage {
        async verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen() {            
 
               const BackgroundColor = await this.page.getByText('HOME')              
-              expect(BackgroundColor).toHaveCSS("color", "rgb(96, 37, 74)")
+              expect(BackgroundColor).toHaveCSS("color", "rgb(2, 16, 25)")
               
 
        }
@@ -1152,10 +1152,11 @@ export default class mobilePreviewPage {
 
 
        async clickHomeBtn() {
-              const btn = this.page.getByRole("button", {name: 'HOME'})
+              const btn = this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']")
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
+              await this.page.waitForTimeout(2000)
        }
 
 

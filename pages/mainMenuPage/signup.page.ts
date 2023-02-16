@@ -580,9 +580,9 @@ export default class singupPage {
 
         async clickSetProfilePictureWindowSaveBtn() {
                 await this.page.waitForSelector(this.signUpPageElements.addNewSetWindowSaveBtn)
-                let ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn).click({ button: "left", delay: 1000 })
+                const ele = await this.page.locator(this.signUpPageElements.addNewSetWindowSaveBtn)
+                if (await ele.isVisible()) {
+                       await ele.click({ button: "left", delay: 1000 })
                 }
                 else throw new Error("Sign Up Page Profile Picture Add New Set Window, Save Button Element is not visible ")
                 await this.page.waitForTimeout(2000)

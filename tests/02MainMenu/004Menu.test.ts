@@ -152,6 +152,7 @@ test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
                 await newmobilePreviewPage.clickPrizeSection()
+                await newmobilePreviewPage.clickHomeBtn()
                 await newmobilePreviewPage.verifyMainMenuFontSuccessfullyAppliedInMobileScreen()
 
 
@@ -322,7 +323,8 @@ test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Sc
 
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
                 await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()                
+                await newmobilePreviewPage.clickPrizeSection()
+                await newmobilePreviewPage.clickHomeBtn()                
                 await newmobilePreviewPage.verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen()
 
 
