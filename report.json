@@ -12,12 +12,12 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
           "008TugOfWar.test.ts"
@@ -43,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
-    "rootDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings",
+          "title": " 008TOFW-010 | Validate Game Settings  Text Color Successfully Update From Admin Side ",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,24 +74,17 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 27743,
+                  "duration": 30695,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "Tug Of War Game Settins Font Text Element Is Successfully visiable\n"
-                    },
-                    {
-                      "text": "Tug of war Game Settings Section Have No Uploaded Font Visible\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-17T12:33:43.764Z",
+                  "startTime": "2023-02-17T13:09:04.358Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-004-Validate-Admin-Successfully-Upload-Font-From-Game-Settings\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar--008TOFW-010-Validat-88647-Text-Color-Successfully-Update-From-Admin-Side-\\test-finished-1.png"
                     }
                   ]
                 }
@@ -99,13 +92,13 @@
               "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-a169867c6adebbf7e4bb",
+          "id": "26becc8c701c81079457-923fd74daba3909e853d",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 115,
+          "line": 342,
           "column": 6
         },
         {
-          "title": "008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen",
+          "title": "008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen",
           "ok": false,
           "tags": [],
           "tests": [
@@ -119,19 +112,19 @@
                 {
                   "workerIndex": 0,
                   "status": "failed",
-                  "duration": 36909,
+                  "duration": 62028,
                   "error": {
-                    "message": "Mobile Screen | Home Screen Team Account Select Text Is Not Visible",
-                    "stack": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9"
+                    "message": "Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly",
+                    "stack": "Error: Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly\n    at tugOfWarMobilePage.validateTextColorSuccessfullyApplied (D:\\Work Station\\Unidevgo\\Playwright\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:84:28)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:412:17\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:410:9"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
+                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
                         "column": 28,
-                        "line": 58
+                        "line": 84
                       },
-                      "message": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n\n\u001b[90m   at \u001b[39mpages\\MobileGamesPage\\tugOfWarMobile.page.ts:58\n\n\u001b[0m \u001b[90m 56 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 57 |\u001b[39m                 }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 58 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Mobile Screen | Home Screen Team Account Select Text Is Not Visible\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 59 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 60 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 61 |\u001b[39m         }\u001b[0m\n\n\u001b[2m    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9\u001b[22m"
+                      "message": "Error: Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly\n\n\u001b[90m   at \u001b[39mpages\\MobileGamesPage\\tugOfWarMobile.page.ts:84\n\n\u001b[0m \u001b[90m 82 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 83 |\u001b[39m                 }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 84 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 85 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 86 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 87 |\u001b[39m         }\u001b[0m\n\n\u001b[2m    at tugOfWarMobilePage.validateTextColorSuccessfullyApplied (D:\\Work Station\\Unidevgo\\Playwright\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:84:28)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:412:17\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:410:9\u001b[22m"
                     }
                   ],
                   "stdout": [],
@@ -140,30 +133,30 @@
                   "steps": [
                     {
                       "title": "Login Admin And land To Home Screen",
-                      "duration": 5970
+                      "duration": 11996
                     },
                     {
                       "title": "Click Guess The Scrore Section",
-                      "duration": 5265
+                      "duration": 13204
                     },
                     {
                       "title": "now open the game in mobile view",
-                      "duration": 5119
+                      "duration": 6928
                     },
                     {
                       "title": "Validation on mobile Screen",
-                      "duration": 19788
+                      "duration": 23616
                     },
                     {
                       "title": "Validation on mobile Screen",
-                      "duration": 121,
+                      "duration": 139,
                       "error": {
-                        "message": "Mobile Screen | Home Screen Team Account Select Text Is Not Visible",
-                        "stack": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9"
+                        "message": "Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly",
+                        "stack": "Error: Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly\n    at tugOfWarMobilePage.validateTextColorSuccessfullyApplied (D:\\Work Station\\Unidevgo\\Playwright\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:84:28)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:412:17\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:410:9"
                       }
                     }
                   ],
-                  "startTime": "2023-02-17T12:34:11.728Z",
+                  "startTime": "2023-02-17T13:09:35.562Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -173,27 +166,27 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Validate-Uploaded-Font-Successfully-Show-on-Mobile-Screen\\test-failed-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-011-Validate-Text-Color-Successfully-Applied-In-mobile-Screen\\test-failed-1.png"
                     },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Validate-Uploaded-Font-Successfully-Show-on-Mobile-Screen\\test-failed-2.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-011-Validate-Text-Color-Successfully-Applied-In-mobile-Screen\\test-failed-2.png"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
+                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
                     "column": 28,
-                    "line": 58
+                    "line": 84
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "26becc8c701c81079457-2a49f8f8bda40215cdd5",
+          "id": "26becc8c701c81079457-03752df8ab86b976b5bd",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 141,
+          "line": 365,
           "column": 6
         }
       ]
