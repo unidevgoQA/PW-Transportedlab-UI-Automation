@@ -12,27 +12,15 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
+        "outputDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "D:/Work Station/Unidevgo/Playwright",
+        "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts",
-          "002MobileDesign.test.ts",
-          "003Language.test.ts",
-          "004Menu.test.ts",
-          "005SignUp.test.ts",
-          "006GlobalPrizing.test.ts",
-          "007PrizeDrop.test.ts",
-          "008TugOfWar.test.ts",
-          "009LiveWall.test.ts",
-          "010Arcade.test.ts",
-          "011AddNewExperiences.test.ts",
-          "012Trivia.test.ts",
-          "guesstheScore.test.ts"
+          "008TugOfWar.test.ts"
         ],
         "timeout": 300000
       }
@@ -55,8 +43,8 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
-    "rootDir": "D:/Work Station/Unidevgo/Playwright",
+    "configFile": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\playwright.config.ts",
+    "rootDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
     "quiet": false,
     "shard": null,
     "updateSnapshots": "missing",
@@ -72,7 +60,52 @@
       "line": 0,
       "specs": [
         {
-          "title": " 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side",
+          "title": "008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 27743,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Tug Of War Game Settins Font Text Element Is Successfully visiable\n"
+                    },
+                    {
+                      "text": "Tug of war Game Settings Section Have No Uploaded Font Visible\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-02-17T12:33:43.764Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-004-Validate-Admin-Successfully-Upload-Font-From-Game-Settings\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "26becc8c701c81079457-a169867c6adebbf7e4bb",
+          "file": "tests/03Games/008TugOfWar.test.ts",
+          "line": 115,
+          "column": 6
+        },
+        {
+          "title": "008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen",
           "ok": false,
           "tags": [],
           "tests": [
@@ -86,49 +119,81 @@
                 {
                   "workerIndex": 0,
                   "status": "failed",
-                  "duration": 38396,
+                  "duration": 36909,
                   "error": {
-                    "message": "locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//div[@aria-label=\\'rdw-toolbar\\']/following-sibling::div[1]')\n  locator resolved to visible <div class=\"rdw-editor-main\">…</div>\nelementHandle.fill(\"Please wait for game start\")\n  waiting for element to be visible, enabled and editable\n  Element is not an <input>, <textarea> or [contenteditable] element\n============================================================",
-                    "stack": "locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//div[@aria-label=\\'rdw-toolbar\\']/following-sibling::div[1]')\n  locator resolved to visible <div class=\"rdw-editor-main\">…</div>\nelementHandle.fill(\"Please wait for game start\")\n  waiting for element to be visible, enabled and editable\n  Element is not an <input>, <textarea> or [contenteditable] element\n============================================================\n    at tugOfWarPage.inputCustomMobileWaitingMassage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\gamesPage\\tugOfWar.page.ts:407:35)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:688:9"
+                    "message": "Mobile Screen | Home Screen Team Account Select Text Is Not Visible",
+                    "stack": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 35,
-                        "line": 407
+                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
+                        "column": 28,
+                        "line": 58
                       },
-                      "message": "locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element\n=========================== logs ===========================\n  waiting for frameLocator('iframe')\n  locator resolved to visible <iframe class=\"css-r99fy3\" allow=\"camera; microphone; cl…></iframe>\nwaiting for frameLocator('iframe').locator('xpath=//div[@aria-label=\\'rdw-toolbar\\']/following-sibling::div[1]')\n  locator resolved to visible <div class=\"rdw-editor-main\">…</div>\nelementHandle.fill(\"Please wait for game start\")\n  waiting for element to be visible, enabled and editable\n  Element is not an <input>, <textarea> or [contenteditable] element\n============================================================\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:407\n\n\u001b[0m \u001b[90m 405 |\u001b[39m                 \u001b[36mif\u001b[39m (\u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39misVisible()) {\u001b[0m\n\u001b[0m \u001b[90m 406 |\u001b[39m                         \u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39mfocus()\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 407 |\u001b[39m                         \u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39mfill(\u001b[32m\"Please wait for game start\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 408 |\u001b[39m                 }\u001b[0m\n\u001b[0m \u001b[90m 409 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Tug Of War Stage Section Custom Mobile Waiting Massage Input Field is not visiable, Could not find locator: \"${this.tugOfWarPageElements.customMobileWaitingMassageInputField}\"`\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 410 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[0m\n\n\u001b[2m    at tugOfWarPage.inputCustomMobileWaitingMassage (D:\\Work Station\\Unidevgo\\Playwright\\pages\\gamesPage\\tugOfWar.page.ts:407:35)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\03Games\\008TugOfWar.test.ts:688:9\u001b[22m"
+                      "message": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n\n\u001b[90m   at \u001b[39mpages\\MobileGamesPage\\tugOfWarMobile.page.ts:58\n\n\u001b[0m \u001b[90m 56 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 57 |\u001b[39m                 }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 58 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Mobile Screen | Home Screen Team Account Select Text Is Not Visible\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 59 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 60 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 61 |\u001b[39m         }\u001b[0m\n\n\u001b[2m    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9\u001b[22m"
                     }
                   ],
-                  "stdout": [
-                    {
-                      "text": "Tug Of War Game Stop Btn Element Is not visiable, Could not find locator: \"//button[text()='Start']\"\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-15T13:08:02.048Z",
+                  "steps": [
+                    {
+                      "title": "Login Admin And land To Home Screen",
+                      "duration": 5970
+                    },
+                    {
+                      "title": "Click Guess The Scrore Section",
+                      "duration": 5265
+                    },
+                    {
+                      "title": "now open the game in mobile view",
+                      "duration": 5119
+                    },
+                    {
+                      "title": "Validation on mobile Screen",
+                      "duration": 19788
+                    },
+                    {
+                      "title": "Validation on mobile Screen",
+                      "duration": 121,
+                      "error": {
+                        "message": "Mobile Screen | Home Screen Team Account Select Text Is Not Visible",
+                        "stack": "Error: Mobile Screen | Home Screen Team Account Select Text Is Not Visible\n    at tugOfWarMobilePage.validateFontSuccessfullyApplied (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts:58:28)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:188:17\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:186:9"
+                      }
+                    }
+                  ],
+                  "startTime": "2023-02-17T12:34:11.728Z",
                   "attachments": [
+                    {
+                      "name": "login screenshot",
+                      "contentType": "image/png",
+                      "body": "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egwAAAAAwFFiBiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiDXrtcXAAALCklEQVQAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiAAAAAAJCYAAgAAAEBiAiD8/3bsQAYAAABgkL/1Pb7CCAAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYE4AAAAAAMCYAAQAAAGBMAAIAAADAmAAEAAAAgDEBCAAAAABjAhAAAAAAxgQgAAAAAIwJQAAAAAAYC0YjrBITH8z5AAAAAElFTkSuQmCC"
+                    },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar--008TOFW-018-Validat-9488d-ng-Message-Successfully-Updated-From-Admin-Side\\test-failed-1.png"
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Validate-Uploaded-Font-Successfully-Show-on-Mobile-Screen\\test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-005-Validate-Uploaded-Font-Successfully-Show-on-Mobile-Screen\\test-failed-2.png"
                     }
                   ],
                   "errorLocation": {
-                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 35,
-                    "line": 407
+                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\MobileGamesPage\\tugOfWarMobile.page.ts",
+                    "column": 28,
+                    "line": 58
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "26becc8c701c81079457-e099d7ecc7fdc3bcc002",
+          "id": "26becc8c701c81079457-2a49f8f8bda40215cdd5",
           "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 674,
+          "line": 141,
           "column": 6
         }
       ]

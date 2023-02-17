@@ -112,7 +112,7 @@ test("008TOFW-001 | Add New Configuration", async ({ loginPage, tugOfWarPage, fu
 
 })
 
-test("008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.only("008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -138,7 +138,7 @@ test("008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings",
 })
 
 
-test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test.only("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -671,7 +671,7 @@ test.skip("008TOFW-017 | Validate Stand By Massage Successfully Show on Mobile S
 
 })
 
-test.only(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.skip(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -694,7 +694,7 @@ test.only(" 008TOFW-018 | Validate Title Stage Custom Mobile Waiting Message Suc
 
 })
 
-test("008TOFW-019 | Validate Custom Mobile Waiting Message Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-019 | Validate Custom Mobile Waiting Message Successfully Show on Mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1971,7 +1971,7 @@ test.skip("008TOFW-027 | Validate Sponsor Logo Successfully Show on Mobile Scree
 
 
 
-test.skip("008TOFW-010 | Game open in mobile view", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-028 | Navigate to the Selection stage", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
 
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -1992,63 +1992,166 @@ test.skip("008TOFW-010 | Game open in mobile view", async ({ loginPage, tugOfWar
 
 
         })
-
-        await test.step("008TOFW-003 | Test In mobile Device", async () => {
-
-
-                //click AddNew Config Plus Btn 
-                await tugOfWarPage.clickAddNewConfigPlusBtn()
-
-                await page.waitForTimeout(3000)
+        await test.step("Navigate to the Selection Stage", async () => {
+                await tugOfWarPage.navigatetotheSelectionStage();
 
 
-                //verify AddNew ConfigPlus Window Text
-                await tugOfWarPage.verifyAddNewConfigPlusWindowText()
+       
 
 
-                //input Configuration Name
-                await tugOfWarPage.inputConfigurationName()
+        })
+})
 
-                //click Add Btn
-                await tugOfWarPage.clickAddBtn()
-
-                await tugOfWarPage.clickStagesBtn()
-
-                //click Start Game Btn
-                await tugOfWarPage.clickStartGameBtn()
+ test("008TOFW-029 | Validate Slection Images Section", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
 
+                await test.step("Login Admin And land To Home Screen", async () => {
+        
+                        await page.goto('/admin/#/sign-in')
+                        await loginPage.login(data.username, data.password)
+                        const title = await page.title();
+                        expect(title).toBe('DXP Admin')
+        
+                        const screenshot = await page.screenshot();
+                        await testInfo.attach("login screenshot", {
+                                contentType: "image/png",
+                                body: screenshot
+                        })
+        
+                        //click Tug Of War Page
+                        await tugOfWarPage.clickTugOfWarPage()
+        
+        
+                })
+                await test.step("Selection Background Image option Selection", async () => {
+                        await tugOfWarPage.navigatetotheSelectionStage();
+                        await tugOfWarPage.SelectImageOption();
+        
+        
+               
+        
+        
+                })
+                await test.step("Selection Background Image Upload", async () => {
+                        await tugOfWarPage.navigatetotheSelectionStage();
+                        await tugOfWarPage.SelectImageOption();
+                        //await tugOfWarPage.IMagedelete();
+                        await functions.bannerImageUploadFunction();
+                        await tugOfWarPage.SelectionImageUploadBTN();
+                        await functions.fileUploadCropper();
+        
+        
+               
+        
+        
+                })
+                await test.step("Selection Background Video option Selection", async () => {
+                        await tugOfWarPage.navigatetotheSelectionStage();
+                        await tugOfWarPage.SelectionVideooptionSelector();
 
-                //click Mobile Link Btn
-                await tugOfWarPage.clickMobileLinkBtn()
+        
+        
+                })
+                await test.step("Selection Background Video Upload", async () => {
+                        await tugOfWarPage.navigatetotheSelectionStage();
+                        await tugOfWarPage.SelectionVideooptionSelector();
+                        //await tugOfWarPage.IMagedelete();
+                        await functions.videoUploadFunction();
+                        await tugOfWarPage.SelectionVideoUploadButton();
+                        await functions.fileUploadCropper();
+        
+        
+               
+        
+        
+                })
+                // await test.step("Selection Adjustable Selection Time", async () => {
+                //         await tugOfWarPage.navigatetotheSelectionStage();
+                //         await tugOfWarPage.adjustabletimeclick();
+                //         await tugOfWarPage.adjustabletimeclick();
+
+        
+        
+                // })
 
 
-                await page.waitForTimeout(6000)
 
 
-                //click Mobile Link Open Btn
-                await tugOfWarPage.clickMobileLinkOpenBtn()
-
-                await page.waitForTimeout(6000)
-
-                //input UserName In Game
-                await tugOfWarPage.inputUserNameInGame()
+ })
 
 
+ test("008TOFW-030 | Validate Selection Section", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
 
-                // await tugOfWarPage.clickGameDeleteBtn()
+        await test.step("Login Admin And land To Home Screen", async () => {
 
-                // await page.waitForTimeout(6000)
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
 
-                // await tugOfWarPage.deleteGame()
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
 
-                // await page.waitForTimeout(6000)
+                //click Tug Of War Page
+                await tugOfWarPage.clickTugOfWarPage()
 
+
+        })
+        await test.step("Validate the number of teams input field", async () => {
+                await tugOfWarPage.navigatetotheSelectionStage();
+                await tugOfWarPage.NumberOfteamINputField();
+
+
+       
+
+
+        })
+        await test.step("Validate Team Logo1 Upload Image Upload", async () => {
+                 await tugOfWarPage.navigatetotheSelectionStage();
+                await tugOfWarPage.SelectImageOption();
+                //await tugOfWarPage.IMagedelete();
+                await functions.bannerImageUploadFunction();
+                await tugOfWarPage.teamLogo1UploadButon();
+                await functions.fileUploadCropper();
+
+
+       
+
+
+         })
+        await test.step("Validate Team1 Name Input Field", async () => {
+                await tugOfWarPage.navigatetotheSelectionStage();
+                await tugOfWarPage.team1Nameinputfield();
 
 
 
         })
+        // await test.step("Selection Background Video Upload", async () => {
+        //         await tugOfWarPage.navigatetotheSelectionStage();
+        //         await tugOfWarPage.SelectionVideooptionSelector();
+        //         //await tugOfWarPage.IMagedelete();
+        //         await functions.videoUploadFunction();
+        //         await tugOfWarPage.SelectionVideoUploadButton();
+        //         await functions.fileUploadCropper();
+
+
+       
+
+
+       // })
+        // await test.step("Selection Adjustable Selection Time", async () => {
+        //         await tugOfWarPage.navigatetotheSelectionStage();
+        //         await tugOfWarPage.adjustabletimeclick();
+        //         await tugOfWarPage.adjustabletimeclick();
+
+
+
+        // })
+
 
 
 

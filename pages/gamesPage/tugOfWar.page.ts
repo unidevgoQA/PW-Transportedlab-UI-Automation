@@ -1783,6 +1783,74 @@ export default class tugOfWarPage {
         getRandomName() {
                 return "Auto" + Date.now() + "Name"
         }
+        async navigatetotheSelectionStage(){
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Selection Stage']")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async SelectImageOption(){
+                const ele = await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async SelectionImageUploadBTN(){
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async SelectionVideooptionSelector(){
+                const ele = await this.page.frameLocator('iframe').locator("(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async SelectionVideoUploadButton(){
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+
+        }
+        async adjustabletimeclick(){
+                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async IMagedelete(){
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1tejaop'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async VideoDelete(){
+                const ele = await this.page.frameLocator('iframe').locator("((//div[@class='MuiBox-root css-1tejaop'])[1]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async NumberOfteamINputField(){
+                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
+                expect(ele).toBeVisible()
+                await ele.fill('2')
+
+        }
+        async teamLogo1UploadButon(){
+                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]")
+                expect(ele).toBeVisible()
+                await ele.click()
+
+        }
+        async team1Nameinputfield(){
+                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
+                expect(ele).toBeVisible()
+                await ele.fill('Skylarks')
+
+        }
+
 
 }
 
