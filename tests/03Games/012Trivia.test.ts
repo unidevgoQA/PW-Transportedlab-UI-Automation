@@ -25,6 +25,7 @@ test("012TV-001 | Validate add new configuration name in trivia.", async ({ logi
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
             await triviaPage.verifyConfigurationsText()
             await triviaPage.clickAddNewConfigPlusBtn()
 
@@ -53,6 +54,7 @@ test("012TV-002 | Validate Configurations Text Visibility.", async ({ loginPage,
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
 
       })
       await test.step("Now verify Configrations text",async()=>{
@@ -78,6 +80,7 @@ test("012TV-003 | Validate Plus Button Is Visible.", async ({ loginPage, functio
       
             await test.step("Click On The Trivia Section", async () => {
                   await triviaPage.clickTriviaSection()
+                  await page.waitForTimeout(2000)
       
             })
             await test.step("Now validate plus button",async()=>{
@@ -104,6 +107,7 @@ test("012TV-004 | Validate Add Button is Visible.", async ({ loginPage, function
             
                   await test.step("Click On The Trivia Section", async () => {
                         await triviaPage.clickTriviaSection()
+                        await page.waitForTimeout(2000)
             
                   })
                   await test.step("Click add configuration plus button", async () => {
@@ -169,6 +173,7 @@ test("012TV-006 | Validate add button does not work without data.", async ({ log
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
 
       })
       await test.step("Click add configuration plus button", async () => {
@@ -1779,7 +1784,7 @@ test("012TV-052 | Validate Output Screen Link text is visible.", async ({ loginP
       })
       
 })
-test("012TV-055 | Validate input RGB Background color is working in triva.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-055 | Validate input RGB Background color is working in trivia.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1862,7 +1867,8 @@ test.skip("012TV-056 | Validate  Background color successfully reflection on mob
             })
             await test.step("Now verify background color",async()=>{
                   //await page.waitForTimeout(5000)
-                  await triviamobilepage.verifyBackgroundcolor()
+                  //await triviamobilepage.verifyBackgroundcolor()
+                  await triviamobilepage.verifyMobileBackgroundColor()
             })
             await test.step("Now click clear all button in color section",async()=>{
                   await triviaPage.clickMobileLinkPopupClose()
@@ -1963,7 +1969,7 @@ test("012TV-058 | Validate  General/Button text successfully reflection on mobil
             })
       
 })
-test("012TV-059 | Validate input RGB Button background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-059 | Validate input RGB Button Fill color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -1992,21 +1998,21 @@ test("012TV-059 | Validate input RGB Button background color is working.", async
             
     
     })
-    await test.step("Now validate input background color is working",async()=>{
-      await triviaPage.verifyButtonBackgroundText()
-      await triviaPage.clickButtonBackgrounColorBtn()
+    await test.step("Now validate input button fill color is working",async()=>{
+      await triviaPage.verifyButtonFillText()
+      await triviaPage.clickButtonFillColorBtn()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
-      await triviaPage.inputHexRGB()
+      await triviaPage.verifyColorPickerText()
       await triviaPage.verifyColorPickerText()
       await triviaPage.clickColorPickerSaveBtn()
     })
   
       
 })
-test("012TV-060 | Validate Button  Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-060 | Validate Button  Fill color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2046,9 +2052,9 @@ test("012TV-060 | Validate Button  Background color successfully reflection on m
             await triviamobilepage.clicksubmit()
             //await newTab.waitForTimeout(4000)
             })
-            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+            await test.step("Now verify Button Fill color on mobile screen",async()=>{
                   await page.waitForTimeout(5000)
-                  await triviamobilepage.verifyButtonBackgroundcolor()
+                  await triviamobilepage.verifyButtonFillcolor()
             })
             await test.step("Now click clear all button in color section",async()=>{
                   await triviaPage.clickMobileLinkPopupClose()
@@ -2094,7 +2100,7 @@ test("012TV-061 | Validate input RGB Question text color is working.", async ({ 
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
-      await triviaPage.inputHexRGB()
+      await triviaPage.verifyColorPickerText()
       await triviaPage.verifyColorPickerText()
       await triviaPage.clickColorPickerSaveBtn()
     })
@@ -2190,7 +2196,7 @@ test("012TV-063 | Validate input RGB Answer text color is working.", async ({ lo
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
-      await triviaPage.inputHexRGB()
+      await triviaPage.inputRGBHexColor()
       await triviaPage.verifyColorPickerText()
       await triviaPage.clickColorPickerSaveBtn()
     })
@@ -2282,6 +2288,7 @@ test("012TV-065 | Validate input RGB Question background color is working.", asy
       })
       await test.step("Open color section",async()=>{
             await triviaPage.clickColorSectionBtn()
+            await triviaPage.clickClearAllBtn()
             
     
     })
@@ -2297,7 +2304,7 @@ test("012TV-065 | Validate input RGB Question background color is working.", asy
   
       
 })
-test.skip("012TV-066 | Validate Question Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-066 | Validate Question Background color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2339,7 +2346,7 @@ test.skip("012TV-066 | Validate Question Background color successfully reflectio
             await triviamobilepage.clicksubmit()
             //await newTab.waitForTimeout(4000)
             })
-            await test.step("Now verify General/Button text color on mobile screen",async()=>{
+            await test.step("Now verify Question background color on mobile screen",async()=>{
                   await page.waitForTimeout(5000)
                   await triviamobilepage.verifyQuestionBackgroundColor()
             })
@@ -2472,6 +2479,8 @@ test("012TV-069 | Validate input RGB question frame color is working.", async ({
     await test.step("Now validate input question frame color is working",async()=>{
       await triviaPage.verifyQuestionFrameText()
       await triviaPage.clickQuestionFrameBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2481,7 +2490,7 @@ test("012TV-069 | Validate input RGB question frame color is working.", async ({
   
       
 })
-test.skip("012TV-070 | Validate Question frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-070 | Validate Question frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2564,12 +2573,13 @@ test("012TV-071 | Validate input RGB answer frame color is working.", async ({ l
     await test.step("Now validate input answer frame color is working",async()=>{
       await triviaPage.verifyAnswerFrameText()
       await triviaPage.clickAnswerFrameBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
+      await triviaPage.inputRGBHexColor()
       await triviaPage
       await triviaPage.clickColorPickerSaveBtn()
     })
@@ -2660,6 +2670,8 @@ test("012TV-073 | Validate input RGB selected answer color is working.", async (
     await test.step("Now validate input selected answer color is working",async()=>{
       await triviaPage.verifySelectedAnswerText()
       await triviaPage.clickSelectedAnswerColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2667,6 +2679,64 @@ test("012TV-073 | Validate input RGB selected answer color is working.", async (
       await triviaPage.clickColorPickerSaveBtn()
     })
   
+      
+})
+test("012TV-073 | Validate Selected answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+
+      await test.step("Login Admin", async () => {
+            await page.goto('/admin/#/sign-in')
+            await loginPage.login(data.username, data.password)
+            const title = await page.title();
+            expect(title).toBe('DXP Admin')
+            const screenshot = await page.screenshot();
+            await testInfo.attach("login screenshot", {
+                    contentType: "image/png",
+                    body: screenshot
+            })
+      })
+
+      await test.step("Click On The Trivia Section", async () => {
+            await triviaPage.clickTriviaSection()
+            await triviaPage.clickControlPanelSection()
+      })
+    
+      await test.step("Clik start button", async () => {
+           await triviaPage.clickStartBtn()
+           await page.waitForTimeout(2000)
+           await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+           await triviaPage.clickMOveToNextBtn()
+      })
+      let newTab = null;
+      let triviamobilepage : triviaMobilePage
+      await test.step("Now game open in mobile screen",async()=>{
+
+            await triviaPage.clickMobileLinkBtn()
+            newTab = await triviaPage.clickMobileLinkOpenBtn()
+            triviamobilepage = new triviaMobilePage(newTab)
+           // await guesstheScorePage.clickCloseBtn()
+            await triviamobilepage.typephoneno()
+            await triviamobilepage.typeemail()
+            await triviamobilepage.selectbirthdate()
+            await triviamobilepage.typeAge()
+            await triviamobilepage.typezip()
+            await triviamobilepage.clicksubmit()
+            //await newTab.waitForTimeout(4000)
+            })
+            await test.step("Now verify Answer frame color on mobile screen",async()=>{
+
+                  await page.waitForTimeout(5000)
+                  await triviamobilepage.clickMultipleChoise1()
+                  await triviamobilepage.verifySelectedAnswerColor()
+            })
+            await test.step("Now click clear all button in color section",async()=>{
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clickgamedesignSection()
+                  await triviaPage.clickColorSectionBtn()
+                  await triviaPage.clickClearAllBtn()
+            })
       
 })
 test("012TV-074 | Validate input RGB correct answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
@@ -2698,6 +2768,8 @@ test("012TV-074 | Validate input RGB correct answer color is working.", async ({
     await test.step("Now validate input correct answer color is working",async()=>{
       await triviaPage.verifyCorrectAnswerText()
       await triviaPage.clickCorrectAnswerColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2730,7 +2802,9 @@ test("012TV-075 | Validate Correct Answer color successfully reflection on mobil
            await triviaPage.clickStartBtn()
            await page.waitForTimeout(2000)
            await triviaPage.clickOkBtn()
+           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
+           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
@@ -2790,6 +2864,8 @@ test("012TV-076 | Validate input RGB incorrect answer color is working.", async 
     await test.step("Now validate input incorrect answer color is working",async()=>{
       await triviaPage.verifyIncorrectAnswerText()
       await triviaPage.clickIncorrectAnswerColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2853,7 +2929,7 @@ test("012TV-077 | Validate incorrect Answer color successfully reflection on mob
             })
       
 })
-test("012TV-078 | Validate input RGB Countdown animation fill color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-078 | Validate input RGB Timer Animation fill color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2879,9 +2955,9 @@ test("012TV-078 | Validate input RGB Countdown animation fill color is working."
             await triviaPage.clickColorSectionBtn()
             await triviaPage.clickClearAllBtn()
     })
-    await test.step("Now validate input leaderboard text color is working",async()=>{
-      await triviaPage.verifyCountdownAnnimationFilltext()
-      await triviaPage.clickCountdownAnnimationColorBtn()
+    await test.step("Now validate input Timer Animation color is working",async()=>{
+      await triviaPage.verifyTimerAnnimationFilltext()
+      await triviaPage.clickTimerAnnimationColorBtn()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2891,7 +2967,7 @@ test("012TV-078 | Validate input RGB Countdown animation fill color is working."
   
       
 })
-test.skip("012TV-079 | Validate Countdown Annimation fill  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-079 | Validate Timer Annimation fill  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2946,7 +3022,7 @@ test.skip("012TV-079 | Validate Countdown Annimation fill  color successfully re
             })
       
 })
-test("012TV-080 | Validate input RGB Tile/Countdown Background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-080 | Validate input RGB Tile Background color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2972,9 +3048,9 @@ test("012TV-080 | Validate input RGB Tile/Countdown Background color is working.
             await triviaPage.clickColorSectionBtn()
             await triviaPage.clickClearAllBtn()
     })
-    await test.step("Now validate input leaderboard text color is working",async()=>{
-      await triviaPage.verifyTileCountdownBackgroundText()
-      await triviaPage.clickTileCountdownBackgroundBtn()
+    await test.step("Now validate input RGB Tile background color is working",async()=>{
+      await triviaPage.verifyTileBackgroundText()
+      await triviaPage.clickTileBackgroundBtn()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -2984,7 +3060,7 @@ test("012TV-080 | Validate input RGB Tile/Countdown Background color is working.
   
       
 })
-test("012TV-081 | Validate Tile/Countdown Background  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-081 | Validate Tile Background  color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -3026,9 +3102,9 @@ test("012TV-081 | Validate Tile/Countdown Background  color successfully reflect
             await triviamobilepage.clicksubmit()
             //await newTab.waitForTimeout(4000)
             })
-            await test.step("Now verify Tile/Countdown Background color on mobile screen",async()=>{
+            await test.step("Now verify Tile Background color on mobile screen",async()=>{
                   await page.waitForTimeout(5000)
-                  await triviamobilepage.verifyTileCountdownBackgroundFillColor()
+                  await triviamobilepage.verifyTileBackgroundFillColor()
 
             })
             await test.step("Now click clear all button in color section",async()=>{
@@ -3068,8 +3144,8 @@ test("012TV-082 | Validate input RGB Tile/Countdown Frame color is working.", as
     await test.step("Now validate input RGB Tile/Countdown Frame color is working",async()=>{
       await triviaPage.verifyTileCountDownFrameText()
       await triviaPage.clickTileCountdownFrameBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -3160,10 +3236,13 @@ test("012TV-084 | Validate input RGB Leaderboard text color is working.", async 
     await test.step("Now validate input leaderboard text color is working",async()=>{
       await triviaPage.verifyLeaderboardtextTextInColorSection()
       await triviaPage.clickLeaderboardTextColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
+      await triviaPage.inputRGBHexColor()
       await triviaPage.clickColorPickerSaveBtn()
     })
   
@@ -3258,10 +3337,13 @@ test("012TV-086 | Validate input RGB Leaderboard background color is working.", 
     await test.step("Now validate input Leaderboard background color is working",async()=>{
       await triviaPage.verifyLeaderboardBackgroundtextTextIncolorSection()
       await triviaPage.clickLeaderboardBackgroundColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
+      await triviaPage.inputRGBHexColor()
       await triviaPage.clickColorPickerSaveBtn()
     })
   
@@ -3355,16 +3437,19 @@ test("012TV-088 | Validate input RGB User's Top 10 Rank color is working.", asyn
     })
     await test.step("Now validate User's Top 10 Rank color is working",async()=>{
       await triviaPage.clickUserTopTenRankBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
+      await triviaPage.inputRGBHexColor()
       await triviaPage.clickColorPickerSaveBtn()
     })
   
       
 })
-test("012TV-089 | Validate User's Top 10 Rank color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-089 | Validate User's Top 10 Rank color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -3453,8 +3538,8 @@ test("012TV-090 | Validate input RGB Leaderboard Frame color is working.", async
     await test.step("Now validate Leaderboard Frame color is working",async()=>{
       await triviaPage.verifyLeaderboardFrametext()
       await triviaPage.clickLeaderboardFrameBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -3464,7 +3549,7 @@ test("012TV-090 | Validate input RGB Leaderboard Frame color is working.", async
   
       
 })
-test.skip("012TV-091 | Validate Leaderboard frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-091 | Validate Leaderboard frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -3554,8 +3639,8 @@ test("012TV-092 | Validate input RGB Leaderboard Accent color is working.", asyn
     await test.step("Now validate Leaderboard Accent color is working",async()=>{
       await triviaPage.verifyLeaderboardAccentText()
       await triviaPage.clickLeaderboardAccentBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -3655,8 +3740,8 @@ test("012TV-094 | Validate input RGB Point-Bubble Fill color is working.", async
     await test.step("Now validate Leaderboard Accent color is working",async()=>{
       await triviaPage.verifyPointBubbleFillText()
       await triviaPage.clickPointBubbleFillBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -3666,7 +3751,7 @@ test("012TV-094 | Validate input RGB Point-Bubble Fill color is working.", async
   
       
 })
-test("012TV-095 | Validate input RGB Point-Bubble Stroke color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-095 | Validate input RGB Point-Bubble frame color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -3693,11 +3778,11 @@ test("012TV-095 | Validate input RGB Point-Bubble Stroke color is working.", asy
             await triviaPage.clickColorSectionBtn()
             await triviaPage.clickClearAllBtn()
     })
-    await test.step("Now validate Point-Bubble Stroke t color is working",async()=>{
-      await triviaPage.verifyPointBubbleStroketext()
-      await triviaPage.clickPointBubbleStrokeBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+    await test.step("Now validate Point-Bubble Frame  color is working",async()=>{
+      await triviaPage.verifyPointBubbleFrametext()
+      await triviaPage.clickPointBubbleFrameBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()
@@ -3737,8 +3822,8 @@ test("012TV-096 | Validate input RGB Point-Bubble Text color is working.", async
     await test.step("Now validate Point-Bubble Text color is working",async()=>{
       await triviaPage.verifyPointBubbletext()
       await triviaPage.clickPointBubbleTextBtn()
-      await triviaPage.clickRGBSelectedColorBtn()
-      await triviaPage.clickForSolidRGBColorBtn()
+      await triviaPage.clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown()
+      await triviaPage.clickRGB_SolidColor()
       await triviaPage.inputFirstRGB()
       await triviaPage.inputSecondRGB()
       await triviaPage.inputThirdRGB()

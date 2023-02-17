@@ -69,9 +69,9 @@ export default class guesstheScorePage {
                 await this.page.waitForLoadState("networkidle")
         }
         async clickToUploadFont() {
-                const ele = await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-v2612"]').isVisible()
+                const ele = await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-3fw1ig"]').isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-v2612"]').click()
+                        await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-3fw1ig"]').click({force:true})
                 }
                 // await expect(ele).toBeVisible()
                 // await ele.click()
@@ -310,7 +310,7 @@ export default class guesstheScorePage {
 
         async verifyProtraitBackgroundImageUploadSuccessfully() {
                 // await this.page.waitForSelector("//button[@aria-label='Delete']")
-                const ele = await this.page.frameLocator('(//iframe)[1]').locator("//button[@aria-label='Delete']")
+                const ele = await this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete']//div)[1]")
                 expect(ele).toBeVisible()
         }
 
@@ -1375,7 +1375,7 @@ export default class guesstheScorePage {
         }
 
         async clickToUploadRider() {
-                const ele = await this.page.frameLocator('iframe').locator("//h5[text()='All Riders']/following-sibling::button")
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Import']")
                 expect(ele).toContainText("Import")
                 await ele.click()
         }
@@ -1547,7 +1547,7 @@ export default class guesstheScorePage {
         async clickeventRename(renameevent : string) {
                 await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1mj1ut2']").click()
                 await this.page.waitForTimeout(1000)
-                await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").last().click()
+                await this.page.frameLocator('iframe').locator("(//li[contains(@class,'MuiButtonBase-root MuiMenuItem-root')]//p)[2]").click()
                 const rename = this.page.frameLocator('iframe').locator("//input[@type='string']")
                 await rename.focus()
                 await this.page.keyboard.press("Meta+A");
@@ -1638,16 +1638,16 @@ export default class guesstheScorePage {
                 await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Re-Ride']").last().click({ force: true });
         }
         async verifyGameTitleLogoUploadSuccessfully() {
-                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[2]")
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@aria-label='Delete']//div)[2]")
                 expect(ele).toBeVisible()
         }
 
         async verifySponsorLogoUploadSuccessfully() {
-                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[3]")
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@aria-label='Delete']//div)[3]")
                 expect(ele).toBeVisible()
         }
         async verifyBannerImageUploadSuccessfully() {
-                const ele = await this.page.frameLocator('iframe').locator("(//button[@title='Delete']//div)[4]")
+                const ele = await this.page.frameLocator('iframe').locator("(//button[@aria-label='Delete']//div)[4]")
                 expect(ele).toBeVisible()
         }
         async verifyEditConfigurationText() {

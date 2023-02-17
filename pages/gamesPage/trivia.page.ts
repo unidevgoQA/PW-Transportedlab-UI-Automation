@@ -136,7 +136,7 @@ export default class triviaPage {
                 clickAddBannerSection:"(//div[@class='MuiBox-root css-16eo6ym'])[4]",
                 colorsSection:"(//div[@class='MuiBox-root css-16eo6ym'])[1]",
                 backgroundColorBtn:"(//div[@class='MuiBox-root css-1e91icv'])[1]",
-                MobileBackgroundTextInColorSection:"(//div[@class='MuiBox-root css-freu3i']//p)[1]",
+                MobileBackgroundTextInColorSection:"//p[text()='Mobile Background']",
                 GeneralOrButtonText:"//p[text()='General/Button Text']",
                 inputRGBFirst:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
                 inputRGBSecond:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
@@ -145,35 +145,35 @@ export default class triviaPage {
                 inputHexRGB:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[5]",
                 inputHexColor:"//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
                 mobiliBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[1]",
-                GeneralOrButtoncolorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
-                buttonBackgroundcolor:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[3]",
-                questionTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[4]",
-                AnswerTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[5]",
-                QuestionBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[6]",
-                AnswerBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[7]",
-                QuestionFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[8]",
+                GeneralOrButtoncolorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[17]",
+                buttonFillcolor:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[4]",
+                questionTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[18]",
+                AnswerTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[19]",
+                QuestionBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
+                AnswerBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[3]",
+                QuestionFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[9]",
                 AnswerFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[9]",
-                SelectedAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[10]",
-                CorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[11]",
-                IncorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[12]",
-                LeaderboardTextColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[13]",
-                LeaderboardBackgroundColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[14]",
-                LeaderboardFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[15]",
-                LeaderboardAccentBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[16]",
-                UserTopTenrankBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[17]",
-                countdownAnnimationfillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[18]",
-                TileCountdownBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[19]",
+                SelectedAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[14]",
+                CorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[15]",
+                IncorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[16]",
+                LeaderboardTextColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[20]",
+                LeaderboardBackgroundColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[7]",
+                LeaderboardFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[12]",
+                LeaderboardAccentBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[22]",
+                UserTopTenrankBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[23]",
+                TimerAnnimationfillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[5]",
+                TileBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[6]",
                 TileCountdownFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[20]",
-                PointBubbleFillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[21]",
-                PointBubbleStrokeBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[22]",
-                PointBubbleTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[23]",
+                PointBubbleFillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[8]",
+                PointBubbleFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[13]",
+                PointBubbleTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[21]",
                 GameTitleText:"//h5[text()='Game Title']",
                 TeamLogoText:"//h5[text()='Game Title']",
                 SponsorLogoTex:"//h5[text()='Sponsor Logo']",
                 MainboardBackgroundText:"//h5[text()='Mainboard Background']",
                 MobileBackgroundText:"//h5[text()='Mobile Background']",
                 MarketingmessageText:"//h4[text()='Marketing message']",
-                ButtonBackgroundText:"//p[text()='Button Background']",
+                ButtonFillText:"//p[text()='Button Fill']",
                 QuestionText:"//p[text()='Question Text']",
                 AnswerText:"//p[text()='Answer Text']",
                 QuestionBackgroundText:"//p[text()='Question Background']",
@@ -185,13 +185,13 @@ export default class triviaPage {
                 IncorrectAnswerText:"//p[text()='Incorrect Answer']",
                 LeaderboardTextIncolorSection:"//p[text()='Leaderboard Text']",
                 LeaderboardBackgroundTextInColorSection:"//p[text()='Leaderboard Background']",
-                countdownAnnimationfillText:"//p[text()='Countdown Animation Fill']",
-                TileCountdownBackgroundText:"//p[text()='Tile/Countdown Background']",
+                TimerAnnimationfillText:"//p[text()='Timer Animation Fill']",
+                TileBackgroundText:"//p[text()='Tile Background']",
                 TileCountdownFrameText:"//p[text()='Tile/Countdown Frame']",
                 PointBubbleFillText:"//p[text()='Point-Bubble Fill']",
                 LeaderboardFrameText:"//p[text()='Leaderboard Frame']",
                 LeaderboardAccentText:"//p[text()='Leaderboard Accent']",
-                PointBubbleStrokeText:"//p[text()='Point-Bubble Stroke']",
+                PointBubbleFrameText:"//p[text()='Point-Bubble Frame']",
                 PointBubbleText:"//p[text()='Point-Bubble Text']",
                 deleteImagesAndLogosBtn:"//button[@aria-label='Delete']",
                 deletegameTitleBtn:"(//button[@title='Delete']//div)[1]",
@@ -366,7 +366,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Post Game Messager text is not visible in game settings")
               }
-              async verifyAnswerShadowText(){
+        async verifyAnswerShadowText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerShadowText).textContent()
                 if((ele === "Answer Shadow")){
                       // console.log("hellow")
@@ -374,7 +374,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Answer Shadow text is not visible in game settings")
               }
-              async verifyStageFadeTransitionText(){
+         async verifyStageFadeTransitionText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerStageFadeTransitionText).textContent()
                 if((ele === "Stage Fade Transition")){
                       // console.log("hellow")
@@ -382,7 +382,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Stage Fade Transition text is not visible in game settings")
               }
-              async verifyGameTitleTextInGameSettings(){
+         async verifyGameTitleTextInGameSettings(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GameTitleTextInGameSettings).textContent()
                 if((ele === "Game Title")){
                       // console.log("hellow")
@@ -412,7 +412,7 @@ export default class triviaPage {
                       // console.log("hellow")
                        //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
                 }
-                else throw new Error("Trivia Background Color text is not visible")
+                else throw new Error("Trivia Mobile Background Color text is not visible")
               }
         async verifyGeneralOrButtonText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtonText).textContent()
@@ -422,7 +422,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia General/Button Text text is not visible in color section")
               }
-              async verifyDeleteprizeText(){
+        async verifyDeleteprizeText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.verifyDeletePrizeText).textContent()
                 if((ele === "Delete Prize?")){
                       // console.log("hellow")
@@ -430,15 +430,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Delete Prize? t text is not visible in prize section")
               }
-              async verifyButtonBackgroundText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ButtonBackgroundText).textContent()
-                if((ele === "Button Background")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+        async verifyButtonFillText(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ButtonFillText).textContent()
+                if((ele === "Button Fill")){
                 }
-                else throw new Error("Trivia Button Background Text is not visible in color section")
+                else throw new Error("Trivia Button Fill Text is not visible in color section")
               }
-              async verifyQuestionTextIncolorSectio(){
+        async verifyQuestionTextIncolorSectio(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionText).textContent()
                 if((ele === "Question Text")){
                       // console.log("hellow")
@@ -1451,12 +1449,12 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Leaderboard Background text is not visible in color section")
               }
-              async verifyTileCountdownBackgroundText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownBackgroundText).textContent()
-                if((ele === "Tile/Countdown Background")){
+              async verifyTileBackgroundText(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileBackgroundText).textContent()
+                if((ele === "Tile Background")){
 
                 }
-                else throw new Error("Trivia Tile/Countdown Background text is not visible in color section")
+                else throw new Error("Trivia Tile Background text is not visible in color section")
               }
               
         
@@ -1863,16 +1861,16 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Point-Bubble Text text is not visible")
         }
-        async verifyPointBubbleStroketext(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleStrokeText).textContent()
-                if((ele === "Point-Bubble Stroke")){
+        async verifyPointBubbleFrametext(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleFrameText).textContent()
+                if((ele === "Point-Bubble Frame")){
 
                 }
-                else throw new Error("Trivia Point-Bubble Stroke text is not visible in color section")
+                else throw new Error("Trivia Point-Bubble Frame text is not visible in color section")
         }
-        async verifyCountdownAnnimationFilltext(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownAnnimationfillText).textContent()
-                if((ele === "Countdown Animation Fill")){
+        async verifyTimerAnnimationFilltext(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TimerAnnimationfillText).textContent()
+                if((ele === "Timer Animation Fill")){
 
                 }
                 else throw new Error("Trivia Countdown Animation Fill text is not visible in color section")
@@ -2282,7 +2280,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Fourth RGB color  field is not visible")
         }
-        async inputHexRGB(){
+        async inputRGBHexColor(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputHexRGB).isVisible()
                 if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputHexRGB).fill("100A7CFF")
@@ -2298,13 +2296,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Color section  is not visible")
         }
-        async clickButtonBackgrounColorBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.buttonBackgroundcolor).isVisible()
+        async clickButtonFillColorBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.buttonFillcolor).isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.buttonBackgroundcolor).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.buttonFillcolor).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Trivia Button Background text in Color section  is not visible")
+                else throw new Error("Trivia Button Fill  color  is not visible in Color section")
         }
         async clickMOveToNextBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.movetoNextBtn).isVisible()
@@ -2405,13 +2403,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Leaderboard text button  is not visible in color section")
         }
-        async   clickTileCountdownBackgroundBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownBackgroundBtn).isVisible()
+        async   clickTileBackgroundBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileBackgroundBtn).isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownBackgroundBtn).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileBackgroundBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Trivia Tile/Countdown Background button  is not visible in color section")
+                else throw new Error("Trivia Tile Background button  is not visible in color section")
         }
         async   clickTileCountdownFrameBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownFrameBtn).isVisible()
@@ -2421,13 +2419,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Tile/Countdown Frame button  is not visible in color section")
         }
-        async   clickCountdownAnnimationColorBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownAnnimationfillBtn).isVisible()
+        async   clickTimerAnnimationColorBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TimerAnnimationfillBtn).isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownAnnimationfillBtn).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.TimerAnnimationfillBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Trivia CountdownAnnimation Fill button  is not visible in color section")
+                else throw new Error("Trivia Timer Annimation Fill button  is not visible in color section")
         }
         async   clickLeaderboardBackgroundColorBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderboardBackgroundColorBtn).isVisible()
@@ -2437,7 +2435,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Leaderboard background button  is not visible in color section")
         }
-        async   clickForSolidRGBColorBtn(){
+        async   clickRGB_SolidColor(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.solidRGB).isVisible()
                 if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.solidRGB).click()
@@ -2453,7 +2451,7 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia diagonal RGB button  is not visible in color section")
         }
-        async   clickRGBSelectedColorBtn(){
+        async   clickRGB_Solid_Horizontal_Vertical_Diagonal_Radial_Dropdown(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.colorListBox).isVisible()
                 if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.colorListBox).click()
@@ -2469,13 +2467,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Color Point bubble fill button  is not visible in color section")
         }
-        async   clickPointBubbleStrokeBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleStrokeBtn).isVisible()
+        async   clickPointBubbleFrameBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleFrameBtn).isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleStrokeBtn).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleFrameBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Trivia Color Point-Bubble Stroke fill button  is not visible in color section")
+                else throw new Error("Trivia Color Point-Bubble Frame color button  is not visible in color section")
         }
         async   clickPointBubbleTextBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleTextBtn).isVisible()
