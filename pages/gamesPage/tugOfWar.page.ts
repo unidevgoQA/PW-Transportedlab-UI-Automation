@@ -15,7 +15,7 @@ export default class tugOfWarPage {
                 tugOfWarText: `text=Tug of War`,
                 configrationTitleText: "Configurations",
                 buttonListIteam: "listitem",
-                addNewConfigPlusBtn: "button",
+                addNewConfigPlusBtn: "(//h5[text()='Configurations']/following-sibling::button)[1]",
                 newConfigTitleText: `New Configuration`,
                 configInputField: `textbox`,
                 configAddBtn: `ADD`,
@@ -95,6 +95,17 @@ export default class tugOfWarPage {
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
         }
+
+               //click Tug Of War Page
+               async clickAddNewConfigPlusBtn() {                
+                const ele = await this.page.locator(this.tugOfWarPageElements.addNewConfigPlusBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.addNewConfigPlusBtn}"`)
+                await this.page.waitForTimeout(2000)
+        }
+
 
         //click Tug Of War Page
         async clickGameSettingsSection() {
