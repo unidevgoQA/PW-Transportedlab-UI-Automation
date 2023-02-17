@@ -59,7 +59,7 @@ test("0013GTS-001 | validate Add New Configuration in guess the score is working
     })
 
 })
-test.only("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -103,7 +103,7 @@ test.only("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPa
 
 })
 
-test.only("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
