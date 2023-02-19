@@ -8,5 +8,39 @@
         "oldusername": "garrett",
         "oldpassword": "LFQIISIc",
         "invalidusername": "InvalidUsername",
-        "invalidpassword": "InvalidPassword"
+        "invalidpassword": "InvalidPassword",
+        "first_names": [
+                "Mariusz",
+                "Marek",
+                "Robert",
+                "Marcin",
+                "Przemek",
+                "Adam",
+                "Grzegorz",
+                "Adrian",
+                "Piotr",
+                "Paweł"
+        ],
+        "last_names": [
+                "Podgorski",
+                "Pawłowski",
+                "Kowalski",
+                "Marcinkiewicz",
+                "Macierewicz",
+                "Tyszka",
+                "Duda",
+                "Kornhauzer",
+                "Goldfinger",
+                "Wiśniewski",
+                "Lewandowski"
+        ],
+        "department": [
+                "Production",
+                "Sale",
+                "supply",
+                "warehouse",
+                "management",
+                "bookkeeping",
+                "HR"
+        ]
 }
