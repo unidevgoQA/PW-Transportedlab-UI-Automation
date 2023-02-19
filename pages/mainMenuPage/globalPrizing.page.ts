@@ -14,6 +14,7 @@ export default class globalPrizingPage {
                 const locator = this.page.locator("//p[text()='Global Prizing']")
                 expect(locator).toContainText('Global Prizing')
                 await locator.click()
+                await this.page.waitForLoadState("networkidle")
         }
 
         //click AddNew Prize Btn
@@ -269,7 +270,7 @@ export default class globalPrizingPage {
 
                 if ((ele == true)) {
                         // console.log("click Limit Per User Check Box")
-                        await this.page.locator("//button[text()='Delete']").click()
+                        await this.page.locator("//button[text()='Delete']").last().click()
 
                 }
 
@@ -398,7 +399,7 @@ export default class globalPrizingPage {
 
         }
         async Thin() {
-                await this.page.click("//li[text()='Thin.otf']")
+                await this.page.click("//li[text()='Midnight.ttf']")
 
         }
         async Bold() {

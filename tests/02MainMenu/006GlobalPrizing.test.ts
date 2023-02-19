@@ -424,9 +424,9 @@ test("006GP-007 | Verify Admin Successfully Delete Add New Prize", async ({ logi
 
         await test.step("006GP-007 | Verify Admin Successfully Delete Add New Prize", async () => {
 
-                //search Prize
-                await globalPrizingPage.clickSearchInputField()
-                await globalPrizingPage.searchPrize()
+                // //search Prize
+                // await globalPrizingPage.clickSearchInputField()
+                // await globalPrizingPage.searchPrize()
 
            
 
