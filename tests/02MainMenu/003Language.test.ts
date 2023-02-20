@@ -67,7 +67,73 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
     await languagePage.selectEnglishLanguage()
 
 
+})
 
+test("TL003-001 | Validate Admin Successfully Diselete All  User Selectable Language ", async ({ loginPage,guesstheScorePage,  MainMenu, languagePage, page, }, testInfo) => {
+
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickHomeAvater();
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.mainMenuBtn();
+
+    })
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await MainMenu.clickMobileDesign();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickLanguagePage();
+    })
+
+    await test.step("Login Admin and Land to Home Screen", async () => {
+        await languagePage.clickUserSelectableRadioBtn();
+        
+    })
+
+    await test.step("TL003-02 | Verify Admin Select Profile flow Language", async () => {
+        //Verify click on the user profile selectable input field
+        await languagePage.clickUserProfileSelectableInputField()
+
+        await languagePage.deselectJapaneseLanguage()
+
+
+
+        await languagePage.deselectSpanishLanguage()
+
+        await languagePage.deselectArabicLanguage()
+        await languagePage.deselectRussianLanguage()
+
+
+        await languagePage.deselectFranciasLanguage()
+
+        await languagePage.deselectEnglishLanguage()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })
 
 
 

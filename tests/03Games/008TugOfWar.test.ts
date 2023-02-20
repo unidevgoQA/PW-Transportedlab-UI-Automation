@@ -349,7 +349,6 @@ test("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile Scre
 
 })
 
-
 test(" 008TOFW-010 | Validate Game Settings  Text Color Successfully Update From Admin Side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')

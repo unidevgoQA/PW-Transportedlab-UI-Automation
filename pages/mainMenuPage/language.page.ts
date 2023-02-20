@@ -203,6 +203,7 @@ export default class languagePage {
                                 .click()
                 }
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -216,6 +217,7 @@ export default class languagePage {
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
 
         }
@@ -230,6 +232,7 @@ export default class languagePage {
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
 
         }
@@ -244,6 +247,7 @@ export default class languagePage {
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
 
         }
@@ -258,6 +262,7 @@ export default class languagePage {
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
 
         }
@@ -274,7 +279,7 @@ export default class languagePage {
                                 .click({ force: true })
                 }
                 await this.page.waitForLoadState("networkidle")
-
+                await this.page.waitForTimeout(2000)
 
         }
         async JapaneseLanguage() {

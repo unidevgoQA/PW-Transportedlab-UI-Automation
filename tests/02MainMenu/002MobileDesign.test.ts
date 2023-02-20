@@ -75,7 +75,7 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
 
 })
 
-test("MD002-001 | Validate Font upload functionality", async ({ loginPage, MainMenu, page }) => {
+test("MD002-001 | Validate Font upload functionality", async ({ loginPage,functions, MainMenu, page }) => {
 
         await test.step("Login Admin And Land to Home Screen", async () => {
 
@@ -108,9 +108,9 @@ test("MD002-001 | Validate Font upload functionality", async ({ loginPage, MainM
                 await MainMenu.deleteFont()
 
                 //click Upload Font And Upload Files
-                await MainMenu.clickUploadFontAndUploadFiles()
-
-                await page.waitForTimeout(4000)
+                await functions.fontUploadFunction()
+                await MainMenu.clickUploadFontInputFiled()
+                await MainMenu.verifyFontUploadedSuccessfully()
 
         })
 
@@ -162,7 +162,7 @@ test("MD002-003 | Validate Try To Upload Invalid Font Format", async ({ loginPag
 
                 await MainMenu.clickMobileDesign();                
                 await functions.bannerImageUploadFunction()
-                await MainMenu.clickUploadFontsInputFiled()
+                await MainMenu.clickUploadFontInputFiled()
 
 
                 page.on("dialog", async (alert) => {

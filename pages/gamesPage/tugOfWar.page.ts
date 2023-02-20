@@ -261,6 +261,7 @@ export default class tugOfWarPage {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.textColorInputField)
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                       
                 }
                 else throw new Error(`Tug Of War Game Settins Text Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.textColorInputField}"`)
                 await this.page.waitForTimeout(2000)
