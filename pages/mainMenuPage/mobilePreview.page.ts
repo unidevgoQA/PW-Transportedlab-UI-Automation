@@ -546,30 +546,30 @@ export default class mobilePreviewPage {
               expect(ele).toBeVisible()
        }
        async varifyMyProfileSuccessfullySelectedAsEntryScreen() {
-              const ele = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']")
-              await expect(ele).toHaveAttribute('aria-pressed', 'true')
+              const ele = this.page.locator("(//button[@value='userProfile']//div)[1]")
+              await expect(ele).toHaveAttribute('isselected', 'true')
               // if ((await expect(ele).toHaveAttribute('aria-pressed','true'))){
               // }
               // else throw new Error("Mobile Welcome Screen Login With Phone Number")
        }
        async verifyRulesEntryIsApplyed() {
-              const ele = await this.page.locator("//div[@img='assets/RulesIcon.5ce8250e.svg']")
-              await expect(ele).toHaveAttribute('aria-pressed', 'true')
+              const ele = await this.page.locator("(//button[@value='rules']//div)[1]")
+              await expect(ele).toHaveAttribute('isselected', 'true')
               // expect(await this.page.locator("//button[@value='rules']")).toBeChecked()
        }
        async verifyHomeEntryIsApplyed() {
-              const ele = await this.page.getByRole("button", {name: 'HOME'})
-              await expect(ele).toHaveAttribute('aria-pressed', 'true')
+              const ele = await this.page.locator("(//button[@value='game']//div)[1]")
+              await expect(ele).toHaveAttribute('isselected', 'true')
               // if ((await (expect(this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']//parent::button")).toHaveAttribute("'aria-pressed','true'"))){
               // }
        }
        async verifyHowToPlayEntryIsApplyed() {
-              const ele = await this.page.locator("//div[@img='assets/HowToPlayIcon.c5748446.svg']")
-              await expect(ele).toHaveAttribute('aria-pressed', 'true')
+              const ele = await this.page.locator("(//button[@value='howToPlay']//div)[1]")
+              await expect(ele).toHaveAttribute('isselected', 'true')
        }
        async verifyPrizeEntryIsApplyed() {
-              const ele = await this.page.locator("(//div[@img='assets/PrizeIcon.fe356ae7.svg'])[1]")
-              await expect(ele).toHaveAttribute('aria-pressed', 'true')
+              const ele = await this.page.locator("(//button[@value='prize']//div)[1]")
+              await expect(ele).toHaveAttribute('isselected', 'true')
        }
        async verifyPrimaryColorAppliedInMobile() {
               const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
@@ -586,14 +586,14 @@ export default class mobilePreviewPage {
               expect(color).toBe("rgb(95, 188, 210)");
        }
        async clickPrizeSection() {
-              const btn = this.page.locator("(//div[@img='assets/PrizeIcon.fe356ae7.svg'])[1]");
+              const btn = this.page.locator("(//div[@img='assets/PrizeIcon.40782142.svg'])[1]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
        }
        async clickMyProfile() {
-              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']");
+              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.d30a8d1c.svg']");
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
@@ -665,7 +665,7 @@ export default class mobilePreviewPage {
               // expect(btn).toContainText("Perfil")
        }
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("//div[@img='assets/HowToPlayIcon.c5748446.svg']");
+              const btn = this.page.locator("//div[@img='assets/HowToPlayIcon.1474094c.svg']");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -701,20 +701,20 @@ export default class mobilePreviewPage {
               expect(BackgroundColor).toHaveCSS("color", "rgba(0, 0, 0, 0.87)")
        }
        async verifyMenuBarTopAlignmentSuccessfullyAppliedInMobileScreen() {
-              const ele = await this.page.getByRole("button", {name: 'PRIZE'})
+              const ele = await this.page.getByRole("button", { name: 'PRIZE' })
               expect(ele).toHaveAttribute("alignment", "top")
               // expect(await this.page.screenshot({
               //        fullPage: true
               // })).toMatchSnapshot("MenuBar_TopAlignment_UI.png")
        }
        async verifyMenuBarBottomAlignmentSuccessfullyAppliedInMobileScreen() {
-              const ele = await this.page.getByRole("button", {name: 'PRIZE'})
+              const ele = await this.page.getByRole("button", { name: 'PRIZE' })
               expect(ele).toHaveAttribute("alignment", "bottom")
               // expect(await this.page.screenshot({
               //        fullPage: true
               // })).toMatchSnapshot("MenuBar_BottomAlignment_UI.png")
        }
-       async validateMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen(){
+       async validateMenuBarThreeLineAlignmentSuccessfullyAppliedInMobileScreen() {
               const result = await this.page.$("//div[@alignment='threeLine']");
               if (!result) throw new Error(`Could not find selector: "${this.mobilePreviewPageElements.additionalDateEditBtn}"`);
               return result;
@@ -725,10 +725,10 @@ export default class mobilePreviewPage {
               if (!ele) throw new Error(`Could not find selector: "${"//div[@alignment='threeLine']"}"`);
               return ele;
               // await expect(ele).toHaveAttribute('alignment', 'threeLine')
-       //        if ((await expect(ele).toHaveAttribute('alignment','threeLine'))) {
-       //               console.log("Menu Bar Three Line Alignment Successfully Applied In User Side")
-       //       }
-       //       else throw new Error("Menu Bar Three Line Alignment is not Applied In User Side")
+              //        if ((await expect(ele).toHaveAttribute('alignment','threeLine'))) {
+              //               console.log("Menu Bar Three Line Alignment Successfully Applied In User Side")
+              //       }
+              //       else throw new Error("Menu Bar Three Line Alignment is not Applied In User Side")
        }
        async clickThreeLineAlignmentBtn() {
               const ele = await this.page.locator("#app > div > div > div:nth-child(2) > .MuiBox-root")
@@ -772,7 +772,7 @@ export default class mobilePreviewPage {
               })).toMatchSnapshot("MenuBar_UserProfileIcon_UI.png")
        }
        async clickHomeBtn() {
-              const btn = this.page.locator("//div[@img='assets/HomeIcon.eb267fba.svg']")
+              const btn = this.page.locator("//div[@img='assets/HomeIcon.f04e9a89.svg']")
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");

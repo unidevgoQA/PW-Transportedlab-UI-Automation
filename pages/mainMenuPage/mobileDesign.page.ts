@@ -65,7 +65,12 @@ export default class MobileDesign {
         gamificationColorInputField: "//p[text()='Gamification']/following-sibling::button",
         gamificationGlowLineTitleText: "//p[text()='Gamification Glow Line']",
         gamificationGlowLineColorInputField: "//p[text()='Gamification Glow Line']/following-sibling::button",
-        customQuestionMendotoryCheckBox: "(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]",
+        lnadscapeBGDeleteBtn: "(//button[@aria-label='Delete'])[5]",
+        protraitBGDeleteBtn: "(//button[@aria-label='Delete'])[4]",
+        landscapeHeaderBGDeleteBtn: "(//button[@aria-label='Delete'])[3]",
+        protraitHeaderBGDeleteBtn: "(//button[@aria-label='Delete'])[2]",
+        mainLogoDeleteBtn: "(//button[@aria-label='Delete'])[1]",
+
         customQuestionSaveBtn: "//button[text()='Save']",
         deleteAddedCustomQuestion: "(//div[@class='MuiBox-root css-1519m8w']//button)[2]",
         smsCheckBox: "//input[@value='sms']",
@@ -128,7 +133,7 @@ export default class MobileDesign {
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Font Upload Input Field Element Is not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Font Upload Input Field Element Is not Visible | Could not find:"${ele}"`)
         await this.page.waitForLoadState("networkidle");
     }
     async verifyFontUploadedSuccessfully() {
@@ -192,19 +197,21 @@ export default class MobileDesign {
     }
     async clickMobileLinkBtn() {
         let ele = await this.page.frameLocator('iframe').locator(this.mobileDesignPageElements.mobileLinkButton)
-        if (await ele.isVisible()) {
+        try {
             await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Guess The Score | Mobile Link Button Element Is Not Visible | Error occurred: ${error}`);
         }
-        else throw new Error(`Guess The Score | Mobile Link Button Element Is Not Visible | Could not find:"${ele}}"`)
-        await this.page.waitForTimeout(2000)
     }
     async clickGussTheScroeSectionForOpenMobileScreen() {
         let ele = await this.page.locator(this.mobileDesignPageElements.guessTheScroreBtn)
-        if (await ele.isVisible()) {
+        try {
+            await expect(ele).toContainText("Guess The Score")
             await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Game | Guess The Score Button Element Is Not Visible | Error occurred: ${error}`);
         }
-        else throw new Error(`Game | Guess The Score Button Element Is Not Visible | Could not find:"${ele}}"`)
-        await this.page.waitForLoadState("networkidle")
+
     }
     async clickMobileLinkOpenBtn() {
         // Click text=Open Link
@@ -243,7 +250,7 @@ export default class MobileDesign {
     async clickPrimaryColorField() {
         let ele = await this.page.locator(this.mobileDesignPageElements.primaryColorInputField)
         if (await ele.isVisible()) {
-            await expect(ele).toContainText("Primary")
+            await ele.click({button:"left", delay:1000})
         }
         else throw new Error(`Main Menu | Mobile Design Primary Color Input Field Button Is Not Visible | Could not find:"${ele}}"`)
     }
@@ -532,60 +539,55 @@ export default class MobileDesign {
     }
 
     async deleteUploadedLandscapeBG() {
-        // let ele = await this.page.locator("//button[@aria-label='Delete']").isVisible()
-        // if ((ele == true)) {
-        //     // console.log("delete Uploaded Landscape BG ")
-        //     await this.page
-        //         .locator("//button[@aria-label='Delete']")
-        //         .click()
-        // }
-        // await this.page.waitForLoadState("networkidle")
-        let deleteBtn = await this.page.locator("(//button[@aria-label='Delete'])[5]").isVisible()
-        if ((deleteBtn == true)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//button[@aria-label='Delete'])[5]")
-                .click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.lnadscapeBGDeleteBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(2000)
+        }
+        else {
+            console.log(`Main Menu | Mobile Design Uploaded Landscape Background Is Not Found | Could not find:"${ele}}"`)
         }
     }
+
     async deleteUploadedPortraitBG() {
-        let ele = await this.page.locator("(//button[@aria-label='Delete'])[4]").isVisible()
-        if ((ele == true)) {
-            // console.log("delete Uploaded Portrait BG ")
-            await this.page
-                .locator("(//button[@aria-label='Delete'])[4]")
-                .click({ force: true })
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitBGDeleteBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(2000)
         }
-        await this.page.waitForLoadState("networkidle")
+        else {
+            console.log(`Main Menu | Mobile Design Uploaded Portrait Background Is Not Found | Could not find:"${ele}}"`)
+        }
     }
     async deleteUploadedLandscapeBGHeader() {
-        let ele = await this.page.locator("(//button[@aria-label='Delete'])[3]").isVisible()
-        if ((ele == true)) {
-            // console.log("delete Uploaded Landscape BG Header ")
-            await this.page
-                .locator("(//button[@aria-label='Delete'])[3]")
-                .click({ force: true })
+        let ele = await this.page.locator(this.mobileDesignPageElements.landscapeHeaderBGDeleteBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(2000)
         }
-        await this.page.waitForLoadState("networkidle")
+        else {
+            console.log(`Main Menu | Mobile Design Uploaded Landscape Header Background Is Not Found | Could not find:"${ele}}"`)
+        }
     }
     async deleteUploadedPortraitBGHeader() {
-        let ele = await this.page.locator("(//button[@aria-label='Delete'])[2]").isVisible()
-        if ((ele == true)) {
-            // console.log("delete Uploaded Portrait BG Header ")
-            await this.page
-                .locator("(//button[@aria-label='Delete'])[2]")
-                .click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitHeaderBGDeleteBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(2000)
         }
-        await this.page.waitForLoadState("networkidle")
+        else {
+            console.log(`Main Menu | Mobile Design Uploaded Portrait Header Background Is Not Found | Could not find:"${ele}}"`)
+        }
     }
     async deleteUploadedMainLogo() {
-        const ele = await this.page.locator("(//button[@aria-label='Delete'])[1]").isVisible()
-        if ((ele == true)) {
-            // console.log("delete Uploaded Portrait BG Header ")
-            await this.page.locator("(//button[@aria-label='Delete'])[1]")
-                .click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.mainLogoDeleteBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(2000)
         }
-        await this.page.waitForLoadState("networkidle")
+        else {
+            console.log(`Main Menu | Mobile Design Uploaded Main Logo Is Not Found | Could not find:"${ele}}"`)
+        }
     }
     async clickPortraitBackgroundHeaderVideoCheckBox() {
         let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()

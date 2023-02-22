@@ -20,19 +20,7 @@
         "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "001Login.test.ts",
-          "002MobileDesign.test.ts",
-          "003Language.test.ts",
-          "004Menu.test.ts",
-          "005SignUp.test.ts",
-          "006GlobalPrizing.test.ts",
-          "007PrizeDrop.test.ts",
-          "008TugOfWar.test.ts",
-          "009LiveWall.test.ts",
-          "010Arcade.test.ts",
-          "011AddNewExperiences.test.ts",
-          "012Trivia.test.ts",
-          "guesstheScore.test.ts"
+          "002MobileDesign.test.ts"
         ],
         "timeout": 300000
       }
@@ -66,14 +54,14 @@
   },
   "suites": [
     {
-      "title": "tests\\03Games\\008TugOfWar.test.ts",
-      "file": "tests/03Games/008TugOfWar.test.ts",
+      "title": "tests\\02MainMenu\\002MobileDesign.test.ts",
+      "file": "tests/02MainMenu/002MobileDesign.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-001 | Add New Configuration",
-          "ok": true,
+          "title": "MD002-006 | Validate Admin Successfully Select Entry Screen As User Profile",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -85,28 +73,64 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 41437,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 32659,
+                  "error": {
+                    "message": "Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"function Error() { [native code] }}\"",
+                    "stack": "Error: Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"function Error() { [native code] }}\"\n    at MobileDesign.selectEntryScreenUserProfile (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\mobileDesign.page.ts:168:20)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:184:17\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:183:9"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\mobileDesign.page.ts",
+                        "column": 20,
+                        "line": 168
+                      },
+                      "message": "Error: Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"function Error() { [native code] }}\"\n\n\u001b[90m   at \u001b[39mpages\\mainMenuPage\\mobileDesign.page.ts:168\n\n\u001b[0m \u001b[90m 166 |\u001b[39m             \u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39mclick({ button\u001b[33m:\u001b[39m \u001b[32m\"left\"\u001b[39m\u001b[33m,\u001b[39m delay\u001b[33m:\u001b[39m \u001b[35m1000\u001b[39m })\u001b[0m\n\u001b[0m \u001b[90m 167 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m         \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"${Error}}\"`\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 169 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 170 |\u001b[39m     \u001b[36masync\u001b[39m selectEntryScreenRules() {\u001b[0m\n\u001b[0m \u001b[90m 171 |\u001b[39m         \u001b[36mlet\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mmobileDesignPageElements\u001b[33m.\u001b[39mentryScreenRulesEle)\u001b[0m\n\n\u001b[2m    at MobileDesign.selectEntryScreenUserProfile (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\mobileDesign.page.ts:168:20)\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:184:17\u001b[22m\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:183:9\u001b[22m"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-22T09:38:25.229Z",
+                  "steps": [
+                    {
+                      "title": "Login Admin And Land to Home Screen",
+                      "duration": 30230
+                    },
+                    {
+                      "title": "click Entry Screen Select Field",
+                      "duration": 1258
+                    },
+                    {
+                      "title": "click Entry Screen Select Field",
+                      "duration": 123,
+                      "error": {
+                        "message": "Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"function Error() { [native code] }}\"",
+                        "stack": "Error: Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:\"function Error() { [native code] }}\"\n    at MobileDesign.selectEntryScreenUserProfile (D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\mobileDesign.page.ts:168:20)\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:184:17\n    at D:\\Work Station\\Unidevgo\\Playwright\\tests\\02MainMenu\\002MobileDesign.test.ts:183:9"
+                      }
+                    }
+                  ],
+                  "startTime": "2023-02-22T20:35:40.819Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-03Games-008TugOfWar-008TOFW-001-Add-New-Configuration\\test-finished-1.png"
+                      "path": "D:\\Work Station\\Unidevgo\\Playwright\\test-results\\tests-02MainMenu-002MobileDesign-MD002-006-Val-9451d-uccessfully-Select-Entry-Screen-As-User-Profile\\test-failed-1.png"
                     }
-                  ]
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\Work Station\\Unidevgo\\Playwright\\pages\\mainMenuPage\\mobileDesign.page.ts",
+                    "column": 20,
+                    "line": 168
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "26becc8c701c81079457-d693d36eb2a06419291e",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 50,
+          "id": "763aa67a7d12c7767892-85d02ce2960b66f36c5b",
+          "file": "tests/02MainMenu/002MobileDesign.test.ts",
+          "line": 168,
           "column": 6
         }
       ]
