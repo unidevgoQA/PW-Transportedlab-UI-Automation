@@ -2,7 +2,6 @@ import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
 export default class triviaMobilePage {
         // [x: string]: any;
-
         private page: Page;
         // static buffer: void;
         constructor(page: Page) {
@@ -33,8 +32,6 @@ export default class triviaMobilePage {
                addnewPrize:"//div[contains(@class,'swiper-slide swiper-slide-visible')]",
                SaveToPhoneBtn:"//button[text()='Save to phone']",
                MobileBackgroundColor:"(//div[@class='MuiBox-root css-vfsi4s']//div)[1]",
-               
-               
                //GameTiteleName:
         }
         async verifyGameTitleName(){
@@ -44,7 +41,6 @@ export default class triviaMobilePage {
               }
               else throw new Error("Triva mobile leaderboard frame color not visible in leaderboard section")
        }
-
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
                await expect(ele).toBeVisible()
@@ -65,7 +61,6 @@ export default class triviaMobilePage {
                 const ele = this.page.locator('//label[text()="Zip / Postal Code"]')
                 await expect(ele).toBeVisible()
          }
-
          async typephoneno(){
                 await this.page.locator('//input[@name="phone"]').type('+8801568703919')
          }
@@ -74,7 +69,6 @@ export default class triviaMobilePage {
          }
          async typeAge(){
                 await this.page.locator('//input[@name="age"]').type('24')
-                
          }
          async selectbirthdate(){
                 await this.page.locator('//input[@name="birthDate"]').click()
@@ -82,17 +76,13 @@ export default class triviaMobilePage {
                 await this.page.locator("//button[text()='2000']").click()
                 await this.page.locator("//button[text()='OK']").click()
          }
-
          async typezip(){
                 await this.page.locator('//input[@name="zipCode"]').type('1217')
          }
-
          async clicksubmit(){
                 await this.page.locator('//button[text()="Submit"]').click()
          }
-
          async selecthomepage(){
-               
             await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
          async GoTo(URL : string){
@@ -111,10 +101,8 @@ export default class triviaMobilePage {
             this.page.waitForEvent('popup'),
             this.page.frameLocator('iframe').locator("//div[@id='qr-content']//a[1]").click()
     ]);
-
        return page1;
        }
-
        async verifyFontAppliedSuccessfullyInMobileScreen(){
               expect.soft(await this.page.screenshot({
                     fullPage: true
@@ -129,7 +117,6 @@ export default class triviaMobilePage {
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Sponsor_Logo.png")
-              
        }
        async verifyMainboardBackgroundAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
@@ -150,7 +137,6 @@ export default class triviaMobilePage {
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Team_Logo.png")
-              
        }
        async verifyAddNewPrize_ManualDistribution_Cola(){
               const ele = await this.page.locator(this.triviaMobilePageElements.addnewPrize).isVisible()
@@ -158,7 +144,6 @@ export default class triviaMobilePage {
                      await expect(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Manual_Cola.png')
               }
               else throw new Error('Trivia Add new manual distribution prize is not visible on mobile screen')
-              
        }
        async verifyAddNewPrize_AutomaticDistribution_Burger(){
               const ele = await this.page.locator(this.triviaMobilePageElements.addnewPrize).isVisible()
@@ -166,7 +151,6 @@ export default class triviaMobilePage {
                      await expect(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Automatic_Burger.png')
               }
               else throw new Error('Trivia Add new manual distribution prize is not visible on mobile screen')
-              
        }
        async clickHomeBtn(){
               const ele = await this.page.locator("//button[@value='home']//div[1]").isVisible()
@@ -200,7 +184,6 @@ export default class triviaMobilePage {
               // })
               //expect(color).toBe("rgb(28,130,0)")
               await expect.soft(ele).toHaveCSS("background-color","rgb(16, 10, 124)")
-              
         }
         async verifyButtonBackgroundColor(){
               const ele = await this.page.frameLocator('iframe').locator("//button[contains(@class,'MuiButtonBase-root MuiButton-root')]")
@@ -209,12 +192,10 @@ export default class triviaMobilePage {
        async verifyQuestionTextColor(){
               const ele =  this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-vyy8gz"]')
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
-              
        }
        async verifyQuestionBackgroundColor(){
               const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-mrk1m3']")
               await expect.soft(ele).toHaveCSS("background-color","rgb(16, 10, 124)")
-              
        }
        async verifyAnswerBackgroundColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerBackground).isVisible()
@@ -222,8 +203,6 @@ export default class triviaMobilePage {
                      await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerBackground)).toHaveCSS("background-color","rgb(16, 10, 124)")
               }
               else throw new Error("Triva mobile question background field is not visible")
-              
-              
        }
        async verifyQuestionFrameColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.questionFrame).isVisible()
@@ -333,14 +312,12 @@ export default class triviaMobilePage {
        async verifyAnswerTextColor(){
               const ele =  this.page.frameLocator('iframe').locator('(//input[@class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled css-mjavz1"])[2]')
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
-              
        }
        async inputQuestionAnswer(){
               const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").isVisible()
              if(ele == true){
               await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]").fill('PNG')
              }
-              
        }
        async clickSubmittBtn(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.submittBtn).isVisible()
@@ -371,5 +348,4 @@ export default class triviaMobilePage {
               ])
               const suggestedFileName = download.suggestedFilename()
       }
-     
     }

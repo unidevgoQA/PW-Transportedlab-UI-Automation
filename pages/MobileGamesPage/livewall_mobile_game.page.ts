@@ -2,7 +2,6 @@ import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
 export default class livewallMobilePage {
         // [x: string]: any;
-
         private page: Page;
         // static buffer: void;
         constructor(page: Page) {
@@ -12,7 +11,6 @@ export default class livewallMobilePage {
         private livewall_mobile_game_elements={
               pre_live_text : '//div[@class="css-0"]'
         }
-
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
                await expect(ele).toBeVisible()
@@ -33,7 +31,6 @@ export default class livewallMobilePage {
                 const ele = this.page.locator('//label[text()="Zip / Postal Code"]')
                 await expect(ele).toBeVisible()
          }
-
          async typephoneno(){
                 await this.page.locator('//input[@name="phone"]').type('+8801568703919')
          }
@@ -42,7 +39,6 @@ export default class livewallMobilePage {
          }
          async typeAge(){
                 await this.page.locator('//input[@name="age"]').type('24')
-                
          }
          async selectbirthdate(){
                 await this.page.locator('//input[@name="birthDate"]').click()
@@ -50,17 +46,13 @@ export default class livewallMobilePage {
                 await this.page.locator("//button[text()='2000']").click()
                 await this.page.locator("//button[text()='OK']").click()
          }
-
          async typezip(){
                 await this.page.locator('//input[@name="zipCode"]').type('1217')
          }
-
          async clicksubmit(){
                 await this.page.locator('//button[text()="Submit"]').click()
          }
-
          async selecthomepage(){
-               
             await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
          async GoTo(URL : string){

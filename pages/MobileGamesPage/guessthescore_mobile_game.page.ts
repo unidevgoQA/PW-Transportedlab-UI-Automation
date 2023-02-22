@@ -2,14 +2,12 @@ import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
 export default class guesstheScoreMobilePage {
         // [x: string]: any;
-
         private page: Page;
         // static buffer: void;
         constructor(page: Page) {
                 this.page = page;
                 page.setViewportSize({width:360,height:740})
         }
-
         async lookforphonenoinform(){
                const ele =  this.page.locator('//label[text()="Phone number"]')
                await expect(ele).toBeVisible()
@@ -30,7 +28,6 @@ export default class guesstheScoreMobilePage {
                 const ele = this.page.locator('//label[text()="Zip / Postal Code"]')
                 await expect(ele).toBeVisible()
          }
-
          async typephoneno(){
                 await this.page.locator('//input[@name="phone"]').type('+8801568703919')
          }
@@ -39,7 +36,6 @@ export default class guesstheScoreMobilePage {
          }
          async typeAge(){
                 await this.page.locator('//input[@name="age"]').type('26')
-                
          }
          async selectbirthdate(){
                 await this.page.locator('//input[@name="birthDate"]').click()
@@ -47,33 +43,24 @@ export default class guesstheScoreMobilePage {
                 await this.page.locator("//button[text()='1996']").click()
                 await this.page.locator("//button[text()='OK']").click()
          }
-
          async typezip(){
                 await this.page.locator('//input[@name="zipCode"]').type('1217')
          }
-
          async clicksubmit(){
                 await this.page.locator('//button[text()="Submit"]').click()
                 await this.page.waitForLoadState("networkidle")
          }
-
          async verifyFontAppliedSuccessfullyInMobileScreen(){
             expect(await this.page.screenshot({
                   fullPage: true
               })).toMatchSnapshot("Font-Uploaded-UI.png")
      }
-
-
-         
-
          async clcikHomePageInMobileScreen(){
             const ele = await this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiToggleButton-root')])[1]")
             await ele.click({force:true})
             await this.page.waitForLoadState("networkidle")
             await this.page.waitForTimeout(3000)
-
      }
-
          async selecthomepage(){
                 await this.page.locator('//p[text()="HOME"]//parent::button').click()
          }
@@ -118,7 +105,6 @@ export default class guesstheScoreMobilePage {
                         const ele = this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
                         await expect.soft(ele).toHaveCSS("background-color","rgb(255, 0, 0)")
                    }
-
         async checkBackgroundcolor(){
                      const ele = this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-1ig8opu"]')
                      // const color = await ele.evaluate((ele) =>{
@@ -129,106 +115,84 @@ export default class guesstheScoreMobilePage {
                }
                async checkswatchesColor(){
                      const ele = this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1ig8opu']//div)[1]")
-
                      await expect(ele).toHaveCSS("background","rgb(255, 0, 0)")
-
                }
-
                async verifyBackgroundColorUpdatedSuccessfully(){
                   expect(await this.page.screenshot({
                         fullPage: true
                     })).toMatchSnapshot("BackGround-Color-Uploaded-UI.png")
-
             }
-
             async verifyWoodColorUpdatedSuccessfully(){
                   const ele=  this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-89f2e5"]')
                   expect.soft(ele).toHaveScreenshot("Wood-Color-Uploaded-UI.png")
-
             }
                async checksbuttonColor(){
                      const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
-
                      await expect.soft(ele).toHaveCSS("color","rgb(87, 124, 152)")
-
                }
                async checkswoodColor(){
                      const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-89f2e5']")
-
                      await expect.soft(ele).toHaveCSS("color","rgb(87, 124, 152)")
-
                }
                async clickscreenshoot(){
                      const ele = await this.page.frameLocator('iframe').locator("//a[contains(@class,'MuiButtonBase-root MuiIconButton-root')]")
                     this.page.screenshot({ path: 'testData/before.png'})
-                    
-
                }
                async waitforelementLoad(){
                      await this.page.waitForLoadState("load")
                }
-               async screenshot_matcher_backgroundimage(){                  
+               async screenshot_matcher_backgroundimage(){
                   expect.soft(await this.page.screenshot({
                         fullPage: true
                     })).toMatchSnapshot("Protrait-BAckground-UI.png")
                }
-
                async screenshot_matcher_gametitlelogo(){
                      await expect.soft(await this.page.screenshot({
                         fullPage : true
                      })).toMatchSnapshot("gametitle_logo_image_screenshot.png")
                }
-
                async verifyTodaysLineUpBtnText(){
                   const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
                   expect(ele).toContainText("Today's Line Up")
                   //await this.page.waitForLoadState("networkidle")
              }
-
                async clickTodaysLineUpBtn(){
                     const ele =  this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
                     await ele.click()
                     //await this.page.waitForLoadState("networkidle")
                }
-
                async clickGameEventTestBtn(){
                   const ele =  this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1v9r71b'])[1]")
                   expect(ele).toBeVisible()
                   await ele.click()
                  // await this.page.waitForLoadState("networkidle")
-
             }
-
             async inputIncorrectRiderScore(){
                   const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-                  // expect(ele).toBeVisible()        
+                  // expect(ele).toBeVisible()
                   await ele.fill("20")
             }
-          
             async clickRiderInputField(){
                   const ele =   this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-                  // expect(ele).toBeVisible()        
+                  // expect(ele).toBeVisible()
                   await ele.click()
             }
             async inputCorrectRiderScore(){
                   const ele =   this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-                  // expect(ele).toBeVisible()        
+                  // expect(ele).toBeVisible()
                   await ele.fill("20")
-            }   
+            }
             async inputCloseRiderScore(){
                   const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-                  // expect(ele).toBeVisible()        
+                  // expect(ele).toBeVisible()
                   await ele.fill("19")
-            }  
-           
+            }
             async inputFarRiderScore(){
                   const ele =  await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiFilledInput-input')]")
-                  // expect(ele).toBeVisible()        
+                  // expect(ele).toBeVisible()
                   await ele.fill("18")
-            }  
-
+            }
                async clickCurrentEventBtn(){
-                     
                      await this.page.frameLocator('iframe').locator('(//div[@class="MuiBox-root css-1v9r71b"])[1]').click()
                }
                async screenshot_matcher_sponsorlogo(){
@@ -248,14 +212,12 @@ export default class guesstheScoreMobilePage {
                   expect.soft(await this.page.screenshot({
                         fullPage : true
                      })).toMatchSnapshot("buttoncolor_image_screenshot.png")
-            
             }
             // async verifyButtonColorSuccessfullyAppliedInMobileScreen(){
             //       const ele = await this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
             //       await expect.soft(ele).toHaveCSS("background-color","rgb(241, 196, 15)")
             // }
             async verifySwatchesColorSuccessfullyAppliedInMobileScreen(){
-                  
                   const ele =  this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1xoltqb")
                   expect.soft(await this.page.screenshot({
                         fullPage : true
@@ -294,7 +256,6 @@ export default class guesstheScoreMobilePage {
                    expect(ele).toContainText("Get Ready")
                }
                async verifyreriderText(){
-                     
                      const ele =    this.page.frameLocator('iframe').locator("//p[text()='Watch the Ride']")
                    expect(ele).toContainText("Watch the Ride")
                }
@@ -311,7 +272,4 @@ export default class guesstheScoreMobilePage {
                   //expect(ele).toBeVisible()
                    expect(ele).toContainText("50")
                }
-               
-
-            
     }

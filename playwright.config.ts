@@ -1,12 +1,10 @@
 import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 var date = new Date();
-var ReportDate =date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2) + ("0" + date.getHours() ).slice(-2) + ("0" + date.getMinutes()).slice(-2) + ("0" + date.getSeconds()).slice(-2);
-
+var ReportDate = date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2) + ("0" + date.getHours()).slice(-2) + ("0" + date.getMinutes()).slice(-2) + ("0" + date.getSeconds()).slice(-2);
 const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
-
     "001Login.test.ts",
     "002MobileDesign.test.ts",
     "003Language.test.ts",
@@ -15,24 +13,20 @@ const config: PlaywrightTestConfig = {
     "006GlobalPrizing.test.ts",
     "007PrizeDrop.test.ts",
     // "008TugOfWar.test.ts",
-    "009LiveWall.test.ts",    
+    "009LiveWall.test.ts",
     "010Arcade.test.ts",
-    "011AddNewExperiences.test.ts",     
+    "011AddNewExperiences.test.ts",
     "012Trivia.test.ts",
     "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
-        
-
   ],
   timeout: 1 * 30 * 10000,
   expect: {
     timeout: 6000
-    
   },
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
-
   // reporter: process.env.CI ? [["junit", {
   //   outputFile: "results.xml"
   // }]] : [["json", {
@@ -40,18 +34,13 @@ const config: PlaywrightTestConfig = {
   // }], ["html", {
   //   open: "never"
   // }]],
-
-// reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
-
+  // reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
 
 
   reporter: [["html", {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
-  
   globalTeardown: require.resolve("./mailer.js"),
-
-
 
   use: {
     actionTimeout: 10 * 6000,
@@ -60,26 +49,19 @@ const config: PlaywrightTestConfig = {
     launchOptions: {
       //  args: ["--start-maximized"],
       slowMo: 100
-      
-  },
-  permissions: ["microphone","camera","clipboard-read","clipboard-write"],
+    },
+    permissions: ["microphone", "camera", "clipboard-read", "clipboard-write"],
     headless: process.env.CI ? true : false,
     browserName: 'chromium',
     channel: 'msedge',
     viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
-  // permissions: ["camera"],
-  
-
+    // permissions: ["camera"],
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "off",
     video: process.env.CI ? "off" : "off",
     screenshot: process.env.CI ? "off" : "on",
   },
-
-
-
-  
   // projects: [
   //   {
   //     name: 'chromium',
@@ -87,7 +69,6 @@ const config: PlaywrightTestConfig = {
   //       ...devices['Desktop Chrome'],
   //     },
   //   },
-
   //   // {
   //   //   name: 'firefox',
   //   //   use: {
@@ -96,5 +77,4 @@ const config: PlaywrightTestConfig = {
   //   // }
   // ]
 };
-
 export default config;

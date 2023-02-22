@@ -37,13 +37,11 @@ export default class languagePage {
         static clickUserForceLanguageinputfield() {
                 throw new Error("Method not implemented.");
         }
-
         private page: Page;
         static login: any;
         constructor(page: Page) {
                 this.page = page;
         }
-
         //Language Page Button Element
         async clickLanguagePage() {
                 const locator = this.page.locator("//p[text()='Language']")
@@ -52,48 +50,33 @@ export default class languagePage {
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
         }
-
         //Language Header Text Elemant
         async checkLanguageHeaderText() {
                 const ele = this.page.locator("//h4[text()='Language Settings']")
                 expect(ele).toContainText('Language Settings')
         }
-
         //Language Controls Text Element
         async checkLanguageControlsText() {
                 const ele = this.page.locator("//h4[text()='Language Controls']")
                 expect(ele).toContainText('Language Controls')
         }
-
         //Language Controls Elable disable btn Element
         async checkLanguageControlsDisabledBtn() {
                 // const ele = this.page.locator("input[type='checkbox']");
                 if (await this.page.isHidden("//h4[text()='Selection Menu']")) {
                         await this.page.click("input[type='checkbox']");
                 }
-
         }
-
-
-
-
         //Language Controls Elable disable btn Element
         async checkUserSelectableText() {
                 const ele = this.page.locator("//span[text()='User Selectable']");
                 expect(ele).toContainText("User Selectable")
                 await ele.click({ force: true })
-
-
         }
-
-
         //Language Controls Elable disable btn Element
         async clickUserSelectableRadioBtn() {
-
                 await this.page.locator("(//input[@type='radio'])[1]").dblclick({button:"left", delay: 1000})
-
                 await this.page.waitForTimeout(3000)
-
                 // let ele = await this.page.locator("//h5[text()='Landing page of the user registration flow:']").isHidden()
                 // if ((ele == true)) {
                 //         // console.log("delete Uploaded Leaderboard BG")
@@ -101,23 +84,18 @@ export default class languagePage {
                 //                 .locator("//span[text()='User Selectable']")
                 //                 .click({force:true})
                 // }
-
                 // if (await this.page.isHidden("//h5[text()='Landing page of the user registration flow:']"))
                 // {
                 //     await this.page.check("(//input[@type='radio'])[1]", {force:true});
-                // }         
+                // }
         }
-
         //Language Controls Elable disable btn Element
         async verifyUserSelectableHeaderText() {
-
                 const ele = this.page.locator("//h5[text()='Landing page of the user registration flow:']");
                 expect(ele).toContainText("Landing page of the user registration flow:")
-
         }
         //Language Controls Elable disable btn Element
         async clickUserRegistrationSelectableInputField() {
-
                 let ele = await this.page.locator("//h5[text()='Landing page of the user registration flow:']").isHidden()
                 if ((ele == false)) {
                         // console.log("delete Uploaded Leaderboard BG")
@@ -125,13 +103,10 @@ export default class languagePage {
                                 .locator("(//div[@role='button'])[1]")
                                 .click({ force: true })
                 }
-
                 //     const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[1]");
                 //     expect(ele).toBeVisible()
                 //     await ele.click({force:true})
-
         }
-
         //select language type english
         async selectEnglishLanguage() {
                 const ele = this.page.locator("//li[text()='English']")
@@ -139,7 +114,6 @@ export default class languagePage {
                 await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
         }
-
         //select language type Francias
         async selectFranciasLanguage() {
                 const ele = this.page.locator("//li[text()='Francias']");
@@ -147,28 +121,23 @@ export default class languagePage {
                 await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
         }
-
         async clickOutSideOfLanguageSelectionModal() {
                 const ele = this.page.locator("//div[@id='menu-']//div[1]");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
         }
-
         //select language type Russian
         async selectRussianLanguage() {
                 const ele = this.page.locator("//li[text()='Russian']");
                 expect(ele).toBeVisible()
                 await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
-                
         }
-
         //select language type Russian
         async verifyRussianLanguageSuccessfullySelected() {
                 const ele = this.page.locator("//div[text()='Russian']");
                 expect(ele).toContainText("Russian")
         }
-
         //select language type Arabic
         async selectArabicLanguage() {
                 const ele = this.page.locator("//li[text()='Arabic']");
@@ -176,7 +145,6 @@ export default class languagePage {
                 await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
         }
-
         //select language type Spanish
         async selectSpanishLanguage() {
                 const ele = this.page.locator("//li[text()='Spanish']");
@@ -184,14 +152,11 @@ export default class languagePage {
                 await ele.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
         }
-
         async verifySpanishLanguageText() {
                 const ele = this.page.locator("//div[text()='Spanish']");
                 expect(ele).toContainText("Spanish")
                 await this.page.waitForLoadState("networkidle")
         }
-
-
         //select language type Japanese
         async deselectEnglishLanguage() {
                 // const englishLanguage: boolean
@@ -204,9 +169,7 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
         }
-
         async deselectFranciasLanguage() {
                 // const englishLanguage: boolean
                 const FranciasLanguage = await this.page.locator(`(//li[@aria-selected="true"])[2]`).isVisible()
@@ -218,10 +181,7 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
-
         }
-
         async deselectRussianLanguage() {
                 // const englishLanguage: boolean
                 const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[3]`).isVisible()
@@ -233,10 +193,7 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
-
         }
-
         async deselectArabicLanguage() {
                 // const englishLanguage: boolean
                 const ArabicLanguage = await this.page.locator(`(//li[@aria-selected="true"])[4]`).isVisible()
@@ -248,10 +205,7 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
-
         }
-
         async deselectSpanishLanguage() {
                 // const englishLanguage: boolean
                 const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[5]`).isVisible()
@@ -263,12 +217,7 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
-
         }
-
-
-
         async deselectJapaneseLanguage() {
                 // const englishLanguage: boolean
                 const JapaneseLanguage = await this.page.locator(`(//li[@aria-selected="true"])[6]`).isVisible()
@@ -280,7 +229,6 @@ export default class languagePage {
                 }
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
         }
         async JapaneseLanguage() {
                 // const englishLanguage: boolean
@@ -291,64 +239,40 @@ export default class languagePage {
                                 .locator("//li[text()='Japanese']")
                                 .click({ force: true })
                 }
-
                 await this.page.waitForLoadState("networkidle")
-
-
         }
-
-
         //select language type Japanese
         async selectJapaneseLanguage() {
-
                 const japanese = await this.page.locator("//li[@data-value='ja']")
                 expect(japanese).toBeVisible()
                 await japanese.click({button:'left',delay:1000})
                 await this.page.waitForTimeout(2000)
-
         }
-
         //select language type Japanese
         async verifyJapaneseLanguageSelectSuccessfully() {
                 // await this.page.waitForNavigation()
-
                 const japanese = await this.page.locator("//div[text()='Japanese']")
                 expect(japanese).toContainText("Japanese")
-
         }
-
         //Language Controls Elable disable btn Element
         async clickUserSelectablesRadioBtn() {
                 const ele = this.page.locator("(//div[@role='button'])[2]");
                 expect(ele).toBeVisible()
                 await ele.dblclick()
-
-
         }
-
         //Language Controls Elable disable btn Element
         async clickUserProfileSelectableInputField() {
                 const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]");
                 expect(ele).toBeVisible()
                 await ele.dblclick()
-
                 await this.page.waitForLoadState("networkidle")
-
-
         }
-
-
-
-
         //Language Controls Elable disable btn Element
         async checkUserForcedLanguageText() {
                 const ele = this.page.locator("//span[text()='Forced Language']");
                 expect(ele).toContainText('Forced Language')
                 await ele.click({ force: true })
-
-
         }
-
         //Language Controls Elable disable btn Element
         async clickUserForceLanguageOption() {
                 const ele = this.page.locator("(//input[@type='radio'])[2]");
@@ -357,10 +281,7 @@ export default class languagePage {
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
         }
-
-
         async clickUserForceLanguageinputfield() {
-
                 const ele = await this.page.frameLocator('iframe').locator("//div[@role='button'and aria-haspopup='listbox' ]").isVisible()
                 if ((ele == true)) {
                         // console.log("delete Uploaded Leaderboard BG")
@@ -369,22 +290,14 @@ export default class languagePage {
                 }
                 //  const ele = this.page.locator("input[value='forced']");
                 //     expect(ele).toBeVisible()
-                //     await ele.click()   
+                //     await ele.click()
         }
-
-
         // //Language Controls Elable disable btn Element
         async clickForceLanguageInputField() {
-
                 const ele = this.page.locator("//div[@role='button']")
                 expect(ele).toBeVisible()
                 await ele.click({ force: true })
                 await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(2000)
-
         }
-
-
-
-
 }
