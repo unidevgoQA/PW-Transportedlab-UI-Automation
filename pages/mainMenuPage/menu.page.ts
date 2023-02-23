@@ -30,7 +30,7 @@ export default class menuPage {
                 prizeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[2]",
                 howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
-                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]", 
+                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]"
 
         }
@@ -59,18 +59,22 @@ export default class menuPage {
 
         //Menu Page Button Element
         async clickMenuPage() {
-                const ele = await this.page.locator(this.menuPageElements.menuPage).isVisible()
-                if (ele == true)
-                await this.page.locator(this.menuPageElements.menuPage).click({button:"left", delay:1000})
-                else throw new Error("Main Menu | Menu Button Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
+                const ele = await this.page.locator(this.menuPageElements.menuPage)
+                try {
+                        await expect(ele).toContainText("Menu")
+                        await ele.click({ button: "left", delay: 1000 })
+                } catch (error) {
+                        throw (`Main Menu | Menu Button Element Is Not Found | Error occurred: ${error}`);
+                }
+
+
         }
 
         async deleteUploadedFont() {
 
-                const ele = await this.page.locator(this.menuPageElements.uploadFontTitle).isVisible()
-                if ((ele == true)) {
-                        await this.page.click(this.menuPageElements.fontDeleteBtn)
+                const ele = await this.page.locator(this.menuPageElements.uploadFontTitle)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
                 }
 
 
@@ -79,10 +83,10 @@ export default class menuPage {
 
         async enableLastGame() {
                 const ele = await this.page.locator(this.menuPageElements.lastGameEnableDisableBtn).isChecked()
-                if (ele == false){
-                await this.page.locator(this.menuPageElements.lastGameEnableDisableBtn).check({force:true})
-                }                
-                
+                if (ele == false) {
+                        await this.page.locator(this.menuPageElements.lastGameEnableDisableBtn).check({ force: true })
+                }
+
         }
 
         //Upload Fonts Header Text Elemant
@@ -123,7 +127,6 @@ export default class menuPage {
                 }
                 else throw new Error("Main Menu Background Color Input Field Element Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
         }
 
         async inputBackgroundColor() {
@@ -132,7 +135,7 @@ export default class menuPage {
                         await this.page.fill(this.menuPageElements.colorCodeInputField, "5FBCD2FF")
                 }
                 else throw new Error("Main Menu Background Color Code Input Field Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async inputTextColor() {
@@ -141,7 +144,7 @@ export default class menuPage {
                         await this.page.fill(this.menuPageElements.colorCodeInputField, "60254AFF")
                 }
                 else throw new Error("Main Menu Text Color Code Input Field Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async inputActiveBackgroundColor() {
@@ -150,26 +153,26 @@ export default class menuPage {
                         await this.page.fill(this.menuPageElements.colorCodeInputField, "70A4CCFF")
                 }
                 else throw new Error("Main Menu Active Background Color Code Input Field Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
+
         }
-        
+
         async inputActiveTextColor() {
                 const ele = await this.page.locator(this.menuPageElements.colorCodeInputField).isVisible()
                 if ((ele == true)) {
                         await this.page.fill(this.menuPageElements.colorCodeInputField, "021019FF")
                 }
                 else throw new Error("Main Menu Active Text Color Code Input Field Element Is Not Found")
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async clickTextColorInputField() {
-                const ele = await this.page.locator(this.menuPageElements.textColorInputField).isVisible()
-                if ((ele == true)) {
-                        await this.page.click(this.menuPageElements.textColorInputField, { force: true })
+                const ele = await this.page.locator(this.menuPageElements.textColorInputField)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                } catch (error) {
+                        throw (`Main Menu text Color Input Field Element Is Not Found | Error occurred: ${error}`);
                 }
-                else throw new Error("Main Menu text Color Input Field Element Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
         }
 
         async clickActiveBackgroundColorInputField() {
@@ -179,7 +182,7 @@ export default class menuPage {
                 }
                 else throw new Error("Main Menu Active Background Color Input Field Element Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
         async clickActiveTextColorInputField() {
                 const ele = await this.page.locator(this.menuPageElements.activeTextColorInputField).isVisible()
@@ -188,7 +191,7 @@ export default class menuPage {
                 }
                 else throw new Error("Main Menu Active Text Color Input Field Element Is Not Found")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async selectTopAlignmentMenuBar() {
@@ -198,7 +201,7 @@ export default class menuPage {
                 }
                 else throw new Error("Main Bar Top Alignment Button Element Is Visible")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async selectBottomAlignmentMenuBar() {
@@ -208,7 +211,7 @@ export default class menuPage {
                 }
                 else throw new Error("Main Bar Bottom Alignment Button Element Is Visible")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async selectThreeLineAlignmentMenuBar() {
@@ -218,7 +221,7 @@ export default class menuPage {
                 }
                 else throw new Error("Main Bar Three Line Alignment Button Element Is Visible")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
 
         async selectHideAlignmentMenuBar() {
@@ -228,9 +231,9 @@ export default class menuPage {
                 }
                 else throw new Error("Main Bar Hide Alignment Button Element Is Visible")
 
-                await this.page.waitForLoadState("networkidle")
+
         }
-        
+
         async uploadMenuBarHomeIcon() {
                 const ele = await this.page.locator(this.menuPageElements.homeMenuBarIcon).isVisible()
                 if ((ele == true)) {
@@ -422,26 +425,26 @@ export default class menuPage {
         async clickColorPickerWindowSaveBtn() {
                 const ele = this.page.locator("//button[text()='Save']")
                 expect(ele).toBeVisible()
-                await ele.dblclick({button:'left',delay:1000})
+                await ele.dblclick({ button: 'left', delay: 1000 })
                 await this.page.waitForTimeout(3000)
         }
         //updated color pickers here, above ones sometimes conflict in code
         async click_Background_ColorPicker() {
                 const ele = this.page.locator("//p[text()='Background']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.dblclick({button:'left',delay:1000})
+                await ele.dblclick({ button: 'left', delay: 1000 })
 
         }
         async click_text_color_Picker() {
                 const ele = this.page.locator("//p[text()='Text Color']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.dblclick({button:'left',delay:1000})
+                await ele.dblclick({ button: 'left', delay: 1000 })
 
         }
         async click_Active_Background_ColorPicker() {
                 const ele = this.page.locator("//p[text()='Active Background']/following-sibling::button").first()
                 await expect(ele).toBeVisible()
-                await ele.dblclick({button:'left',delay:1000})
+                await ele.dblclick({ button: 'left', delay: 1000 })
 
         }
         async click_active_text_color_Picker() {
@@ -483,7 +486,7 @@ export default class menuPage {
         async clickBottomAlignmentBtn() {
                 const ele = this.page.locator("//h5[text()='Bottom']//parent::button")
                 await expect(ele).toBeVisible()
-                await ele.click({button:'left'})
+                await ele.click({ button: 'left' })
 
         }
 
@@ -495,14 +498,14 @@ export default class menuPage {
 
         }
 
-        //check all icon text 
+        //check all icon text
         async checkAllIconText() {
                 const ele = this.page.locator("//h4[text()='Show All Icons']")
                 expect(ele).toContainText('Show All Icons')
 
         }
 
-        //check all icon text 
+        //check all icon text
         async disableShowAllIconBtn() {
 
                 // const showalliconcheckbox = this.page.locator("//input[@type='checkbox'])[1]")
@@ -546,7 +549,7 @@ export default class menuPage {
 
         }
 
-        //enabled prize button 
+        //enabled prize button
         async disablePrizeIconCheckBox() {
 
                 const ele = await this.page.locator("(//input[@type='checkbox'])[3]").isChecked()
@@ -623,7 +626,7 @@ export default class menuPage {
 
 
 
-        //check all icon text 
+        //check all icon text
         async enableShowAllIconBtn() {
 
                 // const showalliconcheckbox = this.page.locator("//input[@type='checkbox'])[1]")
@@ -667,7 +670,7 @@ export default class menuPage {
 
         }
 
-        //enabled prize button 
+        //enabled prize button
         async enabledPrizeIconCheckBox() {
 
                 const ele = await this.page.locator("(//input[@type='checkbox'])[3]").isChecked()

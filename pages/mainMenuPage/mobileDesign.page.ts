@@ -71,20 +71,32 @@ export default class MobileDesign {
         protraitHeaderBGDeleteBtn: "(//button[@aria-label='Delete'])[2]",
         mainLogoDeleteBtn: "(//button[@aria-label='Delete'])[1]",
 
-        customQuestionSaveBtn: "//button[text()='Save']",
-        deleteAddedCustomQuestion: "(//div[@class='MuiBox-root css-1519m8w']//button)[2]",
-        smsCheckBox: "//input[@value='sms']",
-        customQuestionPromptInputField: "(//label[text()='Give some description here...']/following::textarea)[1]",
-        customQuestionPromptAutoCheckBox: "//h4/following::input[@type='checkbox']",
-        customOptionInCheckBox: "(//span[text()='Custom Opt-In']/preceding::input[@type='checkbox'])[1]",
-        addedCustomQuestionInDeleteBtn: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[3]"
+        protraitImageCheckBox: "(//input[@value='video'])[2]",
+        protraitVideoCheckBox: "(//input[@value='video'])[4]",
+        protraitImageChecboxs: "(//span[text()='Image']/preceding::input[@type='radio'])[2]",
+        protraitImageDltBtn: "(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]",
+        landscapeBGImageCheckBox: "(//input[@value='video'])[2]",
+        landscapeBGVideoCheckBox: "(//input[@value='video'])[3]",
+        landscapeBGVVdoCheckbox: "(//input[@value='video'])[1]",
+        mainLogoUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[6]",
+        protraitBGHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[5]",
+        landscpaeBGHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[4]",
+        protraitBGUploadInputField: "(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]",
+        protraitAndLanscapeBGSuccessfullyUploadEle: "//button[@aria-label='Delete']",
+        landscapeBGHeaderSuccessfullyUploadEle: "(//h5[text()='Landscape Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
+        protraitBGHeaderSuccessfullyUploadEle: "(//h5[text()='Portrait Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
+        mainLogoSuccessfullyUploadEle: "(//h5[text()='Main Logo']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
+        landScapeBGUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
+        errorAlertMassage: "//p[text()='File type is not supported']",
+        okBtn: "//button[text()='Ok']",
+
     }
     async clickHomeAvater() {
         const ele = this.page.locator('button').nth(2)
         if (await ele.isEnabled()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Home Screen | Home Avater Is Not Visible | Could not find locator:"${ele}}"`)
+        else throw new Error(`Home Screen | Home Avater Is Not Visible | Could not find locator:"${ele}"`)
         await this.page.waitForLoadState("networkidle");
     }
     async clickArcadePage() {
@@ -92,21 +104,21 @@ export default class MobileDesign {
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Arcade Page Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Arcade Page Element Is Not Visible | Could not find:"${ele}"`)
     }
     async HomeAvater() {
         const ele = this.page.locator('button').nth(2)
         if (await ele.isEnabled()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Home Screen | Home Avater Is Not Visible | Could not find locator:"${ele}}"`)
+        else throw new Error(`Home Screen | Home Avater Is Not Visible | Could not find locator:"${ele}"`)
     }
     async mainMenuBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.mainMenuPage)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Home Avater Button | Main Menu Button Element Is not Visible | Could not find locator:"${ele}}"`)
+        else throw new Error(`Home Avater Button | Main Menu Button Element Is not Visible | Could not find locator:"${ele}"`)
         await this.page.waitForLoadState("networkidle");
         await this.page.waitForTimeout(2000)
     }
@@ -115,7 +127,7 @@ export default class MobileDesign {
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Element Is not Visible | Could not find locator:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Element Is not Visible | Could not find locator:"${ele}"`)
         await this.page.waitForLoadState("networkidle");
         await this.page.waitForTimeout(2000)
     }
@@ -142,7 +154,7 @@ export default class MobileDesign {
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Font Uploaded Font Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Font Uploaded Font Is Not Visible | Could not find:"${ele}"`)
     }
     async deleteFont() {
         let ele = await this.page.locator(this.mobileDesignPageElements.deletefont)
@@ -150,7 +162,7 @@ export default class MobileDesign {
             await ele.click({ button: "left", delay: 1000 })
         }
         else {
-            console.log(`Main Menu | Mobile Design | There Was No Uploaded Font Is Visible | Could not find locator:"${ele}}"`)
+            console.log(`Main Menu | Mobile Design | There Was No Uploaded Font Is Visible | Could not find locator:"${ele}"`)
         }
     }
     async clickEntryScreenSelectField() {
@@ -158,44 +170,45 @@ export default class MobileDesign {
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen Selection Field Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen Selection Field Element Is Not Visible | Could not find:"${ele}"`)
     }
     async selectEntryScreenUserProfile() {
         let ele = await this.page.locator(this.mobileDesignPageElements.myProfile)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As My Profile Element Is Not Visible | Could not find:"${ele}"`)
     }
     async selectEntryScreenRules() {
         let ele = await this.page.locator(this.mobileDesignPageElements.entryScreenRulesEle)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Rules Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Rules Element Is Not Visible | Could not find:"${ele}"`)
     }
     async selectEntryScreenHowToPlay() {
         let ele = await this.page.locator(this.mobileDesignPageElements.entryScreenHowToPlay)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As How To Play Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As How To Play Element Is Not Visible | Could not find:"${ele}"`)
     }
     async selectEntryScreenPrize() {
         let ele = await this.page.locator(this.mobileDesignPageElements.entryScreenPrize)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Prize Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Prize Element Is Not Visible | Could not find:"${ele}"`)
     }
     async selectEntryScreenHome() {
         let ele = await this.page.locator(this.mobileDesignPageElements.entryScreenHome)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
         }
-        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Home Element Is Not Visible | Could not find:"${ele}}"`)
+        else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Home Element Is Not Visible | Could not find:"${ele}"`)
     }
     async clickMobileLinkBtn() {
+
         let ele = await this.page.frameLocator('iframe').locator(this.mobileDesignPageElements.mobileLinkButton)
         try {
             await ele.click({ button: "left", delay: 1000 })
@@ -250,7 +263,7 @@ export default class MobileDesign {
     async clickPrimaryColorField() {
         let ele = await this.page.locator(this.mobileDesignPageElements.primaryColorInputField)
         if (await ele.isVisible()) {
-            await ele.click({button:"left", delay:1000})
+            await ele.click({ button: "left", delay: 1000 })
         }
         else throw new Error(`Main Menu | Mobile Design Primary Color Input Field Button Is Not Visible | Could not find:"${ele}}"`)
     }
@@ -589,168 +602,142 @@ export default class MobileDesign {
             console.log(`Main Menu | Mobile Design Uploaded Main Logo Is Not Found | Could not find:"${ele}}"`)
         }
     }
+
+
     async clickPortraitBackgroundHeaderVideoCheckBox() {
-        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='video'])[4]")
-                .check()
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageCheckBox).isChecked()
+        if ((ele == true)) {
+            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).check()
+        }
+        else {
+            console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked | Could not find:"${ele}}"`)
         }
     }
     async clickPortraitBackgroundHeaderImageCheckBox() {
-        const ele = this.page.locator("(//span[text()='Image']/preceding::input[@type='radio'])[2]")
-        expect(ele).toBeVisible()
-        await ele.check({ force: true })
-        await this.page.waitForLoadState("load")
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageChecboxs)
+        try {
+            await ele.check()
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked | Error occurred: ${error}`);
+        }
     }
     async deletePotraitBackgrounBanner() {
-        let ele = await this.page.locator("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]").isVisible()
-        if ((ele == true)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
-                .click({ force: true })
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageDltBtn)
+        if (await ele.isVisible()) {
+            await ele.click({ button: "left", delay: 1000 })
         }
-        await this.page.waitForLoadState('networkidle')
-        await this.page.waitForTimeout(3000)
+        else {
+            console.log(`Main Menu | Mobile Design Protrait Background Image Delete Button is not visiable  | Could not find:"${ele}}"`)
+        }
     }
+
     async clickLandscapeBackgroundHeaderVideoCheckBox() {
-        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='video'])[3]")
-                .check()
+        let ele = await this.page.locator(this.mobileDesignPageElements.landscapeBGImageCheckBox).isVisible()
+        if ((ele == true)) {
+            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click()
+            await this.page.waitForTimeout(2000)
+        }
+        else {
+            console.log(`Main Menu | Mobile Design Landscape Background Image Delete Button Is Not Visible | Could not find:"${ele}}"`)
         }
     }
     async clickPortraitBackgroundVideoCheckBox() {
-        let ele = await this.page.locator("(//input[@value='video'])[2]").isChecked()
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageCheckBox).isChecked()
         if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='video'])[2]")
-                .check()
+            await this.page.locator(this.mobileDesignPageElements.protraitImageCheckBox).check()
+        }
+        else {
+            console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Checked`)
         }
     }
     async clickLandscapeBackgroundVideoCheckBox() {
-        let ele = await this.page.locator("(//input[@value='video'])[1]").isChecked()
+        let ele = await this.page.locator(this.mobileDesignPageElements.landscapeBGVVdoCheckbox).isChecked()
         if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='video'])[1]")
-                .click()
+            await this.page.locator(this.mobileDesignPageElements.landscapeBGVVdoCheckbox).check()
         }
-        // await this.page.waitForLoadState('networkidle')
-    }
-    async clickPortraitBackgroundHeaderimageCheckBox() {
-        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='image'])[4]")
-                .check()
+        else {
+            console.log(`Main Menu | Mobile Design Landscape Background Image CheckBox Is Checked`)
         }
     }
-    async clickLandscapeBackgroundHeaderimageCheckBox() {
-        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='image'])[3]")
-                .check()
-        }
-    }
-    async clickPortraitBackgroundimageCheckBox() {
-        let ele = await this.page.locator("(//input[@value='image'])[2]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='image'])[2]")
-                .check()
-        }
-    }
-    async clickLandscapeBackgroundimageCheckBox() {
-        let ele = await this.page.locator("(//input[@value='image'])[1]").isChecked()
-        if ((ele == false)) {
-            // console.log("delete Uploaded Landscape BG ")
-            await this.page
-                .locator("(//input[@value='image'])[1]")
-                .check()
-        }
-    }
+
     async clickToUploadMainLogo() {
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[6]")
-        await ele.click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.mainLogoUploadInputField)
+        try {
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Main Logo Upload Input Field Is Not Visible | Error occurred: ${error}`);
+        }
     }
     async clickToUploadPortraitBackgroundHeader() {
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[5]")
-        await ele.click({ force: true })
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitBGHeaderUploadInputField)
+        try {
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Protrait Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
+        }
     }
     async clickToUploadLandscapeBackgroundHeader() {
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[4]")
-        await ele.click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.landscpaeBGHeaderUploadInputField)
+        try {
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Landscape Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
+        }
     }
     async clickToUploadPortraitBackground() {
-        // const popupPromise = this.page.waitForEvent('popup');
-        await this.page.locator("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]").click({ button: "left", delay: 1000 });
-        // const popup = await popupPromise;
-        // Wait for the popup to load.
-        // await popup.waitForLoadState('load');
-        // const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[3]")
-        // await ele.click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.protraitBGUploadInputField)
+        try {
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Protrait Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
+        }
     }
+
     async verifyPotraitBackgroundUploadSuccessfully() {
-        await this.page.waitForSelector("//button[@aria-label='Delete']")
+        await this.page.waitForSelector(this.mobileDesignPageElements.protraitAndLanscapeBGSuccessfullyUploadEle)
     }
     async verifyLandscapeBackgroundUploadSuccessfully() {
-        await this.page.waitForSelector("//button[@aria-label='Delete']")
+        await this.page.waitForSelector(this.mobileDesignPageElements.protraitAndLanscapeBGSuccessfullyUploadEle)
+
     }
     async verifyLandscapeBackgroundHeaderUploadSuccessfully() {
-        await this.page.waitForSelector("(//h5[text()='Landscape Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+        await this.page.waitForSelector(this.mobileDesignPageElements.landscapeBGHeaderSuccessfullyUploadEle)
+
     }
     async verifyPortraitBackgroundHeaderUploadSuccessfully() {
-        await this.page.waitForSelector("(//h5[text()='Portrait Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+        await this.page.waitForSelector(this.mobileDesignPageElements.protraitBGHeaderSuccessfullyUploadEle)
     }
     async verifyMainLogoUploadSuccessfully() {
-        await this.page.waitForSelector("(//h5[text()='Main Logo']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]")
+        await this.page.waitForSelector(this.mobileDesignPageElements.mainLogoSuccessfullyUploadEle)
     }
-    async uploadProtraitBackgrounImageForMobileScreen() {
-        const buffer = readFileSync('testData/logos/gameTeamLogo.jpg');
-        // Create the DataTransfer and File
-        const dataTransfer = await this.page.evaluateHandle((data) => {
-            const dt = new DataTransfer();
-            // Convert the buffer to a hex array
-            const file = new File([data.toString('hex')], 'gameTeamLogo.jpg', { type: 'application/jpg' });
-            dt.items.add(file);
-            return dt;
-        }, buffer);
-        await this.page.dispatchEvent("(//h5[text()='Portrait Background']/following::div[@class='MuiBox-root css-v2612'])[1]", 'drop', { dataTransfer });
-        await this.page.waitForSelector("(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]")
-    }
+
     async clickToUploadLandscapeBackground() {
-        await this.page.waitForTimeout(2000)
-        const ele = await this.page.locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-        await ele.click({ button: "left", delay: 1000 })
+        let ele = await this.page.locator(this.mobileDesignPageElements.landScapeBGUploadInputField)
+        try {
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design Landscape Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
+        }
     }
     async verifyErrorAlertText() {
-        await this.page.waitForTimeout(2000)
-        const ele = await this.page.locator("//p[text()='File type is not supported']")
-        expect(ele).toContainText("File type is not supported")
+        let ele = await this.page.locator(this.mobileDesignPageElements.errorAlertMassage)
+        try {
+            await expect(ele).toContainText("File type is not supported")
+        } catch (error) {
+            throw (`Main Menu | Mobile Design File Type Supported Error Alert Massage Is Not Visible | Error occurred: ${error}`);
+        }
+
     }
     async clcikErrorAlertOkBtn() {
-        const ele = await this.page.locator("//button[text()='Ok']")
-        expect(ele).toContainText("Ok")
-        await ele.click()
+        let ele = await this.page.locator(this.mobileDesignPageElements.okBtn)
+        try {
+            await expect(ele).toContainText("Ok")
+            await ele.click({ button: "left", delay: 1000 })
+        } catch (error) {
+            throw (`Main Menu | Mobile Design File Type Supported Error Alert Modal Ok Button Is Not Visible | Error occurred: ${error}`);
+        }
     }
-    //Start function from here
-    async clickUploadFontAndUploadFiles() {
-        const filePath0 = "files/Thin.otf"
-        this.page.on("filechooser", async (filechooser) => {
-            await filechooser.setFiles([filePath0]);
-        })
-        await this.clickUploadFontInputFiled();
-    }
+
     //Start function from here
     async validateTryToUploadInvalidFont() {
         const filePath0 = "testData/csv/csv.csv"
