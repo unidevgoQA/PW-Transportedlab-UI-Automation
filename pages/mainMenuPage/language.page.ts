@@ -1,303 +1,284 @@
 import { expect, Page } from "@playwright/test";
+import BaseFunctions from "@base-function/baseFunctions";
 export default class languagePage {
-        static clickLanguagePage() {
-                throw new Error("Method not implemented.");
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
         }
-        static
-                //Language Controls Elable disable btn Element
-                checkLanguageHeaderText() {
-                throw new Error("Method not implemented.");
+        private languagePageElements = {
+                languagePage: "//p[text()='Language']",
+                langeSettingTitleText: "//h4[text()='Language Settings']",
+                languageControlsTitleText: "//h4[text()='Language Controls']",
+                userSelectableRadioBtn: "(//input[@type='radio'])[1]",
+                englishLanguage: "//li[text()='English']",
+                franciasLanguage: "//li[text()='Francias']",
+                outsideScreenFromUserSelectableLanguage: "//div[@id='menu-']//div[1]",
+                russianLanguage: "//li[text()='Russian']",
+                afterSelectedRussianLanguage: "//div[text()='Russian']",
+                arabicLanguage: "//li[text()='Arabic']",
+                spanishLanguage: "//li[text()='Spanish']",
+                afterSelectedSpanishLanguage: "//div[text()='Spanish']",
+                englishDiselectBtn: `(//li[@aria-selected="true"])[1]`,
+                franciasDiselectBtn: `(//li[@aria-selected="true"])[2]`,
+                russianDiselectBtn: `(//li[@aria-selected="true"])[3]`,
+                arabicDiselectBtn: `(//li[@aria-selected="true"])[4]`,
+                spanishDiselectBtn: `(//li[@aria-selected="true"])[5]`,
+                japaneseDiselectBtn: `(//li[@aria-selected="true"])[6]`,
+                forceJapaneseLanguage: "//li[@data-value='ja']",
+                selectedJapaneseLanguage: "//div[text()='Japanese']",
+                userSelectableInputField: "(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]",
+                userForceLanguageRadioBtn: "(//input[@type='radio'])[2]",
+                forceLanguageInputField: "//div[@role='button']",
+
+
         }
-        static checkLanguageControlsText() {
-                throw new Error("Method not implemented.");
-        }
-        static checkLanguageControlsDisabledBtn() {
-                throw new Error("Method not implemented.");
-        }
-        static checkUserSelectableText() {
-                throw new Error("Method not implemented.");
-        }
-        static clickUserSelectableRadioBtn() {
-                throw new Error("Method not implemented.");
-        }
-        static clickUserRegistrationSelectableInputField() {
-                throw new Error("Method not implemented.");
-        }
-        static clickUserProfileSelectableInputField() {
-                throw new Error("Method not implemented.");
-        }
-        static checkUserForcedLanguageText() {
-                throw new Error("Method not implemented.");
-        }
-        static
-                //Language Controls Elable disable btn Element
-                clickUserForceLanguage() {
-                throw new Error("Method not implemented.");
-        }
-        static clickUserForceLanguageinputfield() {
-                throw new Error("Method not implemented.");
-        }
-        private page: Page;
-        static login: any;
-        constructor(page: Page) {
-                this.page = page;
-        }
+
         //Language Page Button Element
         async clickLanguagePage() {
-                const locator = this.page.locator("//p[text()='Language']")
-                expect(locator).toContainText('Language')
-                await locator.click()
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.languagePage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                } catch (error) {
+                        throw (`Main Menu | Language Page Button Element Is Not Found | Error occurred: ${error}`);
+                }
                 await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
         }
         //Language Header Text Elemant
         async checkLanguageHeaderText() {
-                const ele = this.page.locator("//h4[text()='Language Settings']")
-                expect(ele).toContainText('Language Settings')
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.langeSettingTitleText)
+                try {
+                        await expect(ele).toContainText("Language Settings")
+                } catch (error) {
+                        throw (`Main Menu | Language Page Language Settings Title Text Is Not Visible | Error occurred: ${error}`);
+                }
+
         }
         //Language Controls Text Element
         async checkLanguageControlsText() {
-                const ele = this.page.locator("//h4[text()='Language Controls']")
-                expect(ele).toContainText('Language Controls')
-        }
-        //Language Controls Elable disable btn Element
-        async checkLanguageControlsDisabledBtn() {
-                // const ele = this.page.locator("input[type='checkbox']");
-                if (await this.page.isHidden("//h4[text()='Selection Menu']")) {
-                        await this.page.click("input[type='checkbox']");
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.languageControlsTitleText)
+                try {
+                        await expect(ele).toContainText("Language Controls")
+                } catch (error) {
+                        throw (`Main Menu | Language Page Language Controls Title Text Is Not Visible | Error occurred: ${error}`);
                 }
+
         }
-        //Language Controls Elable disable btn Element
-        async checkUserSelectableText() {
-                const ele = this.page.locator("//span[text()='User Selectable']");
-                expect(ele).toContainText("User Selectable")
-                await ele.click({ force: true })
-        }
+
         //Language Controls Elable disable btn Element
         async clickUserSelectableRadioBtn() {
-                await this.page.locator("(//input[@type='radio'])[1]").dblclick({button:"left", delay: 1000})
-                await this.page.waitForTimeout(3000)
-                // let ele = await this.page.locator("//h5[text()='Landing page of the user registration flow:']").isHidden()
-                // if ((ele == true)) {
-                //         // console.log("delete Uploaded Leaderboard BG")
-                //         await this.page
-                //                 .locator("//span[text()='User Selectable']")
-                //                 .click({force:true})
-                // }
-                // if (await this.page.isHidden("//h5[text()='Landing page of the user registration flow:']"))
-                // {
-                //     await this.page.check("(//input[@type='radio'])[1]", {force:true});
-                // }
-        }
-        //Language Controls Elable disable btn Element
-        async verifyUserSelectableHeaderText() {
-                const ele = this.page.locator("//h5[text()='Landing page of the user registration flow:']");
-                expect(ele).toContainText("Landing page of the user registration flow:")
-        }
-        //Language Controls Elable disable btn Element
-        async clickUserRegistrationSelectableInputField() {
-                let ele = await this.page.locator("//h5[text()='Landing page of the user registration flow:']").isHidden()
-                if ((ele == false)) {
-                        // console.log("delete Uploaded Leaderboard BG")
-                        await this.page
-                                .locator("(//div[@role='button'])[1]")
-                                .click({ force: true })
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userSelectableRadioBtn)
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                } catch (error) {
+                        throw (`Main Menu | Language Page User Selectable Radio Button Is Not Visible | Error occurred: ${error}`);
                 }
-                //     const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[1]");
-                //     expect(ele).toBeVisible()
-                //     await ele.click({force:true})
         }
         //select language type english
         async selectEnglishLanguage() {
-                const ele = this.page.locator("//li[text()='English']")
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.englishLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page English Language Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Francias
         async selectFranciasLanguage() {
-                const ele = this.page.locator("//li[text()='Francias']");
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.franciasLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Francias Language Element Is Not Visible | Error occurred: ${error}`);
+                }
+
         }
         async clickOutSideOfLanguageSelectionModal() {
-                const ele = this.page.locator("//div[@id='menu-']//div[1]");
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.outsideScreenFromUserSelectableLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page OutSide Screen From User Selectable Modal Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Russian
         async selectRussianLanguage() {
-                const ele = this.page.locator("//li[text()='Russian']");
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.russianLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Russian Language Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Russian
         async verifyRussianLanguageSuccessfullySelected() {
-                const ele = this.page.locator("//div[text()='Russian']");
-                expect(ele).toContainText("Russian")
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.afterSelectedSpanishLanguage)
+                try {
+                        await expect(ele).toContainText("Russian")
+                } catch (error) {
+                        throw (`Main Menu | Language Page Russian Language Text Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Arabic
         async selectArabicLanguage() {
-                const ele = this.page.locator("//li[text()='Arabic']");
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.arabicLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Arabic Language Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Spanish
         async selectSpanishLanguage() {
-                const ele = this.page.locator("//li[text()='Spanish']");
-                expect(ele).toBeVisible()
-                await ele.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.spanishLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Spanish Language Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         async verifySpanishLanguageText() {
-                const ele = this.page.locator("//div[text()='Spanish']");
-                expect(ele).toContainText("Spanish")
-                await this.page.waitForLoadState("networkidle")
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.afterSelectedSpanishLanguage)
+                try {
+                        await expect(ele).toContainText("Spanish")
+                } catch (error) {
+                        throw (`Main Menu | Language Page Spanish Language Text Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Japanese
         async deselectEnglishLanguage() {
-                // const englishLanguage: boolean
-                const EnglishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[1]`).isVisible()
-                if ((EnglishLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[1]`)
-                                .click()
+                let ele = await this.page.locator(this.languagePageElements.englishDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                else {
+                        console.log(`Main Menu | Language Page User Selectable English Language Is Not Selected | Could not find:"${ele}"`)
+                }
         }
         async deselectFranciasLanguage() {
-                // const englishLanguage: boolean
-                const FranciasLanguage = await this.page.locator(`(//li[@aria-selected="true"])[2]`).isVisible()
-                if ((FranciasLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[2]`)
-                                .click({ force: true })
+                let ele = await this.page.locator(this.languagePageElements.franciasDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                else {
+                        console.log(`Main Menu | Language Page User Selectable Francias Language Is Not Selected | Could not find:"${ele}"`)
+                }
         }
         async deselectRussianLanguage() {
-                // const englishLanguage: boolean
-                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[3]`).isVisible()
-                if ((SpanishLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[3]`)
-                                .click({ force: true })
+                let ele = await this.page.locator(this.languagePageElements.russianDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                else {
+                        console.log(`Main Menu | Language Page User Selectable Russian Language Is Not Selected | Could not find:"${ele}"`)
+                }
         }
         async deselectArabicLanguage() {
-                // const englishLanguage: boolean
-                const ArabicLanguage = await this.page.locator(`(//li[@aria-selected="true"])[4]`).isVisible()
-                if ((ArabicLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[4]`)
-                                .click({ force: true })
+                let ele = await this.page.locator(this.languagePageElements.arabicDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                else {
+                        console.log(`Main Menu | Language Page User Selectable Arabic Language Is Not Selected | Could not find:"${ele}"`)
+                }
         }
         async deselectSpanishLanguage() {
-                // const englishLanguage: boolean
-                const SpanishLanguage = await this.page.locator(`(//li[@aria-selected="true"])[5]`).isVisible()
-                if ((SpanishLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[5]`)
-                                .click({ force: true })
+                let ele = await this.page.locator(this.languagePageElements.spanishDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                else {
+                        console.log(`Main Menu | Language Page User Selectable Spanish Language Is Not Selected | Could not find:"${ele}"`)
+                }
         }
         async deselectJapaneseLanguage() {
-                // const englishLanguage: boolean
-                const JapaneseLanguage = await this.page.locator(`(//li[@aria-selected="true"])[6]`).isVisible()
-                if ((JapaneseLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator(`(//li[@aria-selected="true"])[6]`)
-                                .click({ force: true })
+                let ele = await this.page.locator(this.languagePageElements.japaneseDiselectBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
                 }
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
-        }
-        async JapaneseLanguage() {
-                // const englishLanguage: boolean
-                const JapaneseLanguage = await this.page.locator(`(//li[@aria-selected="true"])[4]`).isVisible()
-                if ((JapaneseLanguage == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page
-                                .locator("//li[text()='Japanese']")
-                                .click({ force: true })
+                else {
+                        console.log(`Main Menu | Language Page User Selectable Japanese Language Is Not Selected | Could not find:"${ele}"`)
                 }
-                await this.page.waitForLoadState("networkidle")
         }
+
         //select language type Japanese
         async selectJapaneseLanguage() {
-                const japanese = await this.page.locator("//li[@data-value='ja']")
-                expect(japanese).toBeVisible()
-                await japanese.click({button:'left',delay:1000})
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.forceJapaneseLanguage)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Japanese Language Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //select language type Japanese
         async verifyJapaneseLanguageSelectSuccessfully() {
-                // await this.page.waitForNavigation()
-                const japanese = await this.page.locator("//div[text()='Japanese']")
-                expect(japanese).toContainText("Japanese")
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.selectedJapaneseLanguage)
+                try {
+                        await expect(ele).toContainText("Japanese")
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page Japanese Language Text Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
-        //Language Controls Elable disable btn Element
-        async clickUserSelectablesRadioBtn() {
-                const ele = this.page.locator("(//div[@role='button'])[2]");
-                expect(ele).toBeVisible()
-                await ele.dblclick()
-        }
+
         //Language Controls Elable disable btn Element
         async clickUserProfileSelectableInputField() {
-                const ele = this.page.locator("(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]");
-                expect(ele).toBeVisible()
-                await ele.dblclick()
-                await this.page.waitForLoadState("networkidle")
-        }
-        //Language Controls Elable disable btn Element
-        async checkUserForcedLanguageText() {
-                const ele = this.page.locator("//span[text()='Forced Language']");
-                expect(ele).toContainText('Forced Language')
-                await ele.click({ force: true })
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userSelectableInputField)
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page User Selectable Input Field Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
         //Language Controls Elable disable btn Element
         async clickUserForceLanguageOption() {
-                const ele = this.page.locator("(//input[@type='radio'])[2]");
-                expect(ele).toBeVisible()
-                await ele.dblclick({button:"left", delay:1000})
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
-        }
-        async clickUserForceLanguageinputfield() {
-                const ele = await this.page.frameLocator('iframe').locator("//div[@role='button'and aria-haspopup='listbox' ]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Leaderboard BG")
-                        await this.page.locator("//div[@role='button']")
-                                .click({ force: true })
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userForceLanguageRadioBtn)
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page User Force Language Radio Button Element Is Not Visible | Error occurred: ${error}`);
                 }
-                //  const ele = this.page.locator("input[value='forced']");
-                //     expect(ele).toBeVisible()
-                //     await ele.click()
         }
+
         // //Language Controls Elable disable btn Element
         async clickForceLanguageInputField() {
-                const ele = this.page.locator("//div[@role='button']")
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.forceLanguageInputField)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw (`Main Menu | Language Page User Force Language Radio Input Field Element Is Not Visible | Error occurred: ${error}`);
+                }
         }
 }

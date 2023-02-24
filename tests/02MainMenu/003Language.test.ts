@@ -4,6 +4,7 @@ import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import * as data from "@testData/login.cred.json"
 import { readFileSync } from 'fs'
 const clipboard = require('clipboardy')
+
 test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
     await page.goto('/admin/#/sign-in')
     await loginPage.login(data.username, data.password)
