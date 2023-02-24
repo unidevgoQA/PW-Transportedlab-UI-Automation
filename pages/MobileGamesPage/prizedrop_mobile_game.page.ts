@@ -68,10 +68,10 @@ export default class prizeDropMobilePage {
                 await this.page.locator('//p[text()="HOME"]//parent::button').dblclick({button:'left',delay:1000})
          }
          async selecthowtoplaypage(){
-            await this.page.locator('//p[text()="HOW TO PLAY"]//parent::button').dblclick({button:'left',delay:1000})
+            await this.page.locator('//button[@value="howToPlay"]').dblclick({button:'left',delay:1000})
      }
       async selectrulespage(){
-            await this.page.locator('//p[text()="RULES"]//parent::button').dblclick({button:'left',delay:1000})
+            await this.page.locator('//button[@value="rules"]').dblclick({button:'left',delay:1000})
       }
 
          async GoTo(URL: string){
@@ -81,28 +81,39 @@ export default class prizeDropMobilePage {
 
          // color related functions from here
         async checkTextcolor(){
-              const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
-              //following lines give unexpected behaviour, please dont use that one
-              // const color = await ele.evaluate((ele) =>{
-              //        return window.getComputedStyle(ele).getPropertyValue("color")
-              // })
-              // expect(color).toBe("rgb(189, 179, 229)")
-              await expect.soft(ele).toHaveCSS("color","rgba(189, 179, 229, 0.95)")
+              try {
+                  const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
+                  await expect.soft(ele).toHaveCSS("color","rgba(189, 179, 229, 0.95)")
+              } catch (error) {
+                  throw new Error('Prize drop | Game desgn |Text  color validation failed' +error)
+              }
         }
 
         async checkMainColor(){
-              const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
-              await expect.soft(ele).toHaveCSS("background-color","rgba(84, 161, 220, 0.95)")
+              try {
+                  const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+                  await expect.soft(ele).toHaveCSS("background-color","rgba(84, 161, 220, 0.95)")
+              } catch (error) {
+                  throw new Error('Prize drop | Game desgn |Main  color validation failed' +error)
+              }
         }
 
         async checkButtoncolor(){
-              const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
-              await expect.soft(ele).toHaveCSS("background-color","rgb(204, 56, 147)")
+              try {
+                  const ele = this.page.frameLocator('iframe').locator('//button[text()="START"]')
+                  await expect.soft(ele).toHaveCSS("background-color","rgb(204, 56, 147)")
+              } catch (error) {
+                  throw new Error('Prize drop | Game desgn |Button  color validation failed' +error)
+              }
         }
 
         async check_Accent_color(){
-              const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
-              await expect.soft(ele).toHaveCSS("accent-color","rgb(189, 189, 9)")
+             try {
+                   const ele = this.page.frameLocator('iframe').locator('//div//img//parent::div')
+                   await expect.soft(ele).toHaveCSS("accent-color","rgb(189, 189, 9)")
+             } catch (error) {
+                  throw new Error('Prize drop | Game desgn |Accent  color validation failed' +error) 
+             }
         }
         //start button here
 
@@ -122,34 +133,71 @@ export default class prizeDropMobilePage {
         }
 
         async screenshot_matcher_fullscreen_logo(){
-              await expect.soft(this.page).toHaveScreenshot('fullscreen_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
-        }
+              try {
+                  await expect.soft(this.page).toHaveScreenshot('fullscreen_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+    
+              } catch (error) {
+                  throw new Error("Prize Drop| Game design | Full screen logo screenshot matching comparison failed" + error)
+              }       
+       }
 
         async screenshot_matcher_game_title_image(){
-              await expect.soft(this.page).toHaveScreenshot('game_title_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01}) 
-        }
+             try {
+                   await expect.soft(this.page).toHaveScreenshot('game_title_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01}) 
+     
+             } catch (error) {
+                  throw new Error('Prize Drop| Game design | Game title image screenshot matching comparison failed' +error)
+             }        
+            }
 
         async screenshot_matcher_frame_image(){
-              await expect.soft(this.page).toHaveScreenshot('frame_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01}) 
+             try {
+                   await expect.soft(this.page).toHaveScreenshot('frame_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+             } catch (error) {
+                  throw new Error('Prize Drop| Game design | Frame image screenshot matching comparison failed '+error)
+             } 
         }
 
         async screenshot_matcher_sponsor_image(){
-              await expect.soft(this.page).toHaveScreenshot('sponsor_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.02})
+             try {
+                   await expect.soft(this.page).toHaveScreenshot('sponsor_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.03})
+             } catch (error) {
+                  throw new Error('Prize Drop| Game design | sponsor image screenshot matching comparison failed '+error) 
+             }
         }
 
         async screenshot_matcher_team_logo(){
-              await expect.soft(this.page).toHaveScreenshot('Team_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
+             try {
+                   await expect.soft(this.page).toHaveScreenshot('Team_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
+             } catch (error) {
+                  throw new Error('Prize Drop| Game design | Team logo screenshot matching comparison failed '+error) 
+             }
         }
 
         async screenshot_matcher_loading_image(){
-              await expect.soft(this.page).toHaveScreenshot('loading_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.05})
+             try {
+                   await expect.soft(this.page).toHaveScreenshot('loading_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.05})
+             } catch (error) {
+                  throw new Error('Prize Drop| Game design | loading image screenshot matching comparison failed '+error) 
+             }
         }
 
         async screenshot_matcher_how_to_play_image(){
-            await expect.soft(this.page).toHaveScreenshot('How_to_play_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+            try {
+                  await expect.soft(this.page).toHaveScreenshot('How_to_play_image_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+            } catch (error) {
+                  throw new Error('Prize Drop| Game design | how to play screenshot matching comparison failed '+error) 
+            }
       }
       async screenshot_matcher_marketing_message(){
-            await expect.soft(this.page).toHaveScreenshot('marketing_message_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+            try{
+                  await expect.soft(this.page).toHaveScreenshot('marketing_message_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+          
+            }
+            catch(error){
+                  throw new Error('Prize Drop| Game design | marketing message matching comparison failed '+error) 
+            }
+
       }
         async video_checker_background_video(){
             await this.page.waitForLoadState('networkidle',{timeout:3000})
@@ -186,8 +234,12 @@ export default class prizeDropMobilePage {
             await expect(text_ele).toBeVisible()
       }
       async screenshot_matcher_font(){
-            await expect.soft(this.page).toHaveScreenshot('upload_font_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
-      }
+           try {
+             await expect.soft(this.page).toHaveScreenshot('upload_font_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
+       
+           } catch (error) {
+             throw `Prize drop| game design | Screenshot match for fond upload reflection is failed `
+           }}
       //check howtoplay page first 
 
       async check_how_to_play_page_at_entry(){

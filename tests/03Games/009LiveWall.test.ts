@@ -43,7 +43,7 @@ test("009FanSee-3|validate 'warning not forget to stop session pop up'  is visib
 
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.click_Fan_see_Section()
         await liveWallPage.validate_warning_stop_message_text()
 })
 test("009FanSee-4|validate Add new configuration for Fansee is working", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
@@ -64,7 +64,7 @@ test("009FanSee-4|validate Add new configuration for Fansee is working", async (
 
         //click Live Wall Section
         await test.step("009FanSee-6|now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                  await liveWallPage.remove_message_popup()
 
@@ -98,7 +98,7 @@ test("009FanSee-40|Validate Font Upload Functionality", async ({ loginPage, live
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         await test.step("now navigate to Fansee page and game design of an instance", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -163,7 +163,7 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -268,7 +268,7 @@ test("009FanSee-58|validate Font color picker is working", async ({ loginPage, l
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -360,7 +360,7 @@ test("009FanSee-67|Validate countdown ColorPicker Color Input Functionality", as
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -433,7 +433,7 @@ test("009FanSee-80|Validate Mobile Background Upload Functionality", async ({ lo
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -521,7 +521,7 @@ test("009FanSee-234|validate mobile background upload is reflected on mobile",as
         })
 
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -566,7 +566,7 @@ test("009FanSee-79|Validate Mobile Homescreen logo Upload Functionality", async 
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -597,7 +597,7 @@ test("009FanSee-81|Validate Output Background Upload Functionality", async ({ lo
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -629,7 +629,7 @@ test("009FanSee-82|Validate Left Image (1:1 Output) Upload Functionality", async
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -660,7 +660,7 @@ test("009FanSee-83|Validate Mobile Frame Upload Functionality", async ({ loginPa
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -691,7 +691,7 @@ test("009FanSee-84|Validate Output Frame (9:16 Output) Upload Functionality", as
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -722,7 +722,7 @@ test("009FanSee-85|Validate Banner Image (9:16 Output) Upload Functionality", as
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -753,7 +753,7 @@ test("009FanSee-86|Validate Right Image (1:1 Output) Upload Functionality", asyn
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -784,7 +784,7 @@ test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPa
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -816,7 +816,7 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -850,7 +850,7 @@ test("009FanSee-130|validate prelive text message functionalities", async ({ log
 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -860,7 +860,7 @@ test("009FanSee-130|validate prelive text message functionalities", async ({ log
 
         await test.step('009FanSee-144|	Validate Pre-Live Text input is working',async()=>{
                    //input Pre Live Text
-                await liveWallPage.inputPreLiveText()
+                await liveWallPage.inputPreLiveText('Test for pre-live text')
 
         })
 
@@ -871,7 +871,7 @@ test("009FanSee-130|validate prelive text message functionalities", async ({ log
         })
         
         await test.step('009FanSee-157|	Validate Pre-Live Text blocktypes: Normal,H1,H2,H3 etc are working',async()=>{
-                await liveWallPage.preLiveInputBoxBlocktype()
+        await liveWallPage.preLiveInputBoxBlocktype()
         await liveWallPage.preLiveInputBoxNormal()
         await liveWallPage.preLiveInputBoxBlocktype()
 
@@ -975,7 +975,7 @@ test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ log
 
         //click Live Wall Section
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1067,7 +1067,7 @@ test("009FanSee-181|Validate Standby Text Message functionality", async ({ login
 
         //click Live Wall Section
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1161,7 +1161,7 @@ test("009FanSee-199|Validate Low connection Text Message functionality", async (
 
         //click Live Wall Section
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1254,7 +1254,7 @@ test("009FanSee-216|Validate controls section functionalities ",async({ loginPag
 
         //click Live Wall Section
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1303,7 +1303,7 @@ test.skip("009LW-008 | Validate Cue Section", async ({ loginPage, liveWallPage, 
 
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.click_Fan_see_Section()
 
 
 
@@ -1368,7 +1368,7 @@ test.skip("009LW-009 | Validate OutPut Section", async ({ loginPage, liveWallPag
 
 
         //click Live Wall Section
-        await liveWallPage.clickLiveWallSection()
+        await liveWallPage.click_Fan_see_Section()
 
 
 
@@ -1434,7 +1434,7 @@ test("009FanSee-7|Validate normal user Qr section is functioning", async ({ logi
         })
 
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1484,7 +1484,7 @@ test("009FanSee-14|validate open link in Normal QR code is working",async({ logi
         })
 
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1522,7 +1522,7 @@ test("009FanSee-8|Validate VIP user QR section is functioning",async({ loginPage
         })
 
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1569,7 +1569,7 @@ test("009FanSee-20|Validate open link in VIP QR code is working",async({ loginPa
         })
 
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1615,7 +1615,7 @@ test.skip("009LW-016 | Validate mobile  Link open in Mobile screen", async ({ lo
         await test.step("Validate Game Open Section Functionality", async () => {
 
                 //click Mobile Link Btn
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
                 await liveWallPage.clickAdminSection()
                 await page.waitForTimeout(2000)
                 await liveWallPage.clickRefreshBtn()
@@ -1667,7 +1667,7 @@ test.skip("009LW-017 | Validate Game Link Successfully Copy in system clipboard 
         await test.step("Now click mobile link copy button", async () => {
 
                 //click Mobile Link Btn
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
                 await liveWallPage.clickAdminSection()
                 await page.waitForTimeout(2000)
                 await liveWallPage.clickRefreshBtn()
@@ -1740,7 +1740,7 @@ test.skip("009LW-025 | Validate Output Screen Link button visible and clickable.
         //click Live Wall Section
         await test.step("Validate Output Screen Link button visible and clickable", async () => {
 
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
                 await liveWallPage.clickAdminSection()
                 await page.waitForTimeout(2000)
                 await liveWallPage.clickOutputLinkBtn()
@@ -1767,7 +1767,7 @@ test.skip("009LW-026 | Validate Output Screen Link text is visible.", async ({ l
         //click Live Wall Section
         await test.step("Validate Output Screen Link text is visible", async () => {
 
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
                 await liveWallPage.clickAdminSection()
                 await page.waitForTimeout(2000)
                 await liveWallPage.clickRefreshBtn()
@@ -1790,7 +1790,7 @@ test('009FanSee-223|validate Analytics section is working',async({ loginPage, li
         })
 
         await test.step("009FanSee-124|	navigate to fanseepage and open analytics page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1817,7 +1817,7 @@ test('009FanSee-225|validate prizing section in new instance is working',async({
         })
 
         await test.step("009FanSee-132|	navigate  to fansee and click prizing page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1890,7 +1890,7 @@ test('009FanSee-228|validate Distribute all manual prize button is clickable',as
         })
 
         await test.step("009FanSee-132|	navigate  to fansee and click prizing page", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1917,7 +1917,7 @@ test('009FanSee-131|Validate Delete section in new config is working',async({ lo
                 })
         })
         await test.step("navigate to fanseepage ", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -1943,7 +1943,7 @@ test('009FanSee-229|validate Admin section functionalities',async({ loginPage, l
                 })
         })
         await test.step("navigate to fanseepage and click admin ", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -2031,7 +2031,7 @@ test('009FanSee-141|validate cue section functionalities',async({loginPage, live
                 })
         })
         await test.step("navigate to fanseepage and click cue section", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
@@ -2109,7 +2109,7 @@ test('009FanSee-232|validate favourite section is working',async({loginPage, liv
                 })
         })
         await test.step("navigate to fanseepage and click cue section", async () => {
-                await liveWallPage.clickLiveWallSection()
+                await liveWallPage.click_Fan_see_Section()
 
                 await liveWallPage.remove_message_popup()
 
