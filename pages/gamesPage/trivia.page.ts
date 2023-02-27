@@ -1,6 +1,7 @@
 import { expect, Page } from "@playwright/test";
 import { existsSync, readFileSync } from 'fs'
 import prizeDropMobilePage from '../MobileGamesPage/prizedrop_mobile_game.page';
+//import { error } from '../../tests/03Games/012Trivia.test';
 export default class triviaPage {
         // [x: string]: any;
 
@@ -11,8 +12,8 @@ export default class triviaPage {
         }
         private triviaPageElements = {
                 configurationText : "//h5[text()='Configurations']",
-                triviaSestion : "//p[text()='Trivia']",
-                plusbutton : '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1mbcpzw"]',
+                triviaSestion : '//p[text()="Trivia"]',
+                plusbutton : "(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[1]",
                 inputConfigrationsName : "(//input[@id='P0-0'])[2]",
                 addConfigurationBtn : "//button[text()='ADD']",
                 newConfigrationText : '//p[text()="New Configuration"]',
@@ -26,7 +27,7 @@ export default class triviaPage {
                 mobileLinkText: "//h2[contains(@class,'MuiTypography-root MuiTypography-h6')]",
                 mobileLinkOpenBtn: '//a[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium css-1oge9gb"]',
                 mobileLinkCopyBtn : "//button[@aria-label='Copy Link']",
-                errorMessageIfCongigrationfieldIsBlank:"//p[text()='Please input more than 3 characters']",
+                errorMessageIfConfigurationfieldIsBlank:"//p[text()='Please input more than 3 characters']",
                 mobileLinkQRCode: '//div[@class="MuiDialogContent-root css-9tte1s"]',
                 saveQRCode : "//button[text()='Save QR Code']",
                 copyQRcodeBtn: "//button[text()='Copy QR Code']",
@@ -152,7 +153,7 @@ export default class triviaPage {
                 QuestionBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
                 AnswerBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[3]",
                 QuestionFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[9]",
-                AnswerFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[9]",
+                AnswerFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[10]",
                 SelectedAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[14]",
                 CorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[15]",
                 IncorrectAnswerColorBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[16]",
@@ -163,7 +164,7 @@ export default class triviaPage {
                 UserTopTenrankBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[23]",
                 TimerAnnimationfillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[5]",
                 TileBackgroundBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[6]",
-                TileCountdownFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[20]",
+                TileFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[11]",
                 PointBubbleFillBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[8]",
                 PointBubbleFrameBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[13]",
                 PointBubbleTextBtn:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[21]",
@@ -174,7 +175,7 @@ export default class triviaPage {
                 MobileBackgroundText:"//h5[text()='Mobile Background']",
                 MarketingmessageText:"//h4[text()='Marketing message']",
                 ButtonFillText:"//p[text()='Button Fill']",
-                QuestionText:"//p[text()='Question Text']",
+                QuestionText:"//p[text()='Question']",
                 AnswerText:"//p[text()='Answer Text']",
                 QuestionBackgroundText:"//p[text()='Question Background']",
                 AnswerBackgroundText:"//p[text()='Answer Background']",
@@ -187,7 +188,7 @@ export default class triviaPage {
                 LeaderboardBackgroundTextInColorSection:"//p[text()='Leaderboard Background']",
                 TimerAnnimationfillText:"//p[text()='Timer Animation Fill']",
                 TileBackgroundText:"//p[text()='Tile Background']",
-                TileCountdownFrameText:"//p[text()='Tile/Countdown Frame']",
+                TileFrameText:"//p[text()='Tile Frame']",
                 PointBubbleFillText:"//p[text()='Point-Bubble Fill']",
                 LeaderboardFrameText:"//p[text()='Leaderboard Frame']",
                 LeaderboardAccentText:"//p[text()='Leaderboard Accent']",
@@ -302,6 +303,8 @@ export default class triviaPage {
                 GameModeToggleBtn:"//div[contains(@class,'MuiSelect-select MuiSelect-outlined')]",
                 ExportPopupCloseBtn:"//div[@class='MuiBox-root css-1xnxzwa']",
                 previewToggle:"(//span[contains(@class,'MuiButtonBase-root MuiSwitch-switchBase')])[2]",
+                deleteFontBtn: "//p[text()='Aa']/following-sibling::button",
+                colorPickerSaveBtn:"//button[text()='Save']",
                 
 
 
@@ -333,651 +336,578 @@ export default class triviaPage {
         //     //     await locator.click({force:true})
         //     //     // console.log("Successfully Click To Tug of War Page ")
         // }
-        
-        async verifyGameSettingsText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GameSettingsText).textContent()
-                if((ele === "Game Settings")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+        async deleteUploadedFonts(){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.deleteFontBtn)
+                if((await ele.isVisible())){
+                         await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Trivia Game Settings text is not visible")
+                else throw new Error(`Trivia uploaded font delete button is not visible,Could not find locator:"${ele}`)
+        }
+        async verifyGameSettingsText(){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.GameSettingsText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Game Settings')
+                      
+                }
+                else throw new Error(`Trivia Game Settings text is not visible,Could not find locator:"${ele}"`)
               }
         async verifyQuestionNoScreenHeaderText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionNoScreenHeaderText).textContent()
-                if((ele === "Question No. Screen Header")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionNoScreenHeaderText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Question No. Screen Header')
                 }
-                else throw new Error("Trivia Question No. Screen Header text is not visible in game settings")
+                else throw new Error(`Trivia Question No. Screen Header text is not visible in game settings,Could not find locator:"${ele}"`)
               }
         async verifyPreGameMessageText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PreGameMessageText).textContent()
-                if((ele === "Pre Game Message")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.PreGameMessageText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Pre Game Message')
                 }
-                else throw new Error("Trivia Pre Game Messager text is not visible in game settings")
+                else throw new Error(`Trivia Pre Game Message text is not visible in game settings,Could not find locator:"${ele}"`)
               }
         async verifyPostGameMessageText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PostGameMessageText).textContent()
-                if((ele === "Post Game Message")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.PostGameMessageText)
+                if(await ele.isVisible()){
+                   await expect(ele).toContainText('Post Game Message')
                 }
-                else throw new Error("Trivia Post Game Messager text is not visible in game settings")
+                else throw new Error(`Trivia Post Game message text is not visible in game settings,Could not find locator:"${ele}"`)
               }
         async verifyAnswerShadowText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerShadowText).textContent()
-                if((ele === "Answer Shadow")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerShadowText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Answer Shadow')
                 }
-                else throw new Error("Trivia Answer Shadow text is not visible in game settings")
+                else throw new Error(`Trivia Answer Shadow text is not visible in game settings,Could not find locator:"${ele}"`)
               }
          async verifyStageFadeTransitionText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerStageFadeTransitionText).textContent()
-                if((ele === "Stage Fade Transition")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerStageFadeTransitionText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Stage Fade Transition')
                 }
-                else throw new Error("Trivia Stage Fade Transition text is not visible in game settings")
+                else throw new Error(`Trivia Stage Fade Transition text is not visible in game settings,Could not find locator:"${ele}`)
               }
          async verifyGameTitleTextInGameSettings(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GameTitleTextInGameSettings).textContent()
-                if((ele === "Game Title")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.GameTitleTextInGameSettings)
+                if(await ele.isVisible()){
+                       await expect(ele).toContainText('Game Title')
                 }
-                else throw new Error("Trivia Game Title text is not visible")
+                else throw new Error(`Trivia Game Title text is not visible in game setting module,Could not find locator:"${ele}"`)
               }
         async verifyCountdownTitleTextInGameSettings(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.CountdownTitleText).textContent()
-                if((ele === "Countdown Title")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.CountdownTitleText)
+                if(await ele.isVisible()){
+                     await expect(ele).toContainText('Countdown Title')
                 }
-                else throw new Error("Trivia countdown Title text is not visible")
+                else throw new Error(`Trivia countdown Title text is not visible in game setting module, Could not find:"${ele}"`)
               }
         async verifyLederboardTitleTextInGameSettings(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderBoardTitleText).textContent()
-                if((ele === "Leaderboard Title")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderBoardTitleText)
+                if(await ele.isVisible()){
+                      await expect(ele).toContainText('Leaderboard Title')
                 }
-                else throw new Error("Trivia Leaderboard Title text is not visible in game settings")
+                else throw new Error(`Trivia Leaderboard Title text is not visible in game settings ,Could not find loactor:"${ele}"`)
               }
         async verifyMobileBackgroundTextInColorSection(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileBackgroundTextInColorSection).textContent()
-                if((ele === "Mobile Background")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileBackgroundTextInColorSection)
+                if(await ele.isVisible()){
+                   await expect(ele).toContainText('Mobile Background')
                 }
-                else throw new Error("Trivia Mobile Background Color text is not visible")
+                else throw new Error(`Trivia Mobile Background Color text is not visible,Could not find locator:"${ele}"`)
               }
         async verifyGeneralOrButtonText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtonText).textContent()
-                if((ele === "General/Button Text")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtonText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('General/Button')
                 }
-                else throw new Error("Trivia General/Button Text text is not visible in color section")
+                else throw new Error(`Trivia General/Button Text text is not visible in color section,Could not find locator:"${ele}"`)
               }
         async verifyDeleteprizeText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.verifyDeletePrizeText).textContent()
-                if((ele === "Delete Prize?")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.verifyDeletePrizeText)
+                if(await ele.isVisible()){
+                         await expect(ele).toContainText('Delete Prize?')
                 }
-                else throw new Error("Trivia Delete Prize? t text is not visible in prize section")
+                else throw new Error(`Trivia Delete Prize? t text is not visible in prize section,could not find locator:"${ele}"`)
               }
         async verifyButtonFillText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ButtonFillText).textContent()
-                if((ele === "Button Fill")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.ButtonFillText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Button Fill')
                 }
-                else throw new Error("Trivia Button Fill Text is not visible in color section")
+               
+                else throw new Error(`Trivia Button Fill Text is not visible in color section,Could not find locator:"${ele}"`)
               }
         async verifyQuestionTextIncolorSectio(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionText).textContent()
-                if((ele === "Question Text")){
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Question Text')
                 }
-                else throw new Error("Trivia Question Text Text is not visible in color section")
+                else throw new Error(`Trivia Question Text Text is not visible in color section,Could not find locator:"${ele}"`)
               }
        
         async verifyGameTitleText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.GameTitleText).textContent()
-                if((ele === "Game Title")){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.GameTitleText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(4000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Game Title')
                 }
-                else throw new Error("New Configration text is not visible")
+                else throw new Error(`Trivia Game title text is not visible in game design module,Could not find loacator:"${ele}"`)
               }
         async verifySessionAnalyticsText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.SessionAnalyticsText).textContent()
-                if((ele === "Session Analytics")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.SessionAnalyticsText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                   await expect(ele).toContainText("Session Analytics")
                 }
-                else throw new Error("Trivia Session Analytics text is not visible in analytics section")
+                else throw new Error(`Trivia Session Analytics text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
               async verifyDateText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.DateText).textContent()
-                if((ele === "Date")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.DateText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                      await expect(ele).toContainText('Date')
                 }
-                else throw new Error("Trivia Date text is not visible in analytics section")
+                else throw new Error(`Trivia Date text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
         async verifyQRScansText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QRScansText).textContent()
-                if((ele === "QR Scans")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.QRScansText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('QR Scans')
                 }
-                else throw new Error("Trivia QR Scans text is not visible in analytics section")
+                else throw new Error(`Trivia QR Scans text is not visible in analytics sectio,Could not find locator:"${ele}"`)
               }
         async verifyTotalPlayersText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TotalPlayertext).textContent()
-                if((ele === "Total Players")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.TotalPlayertext)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Total Players')
                 }
-                else throw new Error("Trivia Total Players text is not visible in analytics section")
+                else throw new Error(`Trivia Total Players text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
          async verifyUniqueUsersPlayedText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.UniqueUsersPlayed).textContent()
-                if((ele === "Unique Users Played")){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.UniqueUsersPlayed)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Unique Users Played')
                 }
-                else throw new Error("Trivia Unique Users Played text is not visible in analytics section")
+                else throw new Error(`Trivia Unique Users Played text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
         async verifyReturningUsersText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ReturningUsersText).textContent()
-                if((ele === "Returning Users")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.ReturningUsersText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Returning Users')
                 }
-                else throw new Error("Trivia Returning Users text is not visible in analytics section")
+                else throw new Error(`Trivia Returning Users text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
         async verifyTotalTimePlayedText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TotalTimePlayedText).textContent()
-                if((ele === "Total Time Played")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.TotalTimePlayedText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Total Time Played')
                 }
-                else throw new Error("Trivia Total Time Played text is not visible in analytics section")
+                else throw new Error(`Trivia Total Time Played text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
         async verifyActionText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ActionText).textContent()
-                if((ele === "Action")){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.ActionText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(2000)
-                      // console.log("hellow")
-                       //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+                        await expect(ele).toContainText('Action')
                 }
-                else throw new Error("Trivia Action text is not visible in analytics section")
+                else throw new Error(`Trivia Action text is not visible in analytics section,Could not find locator:"${ele}"`)
               }
         async verifyAddNewPrizeText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddNewPrizeText).textContent()
-                if((ele === "Add New Prize")){
-                        
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.AddNewPrizeText)
+                if(await ele.isVisible()){
+                        await expect(ele).toContainText('Add New Prize')
                 }
-                else throw new Error("Trivia Add New Prize text is not visible in prizing section")
+                else throw new Error(`Trivia Add New Prize text is not visible in prizing section,Could not find locator:"${ele}"`)
               }
         async verifyTeamLogoText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TeamLogoText).textContent()
-                if((ele === "Team Logo")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.TeamLogoText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(4000)
+                        await expect(ele).toContainText('Team Logo')
                 }
-                else throw new Error("Team Logo text is not visible")
+                else throw new Error(`Trivia Team Logo text is not visible in game design module,Could not find locator:"${ele}"`)
               }
         async verifySponsorLogoText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.SponsorLogoTex).textContent()
-                if((ele === "Sponsor Logo")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.SponsorLogoTex)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(4000)
+                        await expect(ele).toContainText('Sponsor Logo')
              
                 }
-                else throw new Error("Trivia Sponsor Logo text is not visible")
+                else throw new Error(`Trivia Sponsor Logo text is not visible in game design module,Could not find locator:"${ele}"`)
               }
         async verifyMainboardBackgroundText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MainboardBackgroundText).textContent()
-                if((ele === "Mainboard Background")){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.MainboardBackgroundText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(6000)
+                        await expect(ele).toContainText('Mainboard Background')
                 }
-                else throw new Error("Trivia Mainboard Background text is not visible")
+                else throw new Error(`Trivia Mainboard Background text is not visible,Could not find locator:"${ele}"`)
               }
         async verifyMobileBackgroundText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileBackgroundText).textContent()
-                if((ele === "Mobile Background")){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileBackgroundText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(4000)
-             
+                        await expect(ele).toContainText('Mobile Background')
                 }
-                else throw new Error("Trivia Mobile Background text is not visible")
+                else throw new Error(`Trivia Mobile Background text is not visible,Could not find locator:"${ele}"`)
               }
         async verifyMarketingmessageText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MarketingmessageText).textContent()
-                if((ele === "Marketing message")){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.MarketingmessageText)
+                if(await ele.isVisible()){
                         await this.page.waitForTimeout(7000)
-             
+                        await expect(ele).toContainText('Mainboard Background')
                 }
-                else throw new Error("Trivia Mobile Background text is not visible")
+                else throw new Error(`Trivia Marketing message text is not visible,Could not find locator:"${ele}"`)
               }
         
        async verifyNewConfigrationText(){
-         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText).textContent()
-         if((ele === "New Configuration")){
-               // console.log("hellow")
-                //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)
+         if(await ele.isVisible()){
+                await expect(ele).toContainText('New Configuration')
          }
-         else throw new Error("New Configration text is not visible")
+         else throw new Error(`New Configration text is not visible,Could not find locator:"${ele}"`)
        }
        async verifyPrizingListText(){
-        const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingListText).textContent()
-        if((ele === "Prizing List")){
-              // console.log("hellow")
-               //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+        const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingListText)
+        if(await ele.isVisible()){
+                await expect(ele).toContainText('Prizing List')
         }
-        else throw new Error("Trivia  Prizing List text is not visible in Prizing section")
+        else throw new Error(`Trivia  Prizing List text is not visible in Prizing section,Could not find locator:"${ele}"`)
       }
       async verifyDatahasnotbeencreatedText(){
-        const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.Datahasnotbeencreated).textContent()
-        if((ele === "Data has not been created")){
-              // console.log("hellow")
-               //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
+        const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.Datahasnotbeencreated)
+        if(await ele.isVisible()){
+                await expect(ele).toContainText('Data has not been created')
         }
-        else throw new Error("Trivia  Data has not been created text is not visible in Prizing section")
+        else throw new Error(`Trivia  Data has not been created text is not visible in Prizing section,Could not find locator:"${ele}"`)
       }
-       
-        async verifyDeleteAutoConfigurationIfHave() {
-                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
-                //         await this.page.waitForSelector(ele)        
-
-                const ele = await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').last().isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').last()
-                                .click({force:true})
-                }
-
-                await this.page.waitForTimeout(3000)
-
-                const deleteBtn = await this.page.frameLocator('iframe').locator("//p[text()='Are you sure that you want to delete this configuration?']").isVisible()
-                if ((deleteBtn == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("//button[text()='Delete']")
-                                .click({force:true})
-                }
-
-
-        }
         async clickAnalyticsSection() {
-                const ele = await  this.page.frameLocator('iframe').locator(this.triviaPageElements.AnalyticsSection).last().isVisible()
-                if(ele == true){
-                        await  this.page.frameLocator('iframe').locator(this.triviaPageElements.AnalyticsSection).last().click({button:"left",delay:1000})
+                const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.AnalyticsSection).last()
+                if(await ele.isVisible()){
+                        ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Trivia Analytics section is not visible")
+                else throw new Error(`Trivia Analytics section is not visible,Could not find locator:"${ele}"`)
 
         }
     
 
         async clickAddNewConfigPlusBtn() {
-                const ele = await  this.page.frameLocator('iframe').locator(this.triviaPageElements.plusbutton).isVisible()
-                if(ele == true){
-                        await  this.page.frameLocator('iframe').locator(this.triviaPageElements.plusbutton).click()
+                const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.plusbutton)
+                if(await ele.isVisible()){
+                        await ele.click({button:'left',delay:1000})
                 }
-                else throw new Error("Plus button is not visible")
+                else throw new Error(`Trivia Plus button is not visible,Could not find locator:"${ele}"`)
 
         }
         async clickGameSettingsSection() {
                 const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.GameSettingsSection).last()
-                if(ele != null){
-                        await  this.page.frameLocator('iframe').locator(this.triviaPageElements.GameSettingsSection).last().click({button:'left',delay:1000})
+                if(await ele.isVisible() ){
+                        await this.page.waitForTimeout(3000)
+                        await  ele.last().click({button:'left',delay:1000})
                 }
                 else {
-                        throw new Error("Game Settings Section is not visible")
+                        throw new Error(`Trivia Game Settings Section is not visible,Could not find locator:"${ele}"`)
                 }
-                
-
-
-                //await this.page.waitForLoadState('networkidle')
-
-        }
-        async verifyAddNewConfigPlusWindowText() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='New Configuration']")
-                expect(ele).toContainText("New Configuration")
 
         }
 
 
         async typeConfigurationName(name : string) {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputConfigrationsName)
-                if(ele != null){
-                  expect(ele).toBeVisible()
+                if(await ele.isVisible()){
                   this.page.waitForTimeout(1000)
                   await ele.type(name)
                 }
-                else throw new Error("Configration input field is not visible")
+                else throw new Error(`Trivia Configration input field is not visible,Could not find locator:"${ele}"`)
 
         }
 
         async clickAddBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele =  this.page.frameLocator('iframe').locator("//button[text()='ADD']")
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
+                }
+                else throw new Error(`Trivia Add button is not visible,Could not find locator:"${ele}"`)
+                
 
         }
         async clickAddConfigrationBtn() {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.addConfigurationBtn)
-                if( ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.click()
+                if( await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Add configration button is not visible")
+                else throw new Error(`Add configuration button is not visible,Could not find locator:"${ele}"`)
         }
         async clickPrizingSection() {
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingSection).last().isVisible()
-                if( ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingSection).last().click({button:"left",delay:1000})
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingSection).last()
+                if(await ele.isVisible()){
+                        await ele.last().click({button:"left",delay:1000})
                         await this.page.waitForLoadState('networkidle')
                         
                 }
            
-             else {
-                throw new Error("Trivia Prizing section is not visible")
-
-             }
+             else throw new Error(`Trivia Prizing section is not visible,Could not find locator:"${ele}"`)
              
-             
-
-
-             //await this.page.waitForLoadState('networkidle')
         }
         async clickAddNewPrizeBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddNewPrizeBtn).isVisible()
-                if( ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddNewPrizeBtn).click({button:"left",delay:1000})
+                const ele =this.page.frameLocator('iframe').locator(this.triviaPageElements.AddNewPrizeBtn)
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Trivia Add New Prize button is not visible in Prizing section ")
+                else throw new Error(`Trivia Add New Prize button is not visible in Prizing section ,Could not find locator:"${ele}"`)
         }
         async clickCancelConfigrationBtn() {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.cancelConfigrationBtn)
-                if( ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.click()
+                if( await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Cancel configration button is not visible")
+                else throw new Error(`Trivia Cancel configration button is not visible,Could not find locator:"${ele}"`)
                 
 
         }
-        // async verifyErrorMessage(){
-        //         const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.blankconfigrationfield)
-        //         if(ele != null){
-        //           expect(ele).toBeVisible()
-        //           expect(ele).toContainText("Please input more than 3 characters")
-        //         }
-        //         else throw new Error("Without type data configuration add button is working")
+
+        // async clickToUploadFont() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
+
+        // }
+
+        async clickClearAllBtn() {
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.clearAllBtn)
+                if(await ele.isVisible()){
+                        await ele.click({force:true})
+                }
+              else throw new Error(`Trivia game page clear all button is not visible,Could not find locator:"${ele}`)
+        }
+        // async verifyMainColorText() {
+        //         const ele = await this.page.frameLocator('iframe').locator('text=Main Color')
+        //         expect(ele).toContainText("Main Color")
 
         // }
 
 
-        //🔚 Closed Add New Config Section Element 
-        //=======================================================
-        //▶▶Start Game Design Section Element  
-        async clickGameDesign() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(0).click()
+        // async clickMainColorPicker() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Main Color']/following-sibling::button").first()
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
 
-        }
+        // }
 
-        async clickToUploadFont() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-vjb914']//div)[1]")
-                expect(ele).toBeVisible()
-                await ele.click()
+        // async inputMainRGRFirstColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
 
-        }
+        // }
+        // async inputMainRGRSecondColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
 
-        async clickClearAllBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Clear All']").isVisible()
-                if(ele == true){
-                        await this.page.frameLocator('iframe').locator("//button[text()='Clear All']").click({force:true})
-                }
-              else throw new Error("Trivia game page clear all button is not visible")
-        }
+        // }
 
 
+        // async inputMainRGRThirdColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("9")
 
-        //start main color section element
-        async verifyMainColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Main Color')
-                expect(ele).toContainText("Main Color")
+        // }
 
-        }
+        // async inputMainRGRFourColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("90")
 
+        // }
 
-        async clickMainColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Main Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
-                await ele.click()
+        // async inputMainRGRFiveColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("F1d40FFF")
 
-        }
-
-        async inputMainRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
-
-        }
-        async inputMainRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
-
-        }
-
-
-        async inputMainRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("9")
-
-        }
-
-        async inputMainRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("90")
-
-        }
-
-        async inputMainRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("F1d40FFF")
-
-        }
+        // }
 
 
         async clickColorPickerSaveBtn() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Save')
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.colorPickerSaveBtn)
+                if(await ele.isVisible()){
+                        await ele.click({})
+                }
+                else throw new Error(`Trivia Color Picker Save button is not visible,Could not find locator:"${ele}`)
 
         }
 
         //start accent color section element
 
-        async verifyAccentColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Accent Color')
-                expect(ele).toContainText("Accent Color")
+        // async verifyAccentColorText() {
+        //         const ele = await this.page.frameLocator('iframe').locator('text=Accent Color')
+        //         expect(ele).toContainText("Accent Color")
 
-        }
-
-
-        async clickAccentColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Accent Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-        async inputAccentRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
-
-        }
-        async inputAccentRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
-
-        }
+        // }
 
 
-        async inputAccentRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("9")
+        // async clickAccentColorPicker() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Accent Color']/following-sibling::button").first()
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
 
-        }
+        // }
 
-        async inputAccentRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("90")
+        // async inputAccentRGRFirstColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
 
-        }
+        // }
+        // async inputAccentRGRSecondColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
 
-        async inputAccentRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("005782FF")
-
-        }
-
-        //start Text color section element
-
-        async verifyTextColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Text Color')
-                expect(ele).toContainText("Text Color")
-
-        }
+        // }
 
 
-        async clickTextColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
-                await ele.click()
+        // async inputAccentRGRThirdColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("9")
 
-        }
+        // }
 
-        async inputTextRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
+        // async inputAccentRGRFourColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("90")
 
-        }
-        async inputTextRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("179")
+        // }
 
-        }
+        // async inputAccentRGRFiveColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("005782FF")
 
-
-        async inputTextRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("229")
-
-        }
-
-        async inputTextRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("190")
-
-        }
-
-        async inputTextRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("FFdFFFFF")
-
-        }
-
+        // }
 
         //start Text color section element
 
-        async verifyButtonColorText() {
-                const ele = await this.page.frameLocator('iframe').locator('text=Button Color')
-                expect(ele).toContainText("Button Color")
+        // async verifyTextColorText() {
+        //         const ele = await this.page.frameLocator('iframe').locator('text=Text Color')
+        //         expect(ele).toContainText("Text Color")
 
-        }
-
-
-        async clickButtonColorPicker() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Button Color']/following-sibling::button").first()
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-        async inputButtonRGRFirstColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("189")
-
-        }
-        async inputButtonRGRSecondColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("179")
-
-        }
+        // }
 
 
-        async inputButtonRGRThirdColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("229")
+        // async clickTextColorPicker() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button").first()
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
 
-        }
+        // }
 
-        async inputButtonRGRFourColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("190")
+        // async inputTextRGRFirstColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
 
-        }
+        // }
+        // async inputTextRGRSecondColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("179")
 
-        async inputButtonRGRFiveColor() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("577C98FF")
+        // }
 
-        }
-        async verifyFullScreenLogoText() {
-                const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Full Screen Logo']")
-                expect(ele).toContainText("Full Screen Logo")
 
-        }
+        // async inputTextRGRThirdColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("229")
 
-        async verifyGameTitleImageTitleText() {
-                const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Game Title Image']")
-                expect(ele).toContainText("Game Title Image")
+        // }
 
-        }
+        // async inputTextRGRFourColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("190")
+
+        // }
+
+        // async inputTextRGRFiveColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("FFdFFFFF")
+
+        // }
+
+
+        //start Text color section element
+
+        // async verifyButtonColorText() {
+        //         const ele = await this.page.frameLocator('iframe').locator('text=Button Color')
+        //         expect(ele).toContainText("Button Color")
+
+        // }
+
+
+        // async clickButtonColorPicker() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Button Color']/following-sibling::button").first()
+        //         expect(ele).toBeVisible()
+        //         await ele.click()
+
+        // }
+
+        // async inputButtonRGRFirstColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("189")
+
+        // }
+        // async inputButtonRGRSecondColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("179")
+
+        // }
+
+
+        // async inputButtonRGRThirdColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("229")
+
+        // }
+
+        // async inputButtonRGRFourColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("190")
+
+        // }
+
+        // async inputButtonRGRFiveColor() {
+        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
+        //         expect(ele).toBeVisible()
+        //         await ele.fill("577C98FF")
+
+        // }
+        // async verifyFullScreenLogoText() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Full Screen Logo']")
+        //         expect(ele).toContainText("Full Screen Logo")
+
+        // }
+
+        // async verifyGameTitleImageTitleText() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Game Title Image']")
+        //         expect(ele).toContainText("Game Title Image")
+
+        // }
        
      
         // async clickLiveBtn(){
@@ -989,8 +919,11 @@ export default class triviaPage {
         //         else throw new Error("Live button is not visible")
         // }
         async verifyRoundError(){
-                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage)
-                       expect(ele.first()).toContainText("Please create a round")
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage).first()
+                if(await ele.isVisible()){
+                        expect(ele).toContainText("Please create a round")
+                }
+                       
                 
         }
      
@@ -1003,13 +936,18 @@ export default class triviaPage {
         //         else throw new Error("Mobile link close button is not visible")
         // }
        async clickstart (){
-        const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().isVisible()
-         if(ele == true){
-                await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().click()
+        const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last()
+         if(await ele.isVisible()){
+                await ele.last().click()
          }
+         else throw new Error(`Trivia start button is not visible,Could not find locator:"${ele}`)
        }
        async clicklive (){
-        await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().click()
+             const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last()
+             if(await ele.isVisible()){
+                await ele.click()
+         }
+         else throw new Error(`Trivia Live button is not visible,Could not find locator:"${ele}"`)
       }
  
         async clickStartBtn(){
@@ -1039,50 +977,50 @@ export default class triviaPage {
        
 }
         async clickOkBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).isVisible()
-                if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn)
+                if(await ele.isVisible()){
+                        await ele.click()
                 }
-                else throw new Error("Ok button is not visible")
+                else throw new Error(`Trivia Ok button is not visiblex,Could not find locator:"${ele}"`)
         }
         async inputCountDownSecond(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).isVisible()
-                if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).click()
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield)
+                if(await ele.isVisible()){
+                        await ele.click()
                 }
-                else throw new Error("Ok button is not visible")
+                else throw new Error(`Trivia Countdown Second input  field  is not visible,Could not find locator:"${ele}"`)
         }
         async errorMessageIfRoundIsNotCreated(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage)
-                if(ele != null){
-                expect(ele).toContainText("Please create a round")
+                if(await ele.isVisible()){
+                  expect(ele).toContainText("Please create a round")
                 }
-                else throw new Error("Error message is not visible")
+                else throw new Error(`Trivia Error message is not visible in Control panel module,Could not find locator:"${ele}"`)
         }
         async clickMobileLinkBtn(){
                 await this.page.waitForTimeout(2000)
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkBtn)
-                if(ele != null){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkBtn).last()
+                if(await ele.isVisible()){
                 // expect(ele.last()).toBeVisible()
-                ele.last().click()
+                  await ele.click()
                 }
-                else throw new Error("Mobile Link button is not visible")
+                else throw new Error(`Trivia Mobile Link button is not visible,Could not find locator:"${ele}"`)
         }
         async clickMobileLinkPopupClose(){
                 await this.page.waitForTimeout(2000)
-                const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileLinkPopupClose).isVisible()
-              if(ele == true){
-                     await  this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileLinkPopupClose).click()
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileLinkPopupClose)
+              if(await ele.isVisible()){
+                     await  ele.click()
               }
-                
+              else throw new Error(`Trivia Mobile Link Popup close button is not visible,Could not find locator:"${ele}"`)
                 
         }
         async verifyMobileLinkText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkText)
-                if(ele != null){
+                if(await ele.isVisible() ){
                 expect(ele).toContainText("Mobile Link")
                 }
-                else throw new Error("Mobile Link text is not visible")
+                else throw new Error(`Trivia Mobile Link Text is not visible,Could not find locator:"${ele}"`)
         }
         async clickMobileLinkOpenBtn() {
 
@@ -1098,33 +1036,32 @@ export default class triviaPage {
         }
         async clickMobileLinkCopyBtn(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkCopyBtn)
-                if(ele != null){
-                expect(ele).toBeVisible()
-                await ele.click()
+                        if(await ele.isVisible()){
+                        await ele.click()
                 }
-                else throw new Error("Mobile Link copy button is not visible")
+                else throw new Error(`Trivia Mobile Link copy button is not visible,Could not find locator:"${ele}"`)
         }
         async clickCloseBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.closeBtn).isVisible()
-                if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.closeBtn).click()
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.closeBtn)
+                if(await ele.isVisible()){
+                        await ele.click()
                 }
-                else throw new Error("Mobile Link copy button is not visible")
+                else throw new Error(`Trivia close button is not visible,Could not find locator:"${ele}"`)
         }
-        async verifyerrorMessageIfCongigrationfieldIsBlank(){
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageIfCongigrationfieldIsBlank)
-                if(ele != null){
+        async verifyerrorMessageIfConfigurationfieldIsBlank(){
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageIfConfigurationfieldIsBlank)
+                if(await ele.isVisible()){
                         expect(ele).toContainText("Please input more than 3 characters")
                 }
-                else throw new Error("Error message is not shown")
+                else throw new Error(`Trivia configuration field Error message is not shown,Could not find locator:"${ele}"`)
 
         }
         async vreifymobileLinkQRCode(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkQRCode)
-                if(ele != null){
-                        expect(ele).toBeVisible()
+                if(await ele.isVisible()){
+                        //expect(ele).toBeVisible()
                 }
-                else throw new Error("Mobile link QR Code is not visible")
+                else throw new Error(`Mobile link QR Code is not visible,Could not find locator:"${ele}"`)
         }
         async validateSaveQRCode(){
                 const [download] = await Promise.all([
@@ -1139,147 +1076,139 @@ export default class triviaPage {
 
         async clickCopyQRCodeBtn(){
         const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.copyQRcodeBtn)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                await ele.click()
+                if(await ele.isVisible() ){
+                  await ele.click()
                 }
+                else throw new Error(`Trivia QR Code button is not visible,Could not find locator:"${ele}"`)
         }
         async clickgamedesignSection(){
-                const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.gamedesignSection).last().click()
-          
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.gamedesignSection).last()
+                if(await ele.isVisible()){
+                        await ele.click()
+                }
+                else throw new Error(`Trivia Game Design section is not visible,Could not find locator:"${ele}"`)
         }
         async verifygamedesignText(){
-                const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.gamedesignSection).last()
-                expect(ele).toContainText("Game Design")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.gamedesignSection).last()
+                if(await ele.isVisible()){
+                        expect(ele).toContainText("Game Design")
+                }
                 
+                else throw new Error(`Trivia Game Design Text is not visible,Could not find locator:"${ele}"`)
                  
         }
         async clickfontsSection(){
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.fontsSection)
-                if(ele != null){
-                        expect(ele.last()).toBeVisible()
-                await ele.last().click()
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.fontsSection).last()
+                if(await ele.isVisible()){    
+                   await ele.click()
                 }
-                else throw new Error("Fonts section is not visible")
+                else throw new Error(`Trivia Fonts section is not visible,Could not find locator:"${ele}"`)
         }
         async verifyFontsText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.fontsText)
-                if(ele != null){
+                if(await ele.isVisible()){
                         expect(ele).toContainText("Fonts")
                 }
-                else throw new Error("Fonts text is not visible")
+                else throw new Error(`Trivia Fonts text is not visible in game design module,Could not find locator:"${ele}"`)
         }
-        async verifyUploadFontText(){
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.uploadFontsText)
-                if(ele != null){
-                        expect(ele).toContainText("Upload Font")
-                }
-                else throw new Error("Upload Font text is not visible")
-        }
-
         async clickUploadFontBtn(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.fontsUploadBtn)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.click()
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Upload Font button  is not visible")
+                else throw new Error(`Trivia Upload Font button  is not visible,Could not find locator:"${ele}"`)
+               
         }
         async verifySuccessfullyUploadFont(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.waitforFontUpload)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.click()
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Font is not successfully upload")
+                else throw new Error(`Trivia Font is not successfully uploaded,Could not find locator:"${ele}"`)
         }
         async clickControlPanelSection(){
+                await this.page.waitForTimeout(1000)
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.controlPanelSection).last()
-                if(ele != null){
-                        await ele.last().click()
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Control Panel Section is not visible")
+                else throw new Error(`Trivia Control Panel Section is not visible,Could not find locator:"${ele}"`)
                // await this.page.waitForLoadState('networkidle')
         }
         async clickAddRoundBtn(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.addRoundBtn)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.click()
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("Add round button  is not visible")
+                else throw new Error(`Trivia Control Panel Section add round button is not visible,Could not find locator:"${ele}"`)
         }
         async inputAddRoundName(RoundName : string){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAddRoundfield)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                        await ele.type(RoundName)
+                if(await ele.isVisible()){
+                        await ele.fill(RoundName)
                 }
                 else throw new Error("Add round input field  is not visible")
         }
         async clickRoundNameThreeDot(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.roundNameThreeDot)
-                if(ele != null){
-                        expect(ele).toBeVisible()
-                await ele.click()
+                if(await ele.isVisible()){
+                    await ele.click({button:"left",delay:1000})
                 }
-                else throw new Error("round name three dot is not visible")
+                else throw new Error(`Trivia Round three dot  button is not visible,Could not find locator:"${ele}"`)
         }
         async ClickeditRoundName(){
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.editRoundName)
-                if(ele != null){
-                        expect(ele.first()).toBeVisible()
-                await ele.first().click()
-                
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.editRoundName).first()
+                if(await ele.isVisible()){
+                     await ele.click()
                 }
-                else throw new Error("Edit round is not visible")
+                else throw new Error(`Trivia edit round is not visible,Could not find locator:"${ele}"`)
         }
         async EditRoundName(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAddRoundfield)
-                if(ele!= null){
+                if(await ele.isVisible()){
                         await ele.focus();
                         await this.page.keyboard.press("Meta+A");
                         await this.page.keyboard.press('Backspace');
                 }
+                else throw new Error(`Trivia round name input field is not visible,Could not find locator:"${ele}"`)
         }
         async InputEditRoundName(roundName : string){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAddRoundfield)
-                if(ele!= null){
+                if(await ele.isVisible()){
                         expect(ele).toBeVisible()
                 await ele.type(roundName)
                 }
+                else throw new Error(`Trivia round name input field is not visible,Could not find locator:"${ele}"`)
         }
         async clickSaveBtn(){
-                const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.saveBtn).isVisible()
-                if(ele != null){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.saveBtn).click({force:true})
-                        await this.page.waitForTimeout(1000)
-        
-                }
-                else throw new Error("Save button is not visible")
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.saveBtn)
+                if(await ele.isVisible()){
+                        await ele.click()
+                   }
+                   else throw new Error(`Trivia round name window save is not visible,Could not find locator:"${ele}"`)
         }
         async verifyEDITROUNDText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.EDITROUNDText)
-                if(ele!= null){
+                if(await ele.isVisible()){
                         expect(ele).toContainText("EDIT ROUND!")
-                }
-                else throw new Error("EDIT ROUND! Text is not visible")
+                   }
+                   else throw new Error(`Trivia EDIT ROUND text is not visible,Could not find locator:"${ele}"`)
+                
         }
         async verifyRoundNameText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.RoundNameText)
-                if(ele!= null){
+                if(await ele.isVisible()){
                         expect(ele).toContainText("Round Name")
-                }
-                else throw new Error("Round Name Text is not visible")
+                   }
+                   else throw new Error(`Trivia Round Name text is not visible,Could not find locator:"${ele}"`)
+               
         }
         async clickEditRoundNameCancelBtn(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.EditRoundNameCancelBtn)
-                if(ele!= null){
-                expect(ele).toBeVisible()
-                await ele.click()
-
-                }
-                else throw new Error("Round Name cancel button is not visible")
+                if(await ele.isVisible()){
+                        await ele.click({button:"left",delay:1000})
+                    }
+                    else throw new Error(`Trivia edit round name cancel  button is not visible,Could not find locator:"${ele}"`)
         }
         async ClickRoundChangingCheckbox(){
                 const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.roundingChangeCheckbox).isVisible()
@@ -1287,7 +1216,7 @@ export default class triviaPage {
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.roundingChangeCheckbox).click()
 
                 }
-                else throw new Error("Round changing checkbox is not visible")
+                else throw new Error("Trivia edit round name cancel  button is not visible")
         }
         getRandomName() {
                 return "Auto" + Date.now() + "Config"
@@ -1301,7 +1230,7 @@ export default class triviaPage {
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.outputBtn).click()
                 }
-                else throw new Error("Output Screen Link button is not visible")
+                else throw new Error("Trivia Output Screen Link button is not visible")
 
         }
         async verifyOutputScreenLinkText(){
@@ -1309,7 +1238,7 @@ export default class triviaPage {
                 if( ele === "Output Screen Link"){
 
                 }
-                else throw new Error('Output Screen Link text is not visible')
+                else throw new Error('Trivia Output Screen Link text is not visible')
         }
         async clickOutputScreenLinkOpenBtn(){
 
@@ -1325,7 +1254,7 @@ export default class triviaPage {
 
                         //await this.page.frameLocator('iframe').locator(this.triviaPageElements.OutputScreenOpenLinkBtn).click()
                 }
-                else throw new Error("Output screen link open button is not visible")
+                else throw new Error("Trivia Output screen link open button is not visible")
 
         }
         async clickOutputScreenLinkCloseBtn(){
@@ -1333,14 +1262,14 @@ export default class triviaPage {
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.OutputScreenLinkCloseBtn).click()
                 }
-                else throw new Error("Output Screen Link close button is not visible")
+                else throw new Error("Trivia Output Screen Link close button is not visible")
         }
         async clickOutputScreenLinkCopyBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.OutputScreenLinkCopyBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.OutputScreenLinkCopyBtn).click()
                 }
-                else throw new Error("Output Screen Link copy button is not visible")
+                else throw new Error("Trivia Output Screen Link copy button is not visible")
         }
         async verifySetUpText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.setupText).textContent()
@@ -1348,21 +1277,21 @@ export default class triviaPage {
                       // console.log("hellow")
                        //expect(this.page.frameLocator('iframe').locator(this.triviaPageElements.newConfigrationText)).toContainText("New Configuration")
                 }
-                else throw new Error("Set-Up text is not visible")
+                else throw new Error("Trivia Set-Up text is not visible")
               }
         async verifyCountDownStageText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownStageText).textContent()
                 if((ele === "Countdown Stage")){
 
                 }
-                else throw new Error("Countdown Stage text is not visible")
+                else throw new Error("Trivia Countdown Stage text is not visible")
               }
       async verifyQuestionText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.questiontext).textContent()
                 if((ele === "Question")){
                      
                 }
-                else throw new Error("Question text is not visible")
+                else throw new Error("Trivia Question text is not visible")
               }
         async verifyColorPickerText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ColorPickerTex).textContent()
@@ -1376,18 +1305,18 @@ export default class triviaPage {
                 if((ele === "Question Background")){
                      
                 }
-                else throw new Error("Question Background text is not visible")
+                else throw new Error("Trivia Question Background text is not visible in color section")
               }
         async verifyAnswerBackgroundText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerBackgroundText).textContent()
                 if((ele === "Answer Background")){
                      
                 }
-                else throw new Error("Question Background text is not visible")
+                else throw new Error("Trivia Question Background text is not visible in color section")
               }
-              async verifyTileCountDownFrameText(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownFrameText).textContent()
-                if((ele === "Tile/Countdown Frame")){
+              async verifyTileFrameText(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileFrameText).textContent()
+                if((ele === "Tile Frame")){
                      
                 }
                 else throw new Error("Trivia Tile/Countdown Frame text is not visible in color section")
@@ -1397,7 +1326,7 @@ export default class triviaPage {
                 if((ele === "Question Frame")){
                      
                 }
-                else throw new Error("Question Frame text is not visible")
+                else throw new Error("Trivia Question Frame text is not visible")
               }
         async verifyPointBubbleFillText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointBubbleFillText).textContent()
@@ -1457,10 +1386,9 @@ export default class triviaPage {
                 else throw new Error("Trivia Tile Background text is not visible in color section")
               }
               
-        
         async verifyAnswerText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerText).textContent()
-                if((ele === "Answer Text")){
+                if((ele === "Answer")){
                       
                 }
                 else throw new Error("Trivia Answer text is not visible in color section")
@@ -1470,49 +1398,49 @@ export default class triviaPage {
                 if((ele === "Leaderboard")){
                       
                 }
-                else throw new Error("Leaderboard text is not visible")
+                else throw new Error("Trivia Leaderboard text is not visible in control panel")
               }
         async verifyGameModeText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.gamemodeText).textContent()
                 if((ele === "Game Mode")){
 
                 }
-                else throw new Error("Game Mode text is not visible")
+                else throw new Error("Trivia Game Mode text is not visible in add round section")
         }
         async verifyManualText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.manualText).textContent()
                 if((ele === "Manual")){
 
                 }
-                else throw new Error("Manual text is not visible")
+                else throw new Error(" Trivia Manual text is not visible in round section")
         }
         async verifyAutomaticText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.automaticText).textContent()
                 if((ele === "Automatic")){
 
                 }
-                else throw new Error("Automatic text is not visible")
+                else throw new Error("Trivia game mode Automatic text is not visible in round section")
         }
         async verifyOnDemandText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ondemandText).textContent()
                 if((ele === "On-Demand")){
 
                 }
-                else throw new Error("On-Demand text is not visible")
+                else throw new Error("Trivia On-Demand text is not visible")
         }
         async verifyAutomaticTimersText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.automaticTimersText).textContent()
                 if((ele === "Automatic Timers")){
 
                 }
-                else throw new Error("Automatic Timers text is not visible")
+                else throw new Error("Trivia Automatic Timers text is not visible in round section")
         }
         async verifyLeaderboardDurationText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.leaderboarddurationText).textContent()
                 if((ele === "Leaderboard Duration")){
 
                 }
-                else throw new Error("Leaderboard Duration text is not visible")
+                else throw new Error("Trivia Leaderboard Duration text is not visible in round section")
         }
         
         
@@ -1521,168 +1449,168 @@ export default class triviaPage {
                 if((ele == true)){
 
                 }
-                else throw new Error("Count down input field  is not visible")
+                else throw new Error("Trivia Count down input field  is not visible in round section")
         }
         async verifyinputLeaderboardDurationfield(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputLeaderboardDurationfield).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Input Leaderboard Duration field is not visible")
+                else throw new Error("Trivia Input Leaderboard Duration field is not visible in round section")
         }
         async verifyPointsAllocationText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PointAllocationText).textContent()
                 if((ele === "Point Allocation")){
 
                 }
-                else throw new Error("Point Allocation text is not visible")
+                else throw new Error("Trivia Point Allocation text is not visible in round section")
         }
         async verifyinputPointsfield(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputPointsfield).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Points input  field is not visible")
+                else throw new Error("Trivia Points input  field is not visible in round section")
         }
         async verifySelectPointsFirstValu(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.selectPointsFirstvalue).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Selected Points First value is not visible")
+                else throw new Error("Trivia Selected Points First value is not visible in round section")
         }
         async verifySelectPointsSecondValu(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.selectPointsSecondvalue).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Selected Points Second value is not visible")
+                else throw new Error("Trivia Selected Points Second value is not visible in round section")
         }
         async verifySelectPointsThirdValu(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.selectPointsThirdvalue).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Selected Points Third value is not visible")
+                else throw new Error("Trivia Selected Points Third value is not visible in round section")
         }
         async verifySelectPointsFourthValu(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.selectPointsFourthvalue).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Selected Points Fourth value is not visible")
+                else throw new Error("Trivia Selected Points Fourth value is not visible in round section")
         }
         async verifyCountdowntextText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdowntextText).textContent()
                 if((ele === "Countdown Text")){
 
                 }
-                else throw new Error("Countdown Text text is not visible")
+                else throw new Error("Trivia Countdown Text text is not visible in round section")
         }
         async verifyCountdowntextRadio_Time(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownTextRadio_Time).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Countdown Text Radio_time button is not visible")
+                else throw new Error("Trivia Countdown Text Radio_time button is not visible in round section")
         }
         async verifyCountdowntextRadio_Points(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownTextRadio_Points).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Countdown Text Radio_points button is not visible")
+                else throw new Error("Trivia Countdown Text Radio_points button is not visible in round section")
         }
         async verifyCountdownTypeText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownTypeText).textContent()
                 if((ele === "Countdown Type")){
 
                 }
-                else throw new Error("Countdown Type text is not visible")
+                else throw new Error("Trivia Countdown Type text is not visible in round se")
         }
         async verifyCountdownTypeRadio_Circular(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownTypeRadio_Circular).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Countdown Type Radio_Circular button is not visible")
+                else throw new Error("Trivia Countdown Type Radio_Circular button is not visible in round section")
         }
         async verifyCountdownTypeRadio_Lenear(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.countdownTypeRadio_Lenear).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Countdown Type Radio_Lenear button is not visible")
+                else throw new Error("Trivia Countdown Type Radio_Lenear button is not visible in round section")
         }
         async verifyQuestionSequenceText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionSecquenceText).textContent()
                 if((ele === "Question Sequence")){
 
                 }
-                else throw new Error("Question Sequennce text is not visible")
+                else throw new Error("Trivia Question Sequennce text is not visible")
         }
         async verifyQuestionSequenceRandomBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionSequenceRandomBtn).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Question Sequence Random button is not visible")
+                else throw new Error("Trivia Question Sequence Random button is not visible")
         }
         async verifyQuestionsequenceSequenceBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionsequenceSequenceBtn).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Question Sequence  Sequence_button is not visible")
+                else throw new Error("Trivia Question Sequence  Sequence_button is not visible")
         }
         async verifyLeaderboardEventBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderboardEventBtn).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Leaderboard Event button is not visible")
+                else throw new Error("Trivia Leaderboard Event button is not visible")
         }
         async verifyLeaderboardRoundBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderboardRoundBtn).isVisible()
                 if((ele == true)){
 
                 }
-                else throw new Error("Leaderboard Round button is not visible")
+                else throw new Error("Trivia Leaderboard Round button is not visible")
         }
         async verifyErrorMessageInCountdownStage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ErrorMessageInCountdownStage).textContent()
                 if((ele === "Wrong value, limit 99")){
 
                 }
-                else throw new Error("Wrong value, limit 99 is not visible")
+                else throw new Error("Trivia Wrong value, limit 99 is not visible")
         }
         async inputCountDownStage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).fill('100')
                 }
-                else throw new Error("Coundown stage input field is not visible")
+                else throw new Error("Trivia Coundown stage input field is not visible")
         }
         async inputLeaderBoardDuration(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputLeaderboardDurationfield).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputLeaderboardDurationfield).fill('100')
                 }
-                else throw new Error("Leaderboard deuration input field is not visible")
+                else throw new Error("Trivia Leaderboard deuration input field is not visible")
         }
         async verifyErrorMessageInLeaderboardDuration(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ErrorMessageInCountdownStage).textContent()
                 if((ele === "Wrong value, limit 99")){
 
                 }
-                else throw new Error("Wrong value, limit 99 text is not visible")
+                else throw new Error("Trivia Wrong value, limit 99 text is not visible")
         }
         async verifyErrorMessageInQuestionNoStage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ErrorMessageInCountdownStage).textContent()
                 if((ele === "Wrong value, limit 99")){
 
                 }
-                else throw new Error("Wrong value, limit 99 text is not visible")
+                else throw new Error("Trivia Wrong value, limit 99 text is not visible")
         }
         async verifyErrorMessageInQuestionReveal(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ErrorMessageInCountdownStage).textContent()
@@ -1690,14 +1618,14 @@ export default class triviaPage {
 
                 }
              
-                else throw new Error("Wrong value, limit 99 text is not visible")
+                else throw new Error("Trivia Wrong value, limit 99 text is not visible")
         }
         async verifyErrorMessageInPointsAllocation(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageInPointsAllocation).textContent()
                 if((ele === "Wrong value, limit 9999")){
 
                 }
-                else throw new Error("Wrong value, limit 9999 text is not visible")
+                else throw new Error("Trivia Wrong value, limit 9999 text is not visible")
         }
         async inputQuestionNoStage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputQuestionNoStage).isVisible()
@@ -1712,70 +1640,70 @@ export default class triviaPage {
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputQuestionReveal).fill('100')
                 }
-                else throw new Error("Question Reveal input field is not visible")
+                else throw new Error("Trivia Question Reveal input field is not visible")
         }
         async inputPointAllocationPointsfield(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputInpointsAllocationPointsfield).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputInpointsAllocationPointsfield).fill('10000')
                 }
-                else throw new Error("Points input field is not visible")
+                else throw new Error("Trivia Points input field is not visible")
         }
         async inputPointAllocationSecondfield(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputInpointsAllocationSecondsfield).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputInpointsAllocationSecondsfield).fill('10000')
                 }
-                else throw new Error("Seconds input field is not visible")
+                else throw new Error("Trivia Seconds input field is not visible")
         }
         async clickExportBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ExportBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.ExportBtn).click()
                 }
-                else throw new Error("Export button is not visible")
+                else throw new Error("Trivia Export button is not visible")
         }
         async clickConfirmExportBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.ExportConfirmBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.ExportConfirmBtn).click({force:true})
                 }
-                else throw new Error("Export confirm button is not visible")
+                else throw new Error("Trivia Export confirm button is not visible is not visible")
         }
         async verifyErrorMessageExportBtnIfQuestionisnotAdd(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageExportBtn).textContent()
                 if((ele === "This round has no questions!")){
 
                 }
-                else throw new Error("This round has no questions!")
+                else throw new Error("Trivia This round has no questions! is not visible")
         }
         async verifyFailedExportMessage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.faileExport).textContent()
                 if((ele === "Failed to Export!")){
 
                 }
-                else throw new Error("Failed to Export!")
+                else throw new Error("Trivia Failed to Export! text is not visible")
         }
         async clickAddQuestionBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddQuestionBtn).isVisible()
                 if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddQuestionBtn).click()
                 }
-                else throw new Error("Add question button is not visible")
+                else throw new Error("Trivia Add question button is not visible")
         }
         async verifyAddQuestionText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddQuestionText).textContent()
                 if((ele === "Add Question")){
 
                 }
-                else throw new Error("Add Question text is not visible")
+                else throw new Error("Trivia Add Question text is not visible")
         }
         async verifyCustomQuestionTypetext(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.CustomQuestionTypeText).textContent()
                 if((ele === "Custom Question Type:")){
 
                 }
-                else throw new Error("Custom Question Type: text is not visible")
+                else throw new Error("Trivia Custom Question Type: text is not visible")
         }
         async verifyAlignmentText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AlignmentsText).textContent()
@@ -1796,35 +1724,35 @@ export default class triviaPage {
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.addquestionCloseBtn).click()
                 }
-                else throw new Error("Countdown Add question close button is not visible")
+                else throw new Error("Trivia Countdown Add question close button is not visible")
         }
         async clickFreeResponseRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.freeResponseRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.freeResponseRadioBtn).click()
                 }
-                else throw new Error("Free response radio button is not visible")
+                else throw new Error("Trivia Free response radio button is not visible")
         }
         async clickMultipleChoiceRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.multipleChoiceRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.multipleChoiceRadioBtn).click()
                 }
-                else throw new Error("Multiple Choice radio button is not visible")
+                else throw new Error("Trivia Multiple Choice radio button is not visible")
         }
         async clickAddMediaBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addMediaBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.addMediaBtn).click()
                 }
-                else throw new Error("Add media button is not visible")
+                else throw new Error("Trivia Add media button is not visible")
         }
         async verifyAddMediatext(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AddmediaText).textContent()
                 if((ele === "Add Media")){
 
                 }
-                else throw new Error("Add Media text is not visible")
+                else throw new Error("Trivia Add Media text is not visible")
         }
         async verifyLeaderboardFrametext(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LeaderboardFrameText).textContent()
@@ -1845,7 +1773,7 @@ export default class triviaPage {
                 if((ele === "Mobile Media")){
 
                 }
-                else throw new Error("Mobile Media text is not visible")
+                else throw new Error("Trivia Mobile Media text is not visible")
         }
         async verifyAnswerShapetext(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.AnswerShapeText).textContent()
@@ -1880,35 +1808,35 @@ export default class triviaPage {
                 if((ele === "Mainboard Media")){
 
                 }
-                else throw new Error("Mainboard Media text is not visible")
+                else throw new Error("Trivia Mainboard Media text is not visible")
         }
         async clickMobileMediaImageRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).click()
                 }
-                else throw new Error("Mobile media Image radio button is not visible")
+                else throw new Error("Trivia Mobile media Image radio button is not visible")
         }
         async clickMobileMediaVideoRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaVideoRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaVideoRadioBtn).click()
                 }
-                else throw new Error("Mobile media Video radio button is not visible")
+                else throw new Error("Trivia Mobile media Video radio button is not visible")
         }
         async clickMainboardImageediaVideoRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mainboardmediaImageRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mainboardmediaImageRadioBtn).click()
                 }
-                else throw new Error("Mainboard media Image radio button is not visible")
+                else throw new Error("Trivia Mainboard media Image radio button is not visible")
         }
         async clickMainboardmediaVideoRadioBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mainboardmediaVideoRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mainboardmediaVideoRadioBtn).click()
                 }
-                else throw new Error("Mainboard media video radio button is not visible")
+                else throw new Error("Trivia Mainboard media video radio button is not visible")
         }
         async validateExportBtn() {
                 await this.page.waitForTimeout(1000)
@@ -1944,14 +1872,14 @@ export default class triviaPage {
                 if(ele == true ){
                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.fileChooseBtn).click()
                 }
-                else throw new Error("File chooser button is not visible")
+                else throw new Error("Trivia File chooser button is not visible")
         }
         async ClickForUploadMobileMediaImageInAddQuestionSection(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addQuestionUploadMobileMediaImageOrVideoBtn).isVisible()
                 if(ele == true ){
                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.addQuestionUploadMobileMediaImageOrVideoBtn).click({force:true})
                 }
-                else throw new Error("Mobile Media image upload button is not visible")
+                else throw new Error("Trivia Mobile Media image upload button is not visible")
 
         }
         async ClickForUploadMainboardMediaImageInAddQuestionSection(){
@@ -1959,7 +1887,7 @@ export default class triviaPage {
                 if(ele == true ){
                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.addQuestionUploadMainboardMediaImageOrVideoBtn).click()
                 }
-                else throw new Error("Mainboard Media image upload button is not visible")
+                else throw new Error("Trivia Mainboard Media image upload button is not visible")
 
         }
         async clickAddAnswerBtn(){
@@ -1967,7 +1895,7 @@ export default class triviaPage {
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.addAnswerBtn).click()
           }
-          else throw new Error("Add answer for multiple choice button is not visible")
+          else throw new Error("Trivia Add answer for multiple choice button is not visible")
         }
         async clickLiveBtn(){
                 const ele1 = await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().isVisible()
@@ -1979,14 +1907,14 @@ export default class triviaPage {
                         if(ele == true ){
                                      await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().click()
                             }
-                            else throw new Error("Live button is not visible")
+                            else throw new Error("Trivia Live button is not visible")
                 }
                 else{
                         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().isVisible()
                         if(ele == true ){
                                      await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().click()
                             }
-                            else throw new Error("Live button is not visible")
+                            else throw new Error("Trivia Live button is not visible")
 
                 }
                 
@@ -1996,98 +1924,105 @@ export default class triviaPage {
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputQuestion).type("which one is better jpg or png?")
           }
-          else throw new Error("Input Question field is not visible")
+          else throw new Error("Trivia Input Question field is not visible")
        }
        async inputFirstMultipleQuestionAnswer(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputforMultipleChoiceAnswer).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputforMultipleChoiceAnswer).type("PNG")
           }
-          else throw new Error("Input Question field is not visible")
+          else throw new Error("Trivia Input Question field is not visible")
        }
        async inputSecondMultipleQuestionAnswer(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputforMultipleChoiceAnswer).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputforMultipleChoiceAnswer).type("JPEG")
           }
-          else throw new Error("Input Question field is not visible")
+          else throw new Error("Trivia Input Question field is not visible")
        }
      async  clickAddCorrectAnswerBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addCorrectAnswerBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.addCorrectAnswerBtn).click()
           }
-          else throw new Error("Add correct answer button is not visible")
+          else throw new Error("Trivia Add correct answer button is not visible")
      }
      async  clickFirstAddAcctableAnswerBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addAccetableAnswerBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.addAccetableAnswerBtn).click()
           }
-          else throw new Error("Add first accectable answer button is not visible")
+          else throw new Error("Trivia Add first accectable answer button is not visible")
      }
      async  clickSecondAddAcctableAnswerBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addAccetableAnswerBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.addAccetableAnswerBtn).click()
           }
-          else throw new Error("Add Second accectable answer button is not visible")
+          else throw new Error("Trivia Add Second accectable answer button is not visible")
      }
      async inputCorrectAnswer(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCorrectAnswer).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCorrectAnswer).type('PNG')
           }
-          else throw new Error("Add correct answer input is not visible")
+          else throw new Error("Trivia Add correct answer input is not visible")
      }
      async  inputSecondAcctableAnswer(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAcceptableAnswer).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAcceptableAnswer).type('JPEG')
           }
-          else throw new Error("Add accectable answer input is not visible")
+          else throw new Error("Trivia Add accectable answer input is not visible")
      }
      async  inputFirstAcctableAnswer(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAcceptableAnswer).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAcceptableAnswer).type('PNG')
           }
-          else throw new Error("Add accectable answer input is not visible")
+          else throw new Error("Trivia Add accectable answer input is not visible")
      }
      async clikCorrectAnswerSaveBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.correctAnswerSaveBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.correctAnswerSaveBtn).click()
           }
-          else throw new Error("Correct answer save button is not visible")
+          else throw new Error("Trivia Correct answer save button is not visible")
      }
      async clikAcctableAnswerSaveBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.acctableAnswerSaveBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.acctableAnswerSaveBtn).click()
           }
-          else throw new Error("Accectable answer save button is not visible")
+          else throw new Error("Trivia Accectable answer save button is not visible")
      }
      async clickAddQuestionSaveBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.addQuestionSaveBtn).isVisible()
         if(ele == true ){
               await this.page.frameLocator('iframe').locator(this.triviaPageElements.addQuestionSaveBtn).click({force : true})
         }
-        else throw new Error("Add question save button is not visible")
+        else throw new Error("Trivia Add question save button is not visible")
      }
      async clickAnswerSaveBtn(){
         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.answerSaveBtn).isVisible()
           if(ele == true ){
                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.answerSaveBtn).click()
           }
-          else throw new Error("Accectable answer save button is not visible")
+          else throw new Error("Trivia Accectable answer save button is not visible")
      }
       
         async clickTriviaSection(){
-                const ele = this.page.locator(this.triviaPageElements.triviaSestion)
-                expect(ele).toBeVisible()
-                await ele.click()
+                const ele = await this.page.locator(this.triviaPageElements.triviaSestion)
+                    try{
+                        await ele.click()
+                        await this.page.waitForTimeout(3000)
+                    }
+                      catch(error){
+                        throw(`Trivia game page is not visible,Could not find:"${ele}"`)
+                      }
+                
                 await this.page.waitForLoadState('networkidle')
+                
         }
 
         async verifyConfigurationsText() {
@@ -2097,10 +2032,10 @@ export default class triviaPage {
                 
 
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.configurationText) 
-                if(ele != null){
+                if(await ele.isVisible()){
                         expect(ele).toContainText("Configurations")
                 }
-                else throw new Error("Configrations text is not visible")
+                else throw new Error("Trivia Configrations text is not visible")
                  
 
 
@@ -2187,7 +2122,7 @@ export default class triviaPage {
                       await  this.page.frameLocator('iframe').locator(this.triviaPageElements.UploadsAndDialogsBtn).click()
                       await this.page.waitForTimeout(1000)
                 }
-                else throw new Error('Game title button is not visible')
+                else throw new Error('Trivia Game title button is not visible')
         }  
         async openAddBannerSection(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickAddBannerSection).isVisible()
@@ -2216,19 +2151,20 @@ export default class triviaPage {
                 if(ele == true){
                         
                 }
+                else throw new Error(" Trivia Sponsor logo delete button is not visible")
 
         }
         async verifysuccessfullyuploadMainboardBackgroundBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
                 if(ele == true){
                 }
-
+                else throw new Error(" Trivia Mainboard background delete button is not visible")
         }
         async verifysuccessfullyuploadMobileBackgroundBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
                 if(ele == true){
                 }
-
+                else throw new Error(" Trivia Mobile background delete button is not visible")
         }
         async clickBackgroundColorBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.backgroundColorBtn).isVisible()
@@ -2236,7 +2172,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.backgroundColorBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Background Color button is not visible")
+                else throw new Error("Trivia Background Color button is not visible in Game design color section")
 
         }
         async clickGeneralButtonTextColorBtn(){
@@ -2245,7 +2181,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtoncolorBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("General/Button text Color button is not visible")
+                else throw new Error("Trivia General/Button text Color button is not visible in game design color section")
 
         }
         async inputFirstRGB(){
@@ -2411,13 +2347,13 @@ export default class triviaPage {
                 }
                 else throw new Error("Trivia Tile Background button  is not visible in color section")
         }
-        async   clickTileCountdownFrameBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownFrameBtn).isVisible()
+        async   clickTileFrameBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileFrameBtn).isVisible()
                 if(ele == true){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileCountdownFrameBtn).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.TileFrameBtn).click()
                         await this.page.waitForTimeout(1000)
                 }
-                else throw new Error("Trivia Tile/Countdown Frame button  is not visible in color section")
+                else throw new Error("Trivia Tile Frame button  is not visible in color section")
         }
         async   clickTimerAnnimationColorBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.TimerAnnimationfillBtn).isVisible()
@@ -2658,7 +2594,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH1).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H1 heding is not visible in game settings")
         }
         async   clickH2Heding(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH2).isVisible()
@@ -2666,7 +2602,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH2).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H2 heding is not visible in game settings")
         }
         async   clickH3Heding(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH3).isVisible()
@@ -2674,7 +2610,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH3).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H3 heding is not visible in game settings")
         }
         async   clickH4Heding(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH4).isVisible()
@@ -2682,7 +2618,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH4).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H4 heding is not visible in game settings")
         }
         async   clickH5Heding(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH5).isVisible()
@@ -2690,7 +2626,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH5).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H5 heding is not visible in game settings")
         }
         async   clickH6Heding(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH6).isVisible()
@@ -2698,7 +2634,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickH6).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-                
+                else throw new Error("Trivia  H6 heding is not visible in game settings")
         }
         async   clickQuestionNoScreenLeft(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionScreenHeaderLeft).isVisible()
@@ -2706,7 +2642,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionScreenHeaderLeft).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-               // else throw new Error("Trivia QuestionNo Screen Header Left")
+                else throw new Error("Trivia  question no screen left button is not visible")
                  
         }
         async   clickQuestionNoScreenRight(){
@@ -2716,7 +2652,7 @@ export default class triviaPage {
                        // await this.page.waitForTimeout(1000)
                 }
            
-                 
+                else throw new Error("Trivia  question no screen right button is not visible")
         }
         async   clickQuestionNoScreenCenter(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionScreenHeaderRight).isVisible()
@@ -2725,7 +2661,7 @@ export default class triviaPage {
                       
                 }
            
-                 
+                else throw new Error("Trivia  question no screen center button is not visible")
         }
         async   clickQuestionNoScreenHeaderOutdent(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionNoScreenHeaderOutdent).isVisible()
@@ -2733,7 +2669,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionNoScreenHeaderOutdent).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia  question no screen header outdent button is not visible")
                  
         }
         async   clickQuestionNoScreenHeaderIndent(){
@@ -2743,7 +2679,7 @@ export default class triviaPage {
                       
                 }
            
-              
+                else throw new Error("Trivia  question no screen header indent button is not visible")
                 
         }
         async   clickQuestionNoScreenHeaderOrdered(){
@@ -2752,7 +2688,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionNoScreenHeaderOrdered).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia  question no screen header ordered button is not visible")
                  
         }
         async   clickQuestionNoScreenHeaderUnordered(){
@@ -2761,6 +2697,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickQuestionNoScreenHeaderUnordered).click({button:"left",delay:1000})
                       
                 }
+                else throw new Error("Trivia  question no screen header unordered button is not visible")
            
         }
         async   clickPreGameMessage_droppdown_Font_Arial(){
@@ -2769,7 +2706,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.PreGameMessage_dropdown_Font_Arial).click({button:"left",delay:1000})
                     
                 }
-           
+                else throw new Error("Trivia pre game droppdown_Font_Arial button is not visible")
                  
         }
         async   clickPostGameMessage_droppdown_Font_Arial(){
@@ -2779,7 +2716,7 @@ export default class triviaPage {
                     
                 }
            
-                 
+                else throw new Error("Trivia post game droppdown_Font_Arial button is not visible")
         }
         
         
@@ -2790,7 +2727,7 @@ export default class triviaPage {
                       
                 }
            
-                 
+                else throw new Error("Trivia pre game droppdown button is not visible")
         }
         async   clickPreGameMessageLeft(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageLeft).isVisible()
@@ -2798,7 +2735,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageLeft).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-               // else throw new Error("Trivia QuestionNo Screen Header Left")
+                else throw new Error("Trivia pre game message left button is not visible")
                  
         }
         async   clickPreGameMessageRight(){
@@ -2807,7 +2744,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageRight).click({button:"left",delay:1000})
                        // await this.page.waitForTimeout(1000)
                 }
-           
+                else throw new Error("Trivia pre game message right button is not visible")
                  
         }
         async   clickPreGameMessageCenter(){
@@ -2816,7 +2753,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageCenter).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia pre game message center button is not visible")
                  
         }
         async   clickPreGameMessageOutdent(){
@@ -2826,7 +2763,7 @@ export default class triviaPage {
                       
                 }
            
-                 
+                else throw new Error("Trivia pre game message outdent button is not visible")
         }
         async   clickPreGameMessageIndent(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageIndent).isVisible()
@@ -2835,7 +2772,7 @@ export default class triviaPage {
                       
                 }
            
-              
+                else throw new Error("Trivia pre game message indent button is not visible")
                 
         }
         async   clickPreGameMessageOrdered(){
@@ -2844,7 +2781,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageOrdered).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia pre game message ordered button is not visible")
                  
         }
         async   clickPreGameMessageUnordered(){
@@ -2853,7 +2790,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.clickPreGameMessageUnordered).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia pre game message unordred button is not visible")
         }
         async   clickPreGame_dropdown_Font(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PreGameMessage_Font).isVisible()
@@ -2861,7 +2798,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.PreGameMessage_Font).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia pre game message PreGame_dropdown_Font button is not visible")
         }
         async   clickPostGame_dropdown_Font(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.PostGameMessage_Font).isVisible()
@@ -2869,7 +2806,7 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.PostGameMessage_Font).click({button:"left",delay:1000})
                       
                 }
-           
+                else throw new Error("Trivia pre game message PostGame_dropdown_Font button is not visible")
         }
         async   InputAddNewPrizeTitlename_Cola(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputAddNewPrizeTitleName).isVisible()
@@ -3102,9 +3039,4 @@ export default class triviaPage {
                 else throw new Error('Trivia Preview toggle is not visible')
         }
        
-
-
-        
-        
-}
-
+        }

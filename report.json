@@ -20,7 +20,8 @@
         "testDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
         "testIgnore": [],
         "testMatch": [
-          "012Trivia.test.ts"
+          "012Trivia.test.ts",
+          "guesstheScore.test.ts"
         ],
         "timeout": 300000
       }
@@ -54,13 +55,13 @@
   },
   "suites": [
     {
-      "title": "tests/03Games/012Trivia.test.ts",
-      "file": "tests/03Games/012Trivia.test.ts",
+      "title": "tests/03Games/guesstheScore.test.ts",
+      "file": "tests/03Games/guesstheScore.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "012TV-096 | Validate input RGB Point-Bubble Text color is working.",
+          "title": "0013GTS-007 |validate game settings option is working.",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,34 +75,26 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 35386,
+                  "duration": 20101,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "Login Admin",
-                      "duration": 11513
+                      "title": "Login Admin And land game settings of guess the score",
+                      "duration": 13856
                     },
                     {
-                      "title": "Click On The Trivia Section",
-                      "duration": 2210
+                      "title": "validate scores section is working",
+                      "duration": 1832
                     },
                     {
-                      "title": "Open upload fonts section",
-                      "duration": 4366
-                    },
-                    {
-                      "title": "Open color section",
-                      "duration": 3944
-                    },
-                    {
-                      "title": "Now validate Point-Bubble Text color is working",
-                      "duration": 10373
+                      "title": "validate times section is working",
+                      "duration": 2575
                     }
                   ],
-                  "startTime": "2023-02-17T13:31:41.400Z",
+                  "startTime": "2023-02-24T09:48:00.327Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -111,7 +104,7 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-096-Validate-input-RGB-Point-Bubble-Text-color-is-working-/test-finished-1.png"
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-guesstheScore-0013GTS-007-validate-game-settings-option-is-working-/test-finished-1.png"
                     }
                   ]
                 }
@@ -119,9 +112,9 @@
               "status": "expected"
             }
           ],
-          "id": "923949df3e7701a35fec-077a787c871300c3f060",
-          "file": "tests/03Games/012Trivia.test.ts",
-          "line": 3795,
+          "id": "0de45138bb1b85ba065c-5db0075012e3d3aeefd5",
+          "file": "tests/03Games/guesstheScore.test.ts",
+          "line": 425,
           "column": 6
         }
       ]

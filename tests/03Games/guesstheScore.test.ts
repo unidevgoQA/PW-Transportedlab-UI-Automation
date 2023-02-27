@@ -9,7 +9,71 @@ import guesstheScoreMobilePage from '../../pages/MobileGamesPage/guessthescore_m
 const clipboard = require("clipboardy");
 var url: any;
 var text: string;
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
+
+    await page.goto('/admin/#/sign-in')
+    await loginPage.login(data.username, data.password)
+    const title = await page.title();
+    expect(title).toBe('DXP Admin')
+
+    await MainMenu.clickHomeAvater();
+    await MainMenu.mainMenuBtn();
+    await MainMenu.clickMobileDesign();
+
+    //Click on the menu page
+    await menuPage.clickMenuPage()
+    //verify font text
+    await menuPage.checkFontsText();
+
+    //Verify upload font text
+    await menuPage.checkUploadFontText();
+
+   await menuPage.deleteUploadedFont()
+
+   await functions.fontUploadFunction()
+   await menuPage.clickToUploadFont()
+    await menuPage.verifyFontUploadedSuccessfully()        
+
+    await menuPage.clickBackgroundColorInputField()
+    await menuPage.inputBackgroundColor()
+    await menuPage.clickColorPickerWindowSaveBtn()
+
+    await menuPage.clickTextColorInputField()
+    await menuPage.inputTextColor()
+    await menuPage.clickColorPickerWindowSaveBtn()
+
+
+    await menuPage.clickActiveBackgroundColorInputField()
+    await menuPage.inputActiveBackgroundColor()
+    await menuPage.clickColorPickerWindowSaveBtn()
+
+
+    await menuPage.clickActiveTextColorInputField()
+    await menuPage.inputActiveTextColor()
+    await menuPage.clickColorPickerWindowSaveBtn()
+    await menuPage.selectBottomAlignmentMenuBar()
+
+    await singupPage.clickSignUpPage()
+    await singupPage.clickAnonymousLoginOption()
+    await singupPage.clickAdditionalInfoPhoneNumberCheckbox()
+    await singupPage.clickAdditionalInfoEmailAddressCheckbox()
+    await singupPage.clickAdditionalInfoAgeCheckbox()
+    await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
+    await singupPage.clickAdditionalInfoZipCodeCheckbox()
+    await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+
+    await languagePage.clickLanguagePage()
+    await languagePage.clickUserForceLanguageOption()
+    await languagePage.clickForceLanguageInputField()
+    await languagePage.selectEnglishLanguage()
+
+
+
+
+
+
+})
 test("0013GTS-001 | validate Add New Configuration in guess the score is working.", async ({ loginPage, guesstheScorePage, page, }, testInfo) => {
 
     await test.step("Login Admin And land To guess the score", async () => {
@@ -59,7 +123,7 @@ test("0013GTS-001 | validate Add New Configuration in guess the score is working
     })
 
 })
-test.only("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, guesstheScorePage, functions, page, }, testInfo) => {
+test("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, guesstheScorePage, MainMenu,menuPage,functions, page, }, testInfo) => {
     await test.step("Login Admin And land To guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -85,12 +149,14 @@ test.only("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPa
     })
     await test.step(" Validate Font Upload Functionality", async () => {
         
-        // await guesstheScorePage.clickGuessTheScoreSection()
-        // await guesstheScorePage.clickGameDesign()
         
-   
+        await guesstheScorePage.verifyFontsText()
+        await guesstheScorePage.verifyUploadFontsText()
+        //await guesstheScorePage.deleteUploadedFont()
         //font upload here
         await functions.fontUploadFunction()
+        //delete frond if alredy uploaded
+        
         await guesstheScorePage.clickToUploadFont()
         await guesstheScorePage.waitforuploadcomplete()
         //await page.waitForTimeout(4000)
@@ -103,7 +169,7 @@ test.only("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPa
 
 })
 
-test.only("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -141,6 +207,7 @@ await test.step("Now game open in mobile screen",async()=>{
     await newguessthescoregame.typezip()
     await newguessthescoregame.clicksubmit()
    // await newguessthescoregame.clcikHomePageInMobileScreen()
+   await newTab.waitForTimeout(4000)
     await newguessthescoregame.verifyTodaysLineUpBtnText()
     await newguessthescoregame.verifyFontAppliedSuccessfullyInMobileScreen()
     
@@ -355,7 +422,7 @@ test("0013GTS-006 |test editor section functionalities.", async({ loginPage, gue
     })
 
 })
-test("0013GTS-007 |validate game settings option is working.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.only("0013GTS-007 |validate game settings option is working.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game settings of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -370,7 +437,6 @@ test("0013GTS-007 |validate game settings option is working.", async({ loginPage
         })
 
         await guesstheScorePage.clickGuessTheScoreSection()
-        await page.waitForTimeout(2000)
         await guesstheScorePage.clickgamesettings()
         await page.waitForTimeout(1000)
 
@@ -457,6 +523,7 @@ test("0013GTS-009 | Validate Plus button is visible.",async({ loginPage, guessth
 
     })
     await test.step("Check + button visibility", async()=>{
+        await guesstheScorePage.verifyConfigurationsText()
         await guesstheScorePage.verifyPlusBtn()
     })
 })
@@ -778,7 +845,7 @@ test("0013GTS-020 | Validate analytics settings is visible.",async({loginPage,  
     })
    await test.step("Validate analytics settings is visible",async()=>{
       await guesstheScorePage.verifyAnalyticsText()
-      await guesstheScorePage.clickAnalyticsBtn()
+      await guesstheScorePage.clickAnalyticsSection()
       await guesstheScorePage.verifyDateText()
       await guesstheScorePage.verifyQRScsnsText()
       await guesstheScorePage.verifyTotalPlayersText()
@@ -1281,9 +1348,9 @@ test("0013GTS-032 |Validate background color change is visible on mobile screen.
 })
 await test.step("Open Image Upload Section",async()=>{
     await guesstheScorePage.openimagesection()
-    await guesstheScorePage.deleteUploadedMobileBanner()
-    await guesstheScorePage.deleteUploadedMobileSponsorLogo()
-    await guesstheScorePage.deleteUploadedMobileGameTitleLogo()
+    await guesstheScorePage.deleteUploadedMobileBackground()
+    await guesstheScorePage.deleteUploadedSponsorLogo()
+    await guesstheScorePage.deleteUploadedGameTitleLogo()
     await guesstheScorePage.deleteUploadedMobileBackground()
 
 })
@@ -1416,9 +1483,9 @@ test.skip("0013GTS-038 | Validate error if wrong file is selected as background 
         await guesstheScorePage.clickGameDesign()
         //await guesstheScorePage.verifyopenImageUploadSection()
         await guesstheScorePage.openimagesection()
-        await guesstheScorePage.deleteUploadedMobileBanner()
-        await guesstheScorePage.deleteUploadedMobileSponsorLogo()
-        await guesstheScorePage.deleteUploadedMobileGameTitleLogo()
+        await guesstheScorePage.deleteUploadedMobileBackground()
+        await guesstheScorePage.deleteUploadedSponsorLogo()
+        await guesstheScorePage.deleteUploadedGameTitleLogo()
         await guesstheScorePage.deleteUploadedMobileBackground()
 
     })
@@ -1577,9 +1644,9 @@ test("0013GTS-042 | validate  Background image upload works.", async({ loginPage
         await guesstheScorePage.clickGameDesign()
         //await guesstheScorePage.verifyopenImageUploadSection()
         await guesstheScorePage.openimagesection()
-        await guesstheScorePage.deleteUploadedMobileBanner()
-        await guesstheScorePage.deleteUploadedMobileSponsorLogo()
-        await guesstheScorePage.deleteUploadedMobileGameTitleLogo()
+        await guesstheScorePage.deleteUploadedBannerImage()
+        await guesstheScorePage.deleteUploadedSponsorLogo()
+        await guesstheScorePage.deleteUploadedGameTitleLogo()
         await guesstheScorePage.deleteUploadedMobileBackground()
 
     })
@@ -2207,7 +2274,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
 
     await test.step("Validate buttons Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.buttonstextColorPicker()
+        await guesstheScorePage.clickbuttonsColorPicker()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -2235,9 +2302,9 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
 
     await test.step("Validate Event title font Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.EventtitlefontColorPicker()
+        await guesstheScorePage.clickEventtitlefontColorPicker()
         await page.waitForTimeout(1000)
-        await guesstheScorePage.clickplusbuttonswatches()
+       // await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
         await guesstheScorePage.inputRGBSecondColor()
         await guesstheScorePage.inputRGBThirdColor()
@@ -2249,7 +2316,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
 
     await test.step("Validate timer circle Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.TimerCircleColorPicker()
+        await guesstheScorePage.clickTimerCircleColorPicker()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -2277,7 +2344,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
 
     await test.step("Validate gameplay score text Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.gameplayscoretextColorPicker()
+        await guesstheScorePage.clickgameplayscoretextColorPicker()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -2291,7 +2358,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
     
     await test.step("Validate timer background Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
-        await guesstheScorePage.TimerBackgroundColorPicker()
+        await guesstheScorePage.clickTimerBackgroundColorPicker()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -3573,8 +3640,6 @@ test("0013GTS-077 | Validate Far guess message reflection on mobile screen.", as
                     await newguessthescoregame.clickRiderInputField()
                     await newguessthescoregame.inputFarRiderScore()
                 })
-    
-     
      await test.step("Now input rider score admin for Far guess",async()=>{
       
         await guesstheScorePage.inputFarguessRiderScore()

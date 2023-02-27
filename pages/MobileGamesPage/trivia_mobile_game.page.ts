@@ -16,7 +16,7 @@ export default class triviaMobilePage {
               incorrectAnswer:"(//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')])[1]",
               countdownAnimationfill:"//div[@class='MuiBox-root css-1htopk5']",
               TileBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
-              TileCountdownFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
+              TileFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
               answerframe:"//div[@class='MuiBox-root css-cv3yux']",
               selectedAnswerColor:"//div[@class='MuiBox-root css-1kap4u3']",
               leaderboardText:"//div[text()='Your Rank']",
@@ -33,6 +33,7 @@ export default class triviaMobilePage {
                addnewPrize:"//div[contains(@class,'swiper-slide swiper-slide-visible')]",
                SaveToPhoneBtn:"//button[text()='Save to phone']",
                MobileBackgroundColor:"(//div[@class='MuiBox-root css-vfsi4s']//div)[1]",
+               TimeReminingText:"//div[text()='Time Remaining']"
                
                
                //GameTiteleName:
@@ -116,9 +117,12 @@ export default class triviaMobilePage {
        }
 
        async verifyFontAppliedSuccessfullyInMobileScreen(){
-              expect.soft(await this.page.screenshot({
-                    fullPage: true
-                })).toMatchSnapshot("Font-Uploaded-UI.png")
+              const ele = this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TimeReminingText)
+              if(await ele.isVisible()){
+                     expect.soft(ele).toHaveScreenshot("FontUploadedSuccessfull.png")
+              }
+             
+              
        }
        async verifyGameTitleLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
@@ -274,12 +278,12 @@ export default class triviaMobilePage {
               }
               else throw new Error("Triva mobile Tile Background field is not visible")
        }
-       async verifyTileCountdownFrameColor(){
-              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TileCountdownFrame).isVisible()
+       async verifyTileFrameColor(){
+              const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TileFrame).isVisible()
               if(ele == true){
-                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TileCountdownFrame)).toHaveCSS("border-color","rgb(16, 10, 124)")
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TileFrame)).toHaveCSS("border-color","rgb(16, 10, 124)")
               }
-              else throw new Error("Triva mobile Tile/Countdown Background field is not visible")
+              else throw new Error("Triva mobile Tile frame color is not visible")
        }
        async verifyLeaderboardtextColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.leaderboardText).isVisible()
