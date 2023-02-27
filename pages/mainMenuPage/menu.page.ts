@@ -31,8 +31,8 @@ export default class menuPage {
                 userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]",
 
-                fontsTitleText: "(//h4[text()='Fonts'])[1]",
-                uploadFontTitleText: "(//p[text()='Upload Font'])[1]",
+                fontsTitleText: "//h4[text()='Fonts']",
+                uploadFontTitleText: "//p[text()='Upload Font']",
                 colorPickerWindowSaveBtn: "//button[text()='Save']",
                 backgroundColorPickerBtn: "//p[text()='Background']/following-sibling::button",
                 textColorPickerBtn: "//p[text()='Text Color']/following-sibling::button",
@@ -56,8 +56,10 @@ export default class menuPage {
         }
         async deleteUploadedFont() {
                 const ele = await this.page.locator(this.menuPageElements.uploadFontTitle)
-                if (await ele.isVisible()) {
+                try {
                         await ele.click({ button: "left", delay: 1000 })
+                } catch (error) {
+                        console.log(`Main Menu | Uploaded Font Is Not Visible  | Error occurred: ${error}`);
                 }
         }
         async enableLastGame() {
@@ -216,16 +218,16 @@ export default class menuPage {
         }
         //Fonts Header Text Elemant
         async checkFontsText() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.fontsTitleText)
+                let ele = await this.page.locator(this.menuPageElements.fontsTitleText)
                 try {
                         await expect(ele).toContainText("Fonts")
                 } catch (error) {
-                        throw (`Main Menu | Menu Page Fonts Title Text Is Not Visible | Error occurred: ${error}`);
+                        throw new Error(`Main Menu | Menu Page Fonts Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
         //Upload Fonts Header Text Elemant
         async checkUploadFontText() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.uploadFontTitleText)
+                let ele = await this.page.locator(this.menuPageElements.uploadFontTitleText)
                 try {
                         await expect(ele).toContainText("Upload Font")
                 } catch (error) {
@@ -234,7 +236,7 @@ export default class menuPage {
         }
         //input menubar second field color
         async clickColorPickerWindowSaveBtn() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.colorPickerWindowSaveBtn)
+                let ele = await this.page.locator(this.menuPageElements.colorPickerWindowSaveBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -245,7 +247,7 @@ export default class menuPage {
         }
         //updated color pickers here, above ones sometimes conflict in code
         async click_Background_ColorPicker() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.backgroundColorPickerBtn)
+                let ele = await this.page.locator(this.menuPageElements.backgroundColorPickerBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -254,7 +256,7 @@ export default class menuPage {
                 }
         }
         async click_text_color_Picker() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.textColorPickerBtn)
+                let ele = await this.page.locator(this.menuPageElements.textColorPickerBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -263,7 +265,7 @@ export default class menuPage {
                 }
         }
         async click_Active_Background_ColorPicker() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.activeBackgroundColorPickerBtn)
+                let ele = await this.page.locator(this.menuPageElements.activeBackgroundColorPickerBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -272,7 +274,7 @@ export default class menuPage {
                 }
         }
         async click_active_text_color_Picker() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.activeTextColorPickerButton)
+                let ele = await this.page.locator(this.menuPageElements.activeTextColorPickerButton)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -281,7 +283,7 @@ export default class menuPage {
                 }
         }
         async clickplusbuttonswatches() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.colorSwitchPlusBtn)
+                let ele = await this.page.locator(this.menuPageElements.colorSwitchPlusBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -290,7 +292,7 @@ export default class menuPage {
                 }
         }
         async clickColorPickerSaveBtn() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.colorPickerWindowSaveBtn)
+                let ele = await this.page.locator(this.menuPageElements.colorPickerWindowSaveBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -299,7 +301,7 @@ export default class menuPage {
                 }
         }
         async clickdeletebuttonswatches() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.switchColorDeleteBtn).last()
+                let ele = await this.page.locator(this.menuPageElements.switchColorDeleteBtn).last()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
@@ -311,7 +313,7 @@ export default class menuPage {
 
         //click Bottom Alignment button
         async clickBottomAlignmentBtn() {
-                let ele = await this.page.frameLocator('iframe').locator(this.menuPageElements.bottomAlignmentButton).last()
+                let ele = await this.page.locator(this.menuPageElements.bottomAlignmentButton).last()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)

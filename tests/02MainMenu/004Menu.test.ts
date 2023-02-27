@@ -3,7 +3,7 @@ import * as data from "@testData/login.cred.json"
 import mobilePreviewPage from "@pages/mobilePreview.page";
 import Env from "@utils/environment";
 import { readFileSync } from 'fs'
-test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -64,7 +64,7 @@ test("004M-001 | Varify Fonts Upload Functionality", async ({ loginPage, functio
         await menuPage.clickToUploadFont()
         await menuPage.verifyFontUploadedSuccessfully()
 })
-test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", async ({ loginPage,guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -765,66 +765,66 @@ test.skip("004M-025 | Validate  Menu Bar How To Play Icon Successfully Applied i
         })
 })
 test.skip("004M-026 | Validate Menu Bar Rules Icon Successfully Selected From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
-                await test.step("Login Admin And Land to Home Screen", async () => {
-                        await page.goto('/admin/#/sign-in')
-                        await loginPage.login(data.username, data.password)
-                        const title = await page.title();
-                        expect(title).toBe('DXP Admin')
-                        await MainMenu.clickHomeAvater();
-                        await MainMenu.mainMenuBtn();
-                        await menuPage.clickMenuPage()
-                })
-                await test.step("Verify From Admin Side", async () => {
-                        await menuPage.uploadMenuBarRulesIcon()
-                        await functions.rulesIconUploadHelper()
-                        await functions.fileUploadCropperForMainMenu()
-                })
+        await test.step("Login Admin And Land to Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+                await MainMenu.clickHomeAvater();
+                await MainMenu.mainMenuBtn();
+                await menuPage.clickMenuPage()
+        })
+        await test.step("Verify From Admin Side", async () => {
+                await menuPage.uploadMenuBarRulesIcon()
+                await functions.rulesIconUploadHelper()
+                await functions.fileUploadCropperForMainMenu()
+        })
 })
 test.skip("004M-027 | Validate  Menu Bar Rules Icon Successfully Applied in Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
-                await test.step("Login Admin And land To Home Screen", async () => {
-                        await page.goto('/admin/#/sign-in')
-                        await loginPage.login(data.username, data.password)
-                        const title = await page.title();
-                        expect(title).toBe('DXP Admin')
-                        const screenshot = await page.screenshot();
-                        await testInfo.attach("login screenshot", {
-                                contentType: "image/png",
-                                body: screenshot
-                        })
+        await test.step("Login Admin And land To Home Screen", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
                 })
-                await test.step("Click Prize Drop Section", async () => {
-                        //click Prize Drop Section
-                        await guesstheScorePage.clickGuessTheScoreSection()
-                })
-                await test.step("now click on start button on Admin site", async () => {
-                        // await prizeDropPage.clickstartbutton()
-                        // await prizeDropPage.clickStartGameOkBtn()
-                })
-                let newTab = null;
-                let newmobilePreviewPage: mobilePreviewPage
-                await test.step("now open the game in mobile view", async () => {
-                        //click Mobile Link Btn
-                        await MainMenu.clickMobileLinkBtn()
-                        //now click on open button
-                        newTab = await MainMenu.clickMobileLinkOpenBtn()
-                        newmobilePreviewPage = new mobilePreviewPage(newTab)
-                        // await MainMenu.click_closebutton_in_mobilelinkmodal()
-                })
-                await test.step("Input Additional Information For Mobile Screen", async () => {
-                        await newmobilePreviewPage.typephoneno()
-                        await newmobilePreviewPage.selectbirthdate()
-                        await newmobilePreviewPage.typeAge()
-                        await newmobilePreviewPage.typeemail()
-                        await newmobilePreviewPage.typezip()
-                        await newmobilePreviewPage.clicksubmit()
-                })
-                await test.step("Verify Japanese Language Applaid Successfully", async () => {
-                        await newmobilePreviewPage.clickHowToPlayBtn()
-                        await newmobilePreviewPage.clickPrizeSection()
-                        // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
-                        await newmobilePreviewPage.verifyRulesIconSuccessfullyAppliedInMobileScreen()
-                })
- })
+        })
+        await test.step("Click Prize Drop Section", async () => {
+                //click Prize Drop Section
+                await guesstheScorePage.clickGuessTheScoreSection()
+        })
+        await test.step("now click on start button on Admin site", async () => {
+                // await prizeDropPage.clickstartbutton()
+                // await prizeDropPage.clickStartGameOkBtn()
+        })
+        let newTab = null;
+        let newmobilePreviewPage: mobilePreviewPage
+        await test.step("now open the game in mobile view", async () => {
+                //click Mobile Link Btn
+                await MainMenu.clickMobileLinkBtn()
+                //now click on open button
+                newTab = await MainMenu.clickMobileLinkOpenBtn()
+                newmobilePreviewPage = new mobilePreviewPage(newTab)
+                // await MainMenu.click_closebutton_in_mobilelinkmodal()
+        })
+        await test.step("Input Additional Information For Mobile Screen", async () => {
+                await newmobilePreviewPage.typephoneno()
+                await newmobilePreviewPage.selectbirthdate()
+                await newmobilePreviewPage.typeAge()
+                await newmobilePreviewPage.typeemail()
+                await newmobilePreviewPage.typezip()
+                await newmobilePreviewPage.clicksubmit()
+        })
+        await test.step("Verify Japanese Language Applaid Successfully", async () => {
+                await newmobilePreviewPage.clickHowToPlayBtn()
+                await newmobilePreviewPage.clickPrizeSection()
+                // await newmobilePreviewPage.verifyPrizeEntryIsApplyed()
+                await newmobilePreviewPage.verifyRulesIconSuccessfullyAppliedInMobileScreen()
+        })
+})
 test.skip("004M-028 | Validate Menu Bar User Profile Icon Successfully Selected From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')

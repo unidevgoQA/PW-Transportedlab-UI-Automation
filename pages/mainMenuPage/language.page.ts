@@ -36,7 +36,7 @@ export default class languagePage {
 
         //Language Page Button Element
         async clickLanguagePage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.languagePage)
+                let ele = await this.page.locator(this.languagePageElements.languagePage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                 } catch (error) {
@@ -46,7 +46,7 @@ export default class languagePage {
         }
         //Language Header Text Elemant
         async checkLanguageHeaderText() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.langeSettingTitleText)
+                let ele = await this.page.locator(this.languagePageElements.langeSettingTitleText)
                 try {
                         await expect(ele).toContainText("Language Settings")
                 } catch (error) {
@@ -56,7 +56,7 @@ export default class languagePage {
         }
         //Language Controls Text Element
         async checkLanguageControlsText() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.languageControlsTitleText)
+                let ele = await this.page.locator(this.languagePageElements.languageControlsTitleText)
                 try {
                         await expect(ele).toContainText("Language Controls")
                 } catch (error) {
@@ -67,7 +67,7 @@ export default class languagePage {
 
         //Language Controls Elable disable btn Element
         async clickUserSelectableRadioBtn() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userSelectableRadioBtn)
+                let ele = await this.page.locator(this.languagePageElements.userSelectableRadioBtn)
                 try {
                         await ele.dblclick({ button: "left", delay: 1000 })
                 } catch (error) {
@@ -76,7 +76,7 @@ export default class languagePage {
         }
         //select language type english
         async selectEnglishLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.englishLanguage)
+                let ele = await this.page.locator(this.languagePageElements.englishLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -87,7 +87,7 @@ export default class languagePage {
         }
         //select language type Francias
         async selectFranciasLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.franciasLanguage)
+                let ele = await this.page.locator(this.languagePageElements.franciasLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -98,7 +98,7 @@ export default class languagePage {
 
         }
         async clickOutSideOfLanguageSelectionModal() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.outsideScreenFromUserSelectableLanguage)
+                let ele = await this.page.locator(this.languagePageElements.outsideScreenFromUserSelectableLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -109,7 +109,7 @@ export default class languagePage {
         }
         //select language type Russian
         async selectRussianLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.russianLanguage)
+                let ele = await this.page.locator(this.languagePageElements.russianLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -120,7 +120,7 @@ export default class languagePage {
         }
         //select language type Russian
         async verifyRussianLanguageSuccessfullySelected() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.afterSelectedSpanishLanguage)
+                let ele = await this.page.locator(this.languagePageElements.afterSelectedSpanishLanguage)
                 try {
                         await expect(ele).toContainText("Russian")
                 } catch (error) {
@@ -129,7 +129,7 @@ export default class languagePage {
         }
         //select language type Arabic
         async selectArabicLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.arabicLanguage)
+                let ele = await this.page.locator(this.languagePageElements.arabicLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -140,7 +140,7 @@ export default class languagePage {
         }
         //select language type Spanish
         async selectSpanishLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.spanishLanguage)
+                let ele = await this.page.locator(this.languagePageElements.spanishLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -150,7 +150,7 @@ export default class languagePage {
                 }
         }
         async verifySpanishLanguageText() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.afterSelectedSpanishLanguage)
+                let ele = await this.page.locator(this.languagePageElements.afterSelectedSpanishLanguage)
                 try {
                         await expect(ele).toContainText("Spanish")
                 } catch (error) {
@@ -227,7 +227,7 @@ export default class languagePage {
 
         //select language type Japanese
         async selectJapaneseLanguage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.forceJapaneseLanguage)
+                let ele = await this.page.locator(this.languagePageElements.forceJapaneseLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -238,7 +238,7 @@ export default class languagePage {
         }
         //select language type Japanese
         async verifyJapaneseLanguageSelectSuccessfully() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.selectedJapaneseLanguage)
+                let ele = await this.page.locator(this.languagePageElements.selectedJapaneseLanguage)
                 try {
                         await expect(ele).toContainText("Japanese")
 
@@ -249,7 +249,7 @@ export default class languagePage {
 
         //Language Controls Elable disable btn Element
         async clickUserProfileSelectableInputField() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userSelectableInputField)
+                let ele = await this.page.locator(this.languagePageElements.userSelectableInputField)
                 try {
                         await ele.dblclick({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -260,7 +260,7 @@ export default class languagePage {
         }
         //Language Controls Elable disable btn Element
         async clickUserForceLanguageOption() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.userForceLanguageRadioBtn)
+                let ele = await this.page.locator(this.languagePageElements.userForceLanguageRadioBtn)
                 try {
                         await ele.dblclick({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -272,7 +272,7 @@ export default class languagePage {
 
         // //Language Controls Elable disable btn Element
         async clickForceLanguageInputField() {
-                let ele = await this.page.frameLocator('iframe').locator(this.languagePageElements.forceLanguageInputField)
+                let ele = await this.page.locator(this.languagePageElements.forceLanguageInputField)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
