@@ -12,6 +12,8 @@ export default class liveWallPage {
   //=======================================================
   //▶▶Start Element
   private Fansee_page_elements = {
+    fansee_header: "//p[text()='FanSee']",
+    warning_message: `//p[text()="Please don't forget to stop the session"]`,
     tripplebutton: '//h5[text()="Default"]//parent::div/preceding-sibling::button',
     iframe: '.css-r99fy3',
     Queue_button: '//button[text()="Queue"]',
@@ -146,15 +148,25 @@ export default class liveWallPage {
   }
 
   async validate_warning_stop_message_text() {
-    const ele = this.page.frameLocator('//iframe').locator(`//p[text()="Please don't forget to stop the session"]`)
-    await expect(ele).toBeVisible()
+    const ele = this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.warning_message)
+    if (await ele.isEnabled()) {
+      await expect(ele).toBeVisible()
+    }
+    else {
+      throw new Error(" Warning message in livewall game is either missing or changed")
+    }
+
 
   }
-  async clickLiveWallSection() {
-    const locator = this.page.locator("//p[text()='FanSee']");
-    expect.soft(locator).toContainText("FanSee");
-    await locator.click({ force: true });
-    // console.log("Successfully Click To Tug of War Page ")
+  async click_Fan_see_Section() {
+    const ele = this.page.locator(this.Fansee_page_elements.fansee_header);
+    if (await ele.isEnabled()) {
+      await expect(ele).toBeVisible()
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error('Fansee game header is missing in admin panel')
+    }
   }
   //add new instance
   async click_plus_button() {
@@ -176,14 +188,26 @@ export default class liveWallPage {
     }
   }
   async remove_message_popup() {
-    await this.page.frameLocator('//iframe').locator('//h5[text()="Default"]').click({ button: 'left', force: true })
+    const ele = this.page.frameLocator('//iframe').locator('//h5[text()="Default"]')
+    if (await ele.isEnabled()) {
+      await ele.click({ button: 'left', force: true })
+    }
+    else {
+      throw new Error('Default element is hidden')
+    }
   }
   async clickDesignPage() {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
     const ele = this.page
       .frameLocator("iframe")
       .locator("//button[text()='Design']").last();
-    await ele.click();
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error('Design button in left panel is missing')
+    }
+
   }
 
   async click_trippledot() {
@@ -256,7 +280,7 @@ export default class liveWallPage {
       throw new Error("Either Cue button element is not found or element visiblity is hidden");
     };
   }
-  //Admin section here
+  //Admin section here 
   async click_refresh_button() {
     const ele = this.page
       .frameLocator("iframe")
@@ -766,7 +790,7 @@ export default class liveWallPage {
   async verify_image_upload_text() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.image_upload_text)
     if (await ele.isVisible()) {
-      //just add a click event here if code is updated
+      //just add a click event here if code is updated 
       await expect.soft(ele).toBeVisible()
     }
     else {
@@ -778,7 +802,12 @@ export default class liveWallPage {
       .frameLocator("iframe")
       .locator("//p[text()='Background Color']/following-sibling::button");
     // expect(ele).toBeVisible()
-    await ele.click();
+    if (await ele.isVisible()) {
+      await ele.click();
+    }
+    else {
+      throw new Error('Background color picker input element is missing')
+    }
   }
 
 
@@ -810,7 +839,13 @@ export default class liveWallPage {
     const ele = await this.page
       .frameLocator("iframe")
       .locator("//p[text()='Font Color']/following-sibling::button");
-    await ele.click({ force: true });
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else {
+      throw new Error("Input element for font color picker is missing")
+    }
+
   }
   async click_countdown_ColorPicker_InputField() {
     const ele = this.page
@@ -1125,7 +1160,7 @@ export default class liveWallPage {
       await expect(edit_image_button).toBeVisible({ timeout: 60000 })
     }
     else {
-      throw new Error('Edit/Upload button element is not visible or deleted')
+      throw new Error('Edit/Upload button element is not visible or there is an issue with uploading the images')
     }
   }
   //Mobile Home Screen Logo
@@ -1447,18 +1482,41 @@ export default class liveWallPage {
 
 
   async preLiveInputBoxFonts() {
-    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element).selectText()
-    await this.page.frameLocator("iframe").locator("(//span[text()='Font'])[1]").click()
+
+    const ele = this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element)
+    const font_ele = this.page.frameLocator("iframe").locator("(//span[text()='Font'])[1]")
+    if (await font_ele.isVisible()) {
+      await ele.selectText()
+      await font_ele.click()
+    }
+    else {
+      throw new Error('Font selection element is missing')
+    }
+
   }
 
   async preLiveInputBoxArial() {
-    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element).selectText()
-    await this.page.frameLocator("iframe").locator("//li[text()='Arial']").click()
+    const ele = this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element)
+    const arial_ele = this.page.frameLocator("iframe").locator("//li[text()='Arial']")
+    if (await arial_ele.isVisible()) {
+      await ele.selectText()
+      await arial_ele.click()
+    }
+    else {
+      throw new Error("Arial element is missing")
+    }
   }
 
   async preLiveInputBoxBlocktype() {
-    await this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element).selectText()
-    await this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[1]").click()
+    const ele = this.page.frameLocator("iframe").locator(this.Fansee_page_elements.input_pre_live_text_element)
+    const ele_block_type = this.page.frameLocator("iframe").locator("(//a[@title='Block Type'])[1]")
+    if (await ele_block_type.isVisible()) {
+      await ele.selectText()
+      await ele_block_type.click()
+    }
+    else {
+      throw new Error('Block type element is missing')
+    }
 
   }
   async preLiveInputBoxNormal() {
@@ -1597,17 +1655,21 @@ export default class liveWallPage {
   }
 
 
-  async inputPreLiveText() {
+  async inputPreLiveText(value: string) {
     const ele = this.page
       .frameLocator("iframe")
       .locator(
         this.Fansee_page_elements.input_pre_live_text_element
       );
-    await expect(ele).toBeVisible();
-    await ele.fill('  ')
-    await ele.fill(
-      ' In publishing and graphic design, Lorem ipsum is a placeholder'
-    );
+    if (await ele.isVisible()) {
+      await ele.fill('  ')
+      await ele.fill(value);
+    }
+    else {
+      throw new Error('input element for prelive text element is either missing or not visible');
+
+    }
+
 
   }
   async input_post_live_text() {
@@ -2039,7 +2101,7 @@ export default class liveWallPage {
     expect(ele).toBeVisible();
     await ele.click();
   }
-  // low connection message from here
+  // low connection message from here 
   async inputLowConnectionMassage() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2298,7 +2360,7 @@ export default class liveWallPage {
     }
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickGameStartBtn() {
 
     let startBtn = await this.page.frameLocator('iframe').locator("text='STOP'").isHidden()
@@ -2311,7 +2373,7 @@ export default class liveWallPage {
 
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickGameStopBtn() {
 
     //const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]").isVisible()
@@ -2325,7 +2387,7 @@ export default class liveWallPage {
   }
 
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickLiveSelfieCamOutPutLink() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2335,7 +2397,7 @@ export default class liveWallPage {
 
 
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickLiveSelfieCamOutPutLinkCopyBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2344,7 +2406,7 @@ export default class liveWallPage {
     await ele.click();
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async click_Mobile_button() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2378,7 +2440,7 @@ export default class liveWallPage {
     return page1;
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickCopyQRCodeBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2409,7 +2471,7 @@ export default class liveWallPage {
     }
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async checkSaveQRCodeBtn() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2458,7 +2520,7 @@ export default class liveWallPage {
 
   }
 
-  //Live Wall Home page
+  //Live Wall Home page 
   async clickQRCodeWindowCloseBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2519,7 +2581,7 @@ export default class liveWallPage {
 
 
   async downloadAnlytics() {
-    // Click text=Export
+    // Click text=Export 
     const [download] = await Promise.all([
       this.page.waitForEvent('download'),
       this.page.frameLocator('iframe').locator("(//button[text()='Export'])[1]").click()
