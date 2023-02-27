@@ -52,9 +52,29 @@ export default class prizeDropPage {
           RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
           choose_file_button:'//button[text()="Choose File"]',
           file_type_not_supported:'//p[text()="File type is not supported"]',
+         
+          coupon_prize_select_button:"//div[@class='MuiBox-root css-1qf0ezp']",
+          select_first_coupon_prize_select:"(//button[text()='Select'])[1]",
+          coupon_name:"//input[@placeholder='Coupon name']",
+          amount_of_awarding:"//input[@placeholder='Amount Of Awarding']",
+          parcentage_awarded:"//input[@placeholder='Percentage Value']",
+          analytics_page:"//p[text()='Analytics']",
+          upload_fonts:'//p[text()="Upload Font"]',
+          font_uploader:'//p[text()="Upload Font"]//preceding-sibling::div',
+          font_text:'//p[text()="Aa"]',
+          add_color_button:'//button[@aria-label="Add Color"]',
+          delete_color_button:'//button[@aria-label="delete"]',
+          list_box_button:'//div[@aria-haspopup="listbox"]',
+          list_item_solid:'//li[text()="Solid"]',
+          list_item_horizontal:'//li[text()="Horizontal"]',
+          list_item_vertical:'//li[text()="Vertical"]',
+          list_item_diagonal:'//li[text()="Diagonal"]',
+          list_item_radial:'//li[text()="Radial"]',
+          color_opacity_slider:'//input[@aria-label="Alpha" and @aria-valuetext="100%"]',
           edit_image_button:'//button[@aria-label="Upload/Edit"]',
           delete_image_button:'//button[@aria-label="Delete"]',
-          image_or_video_click:'//div[@class="MuiBox-root css-v2612"]'
+          image_or_video_click:'//div[@class="MuiBox-root css-v2612"]',
+          full_screen_logo_image_click:'//h5[text()="Full Screen Logo"]/parent::div/following-sibling::div//div[@class="MuiBox-root css-v2612"]'
 
         }
         constructor(page: Page) {
@@ -291,7 +311,7 @@ export default class prizeDropPage {
                                 // It is important to call waitForEvent before click to set up waiting.
                                 this.page.waitForEvent('filechooser'),
                                 // Opens the file chooser.
-                                this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
+                                this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.font_uploader).click()
                         ]);
                         await fileChooser.setFiles([filePath0]);
                 } catch (error) {
@@ -300,7 +320,7 @@ export default class prizeDropPage {
  
         }
         async verify_font_uploaded(){
-                const ele = this.page.frameLocator('iframe').locator('//p[text()="Aa"]').last()
+                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.font_text).last()
                 try {
                    await expect(ele).toBeVisible()
                 } catch (error) {
@@ -329,7 +349,7 @@ export default class prizeDropPage {
 
         async clickplusbuttonswatches() {
               try {
-                  await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="Add Color"]').click()
+                  await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.add_color_button).click()
               } catch (error) {
                 throw new Error('Prize drop | Game Design| click plus button in swatches failed' + error)
               }
@@ -337,7 +357,7 @@ export default class prizeDropPage {
 
         async clickdeletebuttonswatches() {
                try {
-                 await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="delete"]').last().click()
+                 await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.delete_color_button).last().click()
                } catch (error) {
                 throw new Error('Prize drop | Game Design| click delete button in swatches failed' + error)
                }
@@ -346,7 +366,7 @@ export default class prizeDropPage {
 
         async validate_solid_horizontal_vertical_dropdown(){
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//div[@aria-haspopup="listbox"]').first().click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_box_button).first().click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click vertical dropdown  failed' + error)  
                 }
@@ -354,7 +374,7 @@ export default class prizeDropPage {
 
         async click_solid_button(){
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Solid"]').click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_solid).click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click solid button  failed' + error)     
                 }
@@ -362,28 +382,28 @@ export default class prizeDropPage {
 
         async click_horizontal_button() {
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Horizontal"]').click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_horizontal).click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click horizontal button  failed' + error)
                 }
         }
         async click_vertical_button() {
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Vertical"]').click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_vertical).click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click vertical button  failed' + error)
                 }
         }
         async click_diagonal_button() {
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Diagonal"]').click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_diagonal).click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click diagonal button  failed' + error)
                 }
         }
         async click_radial_button() {
                 try {
-                        await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Radial"]').click()
+                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_radial).click()
                 } catch (error) {
                         throw new Error('Prize drop | Game Design| click radial button failed' + error)
                 }
@@ -391,8 +411,12 @@ export default class prizeDropPage {
         
         //opacity slider
         async opacity_slider_visiblity() {
-                const ele =  this.page.frameLocator('.css-r99fy3').locator('//input[@aria-label="Alpha" and @aria-valuetext="100%"]')
-                await expect(ele).toBeVisible()
+              try {
+                  const ele =  this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.color_opacity_slider)
+                  await expect(ele).toBeVisible()
+              } catch (error) {
+                throw new Error(`Prize drop| Game design| Opacity slider not visible`)
+              }
         }
         //start main color section element
         async verifyMainColorText() {
@@ -413,56 +437,17 @@ export default class prizeDropPage {
                }
         }
 
-        async inputMainRGRFirstColor() {
-                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[1]')
-                await expect(ele).toBeVisible()
-                await ele.fill(" ")
-                await ele.fill("84")
-                await this.page.waitForTimeout(500)
-
-        }
-        async inputMainRGRSecondColor() {
-                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[2]')
-                await expect(ele).toBeVisible()
-                await ele.fill(" ")
-                await ele.fill("161")
-                await this.page.waitForTimeout(500)
-
-        }
-
-
-        async inputMainRGRThirdColor() {
-                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[3]')
-                await expect(ele).toBeVisible()
-                await ele.fill(" ")
-                await ele.fill("220")
-                await this.page.waitForTimeout(500)
-
-        }
-
-        async inputMainRGRFourColor() {
-                const ele =  this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[4]')
-                await expect(ele).toBeVisible()
-                await ele.fill(" ")
-                await ele.fill("95")
-                await this.page.waitForTimeout(500)  
-
-        }
-
-        async inputMainRGRFiveColor() {
-                const ele = this.page.frameLocator('iframe').locator('//input[@class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1yftmq7"]')
-                await expect(ele).toBeVisible()
-                await ele.fill(" ")
-                await ele.fill("54A1DCF2")
-                await this.page.waitForTimeout(500)  
-
-        }
+        
 
 
         async clickColorPickerSaveBtn() {
-                const ele = this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]')
-                await expect(ele).toBeVisible()
-                await ele.click()
+               try {
+                 const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.save_button)
+                 await expect(ele).toBeVisible()
+                 await ele.click()
+               } catch (error) {
+                 throw new Error(`Prize Drop|Game Design| Color picker save button clicking failed ${error}`)
+               }
 
         }
         //image uploaders here
@@ -517,11 +502,11 @@ export default class prizeDropPage {
         }
         async fullscreenlogoupload(){
                 try {
-                        const edit_image_button =await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.edit_button).nth(1).isVisible()
+                        const edit_image_button =await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.edit_image_button).nth(1).isVisible()
                         if(edit_image_button ){
                                 await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.delete_image_button).nth(1).click({button:'left'})
                         }
-                        await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.image_or_video_click).nth(1).click()
+                        await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.full_screen_logo_image_click).click()
                 } catch (error) {
                        throw new Error('Prize drop|Game design |Element click to upload Image is failed or existing image delete failed' + error) 
                 }
@@ -1533,7 +1518,7 @@ export default class prizeDropPage {
                  await expect(back).toBeVisible()
                  await back.click({button:'left'})   
                } catch (error) {
-                throw `Prizedrop| Prizing| edit prize button is not working ${error}`
+                throw new Error(`Prizedrop| Prizing| edit prize button is not working ${error}`)
                }   
 
         }
@@ -1549,7 +1534,7 @@ export default class prizeDropPage {
 
         async inputCouponName(value: string) {
              try {
-                   const ele = this.page.frameLocator('iframe').locator("//input[@placeholder='Coupon name']")
+                   const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_name)
                    expect(ele).toBeVisible()
                    await ele.fill(value)
              } catch (error) {
@@ -1559,7 +1544,7 @@ export default class prizeDropPage {
 
         async inputAmountOfAwarding(value: string) {
               try {
-                  const ele = this.page.frameLocator('iframe').locator("//input[@placeholder='Amount Of Awarding']")
+                  const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.amount_of_awarding)
                   await ele.fill(value)
               } catch (error) {
                 `Prizedrop| Prizing| Input amount of awarding not working ${error}`
@@ -1568,7 +1553,7 @@ export default class prizeDropPage {
 
         async inputPercentageAwarded(value: string) {
                try {
-                 const ele = this.page.frameLocator('iframe').locator("//input[@placeholder='Percentage Value']")
+                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.parcentage_awarded)
                  await ele.fill(value)
                } catch (error) {
                  `Prizedrop| Prizing| Input percentage awarded not working ${error}`
@@ -1577,7 +1562,7 @@ export default class prizeDropPage {
 
         async clickCouponPrizeSelectBtn() {
                try {
-                 const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1qf0ezp']")
+                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
                  await ele.click()
                } catch (error) {
                 `Prize drop| Prizing| click to select coupon prize selection not working ${error}`
@@ -1585,21 +1570,21 @@ export default class prizeDropPage {
         }
         async selectCouponPrizeSelect() {
                 try {
-                        const ele =  this.page.frameLocator('iframe').locator("(//button[text()='Select'])[1]")
+                        const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
                         await ele.click()
                 } catch (error) {
                         `Prizedrop| Prizing| coupon prize selection not working ${error}`       
                 }
         }
-        async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
-                const ele =  this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
-                expect(ele).toContainText("Auto Test")
-        }
+        // async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
+        //         const ele =  this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
+        //         expect(ele).toContainText("Auto Test")
+        // }
 
-        async selectCouponCreatedFromGlobalPrizing() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
-                await ele.click()
-        }
+        // async selectCouponCreatedFromGlobalPrizing() {
+        //         const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
+        //         await ele.click()
+        // }
 
         async clickSaveBtn() {
               try {
@@ -1644,8 +1629,12 @@ export default class prizeDropPage {
 
 
         async clickAnalyticsSection() {
-                await this.page.frameLocator('iframe').locator("//p[text()='Analytics']").first().click({button:'left'})
-
+               try {
+                 await this.page.frameLocator('iframe').locator(this.prizedop_elements.analytics_page).first().click({button:'left'})
+ 
+               } catch (error) {
+                 throw new Error(`Prize Drop | Analytics | Analytics Page is missing in Default section ${error}`)
+               }
         }
 
         async clickToStopLiveGame() {
