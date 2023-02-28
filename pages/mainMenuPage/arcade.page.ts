@@ -98,6 +98,7 @@ export default class arcadePage {
                 }
                 else throw new Error("Main Menu Arcade Page Element Is not Visible")
                 await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
         }
         async verifyFontTextIsVisible() {
                 let ele = await this.page.locator(this.arcadePageElements.fontsTitleText).textContent()
@@ -260,8 +261,11 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+
                 }
         }
         async deleteGuessTheScroeLogo() {
@@ -275,8 +279,11 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+
                 }
         }
         async deleteTriviaLogo() {
@@ -290,8 +297,10 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
         }
         async deleteLiveWallLogo() {
@@ -305,8 +314,10 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
         }
         async deleteNoiseMeterLogo() {
@@ -320,8 +331,10 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
         }
         async deleteTugOfWarLogo() {
@@ -335,8 +348,10 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
         }
         async deletePrizeDropLogo() {
@@ -350,17 +365,22 @@ export default class arcadePage {
                         this.page.on("filechooser", async (filechooser) => {
                                 await filechooser.setFiles([filePath0]);
                         })
-                        await chooseBtn.click()
-                        await this.page.locator("//div[@class='MuiBox-root css-1p65aex']//button[1]").click()
+                        await chooseBtn.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                        await this.page.locator("//button[text()='Save']").click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
         }
         async uploadFanaticsFilterWebLogo() {
-                await this.page.waitForSelector(this.arcadePageElements.fanaticsFilterWebGameLogoInput)
-                let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput).click({ button: "left", delay: 1000 })
+
+                let ele = await this.page.locator(this.arcadePageElements.fanaticsFilterWebGameLogoInput)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+
+                } catch (error) {
+                        throw new Error(`Main Menu Arcade Page Fanatics Filter Web Logo Input Field Is Not Visible"| Error occurred: ${error}`)
+
                 }
-                else throw new Error("Main Menu Arcade Page Fanatics Filter Web Logo Input Field Is Not Visible")
         }
         async verifyFanaticsFilterWebLogoUploadSuccessfully() {
                 await this.page.waitForSelector(this.arcadePageElements.prizeDropGameLogoEdit)

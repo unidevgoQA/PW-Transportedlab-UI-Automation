@@ -280,7 +280,7 @@ export default class liveWallPage {
       throw new Error("Either Cue button element is not found or element visiblity is hidden");
     };
   }
-  //Admin section here 
+  //Admin section here
   async click_refresh_button() {
     const ele = this.page
       .frameLocator("iframe")
@@ -790,7 +790,7 @@ export default class liveWallPage {
   async verify_image_upload_text() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.image_upload_text)
     if (await ele.isVisible()) {
-      //just add a click event here if code is updated 
+      //just add a click event here if code is updated
       await expect.soft(ele).toBeVisible()
     }
     else {
@@ -2101,7 +2101,7 @@ export default class liveWallPage {
     expect(ele).toBeVisible();
     await ele.click();
   }
-  // low connection message from here 
+  // low connection message from here
   async inputLowConnectionMassage() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2360,7 +2360,7 @@ export default class liveWallPage {
     }
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickGameStartBtn() {
 
     let startBtn = await this.page.frameLocator('iframe').locator("text='STOP'").isHidden()
@@ -2373,7 +2373,7 @@ export default class liveWallPage {
 
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickGameStopBtn() {
 
     //const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-pzp2lt']//button[1]").isVisible()
@@ -2387,7 +2387,7 @@ export default class liveWallPage {
   }
 
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickLiveSelfieCamOutPutLink() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2397,7 +2397,7 @@ export default class liveWallPage {
 
 
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickLiveSelfieCamOutPutLinkCopyBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2406,7 +2406,7 @@ export default class liveWallPage {
     await ele.click();
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async click_Mobile_button() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2440,7 +2440,7 @@ export default class liveWallPage {
     return page1;
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickCopyQRCodeBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2471,7 +2471,7 @@ export default class liveWallPage {
     }
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async checkSaveQRCodeBtn() {
     const ele = this.page
       .frameLocator("iframe")
@@ -2520,7 +2520,7 @@ export default class liveWallPage {
 
   }
 
-  //Live Wall Home page 
+  //Live Wall Home page
   async clickQRCodeWindowCloseBtn() {
     const ele = await this.page
       .frameLocator("iframe")
@@ -2581,7 +2581,7 @@ export default class liveWallPage {
 
 
   async downloadAnlytics() {
-    // Click text=Export 
+    // Click text=Export
     const [download] = await Promise.all([
       this.page.waitForEvent('download'),
       this.page.frameLocator('iframe').locator("(//button[text()='Export'])[1]").click()
