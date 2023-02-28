@@ -41,11 +41,78 @@ export default class tugOfWarMobilePage {
                 tugOfWarGameTitle: "//p[text()='Tug of War']",
                 prizeDropGameTitle: "//p[text()='Prize Drop']",
                 selectTextOnHomeScreen: "(//h3[text()='Select'])[1]",
-                teamAccountModal: "(//div[@teamcount='2'])[2]"
+                teamAccountModal: "(//div[@teamcount='2'])[2]",
+                custommobilewaitingtext:"//blockquote[text()='Please wait for game startPlease wait for game startPlease wait for game start']",
+                ValidateBackgroundTitleImage:"//div[@class='MuiBox-root css-1u704ug']",
+                ValidateSponsorLogo:"//div[@class='MuiBox-root css-1jvmzit']",
+                ValidateTEamLogo:"//div[@class='MuiBox-root css-1lpe8iv']",
+                ValidateGameTitle:"//div[@class='MuiBox-root css-bgzgr4']",
+                ValidateSelectationBackground:"//div[@class='MuiBox-root css-1atampn']",
+                ValidateTeam1LOGO:"//div[@class='MuiBox-root css-940buy']",
+                ValidateTEam2LogoUpload:"//div[@class='MuiBox-root css-2ndpj0']",
+                ValidateTEam1SelectBtn:"(//div[@class='MuiBox-root css-9q88w2'])[1]",
+                ValidateTeam1Name:"(//div[@color='#FFFFFF']//div)[1]",
+                ValidateCustomSelectionMessage:"//p[text()='This is a test message']", 
+                VAlidateCustomTeamSelectionMessage:"//div[@class='css-1rco3h8']//p[1]",
+                ValidateTeamNameBox:"(//div[@class='MuiBox-root css-8eww4a'])[1]",
+                ValidateSelectedTeamMessageBox:"(//div[@class='MuiBox-root css-8eww4a'])[2]",
+                ValidateCountdownBackgroundVid:"//div[@class='MuiBox-root css-1gfz704']",
+                GameplayMainBoardMsg:"//div[@class='MuiBox-root css-1b9ib5b']",
+                NavigatetotheGames:"(//div[@class='MuiBox-root css-dxv61z'])[2]",
+                NavigatetotheThugofwarGame:"(//div[@class='MuiBox-root css-v74x4d'])[2]",
 
 
 
         }
+        async validateTitleBackgroundIMageSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateBackgroundTitleImage)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateBackgroundTitleImage).screenshot()
+                        await expect(selectText).toMatchSnapshot("BackgroundImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded Title Background Image Is Not Visible")
+
+
+        }
+        async validateSponsorLogoSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSponsorLogo)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSponsorLogo).screenshot()
+                        await expect(selectText).toMatchSnapshot("SponsorLogoImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded Sponsor Logo Image Is Not Visible")
+
+
+        }
+        async validateTeamLogoSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTEamLogo)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTEamLogo).screenshot()
+                        await expect(selectText).toMatchSnapshot("TeamLogoImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded Team Logo Image Is Not Visible")
+
+
+        }
+        async validateGameTitleIMageSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateGameTitle)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateGameTitle).screenshot()
+                        await expect(selectText).toMatchSnapshot("GameTitleImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded Game Title Background Image Is Not Visible")
+
+
+        }
+
 
         async validateFontSuccessfullyApplied() {                
                 
@@ -82,6 +149,18 @@ export default class tugOfWarMobilePage {
 
                 }
                 else throw new Error("Mobile Screen | Home Screen Team Account Text Color is Not Applied Properly")
+
+
+        }
+
+        async validateCustomWaitingTextSuccessfullyApplied(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.custommobilewaitingtext)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.custommobilewaitingtext)
+                        await expect(selectText).toHaveText("Please wait for game startPlease wait for game startPlease wait for game start")
+
+                }
+                else throw new Error("Mobile Screen | Custom Mobile Waiting Message is Not Applied Properly")
 
 
         }
@@ -242,12 +321,154 @@ export default class tugOfWarMobilePage {
 
 
         }
+        async ValidateSelectionBackground() {
+
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSelectationBackground)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSelectationBackground).screenshot()
+                        await expect(selectText).toMatchSnapshot("SelectionBackgroundImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded Selection Background Image Is Not Visible")
 
 
+        }
+        async ValidateTeam1LOGO(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeam1LOGO)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeam1LOGO).screenshot()
+                        await expect(selectText).toMatchSnapshot("#1teamLogoImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded #1Team Logo Is Not Visible")
+
+        }
+        async ValidateTeam2LOGO(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTEam2LogoUpload)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTEam2LogoUpload).screenshot()
+                        await expect(selectText).toMatchSnapshot("#2teamLogoImageUpload_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Uploaded #2Team Logo Is Not Visible")
+
+        }
+
+        async ValidateTeam1SelectBTNClick(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage).click();
+                        
+
+                }
+                else throw new Error("Mobile Screen | Team Select Button is  Not Visible")
+
+        }
+        async ValidateTeam1Name(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeam1Name)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeam1Name)
+                        await expect(selectText).toHaveClass("//div[@class='css-11ao7t']//div[1]")
+
+                }
+                else throw new Error("Mobile Screen | #1Team NAme is not visible")
+
+        }
+
+        async ValidateCustomSelectionMessage(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCustomSelectionMessage)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCustomSelectionMessage)
+                        await expect(selectText).toHaveText("This is a test message")
+
+                }
+                else throw new Error("Mobile Screen | Custom Selection Message is not visible")
+
+        }
 
 
+        async ValidateCustomTeamSelectionMessage(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
+                        await expect(selectText).toHaveText("This is a test message")
+
+                }
+                else throw new Error("Mobile Screen | Custom Team Selection Message is not visible")
+
+        }
 
 
+        async validateTeamNameBoxSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeamNameBox)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateTeamNameBox).screenshot()
+                        await expect(selectText).toMatchSnapshot("TeamNameBoxColor_UI.png", { maxDiffPixelRatio: 0.01 })
 
+                }
+                else throw new Error("Mobile Screen | Team Name Box is Not Visible")
+
+
+        }
+
+        async validateSelectedTeamMessageBoxSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSelectedTeamMessageBox)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateSelectedTeamMessageBox).screenshot()
+                        await expect(selectText).toMatchSnapshot("SelectedTeamNameBoxColor_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Selected Team Message Box is Not Visible")
+
+
+        }
+        async validateCountdownBackgroundSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCountdownBackgroundVid)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCountdownBackgroundVid).screenshot()
+                        await expect(selectText).toMatchSnapshot("CountdownBackground_UI.png", { maxDiffPixelRatio: 0.01 })
+
+                }
+                else throw new Error("Mobile Screen | Countdown Backgroundis Nsot Visible")
+
+
+        }
+        async validateGameplayMainBoardMSGSuccessfullyApplied() {                
+                
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
+                if (await ele.isVisible()) {
+                        const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
+                        await expect(selectText).toHaveText("This is a test message")
+
+                }
+                else throw new Error("Mobile Screen | Gameplay Mainboard Message is not visible")
+
+
+        }
+        async NavigateTotehGames(){
+                const ele = await this.page.locator(this.tugOfWarMobilePageElements.NavigatetotheGames).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.tugOfWarMobilePageElements.NavigatetotheGames).click({ button: "left", delay: 1000 })
+
+                }
+                else throw new Error("Games Button Is not visible In User Side On The Navigation Bar")
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(3000)
+
+        }
+        async NavigatetotheThugOFwar(){
+                const ele = await this.page.locator(this.tugOfWarMobilePageElements.NavigatetotheThugofwarGame).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.tugOfWarMobilePageElements.NavigatetotheThugofwarGame).click({ button: "left", delay: 1000 })
+
+                }
+                else throw new Error("Thug Of War Game Card Is not visible In User Side On The Navigation Bar")
+                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(3000)
+
+        }
 
 }
