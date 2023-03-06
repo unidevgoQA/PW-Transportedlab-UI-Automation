@@ -18,7 +18,7 @@ const config: PlaywrightTestConfig = {
     "011AddNewExperiences.test.ts",
     "012Trivia.test.ts",
     "guesstheScore.test.ts",
-    // "textExtractFromImage.test.ts"
+    "textExtractFromImage.test.ts"
   ],
   timeout: 1 * 30 * 10000,
   expect: {
@@ -28,21 +28,21 @@ const config: PlaywrightTestConfig = {
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : 1,
 
-  // reporter: process.env.CI ? [["junit", {
-  //   outputFile: "results.xml"
-  // }]] : [["json", {
-  //   outputFile: "report.json"
-  // }], ["html", {
-  //   open: "never"
-  // }]],
+  reporter: process.env.CI ? [["junit", {
+    outputFile: "results.xml"
+  }]] : [["json", {
+    outputFile: "report.json"
+  }], ["html", {
+    open: "never"
+  }]],
 
   // reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
 
 
-  reporter: [["html", {
-    open: "never"
-  }], ["allure-playwright"], ['./My-Reporter.js']],
-  globalTeardown: require.resolve("./mailer.js"),
+  // reporter: [["html", {
+  //   open: "never"
+  // }], ["allure-playwright"], ['./My-Reporter.js']],
+  // globalTeardown: require.resolve("./mailer.js"),
 
   use: {
     actionTimeout: 10 * 6000,
@@ -50,6 +50,14 @@ const config: PlaywrightTestConfig = {
     baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
       //  args: ["--start-maximized"],
+      args: [
+        // "disable-gpu",
+        '--use-fake-device-for-media-stream',
+        '--use-fake-ui-for-media-stream',
+        '--no-sandbox',
+        '--disable-features=UseOzonePlatform',
+        '--use-file-for-fake-video-capture=E:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation/mobile.y4m'
+      ],
       slowMo: 100
     },
     permissions: ["microphone", "camera", "clipboard-read", "clipboard-write"],

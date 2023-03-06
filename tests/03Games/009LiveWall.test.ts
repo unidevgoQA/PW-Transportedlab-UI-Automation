@@ -7,7 +7,9 @@ import { readFileSync } from 'fs'
 import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import BaseFunctions from "@base-function/baseFunctions";
 import livewallMobilePage from '../../pages/MobileGamesPage/livewall_mobile_game.page';
+import mainBoardPage from "@pages/Mainboard.page";
 import liveWallPage from "@pages/liveWall.page";
+import prizeDropPage from "@pages/prizeDrop.page";
 //import liveWallMobilePage from "@pages/liveWallMobile.page";
 
 let url: any;
@@ -212,29 +214,29 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
 
         await test.step("009FanSee-52|	Validate Background Color picker RGB sections are working", async () => {
                 //input Background First RGB Color
-                await liveWallPage.input_Red_Color('211')
+                await liveWallPage.input_Red_Color('114')
 
 
                 //input Background Box Color RGB Second
-                await liveWallPage.input_blue_color('54')
+                await liveWallPage.input_blue_color('18')
 
 
 
                 //input Background Box Color RGB Third
-                await liveWallPage.input_green_color('54')
+                await liveWallPage.input_green_color('18')
         })
 
 
 
         await test.step("009FanSee-53|	Validate Background Color picker vertical opacity slider is visible and clickable.", async () => {
                 //input Background Box Color Opacity
-                await liveWallPage.inputColorOpacity('98')
+                await liveWallPage.inputColorOpacity('100')
 
         })
 
         await test.step("009FanSee-54|	Validate Background Color picker  hex input is working ", async () => {
                 //input Background Box Color HEX Color
-                await liveWallPage.inputHEXColor('D33636FF')
+                await liveWallPage.inputHEXColor('711212FF')
 
 
 
@@ -499,11 +501,11 @@ test("000 | Select All The Menu Ready For UI Verification", async ({ loginPage, 
         await menuPage.selectHideAlignmentMenuBar()
         await singupPage.clickSignUpPage()
         await singupPage.clickAnonymousLogin()
-        await singupPage.uncheckPhoneNumberCheckBox()
-        await singupPage.uncheckEmailAddressCheckBox()
-        await singupPage.uncheckAgeCheckBox()
-        await singupPage.uncheckDateOfBirthCheckBox()
-        await singupPage.uncheckPostalCodeCheckBox()
+        // await singupPage.uncheckPhoneNumberCheckBox()
+        // await singupPage.uncheckEmailAddressCheckBox()
+        // await singupPage.uncheckAgeCheckBox()
+        // await singupPage.uncheckDateOfBirthCheckBox()
+        // await singupPage.uncheckPostalCodeCheckBox()
     
     })
 test("009FanSee-234|validate mobile background upload is reflected on mobile",async({ loginPage, liveWallPage, functions,browser, page }, testInfo)=>{
@@ -541,12 +543,108 @@ test("009FanSee-234|validate mobile background upload is reflected on mobile",as
                 newlivewallgame= new livewallMobilePage(newTab)
                 await liveWallPage.clickCloseBtn()
         })
+        await test.step('now check the updated logo',async()=>{
+                await newlivewallgame.typeAge()
+                await newlivewallgame.typeemail()
+                await newlivewallgame.typephoneno()
+                await newlivewallgame.typezip()
+                await newlivewallgame.selectbirthdate()
+                await newlivewallgame.clicksubmit()
+                await newlivewallgame.video_mobile_background()
+                
+        })
         await test.step('now validate background video is working',async()=>{
                 await newlivewallgame.screenshot_matcher_mobile_background()
         })
         await test.step('now delete the uploaded image',async()=>{
                 await liveWallPage.mobile_background_image_delete()
         })  
+})
+test("009FanSee-270 | validate mobile background video upload is working",async({ loginPage, liveWallPage, functions,browser, page }, testInfo)=>{
+          // await test.step("Login Admin And land To Home Screen", async () => {
+
+          await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+
+        await test.step("now mobile background image", async () => {
+                //click ToUpload Feed Right Image
+                await liveWallPage.select_video_for_mobile_background()
+                await liveWallPage.video_uploader_for_mobile_background()
+                await liveWallPage.wait_mobile_back_upload()
+        })   
+})
+test('009FanSee-271 | validate mobile background video is reflected on mobile',async({ loginPage, liveWallPage, functions,browser, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step("open mobile link and copy",async()=>{
+                  //click Mobile QR Code
+                //   await liveWallPage.click_start_button()
+                  await liveWallPage.click_Mobile_button()
+                  await liveWallPage.click_copy_link_button()
+        })
+        let url= await clipboard.readSync()
+        let newPage:livewallMobilePage
+        await test.step('now open a new browser and check', async()=>{
+                const newContext= await browser.newContext()
+                newPage = new livewallMobilePage(await newContext.newPage())
+                await newPage.GoTo(url)
+        })
+        await test.step('now check the updated logo',async()=>{
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()
+                await newPage.video_mobile_background()
+                
+        })
+
+        await test.step('close the elements and stop the game',async()=>{
+            await liveWallPage.clickCloseBtn()  
+            await liveWallPage.clickDesignPage()
+            await liveWallPage.delete_mobile_back()
+        }) 
 })
 test("009FanSee-79|Validate Mobile Homescreen logo Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
@@ -579,6 +677,54 @@ test("009FanSee-79|Validate Mobile Homescreen logo Upload Functionality", async 
                 await liveWallPage.wait_mobile_Home_screen_upload()
         })
 })
+test('009FanSee-235| Validate mobile Homescreen logo is reflected on mobile',async({ loginPage, liveWallPage,browser, functions, page }, testInfo) =>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step("open mobile link and copy",async()=>{
+                  //click Mobile QR Code
+                  await liveWallPage.click_Mobile_button()
+                  await liveWallPage.click_copy_link_button()
+        })
+        let url= await clipboard.readSync()
+        let newPage:livewallMobilePage
+        await test.step('now open a new browser and check', async()=>{
+                const newContext= await browser.newContext()
+                newPage = new livewallMobilePage(await newContext.newPage())
+                await newPage.GoTo(url)
+        })
+        await test.step('now check the updated logo',async()=>{
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()
+                await newPage.screenshot_matcher_mobile_home_screen()
+        })
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage()
+                await liveWallPage.delete_mobile_homescreen()
+        })
+})
 test("009FanSee-81|Validate Output Background Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -607,8 +753,132 @@ test("009FanSee-81|Validate Output Background Upload Functionality", async ({ lo
         await test.step("validate mobile home screen logo upload works", async () => {
                 await liveWallPage.select_image_for_output_background()
                 await liveWallPage.output_background_upload()
+                //need to use png here
                 await liveWallPage.Image_uploader_For_output_background()
                 await liveWallPage.wait_OutPut_background()
+        })
+})
+test('009FanSee-237| Validate output background image is reflected on mainboard',async({ loginPage, liveWallPage, functions, page }, testInfo) =>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await newmainboard.validate_output_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage() 
+                await liveWallPage.delete_output_back()
+        })
+})
+test('009FanSee-269|Validate Output Background video Upload Functionality',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works", async () => {
+                await liveWallPage.select_video_for_output_back()
+                await liveWallPage.output_background_upload()
+                //need to use png here
+                await liveWallPage.video_uploader_For_output_background()
+                await liveWallPage.wait_OutPut_background()
+        })
+})
+test('009FanSee-236 | validate Output background video is reflected on mainboard',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await newmainboard.validate_output_video()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage() 
+                await liveWallPage.delete_output_back()
         })
 })
 test("009FanSee-82|Validate Left Image (1:1 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
@@ -642,6 +912,52 @@ test("009FanSee-82|Validate Left Image (1:1 Output) Upload Functionality", async
                 await liveWallPage.wait_left_image_1_1_upload()
         })
 })
+test('009FanSee-238|	validate left image (1:1 Output) is reflected on mainboard',async({ loginPage, liveWallPage, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_4_1_mainboard_toggle()
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await newmainboard.validate_left_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage() 
+                await liveWallPage.delete_left_image_1_1()
+        })  
+})
 test("009FanSee-83|Validate Mobile Frame Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -673,7 +989,61 @@ test("009FanSee-83|Validate Mobile Frame Upload Functionality", async ({ loginPa
                 await liveWallPage.wait_mobile_frame_upload()
         })
 })
-test("009FanSee-84|Validate Output Frame (9:16 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-239|	validate mobile frame image is reflected on mobile',async ({ loginPage, liveWallPage, page,browser }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step("open mobile link and copy",async()=>{
+                  //click Mobile QR Code
+                  await liveWallPage.click_start_button()
+                  await liveWallPage.click_Mobile_button()
+                  await liveWallPage.click_copy_link_button()
+        })
+        let url= await clipboard.readSync()
+        let newPage:livewallMobilePage
+        await test.step('now open a new browser and check', async()=>{
+                const newContext= await browser.newContext()
+                newPage = new livewallMobilePage(await newContext.newPage())
+                await newPage.GoTo(url)
+        })
+        await test.step('now check the updated logo',async()=>{
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()
+                await newPage.clickjoin()
+                //not completed
+                await newPage.screenshot_matcher_mobile_frame()
+                
+        })
+
+        await test.step('close the elements and stop the game',async()=>{
+            await liveWallPage.clickCloseBtn()  
+            await liveWallPage.click_stop_button()
+            await liveWallPage.clickDesignPage()
+            await liveWallPage.deleteUploadedMobileFrame()  
+        })
+})
+test("009FanSee-84 | Validate Output Frame (9:16 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -702,9 +1072,66 @@ test("009FanSee-84|Validate Output Frame (9:16 Output) Upload Functionality", as
                 await liveWallPage.OutputFrame_9_16_upload()
                 await liveWallPage.Image_uploader_For_OutputFrame_9_16()
                 await liveWallPage.wait_OutputFrame_9_16_upload()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_start_button()
         })
 })
-test("009FanSee-85|Validate Banner Image (9:16 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-240 | validate output frame (9:16 Output) is reflected on mainboard',async({ loginPage, liveWallPage, browser,functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_9_16_mobile_button()
+              
+        })
+        //916 toggle on kora lagbe
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)
+                            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                await newmainboard.validate_output_frame()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.click_stop_button()
+                await liveWallPage.clickDesignPage() 
+                await liveWallPage.delete_output_frame_9_16()
+               
+        }) 
+})
+
+test("009FanSee-85 | Validate Banner Image (9:16 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -735,7 +1162,56 @@ test("009FanSee-85|Validate Banner Image (9:16 Output) Upload Functionality", as
                 await liveWallPage.wait_bannner_image_9_16_upload()
         })
 })
-test("009FanSee-86|Validate Right Image (1:1 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+
+test('009FanSee-241| validate banner Image (9:16 Output) is reflected on mainboard',async({ loginPage, liveWallPage, functions, page }, testInfo) =>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_16_9_mainboard_toggle()
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await newmainboard.validate_banner_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage() 
+                await liveWallPage.delete_banner_image()
+        }) 
+})
+
+
+test("009FanSee-86 | Validate Right Image (1:1 Output) Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -766,6 +1242,54 @@ test("009FanSee-86|Validate Right Image (1:1 Output) Upload Functionality", asyn
                 await liveWallPage.wait_right_image_1_1_upload()
         })
 })
+test('009FanSee-243| validate right image(1:1 Output) is reflected on mainboard',async({ loginPage, liveWallPage,browser, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_4_1_mainboard_toggle()
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await newmainboard.validate_right_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.clickDesignPage() 
+                //need to change code here
+                await liveWallPage.delete_right_image()
+        }) 
+})
+
 test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -796,6 +1320,146 @@ test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPa
                 await liveWallPage.Fallback_1_1_upload()
                 await liveWallPage.Image_uploader_For_Fallback_1_1()
                 await liveWallPage.wait_Fallback_1_1_upload()
+        })
+})
+test('009FanSee-245|	validate fallback 1:1 image is reflected on mainboard',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_start_button()
+                await liveWallPage.click_1_1_mobile_button()
+                await liveWallPage.click_16_9_mainboard_toggle()
+              
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                await newmainboard.validate_fallback_1_1_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.click_stop_button()
+                await liveWallPage.clickDesignPage() 
+                //need to change code here
+                await liveWallPage.delete_Fallback_1_1_upload()
+        })
+})
+test('009FanSee-272 | validate fallback 1:1 video upload is working',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate fallback video upload works", async () => {
+                await liveWallPage.select_video_fallback_1_1()
+                await liveWallPage.Fallback_1_1_upload()
+                await liveWallPage.video_uploader_For_Fallback_1_1()
+                await liveWallPage.wait_Fallback_1_1_upload()
+        })
+})
+test('009FanSee-244| validate fallback 1:1 video is reflected on mainboard',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_start_button()
+                await liveWallPage.click_1_1_mobile_button()
+                await liveWallPage.click_16_9_mainboard_toggle()
+              
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                await newmainboard.validate_fallback_1_1_video()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.click_stop_button()
+                await liveWallPage.clickDesignPage() 
+                //need to change code here
+                await liveWallPage.delete_Fallback_1_1_upload()
         })
 })
 test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
@@ -830,6 +1494,149 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
                 await liveWallPage.wait_Fallback_9_16_upload()
         })
 })
+test('009FanSee-245|	validate fallback 9:16 image is reflected on mainboard',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_start_button()
+                await liveWallPage.click_9_16_mobile_button()
+                await liveWallPage.click_4_1_mainboard_toggle()
+              
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                await newmainboard.validate_fallback_9_16_image()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.click_stop_button()
+                await liveWallPage.clickDesignPage() 
+                //need to change code here
+                await liveWallPage.delete_Fallback_9_16_upload()
+        })
+})
+
+test('009FanSee-273|	validate fallback 9:16 video upload is working',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("validate mobile home screen logo upload works", async () => {
+                await liveWallPage.select_video_for_fallback_9_16()
+                await liveWallPage.Fallback_9_16_upload()
+                await liveWallPage.video_uploader_For_Fallback_9_16()
+                await liveWallPage.wait_Fallback_9_16_upload()
+        })
+})
+
+test('009FanSee-246|	validate fallback 9:16 video is reflected on mainboard',async({ loginPage, liveWallPage,browser, functions, page }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        // })
+        // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
+
+        //click Live Wall Section
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+                await liveWallPage.click_start_button()
+                await liveWallPage.click_9_16_mobile_button()
+                await liveWallPage.click_4_1_mainboard_toggle()
+              
+        })
+        let newTab = null;
+        let newmainboard: mainBoardPage
+        await test.step('now click on output background',async()=>{
+                await liveWallPage.clickOutPutBtn()
+                newTab= await liveWallPage.click_open_link_button_with_page()
+                newmainboard= new mainBoardPage(newTab)            
+        })
+
+        await test.step('now click ok and wait for image',async()=>{
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                //need to use png here
+                await browser.contexts()[0].pages()[1].reload()
+                await newmainboard.clickokbutton()
+                await newmainboard.validate_fallback_9_16_video()
+        })
+
+        await test.step('now delete the uploaded image',async()=>{
+                await liveWallPage.clickCloseBtn()
+                await liveWallPage.click_stop_button()
+                await liveWallPage.clickDesignPage() 
+                //need to change code here
+                await liveWallPage.delete_Fallback_9_16_upload()
+        })
+})
+
 test("009FanSee-130|validate prelive text message functionalities", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -955,6 +1762,50 @@ test("009FanSee-130|validate prelive text message functionalities", async ({ log
         await liveWallPage.preLiveInputBoxRemove()
 
     })  
+})
+test('009FanSee-248|	validate pre-live text is being reflected on mobile',async({ loginPage, liveWallPage, functions, page,browser }, testInfo)=>{
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("now navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+
+                await liveWallPage.remove_message_popup()
+
+                await liveWallPage.click_trippledot()
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step("open mobile link and copy",async()=>{
+                  //click Mobile QR Code
+                  await liveWallPage.click_start_button()
+                  await liveWallPage.click_Mobile_button()
+                  await liveWallPage.click_copy_link_button()
+        })
+        let url= await clipboard.readSync()
+        let newPage:livewallMobilePage
+        await test.step('now open a new browser and check', async()=>{
+                const newContext= await browser.newContext()
+                newPage = new livewallMobilePage(await newContext.newPage())
+                await newPage.GoTo(url)
+        })
+        await test.step('now go to game page',async()=>{
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()   
+                
+        })
 })
 test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         

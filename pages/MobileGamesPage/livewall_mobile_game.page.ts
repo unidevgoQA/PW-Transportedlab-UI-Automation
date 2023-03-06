@@ -1,5 +1,5 @@
 import { expect, Page } from "@playwright/test";
-import { readFileSync } from 'fs'
+import { createReadStream } from 'fs'
 export default class livewallMobilePage {
         // [x: string]: any;
         private page: Page;
@@ -66,4 +66,65 @@ export default class livewallMobilePage {
               .soft(this.page)
               .toHaveScreenshot('mobile_background_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04,mask:[this.page.locator(this.livewall_mobile_game_elements.pre_live_text)]})
        }
+       async video_mobile_background(){
+              try {
+                     await this.page.waitForTimeout(7000)
+                     await expect
+                     .soft(this.page.frameLocator('iframe').locator("//div[@id='app']//video"))
+                     .toBeVisible() 
+                   } catch (error) {
+                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+                   }
+       }
+
+       async screenshot_matcher_mobile_home_screen(){
+             try {
+               await this.page.waitForTimeout(7000)
+               await expect
+               .soft(this.page.frameLocator('iframe').locator("//div[@id='app']//img"))
+               .toHaveScreenshot('FullScreen.png',{maxDiffPixelRatio:0.1})    
+             } catch (error) {
+               throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+             }
+       }
+
+       // async fake_video(){
+       //        async function createBufferFromStream(stream:any) {
+       //               const chunks = [];
+       //               for await (const chunk of stream) {
+       //                 chunks.push(chunk);
+       //               }
+       //               return Buffer.concat(chunks);
+       //             }
+
+       //        const videoStream = createReadStream('./testData/videos/video.mp4');
+       //        const videoBuffer = await createBufferFromStream(videoStream)
+      
+       //        // Set the input files to the pre-recorded video file
+       //        await this.page.setInputFiles('/html/body/div/div/div/div/div[3]', {
+       //               name: 'video.mp4',
+       //               mimeType: 'video/mp4',
+       //               buffer: videoBuffer,
+       //             });
+             
+       // }
+       async clickjoin(){
+            try {
+                await this.page.frameLocator('iframe').locator("//button[text()='Join for a chance to go Live!']").click({button:'left'})
+         
+            } catch (error) {
+              throw new Error('Join button click failed')
+            }}
+
+       async screenshot_matcher_mobile_frame(){
+              try {
+                     await this.page.waitForTimeout(7000)
+                     await expect
+                     .soft(this.page)
+                     .toHaveScreenshot('Frame_check.png',{maxDiffPixelRatio:0.3})    
+                   } catch (error) {
+                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+                   }
+       }
+      
     }
