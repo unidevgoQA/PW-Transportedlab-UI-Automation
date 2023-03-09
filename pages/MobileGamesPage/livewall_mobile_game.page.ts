@@ -9,7 +9,7 @@ export default class livewallMobilePage {
                 page.setViewportSize({width:360,height:740})
         }
         private livewall_mobile_game_elements={
-              pre_live_text : '//div[@class="css-0"]'
+              pre_live_text : '//div[@class="css-10v3mbv"]'
         }
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
@@ -126,5 +126,86 @@ export default class livewallMobilePage {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
                    }
        }
+
+       async test_for_pre_live_test(value:string){
+              const ele = this.page.frameLocator('//iframe').locator(`//p[text()="${value}"]`)
+          try {
+                  await expect.soft(ele).toBeVisible({timeout:30000})
+          } catch (error) {
+              throw new Error(" Prelive Test visiblity failed " + error)
+          }
+       }
+       async test_for_post_live_test(value:string){
+              const ele = this.page.frameLocator('//iframe').locator(`//h1[text()="${value}"]`)
+          try {
+                  await expect.soft(ele).toBeVisible({timeout:30000})
+          } catch (error) {
+              throw new Error(" Post live Test visiblity failed " + error)
+          }
+       }
+       async test_for_standby_message(value:string){
+              const ele = this.page.frameLocator('//iframe').locator(`//h1[@style="text-align:left;"]`)
+          try {
+              await expect.soft(ele).toBeVisible()
+              await expect.soft(ele).toContainText(value)
+          } catch (error) {
+              throw new Error(" standby visiblity failed " + error)
+          }
+       }
+
+       async check_progress_bar_hidden(){
+            try {
+               await this.page.waitForTimeout(5000)
+                const ele= this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]')
+                await expect(ele).toBeHidden()
+            } catch (error) {
+              throw new Error('Live count down timer toggle is not working'+ error)
+            }
+       }
+       async check_hours(value:string){
+              try {
+                 await this.page.waitForLoadState('networkidle')
+                  const ele= this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
+                  await expect.soft(ele).toContainText(value)
+              } catch (error) {
+                throw new Error('Hours input reflection on mobile is not correct'+ error)
+              }
+         }
+         async check_minutes(value:string){
+              try {
+                 await this.page.waitForLoadState('networkidle')
+                  const ele= this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
+                  await expect.soft(ele).toContainText(value)
+              } catch (error) {
+                throw new Error('Minutes input reflection on mobile is not correct'+ error)
+              }
+         }
+         async check_seconds(value:string){
+              try {
+                 await this.page.waitForLoadState('networkidle')
+                  const ele= this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
+                  await expect.soft(ele).toContainText(value)
+              } catch (error) {
+                throw new Error('seconds input reflection on mobile is not correct'+ error)
+              }
+         }
+
+         async check_flip_button_hidden(){
+              try {
+                     const ele = this.page.frameLocator('//iframe').locator('//div[@id="video2"]//following-sibling::button')
+                     await expect.soft(ele).toBeHidden()
+              } catch (error) {
+                     throw new Error('Camera flip reflection failed'+error)
+              }
+         }
+
+         async check_flip_button_visible(){
+              try {
+                     const ele = this.page.frameLocator('//iframe').locator('//div[@id="video2"]//following-sibling::button')
+                     await expect.soft(ele).toBeVisible()
+              } catch (error) {
+                     throw new Error('Camera flip reflection failed'+error)
+              }
+         }
       
     }

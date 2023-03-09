@@ -24,7 +24,7 @@ export default class liveWallPage {
     output_button:'//button[@aria-label="Output"]',
     output_link:'//a[@aria-label="Open Link"]',
     solid_ele: '//li[text()="Solid"]',
-    Horizontal_ele: '//li[text()="Horizontal"]',
+    Horizontal_ele: '//li[@data-value="horizontal"]',
     Vertical_ele: '//li[text()="Vertical"]',
     Diagonal_ele: '//li[text()="Diagonal"]',
     Radial_ele: '//li[text()="Radial"]',
@@ -75,9 +75,9 @@ export default class liveWallPage {
     input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_stand_by_message_element: '//h5[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
-    live_countdown_timer_toggle: '//span[text()="Live Countdown Timer"]//preceding-sibling::span//input',
-    show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span//input',
-    enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]//following-sibling::span//input',
+    live_countdown_timer_toggle: '//span[text()="Live Countdown Timer"]//preceding-sibling::span',
+    show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span',
+    enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]/following-sibling::span//span',
     hour_ele_controls: "//label[text()='Hours']//following-sibling::div//input",
     minutes_ele_controls: "//label[text()='Minutes']//following-sibling::div//input",
     seconds_ele_controls: "//label[text()='Seconds']//following-sibling::div//input",
@@ -114,7 +114,7 @@ export default class liveWallPage {
     start_button: '//button[text()="START"]',
     stop_button: "//button[text()='Clear Mainboard']//following-sibling::button",
     cue_button: "//h6[text()='Cue']//preceding-sibling::button",
-    live_button: "//h6[text()='Live']//preceding-sibling::button",
+    live_button: "//button[text()='Live']",
     delete_button: "//h6[text()='Delete']//preceding-sibling::button",
     search_field: "//input[@placeholder='Search username']",
     mainboard_button: "//button[@aria-label='Output']",
@@ -123,7 +123,7 @@ export default class liveWallPage {
     alert_button: "//h6[text()='Alert']//preceding-sibling::button",
     uncue_button: "//h6[text()='Uncue']//preceding-sibling::button",
     copy_link_button:'//button[@aria-label="Copy Link"]',
-    select_video_for_mobile_background:"//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']"
+    select_video_for_mobile_background:"//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']",
   }
 
 
@@ -501,7 +501,7 @@ export default class liveWallPage {
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.cue_button).first();
     if (await ele.isVisible()) {
-      // await ele.click({button:'left'});
+      await ele.click({button:'left'});
     }
     else {
       throw new Error("Either stop button element is not found or element visiblity is hidden");
@@ -512,7 +512,7 @@ export default class liveWallPage {
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.live_button).first();
     if (await ele.isVisible()) {
-      // await ele.click({button:'left'});
+       await ele.click({button:'left'});
     }
     else {
       throw new Error("Either stop button element is not found or element visiblity is hidden");
@@ -917,40 +917,35 @@ export default class liveWallPage {
 
   async click_horizontal_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Horizontal_ele)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
+    try {
+      await ele.click({button:'left'})
+    } catch (error) {
+      throw new Error('click horizontal button click failed'+error)
     }
-    else {
-      throw new Error("Either list text  horizontal is missing or its not visible")
-    }
-
   }
   async click_vertical_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Vertical_ele)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
-    }
-    else {
-      throw new Error("Either list text vertical button is missing or its not visible")
+    try {
+      await ele.click({button:'left'})
+    } catch (error) {
+      throw new Error('click vertical button click failed'+error)
     }
 
   }
   async click_diagonal_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Diagonal_ele)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
-    }
-    else {
-      throw new Error("Either list text diagonal is missing or its not visible")
+    try {
+      await ele.click({button:'left'})
+    } catch (error) {
+      throw new Error('click diagonal button click failed'+error)
     }
   }
   async click_radial_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Radial_ele)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
-    }
-    else {
-      throw new Error("Either list text radial is missing or its not visible")
+    try {
+      await ele.click({button:'left'})
+    } catch (error) {
+      throw new Error('click radial button click failed'+error)
     }
   }
 
@@ -2477,18 +2472,17 @@ export default class liveWallPage {
 
   // controls section from here
   async click_live_countdown_timer_toggle() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle)
-    if (await ele.isVisible()) {
-      await ele.dblclick({ button: 'left', delay: 600 })
-    }
-    else {
-      throw new Error("Live countdown timer toggle is not visible")
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).last()
+    try {
+      await ele.click({button:'left',force:true}) 
+    } catch (error) {
+      throw new Error('Toggle clicking falied '+error)
     }
   }
   async click_show_username_to_mainboard_toggle() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_mainboard_toggle)
     if (await ele.isVisible()) {
-      await ele.dblclick({ button: 'left', delay: 600 })
+      await ele.click({ button: 'left',force:true })
     }
     else {
       throw new Error("Show Username to Mainboard toggle is not visible")
@@ -2497,43 +2491,52 @@ export default class liveWallPage {
   async click_enable_camera_flipt_toggle() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle)
     if (await ele.isVisible()) {
-      await ele.dblclick({ button: 'left', delay: 600 })
+      await ele.click({ button: 'left', force:true })
     }
     else {
       throw new Error("Enable camera flip toggle is not visible")
     }
   }
-  async type_hours_in_control() {
+  async click_enable_camera_flip_single() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).last()
+    if (await ele.isVisible()) {
+      await ele.click({ button: 'left',force:true})
+    }
+    else {
+      throw new Error("Enable camera flip toggle is not visible" )
+    }
+  }
+  async type_hours_in_control(value:string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.hour_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
       await ele.fill("  ")
-      await ele.fill('34')
+      await ele.fill(value)
     }
     else {
       throw new Error("Hours section element is not visible")
     }
   }
-  async type_minutes_in_control() {
+  async type_minutes_in_control(value:string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.minutes_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
       await ele.fill("  ")
-      await ele.fill('43')
+      await ele.fill(value)
     }
     else {
       throw new Error("Minutes section element is not visible")
     }
   }
-  async type_seconds_in_control() {
+  async type_seconds_in_control(value:string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.seconds_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
       await ele.fill("  ")
-      await ele.fill('53')
+      await ele.fill(value)
     }
     else {
-      throw new Error("Minutes section element is not visible")
+      throw new Error("seconds section element input failed")
     }
   }
 

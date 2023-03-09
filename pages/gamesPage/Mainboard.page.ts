@@ -62,7 +62,7 @@ export default class mainBoardPage {
     try {
       await this.page.waitForTimeout(7000)
       await expect
-        (this.page)
+        .soft(this.page)
         .toHaveScreenshot('banner_image_validation.png', { maxDiffPixelRatio: 0.1 })
     } catch (error) {
       throw new Error(`Livewallpage| Mmainboard| output frame (9:16 Output) mismatch found` + error)

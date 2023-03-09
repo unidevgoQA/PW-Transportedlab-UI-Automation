@@ -51,7 +51,6 @@ const config: PlaywrightTestConfig = {
     launchOptions: {
       //  args: ["--start-maximized"],
       args: [
-        // "disable-gpu",
         '--use-fake-device-for-media-stream',
         '--use-fake-ui-for-media-stream',
         '--no-sandbox',
