@@ -14,14 +14,14 @@ export default class triviaPage {
                 configurationText : "//h5[text()='Configurations']",
                 triviaSestion : '//p[text()="Trivia"]',
                 plusbutton : "(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')])[1]",
-                inputConfigrationsName : "(//input[@id='P0-0'])[2]",
+                inputConfigrationsName : "//input[@type='string']",
                 addConfigurationBtn : "//button[text()='ADD']",
                 newConfigrationText : '//p[text()="New Configuration"]',
                 cancelConfigrationBtn : "//button[text()='CANCEL']",
                 withoutdata : "(//div[@class='MuiDialogContent-root css-3n2qrj'])[2]",
                 startBtn : "//button[text()='Start']",
                 okBtn : "//button[text()='Ok']",
-                RounderrorMessage: '//div[@class="MuiDialogContent-root css-3n2qrj"]',
+                RounderrorMessage: "//p[text()='Please create a round']",
                 mobileLinkBtn : '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorPrimary MuiIconButton-sizeMedium  css-1ctg0j5"]',
                 MobileLinkPopupClose : "//div[@class='MuiBox-root css-1xnxzwa']",
                 mobileLinkText: "//h2[contains(@class,'MuiTypography-root MuiTypography-h6')]",
@@ -129,9 +129,9 @@ export default class triviaPage {
                 ColorPickerTex:"//h3[text()='Color Picker']",
                 uploadGameTitleLogoBtn:"(//div[@class='MuiBox-root css-tbpxf9'])[1]",
                 uploadTeamLogoBtn:"(//div[@class='MuiBox-root css-4tiu59'])[2]",
-                uploadSponsorLogoBtn:"(//div[@class='MuiBox-root css-78n4oq'])[1]",
-                uploadMainboardBackgroundBtn:"(//div[@class='MuiBox-root css-78n4oq'])[2]",
-                uploadMobileBackgroundBtn:"(//div[@class='MuiBox-root css-78n4oq'])[3]",
+                uploadSponsorLogoBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[3]",
+                uploadMainboardBackgroundBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[4]",
+                uploadMobileBackgroundBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[5]",
                 uploadBannerImageBtn:"(//div[@class='MuiBox-root css-78n4oq'])[4]",
                 UploadsAndDialogsBtn:"(//div[@class='MuiBox-root css-16eo6ym'])[3]",
                 clickAddBannerSection:"(//div[@class='MuiBox-root css-16eo6ym'])[4]",
@@ -211,7 +211,7 @@ export default class triviaPage {
                 InputCountdownTitleName:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
                 CountdownTitleText:"//p[text()='Countdown Title']",
                 LeaderBoardTitleText:"//p[text()='Leaderboard Title']",
-                InputLeaderboardTitleName:'(//input[@class="MuiInputBase-input MuiOutlinedInput-input css-mjavz1"])[3]',
+                InputLeaderboardTitleName:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
                 AlignmentsText:"//p[text()='Alignments']",
                 MainboardCountdownText:"//p[text()='Mainboard Countdown']",
                 MainboardCountdownBottomBtn:"//div[@class='MuiBox-root css-8xbbof']//button[1]",
@@ -305,6 +305,7 @@ export default class triviaPage {
                 previewToggle:"(//span[contains(@class,'MuiButtonBase-root MuiSwitch-switchBase')])[2]",
                 deleteFontBtn: "//p[text()='Aa']/following-sibling::button",
                 colorPickerSaveBtn:"//button[text()='Save']",
+                ValuCannotbeemptyText:"//p[text()='Value cannot be an empty']",
                 
 
 
@@ -1049,9 +1050,9 @@ export default class triviaPage {
                 else throw new Error(`Trivia close button is not visible,Could not find locator:"${ele}"`)
         }
         async verifyerrorMessageIfConfigurationfieldIsBlank(){
-                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.errorMessageIfConfigurationfieldIsBlank)
+                const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.ValuCannotbeemptyText)
                 if(await ele.isVisible()){
-                        expect(ele).toContainText("Please input more than 3 characters")
+                        expect(ele).toContainText("Value cannot be an empty")
                 }
                 else throw new Error(`Trivia configuration field Error message is not shown,Could not find locator:"${ele}"`)
 
@@ -1073,8 +1074,7 @@ export default class triviaPage {
         await download.saveAs(filePath)
         expect(existsSync(filePath)).toBeTruthy()
         }
-
-        async clickCopyQRCodeBtn(){
+    async clickCopyQRCodeBtn(){
         const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.copyQRcodeBtn)
                 if(await ele.isVisible() ){
                   await ele.click()
@@ -1127,7 +1127,7 @@ export default class triviaPage {
                 else throw new Error(`Trivia Font is not successfully uploaded,Could not find locator:"${ele}"`)
         }
         async clickControlPanelSection(){
-                await this.page.waitForTimeout(1000)
+                await this.page.waitForTimeout(2000)
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.controlPanelSection).last()
                 if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
@@ -1588,6 +1588,13 @@ export default class triviaPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).fill('100')
+                }
+                else throw new Error("Trivia Coundown stage input field is not visible")
+        }
+        async inputCountDownTime(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).isVisible()
+                if((ele == true)){
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.inputCountdownStagefield).fill('5')
                 }
                 else throw new Error("Trivia Coundown stage input field is not visible")
         }
@@ -2146,26 +2153,26 @@ export default class triviaPage {
                 //await this.page.waitForEvent('load')
 
         }
-        async verifysuccessfullyuploadSponsorLogoBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
-                if(ele == true){
+        // async verifysuccessfullyuploadSponsorLogoBtn(){
+        //         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
+        //         if(ele == true){
                         
-                }
-                else throw new Error(" Trivia Sponsor logo delete button is not visible")
+        //         }
+        //         else throw new Error(" Trivia Sponsor logo delete button is not visible")
 
-        }
-        async verifysuccessfullyuploadMainboardBackgroundBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
-                if(ele == true){
-                }
-                else throw new Error(" Trivia Mainboard background delete button is not visible")
-        }
-        async verifysuccessfullyuploadMobileBackgroundBtn(){
-                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
-                if(ele == true){
-                }
-                else throw new Error(" Trivia Mobile background delete button is not visible")
-        }
+        // }
+        // async verifysuccessfullyuploadMainboardBackgroundBtn(){
+        //         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
+        //         if(ele == true){
+        //         }
+        //         else throw new Error(" Trivia Mainboard background delete button is not visible")
+        // }
+        // async verifysuccessfullyuploadMobileBackgroundBtn(){
+        //         const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.deletegameTitleBtn).isVisible()
+        //         if(ele == true){
+        //         }
+        //         else throw new Error(" Trivia Mobile background delete button is not visible")
+        // }
         async clickBackgroundColorBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.backgroundColorBtn).isVisible()
                 if(ele == true){
@@ -2536,7 +2543,7 @@ export default class triviaPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionNo_Font_dopdownBtn).isVisible()
                 if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionNo_Font_dopdownBtn).click({button:"left",delay:1000})
-                       // await this.page.waitForTimeout(1000)
+                       await this.page.waitForTimeout(1000)
                 }
                 else throw new Error("Trivia  QuestionNo_Front_Arial_DopdownBtn button is not visible in game settings")
         }

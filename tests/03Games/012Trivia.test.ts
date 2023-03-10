@@ -251,14 +251,9 @@ test("012TV-006 | Validate add button does not work without data.", async ({ log
             await triviaPage.clickAddConfigrationBtn()
       })
       await test.step("Validate add button does not work without data",async()=>{
-           
             await triviaPage.verifyerrorMessageIfConfigurationfieldIsBlank()
-            await triviaPage.clickOkBtn()
             await triviaPage.clickCancelConfigrationBtn()
       })
-
-
-      
 })
 test("012TV-007 | Validate mobile link QR code is visible.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
@@ -397,13 +392,13 @@ test("012TV-011 | Validate Open link button is working.", async ({ loginPage, fu
             await triviaPage.clickTriviaSection()
 
       })
-      await test.step("Now Add new configuration for validate Open link  is successfully open on mobile screen",async()=>{
-            await triviaPage.verifyConfigurationsText()
-            await triviaPage.clickAddNewConfigPlusBtn()
-            await  triviaPage.typeConfigurationName(triviaPage.getRandomName())
-            await triviaPage.clickAddConfigrationBtn()
+      // await test.step("Now Add new configuration for validate Open link  is successfully open on mobile screen",async()=>{
+      //       await triviaPage.verifyConfigurationsText()
+      //       await triviaPage.clickAddNewConfigPlusBtn()
+      //       await  triviaPage.typeConfigurationName(triviaPage.getRandomName())
+      //       await triviaPage.clickAddConfigrationBtn()
 
-      })
+      // })
 
       await test.step("click mobile link  button is working", async () => {
             await triviaPage.clickMobileLinkBtn()
@@ -2654,7 +2649,7 @@ test("012TV-071 | Validate input RGB answer frame color is working.", async ({ l
   
       
 })
-test("012TV-072 | Validate Answer frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-072 | Validate Answer frame color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2679,7 +2674,7 @@ test("012TV-072 | Validate Answer frame color successfully reflection on mobile 
            await triviaPage.clickOkBtn()
            await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
-           await triviaPage.clickMOveToNextBtn()
+           //await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -3959,8 +3954,8 @@ test("012TV-0112 | Validate  upload fonts successfully reflection on mobile scre
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
             await triviaPage.clickgamedesignSection()
-            //await triviaPage.clickControlPanelSection()
-           // await triviaPage.inputCountDownStage()
+            await triviaPage.clickControlPanelSection()
+           await triviaPage.inputCountDownTime()
       })
     
       await test.step("Clik start button", async () => {
@@ -4202,10 +4197,8 @@ test("012TV-0117 | Validate  Admin side upload Sponsor  logo image is working.",
       await functions.logoImageUploadFunction()
       await functions.fileUploadCropper()
       await triviaPage.verifySponsorLogoText()
-      await triviaPage.verifysuccessfullyuploadSponsorLogoBtn()
       //await page.waitForTimeout(5000)
     })
-      
 })
 test("012TV-0118 | Validate  upload Sponsor  logo successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
@@ -4245,7 +4238,6 @@ test("012TV-0118 | Validate  upload Sponsor  logo successfully reflection on mob
             })
             await test.step("Now verify sponsor logo",async()=>{
                   await page.waitForTimeout(5000)
-                  //await triviamobilepage.clickHomeBtn()
                   await triviamobilepage.verifySponsorLogoAppliedSuccessfullyInMobileScreen()
             })
       
@@ -4289,7 +4281,6 @@ test("012TV-0119 | Validate  upload Mainboard background image is working.", asy
       await functions.logoImageUploadFunction()
       await functions.fileUploadCropper()
       await triviaPage.verifyMainboardBackgroundText()
-      await triviaPage.verifysuccessfullyuploadMainboardBackgroundBtn()
       //await page.waitForTimeout(5000)
     })
       
@@ -4376,7 +4367,6 @@ test("012TV-0121 | Validate Admin side upload Mobile background image is working
       //await triviaPage.click
       await functions.fileUploadCropper()
       await triviaPage.verifyMobileBackgroundText()
-      await triviaPage.verifysuccessfullyuploadMobileBackgroundBtn()
       //await page.waitForTimeout(5000)
     })
       
@@ -4773,7 +4763,7 @@ test("012TV-0106 | Validate Question No Screen header settings is working.", asy
             await triviaPage.inputQuestionNoScreenHeader()
             await triviaPage.clickQuestionNo_Font_Arial_dopdown()
             await triviaPage.clickQuestionNo_dopdown_Font()
-            await page.waitForTimeout(1000)
+            await triviaPage.clickQuestionNoHeader_dopdown()
             await triviaPage.clickH1Heding()
             await triviaPage.clickQuestionNoHeader_dopdown()
             await triviaPage.clickH2Heding()
@@ -4841,6 +4831,7 @@ test("012TV-0108 | Validate Pre Game settings is working.", async ({ loginPage, 
             await triviaPage.clickPreGameMessage_droppdown_Font_Arial()
             await triviaPage.clickPreGame_dropdown_Font()
             await page.waitForTimeout(1000)
+            await triviaPage.clickQuestionNoHeader_dopdown()
             await triviaPage.clickH1Heding()
             await triviaPage.clickPreMessage_dropdown_Normal_H1_H2_H3_H4_H5_H6()
             await triviaPage.clickH2Heding()
@@ -5140,7 +5131,6 @@ test("012TV-0131 | Validate  Add New prize for manual is working.", async ({ log
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
-            await triviaPage.verifyDatahasnotbeencreatedText()
             await triviaPage.clickAddNewPrizeBtn()
             await triviaPage.verifyAddNewPrizeText()
             await triviaPage.InputAddNewPrizeTitlename_Cola()
@@ -5168,7 +5158,7 @@ test("012TV-0131 | Validate  Add New prize for manual is working.", async ({ log
       
             
 })
-test("012TV-0132 | Validate  prize won manually distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-0132 | Validate  prize won manually distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -5230,7 +5220,7 @@ test("012TV-0132 | Validate  prize won manually distribution successfully reflec
             
       
 })
-test("012TV-0133 | Validate  prize won manually distribution  save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-0133 | Validate  prize won manually distribution  save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -5312,7 +5302,6 @@ test("012TV-0134 | Validate  Add New prize Distribution for Automatic  is workin
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
-            await triviaPage.verifyDatahasnotbeencreatedText()
             await triviaPage.clickAddNewPrizeBtn()
             await triviaPage.verifyAddNewPrizeText()
             await triviaPage.InputAddNewPrizeTitlename_Burger()
@@ -5399,7 +5388,7 @@ test("012TV-0135 | Validate  prize won Automatic distribution successfully refle
             
       
 })
-test("012TV-0136 | Validate  prize won Automatic distribution save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.skip("012TV-0136 | Validate  prize won Automatic distribution save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')

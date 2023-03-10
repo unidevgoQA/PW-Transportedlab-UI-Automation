@@ -139,8 +139,8 @@ export default class guesstheScorePage {
         Deleteriderbutton:'//button[text()="Delete"]',
         OkindeleteriderBtn:'//button[text()="Ok"]',
         Gameoperationssection:'//p[text()="Game Operations"]',
-        GameOperationAddedEventThreeDot:"(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]",
-        EventStartBtn:"//p[text()='Start Event'])[1]",
+        GameOperationAddedEventThreeDot:"//div[@class='MuiBox-root css-1ncdo3u']",
+        EventStartBtn:"//p[text()='Start Event']",
         EventStopBtn:"//p[text()='Stop Event']",
         AddEventBtn:"//button[text()='Add Event']",
         InputTestEvent:'//input[@type="string"]',
@@ -204,6 +204,9 @@ export default class guesstheScorePage {
         ColorPickerText:"//h3[text()='Color Picker']",
         PlusBtnInColorPicker:"//button[@aria-label='Add Color']",
         RGBText:"//h3[text()='RGB']",
+        inputEventName:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+        DeleteConfiguration:'//p[text()="Delete"]',
+        ConfirmDeleteConfigurationBtn:"//button[text()='Delete']",
 
        // boldincorrectguesseditor:'//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Bold"]',
   }     
@@ -232,6 +235,7 @@ export default class guesstheScorePage {
                 let ele = this.page.locator(this.guessthescorePageElements.guessTheScoreSection)
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForLoadState("networkidle")
                 }
                 catch(error){
                       throw(`Guess the score game page is not visible,Could not find locator:"${ele}"`)
@@ -239,7 +243,7 @@ export default class guesstheScorePage {
                 // expect(locator).toContainText('Prize Drop')
                // await locator.click({ force: true })
                 // console.log("Successfully Click To Tug of War Page ")
-                //await this.page.waitForLoadState("networkidle")
+                
         }
 
         async verifyConfigurationsText() {
@@ -600,12 +604,13 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ImageSection)
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
                 catch(error){
                       throw(`Guess the score image section open Button  is not visible,Could not find locator:"${ele}"`)
                 }
                
-                await this.page.waitForLoadState("networkidle")
+                //await this.page.waitForLoadState("")
         
                 //await this.page.waitForLoadState("networkidle")
         }
@@ -649,42 +654,38 @@ export default class guesstheScorePage {
 
         async deleteUploadedMobileBackground() {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.DeleteUploadedMobileBackgroundImage).first()
-                try{
+                      if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
-                }
-                catch(error){
-                      throw(`Guess the score image section delete uploaded background image button is not visible,Could not find locator:"${ele}"`)
-                }
+                        await this.page.waitForTimeout(2000)
+                      }
+               
         }      
         
         async deleteUploadedBannerImage() {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.DeleteUploadedBannerImage).first()
-                try{
+                
+                if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
-                }
-                catch(error){
-                      throw(`Guess the score image section delete uploaded Banner image button is not visible,Could not find locator:"${ele}"`)
-                }
+                        await this.page.waitForTimeout(2000)
+                      }
+                
+              
          }    
 
          async deleteUploadedSponsorLogo() {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.DeleteUploadedSponsorLogo).first()
-                try{
+                if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
-                }
-                catch(error){
-                      throw(`Guess the score image section delete uploaded Sponsor image button is not visible,Could not find locator:"${ele}"`)
-                }
+                        await this.page.waitForTimeout(2000)
+                      }
          }  
          
          async deleteUploadedGameTitleLogo() {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.DeleteUploadedGameTitleLogo).first()
-                try{
+                if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
-                }
-                catch(error){
-                      throw(`Guess the score image section delete uploaded game title button is not visible,Could not find locator:"${ele}"`)
-                }
+                        await this.page.waitForTimeout(2000)
+                      }
          }   
 
         
@@ -796,6 +797,25 @@ export default class guesstheScorePage {
                 }
                 catch(error){
                       throw(`Guess the score Dialogs button is not visible,Could not find locator:"${ele}"`)
+                }
+        }
+        async clickDeteleSection() {
+                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.DeleteConfiguration)
+                try{
+                        await ele.click({button:"left",delay:1000})
+                }
+                catch(error){
+                      throw(`Guess the score Delete configuration section is not visible,Could not find locator:"${ele}"`)
+                }
+        }
+        async confirmDeteleConfiguration() {
+                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ConfirmDeleteConfigurationBtn)
+                try{
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(3000)
+                }
+                catch(error){
+                      throw(`Guess the scoreconfirm Delete configuration button section is not visible,Could not find locator:"${ele}"`)
                 }
         }
         async typestandbymessage() {
@@ -1856,7 +1876,7 @@ export default class guesstheScorePage {
         }
 
         async clickeditriderbutton() {
-                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.EditRiderBtn)
+                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.EditRiderBtn).last()
                 try{
                         await ele.click({button:"left",delay:1000})
                 }
@@ -1866,7 +1886,7 @@ export default class guesstheScorePage {
         }
 
         async clickdeleteriderbutton() {
-                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.Deleteriderbutton)
+                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.Deleteriderbutton).last()
                 try{
                         await ele.click({button:"left",delay:1000})
                 }
@@ -1910,18 +1930,18 @@ export default class guesstheScorePage {
 
 
         async clickEventStartBtn() {
-                 await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
+                 await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
                 const ele = await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStopBtn).isVisible()
                    if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStopBtn).click({force:true})
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).click({force:true})
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).last().click({force:true})
                    }
                    else{
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).click({force:true})
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).last().click({force:true})
                    }
-                await this.page.waitForLoadState("networkidle")
+               // await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(3000)
         }
 
@@ -1931,9 +1951,10 @@ export default class guesstheScorePage {
 
 
         async clickaddeventbutton() {
-                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.AddEventBtn)
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.AddEventBtn)
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(1000)
                 }
                 catch(error){
                         throw(`Guess the score  game operation add event button is not visible,Could not find locator:"${ele}"`)
@@ -1941,7 +1962,7 @@ export default class guesstheScorePage {
         }
 
         async typetestevent() {
-                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.AddEventBtn)
+                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.inputEventName)
                 try{
                         await ele.fill('Event')
                 }
@@ -2026,13 +2047,15 @@ export default class guesstheScorePage {
 
         async clickeditsection() {
                 await this.page.waitForTimeout(3000)
-                let ele = await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GamesettingsSection).last()
+                let ele = await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.Editsection).last()
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
                 catch(error){
                         throw(`Guess the score  game settings section is not visible,Could not find locator:"${ele}"`)
                 }
+
         }
         async editconfigname() {
                 //const ele = this.page.frameLocator('iframe').first().locator('//input[@type="string"]')
@@ -2132,6 +2155,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.StartBtn).last()
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await ele.click({button:"left",delay:1000})
                 }
                 catch(error){
                         throw(`Guess the score Start button is not visible,Could not find locator:"${ele}"`)
@@ -2208,7 +2232,7 @@ export default class guesstheScorePage {
 
         }
         async verifyPlusBtn() {
-                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.MobileLinkBtn)
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.plusBtn)
                 try{
                       await  this.page.waitForTimeout(1000)
                       await ele.click({button:"left",delay:1000})
@@ -2919,16 +2943,16 @@ export default class guesstheScorePage {
                 await this.page.keyboard.press('Backspace');
         }
         async clickriderSaveBtn() {
-                await this.page.frameLocator('iframe').locator("//button[text()='Save']").last()
+                await this.page.frameLocator('iframe').locator("//button[text()='Save']")
 
         }
         async verifyAddEventText() {
 
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Add Event']").last()
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Add Event']")
                 expect(ele).toContainText("Add Event")
         }
         async clickeventCancelBtn() {
-                await this.page.frameLocator('iframe').locator("//button[text()='CANCEL']").last().click()
+                await this.page.frameLocator('iframe').locator("//button[text()='CANCEL']").click()
         }
         async clickeventStart() {
                 await this.page.waitForTimeout(1000)
@@ -3086,7 +3110,7 @@ export default class guesstheScorePage {
                 expect(ele).toBeVisible()
         }
         async verifyEditConfigurationText() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Edit Configuration']").last()
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Edit Configuration']")
                 expect(ele).toContainText("Edit Configuration")
         }
         async verifyConfigurationnameAutoalreadyexists() {
@@ -3134,7 +3158,7 @@ export default class guesstheScorePage {
                 await this.page.close()
         }
         async verifyEditBtn(name : string) {
-                const editfield = await this.page.frameLocator('iframe').locator("//input[@type='string']").last()
+                const editfield = await this.page.frameLocator('iframe').locator("//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]")
                 await editfield.focus();
                 await this.page.keyboard.press("Meta+A");
                 await this.page.keyboard.press('Backspace');

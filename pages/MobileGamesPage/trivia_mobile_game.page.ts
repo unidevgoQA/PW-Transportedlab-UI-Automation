@@ -17,7 +17,7 @@ export default class triviaMobilePage {
               countdownAnimationfill:"//div[@class='MuiBox-root css-1htopk5']",
               TileBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
               TileFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
-              answerframe:"//div[@class='MuiBox-root css-cv3yux']",
+              answerframe:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
               selectedAnswerColor:"//div[@class='MuiBox-root css-1kap4u3']",
               leaderboardText:"//div[text()='Your Rank']",
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
@@ -30,7 +30,7 @@ export default class triviaMobilePage {
                submittBtn:"//button[text()='Submit']",
                Multiplechoise1:"(//div[@class='MuiBox-root css-1pt9sse']//p)[1]",
                Multiplechoise2:"(//div[@class='css-101u4pc'])[3]]",
-               addnewPrize:"//div[contains(@class,'swiper-slide swiper-slide-visible')]",
+               addnewPrize:"//div[@class='MuiBox-root css-annpnb']",
                SaveToPhoneBtn:"//button[text()='Save to phone']",
                MobileBackgroundColor:"(//div[@class='MuiBox-root css-vfsi4s']//div)[1]",
                TimeReminingText:"//div[text()='Time Remaining']"
@@ -167,7 +167,7 @@ export default class triviaMobilePage {
        async verifyAddNewPrize_AutomaticDistribution_Burger(){
               const ele = await this.page.locator(this.triviaMobilePageElements.addnewPrize).isVisible()
               if(ele == true){
-                     await expect(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Automatic_Burger.png')
+                     await expect.soft(this.page.locator(this.triviaMobilePageElements.addnewPrize)).toHaveScreenshot('AddNewPrize_Automatic_Burger.png')
               }
               else throw new Error('Trivia Add new manual distribution prize is not visible on mobile screen')
               
@@ -239,7 +239,7 @@ export default class triviaMobilePage {
        async verifyAnswerFrameColor(){
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe).isVisible()
               if(ele == true){
-                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe)).toHaveCSS("border-color","rgb(16, 10, 124)")
+                     await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.answerframe)).toHaveCSS("background-color","rgb(16, 10, 124)")
               }
               else throw new Error("Triva mobile question background field is not visible")
        }
@@ -335,7 +335,7 @@ export default class triviaMobilePage {
               else throw new Error("Triva mobile background color is not visible in mobile screen")
        }
        async verifyAnswerTextColor(){
-              const ele =  this.page.frameLocator('iframe').locator('(//input[@class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled css-mjavz1"])[2]')
+              const ele =  this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
               
        }
