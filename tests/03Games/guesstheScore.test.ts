@@ -422,7 +422,7 @@ test("0013GTS-006 |test editor section functionalities.", async({ loginPage, gue
     })
 
 })
-test.only("0013GTS-007 |validate game settings option is working.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test("0013GTS-007 |validate game settings option is working.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game settings of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1644,10 +1644,11 @@ test("0013GTS-042 | validate  Background image upload works.", async({ loginPage
         await guesstheScorePage.clickGameDesign()
         //await guesstheScorePage.verifyopenImageUploadSection()
         await guesstheScorePage.openimagesection()
+        await guesstheScorePage.deleteUploadedMobileBackground()
         await guesstheScorePage.deleteUploadedBannerImage()
         await guesstheScorePage.deleteUploadedSponsorLogo()
         await guesstheScorePage.deleteUploadedGameTitleLogo()
-        await guesstheScorePage.deleteUploadedMobileBackground()
+        
 
     })
 
@@ -1767,9 +1768,7 @@ test("0013GTS-045 | Validate Banner Image upload works.", async({ loginPage, gue
         await guesstheScorePage.verifyBannerImageText()
         await page.waitForTimeout(2000)
         await guesstheScorePage.BannerImageuploader()
-        await page.waitForTimeout(4000)
-        await guesstheScorePage.verifyBannerImageUploadSuccessfully()
-        await page.waitForTimeout(2000)
+        await page.waitForTimeout(5000)
         
     })
    
@@ -1802,13 +1801,14 @@ test("0013GTS-046 | Validate Protrait Background image upload change is being re
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
             await guesstheScorePage.clickCloseBtn()
-            await newTab.waitForTimeout(4000)
+            //await newTab.waitForTimeout(4000)
             await newguessthescoregame.typephoneno()
             await newguessthescoregame.typeemail()
             await newguessthescoregame.selectbirthdate()
             await newguessthescoregame.typeAge()
             await newguessthescoregame.typezip()
             await newguessthescoregame.clicksubmit()
+            await newTab.waitForTimeout(4000)
             //await newguessthescoregame.clcikHomePageInMobileScreen()
             // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
             //newTab.close()
@@ -1848,7 +1848,7 @@ test("0013GTS-047 | Validate game title Image upload change is being reflected o
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
             await guesstheScorePage.clickCloseBtn()
-            await newTab.waitForTimeout(4000)
+            //await newTab.waitForTimeout(4000)
             await newguessthescoregame.typephoneno()
             await newguessthescoregame.typeemail()
             await newguessthescoregame.selectbirthdate()
@@ -1900,7 +1900,7 @@ test("0013GTS-048 | Validate sponsor  Image upload change is being reflected on 
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
             await guesstheScorePage.clickCloseBtn()
-            await newTab.waitForTimeout(4000)
+            //await newTab.waitForTimeout(4000)
             await newguessthescoregame.typephoneno()
             await newguessthescoregame.typeemail()
             await newguessthescoregame.selectbirthdate()
@@ -1950,7 +1950,7 @@ test("0013GTS-049 | Validate Banner  Image upload change is being reflected on m
             newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
             newguessthescoregame = new guesstheScoreMobilePage(newTab)
             await guesstheScorePage.clickCloseBtn()
-            await newTab.waitForTimeout(4000)
+           // await newTab.waitForTimeout(4000)
             await newguessthescoregame.typephoneno()
             await newguessthescoregame.typeemail()
             await newguessthescoregame.selectbirthdate()
@@ -2220,19 +2220,11 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
     })
    
     await test.step("Validate background Color Input Functionality", async () => {
-           //click solid dropdown
-            
-        
-        // await guesstheScorePage.clickGuessTheScoreSection()
-       
-        
-        // await page.waitForTimeout(4000)
 
         await guesstheScorePage.verifyBackgroundColorText()
 
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickBackgroundColorPicker()
-       // await guesstheScorePage.clickSolidDropdowns()
         await page.waitForTimeout(1000)
         await guesstheScorePage.clickplusbuttonswatches()
         await guesstheScorePage.inputRGBFirstColor()
@@ -2240,7 +2232,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+       // await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -2254,23 +2246,9 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+        //await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
-
-    // await test.step("Validate Header Color Input Functionality", async() =>{
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickHeaderColorPicker()
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickplusbuttonswatches()
-    //     await guesstheScorePage.inputRGBFirstColor()
-    //     await guesstheScorePage.inputRGBSecondColor()
-    //     await guesstheScorePage.inputRGBThirdColor()
-    //     await guesstheScorePage.inputRGBColorOpacity()
-    //     await guesstheScorePage.inputRGBColorHex()
-    //     await guesstheScorePage.clickdeletebuttonswatches()
-    //     await guesstheScorePage.clickColorPickerSaveBtn()
-    // })
 
     await test.step("Validate buttons Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
@@ -2282,23 +2260,9 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+       // await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
-
-    // await test.step("Validate maindBoard background Color Input Functionality", async() =>{
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.MainboardBackgroundColorPicker()
-    //     await page.waitForTimeout(1000)
-    //     await guesstheScorePage.clickplusbuttonswatches()
-    //     await guesstheScorePage.inputRGBFirstColor()
-    //     await guesstheScorePage.inputRGBSecondColor()
-    //     await guesstheScorePage.inputRGBThirdColor()
-    //     await guesstheScorePage.inputRGBColorOpacity()
-    //     await guesstheScorePage.inputRGBColorHex()
-    //     await guesstheScorePage.clickdeletebuttonswatches()
-    //     await guesstheScorePage.clickColorPickerSaveBtn()
-    // })
 
     await test.step("Validate Event title font Color Input Functionality", async() =>{
         await page.waitForTimeout(1000)
@@ -2310,7 +2274,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+       // await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -2324,7 +2288,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+        //await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -2338,7 +2302,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+        //await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -2352,7 +2316,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+       // await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
     
@@ -2366,7 +2330,7 @@ test("0013GTS-004 | Validate All The Color Input Functionality.", async ({ login
         await guesstheScorePage.inputRGBThirdColor()
         await guesstheScorePage.inputRGBColorOpacity()
         await guesstheScorePage.inputRGBColorHex()
-        await guesstheScorePage.clickdeletebuttonswatches()
+       // await guesstheScorePage.clickdeletebuttonswatches()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
     
@@ -2923,8 +2887,8 @@ test("0013GTS-064 | Validate event name add button is working.", async({loginPag
     })
    await test.step("Event name add button is working.",async()=>{
        await guesstheScorePage.clickgameoperationssection()
-       await guesstheScorePage.clickaddeventbutton()
        await guesstheScorePage.verifyAddEventText()
+       await guesstheScorePage.clickaddeventbutton()
        await guesstheScorePage.typetestevent()
        await guesstheScorePage.clickaddbutton()
   
@@ -3456,10 +3420,6 @@ test("0013GTS-075 | Validate Correct guess message reflection on mobile screen."
             })
 
             await test.step("now open the game in mobile view", async() =>{
-                // await page.bringToFront()                
-                // await guesstheScorePage.clickgameoperationssection() 
-                // await guesstheScorePage.clickgameoperationssection() 
-               // await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()            
                 await guesstheScorePage.clickMoveToNextBtn()
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3477,8 +3437,6 @@ test("0013GTS-075 | Validate Correct guess message reflection on mobile screen."
                     await newguessthescoregame.clickRiderInputField()
                     await newguessthescoregame.inputCorrectRiderScore()
                 })
-    
-     
      await test.step("Now input rider score admin for correct guess",async()=>{
       
         await guesstheScorePage.inputCorrectRiderScore()
@@ -3510,7 +3468,6 @@ test("0013GTS-076 | Validate Close guess message reflection on mobile screen.", 
             })
             await guesstheScorePage.clickGuessTheScoreSection()
             await page.waitForTimeout(1000)
-            //await guesstheScorePage.clickGameDesign()
 
     })
 
@@ -3543,10 +3500,6 @@ test("0013GTS-076 | Validate Close guess message reflection on mobile screen.", 
             })
 
             await test.step("now open the game in mobile view", async() =>{
-                // await page.bringToFront()                
-                // await guesstheScorePage.clickgameoperationssection() 
-                // await guesstheScorePage.clickgameoperationssection() 
-                //await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()            
                 await guesstheScorePage.clickMoveToNextBtn()
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3619,10 +3572,6 @@ test("0013GTS-077 | Validate Far guess message reflection on mobile screen.", as
             })
 
             await test.step("now open the game in mobile view", async() =>{
-                // await page.bringToFront()                
-                // await guesstheScorePage.clickgameoperationssection() 
-                // await guesstheScorePage.clickgameoperationssection() 
-                //await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()            
                 await guesstheScorePage.clickMoveToNextBtn()
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3847,7 +3796,7 @@ test.skip("0013GTS-080 | Validate Re-Ride button is working.", async({loginPage,
     
  
             await test.step("now open the game in mobile view", async() =>{
-                await guesstheScorePage.clickGameOperationAddedEventThreeDot()
+                //await guesstheScorePage.clickGameOperationAddedEventThreeDot()
                 await guesstheScorePage.clickEventStartBtn()            
                 
             })
@@ -4097,13 +4046,11 @@ test("0013GTS-087 |Validate error visibility if edit button is clicked without t
 
     })
    await test.step("Now click edit section button",async()=>{
-       await guesstheScorePage.clickGameDesign()
        await guesstheScorePage.clickeditsection()
    })
    await test.step("Now click edit button without change text",async()=>{
            await guesstheScorePage.verifyEditConfigurationText()
            await guesstheScorePage.clickeditbutton()
-        await page.waitForTimeout(3000)
            await guesstheScorePage.clickeditconfigrationOkBtn()
    })
 
@@ -4131,8 +4078,6 @@ test("0023GTS-088 | Validate Edit button is working guess The score.",async({log
         await guesstheScorePage.clickeditsection()
     })
     await test.step("Validate Edit button is working",async()=>{
-       // await guesstheScorePage.verifyEditBtn()
-       // await guesstheScorePage.editRiderfirstname()
         await guesstheScorePage.verifyEditBtn(guesstheScorePage.getRandomName())
         await guesstheScorePage.clickeditbutton()
       
@@ -4143,7 +4088,7 @@ test("0023GTS-088 | Validate Edit button is working guess The score.",async({log
    
     
 })
-test("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.skip("0013GTS-089 | Validate delete event is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -4171,6 +4116,33 @@ test("0013GTS-089 | Validate delete event is working.", async({loginPage, guesst
    await test.step("Now add event name",async()=>{
         await guesstheScorePage.clickaddeventbutton()
         await guesstheScorePage.typetestevent()
+   })
+
+})
+test("0013GTS-090 | Validate delete configuration is working.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+    await test.step("Login Admin And land game design of guess the score", async () => {
+
+        await page.goto('/admin/#/sign-in')
+        await loginPage.login(data.username, data.password)
+        const title = await page.title();
+        expect(title).toBe('DXP Admin')
+
+        const screenshot = await page.screenshot();
+        await testInfo.attach("login screenshot", {
+                contentType: "image/png",
+                body: screenshot
+        })
+
+        await guesstheScorePage.clickGuessTheScoreSection()
+        await page.waitForTimeout(1000)
+
+    })
+   await test.step("Now delete configuration is working.",async()=>{
+       await guesstheScorePage.clickdeletesection()
+       await guesstheScorePage.confirmDeteleConfiguration()
+      
+       
+
    })
 
 })

@@ -18,7 +18,7 @@ import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import mobilePreviewPage from "@pages/mobilePreview.page";
 import triviaMobilePage from "@pages/trivia_mobile_game.page";
-
+import { addnewexperienceMobilePage } from "pages/onDemandMobilePage/AddNewExperincesMobilePage";
 const test = baseTest.extend<{
     loginPage: LoginPage;
     MainMenu: MobileDesign;
