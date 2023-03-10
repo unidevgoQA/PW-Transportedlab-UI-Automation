@@ -124,47 +124,6 @@ test("MD002-004 | Validate Uploaded Font Delete Functionality", async ({ loginPa
                 await MainMenu.verifyFontUploadedSuccessfully()
         })
 })
-test("MD002-005 | Add New Configuration For Main Menu Mobile Screen Test", async ({ loginPage, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
-        })
-        await test.step(" Add New Configuration", async () => {
-                //click Prize Drop Section
-                await prizeDropPage.clickPrizeDropSection()
-                const screenshot = await page.screenshot();
-                await testInfo.attach("click Prize Drop Section", {
-                        body: screenshot,
-                        contentType: "image/png",
-                })
-                await page.waitForTimeout(5000)
-                await prizeDropPage.verifyDeleteAutoConfigurationIfHave()
-                await page.waitForTimeout(2000)
-                //verify Configurations Text
-                await prizeDropPage.verifyConfigurationsText()
-                //click Add New Config Plus Btn
-                await prizeDropPage.clickAddNewConfigPlusBtn()
-                // verify configuration name header is visible()
-                await prizeDropPage.verifyAddNewConfigPlusWindowText()
-                //input Configuration Name
-                await prizeDropPage.inputConfigurationName()
-                await page.waitForTimeout(2000)
-                // check cancel button visiblity
-                await prizeDropPage.veirfycancelBtnvisiblity()
-                //click Add Btn
-                await prizeDropPage.clickAddBtn()
-                //click Game Design
-                await prizeDropPage.clickGameDesign()
-                await page.waitForTimeout(4000)
-        })
-})
 test("MD002-006 | Validate Admin Successfully Select Entry Screen As User Profile", async ({ loginPage, MainMenu, page }) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')

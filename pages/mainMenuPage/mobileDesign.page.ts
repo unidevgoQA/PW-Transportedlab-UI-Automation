@@ -87,7 +87,7 @@ export default class MobileDesign {
         protraitBGHeaderSuccessfullyUploadEle: "(//h5[text()='Portrait Background Header']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
         mainLogoSuccessfullyUploadEle: "(//h5[text()='Main Logo']/following::button[contains(@class,'MuiButtonBase-root MuiButton-root')]//div)[2]",
         landScapeBGUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
-        errorAlertMassage: "//p[text()='File type is not supported']",
+        errorAlertMassage: "//p[text()='Incorrect file extension. Please upload an image']",
         okBtn: "//button[text()='Ok']",
 
     }
@@ -213,7 +213,7 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Guess The Score | Mobile Link Button Element Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Guess The Score | Mobile Link Button Element Is Not Visible | Error occurred: ${error}`);
         }
     }
     async clickGussTheScroeSectionForOpenMobileScreen() {
@@ -222,7 +222,7 @@ export default class MobileDesign {
             await expect(ele).toContainText("Guess The Score")
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Game | Guess The Score Button Element Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Game | Guess The Score Button Element Is Not Visible | Error occurred: ${error}`);
         }
 
     }
@@ -618,7 +618,7 @@ export default class MobileDesign {
         try {
             await ele.check()
         } catch (error) {
-            throw (`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked | Error occurred: ${error}`);
         }
     }
     async deletePotraitBackgrounBanner() {
@@ -665,7 +665,7 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design Main Logo Upload Input Field Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Main Logo Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
     async clickToUploadPortraitBackgroundHeader() {
@@ -673,7 +673,7 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design Protrait Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Protrait Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
     async clickToUploadLandscapeBackgroundHeader() {
@@ -681,7 +681,7 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design Landscape Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Landscape Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
     async clickToUploadPortraitBackground() {
@@ -689,7 +689,7 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design Protrait Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Protrait Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
 
@@ -716,15 +716,15 @@ export default class MobileDesign {
         try {
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design Landscape Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design Landscape Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
     async verifyErrorAlertText() {
         let ele = await this.page.locator(this.mobileDesignPageElements.errorAlertMassage)
         try {
-            await expect(ele).toContainText("File type is not supported")
+            await expect(ele).toContainText("Incorrect file extension. Please upload an image")
         } catch (error) {
-            throw (`Main Menu | Mobile Design File Type Supported Error Alert Massage Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design File Type Supported Error Alert Massage Is Not Visible | Error occurred: ${error}`);
         }
 
     }
@@ -734,7 +734,7 @@ export default class MobileDesign {
             await expect(ele).toContainText("Ok")
             await ele.click({ button: "left", delay: 1000 })
         } catch (error) {
-            throw (`Main Menu | Mobile Design File Type Supported Error Alert Modal Ok Button Is Not Visible | Error occurred: ${error}`);
+            throw new Error(`Main Menu | Mobile Design File Type Supported Error Alert Modal Ok Button Is Not Visible | Error occurred: ${error}`);
         }
     }
 
