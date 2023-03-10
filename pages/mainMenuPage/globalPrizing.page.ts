@@ -1,11 +1,107 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
+import BaseFunctions from "@base-function/baseFunctions";
 export default class globalPrizingPage {
-        [x: string]: any;
-        private page: Page;
-        static buffer: void;
-        constructor(page: Page) {
-                this.page = page;
+        private base: BaseFunctions;
+        constructor(private page: Page
+        ) {
+                this.base = new BaseFunctions(page);
+        }
+        private globalPrizingPageElements = {
+                globalPrizingPage: "//p[text()='Global Prizing']",
+                addNewPrizeBtn: "//button[text()='Add New Prize']",
+                prizeNameInputField: "//input[@placeholder='Enter prize name...']",
+                prizeCategoryBtn: "div[role='button']",
+                prizeCategoryAirDrop: "text=AR Drop",
+                prizeCategoryGeneral: "//li[@data-value='general']",
+                prizeImageUploadInputField: "//p[text()='Drag your image here, or browse']",
+                descriptionTitleText: "//p[text()='Description']",
+                prizeDescriptionInputField: "textarea[rows='3']",
+                prizeExpirationNullBtn: "(//input[@type='checkbox'])[1]",
+                loadCSVChckBox: "input[value='csv']",
+                userDefinedSecondInputField: "(//span[text()='Options for user defined age']/following::input)[2]",
+                uploadCSVInputField: "//button[text()='Upload']",
+                automaticAssignUserNamePrifizInputField: "(//span[text()='Automatically assign username']/following::input)[1]",
+                textCodeCheckBox: "input[value = 'textcode']",
+                autoGenerateChecBox: "input[value='auto']",
+                autoGeneratePrifix: "(//span[text()='Autogenerate']/following::input)[1]",
+                smsSharingCheckBox: "(//span[text()='Prefix']/following::input)[1]",
+                emailSharingCheckBox: "(//span[text()='SMS sharing']/following::input)[1]",
+                walleteSharingCheckBox: "(//span[text()='Email sharing']/following::input)[1]",
+                limitPerUserCheckBox: "(//span[text()='Wallet sharing']/following::input)[1]",
+                limitPerUserInputField: "input[type='number']",
+                perEventCheckBox: "//span[text()='per event']",
+                saveBtn: "//button[text()='Save']",
+                searchInputField: "//input[@placeholder='Search...']",
+                serachPrizeInputField: "//input[@placeholder='Search...']",
+                deletePrizeBtn: "//button[text()='Delete']",
+                okBtn: "//button[text()='Ok']",
+                openEditorBtn: "//button[text()='Open in Editor']",
+                couponCanvalLabel: "//p[text()='Coupon Canvas Editor']",
+                tFont: "//div[@icon='assets/typography.7617aca3.svg']",
+                typoGraphyLabel: "//h2[text()='Typography']",
+                TAddTextBtn: "div.MuiBox-root.css-1r89n98",
+                selectTextBtn: "//div[text()='TEXT']",
+                changeLabelTitleText: "//p[text()='Change Text']",
+                couponFieldInputSection: "(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
+                changleText2: "(//textarea[@rows='3'])[2]",
+                positionLabelTitleText: "//h5[text()='Position']",
+                leftBtn: "div.MuiBox-root.css-14wbn55",
+                rightBtn: "div.MuiBox-root.css-1paqvjl",
+                centerBtn: "//div[@class='MuiBox-root css-1bturrv']",
+                alignmentBtn: "div.MuiBox-root.css-1s8tt5x",
+                fontLabel: "//h5[text()='Font']",
+                fontbtn: "(//div[@role='button'])[2]",
+                midnightFontBtn: "//li[text()='Midnight.ttf']",
+                thinFontBtn: "//li[text()='Midnight.ttf']",
+                boldBtn: "div.MuiBox-root.css-l1n5h5",
+                italicBtn: "div.MuiBox-root.css-n12ji5",
+                underLineBtn: "div.MuiBox-root.css-3hdlli",
+                blickTypeBtn: "div.MuiBox-root.css-nh0dhm",
+                boldTextBtn: "//div[text()='Bold']",
+                lighterBtn: "//li[text()='Lighter']",
+                normalBtn: "//li[text()='Normal']",
+                bolerBtn: "//li[text()='Bolder']",
+                fontSizeBtn: "//input[@id='P-13727520022' and @type='number']",
+                tBackBtn: "div.MuiBox-root.css-9xd5lq",
+                tNextBtn: "div.MuiBox-root.css-1osoyr8",
+                tDeleteBtn: "div.MuiBox-root.css-knjr7e",
+                tMarzinBtn: "(//div[@active='true'])[2]",
+                tCopyBtn: "//div[@iconcolor='#f1c40f']",
+                xBtn: "//p[text()='X']",
+                fillLabel: "/h5[text()='Fill']",
+                emailCheckBox: "div[black='true']",
+                xMarzin: "//input[@id='P5425209742']",
+                yMarzin: "//input[@id='P-13931393132']",
+                textWight: "//input[@id='P9661676962']",
+                textHight: "//input[@id='P-9694925912']",
+                welcomeTextColorInputField: "//div[@class='MuiBox-root css-1e91icv']",
+                backgroundImageInputFiled: "(//div[@class='MuiBox-root css-v2612'])[1]",
+                logoImageInputFiled: "(//div[@class='MuiBox-root css-v2612'])[2]",
+                foregroundImageInputFiled: "(//div[@class='MuiBox-root css-v2612'])[3]",
+                selectTextCode: "//div[text()='3829234012349']",
+
+
+                backgroundColorInputField: "//p[text()='Background']/following-sibling::button",
+                textColorInputField: "//p[text()='Text Color']/following-sibling::button",
+                activeBackgroundColorInputField: "//p[text()='Active Background']/following-sibling::button",
+                activeTextColorInputField: "//p[text()='Active Text Color']/following-sibling::button",
+                colorCodeInputField: "//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
+                topAlignmentBtn: "//h5[text()='Top']",
+                topAlignmentBtnSelected: "//button[@selected='true']",
+                bottomAlignmentBtn: "//h5[text()='Bottom']",
+                threeLineAlignmentBtn: "//h5[text()='3 Line Option']",
+                threeLineInMobileScreen: "//div[@class='MuiBox-root css-1ox9e35']",
+                hideAlignmentBtn: "//h5[text()='Hide']",
+                homeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                prizeMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[2]",
+                howtoplayMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
+                lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]",
+
+
+
         }
         //click GlobalPrizing Page
         async clickGlobalPrizingPage() {
@@ -198,25 +294,22 @@ export default class globalPrizingPage {
         async OpenEditor() {
                 const locator = this.page.locator("//button[text()='Open in Editor']")
                 await locator.click()
+                await this.page.waitForSelector("//div[@icon='assets/typography.7617aca3.svg']")
         }
         async Couponcanvaslabl() {
                 await this.page.click("//p[text()='Coupon Canvas Editor']")
+
         }
         async Tfont() {
-                const locator = this.page.locator("//div[@class='MuiBox-root css-11p7aiz']")
+                const locator = this.page.locator("//div[@icon='assets/typography.7617aca3.svg']")
                 await locator.click()
         }
         async Typographylabl() {
                 const ele = await this.page.locator("//h2[text()='Typography']")
                 expect(ele).toContainText("Typography")
         }
-        async TaddText() {
-                const locator = this.page.locator("div.MuiBox-root.css-1r89n98")
-                //expect(locator).toBeVisible()
-                await locator.click()
-        }
         async clickAddTextBtn() {
-                const ele = await this.page.locator("div.MuiBox-root.css-1r89n98")
+                const ele = await this.page.locator("//button[text()='Add Text']")
                 await ele.click()
         }
         async clickToSelectText() {
@@ -246,20 +339,20 @@ export default class globalPrizingPage {
                 expect(ele).toContainText("Position")
         }
         async Left() {
-                const locator = this.page.locator("div.MuiBox-root.css-14wbn55")
-                await locator.click({ force: true })
+                const locator = this.page.locator("//div[@icon='assets/align-left.9a16e401.svg']")
+                await locator.click({ button: 'left', delay: 1000 })
         }
         async Right() {
-                const locator = this.page.locator("div.MuiBox-root.css-1paqvjl")
-                await locator.click({ force: true })
+                const locator = this.page.locator("//div[@icon='assets/align-right.fa94b93a.svg']")
+                await locator.click({ button: 'left', delay: 1000 })
         }
         async Center() {
-                const locator = this.page.locator("//div[@class='MuiBox-root css-1bturrv']")
-                await locator.click({ force: true })
+                const locator = this.page.locator("//div[@icon='assets/align-center.a3534448.svg']")
+                await locator.click({ button: 'left', delay: 1000 })
         }
         async Alignment() {
-                const locator = this.page.locator("div.MuiBox-root.css-1s8tt5x")
-                await locator.click({ force: true })
+                const locator = this.page.locator("//div[@icon='assets/align-justify.b7561800.svg']")
+                await locator.click({ button: 'left', delay: 1000 })
         }
         async Fontlabl() {
                 await this.page.click("//h5[text()='Font']")
@@ -274,23 +367,24 @@ export default class globalPrizingPage {
                 await this.page.click("//li[text()='Midnight.ttf']")
         }
         async Bold() {
-                const locator = this.page.locator("div.MuiBox-root.css-l1n5h5")
+                const locator = this.page.locator("//div[@icon='assets/bold.9fa8427b.svg']")
                 await locator.click({ force: true })
         }
         async Italic() {
-                const locator = this.page.locator("div.MuiBox-root.css-n12ji5")
+                const locator = this.page.locator("//div[@icon='assets/italic.f712808c.svg']")
                 await locator.click()
         }
         async Underline() {
-                const locator = this.page.locator("div.MuiBox-root.css-3hdlli")
+                const locator = this.page.locator("//div[@icon='assets/underline.7a5fa69e.svg']")
                 await locator.click()
         }
         async Blocktype() {
-                const locator = this.page.locator("div.MuiBox-root.css-nh0dhm")
+                const locator = this.page.locator("//div[@icon='assets/font-size.c0b3349e.svg']")
                 await locator.click()
         }
         async Boldd() {
-                await this.page.click("//div[text()='Bold']")
+                const locator = this.page.locator("(//div[@role='button'])[3]")
+                await locator.click()
         }
         async Lighter() {
                 await this.page.click("//li[text()='Lighter']")
@@ -302,7 +396,53 @@ export default class globalPrizingPage {
                 await this.page.click("//li[text()='Bolder']")
         }
         async Fontsize() {
-                await this.page.click("//input[@id='P-13727520022' and @type='number']")
+                let ele = await this.page.locator("//input[@id='P-13727520022']")
+                await ele.fill("60")
+        }
+
+        async inputXMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.xMarzin)
+                try {
+                        await ele.fill("200")
+                        await this.page.keyboard.press('Enter');
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing X Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+        }
+
+        async inputYMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.yMarzin)
+                try {
+                        await ele.fill("300")
+                        await this.page.keyboard.press('Enter');
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Y Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+                await this.page.waitForTimeout(2000)
+        }
+
+        async inputWelocmeTextWightMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.textWight)
+                try {
+                        await ele.fill("300")
+                        await this.page.keyboard.press('Enter');
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Welcome Text Wight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+
+
+        }
+        async inputWelcomeTextHightMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.textHight)
+                try {
+                        await ele.fill("160")
+                        await this.page.keyboard.press('Enter');
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Welcome Text Hight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
         }
         async TBackBtn() {
                 await this.page.click("div.MuiBox-root.css-9xd5lq")
@@ -319,24 +459,19 @@ export default class globalPrizingPage {
         async TCopyBtn() {
                 await this.page.click("//div[@iconcolor='#f1c40f']")
         }
-        async XBtn() {
-                await this.page.click("//p[text()='X']")
-        }
-        async YBtn() {
-                await this.page.click("//input[@type='number' and @id='P-12924444182']")
-        }
-        async WBtn() {
-                await this.page.click("//input[@type='number' and @id='P19778289572']")
-        }
-        async HBtn() {
-                await this.page.click("//input[@type='number' and @id='P9531350362']")
-        }
         async Fillabl() {
                 await this.page.click("//h5[text()='Fill']")
         }
         async FillBtn() {
-                await this.page.click("div[black='true']")
+                let ele = await this.page.locator(this.globalPrizingPageElements.welcomeTextColorInputField)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Welcome Text Color Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
         }
+
+        //stop from here
         async Colorpickerlabl() {
                 await this.page.click("//h3[text()='Color Picker']")
         }
@@ -362,7 +497,7 @@ export default class globalPrizingPage {
                 await this.page.click("(//input[@inputmode='numeric'])[3]")
         }
         async RGB4() {
-                await this.page.click("//input[@id='P19792246122']")
+                await this.page.click("//input[@id='P-11854806032']")
         }
         async DropBtn() {
                 await this.page.click("//div[contains(@class,'MuiSelect-select MuiSelect-standard')]")
@@ -402,46 +537,31 @@ export default class globalPrizingPage {
                 await this.page.click("//p[text()='Background Image']")
         }
         async BcImage() {
-                const buffer = readFileSync('testData/logos/PotraitBanner.png');
-                // Create the DataTransfer and File
-                const dataTransfer = await this.page.evaluateHandle((data) => {
-                        const dt = new DataTransfer();
-                        // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
-                        dt.items.add(file);
-                        return dt;
-                }, buffer);
-                // Now dispatch
-                await this.page.dispatchEvent("(//div[@class='MuiBox-root css-v2612'])[1]", 'drop', { dataTransfer });
+                let ele = await this.page.locator(this.globalPrizingPageElements.backgroundImageInputFiled)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Image Section Background Image Upload Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
         }
         async Logoimagelabl() {
                 await this.page.click("//p[text()='Logo Image']")
         }
         async LgImage() {
-                const buffer = readFileSync('testData/logos/PotraitBanner.png');
-                // Create the DataTransfer and File
-                const dataTransfer = await this.page.evaluateHandle((data) => {
-                        const dt = new DataTransfer();
-                        // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
-                        dt.items.add(file);
-                        return dt;
-                }, buffer);
-                // Now dispatch
-                await this.page.dispatchEvent("(//div[@class='MuiBox-root css-v2612'])[2]", 'drop', { dataTransfer });
+                let ele = await this.page.locator(this.globalPrizingPageElements.logoImageInputFiled)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Image Section Logo Image Upload Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
         }
         async FgImage() {
-                const buffer = readFileSync('testData/logos/PotraitBanner.png');
-                // Create the DataTransfer and File
-                const dataTransfer = await this.page.evaluateHandle((data) => {
-                        const dt = new DataTransfer();
-                        // Convert the buffer to a hex array
-                        const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
-                        dt.items.add(file);
-                        return dt;
-                }, buffer);
-                // Now dispatch
-                await this.page.dispatchEvent("(//div[@class='MuiBox-root css-vjb914']//div)[3]", 'drop', { dataTransfer });
+                let ele = await this.page.locator(this.globalPrizingPageElements.foregroundImageInputFiled)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Image Section Foreground Image Upload Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
         }
         async IBackBtn() {
                 await this.page.click("div.MuiBox-root.css-9xd5lq")
@@ -540,6 +660,63 @@ export default class globalPrizingPage {
         async Textcode() {
                 await this.page.click("//button[text()='Text Code']")
         }
+        async selectTextCode() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.selectTextCode)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Code Section Select Text Code Element Is not Visiable | Error occurred: ${error}`);
+                }
+
+        }
+
+
+        async inputXMarginForTextCode() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.xMarzin)
+                try {
+                        await ele.fill("100")
+                        await this.page.keyboard.press('Enter');
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Code Section Text Code X Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+        }
+
+        async inputYMarginForTextCode() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.yMarzin)
+                try {
+                        await ele.fill("630")
+                        await this.page.keyboard.press('Enter');
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Code Section Text Code Y Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+                await this.page.waitForTimeout(2000)
+        }
+
+        async inputTextCodeWightMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.textWight)
+                try {
+                        await ele.fill("390")
+                        await this.page.keyboard.press('Enter');
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Code Section Text Code Wight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+
+
+        }
+        async inputTextCodeHightMargin() {
+                let ele = await this.page.locator(this.globalPrizingPageElements.textHight)
+                try {
+                        await ele.fill("60")
+                        await this.page.keyboard.press('Enter');
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw new Error(`Main Menu | Global Prizing Code Section Text Code Hight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
+                }
+        }
+
         async Barcode() {
                 await this.page.click("//button[text()='Bar Code']")
         }
@@ -681,7 +858,7 @@ export default class globalPrizingPage {
                 await this.page.click("(//input[@inputmode='numeric'])[3]")
         }
         async ShRGB4() {
-                await this.page.click("//input[@id='P19792246122']")
+                await this.page.click("(//input[@inputmode='numeric'])[4]")
         }
         async ShDropBtn() {
                 await this.page.click("//div[contains(@class,'MuiSelect-select MuiSelect-standard')]")
@@ -784,13 +961,6 @@ export default class globalPrizingPage {
         async ClickImageupload() {
                 const locator = this.page.locator("//div[@class='MuiBox-root css-1qgo2vq']")
                 await locator.click()
-                const filePath0 = "testData/images/potrait.png"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0]);
-                })
-                await this.page.locator("//button[text()='Choose File']").click()
-                await this.page.waitForTimeout(3000)
-                await this.page.locator("(//button[text()='Save'])[2]").click()
         }
         async ClickNext() {
                 const locator = this.page.locator("//button[text()='Next']")
@@ -802,14 +972,8 @@ export default class globalPrizingPage {
         }
         async ClickIconlogo() {
                 const locator = this.page.locator("//div[@class='MuiBox-root css-v2612']")
-                await locator.click()
-                const filePath0 = "testData/images/potrait.png"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0]);
-                })
-                await this.page.locator("//button[text()='Choose File']").click()
-                await this.page.waitForTimeout(3000)
-                await this.page.locator("(//button[text()='Save'])[2]").click()
+                await locator.click({ button: "left" })
+
                 ////////
                 // await this.page.locator("//span[text()='per event']/following::input")
                 // //expect(locator).toBeVisible()
@@ -845,6 +1009,11 @@ export default class globalPrizingPage {
                 await this.page.locator("//button[text()='Choose File']").click()
                 await this.page.waitForTimeout(3000)
                 await this.page.locator("(//button[text()='Save'])[2]").click()
+        }
+
+        async clickTimeSection() {
+                const locator = this.page.locator("//p[@iseditable='true']")
+                await locator.click()
         }
         async Clickcalendar() {
                 const locator = this.page.locator("(//button[text()='Pick Date from Calendar'])[2]")

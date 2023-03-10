@@ -75,7 +75,7 @@ export default class MobileDesign {
         protraitVideoCheckBox: "(//input[@value='video'])[4]",
         protraitImageChecboxs: "(//span[text()='Image']/preceding::input[@type='radio'])[2]",
         protraitImageDltBtn: "(//h5[text()='Portrait Background']/following::button[@title='Delete']//div)[1]",
-        landscapeBGImageCheckBox: "(//input[@value='video'])[2]",
+        landscapeBGImageCheckBox: "(//input[@value='video'])[3]",
         landscapeBGVideoCheckBox: "(//input[@value='video'])[3]",
         landscapeBGVVdoCheckbox: "(//input[@value='video'])[1]",
         mainLogoUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[6]",
@@ -605,13 +605,16 @@ export default class MobileDesign {
 
 
     async clickPortraitBackgroundHeaderVideoCheckBox() {
-        let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageCheckBox).isChecked()
-        if ((ele == true)) {
-            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).check()
+
+        try {
+            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click({ button: "left", delay: 1000 })
+
+        } catch (error) {
+            console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked `)
+
         }
-        else {
-            console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked | Could not find:"${ele}}"`)
-        }
+
+
     }
     async clickPortraitBackgroundHeaderImageCheckBox() {
         let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageChecboxs)
@@ -634,7 +637,7 @@ export default class MobileDesign {
     async clickLandscapeBackgroundHeaderVideoCheckBox() {
         let ele = await this.page.locator(this.mobileDesignPageElements.landscapeBGImageCheckBox).isVisible()
         if ((ele == true)) {
-            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click()
+            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click({ button: "left", delay: 1000 })
             await this.page.waitForTimeout(2000)
         }
         else {
