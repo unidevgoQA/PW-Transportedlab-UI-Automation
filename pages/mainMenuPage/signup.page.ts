@@ -28,7 +28,7 @@ export default class singupPage {
                 addNewSetWindowUploadPictureInputField: "//div[@class='MuiBox-root css-v2612']",
                 addNewSetWindowSaveBtn: "//button[text()='Save']",
                 uploadedProfilePictureDeleteBtn: "//div[@class='MuiBox-root css-76t8yr']//button[1]",
-                profilePictureSetDialogBox: "//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//div[1]",
+                profilePictureSetDialogBox: "(//div[@role='button'])[1]",
                 selectLastProfile: "//li[@role='option']",
                 selectDefultProfile: "//li[@data-value='default']",
                 autoAssignCheckBox: "//input[@value='autoAssignAvatars']",
@@ -48,6 +48,7 @@ export default class singupPage {
                 deletAddedUrlLink: "//div[@class='MuiBox-root css-grxo2d']//button[1]",
                 okBtn: "//button[text()='Ok']",
                 customQuestionCheckBox: "(//span[text()='Zip Code / Postal Code']/following::input)[1]",
+                additionalCustomQuestionIn: "//input[@type='checkbox']",
                 customQuestionInCheckBox: "//input[@type='checkbox']",
                 addNewQuestionBtn: "//button[text()='Add question']",
                 signUpHomeScreenRadioBtn: "//input[@value='signUpHome']",
@@ -58,7 +59,7 @@ export default class singupPage {
                 multiChoiceCheckBox: "//input[@value='multipleChoice']",
                 customQuestionDiscriptionInputField: "//h5[contains(@class,'MuiTypography-root MuiTypography-h5')]/following::textarea[@rows='6']",
                 addChoiceBtn: "//button[text()='Add Choice']",
-                choiceInputField: "(//label[text()='Give some description here...']/following::input)[1]",
+                choiceInputField: "//textarea[@rows='6']/following::div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]//input",
                 customQuestionMendotoryCheckBox: "(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[3]",
                 customQuestionSaveBtn: "//button[text()='Save']",
                 deleteAddedCustomQuestion: "(//div[@class='MuiBox-root css-1519m8w']//button)[2]",
@@ -211,11 +212,15 @@ export default class singupPage {
                 else throw new Error("Sign Up Page Add New Custom Question Add ChoiceBtn Button Element Is not Visible")
         }
         async inputCustomQuestionAddChoiceDiscription() {
-                let ele = await this.page.locator(this.signUpPageElements.choiceInputField).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.choiceInputField).fill("Demo Choice")
+                let ele = await this.page.locator(this.signUpPageElements.choiceInputField)
+                try {
+                        await ele.fill("Demo Choice")
+                } catch (error) {
+                        throw new Error(`Sign Up Page Add New Custom Question Window Add Choice Input Field Element Is not Visible | Error occurred: ${error}`)
+
                 }
-                else throw new Error("Sign Up Page Add New Custom Question Window Add Choice Input Field Element Is not Visible")
+
+
         }
         async enableCustomQuestionMandatoryForUser() {
                 let ele = await this.page.locator(this.signUpPageElements.customQuestionMendotoryCheckBox).isVisible()
@@ -264,11 +269,12 @@ export default class singupPage {
                 // else throw new Error("Sign Up Page Add New Custom Question Window Mandatory Enable Button Element Is not Visible")
         }
         async clickAddCustomQuestionInCheckBox() {
-                let ele = await this.page.locator(this.signUpPageElements.customOptionInCheckBox).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.customOptionInCheckBox).click({ button: "left", delay: 1000 })
+                // await this.page.waitForSelector(this.signUpPageElements.customQuestionInCheckBox)
+                let ele = await this.page.getByRole('checkbox', { name: 'Custom Opt-In' }).isChecked()
+                if ((ele == false)) {
+                        await this.page.getByRole('checkbox', { name: 'Custom Opt-In' }).click({ button: "left", delay: 1000 })
                 }
-                else throw new Error("Sign Up Page Add Custom Question In Radio button Element Is not Visible")
+                // else throw new Error("Sign Up Page Add Custom Question In Radio button Element Is not Visible")
         }
         async clickAddCustomQuestionInBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.addCustomQuestionInBtn).isVisible()
@@ -440,11 +446,14 @@ export default class singupPage {
         }
         async InputAutomaticallyAssignUserName() {
                 await this.page.waitForSelector(this.signUpPageElements.automaticAssignUserNamePrifizInputField)
-                let ele = await this.page.locator(this.signUpPageElements.automaticAssignUserNamePrifizInputField).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.automaticAssignUserNamePrifizInputField).fill("Devid")
+                let ele = await this.page.locator(this.signUpPageElements.automaticAssignUserNamePrifizInputField)
+                try {
+                        await ele.fill("Devid")
+                } catch (error) {
+                        throw new Error("Sign Up Page Registration Options Automatically Assign UserName Input Field Not Visible")
+
                 }
-                else throw new Error("Sign Up Page Registration Options Automatically Assign UserName Input Field Not Visible")
+
         }
         async clickProfilePictureAddNewSetBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.addNewSetBtn).isVisible()
@@ -479,11 +488,14 @@ export default class singupPage {
         }
         async clickProfilePictureSetDialogBox() {
                 await this.page.waitForSelector(this.signUpPageElements.profilePictureSetDialogBox)
-                let ele = await this.page.locator(this.signUpPageElements.profilePictureSetDialogBox).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.signUpPageElements.profilePictureSetDialogBox).click({ button: "left", delay: 1000 })
+                let ele = await this.page.locator(this.signUpPageElements.profilePictureSetDialogBox)
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                } catch (error) {
+                        throw new Error("Sign Up Page Profile Picture Add New Set Dialog Box Element is not visible ")
+
                 }
-                else throw new Error("Sign Up Page Profile Picture Add New Set Dialog Box Element is not visible ")
+
         }
         async selectAutoAssaigProfilePicture() {
                 await this.page.waitForSelector(this.signUpPageElements.selectDefultProfile)

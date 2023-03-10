@@ -117,36 +117,35 @@ export default class MobileDesign {
         let ele = await this.page.locator(this.mobileDesignPageElements.mainMenuPage)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Home Avater Button | Main Menu Button Element Is not Visible | Could not find locator:"${ele}"`)
-        await this.page.waitForLoadState("networkidle");
-        await this.page.waitForTimeout(2000)
+
     }
     async clickMobileDesign() {
         let ele = await this.page.locator(this.mobileDesignPageElements.mobileDesignPage)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Main Menu | Mobile Design Page Element Is not Visible | Could not find locator:"${ele}"`)
-        await this.page.waitForLoadState("networkidle");
-        await this.page.waitForTimeout(2000)
     }
     async mobileDesign() {
         let ele = await this.page.locator(this.mobileDesignPageElements.mobileDesignPage)
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForLoadState("networkidle");
         }
         else throw new Error("Main Menu | Mobile Design Page Element Is not Visible")
-        await this.page.waitForLoadState("networkidle");
-        await this.page.waitForTimeout(2000)
     }
     async clickUploadFontInputFiled() {
         let ele = await this.page.locator(this.mobileDesignPageElements.uploadFontInputField).first()
         if (await ele.isVisible()) {
             await ele.click({ button: "left", delay: 1000 })
+            await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Main Menu | Mobile Design Page Font Upload Input Field Element Is not Visible | Could not find:"${ele}"`)
-        await this.page.waitForLoadState("networkidle");
+
     }
     async verifyFontUploadedSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.uploadedFontTitle)

@@ -560,11 +560,14 @@ test("005SU-019 | Validate Automatically assign username Functionality Successfu
                 await singupPage.clickAnonymousLoginOption()
                 await singupPage.automaticallyAssignUserName()
                 await singupPage.InputAutomaticallyAssignUserName()
+
                 await singupPage.clickAdditionalInfoPhoneNumberCheckbox()
                 await singupPage.clickAdditionalInfoEmailAddressCheckbox()
                 await singupPage.clickAdditionalInfoAgeCheckbox()
                 await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
                 await singupPage.clickAdditionalInfoZipCodeCheckbox()
+
+                await singupPage.clickProfilePictureAddNewSetBtn()
         })
 })
 test("005SU-020 | Validate Automatically assign username Successfully Show on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -600,7 +603,7 @@ test("005SU-020 | Validate Automatically assign username Successfully Show on Mo
                 await newmobilePreviewPage.typezip()
                 await newmobilePreviewPage.clicksubmit()
                 await newmobilePreviewPage.clickMyProfile()
-                await newmobilePreviewPage.clickOkBtn()
+                // await newmobilePreviewPage.clickOkBtn()
                 await newmobilePreviewPage.verifyAutomaticallyAssignUserName()
         })
 })

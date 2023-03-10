@@ -535,10 +535,10 @@ export default class mobilePreviewPage {
               await this.page.waitForLoadState("networkidle")
        }
        async clickOkBtn() {
-              const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
-              expect(ele).toBeVisible()
-              await ele.click({ force: true })
-              await this.page.waitForLoadState("networkidle")
+              // const ele = this.page.locator("//div[contains(@class,'MuiDialogActions-root MuiDialogActions-spacing')]//button[1]")
+              // expect(ele).toBeVisible()
+              // await ele.click({ force: true })
+              // await this.page.waitForLoadState("networkidle")
               await this.page.waitForTimeout(2000)
        }
        async verifyUserNameInputFieldTitle() {

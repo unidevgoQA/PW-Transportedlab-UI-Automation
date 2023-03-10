@@ -239,7 +239,7 @@ test.skip("011ANE-012 |  Validate  start and stop button is working.", async ({ 
 
 
 })
-test.("011ANE-013 | Validate Image Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-013 | Validate Image Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -272,7 +272,7 @@ test.("011ANE-013 | Validate Image Section.", async ({ loginPage, liveWallPage, 
       await addnewexperiencePage.clickBottomAlignmentBtn();
 
 })
-test.("011ANE-014 | Validate invalid file type error message in image section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-014 | Validate invalid file type error message in image section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -293,7 +293,7 @@ test.("011ANE-014 | Validate invalid file type error message in image section.",
       await addnewexperiencePage.invalidFiletypeAlert();
       await addnewexperiencePage.invalidfiletypealertOkbtn();
 })
-test.("011ANE-015 | Validate Video Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-015 | Validate Video Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -355,7 +355,7 @@ test.skip("011ANE-016 | Validate Video upload alert.", async ({ loginPage, liveW
       await page.waitForTimeout(5000)
       // await addnewexperiencePage.VideoDelete();
 })
-test.("011ANE-017 | Validate Video upload button is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-017 | Validate Video upload button is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
       const title = await page.title();
@@ -373,7 +373,7 @@ test.("011ANE-017 | Validate Video upload button is working.", async ({ loginPag
       await functions.videoUploadFunction();
       await addnewexperiencePage.clickvideoUploadBTN();
 })
-test.("011ANE-018 | Validate Web Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-018 | Validate Web Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -407,7 +407,7 @@ test.("011ANE-018 | Validate Web Section.", async ({ loginPage, liveWallPage, ad
       await addnewexperiencePage.clickSaveBtn()
       await page.waitForTimeout(5000)
 })
-test.("011ANE-019 | Validate negative scenario web.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-019 | Validate negative scenario web.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
       const title = await page.title();
@@ -428,7 +428,7 @@ test.("011ANE-019 | Validate negative scenario web.", async ({ loginPage, liveWa
       // await addnewexperiencePage.invalidfiletypealertOkbtnweb();
       // await addnewexperiencePage.ImagemodalClosebtnweb();
 })
-test.("011ANE-020 | Validate Engagement Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-020 | Validate Engagement Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -464,7 +464,7 @@ test.("011ANE-020 | Validate Engagement Section.", async ({ loginPage, liveWallP
       // await addnewexperiencePage.clickNewlyAddedExprienceDeleteBtn()
       // await page.waitForTimeout(3000)
 })
-test.("011ANE-021 | Validate Engagement section negative senario.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-021 | Validate Engagement section negative senario.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -482,7 +482,7 @@ test.("011ANE-021 | Validate Engagement section negative senario.", async ({ log
       await addnewexperiencePage.ErrorMessageIfTitleFielsIsEmpty()
       await addnewexperiencePage.invalidLengthAlertengagement();
 })
-test.("011ANE-022 | Validate Poll Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-022 | Validate Poll Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -579,7 +579,7 @@ test.skip("011ANE-023 | Validate Negative Scenario Poll Section.", async ({ logi
       await addnewexperiencePage.invalidFiletypeAlert()
       await addnewexperiencePage.invalidfiletypealertOkbtn();
 })
-test.("011ANE-024 | Validate Poll question multiple choice type is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-024 | Validate Poll question multiple choice type is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -608,7 +608,7 @@ test.("011ANE-024 | Validate Poll question multiple choice type is working.", as
       await addnewexperiencePage.clickQuestionfield()
       await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-025 | Validate Poll question free text  type is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-025 | Validate Poll question free text  type is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -637,7 +637,7 @@ test.("011ANE-025 | Validate Poll question free text  type is working.", async (
       // await addnewexperiencePage.clickQuestionfield()
       // await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-026 | Validate Pool section image upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-026 | Validate Pool section image upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -666,7 +666,7 @@ test.("011ANE-026 | Validate Pool section image upload is working.", async ({ lo
       await addnewexperiencePage.TypeAnswer_2()
       await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-027 | Validate Pool section video upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-027 | Validate Pool section video upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -696,7 +696,7 @@ test.("011ANE-027 | Validate Pool section video upload is working.", async ({ lo
       await addnewexperiencePage.clickQuestionfield()
       await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-028 | Validate Trivia Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-028 | Validate Trivia Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -722,7 +722,7 @@ test.("011ANE-028 | Validate Trivia Section.", async ({ loginPage, liveWallPage,
       await addnewexperiencePage.invalidfiletypealertOkbtn();
       await addnewexperiencePage.ImagemodalClosebtn();
 })
-test.("011ANE-0029 | Validate Negative scenario Trivia Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-0029 | Validate Negative scenario Trivia Section.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -795,7 +795,7 @@ test.("011ANE-0029 | Validate Negative scenario Trivia Section.", async ({ login
 
 })
 
-test.("011ANE-030 | Validate Trivia section image upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-030 | Validate Trivia section image upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -829,7 +829,7 @@ test.("011ANE-030 | Validate Trivia section image upload is working.", async ({ 
       await addnewexperiencePage.GameTitleImageuploader()
       // await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-031 | Validate Trivia section video upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-031 | Validate Trivia section video upload is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -859,7 +859,7 @@ test.("011ANE-031 | Validate Trivia section video upload is working.", async ({ 
       await addnewexperiencePage.clickQuestionfield()
       await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-032 | Validate Trivia question multiple choice is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-032 | Validate Trivia question multiple choice is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -889,7 +889,7 @@ test.("011ANE-032 | Validate Trivia question multiple choice is working.", async
       await addnewexperiencePage.clickSaveBtn()
 
 })
-test.("011ANE-033 | Validate Trivia question free text is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-033 | Validate Trivia question free text is working.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       // await test.step("Login Admin And land To Home Screen", async () => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
@@ -920,7 +920,7 @@ test.("011ANE-033 | Validate Trivia question free text is working.", async ({ lo
       await addnewexperiencePage.clickQuestionfield()
       await addnewexperiencePage.clickSaveBtn()
 })
-test.("011ANE-0040 | Validate The Delete Functionalities Of The Experiences.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
+test("011ANE-0040 | Validate The Delete Functionalities Of The Experiences.", async ({ loginPage, liveWallPage, addnewexperiencePage, functions, page }, testInfo) => {
       await page.goto('/admin/#/sign-in')
       await loginPage.login(data.username, data.password)
       const title = await page.title();
