@@ -18,6 +18,8 @@ import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import mobilePreviewPage from "@pages/mobilePreview.page";
 import triviaMobilePage from "@pages/trivia_mobile_game.page";
+import fanSeeWallPage from "@pages/fanSeeWall.page";
+import fanSeeWallMobilePage from "@pages/fanSeeWallMobile.page";
 
 const test = baseTest.extend<{
     loginPage: LoginPage;
@@ -38,7 +40,9 @@ const test = baseTest.extend<{
     BaseFunctions: BaseFunctions;
     prizedropMobilePage: prizeDropMobilePage;
     mobilePreviewPage: mobilePreviewPage;
-    triviamobilePage : triviaMobilePage;
+    triviamobilePage: triviaMobilePage;
+    fanSeeWallPage: fanSeeWallPage;
+    fanSeeWallMobilePage: fanSeeWallMobilePage;
 
 
 
@@ -78,27 +82,30 @@ const test = baseTest.extend<{
 
     liveWallPage: async ({ page }, use) => {
         await use(new liveWallPage(page));
-    },    
-    arcadePage: async({ page }, use ) =>{
+    },
+    arcadePage: async ({ page }, use) => {
         await use(new arcadePage(page))
     },
     addnewexperiencePage: async ({ page }, use) => {
         await use(new addnewexperiencePage(page));
-     },
+    },
 
-     triviaPage: async ({ page }, use) => {
+    triviaPage: async ({ page }, use) => {
         await use(new triviaPage(page));
-     },
-     guesstheScorePage: async ({ page }, use) => {
+    },
+    guesstheScorePage: async ({ page }, use) => {
         await use(new guesstheScorePage(page));
-     },
+    },
+    fanSeeWallPage: async ({ page }, use) => {
+        await use(new fanSeeWallPage(page));
+    },
 
-     BaseFunctions: async ({ page }, use) => {
+    BaseFunctions: async ({ page }, use) => {
         await use(new BaseFunctions(page));
-     },
-    
-    
-    
+    },
+
+
+
 })
 export default test;
 export const expect = test.expect;
