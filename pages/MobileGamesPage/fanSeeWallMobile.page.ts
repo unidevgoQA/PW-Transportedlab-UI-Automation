@@ -45,7 +45,8 @@ export default class fanSeeWallMobilePage {
                 takePhotoBtn: "//button[text()='Take Photo']",
                 takeRecordVideoBtn: "//button[text()='Record Video']",
                 takeRecordVideoMinMaxTitle: "//p[text()='The video must be (5)-(15) seconds long']",
-                homePageBtn: "//div[@img='assets/HomeIcon.f04e9a89.svg']"
+                homePageBtn: "//div[@img='assets/HomeIcon.f04e9a89.svg']",
+                welcomeMassage: "//p[text()='Welcome Message']"
 
 
         }
@@ -201,7 +202,8 @@ export default class fanSeeWallMobilePage {
                 try {
                         // await this.page.getByRole('button', { name: 'Record Video' })
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForTimeout(3000)
+                        await this.page.waitForLoadState("networkidle")
+                        // await this.page.waitForTimeout(3000)
 
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen home Page Button Is not visible| Error occurred: ${error}`);
@@ -222,9 +224,21 @@ export default class fanSeeWallMobilePage {
                 const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.postContentSectionMobileUIEle).screenshot()
                 // await expect(ele).toMatchSnapshot("mobileBackground.png", { maxDiffPixelRatio: 0.10 })
                 try {
-                        await expect(ele).toMatchSnapshot('mobileBackground.png', { maxDiffPixelRatio: 0.10 })
+                        await expect(ele).toMatchSnapshot('mobileBackground_Image.png', { maxDiffPixelRatio: 0.10 })
                 } catch (error) {
-                        throw new Error(`Mobile Screen | Mobile Background Color Doest Not Updated After Updateding From Admin Side`);
+                        throw new Error(`Mobile Screen | Mobile Background Image Doest Not Updated After Updateding From Admin Side`);
+                }
+        }
+
+        async verifyMobileWelcomeImageChangesSuccessfullyApplied() {
+                const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.postContentSectionMobileUIEle).screenshot()
+                // await expect(ele).toMatchSnapshot("mobileBackground.png", { maxDiffPixelRatio: 0.10 })
+                try {
+                        await expect(await this.page.screenshot({
+                                fullPage: true
+                        })).toMatchSnapshot('mobileWelcome_Image.png', { maxDiffPixelRatio: 0.10 })
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Welcome Image Doest Not Updated After Updateding From Admin Side`);
                 }
         }
 
@@ -247,6 +261,15 @@ export default class fanSeeWallMobilePage {
         }
 
 
+        async verifyWelcomeMassageText() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.welcomeMassage)
+                try {
+                        await expect(ele).toContainText("Welcome Message")
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Welcome Massage Does Not Update In Mobile Side After Updated From Admin Side | Error occurred: ${error}`);
+                }
+        }
 
 
 

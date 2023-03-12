@@ -58,14 +58,17 @@ export default class fanSeeWallPage {
                 dialogTitleText: "//p[text()='Dialogs']",
                 dialogExpandCollapseBtn: "//p[text()='Dialogs']/following-sibling::div",
                 perEventMassageTitleText: "//h5[text()='Pre-Event Message']",
-                perEventMassageInputField: "//div[@data-offset-key='75kuo-0-0']//div[1]",
+                perEventMassageInputField: "(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]",
+                perEventFilterBlockTypeInputField: "(//a[@title='Block Type'])[1]",
+                welcomeMassageBlockTypeInputField: "(//a[@title='Block Type'])[2]",
+                normalTag: "//li[text()='Normal']",
                 activeBackgroundColorPickerBtn: "//p[text()='Active Background']/following-sibling::button",
                 welcomeMassageTitleText: "//h5[text()='Welcome Message']",
-                welcomeMassageInputField: `(//div[@data-offset-key='avivm-0-0'])[2]`,
+                welcomeMassageInputField: `(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]`,
                 perCaptureInstructionsTitleText: "//h5[text()='Pre-Capture Instructions']",
-                perCaptureInstructionsInputField: `(//div[@data-offset-key='avivm-0-0'])[3]`,
+                perCaptureInstructionsInputField: `(//div[@class='rdw-editor-main'])[3]`,
                 postSubmitMassageTitleText: "//h5[text()='Post Submit Message']",
-                postSubmitMassageInputField: `(//div[@data-offset-key='avivm-0-0'])[3]`,
+                postSubmitMassageInputField: `(//div[@class='rdw-editor-main'])[4]`,
                 switchColorDeleteBtn: `//button[@aria-label="delete"]`,
                 bottomAlignmentButton: "//h5[text()='Bottom']//parent::button",
                 qrCodeBtn: `//button[@type='button']//button[1]`,
@@ -336,7 +339,7 @@ export default class fanSeeWallPage {
                 try {
                         await expect.soft(ele).toContainText("Image Uploads")
                 } catch (error) {
-                        throw new Error(`Game | FanSee Wall | Mobile Settins Page Colors Title Text Is Not Visible | Error occurred: ${error}`);
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Page Image Upload Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
 
@@ -344,10 +347,14 @@ export default class fanSeeWallPage {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUploadSectionExpandCollapseBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Mobile Image Upload Expand Collapse Button Does Not Work | Error occurred: ${error}`);
                 }
         }
+
+
+
 
         async verifyMobileBackGroundTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundColorTitleText)
@@ -476,30 +483,35 @@ export default class fanSeeWallPage {
         }
 
         async deleteMobileBackgroundImage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundUploadedImagedeleteBtn)
-                try {
-                        await ele.click({ button: "left", delay: 1000 })
-                } catch (error) {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundUploadedImagedeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundUploadedImagedeleteBtn).click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+                } else {
                         console.log(`Game | FanSee Wall | Mobile Background Image Is Not Found`);
                 }
         }
 
         async deleteMobileWelcomeImage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeImageUploadBtn)
-                try {
-                        await ele.click({ button: "left", delay: 1000 })
-                } catch (error) {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeUploadedImagedeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeUploadedImagedeleteBtn).click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } else {
                         console.log(`Game | FanSee Wall | Mobile Welcome Image Is Not Found`);
                 }
         }
 
         async deleteMobileEventImage() {
-                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventUploadedImagedeleteBtn)
-                try {
-                        await ele.click({ button: "left", delay: 1000 })
-                } catch (error) {
-                        console.log(`Game | FanSee Wall | Mobile Event Image Is Not Found`);
-                }
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventUploadedImagedeleteBtn).isVisible()
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventUploadedImagedeleteBtn).click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+
+                } else { console.log(`Game | FanSee Wall | Mobile Event Image Is Not Found`); }
+
+
         }
 
         async clickToUploadMobileBackgroundImage() {
@@ -526,6 +538,83 @@ export default class fanSeeWallPage {
                         await ele.click({ button: "left", delay: 1000 })
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Mobile Event Upload Button Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async verifyDialogsSectionTitleText() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.dialogTitleText)
+                try {
+                        await expect.soft(ele).toContainText("Dialogs")
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Page Dialogs Title Text Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async expandDialogsSection() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.dialogExpandCollapseBtn)
+                try {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Dialogs Expand Collapse Button Does Not Work | Error occurred: ${error}`);
+                }
+        }
+
+        async verifyPreEventMessageTitleText() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventMassageTitleText)
+                try {
+                        await expect.soft(ele).toContainText("Pre-Event Message")
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Page Pre-Event Message Title Text Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async clickBlockTypeSectionField() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventFilterBlockTypeInputField)
+                try {
+                        await ele.click({ force: true })
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async clickWelcomeMassageBlockTypeSectionField() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.welcomeMassageBlockTypeInputField)
+                try {
+                        await ele.click({ force: true })
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async selectH1Tag() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.normalTag)
+                try {
+                        await ele.click({ force: true })
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type H1 Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async inputPreEventMessage() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventMassageInputField)
+                try {
+                        await ele.fill("Pre-Event Message")
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async inputWelcomeMessageFromDialogs(value: string) {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.welcomeMassageInputField)
+                try {
+
+                        await ele.click({ force: true })
+                        await ele.clear()
+                        await ele.fill(value)
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
 
