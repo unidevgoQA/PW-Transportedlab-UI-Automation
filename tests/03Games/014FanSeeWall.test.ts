@@ -753,7 +753,7 @@ test("014FSW-022 | Mobile Settings | Validate Admin Updated Pre-Event Message Su
         })
 })
 
-test("014FSW-0123 | Mobile Settings | Validate Admin Successfully Update Welcome Message", async ({ loginPage, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-023 | Mobile Settings | Validate Admin Successfully Update Welcome Message", async ({ loginPage, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
