@@ -47,7 +47,7 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
         await languagePage.clickForceLanguageInputField()
         await languagePage.selectEnglishLanguage()
 })
-test.only("005SU-001 | Validate Admin Successfully Check Socal Media Login From Admin Side ", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("005SU-001 | Validate Admin Successfully Check Socal Media Login From Admin Side ", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -65,7 +65,7 @@ test.only("005SU-001 | Validate Admin Successfully Check Socal Media Login From 
                 await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
         })
 })
-test.only("005SU-002 | Validate Socal Media Login With Google Functionality Successfully works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-002 | Validate Socal Media Login With Google Functionality Successfully works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -188,7 +188,7 @@ test("005SU-005 | Validate Admin Successfully Unchecked Socal Media Login Option
                 await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()
         })
 })
-test.only("005SU-006 | Validate Social Media Login Options Hide Functionality Successfully Works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-006 | Validate Social Media Login Options Hide Functionality Successfully Works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -236,7 +236,7 @@ test("005SU-007 | Validate Admin Successfully Check Phone Varification Option Fr
                 await singupPage.clickSocialMediaLoginPhoneNumberValidationRadioBtn()
         })
 })
-test.only("005SU-008 | Validate Phone Number Validation Options Functionality Successfully Works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("005SU-008 | Validate Phone Number Validation Options Functionality Successfully Works on Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)

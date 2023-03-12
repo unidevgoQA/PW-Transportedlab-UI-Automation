@@ -81,7 +81,7 @@ export default class fanSeeWallPage {
                 const ele = this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.qrCodeBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForLoadState("networkidle")
+                        await this.page.waitForLoadState("domcontentloaded")
                 } catch (error) {
                         throw new Error(`FanSee Wall Page Default Config QR Code Btn Is Not Visible | Error occurred: ${error}`);
                 }
@@ -103,7 +103,7 @@ export default class fanSeeWallPage {
                 let ele = await this.page.locator(this.fanSeeWallPageElements.fanSeeWallPage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForLoadState("networkidle")
+                        await this.page.waitForLoadState("domcontentloaded")
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall Page Button Is Not Visible | Error occurred: ${error}`);
                 }
@@ -113,7 +113,7 @@ export default class fanSeeWallPage {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileSectionBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForLoadState("networkidle")
+                        await this.page.waitForLoadState("domcontentloaded")
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall Page Button Is Not Visible | Error occurred: ${error}`);
                 }

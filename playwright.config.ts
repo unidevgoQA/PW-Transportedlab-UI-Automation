@@ -25,8 +25,8 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 6000
   },
-  fullyParallel: true,
-  retries: process.env.CI ? 1 : 0,
+  fullyParallel: !true,
+  retries: process.env.CI ? 0 : 0,
   workers: process.env.CI ? 1 : 1,
 
   // reporter: process.env.CI ? [["junit", {
@@ -43,7 +43,7 @@ const config: PlaywrightTestConfig = {
   reporter: [["html", {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
-  // globalTeardown: require.resolve("./mailer.js"),
+  globalTeardown: require.resolve("./mailer.js"),
 
   use: {
     actionTimeout: 10 * 6000,
