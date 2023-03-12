@@ -235,7 +235,7 @@ export default class guesstheScorePage {
                 let ele = this.page.locator(this.guessthescorePageElements.guessTheScoreSection)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForLoadState("networkidle")
+                        await this.page.waitForLoadState("domcontentloaded")
                 }
                 catch (error) {
                         throw (`Guess the score game page is not visible,Could not find locator:"${ele}"`)
