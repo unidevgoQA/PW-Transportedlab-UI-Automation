@@ -23,9 +23,9 @@ export default class mobilePreviewPage {
               submitBtn: "//button[text()='Submit']",
               choiceCheckBox: "//input[@type='checkbox']",
               choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
-              homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+              homeAvater: "(//button[@value='game']//div)[1]",
               homeText: "//p[text()='HOME']",
-              arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
+              arcadeSectionInMobileScreen: "(//button[@value='games']//div)[1]",
               prizeDropGameText: "//p[text()='Prize Drop']",
               outSideGameTitleText: "//p[text()='Auto Game']",
               squareImage: "div:nth-child(2) > div > div:nth-child(2) > .MuiBox-root",
@@ -586,14 +586,14 @@ export default class mobilePreviewPage {
               expect(color).toBe("rgb(95, 188, 210)");
        }
        async clickPrizeSection() {
-              const btn = this.page.locator("(//div[@img='assets/PrizeIcon.40782142.svg'])[1]");
+              const btn = this.page.locator("(//button[@value='prize']//div)[1]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
        }
        async clickMyProfile() {
-              const btn = this.page.locator("//div[@img='assets/UserProfileIcon.d30a8d1c.svg']");
+              const btn = this.page.locator("(//button[@value='userProfile']//div)[1]");
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");
@@ -665,7 +665,7 @@ export default class mobilePreviewPage {
               // expect(btn).toContainText("Perfil")
        }
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("//div[@img='assets/HowToPlayIcon.1474094c.svg']");
+              const btn = this.page.locator("(//button[@value='howToPlay']//div)[1]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -772,7 +772,7 @@ export default class mobilePreviewPage {
               })).toMatchSnapshot("MenuBar_UserProfileIcon_UI.png")
        }
        async clickHomeBtn() {
-              const btn = this.page.locator("//div[@img='assets/HomeIcon.f04e9a89.svg']")
+              const btn = this.page.locator("(//button[@value='game']//div)[1]")
               expect(btn).toBeVisible()
               await btn.click({ button: "left", delay: 1000 })
               await this.page.waitForLoadState("networkidle");

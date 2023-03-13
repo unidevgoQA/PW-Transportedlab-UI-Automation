@@ -23,7 +23,7 @@ export default class fanSeeWallMobilePage {
                 submitBtn: "//button[text()='Submit']",
                 choiceCheckBox: "//input[@type='checkbox']",
                 choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
-                homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+                homeAvater: "(//button[@value='game']//div)[1]",
                 homeText: "//p[text()='HOME']",
                 arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
                 prizeDropGameText: "//p[text()='Prize Drop']",
@@ -45,7 +45,7 @@ export default class fanSeeWallMobilePage {
                 takePhotoBtn: "//button[text()='Take Photo']",
                 takeRecordVideoBtn: "//button[text()='Record Video']",
                 takeRecordVideoMinMaxTitle: "//p[text()='The video must be (5)-(15) seconds long']",
-                homePageBtn: "//div[@img='assets/HomeIcon.f04e9a89.svg']",
+                homePageBtn: "(//button[@value='game']//div)[1]",
                 welcomeMassage: "//p[text()='Welcome Message']"
 
 

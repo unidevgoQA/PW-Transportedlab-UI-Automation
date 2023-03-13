@@ -23,7 +23,7 @@ export default class tugOfWarMobilePage {
                 submitBtn: "//button[text()='Submit']",
                 choiceCheckBox: "//input[@type='checkbox']",
                 choiceCheckBoxWhenCustomQuestionInTop: "(//input[@type='checkbox'])[1]",
-                homeAvater: "//div[@img='assets/UserProfileIcon.4c7ccf2b.svg']",
+                homeAvater: "(//button[contains(@class,'MuiButtonBase-root MuiToggleButton-root')])[1]",
                 homeText: "//p[text()='HOME']",
                 arcadeSectionInMobileScreen: "(//button[@type='button'])[6]",
                 prizeDropGameText: "//p[text()='Prize Drop']",
