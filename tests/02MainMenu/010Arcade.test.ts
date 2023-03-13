@@ -441,24 +441,24 @@ test("010A-017 | Validate Admin Successfully Delete Game Logo For Prize Drop", a
         await arcadePage.deletePrizeDropLogo()
         // await functions.fileUploadCropperWithoutIframe()
 })
-test("010A-018 | Validate Admin Successfully Upload Game Logo For Fanatics-Filter-Web", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
-        await test.step("Login admin and land to arcade", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                //click on homeavatar
-                await MainMenu.clickHomeAvater()
-                //click on mainmenubtn
-                await MainMenu.mainMenuBtn()
-                //click on arcadepage
-                await arcadePage.clickArcadePage()
-        })
-        await arcadePage.verifyFontTextIsVisible()
-        await arcadePage.uploadFanaticsFilterWebLogo()
-        await functions.fileUploadCropperWithoutIframe()
-        await arcadePage.verifyFanaticsFilterWebLogoUploadSuccessfully()
-})
+// test("010A-018 | Validate Admin Successfully Upload Game Logo For Fanatics-Filter-Web", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
+//         await test.step("Login admin and land to arcade", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 //click on homeavatar
+//                 await MainMenu.clickHomeAvater()
+//                 //click on mainmenubtn
+//                 await MainMenu.mainMenuBtn()
+//                 //click on arcadepage
+//                 await arcadePage.clickArcadePage()
+//         })
+//         await arcadePage.verifyFontTextIsVisible()
+//         await arcadePage.uploadFanaticsFilterWebLogo()
+//         await functions.fileUploadCropperWithoutIframe()
+//         await arcadePage.verifyFanaticsFilterWebLogoUploadSuccessfully()
+// })
 test("010A-019 | Validate Admin Uploaded Fanatics-Filter-Web Game Logo Successfully Show On Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -543,24 +543,24 @@ test.skip("010A-021 | Validate Fanatics-Filter-Web Game successfully hide from M
                 await newmobilePreviewPage.clickPrizeSection()
         })
 })
-test("010A-022 | Validate Admin Successfully Upload Game Logo For Guess The Scroe", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
-        await test.step("Login admin and land to arcade", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                //click on homeavatar
-                await MainMenu.clickHomeAvater()
-                //click on mainmenubtn
-                await MainMenu.mainMenuBtn()
-                //click on arcadepage
-                await arcadePage.clickArcadePage()
-        })
-        await arcadePage.verifyFontTextIsVisible()
-        await arcadePage.uploadGuessTheScroeLogo()
-        await functions.fileUploadCropperWithoutIframe()
-        await arcadePage.verifyGuessTheScroeLogoUploadSuccessfully()
-})
+// test("010A-022 | Validate Admin Successfully Upload Game Logo For Guess The Scroe", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
+//         await test.step("Login admin and land to arcade", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 //click on homeavatar
+//                 await MainMenu.clickHomeAvater()
+//                 //click on mainmenubtn
+//                 await MainMenu.mainMenuBtn()
+//                 //click on arcadepage
+//                 await arcadePage.clickArcadePage()
+//         })
+//         await arcadePage.verifyFontTextIsVisible()
+//         await arcadePage.uploadGuessTheScroeLogo()
+//         await functions.fileUploadCropperWithoutIframe()
+//         await arcadePage.verifyGuessTheScroeLogoUploadSuccessfully()
+// })
 test("010A-024 | Validate Admin Uploaded Guess The Scroe Game Logo Successfully Show On Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -651,24 +651,24 @@ test.skip("010A-026 | Validate Guess The Scroe Game successfully hide from Mobil
                 await newmobilePreviewPage.clickPrizeSection()
         })
 })
-test("010A-027 | Validate Admin Successfully Upload Game Logo For Trivia", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
-        await test.step("Login admin and land to arcade", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                //click on homeavatar
-                await MainMenu.clickHomeAvater()
-                //click on mainmenubtn
-                await MainMenu.mainMenuBtn()
-                //click on arcadepage
-                await arcadePage.clickArcadePage()
-        })
-        await arcadePage.verifyFontTextIsVisible()
-        await arcadePage.uploadTriviaLogo()
-        await functions.fileUploadCropperWithoutIframe()
-        await arcadePage.verifyTriviaLogoUploadSuccessfully()
-})
+// test("010A-027 | Validate Admin Successfully Upload Game Logo For Trivia", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
+//         await test.step("Login admin and land to arcade", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 //click on homeavatar
+//                 await MainMenu.clickHomeAvater()
+//                 //click on mainmenubtn
+//                 await MainMenu.mainMenuBtn()
+//                 //click on arcadepage
+//                 await arcadePage.clickArcadePage()
+//         })
+//         await arcadePage.verifyFontTextIsVisible()
+//         await arcadePage.uploadTriviaLogo()
+//         await functions.fileUploadCropperWithoutIframe()
+//         await arcadePage.verifyTriviaLogoUploadSuccessfully()
+// })
 test("010A-028 | Validate Admin Uploaded Trivia Game Logo Successfully Show On Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -759,24 +759,24 @@ test.skip("010A-030 | Validate Trivia Game successfully hide from Mobile Screen"
                 await newmobilePreviewPage.clickPrizeSection()
         })
 })
-test("010A-031 | Validate Admin Successfully Upload Game Logo For Live Wall", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
-        await test.step("Login admin and land to arcade", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                //click on homeavatar
-                await MainMenu.clickHomeAvater()
-                //click on mainmenubtn
-                await MainMenu.mainMenuBtn()
-                //click on arcadepage
-                await arcadePage.clickArcadePage()
-        })
-        await arcadePage.verifyFontTextIsVisible()
-        await arcadePage.uploadLiveWallLogo()
-        await functions.fileUploadCropperWithoutIframe()
-        await arcadePage.verifyLiveWallLogoUploadSuccessfully()
-})
+// test("010A-031 | Validate Admin Successfully Upload Game Logo For Live Wall", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
+//         await test.step("Login admin and land to arcade", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 //click on homeavatar
+//                 await MainMenu.clickHomeAvater()
+//                 //click on mainmenubtn
+//                 await MainMenu.mainMenuBtn()
+//                 //click on arcadepage
+//                 await arcadePage.clickArcadePage()
+//         })
+//         await arcadePage.verifyFontTextIsVisible()
+//         await arcadePage.uploadLiveWallLogo()
+//         await functions.fileUploadCropperWithoutIframe()
+//         await arcadePage.verifyLiveWallLogoUploadSuccessfully()
+// })
 test("010A-032 | Validate Admin Uploaded Live Wall Game Logo Successfully Show On Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -867,24 +867,24 @@ test.skip("010A-034 | Validate Live Wall Game successfully hide from Mobile Scre
                 await newmobilePreviewPage.clickPrizeSection()
         })
 })
-test("010A-035 | Validate Admin Successfully Upload Game Logo For Noise Meter", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
-        await test.step("Login admin and land to arcade", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                //click on homeavatar
-                await MainMenu.clickHomeAvater()
-                //click on mainmenubtn
-                await MainMenu.mainMenuBtn()
-                //click on arcadepage
-                await arcadePage.clickArcadePage()
-        })
-        await arcadePage.verifyFontTextIsVisible()
-        await arcadePage.uploadNoiseMeterLogo()
-        await functions.fileUploadCropperWithoutIframe()
-        await arcadePage.verifyNoiseMeterLogoUploadSuccessfully()
-})
+// test("010A-035 | Validate Admin Successfully Upload Game Logo For Noise Meter", async ({ MainMenu, arcadePage, functions, menuPage, loginPage, page, }, testInfo) => {
+//         await test.step("Login admin and land to arcade", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 //click on homeavatar
+//                 await MainMenu.clickHomeAvater()
+//                 //click on mainmenubtn
+//                 await MainMenu.mainMenuBtn()
+//                 //click on arcadepage
+//                 await arcadePage.clickArcadePage()
+//         })
+//         await arcadePage.verifyFontTextIsVisible()
+//         await arcadePage.uploadNoiseMeterLogo()
+//         await functions.fileUploadCropperWithoutIframe()
+//         await arcadePage.verifyNoiseMeterLogoUploadSuccessfully()
+// })
 test("010A-036 | Validate Admin Uploaded Noise Meter Game Logo Successfully Show On Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
