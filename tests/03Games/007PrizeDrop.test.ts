@@ -543,12 +543,13 @@ test("PD007-28|Validate Font Upload Functionality", async ({ loginPage, prizeDro
         await test.step("PD007-28|Validate Font Upload Functionality", async () => {
 
                 await prizeDropPage.font_uploader_click()
-
+        })
+        await test.step('now check the uploaded font',async()=>{
                 await prizeDropPage.verify_font_uploaded()
         
+        })
+        await test.step('now click on clear all button',async()=>{
                 await prizeDropPage.clickClearAllBtn()
-
-
         })
 
 })

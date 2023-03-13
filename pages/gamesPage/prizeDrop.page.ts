@@ -31,9 +31,9 @@ export default class prizeDropPage {
           auto_mobile_link:'//h6[text()=" Auto"]//following-sibling::div//button[2]',
           prize_page:'//p[text()="Prizing"]',
           prize_list:"//h4[text()='Prizing List']",
-          auto_coupon_name:'//td[text()="AutoCoupon"]',
-          auto_coupon_total_prize:'//td[text()="20"]',
-          auto_coupon_parcentage_awarded: '//td[text()="10"]',
+          auto_coupon_name:`//td[text()="Auto_coupon_edited"]`,
+          auto_coupon_total_prize:'//td[text()="30"]',
+          auto_coupon_parcentage_awarded: '//td[text()="40"]',
           award_all_button:'//button[text()="Award All"]',
           add_new_prize_button:"//button[text()='Award All']/following-sibling::button",
           back_button:"//button[text()='Back']",
@@ -1449,7 +1449,7 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.prize_list)
                 await expect(ele).toContainText("Prizing List")
                } catch (error) {
-                throw `Prize Drop| Prizing list text is missing ${error} ` 
+                throw  new Error('Prize Drop| Prizing list text is not correct'+error)
                }
         }
         async verify_Prizing_name(){
@@ -1458,7 +1458,7 @@ export default class prizeDropPage {
                  .locator(this.prizedop_elements.auto_coupon_name)
                  await expect(ele).toBeVisible()
                 } catch (error) {
-                   throw  `prize drop|prizing name is missing |${error}`     
+                        throw  new Error('Prize Drop| Prizing name is not correct'+error)  
                 }
         }
 
@@ -1467,7 +1467,7 @@ export default class prizeDropPage {
                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.auto_coupon_total_prize)
                 await expect(ele).toBeVisible()
                } catch (error) {
-                throw `prize drop|total prizes is missing |${error}`
+                throw  new Error('Prize Drop| total prizing is not correct' + error)  
                }
         }
 
@@ -1477,7 +1477,7 @@ export default class prizeDropPage {
                  .frameLocator('iframe').locator(this.prizedop_elements.auto_coupon_parcentage_awarded)
                  await expect(ele).toBeVisible()
                } catch (error) {
-                throw `prize drop|parcentage awarded filling failed |${error}`
+                throw  new Error('Prize Drop| Prizing name is not correct'+error)  
                }
         }
         async verify_awardall_button(){
@@ -1528,7 +1528,7 @@ export default class prizeDropPage {
                   await expect(del).toBeVisible()
                   await del.click({button:'left'})
               } catch (error) {
-                throw `Prizedrop| Prizing|Delete prize button is not visible or clickable ${error}`
+                throw new Error('Prizedrop| Prizing|Delete prize button is not visible or clickable '+error)
               }
         }
 
@@ -1538,7 +1538,7 @@ export default class prizeDropPage {
                    expect(ele).toBeVisible()
                    await ele.fill(value)
              } catch (error) {
-                throw `Prize drop| Prizing| Input coupon name not working ${error}`
+                throw new Error('Prize drop| Prizing| Input coupon name not working'+error)
              }
         }
 
@@ -1547,7 +1547,7 @@ export default class prizeDropPage {
                   const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.amount_of_awarding)
                   await ele.fill(value)
               } catch (error) {
-                `Prizedrop| Prizing| Input amount of awarding not working ${error}`
+                throw new Error('Prize drop| Prizing| Input amount of awarding not working'+error)
               }
         }
 
@@ -1556,7 +1556,7 @@ export default class prizeDropPage {
                  const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.parcentage_awarded)
                  await ele.fill(value)
                } catch (error) {
-                 `Prizedrop| Prizing| Input percentage awarded not working ${error}`
+                 throw new Error('Prizedrop| Prizing| Input percentage awarded not working ' + error)
                }
         }
 
@@ -1565,15 +1565,15 @@ export default class prizeDropPage {
                  const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
                  await ele.click()
                } catch (error) {
-                `Prize drop| Prizing| click to select coupon prize selection not working ${error}`
+                throw new Error(`Prize drop| Prizing| click to select coupon prize selection not working `+error)
                }
         }
         async selectCouponPrizeSelect() {
                 try {
-                        const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
+                        const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.select_first_coupon_prize_select)
                         await ele.click()
                 } catch (error) {
-                        `Prizedrop| Prizing| coupon prize selection not working ${error}`       
+                       throw new Error('Prizedrop| Prizing| coupon prize selection not working ${error}'+error)     
                 }
         }
         // async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                

@@ -43,12 +43,12 @@ const config: PlaywrightTestConfig = {
   reporter: [["html", {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
   use: {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
-    baseURL: "https://qa-1.testingdxp.com/",
+    baseURL: "https://qa-2.testingdxp.com/",
     launchOptions: {
       //  args: ["--start-maximized"],
       slowMo: 100
