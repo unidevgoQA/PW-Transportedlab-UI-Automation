@@ -14,13 +14,14 @@ const config: PlaywrightTestConfig = {
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
     // "007PrizeDrop.test.ts",
-    "008TugOfWar.test.ts",
+    //"008TugOfWar.test.ts",
     // "009LiveWall.test.ts",    
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",     
     // "012Trivia.test.ts",
     // "guesstheScore.test.ts",
     // // "textExtractFromImage.test.ts"
+    "013Fanatics-filterWeb.test.ts"
         
 
   ],
@@ -56,9 +57,15 @@ const config: PlaywrightTestConfig = {
   use: {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
-    baseURL: "https://qa-1.testingdxp.com/",
+    baseURL: "https://qa-2.testingdxp.com/",
     launchOptions: {
-      //  args: ["--start-maximized"],
+      args: [
+        '--use-fake-device-for-media-stream',
+        '--use-fake-ui-for-media-stream',
+        '--no-sandbox',
+        '--disable-features=UseOzonePlatform',
+        '--use-file-for-fake-video-capture=C:\Users\symoo\OneDrive\Documents\GitHub\PW-Transportedlab-UI-Automation\mobile.y4m'
+      ],
       slowMo: 100
       
   },

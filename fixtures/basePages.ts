@@ -18,6 +18,7 @@ import liveWallMobileScreenPage from "@pages/liveWallMobile.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import mobilePreviewPage from "@pages/mobilePreview.page";
 import triviaMobilePage from "@pages/trivia_mobile_game.page";
+import fanaticsFilterWebPage from "@pages/Fanatics-filter-Web.page";
 
 const test = baseTest.extend<{
     loginPage: LoginPage;
@@ -39,6 +40,7 @@ const test = baseTest.extend<{
     prizedropMobilePage: prizeDropMobilePage;
     mobilePreviewPage: mobilePreviewPage;
     triviamobilePage : triviaMobilePage;
+    fanaticsFilterPage : fanaticsFilterWebPage;
 
 
 
@@ -96,6 +98,9 @@ const test = baseTest.extend<{
      BaseFunctions: async ({ page }, use) => {
         await use(new BaseFunctions(page));
      },
+     fanaticsFilterPage: async({page}, use) =>{
+        await use(new fanaticsFilterWebPage(page));
+     }
     
     
     

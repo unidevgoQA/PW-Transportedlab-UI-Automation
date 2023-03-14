@@ -20,7 +20,7 @@
         "testDir": "C:/Users/symoo/OneDrive/Documents/GitHub/PW-Transportedlab-UI-Automation",
         "testIgnore": [],
         "testMatch": [
-          "008TugOfWar.test.ts"
+          "013Fanatics-filterWeb.test.ts"
         ],
         "timeout": 300000
       }
@@ -54,14 +54,14 @@
   },
   "suites": [
     {
-      "title": "tests\\03Games\\008TugOfWar.test.ts",
-      "file": "tests/03Games/008TugOfWar.test.ts",
+      "title": "tests\\03Games\\013Fanatics-filterWeb.test.ts",
+      "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-001 | Add New Configuration",
-          "ok": false,
+          "title": "013FFW-011  | Validate Filter Background Updated From The Admin Side",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -73,46 +73,370 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 15853,
-                  "error": {
-                    "message": "Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: \"(//h5[text()='Configurations']/following-sibling::button)[1]\"",
-                    "stack": "Error: Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: \"(//h5[text()='Configurations']/following-sibling::button)[1]\"\n    at tugOfWarPage.clickAddNewConfigPlusBtn (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:177:28)\n    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:89:9"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                        "column": 28,
-                        "line": 177
-                      },
-                      "message": "Error: Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: \"(//h5[text()='Configurations']/following-sibling::button)[1]\"\n\n\u001b[90m   at \u001b[39mpages\\gamesPage\\tugOfWar.page.ts:177\n\n\u001b[0m \u001b[90m 175 |\u001b[39m                         \u001b[36mawait\u001b[39m ele\u001b[33m.\u001b[39mclick({ button\u001b[33m:\u001b[39m \u001b[32m\"left\"\u001b[39m\u001b[33m,\u001b[39m delay\u001b[33m:\u001b[39m \u001b[35m1000\u001b[39m })\u001b[0m\n\u001b[0m \u001b[90m 176 |\u001b[39m                 }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 177 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m`Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: \"${this.tugOfWarPageElements.addNewConfigPlusBtn}\"`\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m     |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 178 |\u001b[39m                 \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m 179 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 180 |\u001b[39m\u001b[0m\n\n\u001b[2m    at tugOfWarPage.clickAddNewConfigPlusBtn (C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts:177:28)\u001b[22m\n\u001b[2m    at C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\tests\\03Games\\008TugOfWar.test.ts:89:9\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 23163,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-02-28T07:37:50.515Z",
+                  "startTime": "2023-03-10T10:46:29.094Z",
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-008TugOfWar-008TOFW-001-Add-New-Configuration\\test-failed-1.png"
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-011-d85da-e-Filter-Background-Updated-From-The-Admin-Side\\test-finished-1.png"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\pages\\gamesPage\\tugOfWar.page.ts",
-                    "column": 28,
-                    "line": 177
-                  }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
-          "id": "26becc8c701c81079457-d693d36eb2a06419291e",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 77,
+          "id": "c61e6003dde10c04b333-29aa52800ba1114daf60",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 230,
+          "column": 6
+        },
+        {
+          "title": "013FFW-012  | Validate Selfie Photo Frame Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 21970,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:46:52.510Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-012-8da11--Selfie-Photo-Frame-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-1900ac3aa36954cd3bd0",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 300,
+          "column": 6
+        },
+        {
+          "title": "013FFW-013  | Validate Upload Frame Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 18394,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:47:14.492Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-013-Validate-Upload-Frame-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-5b9f2d1b6be329749dd6",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 314,
+          "column": 6
+        },
+        {
+          "title": "013FFW-014  | Validate Filter 1 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 45786,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:47:32.899Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-014-Validate-Filter-1-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-6955288ef5eea9bd4997",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 328,
+          "column": 6
+        },
+        {
+          "title": "013FFW-015  | Validate Filter 2 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 41872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:48:18.694Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-015-Validate-Filter-2-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-5fe38770d25b7cff986b",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 368,
+          "column": 6
+        },
+        {
+          "title": "013FFW-016  | Validate Filter 3 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 41573,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:49:00.577Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-016-Validate-Filter-3-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-a3355c374c2c3cd985bc",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 409,
+          "column": 6
+        },
+        {
+          "title": "013FFW-017  | Validate Filter 4 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 42250,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:49:42.164Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-017-Validate-Filter-4-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-3ef17c40639fa0abd8e6",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 451,
+          "column": 6
+        },
+        {
+          "title": "013FFW-018  | Validate Filter 5 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 42032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:50:24.421Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-018-Validate-Filter-5-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-52857befaf0d8d920d52",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 494,
+          "column": 6
+        },
+        {
+          "title": "013FFW-019  | Validate Filter 6 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 46406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:51:06.469Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-019-Validate-Filter-6-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-07c03a8b74331133a3a2",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 536,
+          "column": 6
+        },
+        {
+          "title": "013FFW-020  | Validate Filter 7 Updated From The Admin Side",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 44932,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-10T10:51:52.883Z",
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\symoo\\OneDrive\\Documents\\GitHub\\PW-Transportedlab-UI-Automation\\test-results\\tests-03Games-013Fanatics-filterWeb-013FFW-020-Validate-Filter-7-Updated-From-The-Admin-Side\\test-finished-1.png"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c61e6003dde10c04b333-1bedd42812086225b107",
+          "file": "tests/03Games/013Fanatics-filterWeb.test.ts",
+          "line": 577,
           "column": 6
         }
       ]
