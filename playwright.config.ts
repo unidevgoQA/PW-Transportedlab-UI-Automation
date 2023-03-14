@@ -2,28 +2,33 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 var date = new Date();
 var ReportDate = date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2) + ("0" + date.getHours()).slice(-2) + ("0" + date.getMinutes()).slice(-2) + ("0" + date.getSeconds()).slice(-2);
+
 const config: PlaywrightTestConfig = {
   // testDir: './tests',
   testMatch: [
+
     "001Login.test.ts",
     "002MobileDesign.test.ts",
     "003Language.test.ts",
-    // "004Menu.test.ts",
-    // "005SignUp.test.ts",
+    "004Menu.test.ts",
+    "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
-    // "007PrizeDrop.test.ts",
-    // "008TugOfWar.test.ts",
-    // "009LiveWall.test.ts",
-    // "010Arcade.test.ts",
+    "007PrizeDrop.test.ts",
+    "008TugOfWar.test.ts",
+    "009LiveWall.test.ts",
+    "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",
-    // "012Trivia.test.ts",
-    // "014FanSeeWall.test.ts",
+    "012Trivia.test.ts",
     // "guesstheScore.test.ts",
-    // "textExtractFromImage.test.ts"
+    // // "textExtractFromImage.test.ts"
+    // "013Fanatics-filterWeb.test.ts"
+
+
   ],
   timeout: 1 * 30 * 10000,
   expect: {
     timeout: 6000
+
   },
   fullyParallel: true,
   retries: process.env.CI ? 1 : 0,
@@ -39,22 +44,30 @@ const config: PlaywrightTestConfig = {
 
   // reporter: [ ['html', { outputFolder: './playwright-report/'+ ReportDate}]],
 
-  // reporter: [['./My-Reporter.js']],
-
 
 
   reporter: [["html", {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
-  globalTeardown: require.resolve("./mailer.js"),
+
+  // globalTeardown: require.resolve("./mailer.js"),
+
+
 
   use: {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
-    baseURL: "https://qa-1.testingdxp.com/",
+    baseURL: "https://qa-2.testingdxp.com/",
     launchOptions: {
-      //  args: ["--start-maximized"],
+      args: [
+        '--use-fake-device-for-media-stream',
+        '--use-fake-ui-for-media-stream',
+        '--no-sandbox',
+        '--disable-features=UseOzonePlatform',
+        '--use-file-for-fake-video-capture=C:\Users\symoo\OneDrive\Documents\GitHub\PW-Transportedlab-UI-Automation\mobile.y4m'
+      ],
       slowMo: 100
+
     },
     permissions: ["microphone", "camera", "clipboard-read", "clipboard-write"],
     headless: process.env.CI ? true : false,
@@ -63,11 +76,17 @@ const config: PlaywrightTestConfig = {
     viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
     // permissions: ["camera"],
+
+
     // actionTimeout: 2 * 60 * 1000,
     trace: process.env.CI ? "off" : "off",
     video: process.env.CI ? "off" : "off",
     screenshot: process.env.CI ? "off" : "on",
   },
+
+
+
+
   // projects: [
   //   {
   //     name: 'chromium',
@@ -75,6 +94,7 @@ const config: PlaywrightTestConfig = {
   //       ...devices['Desktop Chrome'],
   //     },
   //   },
+
   //   // {
   //   //   name: 'firefox',
   //   //   use: {
@@ -83,4 +103,5 @@ const config: PlaywrightTestConfig = {
   //   // }
   // ]
 };
+
 export default config;
