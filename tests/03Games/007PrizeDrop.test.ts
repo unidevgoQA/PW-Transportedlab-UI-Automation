@@ -1,5 +1,6 @@
 import test, { expect } from "@fixtures/basePages";
 import languagePage from "@pages/language.page";
+import liveWallPage from "@pages/liveWall.page";
 import prizeDropMobilePage from "@pages/prizedrop_mobile_game.page";
 import singupPage from "@pages/signup.page";
 import { devices, chromium } from "@playwright/test";
@@ -318,18 +319,6 @@ test("PD007-91|Validate marketing message change is reflected on mobile screen",
                 await languagePage.selectEnglishLanguage()
                 await menuPage.clickMenuPage()
                 await menuPage.clickBottomAlignmentBtn()
-                await menuPage.click_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_Active_Background_ColorPicker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
-                await menuPage.click_active_text_color_Picker()
-                await menuPage.clickplusbuttonswatches()
-                await menuPage.clickColorPickerSaveBtn()
                 await singupPage.clickSignUpPage()
                 await singupPage.clickAnonymousLogin()
                 await singupPage.clickPhoneNumberCheckBox()
@@ -1204,7 +1193,7 @@ test("PD007-49|  validate button color color input functionality and reflection 
 
 })
 //parachute prize e accent color dekha jaai
-test("PD007-45|validate accent color color input functionality", async ({ loginPage, browser, prizeDropPage, page, }, testInfo) => {
+test("PD007-45|validate accent color color input functionality", async ({ loginPage, browser, prizeDropPage, page, }, testInfo ) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1310,6 +1299,9 @@ test("PD007-45|validate accent color color input functionality", async ({ loginP
         //         await prizeDropPage.clickStopGameOkBtn()
         // })
 })
+test.skip('validate accent color change is reflected on mobile screen',async({ loginPage, browser, prizeDropPage, page, }, testInfo )=>{
+
+})
 test("PD007-51|Validate full screen logo upload and its reflection on mobile screen", async ({ loginPage, languagePage, prizeDropPage, page, browser, menuPage, MainMenu, singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -1378,6 +1370,10 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
 
                 await prizeDropPage.full_screen_logo_wait()
         })
+        await test.step('now start the game',async()=>{
+                await prizeDropPage.clickStartGameBtn()
+                await prizeDropPage.clickStartGameOkBtn()
+        })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
 
@@ -1413,6 +1409,10 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
                 await page.waitForTimeout(500)
                 await prizeDropPage.delete_image_prize_drop()
         })
+        await test.step('stop game',async()=>{
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
+        })
         //here we can delete the element after its done
 })
 test("PD007-53|Validate Game title upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser, MainMenu, menuPage, languagePage, singupPage }, testInfo) => {
@@ -1432,44 +1432,20 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
 
 
         })
-        // await test.step('check the menu related settings', async () => {
-        //         await MainMenu.clickHomeAvater()
-        //         await MainMenu.mainMenuBtn()
-        //         await MainMenu.mobileDesign()
-        //         await MainMenu.clickClearAllBtn()
-        //         await languagePage.clickLanguagePage()
-        //         await languagePage.clickUserForceLanguageOption()
-        //         await languagePage.clickForceLanguageInputField()
-        //         await languagePage.selectEnglishLanguage()
-        //         await menuPage.clickMenuPage()
-        //         await menuPage.clickBottomAlignmentBtn()
-        //         await menuPage.click_Background_ColorPicker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_text_color_Picker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_Active_Background_ColorPicker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_active_text_color_Picker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await singupPage.clickSignUpPage()
-        //         await singupPage.clickAnonymousLogin()
-        //         await singupPage.clickPhoneNumberCheckBox()
-        //         await singupPage.clickEmailAddressCheckBox()
-        //         await singupPage.clickAgeCheckBox()
-        //         await singupPage.clickDateOfBirthCheckBox()
-        //         await singupPage.clickPostalCodeCheckBox()
-        // })
-        await test.step("PD007-105|validate error if wrong file is selected as game title logo", async () => {
+        await test.step('click on game design and game title upload',async()=>{
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()
 
                 //click Game Design
                 await prizeDropPage.clickGameDesign()
                 //click on full screenlogo
+        })
+        await test.step('now start the game',async()=>{
+                await prizeDropPage.clickStartGameBtn()
+                await prizeDropPage.clickStartGameOkBtn()
+        })
+        await test.step("PD007-105|validate error if wrong file is selected as game title logo", async () => {
+                
                 await prizeDropPage.Game_title_image_upload()
                 //upload a wrong file
                 await prizeDropPage.wrong_image_uploader()
@@ -1517,6 +1493,11 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
                 await newprizedropgame.screenshot_matcher_game_title_image()
                 await page.waitForTimeout(500)
                 await prizeDropPage.delete_image_prize_drop()
+        })
+
+        await test.step('now stop the game',async()=>{
+                await prizeDropPage.clickToStopLiveGame()
+                await prizeDropPage.clickStopGameOkBtn()
         })
         //here we can delete the element after its done
 })
@@ -1639,6 +1620,9 @@ test("PD007-55|Validate Frame image upload is working", async ({ loginPage, priz
         // })
         //here we can delete the element after its done
 })
+test.skip('validate updated frame image is working',async({ loginPage, prizeDropPage, page, browser, menuPage, MainMenu, languagePage, singupPage }, testInfo)=>{
+      
+})
 test("PD007-61|validate sponsor logo upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, MainMenu, languagePage, singupPage, menuPage, page, browser }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -1653,40 +1637,7 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
                         body: screenshot
                 })
 
-
-
         })
-        // await test.step("check the menu related settings ", async () => {
-        //         await MainMenu.clickHomeAvater()
-        //         await MainMenu.mainMenuBtn()
-        //         await MainMenu.mobileDesign()
-        //         await MainMenu.clickClearAllBtn()
-        //         await languagePage.clickLanguagePage()
-        //         await languagePage.clickUserForceLanguageOption()
-        //         await languagePage.clickForceLanguageInputField()
-        //         await languagePage.selectEnglishLanguage()
-        //         await menuPage.clickMenuPage()
-        //         await menuPage.clickBottomAlignmentBtn()
-        //         await menuPage.click_Background_ColorPicker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_text_color_Picker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_Active_Background_ColorPicker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await menuPage.click_active_text_color_Picker()
-        //         await menuPage.clickplusbuttonswatches()
-        //         await menuPage.clickColorPickerSaveBtn()
-        //         await singupPage.clickSignUpPage()
-        //         await singupPage.clickAnonymousLogin()
-        //         await singupPage.clickPhoneNumberCheckBox()
-        //         await singupPage.clickEmailAddressCheckBox()
-        //         await singupPage.clickAgeCheckBox()
-        //         await singupPage.clickDateOfBirthCheckBox()
-        //         await singupPage.clickPostalCodeCheckBox()
-        // })
         await test.step("PD007-105|validate error if wrong file is selected as game title logo", async () => {
                 //click Prize Drop Section
                 await prizeDropPage.clickPrizeDropSection()

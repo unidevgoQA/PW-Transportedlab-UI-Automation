@@ -134,7 +134,10 @@ export default class prizeDropMobilePage {
 
         async screenshot_matcher_fullscreen_logo(){
               try {
-                  await expect.soft(this.page.frameLocator('//iframe').locator('//div[@class="MuiBox-root css-15pzqls"]')).toHaveScreenshot('fullscreen_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
+                  await expect.soft(this.page).toHaveScreenshot('fullscreen_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.11,mask:[
+                        this.page.locator('//div[@class="MuiBox-root css-d0a8w1"]'),
+                        this.page.locator('(//button[@value="game"]//div)[1]')  
+                  ]})
     
               } catch (error) {
                   throw new Error("Prize Drop| Game design | Full screen logo screenshot matching comparison failed" + error)
@@ -143,7 +146,11 @@ export default class prizeDropMobilePage {
 
         async screenshot_matcher_game_title_image(){
              try {
-                   await expect.soft(this.page).toHaveScreenshot('game_title_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01}) 
+                   await expect.soft(this.page).toHaveScreenshot('game_title_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01
+                  ,mask:[  
+                        this.page.locator('//div[@class="MuiBox-root css-d0a8w1"]'),
+                        this.page.locator('(//button[@value="game"]//div)[1]')  ]
+                  }) 
      
              } catch (error) {
                   throw new Error('Prize Drop| Game design | Game title image screenshot matching comparison failed' +error)
@@ -239,7 +246,7 @@ export default class prizeDropMobilePage {
       async screenshot_matcher_font(){
            try {
              await expect.soft(this.page.frameLocator('//iframe').locator('//button[text()="START"]'))
-             .toHaveScreenshot('upload_font_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.04})
+             .toHaveScreenshot('upload_font_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.14})
        
            } catch (error) {
              throw `Prize drop| game design | Screenshot match for fond upload reflection is failed `

@@ -48,7 +48,7 @@ const config: PlaywrightTestConfig = {
   use: {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
-    baseURL: "https://qa-2.testingdxp.com/",
+    baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
       //  args: ["--start-maximized"],
       slowMo: 100

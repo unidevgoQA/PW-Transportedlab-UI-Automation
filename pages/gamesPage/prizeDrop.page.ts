@@ -502,9 +502,9 @@ export default class prizeDropPage {
         }
         async fullscreenlogoupload(){
                 try {
-                        const edit_image_button =await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.edit_image_button).nth(1).isVisible()
-                        if(edit_image_button ){
-                                await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.delete_image_button).nth(1).click({button:'left'})
+                        const delete_image_button =await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.delete_image_button).isVisible()
+                        if(delete_image_button ){
+                                await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.delete_image_button).click({button:'left'})
                         }
                         await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.full_screen_logo_image_click).click()
                 } catch (error) {
