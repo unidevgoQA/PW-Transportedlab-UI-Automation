@@ -306,6 +306,9 @@ export default class triviaPage {
                 deleteFontBtn: "//p[text()='Aa']/following-sibling::button",
                 colorPickerSaveBtn:"//button[text()='Save']",
                 ValuCannotbeemptyText:"//p[text()='Value cannot be an empty']",
+                MobileMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
+                MainboardMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
+
                 
 
 
@@ -745,180 +748,6 @@ export default class triviaPage {
 
         }
 
-        //start accent color section element
-
-        // async verifyAccentColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Accent Color')
-        //         expect(ele).toContainText("Accent Color")
-
-        // }
-
-
-        // async clickAccentColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Accent Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputAccentRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputAccentRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-
-
-        // async inputAccentRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("9")
-
-        // }
-
-        // async inputAccentRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("90")
-
-        // }
-
-        // async inputAccentRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("005782FF")
-
-        // }
-
-        //start Text color section element
-
-        // async verifyTextColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Text Color')
-        //         expect(ele).toContainText("Text Color")
-
-        // }
-
-
-        // async clickTextColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputTextRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputTextRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("179")
-
-        // }
-
-
-        // async inputTextRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("229")
-
-        // }
-
-        // async inputTextRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("190")
-
-        // }
-
-        // async inputTextRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("FFdFFFFF")
-
-        // }
-
-
-        //start Text color section element
-
-        // async verifyButtonColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Button Color')
-        //         expect(ele).toContainText("Button Color")
-
-        // }
-
-
-        // async clickButtonColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Button Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputButtonRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputButtonRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("179")
-
-        // }
-
-
-        // async inputButtonRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("229")
-
-        // }
-
-        // async inputButtonRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("190")
-
-        // }
-
-        // async inputButtonRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("577C98FF")
-
-        // }
-        // async verifyFullScreenLogoText() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Full Screen Logo']")
-        //         expect(ele).toContainText("Full Screen Logo")
-
-        // }
-
-        // async verifyGameTitleImageTitleText() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Game Title Image']")
-        //         expect(ele).toContainText("Game Title Image")
-
-        // }
-       
-     
-        // async clickLiveBtn(){
-        //         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn)
-        //         if(ele != null){
-        //                 expect(ele).toBeVisible()
-        //                 await ele.first().click()
-        //         }
-        //         else throw new Error("Live button is not visible")
-        // }
         async verifyRoundError(){
                 const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage).first()
                 if(await ele.isVisible()){
@@ -928,14 +757,6 @@ export default class triviaPage {
                 
         }
      
-        // async clickMobileLinkCloseBtn(){
-        //         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkCloseBtn)
-        //         if(ele != null){
-        //                 expect(ele.last()).toBeVisible()
-        //                 await ele.last().click()
-        //         }
-        //         else throw new Error("Mobile link close button is not visible")
-        // }
        async clickstart (){
         const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last()
          if(await ele.isVisible()){
@@ -1821,6 +1642,7 @@ export default class triviaPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).click()
+                        await this.page.waitForTimeout(5000)
                 }
                 else throw new Error("Trivia Mobile media Image radio button is not visible")
         }
@@ -3044,6 +2866,25 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.previewToggle).click({button:"left",delay:1000})
                 }
                 else throw new Error('Trivia Preview toggle is not visible')
+        }
+        async ClickMobileMediaImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileMediaImageUploadBtn).first()
+                try{
+                        await ele.click({button:"left",delay:1000})
+                 }
+                 catch(error) {
+                         throw(`Trivia Add Question section Mainboard Media image upload btn is not visible,could not find locator:"${ele}"`)
+                 }
+        }
+        async ClickMainboardMediaImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MainboardMediaImageUploadBtn).first()
+                try{
+                       await ele.click({button:"left",delay:1000})
+                }
+                catch(error) {
+                        throw(`Trivia Add Question section Mobile Media image upload btn is not visible,could not find locator:"${ele}"`)
+                }
+                
         }
        
         }

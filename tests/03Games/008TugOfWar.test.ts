@@ -118,7 +118,7 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen", 
                 await tugOfWarMobilePages.validateFontSuccessfullyApplied()
         })
 })
-test("008TOFW-006 | Validate Game Settings  Primary Color Successfully Update From Admin Side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.only("008TOFW-006 | Validate Game Settings  Primary Color Successfully Update From Admin Side ", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -131,7 +131,7 @@ test("008TOFW-006 | Validate Game Settings  Primary Color Successfully Update Fr
         await tugOfWarPage.inputPrimaryColor()
         await tugOfWarPage.clickColorInputFieldSaveBtn()
 })
-test("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test.only("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1147,44 +1147,44 @@ test.skip("008TOFW-027 | Validate Sponsor Logo Successfully Show on Mobile Scree
 //         await tugOfWarPage.deleteGame()
 //         await page.waitForTimeout(5000)
 // })
-test.skip("008TOFW-010 | Game open in mobile view", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
-                //click Tug Of War Page
-                await tugOfWarPage.clickTugOfWarPage()
-        })
-        await test.step("008TOFW-003 | Test In mobile Device", async () => {
-                //click AddNew Config Plus Btn
-                await tugOfWarPage.clickAddNewConfigPlusBtn()
-                await page.waitForTimeout(3000)
-                //verify AddNew ConfigPlus Window Text
-                await tugOfWarPage.verifyAddNewConfigPlusWindowText()
-                //input Configuration Name
-                await tugOfWarPage.inputConfigurationName()
-                //click Add Btn
-                await tugOfWarPage.clickAddBtn()
-                await tugOfWarPage.clickStagesBtn()
-                //click Start Game Btn
-                await tugOfWarPage.clickStartGameBtn()
-                //click Mobile Link Btn
-                await tugOfWarPage.clickMobileLinkBtn()
-                await page.waitForTimeout(6000)
-                //click Mobile Link Open Btn
-                await tugOfWarPage.clickMobileLinkOpenBtn()
-                await page.waitForTimeout(6000)
-                //input UserName In Game
-                await tugOfWarPage.inputUserNameInGame()
-                // await tugOfWarPage.clickGameDeleteBtn()
-                // await page.waitForTimeout(6000)
-                // await tugOfWarPage.deleteGame()
-                // await page.waitForTimeout(6000)
-        })
-})
+// test.skip("008TOFW-010 | Game open in mobile view", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+//         await test.step("Login Admin And land To Home Screen", async () => {
+//                 await page.goto('/admin/#/sign-in')
+//                 await loginPage.login(data.username, data.password)
+//                 const title = await page.title();
+//                 expect(title).toBe('DXP Admin')
+//                 const screenshot = await page.screenshot();
+//                 await testInfo.attach("login screenshot", {
+//                         contentType: "image/png",
+//                         body: screenshot
+//                 })
+//                 //click Tug Of War Page
+//                 await tugOfWarPage.clickTugOfWarPage()
+//         })
+//         await test.step("008TOFW-003 | Test In mobile Device", async () => {
+//                 //click AddNew Config Plus Btn
+//                 await tugOfWarPage.clickAddNewConfigPlusBtn()
+//                 await page.waitForTimeout(3000)
+//                 //verify AddNew ConfigPlus Window Text
+//                 await tugOfWarPage.verifyAddNewConfigPlusWindowText()
+//                 //input Configuration Name
+//                 await tugOfWarPage.inputConfigurationName()
+//                 //click Add Btn
+//                 await tugOfWarPage.clickAddBtn()
+//                 await tugOfWarPage.clickStagesBtn()
+//                 //click Start Game Btn
+//                 await tugOfWarPage.clickStartGameBtn()
+//                 //click Mobile Link Btn
+//                 await tugOfWarPage.clickMobileLinkBtn()
+//                 await page.waitForTimeout(6000)
+//                 //click Mobile Link Open Btn
+//                 await tugOfWarPage.clickMobileLinkOpenBtn()
+//                 await page.waitForTimeout(6000)
+//                 //input UserName In Game
+//                 await tugOfWarPage.inputUserNameInGame()
+//                 // await tugOfWarPage.clickGameDeleteBtn()
+//                 // await page.waitForTimeout(6000)
+//                 // await tugOfWarPage.deleteGame()
+//                 // await page.waitForTimeout(6000)
+//         })
+// })

@@ -1613,6 +1613,10 @@ test("012TV-045 | Validate free question type successfully add.", async ({ login
  })
  await test.step("now click add question save button",async()=>{
       await page.waitForTimeout(1000)
+      await triviaPage.ClickMobileMediaImageUploadBtn()
+      await triviaPage.GametitleImageuploader()
+      await triviaPage.ClickMainboardMediaImageUploadBtn()
+      await triviaPage.GametitleImageuploader()
       await triviaPage.clickAddQuestionSaveBtn()
  })
    
@@ -1673,6 +1677,10 @@ test("012TV-046 | Validate multiple choice question type successfully add.", asy
  })
  await test.step("now click add question save button",async()=>{
       await page.waitForTimeout(1000)
+      await triviaPage.ClickMobileMediaImageUploadBtn()
+      await triviaPage.GametitleImageuploader()
+      await triviaPage.ClickMainboardMediaImageUploadBtn()
+      await triviaPage.GametitleImageuploader()
       await triviaPage.clickAddQuestionSaveBtn()
  })
    
@@ -3770,6 +3778,8 @@ test("012TV-093 | Validate Leaderboard Accent color successfully reflection on m
                   await triviaPage.clickgamedesignSection()
                   await triviaPage.clickColorSectionBtn()
                   await triviaPage.clickClearAllBtn()
+                  await triviaPage.clicklive()
+                  await triviaPage.clickOkBtn()
             })
       
 })
@@ -4412,7 +4422,7 @@ test("012TV-0122 | Validate  upload mobile background image successfully reflect
             })
       
 })
-test("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4453,16 +4463,17 @@ test("012TV-0123 | Validate  Admin side upload banner image is working.", async 
     await test.step("Now validate Banner image upload",async()=>{
       
      
-      await triviaPage.clickBannerImageUploadBtn()
+     
       await functions.logoImageUploadFunction()
       await functions.fileUploadCropper()
+      await triviaPage.clickBannerImageUploadBtn()
       await triviaPage.verifyMarketingmessageText()
 
  
     })
       
 })
-test("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')

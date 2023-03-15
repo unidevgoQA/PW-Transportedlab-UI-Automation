@@ -3,6 +3,9 @@ import { existsSync, lstat, readFileSync } from 'fs'
 //import { error } from '../../tests/03Games/012Trivia.test';
 import * as data from '@testData/login.cred.json';
 export default class guesstheScorePage {
+    inputFarGuess() {
+        throw new Error("Method not implemented.");
+    }
         // [x: string]: any;
 
         private page: Page;
@@ -139,7 +142,7 @@ export default class guesstheScorePage {
         Deleteriderbutton:'//button[text()="Delete"]',
         OkindeleteriderBtn:'//button[text()="Ok"]',
         Gameoperationssection:'//p[text()="Game Operations"]',
-        GameOperationAddedEventThreeDot:"//div[@class='MuiBox-root css-1ncdo3u']",
+        GameOperationAddedEventThreeDot:"//div[@class='MuiBox-root css-1ncdo3u']//button[1]",
         EventStartBtn:"//p[text()='Start Event']",
         EventStopBtn:"//p[text()='Stop Event']",
         AddEventBtn:"//button[text()='Add Event']",
@@ -207,6 +210,11 @@ export default class guesstheScorePage {
         inputEventName:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
         DeleteConfiguration:'//p[text()="Delete"]',
         ConfirmDeleteConfigurationBtn:"//button[text()='Delete']",
+        CorrectGuessScore:"(//input[@type='number'])[1]",
+        CloseGuessScore:"(//input[@type='number'])[2]",
+        FarGueeScore:"(//input[@type='number'])[3]",
+        IncorrectGuessScore:"(//input[@type='number'])[4]",
+        GuessTime:"(//input[@type='number'])[5]",
 
        // boldincorrectguesseditor:'//p[text()="Incorrect Guess"]//following-sibling::div//div[@title="Bold"]',
   }     
@@ -296,6 +304,65 @@ export default class guesstheScorePage {
                 }
                 catch(error){
                       throw(`Guess the score add Configurations button  is not visible,Could not find locator:"${ele}"`)
+                }
+
+        }
+        async inputCorrectGuessScore() {
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.CorrectGuessScore)
+
+                try{
+                        await ele.fill('50')
+                        await this.page.waitForTimeout(1000)
+                }
+                catch(error){
+                      throw(`Guess the score game settings correct guess Score input field is not visible,Could not find locator:"${ele}"`)
+                }
+
+        }
+        async inputInorrectGuessScore() {
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.IncorrectGuessScore)
+
+                try{
+                        await ele.fill('20')
+                        await this.page.waitForTimeout(1000)
+                }
+                catch(error){
+                      throw(`Guess the score game settings incorrect guess Score input field is not visible,Could not find locator:"${ele}"`)
+                }
+
+        }
+        async inputcloseGuessScore() {
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.CloseGuessScore)
+
+                try{
+                        await ele.fill('40')
+                        await this.page.waitForTimeout(1000)
+                }
+                catch(error){
+                      throw(`Guess the score game settings close guess Score input field is not visible,Could not find locator:"${ele}"`)
+                }
+
+        }
+        async inputGuessTime() {
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GuessTime)
+
+                try{
+                        await ele.fill('5')
+                }
+                catch(error){
+                      throw(`Guess the score game settings guess time input field is not visible,Could not find locator:"${ele}"`)
+                }
+
+        }
+        async inputFarGuessScore() {
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.FarGueeScore)
+
+                try{
+                        await ele.fill('30')
+                        await this.page.waitForTimeout(1000)
+                }
+                catch(error){
+                      throw(`Guess the score game settings far guess Score input field is not visible,Could not find locator:"${ele}"`)
                 }
 
         }
@@ -1930,16 +1997,19 @@ export default class guesstheScorePage {
 
 
         async clickEventStartBtn() {
-                 await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
+                 await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
+                 await this.page.waitForTimeout(1000)
                 const ele = await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStopBtn).isVisible()
                    if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStopBtn).click({force:true})
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
+                        await this.page.waitForTimeout(1000)
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
                         await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).last().click({force:true})
                    }
                    else{
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).last().click({force:true})
-                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).last().click({force:true})
+                        //await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameOperationAddedEventThreeDot).click({force:true})
+                        await this.page.waitForTimeout(1000)
+                        await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.EventStartBtn).click({force:true})
                    }
                // await this.page.waitForLoadState("networkidle")
                 await this.page.waitForTimeout(3000)
@@ -2324,7 +2394,7 @@ export default class guesstheScorePage {
 
         }
         async verifyIncorrectGuessText() {
-                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.FarGuessText)
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.IncorrectGuessText)
                 try{
                       await  this.page.waitForTimeout(1000)
                       await expect(ele).toContainText("Incorrect Guess")
@@ -2335,7 +2405,7 @@ export default class guesstheScorePage {
 
         }
         async verifyGuessTimeText() {
-                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.FarGuessText)
+                let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GuessTimeText)
                 try{
                       await  this.page.waitForTimeout(1000)
                       await expect(ele).toContainText("Guess Time")
@@ -2605,6 +2675,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.AnalyticsSection).last()
                 try{
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
                 catch(error){
                         throw(`Guess the score Analytics section is not visible,Could not find locator:"${ele}"`)
@@ -3040,7 +3111,7 @@ export default class guesstheScorePage {
                 //expect(ele).toContainText("Move to Next")
                 await this.page.waitForTimeout(1000)
                 await ele.click()
-                await this.page.waitForLoadState("networkidle")
+               // await this.page.waitForLoadState("networkidle")
         }
         async inputRiderScore() {
                 // await this.page.waitForSelector("//input[@type='number']")
