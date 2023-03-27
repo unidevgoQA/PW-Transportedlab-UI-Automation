@@ -1,10 +1,5 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-
-
-
-
-
 export default class tugOfWarPage {
         private page: Page;
         constructor(page: Page) {
@@ -12,15 +7,15 @@ export default class tugOfWarPage {
         }
 
         private tugOfWarPageElements = {
-                tugOfWarText: `text=Tug of War`,
+                tugOfWarText: "//p[text()='Tug of War']",
                 configrationTitleText: "Configurations",
                 buttonListIteam: "listitem",
-                addNewConfigPlusBtn: "(//h5[text()='Configurations']/following-sibling::button)[1]",
-                newConfigTitleText: `New Configuration`,
+                addNewConfigPlusBtn: '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1mbcpzw"]',
+                newConfigTitleText: "//p[text()='New Configuration']",
                 configInputField: `textbox`,
                 configAddBtn: `ADD`,
                 errorAlertMassage: "Incorrect configuration name",
-                gameStageBtn: `//p[text()='Stages']`,
+                gameStageBtn: "//p[text()='Stages']",
                 gameSettingsBtn: "//p[text()='Game Settings']",
                 fontUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[1]",
                 fontTitleText: `//h4[text()='Fonts']`,
@@ -64,6 +59,7 @@ export default class tugOfWarPage {
                 FontCustommobilewaitingMessageDRP:"(//div[@class='rdw-dropdown-carettoopen'])[2]",
                 FontArial:"//li[text()='Arial']",
                 CharacterDRopdown:"(//div[@class='rdw-dropdown-carettoopen'])[3]",
+                customPowerDropdown_Normal_H1_H6:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[3]",
                 CustomMobilewaitingMSGNOrmal:"//li[text()='Normal']",
                 CustomMobilewaitingMSGH1:"//li[text()='H1']",
                 CustomMobilewaitingMSGH2:"//li[text()='H2']",
@@ -89,31 +85,30 @@ export default class tugOfWarPage {
                 CustomMobileWaitingMSGUnOrderd:"//div[@title='Unordered']//img[1]",
                 CustomMobileWaitingMSGRemoverStyles:"//div[@title='Remove(styles) only']//img[1]",
                 TitlebackgroundImageoptionSelector:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
-
                 TitleBackgroundImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 DeleteUploadedImage:"//div[@class='MuiBox-root css-1tejaop']",
                 VideoOPtionSelector:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
                 VideoDeleteBTN:"//button[@aria-label='Delete']",
                 UploadTitleBackgroundVideoBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
-                spomsorLogoUploadBTn:"(//div[@class='MuiBox-root css-3fw1ig']//div)[4]",
+                spomsorLogoUploadBTn:"(//h5[contains(@class,'MuiTypography-root MuiTypography-h5')]/following-sibling::div)[3]",
                 TeamLogoUploadBtn:"(//div[@class='MuiBox-root css-v2612'])[3]",
                 GameTitleImage:"(//div[@class='MuiBox-root css-v2612'])[2]",
                 SelectionIMageImageOption:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
                 NavigateToTheSelectionStage:"(//div[@class='MuiBox-root css-1gcppq'])[1]",
-                SelectionBackgroundImageUpload:"(//div[@class='MuiBox-root css-v2612'])[1]",
+                SelectionBackgroundImageUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
                 SelectionBackgroundIMageDelete:"//div[@class='MuiBox-root css-1tejaop']",
                 SelectionStageVideoOPtion:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
                 SelectionStageVideoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
                 GameStartBTN:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]",
                 AdjustableTimerSelectionStage:"(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[1]",
                 NumberOfTEamsINputField:"(//input[@placeholder='Type message'])[1]",
-                Team1LogoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
-                Team1NameInput:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
-                Team2LogoUpload:"//div[@class='MuiBox-root css-v2612']",
+                Team1LogoUploadBTN:"(//div[@class='MuiBox-root css-li8ra3'])[1]",
+                Team1NameInput:"(//input[@placeholder='Type message'])[2]",
+                Team2LogoUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[3]",
                 Team2NameInput:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
-                CustomSelectionMesaage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]",
-                CustomTeamSelectionMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]",
-                TeamNameBoxBTn:"(//div[@class='MuiBox-root css-1pqer0i'])[1]",
+                CustomSelectionMesaage:"(//div[@class='notranslate public-DraftEditor-content']//div)[2]",
+                CustomTeamSelectionMessage:"(//div[@aria-label='rdw-toolbar']/following-sibling::div)[2]",
+                TeamNameBoxBTn:"//p[text()='Team Name Box']/following-sibling::button",
                 AddColor:"//button[@aria-label='Add Color']",
                 RGBInput1:"(//input[@inputmode='numeric'])[1]",
                 RGBInput2:"(//input[@inputmode='numeric'])[2]",
@@ -130,8 +125,46 @@ export default class tugOfWarPage {
                 TeamSelectedMessageBox:"//div[@class='MuiBox-root css-1pqer0i']",
                 MoveToTheNextStage:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[2]",
                 CustomCountDownMessage:"//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'][1]",
-                GamePlayMainBoardMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]"
-
+                GamePlayMainBoardMessage:"(//div[@class='notranslate public-DraftEditor-content'])[1]",
+                ConfigurationsText:"//h5[text()='Configurations']",
+                SelectionStage:"//div[@class='MuiBox-root css-t11jit']",
+                MobileLinkCLoseBtn:"//div[@class='MuiBox-root css-1pkezxe']//button[1]",
+                imageDetele:"//button[@aria-label='Delete']",
+                InputRGBFirstColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
+                InputRGBSecondColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
+                InputRGBThirdColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
+                InputRGBFourthColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]",
+                InputRGBHexColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[5]",
+                InputMobileMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]",
+                ImageUploadRadioBtn:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
+                VideoUploadRadioBtn:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
+                GamePlayBackgrounImageUpload:"(//p[text()='Gameplay Background']/following-sibling::div)[2]",
+                GamePlayBackgrounVideoUpload:"(//p[text()='Gameplay Background']/following-sibling::div)[2]",
+                CustomPowerMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]",
+                EndGameImageUploadBtn:"//div[@class='MuiBox-root css-f0x2ei']",
+                EndGameVideoUploadBtn:"//div[@class='MuiBox-root css-f0x2ei']",
+                customEndGameMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]",
+                customWinnerMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]",
+                EndgameMessageDropdownHeader_Normal_H1_To_H6:"(//div[@class='rdw-dropdown-carettoopen'])[3]",
+                CustomWinnerHeader_Dropdown:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[2]",
+                CustomConsolationMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]",
+                CustomConsolationHeader_Dropdown:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[3]",
+                InputEndGameTimer:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+                LeaderboardBackgroundImageUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[1]",
+                LeaderboardBackgroundVideoUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[1]",
+                LeaderboardHeaderImageUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[2]",
+                LeaderBoardTimer:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+                thankyouBackgroundImageUploadBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
+                thankyouBackgroundVideoUploadBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
+                thankyouLeaderboardHeaderUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[2]",
+                ThankYouStages:"//p[text()='Thankyou Stage']",
+                LeaderboardStage:"(//p[text()='Leaderboard'])[1]",
+                EndGameStage:"//p[text()='EndGame Stage']",
+                GamePlayStage:"//p[text()='Gameplay Stage']",
+                CountdownStage:"//p[text()='Countdown Stage']",
+                MobileMessageHeaderDropdown_Normal_H1_H6:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[2]",
+                DeleteSection:'//p[text()="Delete"]',
+                DeleteConfiguration:"//button[text()='Delete']",
 
 
 
@@ -159,34 +192,40 @@ export default class tugOfWarPage {
         //click Tug Of War Page
         async clickTugOfWarPage() {
                 await this.page.waitForSelector(this.tugOfWarPageElements.tugOfWarText)
-                const ele = await this.page.locator(this.tugOfWarPageElements.tugOfWarText).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.tugOfWarPageElements.tugOfWarText).click({ button: "left", delay: 1000 })
+                const ele = this.page.locator(this.tugOfWarPageElements.tugOfWarText)
+                try{
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForLoadState('domcontentloaded')
+                        await this.page.waitForTimeout(4000)
                 }
-                else throw new Error(`Tug Of War Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.tugOfWarText}"`)
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+                
+               
         }
-
-               //click Tug Of War Page
                async clickAddNewConfigPlusBtn() {                
-                const ele = await this.page.locator(this.tugOfWarPageElements.addNewConfigPlusBtn)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.addNewConfigPlusBtn)
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.addNewConfigPlusBtn}"`)
-                await this.page.waitForTimeout(2000)
         }
 
 
         //click Tug Of War Page
         async clickGameSettingsSection() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().click({ button: "left", delay: 1000 })
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last()
+                try{
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
-                else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
-                await this.page.waitForLoadState("networkidle")
+                catch(error){
+                        throw(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
+                }
+                
+                
         }
 
         async clickQrCodeBtn() {
@@ -195,7 +234,7 @@ export default class tugOfWarPage {
                         await ele.click({ button: "left", delay: 1000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
-                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -264,10 +303,21 @@ export default class tugOfWarPage {
 
         async verifyAddNewConfigPlusWindowText() {
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.newConfigTitleText)
-                if (await ele.isVisible()) {
+                try{
                         await expect(ele).toContainText("New Configuration")
                 }
-                else throw new Error(`Tug Of War New Configuration Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.newConfigTitleText}"`)
+                catch(error){
+                      throw(`Tug Of War New Configuration Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.newConfigTitleText}"`)
+                }
+                
+
+        }
+        async verifyConfigurationsText() {
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ConfigurationsText)
+                if (await ele.isVisible()) {
+                        await expect(ele).toContainText("Configurations")
+                }
+                else throw new Error(`Tug Of War Configuration Text Element Is Not visiable, Could not find locator:"${ele}"`)
 
         }
 
@@ -292,7 +342,7 @@ export default class tugOfWarPage {
         async inputPrimaryColor() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
                 if (await ele.isVisible()) {
-                        await ele.fill("355C7D", { timeout: 3000 })
+                        await ele.fill("7B178CFF", { timeout: 3000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Primary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)
         }
@@ -357,7 +407,7 @@ export default class tugOfWarPage {
         async inputTextColor() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
                 if (await ele.isVisible()) {
-                        await ele.fill("FFFFFFFF", { timeout: 3000 })
+                        await ele.fill("7B178CFF", { timeout: 3000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Text Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)
         }
@@ -444,20 +494,21 @@ export default class tugOfWarPage {
 
 
         async clickStagesBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().click({ button: "left", delay: 1000 })
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last()
+                try{
+                        await ele.last().click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 }
-                else throw new Error(`Tug Of War Stage Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameStageBtn}"`)
-                await this.page.waitForLoadState("networkidle")
-
-
+                catch(error){
+                        throw(`Tug Of War Stage Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameStageBtn}"`)
+                }
         }
 
         async clickGameStartBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.startBtn)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.startBtn).last()
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 else {
                         console.log(`Tug Of War Game Start Btn Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.startBtn}"`)
@@ -465,8 +516,10 @@ export default class tugOfWarPage {
         }
 
         async clickGameStopBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.stopBtn)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.stopBtn).last()
                 if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                         await ele.click({ button: "left", delay: 1000 })
                 }
                 else {
@@ -556,10 +609,21 @@ export default class tugOfWarPage {
 
         }
 
-        async ChracterDRpClick(){
+        async Click_Normal_H1_H2_H3_H4_H5_H6(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CharacterDRopdown)
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown Is Not Found: "${this.tugOfWarPageElements.CharacterDRopdown}"`)
+
+
+        }
+        async ClickCustomPower_Normal_H1_H2_H3_H4_H5_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customPowerDropdown_Normal_H1_H6)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Custom Mobile Waiting Message Character Dropdown Is Not Found: "${this.tugOfWarPageElements.CharacterDRopdown}"`)
 
@@ -814,6 +878,7 @@ export default class tugOfWarPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamLogoUploadBtn)
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(5000)
                 }
                 else throw new Error(`Team Logo upload Element is Not Found: "${this.tugOfWarPageElements.TeamLogoUploadBtn}"`)
                 
@@ -837,7 +902,8 @@ export default class tugOfWarPage {
         async NavigatetotheSelectionStage(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.NavigateToTheSelectionStage).last()
                 if (await ele.isVisible()) {
-                        await ele.click({ button: "left", delay: 1000 })
+                        await ele.last().click({ button: "left", delay: 2000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Selection stage NAvigation Element is Not Found: "${this.tugOfWarPageElements.NavigateToTheSelectionStage}"`)
 
@@ -911,6 +977,7 @@ export default class tugOfWarPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Team1NameInput)
                 if (await ele.isVisible()) {
                         await ele.fill("Skylarks")
+                        await this.page.waitForTimeout(3000)
                 }
                 else throw new Error(`Selection stage TEam1 Logo Upload Element is Not Found: "${this.tugOfWarPageElements.Team1NameInput}"`)
 
@@ -935,7 +1002,8 @@ export default class tugOfWarPage {
         async CustomSelectionMessageInputField(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomSelectionMesaage)
                 if (await ele.isVisible()) {
-                        await ele.fill("This is a test message")
+                        await ele.fill('This is a test message')
+                        await this.page.waitForTimeout(3000)
                 }
                 else throw new Error(`Selection stage Custom Selection Message Input Element is Not Found: "${this.tugOfWarPageElements.CustomSelectionMesaage}"`)
 
@@ -944,7 +1012,9 @@ export default class tugOfWarPage {
         async CustomTeamSelectionMessageInputField(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomTeamSelectionMessage)
                 if (await ele.isVisible()) {
+                        await this.page.waitForTimeout(1000)
                         await ele.fill("This is a test message")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Selection stage Custom Team Selection Message Input Element is Not Found: "${this.tugOfWarPageElements.CustomTeamSelectionMessage}"`)
 
@@ -967,9 +1037,10 @@ export default class tugOfWarPage {
 
         }
         async RGB1Input(){
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput1)
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput1)
                 if (await ele.isVisible()) {
-                        await ele.fill("260")
+                        await ele.fill('101')
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`RGB 1 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput1}"`)
 
@@ -978,7 +1049,8 @@ export default class tugOfWarPage {
         async RGB2Input(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput2)
                 if (await ele.isVisible()) {
-                        await ele.fill("10")
+                        await ele.fill("148")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`RGB 2 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput2}"`)
 
@@ -986,7 +1058,8 @@ export default class tugOfWarPage {
         async RGB3Input(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput3)
                 if (await ele.isVisible()) {
-                        await ele.fill("20")
+                        await ele.fill("144")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`RGB 3 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput3}"`)
 
@@ -995,6 +1068,7 @@ export default class tugOfWarPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput4)
                 if (await ele.isVisible()) {
                         await ele.fill("90")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`RGB 3 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput4}"`)
 
@@ -1050,7 +1124,8 @@ export default class tugOfWarPage {
         async ColorRGB5INput(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGB5input)
                 if (await ele.isVisible()) {
-                        await ele.fill("FFFFFF")
+                        await ele.fill("659490E6")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Color RGB Color Code Element is Not Found: "${this.tugOfWarPageElements.RGB5input}"`)
 
@@ -1073,10 +1148,14 @@ export default class tugOfWarPage {
         }
         async MoveToTheNextStageBtnClick(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MoveToTheNextStage)
-                if (await ele.isVisible()) {
-                        await ele.click({ button: "left", delay: 1000 })
-                }
-                else throw new Error(`Move to the next Stage Button Element is Not Found: "${this.tugOfWarPageElements.MoveToTheNextStage}"`)
+                try{
+                        
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(1000)
+                   }
+                    catch(error){
+                        throw(`Move to the next Stage Button Element is Not Found: "${this.tugOfWarPageElements.MoveToTheNextStage}"`)
+                    }
 
         }
         async CustomCountDownMessageInput(){
@@ -1089,152 +1168,393 @@ export default class tugOfWarPage {
         }
         async GameplayMainboardMessageInput(){
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayMainBoardMessage)
-                if (await ele.isVisible()) {
-                        await ele.fill("This is a test message")
-                }
-                else throw new Error(`GAmeplay Mainboard Message Input Element is Not Found: "${this.tugOfWarPageElements.GamePlayMainBoardMessage}"`)
+                try{
+                        await ele.focus()
+                        await ele.fill('This a Mainboard Message')
+                        await this.page.waitForTimeout(2000)
+                   }
+                    catch(error){
+                            throw(`GAmeplay Mainboard Message Input Element is Not Found: "${this.tugOfWarPageElements.GamePlayMainBoardMessage}"`)
+                    }
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        async ClickSelectionStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionStage)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(2000)
+               }
+                catch(error){
+                        throw(`Tug of War Selection stage section Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async ClickMobileLinkPopupClose(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MobileLinkCLoseBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War Mobile link popup close  button Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBFirstColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFirstColor)
+               try{
+                    await ele.fill('123')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB first color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBSecondColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBSecondColor)
+               try{
+                    await ele.fill('23')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB second color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBThirdColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBThirdColor)
+               try{
+                    await ele.fill('140',{timeout:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Third color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBFourthColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFourthColor)
+               try{
+                    await ele.fill('100',{timeout:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBHexColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFourthColor)
+               try{
+                    await ele.fill('78178CFF',{timeout:2000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickUploadedImageDeleteBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.imageDetele).first()
+              if(await ele.isVisible()){
+                await ele.click({button:"left",delay:1000})
+              }
+               
+
+        }
+        async InputMobileMessageInGameplaystage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputMobileMessage)
+               try{
+                   await ele.focus()
+                   await this.page.waitForTimeout(1000)
+                    await ele.clear()
+                    await ele.fill('Mobile Message game play stage',{timeout:2000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Game play stage mobile message input field is not visible:"${ele}"`)
+                }
+        }
+        async clickImageUploadRadioBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ImageUploadRadioBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  image upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickVideoUploadRadioBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.VideoUploadRadioBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Video upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGamePlayBackgroundImageBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayBackgrounImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Image upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameVideoUploadBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War Video upload upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardBackgroundVideoUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War leaderboard Video upload upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGamePlayBackgroundVideoBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayBackgrounVideoUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Video upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameImageUploadBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  end game image upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        
+        async inputCustomEndGameMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customEndGameMessage)
+               try{
+                    await ele.fill('This is a Custom Endgame Message')
+               }
+                catch(error){
+                        throw(`Tug of War  end game message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomWinnerMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customWinnerMessage)
+               try{
+                    await ele.fill('This is a Custom Winner Message')
+               }
+                catch(error){
+                        throw(`Tug of War  custom winner message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomPowerMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomPowerMessage)
+               try{
+                    await ele.focus()
+                    await ele.fill('This is a Custom Power Message')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom power message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputEndGameTimer(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputEndGameTimer)
+               try{
+                    await ele.focus()
+                    await ele.fill('5')
+               }
+                catch(error){
+                        throw(`Tug of War  Endgame timer input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomConsolationMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomPowerMessage)
+               try{
+                    await ele.focus()
+                    await ele.fill('This is a Custom Consolation Message')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom consolation message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndgameMessageDropdownHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndgameMessageDropdownHeader_Normal_H1_To_H6)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  end game input message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCustomWinnerHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomWinnerHeader_Dropdown)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom winner  message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCustomCosolationHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomConsolationHeader_Dropdown)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom consolation  message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardBackgroundImageBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardBackgroundImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard background image Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardHeaderImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardHeaderImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard header image Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputLeaderboardTimer(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderBoardTimer)
+               try{
+                    await ele.fill('5')
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard timer input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouBackgroundImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouBackgroundImageUploadBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou background image upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouBackgroundVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouBackgroundVideoUploadBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou background video upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouLeaderboardHeaderUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouLeaderboardHeaderUpload)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou leaderboard header upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ThankYouStages)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Leaderboard stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Endgame stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGameplayStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Gameplay stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCountdownStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CountdownStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Countdown stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickMobileMessageHeaderDropdown_Normal_H1_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MobileMessageHeaderDropdown_Normal_H1_H6)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Game stage mobile message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickDeleteSection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.DeleteSection).last()
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War delete configuration section  Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickDeleteConfiguration(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.DeleteConfiguration)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War delete configuration Element is Not Found:"${ele}"`)
+                }
+        }
+        
 
 }
 

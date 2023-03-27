@@ -54,7 +54,7 @@ export default class triviaPage {
                 OutputScreenLinkCloseBtn:"//div[@class='MuiBox-root css-1xnxzwa']",
                 setupText : "//h5[text()='Set-up']",
                 countdownStageText:"//p[text()='Countdown Stage']",
-                questiontext:"//p[text()='Question']",
+                questiontext:"//p[text()='Question Text']",
                 answerText:"//p[text()='Answer']",
                 leaderboardText:"//p[text()='Leaderboard']",
                 movetoNextBtn:"//button[text()='Move to Next Stage']",
@@ -118,6 +118,7 @@ export default class triviaPage {
                 correctAnswerSaveBtn:"(//button[text()='SAVE'])[2]",
                 acctableAnswerSaveBtn:"(//button[text()='SAVE'])[2]",
                 liveBtn:"//button[text()='Live']",
+                LiveButton:"//button[text()='Live']",
                 addAnswerBtn:"//button[text()='Add Answer']",
                 inputforMultipleChoiceAnswer:"(//div[@class='notranslate public-DraftEditor-content'])[2]",
                 multipleChoiceSaveBtn:"(//button[text()='SAVE'])[2]",
@@ -308,6 +309,7 @@ export default class triviaPage {
                 ValuCannotbeemptyText:"//p[text()='Value cannot be an empty']",
                 MobileMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
                 MainboardMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
+                uploadedFontTitleText: "//p[text()='Midnight']",
 
                 
 
@@ -421,7 +423,7 @@ export default class triviaPage {
         async verifyGeneralOrButtonText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtonText)
                 if(await ele.isVisible()){
-                        await expect(ele).toContainText('General/Button')
+                        await expect(ele).toContainText('General/Button Text')
                 }
                 else throw new Error(`Trivia General/Button Text text is not visible in color section,Could not find locator:"${ele}"`)
               }
@@ -761,6 +763,7 @@ export default class triviaPage {
         const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last()
          if(await ele.isVisible()){
                 await ele.last().click()
+                await this.page.waitForTimeout(1000)
          }
          else throw new Error(`Trivia start button is not visible,Could not find locator:"${ele}`)
        }
@@ -768,20 +771,23 @@ export default class triviaPage {
              const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last()
              if(await ele.isVisible()){
                 await ele.click()
+                await this.page.waitForTimeout(1000)
          }
          else throw new Error(`Trivia Live button is not visible,Could not find locator:"${ele}"`)
       }
  
         async clickStartBtn(){
-                const ele1 =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().isVisible()
-                if(ele1 == true ){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().click()
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).last().click()
+                const ele1 =  this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last()
+                if(await ele1.isVisible()){
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).click()
+                        await this.page.waitForTimeout(1000)
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         await this.page.waitForTimeout(1000)
                         const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().isVisible()
                         if(ele == true ){
                                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().click()
-                                await this.page.waitForTimeout(1000)
+                                await this.page.waitForTimeout(2000)
+                                await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         }
                         else throw new Error("Start button is not visible")
                         
@@ -791,7 +797,8 @@ export default class triviaPage {
                         if((ele == true)){
                             
                            await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().click()
-                           await this.page.waitForTimeout(1000)
+                           await this.page.waitForTimeout(2000)
+                           await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         }
                         else throw new Error("Start button is not visible")
 
@@ -802,6 +809,7 @@ export default class triviaPage {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn)
                 if(await ele.isVisible()){
                         await ele.click()
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Trivia Ok button is not visiblex,Could not find locator:"${ele}"`)
         }
@@ -947,11 +955,20 @@ export default class triviaPage {
                 }
                 else throw new Error(`Trivia Font is not successfully uploaded,Could not find locator:"${ele}"`)
         }
+        async selectUploadedFont() {
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.uploadedFontTitleText).isVisible({ timeout: 9000 })
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.uploadedFontTitleText).click({ button: "left", delay: 1000, timeout: 9000 })
+                }
+                else throw new Error(`Trivia Game Settins Uploaded Font Element Is Not visiable, Could not find locator:"${this.triviaPageElements.uploadedFontTitleText}"`)
+
+        }
         async clickControlPanelSection(){
                 await this.page.waitForTimeout(2000)
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.controlPanelSection).last()
                 if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Trivia Control Panel Section is not visible,Could not find locator:"${ele}"`)
                // await this.page.waitForLoadState('networkidle')
@@ -1109,7 +1126,7 @@ export default class triviaPage {
               }
       async verifyQuestionText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.questiontext).textContent()
-                if((ele === "Question")){
+                if((ele === "Question Text")){
                      
                 }
                 else throw new Error("Trivia Question text is not visible")
@@ -2086,6 +2103,14 @@ export default class triviaPage {
                 }
              
                 else throw new Error("Trivia Question text button  is not visible in color section")
+        }
+        async StopLiveBtn(){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).last()
+                if(await ele.isVisible()){
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).click({force:true})
+                        await this.page.waitForTimeout(1000)
+                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
+                }
         }
         async clickQuestionBackgroundBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionBackgroundBtn).isVisible()

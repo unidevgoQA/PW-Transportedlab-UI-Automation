@@ -1167,6 +1167,7 @@ test("0013GTS-026 | Validate opacity slider is visible in color picker.",async({
                     body: screenshot
             })
             await guesstheScorePage.clickGuessTheScoreSection()
+            await guesstheScorePage.clickGameDesign()
             await page.waitForTimeout(2000)
 
 
@@ -1204,6 +1205,9 @@ test("0013GTS-027 | Validate swatches section is visible in color picker.",async
 
 
     })
+    await test.step("Click game design section",async()=>{
+        await guesstheScorePage.clickGameDesign()
+    })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
     })
@@ -1234,7 +1238,9 @@ test("0013GTS-028 | Validate color picker header text is visible.",async({loginP
             await page.waitForTimeout(2000)
 
 
-
+    await test.step("Click game design section",async()=>{
+                await guesstheScorePage.clickGameDesign()
+     })
     })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
@@ -1268,6 +1274,9 @@ test("0013GTS-029 | Validate + button is visible in color picker.",async({loginP
 
 
     })
+    await test.step("Click game design section",async()=>{
+        await guesstheScorePage.clickGameDesign()
+     })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
     })

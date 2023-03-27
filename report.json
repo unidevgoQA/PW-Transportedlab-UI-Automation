@@ -20,7 +20,7 @@
         "testDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
         "testIgnore": [],
         "testMatch": [
-          "008TugOfWar.test.ts"
+          "012Trivia.test.ts"
         ],
         "timeout": 300000
       }
@@ -47,58 +47,20 @@
     "rootDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
     "quiet": false,
     "shard": null,
-    "updateSnapshots": "missing",
+    "updateSnapshots": "all",
     "version": "1.29.1",
     "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "tests/03Games/008TugOfWar.test.ts",
-      "file": "tests/03Games/008TugOfWar.test.ts",
+      "title": "tests/03Games/012Trivia.test.ts",
+      "file": "tests/03Games/012Trivia.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "008TOFW-006 | Validate Game Settings  Primary Color Successfully Update From Admin Side ",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 300000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 22094,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2023-03-15T05:18:40.946Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-008TugOfWar-008TOFW-006-Validate-ea295-mary-Color-Successfully-Update-From-Admin-Side-/test-finished-1.png"
-                    }
-                  ]
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "26becc8c701c81079457-94db29ffdadb99ad0f23",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 121,
-          "column": 6
-        },
-        {
-          "title": "008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen",
+          "title": "012TV-0112 | Validate  upload fonts successfully reflection on mobile screen.",
           "ok": false,
           "tags": [],
           "tests": [
@@ -112,19 +74,19 @@
                 {
                   "workerIndex": 0,
                   "status": "failed",
-                  "duration": 29769,
+                  "duration": 45848,
                   "error": {
-                    "message": "Mobile Screen | Home Screen First Team Account Modal is Not Visible",
-                    "stack": "Error: Mobile Screen | Home Screen First Team Account Modal is Not Visible\n    at tugOfWarMobilePage.validatePrimaryColorSuccessfullyApplied (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/tugOfWarMobile.page.ts:58:28)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:170:17\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:169:9"
+                    "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================",
+                    "stack": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\n    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/tugOfWarMobile.page.ts",
-                        "column": 28,
-                        "line": 58
+                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts",
+                        "column": 14,
+                        "line": 27
                       },
-                      "message": "Error: Mobile Screen | Home Screen First Team Account Modal is Not Visible\n\n\u001b[90m   at \u001b[39mpages/MobileGamesPage/tugOfWarMobile.page.ts:58\n\n\u001b[0m \u001b[90m 56 |\u001b[39m                         \u001b[36mawait\u001b[39m expect(selectText)\u001b[33m.\u001b[39mtoMatchSnapshot(\u001b[32m\"primaryColor_UI.png\"\u001b[39m\u001b[33m,\u001b[39m { maxDiffPixelRatio\u001b[33m:\u001b[39m \u001b[35m0.01\u001b[39m })\u001b[0m\n\u001b[0m \u001b[90m 57 |\u001b[39m                 }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 58 |\u001b[39m                 \u001b[36melse\u001b[39m \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m\"Mobile Screen | Home Screen First Team Account Modal is Not Visible\"\u001b[39m)\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 59 |\u001b[39m         }\u001b[0m\n\u001b[0m \u001b[90m 60 |\u001b[39m         \u001b[36masync\u001b[39m validateTextColorSuccessfullyApplied() {\u001b[0m\n\u001b[0m \u001b[90m 61 |\u001b[39m                 \u001b[36mconst\u001b[39m ele \u001b[33m=\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mframeLocator(\u001b[32m'iframe'\u001b[39m)\u001b[33m.\u001b[39mlocator(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtugOfWarMobilePageElements\u001b[33m.\u001b[39mselectTextOnHomeScreen)\u001b[0m\n\n\u001b[2m    at tugOfWarMobilePage.validatePrimaryColorSuccessfullyApplied (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/tugOfWarMobile.page.ts:58:28)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:170:17\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:169:9\u001b[22m"
+                      "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n\n\u001b[90m   at \u001b[39mpages/loginPage/Login.page.ts:27\n\n\u001b[0m \u001b[90m 25 |\u001b[39m     \u001b[36masync\u001b[39m enterEmail(emailaddress\u001b[33m:\u001b[39m string) {\u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"input[type='text']\"\u001b[39m)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m             \u001b[33m.\u001b[39mtype(emailaddress)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 28 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m     \u001b[36masync\u001b[39m enterLoginPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m\n\n\u001b[2m    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\u001b[22m\n\u001b[2m    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7\u001b[22m"
                     }
                   ],
                   "stdout": [],
@@ -132,61 +94,29 @@
                   "retry": 0,
                   "steps": [
                     {
-                      "title": "Login Admin And land To Home Screen",
-                      "duration": 6208
-                    },
-                    {
-                      "title": "Click Guess The Scrore Section",
-                      "duration": 5442
-                    },
-                    {
-                      "title": "now open the game in mobile view",
-                      "duration": 5899
-                    },
-                    {
-                      "title": "Validation on mobile Screen",
-                      "duration": 11103
-                    },
-                    {
-                      "title": "Validation on mobile Screen",
-                      "duration": 129,
+                      "title": "Login Admin",
+                      "duration": 44542,
                       "error": {
-                        "message": "Mobile Screen | Home Screen First Team Account Modal is Not Visible",
-                        "stack": "Error: Mobile Screen | Home Screen First Team Account Modal is Not Visible\n    at tugOfWarMobilePage.validatePrimaryColorSuccessfullyApplied (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/tugOfWarMobile.page.ts:58:28)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:170:17\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/008TugOfWar.test.ts:169:9"
+                        "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================",
+                        "stack": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\n    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7"
                       }
                     }
                   ],
-                  "startTime": "2023-03-15T05:19:04.754Z",
-                  "attachments": [
-                    {
-                      "name": "login screenshot",
-                      "contentType": "image/png",
-                      "body": "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AAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoCjl611BAAAaWUlEQVRBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqQAAAAAAAAoSpACAAAAAACgKEEKAAAAAACAogQpAAAAAAAAihKkAAAAAAAAKEqQAgAAAAAAoChBCgAAAAAAgKIEKQAAAAAAAIoSpAAAAAAAAChKkAIAAAAAAKAoQQoAAAAAAICiBCkAAAAAAACKEqTg/2/PjgUAAAAABvlbj2JfaQQAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArIQUAAAAAAAAKyEFAAAAAADASkgBAAAAAACwElIAAAAAAACshBQAAAAAAAArIQUAAAAAAMBKSAEAAAAAALASUgAAAAAAAKyEFAAAAAAAACshBQAAAAAAwEpIAQAAAAAAsBJSAAAAAAAArAJXKzqhTFu9zgAAAABJRU5ErkJggg=="
-                    },
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-008TugOfWar-008TOFW-007-Validate-Primary-Color-Successfully-Applied-In-mobile-Screen/test-failed-1.png"
-                    },
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-008TugOfWar-008TOFW-007-Validate-Primary-Color-Successfully-Applied-In-mobile-Screen/test-failed-2.png"
-                    }
-                  ],
+                  "startTime": "2023-03-27T06:51:53.980Z",
+                  "attachments": [],
                   "errorLocation": {
-                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/MobileGamesPage/tugOfWarMobile.page.ts",
-                    "column": 28,
-                    "line": 58
+                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts",
+                    "column": 14,
+                    "line": 27
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "26becc8c701c81079457-e7c5153e9673350b7bc9",
-          "file": "tests/03Games/008TugOfWar.test.ts",
-          "line": 134,
+          "id": "923949df3e7701a35fec-358bcf319a4d3191f46e",
+          "file": "tests/03Games/012Trivia.test.ts",
+          "line": 3890,
           "column": 6
         }
       ]
