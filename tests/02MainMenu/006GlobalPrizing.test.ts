@@ -4,7 +4,7 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 
 
-test("006GP-001 | Validate Global Prizing Section", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test.only("006GP-001 | Validate Global Prizing Section", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -132,9 +132,10 @@ test("006GP-001 | Validate Global Prizing Section", async ({ loginPage, MainMenu
 
 
                 await globalPrizingPage.Barcode()
-                await globalPrizingPage.Addexpire()
+                await globalPrizingPage.clickOnBarCode()
                 await globalPrizingPage.BarCodelabl()
                 await globalPrizingPage.Barcodevalue()
+                await globalPrizingPage.Addexpire()
         })
         await test.step("006GP-004 | Verify Admin Successfully Share Section", async () => {
                 //const screenshot = await page.screenshot();

@@ -46,7 +46,10 @@ export default class fanSeeWallMobilePage {
                 takeRecordVideoBtn: "//button[text()='Record Video']",
                 takeRecordVideoMinMaxTitle: "//p[text()='The video must be (5)-(15) seconds long']",
                 homePageBtn: "(//button[@value='game']//div)[1]",
-                welcomeMassage: "//p[text()='Welcome Message']"
+                welcomeMassage: "//p[text()='Welcome Message']",
+                uploadedImageDeleteBtn: "(//button[@type='button'])[1]",
+                postTextInputField: "//textarea[@placeholder='Type something']",
+                postSubmitBtn: "//button[text()='Submit']"
 
 
         }
@@ -203,7 +206,7 @@ export default class fanSeeWallMobilePage {
                         // await this.page.getByRole('button', { name: 'Record Video' })
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForLoadState("networkidle")
-                        // await this.page.waitForTimeout(3000)
+                        await this.page.waitForTimeout(3000)
 
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen home Page Button Is not visible| Error occurred: ${error}`);
@@ -271,6 +274,121 @@ export default class fanSeeWallMobilePage {
                 }
         }
 
+        async clickOpenLibraryUploadBtn() {
+
+
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.openLibraryBtn)
+                const filePath0 = "testData/logos/gameTeamLogo.png"
+                try {
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.waitForTimeout(5000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Open Library Upload Input Field Is Not Visible  | Error occurred: ${error}`);
+                }
+        }
+
+        async uploadImageClickingOnTakePhoto() {
+
+
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takePhotoBtn)
+                const filePath0 = "testData/logos/gameTeamLogo.png"
+                try {
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.waitForTimeout(5000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Open Take Photo Upload Input Field Is Not Visible  | Error occurred: ${error}`);
+                }
+        }
+
+        async uploadVideoClickingOnRecordVideoBtn() {
+
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn)
+                const filePath0 = "testData/videos/Video.mkv"
+                try {
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn).click({ force: true })
+                        await this.page.waitForTimeout(7000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Open Record Video Upload Input Field Is Not Visible  | Error occurred: ${error}`);
+                }
+        }
+
+        async clickDeleteBtn() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.uploadedImageDeleteBtn)
+
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.waitForTimeout(3000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Open Library Uploaded Image Delete Btn Is Not Visible  | Error occurred: ${error}`);
+                }
+        }
+
+        async inputPostText() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
+
+                try {
+                        await this.page.waitForTimeout(1000)
+
+                        await ele.fill("Auto Post From Devid")
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async inputPostTextForTakePhotoPost() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
+
+                try {
+                        await this.page.waitForTimeout(1000)
+
+                        await ele.fill("Post With Take Photo")
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async inputPostTextForRecordVideoPost() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
+
+                try {
+                        await this.page.waitForTimeout(1000)
+                        await ele.fill("Post With Record Video")
+                        await this.page.waitForTimeout(2000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
+        async clickSubmitBtn() {
+                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postSubmitBtn)
+
+                try {
+                        await ele.click({ button: 'left', delay: 1000 })
+                        await this.page.waitForTimeout(3000)
+
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Mobile Screen Post Submit Button Is Not Visible  | Error occurred: ${error}`);
+                }
+        }
 
 
 
@@ -303,6 +421,18 @@ export default class fanSeeWallMobilePage {
 
 
 
+
+        async logoUploadHelper() {
+
+                const filePath0 = "testData/logos/gameTeamLogo.png"
+                try {
+                        this.page.on("filechooser", async (filechooser) => {
+                                await filechooser.setFiles([filePath0]);
+                        })
+                } catch (error) {
+                        throw new Error(`Mobile Screen | Issue On Logo Upload Helper  | Error occurred: ${error}`);
+                }
+        }
 
 
 

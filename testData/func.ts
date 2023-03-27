@@ -3,7 +3,6 @@ import { readFileSync } from 'fs'
 export default class functions {
         [x: string]: any;
         private page: Page;
-        static buffer: void;
         constructor(page: Page) {
                 this.page = page;
         }
@@ -40,7 +39,7 @@ export default class functions {
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Aa"]//following-sibling::button').click()
         }
         async bannerImageUploadFunction() {
-                const filePath0 = "testData/images/CountDownStageBanner.jpg"
+                const filePath0 = "testData/images/CountDownStageBanner.png"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -52,7 +51,7 @@ export default class functions {
                 })
         }
         async logoImageUploadFunction() {
-                const filePath0 = "testData/logos/gameTeamLogo.jpg"
+                const filePath0 = "testData/logos/gameTeamLogo.png"
                 this.page.on("filechooser", async (filechooser) => {
                         await filechooser.setFiles([filePath0]);
                 })
@@ -174,7 +173,7 @@ export default class functions {
                 const cropperSaveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
                 expect(cropperSaveBtn).toContainText("Save")
                 await cropperSaveBtn.click({ force: true })
-                await this.page.waitForTimeout(3000)
+                await this.page.waitForTimeout(4000)
                 // await this.page.waitForLoadState("networkidle")
         }
         async fileUploadCropperForMainMenu() {
@@ -357,4 +356,8 @@ export default class functions {
         }
         async clickAnonymouLogin() {
         }
+
+
+
+
 }

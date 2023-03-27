@@ -293,15 +293,16 @@ export default class globalPrizingPage {
         /// From here updated Sohag/////////////////
         async OpenEditor() {
                 const locator = this.page.locator("//button[text()='Open in Editor']")
-                await locator.click()
-                await this.page.waitForSelector("//div[@icon='assets/typography.7617aca3.svg']")
+                await locator.click({ button: "left", delay: 1000 })
+                // await this.page.waitForTimeout(2000)
+                await this.page.waitForSelector("//p[text()='Coupon Canvas Editor']")
         }
         async Couponcanvaslabl() {
                 await this.page.click("//p[text()='Coupon Canvas Editor']")
 
         }
         async Tfont() {
-                const locator = this.page.locator("//div[@icon='assets/typography.7617aca3.svg']")
+                const locator = this.page.locator("//button[@aria-label='Tab: Typography']")
                 await locator.click()
         }
         async Typographylabl() {
@@ -339,19 +340,19 @@ export default class globalPrizingPage {
                 expect(ele).toContainText("Position")
         }
         async Left() {
-                const locator = this.page.locator("//div[@icon='assets/align-left.9a16e401.svg']")
+                const locator = this.page.locator("//button[@aria-label='Left alignment']")
                 await locator.click({ button: 'left', delay: 1000 })
         }
         async Right() {
-                const locator = this.page.locator("//div[@icon='assets/align-right.fa94b93a.svg']")
+                const locator = this.page.locator("//button[@aria-label='Right alignment']")
                 await locator.click({ button: 'left', delay: 1000 })
         }
         async Center() {
-                const locator = this.page.locator("//div[@icon='assets/align-center.a3534448.svg']")
+                const locator = this.page.locator("//button[@aria-label='Center alignment']")
                 await locator.click({ button: 'left', delay: 1000 })
         }
         async Alignment() {
-                const locator = this.page.locator("//div[@icon='assets/align-justify.b7561800.svg']")
+                const locator = this.page.locator("//button[@aria-label='Justify']")
                 await locator.click({ button: 'left', delay: 1000 })
         }
         async Fontlabl() {
@@ -367,19 +368,19 @@ export default class globalPrizingPage {
                 await this.page.click("//li[text()='Midnight.ttf']")
         }
         async Bold() {
-                const locator = this.page.locator("//div[@icon='assets/bold.9fa8427b.svg']")
+                const locator = this.page.locator("//button[@aria-label='Bold']")
                 await locator.click({ force: true })
         }
         async Italic() {
-                const locator = this.page.locator("//div[@icon='assets/italic.f712808c.svg']")
+                const locator = this.page.locator("//button[@aria-label='Italics']")
                 await locator.click()
         }
         async Underline() {
-                const locator = this.page.locator("//div[@icon='assets/underline.7a5fa69e.svg']")
+                const locator = this.page.locator("//button[@aria-label='Underline']")
                 await locator.click()
         }
         async Blocktype() {
-                const locator = this.page.locator("//div[@icon='assets/font-size.c0b3349e.svg']")
+                const locator = this.page.locator("//button[@aria-label='Uppercase']")
                 await locator.click()
         }
         async Boldd() {
@@ -527,7 +528,7 @@ export default class globalPrizingPage {
         }
         ///Image section/////////
         async Image() {
-                const locator = this.page.locator("(//button[@isbackground='true'])[2]")
+                const locator = this.page.locator("//button[@aria-label='Tab: Images']")
                 await locator.click()
         }
         async Backgroundlabl() {
@@ -651,7 +652,7 @@ export default class globalPrizingPage {
         }
         ///Code Section///////////////////
         async Code() {
-                const locator = this.page.locator("(//button[@isbackground='true'])[3]")
+                const locator = this.page.locator("//button[@aria-label='Tab: Codes']")
                 await locator.click()
         }
         async Codelabl() {
@@ -720,6 +721,10 @@ export default class globalPrizingPage {
         async Barcode() {
                 await this.page.click("//button[text()='Bar Code']")
         }
+
+        async clickOnBarCode() {
+                await this.page.click("//div[@class='MuiBox-root css-lx9vk']/following-sibling::div[1]")
+        }
         async Addexpire() {
                 await this.page.click("//button[text()='Add Expiration Date']")
         }
@@ -727,7 +732,7 @@ export default class globalPrizingPage {
                 await this.page.click("//p[text()='Barcode value']")
         }
         async Barcodevalue() {
-                const locator = this.page.locator("//input[@id='P16002645472']")
+                const locator = this.page.locator("(//input[@rows='3'])[1]")
                 expect(locator).toBeVisible()
                 await locator.fill("Spartan")
         }
@@ -822,7 +827,7 @@ export default class globalPrizingPage {
         }
         /////Share section////////////////
         async ShareBtn() {
-                const locator = this.page.locator("(//button[@isbackground='true'])[4]")
+                const locator = this.page.locator("//button[@aria-label='Tab: Share']")
                 await locator.click()
         }
         async Sharelabl() {
