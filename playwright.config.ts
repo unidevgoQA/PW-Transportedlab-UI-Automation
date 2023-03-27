@@ -52,7 +52,7 @@ const config: PlaywrightTestConfig = {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
 
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 
