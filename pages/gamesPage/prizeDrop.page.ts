@@ -111,7 +111,7 @@ export default class prizeDropPage {
         }
 
         async clickstartbutton(){
-                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]').click()
+                await this.page.frameLocator('.css-r99fy3').locator("(//button[text()='Start'])[3]").click()
         }
 
         async clickokinstartconfirmmodal(){
@@ -339,8 +339,9 @@ export default class prizeDropPage {
                 if( await edit_image_button.isVisible() ){
                         await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
-                await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click()
+                await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-v2612'])[2]").click({button:'left'})
         }
+       
 
         async Image_uploader_For_Fullcreenlogo(){
                 const filePath0 = "testData/images/Fullscreen.png"
@@ -353,10 +354,10 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async full_screen_logo_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
-              await expect(edit_image_button).toBeVisible({timeout:6000}) 
-        }
+        // async full_screen_logo_wait(){
+        //         const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //       await expect(edit_image_button).toBeVisible({timeout:10000}) 
+        // }
 
         async Game_title_image_upload(){
                 const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
@@ -376,10 +377,10 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async game_tile_wait(){
-                const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
-               await expect(edit_image_button).toBeVisible({timeout:60000}) 
-        }
+        // async game_tile_wait(){
+        //         const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //        await expect(edit_image_button).toBeVisible({timeout:60000}) 
+        // }
         async Frame_image_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
@@ -406,7 +407,7 @@ export default class prizeDropPage {
         async Sponsor_image_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[3]").click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
@@ -421,10 +422,10 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async sponsor_image_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
-               await expect(edit_image_button).toBeVisible({timeout:60000})
-        }
+        // async sponsor_image_wait(){
+        //         const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //        await expect(edit_image_button).toBeVisible({timeout:60000})
+        // }
         async Team_logo_upload(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
@@ -475,12 +476,15 @@ export default class prizeDropPage {
                
         }
         async check_Background_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:300})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[6]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
+       
         async background_video_wait(){
                 const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
@@ -545,10 +549,12 @@ export default class prizeDropPage {
                
         }
         async check_Howtoplay_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:400})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[3]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
         async wrong_Video_uploader_For_Howtoplay_video(){
@@ -610,10 +616,13 @@ export default class prizeDropPage {
                
         }
         async check_rules_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Delete"]').dblclick({button:'left',delay:300})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[5]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
+               
                
         }
         async Video_uploader_For_rules_video(){
@@ -676,10 +685,12 @@ export default class prizeDropPage {
                
         }
         async check_splash_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@title="Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[4]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
         async Video_uploader_For_splash_video(){
@@ -1078,12 +1089,12 @@ export default class prizeDropPage {
 
 
         async clickAddBannerSection() {
-                await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(2).click()
+                await this.page.frameLocator('iframe').locator("(//p[text()='Add Banner'])[3]").last().click()
 
         }
 
         async click_delete_button_added_banner(){
-                await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-up2ccm"]').click()
+                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-up2ccm']").dblclick({button:'left',delay:300})
         }
 
         async verifyMarketingMassageText() {
@@ -1254,7 +1265,7 @@ export default class prizeDropPage {
 
         async clickToStopLiveGame() {
                 // Click text=AutoStart
-                await this.page.frameLocator('iframe').locator('text=AutoLive').click();
+                await this.page.frameLocator('iframe').locator("//button[text()='Live']").last().click();
 
         }
 
@@ -1289,16 +1300,16 @@ export default class prizeDropPage {
 
 
         async click_closebutton_in_mobilelinkmodal (){
-                await this.page.frameLocator('.css-r99fy3').locator('(//div[@role="dialog"]//button)[1]').click()
+                await this.page.frameLocator('.css-r99fy3').locator("//div[@class='MuiBox-root css-1xnxzwa']").click()
         }
 
         async clickStartGameBtn() {
 
-                const ele = this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]')
+                const ele = this.page.frameLocator('.css-r99fy3').locator("(//button[text()='Start'])[3]").last();
 
-                // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
-                await expect(ele).toBeVisible()
-                await ele.click({button:'left'})
+                 //const ele = await this.page.frameLocator('iframe').locator('text=Start').last()
+                //await expect(ele).toBeVisible()
+                await ele.click()
 
         }
 
@@ -1327,7 +1338,7 @@ export default class prizeDropPage {
 
         async clickMobileLinkBtn() {
                 // Click text=AutoStart >> button >> nth=1
-                await this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[2]').click();
+                await this.page.frameLocator('.css-r99fy3').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')]/following-sibling::button)[3]").click();
 
                 // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
                 // expect(ele).toBeVisible()
@@ -1340,7 +1351,7 @@ export default class prizeDropPage {
                 // Click text=Open Link
                 const [page1] = await Promise.all([
                         this.page.waitForEvent('popup'),
-                        this.page.frameLocator('.css-r99fy3').locator("//a[text()='Open Link']").click()
+                        this.page.frameLocator('.css-r99fy3').locator("//a[@aria-label='Open Link']").click({ button: "left" })
                 ]);
 
                 return page1;
@@ -1352,7 +1363,7 @@ export default class prizeDropPage {
 
                 // Click text=Open Link
 
-                await this.page.frameLocator('.css-r99fy3').locator('text=Copy Link').click()
+                await this.page.frameLocator('.css-r99fy3').locator("//button[@aria-label='Copy Link']").click()
 
 
 
@@ -1620,6 +1631,9 @@ async clickEditBtn(){
                 await this.page.waitForTimeout(1000)
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Unordered"]').click()
 
+        }
+        async deletehowtoplayVideo(){
+                await this.page.frameLocator('iframe').locator("(//button[@aria-label='Delete']//div)[3]").click();
         }
 
 

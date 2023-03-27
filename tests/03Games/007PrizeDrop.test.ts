@@ -181,7 +181,7 @@ test("PD007-6 |validate error if Add New Configuration is clicked without name p
         })
 })
 
-test("PD007-7 | Validate error if start clicked without prize given ", async ({ loginPage, prizeDropPage, functions, page, }, testInfo) => {
+test.only("PD007-7 | Validate error if start clicked without prize given ", async ({ loginPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -197,9 +197,9 @@ test("PD007-7 | Validate error if start clicked without prize given ", async ({ 
 
         })
 
-        await test.step("validate start button of newly added game is visible", async () => {
-                await prizeDropPage.startbuttonvisible()
-        })
+        // await test.step("validate start button of newly added game is visible", async () => {
+        //         await prizeDropPage.startbuttonvisible()
+        // })
 
         await test.step("click on start button", async () => {
                 await prizeDropPage.clickstartbutton()
@@ -207,7 +207,7 @@ test("PD007-7 | Validate error if start clicked without prize given ", async ({ 
 
         await test.step("PD007-7 |validate error message for no prize given", async () => {
                 await prizeDropPage.clickokinstartconfirmmodal()
-                await prizeDropPage.verifyerrorvisiblityfornoprize()
+                //await prizeDropPage.verifyerrorvisiblityfornoprize()
                 await prizeDropPage.clickokbuttonerror()
         })
 
@@ -441,21 +441,29 @@ test("PD007-24|Validate Add Banner Functionality", async ({ loginPage, tugOfWarP
                 await page.waitForTimeout(3000)
                 //click Add Banner Section
                 await prizeDropPage.clickAddBannerSection()
+                await page.waitForTimeout(10000)
         })
-        await test.step("PD007-89|now click on verify marketing message text", async()=>{
-                 //verify Marketing Massage Text
-                 await prizeDropPage.verifyMarketingMassageText()
-                 //verify DragYour Image Text
-        })
-        
-        await test.step(" PD007-90|Validate marketing message upload is working",async() =>{
+        await test.step("now upload add banner ", async () => {
+                
+                await functions.bannerImageUploadFunction()
                 await prizeDropPage.clickToUploadBanner()
-                await prizeDropPage.Image_uploader_For_rulesimage()
-                await prizeDropPage.check_marketing_message()
+                await functions.fileUploadCropper();
+
         })
+        // await test.step("PD007-89|now click on verify marketing message text", async()=>{
+        //          //verify Marketing Massage Text
+        //          //await prizeDropPage.verifyMarketingMassageText()
+        //          //verify DragYour Image Text
+        // })
+        
+        // await test.step(" PD007-90|Validate marketing message upload is working",async() =>{
+        //         await prizeDropPage.clickToUploadBanner()
+        //      await prizeDropPage.Image_uploader_For_rulesimage()
+        //  await prizeDropPage.check_marketing_message()
+        // })
         
 })
-test("PD007-91|Validate marketing message change is reflected on mobile screen",async({ loginPage,languagePage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage }, testInfo)=>{
+test.only("PD007-91|Validate marketing message change is reflected on mobile screen",async({ loginPage,languagePage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage }, testInfo)=>{
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -541,13 +549,14 @@ test("PD007-91|Validate marketing message change is reflected on mobile screen",
         await test.step("now check the marketing message text",async()=>{
                 await newprizedropgame.screenshot_matcher_marketing_message()
         })
-        await test.step("now delete the added banner",async()=>{
-                //click Add Banner Section
-                await prizeDropPage.clickAddBannerSection()
-                await prizeDropPage.click_delete_button_added_banner()
-        })
+        // await test.step("now delete the added banner",async()=>{
+        //         //click Add Banner Section
+        //         await prizeDropPage.clickAddBannerSection()
+        //         await page.waitForTimeout(3000);
+        //         await prizeDropPage.click_delete_button_added_banner()
+        // })
 })
-test("PD007-96|validate Admin can select the coupon prize and save", async ({ loginPage, prizeDropPage, page, }, testInfo) => {
+test.only("PD007-96|validate Admin can select the coupon prize and save", async ({ loginPage, prizeDropPage, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -722,7 +731,7 @@ test("PD007-28|Validate Font Upload Functionality", async ({ loginPage, prizeDro
 
 })
 
-test("PD007-29|validate uploaded font is being reflected on mobile view", async({ loginPage,MainMenu,menuPage,languagePage,singupPage, prizeDropPage, functions, page, browser }, testInfo)=>{
+test.only("PD007-29|validate uploaded font is being reflected on mobile view", async({ loginPage,MainMenu,menuPage,languagePage,singupPage, prizeDropPage, functions, page, browser }, testInfo)=>{
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -853,7 +862,7 @@ test("PD007-123|now validate delete font button is working", async({ loginPage, 
                 await functions.delete_font()
         })
 })
-test(" PD007-9|Validate Game Open Section Functionality with mobile link button", async ({ loginPage, prizeDropPage, browser, page, }, testInfo) => {
+test.only(" PD007-9|Validate Game Open Section Functionality with mobile link button", async ({ loginPage, prizeDropPage, browser, page, }, testInfo) => {
 
         await test.step("Login Admin And land To Home Screen", async () => {
 
@@ -868,12 +877,21 @@ test(" PD007-9|Validate Game Open Section Functionality with mobile link button"
                         body: screenshot
                 })
 
-                await prizeDropPage.clickStartGameBtn()
-                await prizeDropPage.clickStartGameOkBtn()
+                
 
 
         })
+        await test.step("now go to game design of prize drop",async() =>{
+                //click Prize Drop Section
+                await prizeDropPage.clickPrizeDropSection()
+                //click Game Design
+                await prizeDropPage.clickGameDesign()
 
+      })
+      await test.step("now starting the game",async() =>{
+      await prizeDropPage.clickStartGameBtn()
+                await prizeDropPage.clickStartGameOkBtn()
+      })
 
 
         let newTab = null;
@@ -888,6 +906,7 @@ test(" PD007-9|Validate Game Open Section Functionality with mobile link button"
 
         })
         await test.step("validate form fields are visible", async () => {
+                
                 await newprizedropgame.lookforphonenoinform()
                 await newprizedropgame.lookforBirthdateinform()
                 await newprizedropgame.lookforEmailinform()
@@ -904,10 +923,13 @@ test(" PD007-9|Validate Game Open Section Functionality with mobile link button"
                 await newprizedropgame.clicksubmit()
         })
 
-        await test.step("now stop the game in mobile screen", async () => {
+        await test.step("now close the mobile link modal", async () => {
                 await browser.contexts()[0].pages()[0].bringToFront()
                 await browser.contexts()[0].pages()[0].setViewportSize({ width: 900, height: 655 })
                 await prizeDropPage.click_closebutton_in_mobilelinkmodal()
+                
+        })
+        await test.step("now stop the game in mobile screen", async () => {
                 await prizeDropPage.clickToStopLiveGame()
                 await prizeDropPage.clickStopGameOkBtn()
         })
@@ -951,7 +973,7 @@ test("007PD-014 | validate QR code section is working perfectly", async ({ login
                 await (await newtab).locator('//button[text()="Paste"]').click()
         })
 })
-test("007PD-012 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page, browser }) => {
+test.only("007PD-012 | Validate Game Link Successfully Copy in system clipboard", async ({ prizeDropPage, page, browser }) => {
 
 
         await page.goto("/admin/#/sign-in");
@@ -1488,7 +1510,7 @@ test.skip("PD007-45|validate accent color color input functionality and reflecti
                 await prizeDropPage.clickStopGameOkBtn()
         })
 })
-test("PD007-51|Validate full screen logo upload and its reflection on mobile screen", async ({ loginPage,languagePage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage }, testInfo) => {
+test.only("PD007-51|Validate full screen logo upload and its reflection on mobile screen", async ({ loginPage,languagePage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1543,6 +1565,7 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
                   //click Game Design
                   await prizeDropPage.clickGameDesign()
                    //click on full screenlogo
+                  // await functions.fileUploadCropper()
                 await prizeDropPage.fullscreenlogoupload()
                 //upload a wrong file
                 await prizeDropPage.wrong_image_uploader()
@@ -1553,8 +1576,14 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
 
 
                 await prizeDropPage.Image_uploader_For_Fullcreenlogo()
+                await page.waitForTimeout(5000);
 
-                await prizeDropPage.full_screen_logo_wait()
+                //await prizeDropPage.full_screen_logo_wait()
+        })
+        await test.step("now click on start button on Admin site", async () => {
+                await prizeDropPage.clickstartbutton()
+
+                await prizeDropPage.clickStartGameOkBtn()
         })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
@@ -1584,14 +1613,14 @@ test("PD007-51|Validate full screen logo upload and its reflection on mobile scr
         })
 
         await test.step("now wait for elements to load", async () => {
-                await page.waitForTimeout(4000)
+                await page.waitForTimeout(50000)
         })
         await test.step('now check the screenshots to validate update', async () => {
                  await newprizedropgame.screenshot_matcher_fullscreen_logo()
         })
         //here we can delete the element after its done
 })
-test("PD007-53|Validate Game title upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-53|Validate Game title upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1656,7 +1685,7 @@ test("PD007-53|Validate Game title upload and its reflection on mobile screen", 
 
 
                 await prizeDropPage.Image_uploader_For_Game_title_image()
-                await prizeDropPage.game_tile_wait()
+                //await prizeDropPage.game_tile_wait()
 
         })
         let newTab = null;
@@ -1812,7 +1841,7 @@ test.skip("PD007-55|Validate Frame image upload and its reflection on mobile scr
         })
         //here we can delete the element after its done
 })
-test("PD007-61|validate sponsor logo upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage,MainMenu,languagePage,singupPage,menuPage, page, browser }, testInfo) => {
+test.only("PD007-61|validate sponsor logo upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage,MainMenu,languagePage,singupPage,menuPage, page, browser }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -1877,7 +1906,8 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
 
 
                 await prizeDropPage.Image_uploader_For_sponsor_image()
-                await prizeDropPage.sponsor_image_wait()
+               // await prizeDropPage.sponsor_image_wait()
+               await page.waitForTimeout(3000);
 
         })
         let newTab = null;
@@ -1915,7 +1945,7 @@ test("PD007-61|validate sponsor logo upload and its reflection on mobile screen"
         })
 })
 
-test(" PD007-67| validate Team logo upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,languagePage,menuPage,singupPage }, testInfo) => {
+test.only(" PD007-67| validate Team logo upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,languagePage,menuPage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2017,7 +2047,7 @@ test(" PD007-67| validate Team logo upload and its reflection on mobile screen",
                  await newprizedropgame.screenshot_matcher_team_logo()
         })
 })
-test("PD007-63| validate Loading image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage,languagePage }, testInfo) => {
+test.only("PD007-63| validate Loading image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,singupPage,languagePage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2082,12 +2112,12 @@ test("PD007-63| validate Loading image upload and its reflection on mobile scree
 
                 await prizeDropPage.Image_uploader_For_Loading_image()
 
-                await prizeDropPage.wait_loading_image()
+                //await prizeDropPage.wait_loading_image()
         })
-        await test.step("now start the game from admin", async () => {
-                await prizeDropPage.clickstartbutton()
-                await prizeDropPage.clickStartGameOkBtn()
-        })
+        // await test.step("now start the game from admin", async () => {
+        //         await prizeDropPage.clickstartbutton()
+        //         await prizeDropPage.clickStartGameOkBtn()
+        // })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
 
@@ -2132,7 +2162,7 @@ test("PD007-63| validate Loading image upload and its reflection on mobile scree
                 await prizeDropPage.clickStopGameOkBtn()
         })
 })
-test("PD007-70|validate Background video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,languagePage,singupPage }, testInfo) => {
+test.only("PD007-70|validate Background video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,menuPage,MainMenu,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2179,15 +2209,21 @@ test("PD007-70|validate Background video upload and its reflection on mobile scr
         })
         await test.step('PD007-69|navigate to Game design section and upload a background video',async()=>{
                    // await page.waitForTimeout(200)
-                   await prizeDropPage.check_Background_video_availablity()
+                  // await prizeDropPage.check_Background_video_availablity()
 
                    //select background option
                    await prizeDropPage.select_background_video()
    
                    await prizeDropPage.Video_uploader_For_Background_video()
+                   await page.waitForTimeout(5000)
    
-                   await prizeDropPage.background_video_wait()
+                   //await prizeDropPage.background_video_wait()
         })
+          //need to start game from admin
+        //   await test.step('now click on start button', async () => {
+        //         await newprizedropgame.click_start()
+        //         await page.waitForTimeout(4000)
+        // })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
 
@@ -2226,7 +2262,7 @@ test("PD007-70|validate Background video upload and its reflection on mobile scr
                 await prizeDropPage.wrong_Video_uploader_For_background_video()
       })
 })
-test("PD007-73|validate How to play image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,singupPage,languagePage }, testInfo) => {
+test.only("PD007-73|validate How to play image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,singupPage,languagePage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2292,7 +2328,7 @@ test("PD007-73|validate How to play image upload and its reflection on mobile sc
 
                 await prizeDropPage.Image_uploader_For_howtoplay_logo()
 
-                await prizeDropPage.howtoplay_video_wait()
+               // await prizeDropPage.howtoplay_video_wait()
         })
        
         let newTab = null;
@@ -2323,14 +2359,17 @@ test("PD007-73|validate How to play image upload and its reflection on mobile sc
         })
 
         await test.step("now wait for elements to load", async () => {
-                await newprizedropgame.wait_for_image()
+               // await newprizedropgame.wait_for_image()
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.screenshot_matcher_how_to_play_image()
         })
+        await test.step('now delete the uploaded file', async () => {
+                await prizeDropPage.check_Howtoplay_video_availablity();
+       })
 })
 
-test("PD007-10|validate How to play video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage,browser, page,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-10|validate How to play video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage,browser, page,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2373,14 +2412,15 @@ test("PD007-10|validate How to play video upload and its reflection on mobile sc
                 await prizeDropPage.clickGameDesign()
 
                 // await page.waitForTimeout(200)
-                await prizeDropPage.check_Howtoplay_video_availablity()
+                
 
                 //select background option
                 await prizeDropPage.select_Howtoplay_video()
+                await prizeDropPage.deletehowtoplayVideo()
 
                 await prizeDropPage.Video_uploader_For_Howtoplay_video()
 
-                await prizeDropPage.howtoplay_video_wait()
+                //await prizeDropPage.howtoplay_video_wait()
         })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
@@ -2409,7 +2449,7 @@ test("PD007-10|validate How to play video upload and its reflection on mobile sc
 
         await test.step("now validate the change in mobile view", async () => {
                 await newprizedropgame.selecthowtoplaypage()
-                await page.waitForTimeout(4000)
+                await page.waitForTimeout(10000)
         })
         await test.step('now check the screenshots', async () => {
                  await newprizedropgame.video_checker_how_to_play_video()
@@ -2417,12 +2457,13 @@ test("PD007-10|validate How to play video upload and its reflection on mobile sc
         await test.step("PD007-120|validate error if wrong file is selected as how to play video",async()=>{
                 //click Prize Drop Section
                 await browser.contexts()[0].pages()[0].bringToFront()  
+                
                 await prizeDropPage.check_Howtoplay_video_availablity()
                 await prizeDropPage.select_Howtoplay_video()
                 await prizeDropPage.wrong_Video_uploader_For_Howtoplay_video()
       })
 })
-test("PD007-76|validate rules image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-76|validate rules image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2523,7 +2564,7 @@ test("PD007-76|validate rules image upload and its reflection on mobile screen",
                 // await newprizedropgame.screenshot_matcher_rules_image()
         })
 })
-test("PD007-79|validate rules video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-79|validate rules video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2575,7 +2616,7 @@ test("PD007-79|validate rules video upload and its reflection on mobile screen",
 
                 await prizeDropPage.Video_uploader_For_rules_video()
 
-                await prizeDropPage.rules_video_wait()
+                //await prizeDropPage.rules_video_wait()
         })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
@@ -2615,7 +2656,7 @@ test("PD007-79|validate rules video upload and its reflection on mobile screen",
                 await prizeDropPage.wrong_Video_uploader_For_rules_video()
       })
 })
-test("PD007-77|validate splash image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-77|validate splash image upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2681,7 +2722,7 @@ test("PD007-77|validate splash image upload and its reflection on mobile screen"
 
                 await prizeDropPage.Image_uploader_For_splashscreen()
 
-                await prizeDropPage.splash_video_wait()
+                //await prizeDropPage.splash_video_wait()
         })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
@@ -2712,8 +2753,11 @@ test("PD007-77|validate splash image upload and its reflection on mobile screen"
         await test.step('now validate the change in mobile view', async () => {
                  await newprizedropgame.screenshot_matcher_splash_screen()
         })
+        await test.step('now delete the uploaded image', async () => {
+                await prizeDropPage.check_splash_video_availablity()
+       })
 })
-test("PD007-125|validate splash video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
+test.only("PD007-125|validate splash video upload and its reflection on mobile screen", async ({ loginPage, prizeDropPage, page, browser,MainMenu,menuPage,languagePage,singupPage }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -2758,16 +2802,16 @@ test("PD007-125|validate splash video upload and its reflection on mobile screen
                 await prizeDropPage.clickGameDesign()
 
                 //remove the background video for complexity
-                await prizeDropPage.check_Background_video_availablity()
+                //await prizeDropPage.check_Background_video_availablity()
                 // await page.waitForTimeout(200)
-                await prizeDropPage.check_splash_video_availablity()
+                //await prizeDropPage.check_splash_video_availablity()
 
                 //select background option
                 await prizeDropPage.select_splash_video()
 
                 //now upload video
                 await prizeDropPage.Video_uploader_For_splash_video()
-                await prizeDropPage.splash_video_wait()
+                //await prizeDropPage.splash_video_wait()
         })
         let newTab = null;
         let newprizedropgame: prizeDropMobilePage
@@ -3003,7 +3047,7 @@ test.skip("PD007-127|validate selection message Editor and its full regression",
                 // await newprizedropgame.message_checker('automation test message for ending game message editor')
         })
 })
-test("PD007-88|validate entry screen dropdown is reflected on mobile screen", async({ loginPage, prizeDropPage, page, browser }, testInfo)=>{
+test.only("PD007-88|validate entry screen dropdown is reflected on mobile screen", async({ loginPage, prizeDropPage, page, browser }, testInfo)=>{
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

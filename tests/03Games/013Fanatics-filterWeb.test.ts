@@ -157,7 +157,7 @@ test("013FFW-006  | Validate Filter Icon Glow Color Updated From The Admin Side"
     await fanaticsFilterPage.ColorSelectionSaveBTNClick();
 
 })
-test("013FFW-007  | Validate Panel Color Updated From The Admin Side", async ({ loginPage, fanaticsFilterPage, functions, page, }, testInfo) => {
+test.only("013FFW-007  | Validate Panel Color Updated From The Admin Side", async ({ loginPage, fanaticsFilterPage, functions, page, }, testInfo) => {
 
     await page.goto('/admin/#/sign-in')
     await loginPage.login(data.username, data.password)

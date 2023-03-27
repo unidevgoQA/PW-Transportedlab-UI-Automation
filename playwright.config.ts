@@ -13,7 +13,7 @@ const config: PlaywrightTestConfig = {
     // "004Menu.test.ts",
     // "005SignUp.test.ts",
     // "006GlobalPrizing.test.ts",
-    // "007PrizeDrop.test.ts",
+     "007PrizeDrop.test.ts",
     //"008TugOfWar.test.ts",
     // "009LiveWall.test.ts",    
     // "010Arcade.test.ts",
@@ -21,7 +21,7 @@ const config: PlaywrightTestConfig = {
     // "012Trivia.test.ts",
     // "guesstheScore.test.ts",
     // // "textExtractFromImage.test.ts"
-    "013Fanatics-filterWeb.test.ts"
+    //"013Fanatics-filterWeb.test.ts"
         
 
   ],
@@ -57,7 +57,7 @@ const config: PlaywrightTestConfig = {
   use: {
     actionTimeout: 10 * 6000,
     navigationTimeout: 30 * 7000,
-    baseURL: "https://qa-2.testingdxp.com/",
+    baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
       args: [
         '--use-fake-device-for-media-stream',

@@ -12,7 +12,7 @@ export default class prizeDropMobilePage {
 
         async lookforphonenoinform(){
                const ele = this.page.locator('//label[text()="Phone number"]')
-               await expect(ele).toBeVisible()
+               await expect(ele).toBeVisible({timeout:50000})
         }
         async lookforEmailinform(){
                 const ele = this.page.locator('//label[text()="Email Address"]')
@@ -68,10 +68,10 @@ export default class prizeDropMobilePage {
                 await this.page.locator('//p[text()="HOME"]//parent::button').dblclick({button:'left',delay:1000})
          }
          async selecthowtoplaypage(){
-            await this.page.locator('//p[text()="HOW TO PLAY"]//parent::button').dblclick({button:'left',delay:1000})
+            await this.page.locator('//button[@value="howToPlay"]').dblclick({button:'left',delay:1000})
      }
       async selectrulespage(){
-            await this.page.locator('//p[text()="RULES"]//parent::button').dblclick({button:'left',delay:1000})
+            await this.page.locator('//button[@value="rules"]').dblclick({button:'left',delay:1000})
       }
 
          async GoTo(URL: string){
@@ -122,6 +122,7 @@ export default class prizeDropMobilePage {
         }
 
         async screenshot_matcher_fullscreen_logo(){
+            await this.page.waitForTimeout(5000)
               await expect.soft(this.page).toHaveScreenshot('fullscreen_logo_test_screenshot.png',{animations:'allow',maxDiffPixelRatio:0.01})
         }
 
@@ -160,7 +161,7 @@ export default class prizeDropMobilePage {
         }
         async video_checker_how_to_play_video(){
             // const video_ele = this.page.locator('//video[@autoplay="true"]//source[@type="video/mp4"]')
-            await this.page.waitForLoadState('networkidle',{timeout:3000})
+            await this.page.waitForLoadState('networkidle',{timeout:6000})
             await this.page.waitForSelector('//video[@autoplay="true"]//source[@type="video/mp4"]',{state:'attached'})
             // await expect(video_ele).toBeVisible({timeout:40000})
       }
@@ -191,7 +192,7 @@ export default class prizeDropMobilePage {
       //check howtoplay page first 
 
       async check_how_to_play_page_at_entry(){
-            const ele = this.page.frameLocator('//iframe').locator('//p[text()="HOW TO PLAY"]//parent::button')
+            const ele = this.page.frameLocator('//iframe').locator('//button[@value="howToPlay"]')
             await expect(ele).toHaveAttribute('aria-pressed','true')
       }
     }
