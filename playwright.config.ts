@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
     // "010Arcade.test.ts",
     // "011AddNewExperiences.test.ts",
     "012Trivia.test.ts",
-    // "013Fanatics-filterWeb.test.ts",
+    "013Fanatics-filterWeb.test.ts",
     "014FanSeeWall.test.ts",
     // "guesstheScore.test.ts",
     // // "textExtractFromImage.test.ts"
