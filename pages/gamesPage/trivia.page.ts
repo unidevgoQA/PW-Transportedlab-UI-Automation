@@ -54,7 +54,7 @@ export default class triviaPage {
                 OutputScreenLinkCloseBtn:"//div[@class='MuiBox-root css-1xnxzwa']",
                 setupText : "//h5[text()='Set-up']",
                 countdownStageText:"//p[text()='Countdown Stage']",
-                questiontext:"//p[text()='Question']",
+                questiontext:"//p[text()='Question Text']",
                 answerText:"//p[text()='Answer']",
                 leaderboardText:"//p[text()='Leaderboard']",
                 movetoNextBtn:"//button[text()='Move to Next Stage']",
@@ -118,6 +118,7 @@ export default class triviaPage {
                 correctAnswerSaveBtn:"(//button[text()='SAVE'])[2]",
                 acctableAnswerSaveBtn:"(//button[text()='SAVE'])[2]",
                 liveBtn:"//button[text()='Live']",
+                LiveButton:"//button[text()='Live']",
                 addAnswerBtn:"//button[text()='Add Answer']",
                 inputforMultipleChoiceAnswer:"(//div[@class='notranslate public-DraftEditor-content'])[2]",
                 multipleChoiceSaveBtn:"(//button[text()='SAVE'])[2]",
@@ -306,6 +307,10 @@ export default class triviaPage {
                 deleteFontBtn: "//p[text()='Aa']/following-sibling::button",
                 colorPickerSaveBtn:"//button[text()='Save']",
                 ValuCannotbeemptyText:"//p[text()='Value cannot be an empty']",
+                MobileMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
+                MainboardMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
+                uploadedFontTitleText: "//p[text()='Midnight']",
+
                 
 
 
@@ -418,7 +423,7 @@ export default class triviaPage {
         async verifyGeneralOrButtonText(){
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.GeneralOrButtonText)
                 if(await ele.isVisible()){
-                        await expect(ele).toContainText('General/Button')
+                        await expect(ele).toContainText('General/Button Text')
                 }
                 else throw new Error(`Trivia General/Button Text text is not visible in color section,Could not find locator:"${ele}"`)
               }
@@ -745,180 +750,6 @@ export default class triviaPage {
 
         }
 
-        //start accent color section element
-
-        // async verifyAccentColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Accent Color')
-        //         expect(ele).toContainText("Accent Color")
-
-        // }
-
-
-        // async clickAccentColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Accent Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputAccentRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputAccentRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-
-
-        // async inputAccentRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("9")
-
-        // }
-
-        // async inputAccentRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("90")
-
-        // }
-
-        // async inputAccentRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("005782FF")
-
-        // }
-
-        //start Text color section element
-
-        // async verifyTextColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Text Color')
-        //         expect(ele).toContainText("Text Color")
-
-        // }
-
-
-        // async clickTextColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputTextRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputTextRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("179")
-
-        // }
-
-
-        // async inputTextRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("229")
-
-        // }
-
-        // async inputTextRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("190")
-
-        // }
-
-        // async inputTextRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("FFdFFFFF")
-
-        // }
-
-
-        //start Text color section element
-
-        // async verifyButtonColorText() {
-        //         const ele = await this.page.frameLocator('iframe').locator('text=Button Color')
-        //         expect(ele).toContainText("Button Color")
-
-        // }
-
-
-        // async clickButtonColorPicker() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//p[text()='Button Color']/following-sibling::button").first()
-        //         expect(ele).toBeVisible()
-        //         await ele.click()
-
-        // }
-
-        // async inputButtonRGRFirstColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[1]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("189")
-
-        // }
-        // async inputButtonRGRSecondColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[2]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("179")
-
-        // }
-
-
-        // async inputButtonRGRThirdColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[3]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("229")
-
-        // }
-
-        // async inputButtonRGRFourColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("190")
-
-        // }
-
-        // async inputButtonRGRFiveColor() {
-        //         const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiOutlinedInput-input MuiInputBase-input')])[4]")
-        //         expect(ele).toBeVisible()
-        //         await ele.fill("577C98FF")
-
-        // }
-        // async verifyFullScreenLogoText() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Full Screen Logo']")
-        //         expect(ele).toContainText("Full Screen Logo")
-
-        // }
-
-        // async verifyGameTitleImageTitleText() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Game Title Image']")
-        //         expect(ele).toContainText("Game Title Image")
-
-        // }
-       
-     
-        // async clickLiveBtn(){
-        //         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn)
-        //         if(ele != null){
-        //                 expect(ele).toBeVisible()
-        //                 await ele.first().click()
-        //         }
-        //         else throw new Error("Live button is not visible")
-        // }
         async verifyRoundError(){
                 const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.RounderrorMessage).first()
                 if(await ele.isVisible()){
@@ -928,18 +759,11 @@ export default class triviaPage {
                 
         }
      
-        // async clickMobileLinkCloseBtn(){
-        //         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.mobileLinkCloseBtn)
-        //         if(ele != null){
-        //                 expect(ele.last()).toBeVisible()
-        //                 await ele.last().click()
-        //         }
-        //         else throw new Error("Mobile link close button is not visible")
-        // }
        async clickstart (){
         const ele =   this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last()
          if(await ele.isVisible()){
                 await ele.last().click()
+                await this.page.waitForTimeout(1000)
          }
          else throw new Error(`Trivia start button is not visible,Could not find locator:"${ele}`)
        }
@@ -947,20 +771,23 @@ export default class triviaPage {
              const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last()
              if(await ele.isVisible()){
                 await ele.click()
+                await this.page.waitForTimeout(1000)
          }
          else throw new Error(`Trivia Live button is not visible,Could not find locator:"${ele}"`)
       }
  
         async clickStartBtn(){
-                const ele1 =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().isVisible()
-                if(ele1 == true ){
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last().click()
-                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).last().click()
+                const ele1 =  this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).last()
+                if(await ele1.isVisible()){
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.liveBtn).click()
+                        await this.page.waitForTimeout(1000)
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         await this.page.waitForTimeout(1000)
                         const ele =  await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().isVisible()
                         if(ele == true ){
                                 await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().click()
-                                await this.page.waitForTimeout(1000)
+                                await this.page.waitForTimeout(2000)
+                                await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         }
                         else throw new Error("Start button is not visible")
                         
@@ -970,7 +797,8 @@ export default class triviaPage {
                         if((ele == true)){
                             
                            await this.page.frameLocator('iframe').locator(this.triviaPageElements.startBtn).last().click()
-                           await this.page.waitForTimeout(1000)
+                           await this.page.waitForTimeout(2000)
+                           await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                         }
                         else throw new Error("Start button is not visible")
 
@@ -981,6 +809,7 @@ export default class triviaPage {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn)
                 if(await ele.isVisible()){
                         await ele.click()
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Trivia Ok button is not visiblex,Could not find locator:"${ele}"`)
         }
@@ -1126,11 +955,20 @@ export default class triviaPage {
                 }
                 else throw new Error(`Trivia Font is not successfully uploaded,Could not find locator:"${ele}"`)
         }
+        async selectUploadedFont() {
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.uploadedFontTitleText).isVisible({ timeout: 9000 })
+                if ((ele == true)) {
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.uploadedFontTitleText).click({ button: "left", delay: 1000, timeout: 9000 })
+                }
+                else throw new Error(`Trivia Game Settins Uploaded Font Element Is Not visiable, Could not find locator:"${this.triviaPageElements.uploadedFontTitleText}"`)
+
+        }
         async clickControlPanelSection(){
                 await this.page.waitForTimeout(2000)
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.controlPanelSection).last()
                 if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Trivia Control Panel Section is not visible,Could not find locator:"${ele}"`)
                // await this.page.waitForLoadState('networkidle')
@@ -1288,7 +1126,7 @@ export default class triviaPage {
               }
       async verifyQuestionText(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.questiontext).textContent()
-                if((ele === "Question")){
+                if((ele === "Question Text")){
                      
                 }
                 else throw new Error("Trivia Question text is not visible")
@@ -1821,6 +1659,7 @@ export default class triviaPage {
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).isVisible()
                 if((ele == true)){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.mobilemediaImageRadioBtn).click()
+                        await this.page.waitForTimeout(5000)
                 }
                 else throw new Error("Trivia Mobile media Image radio button is not visible")
         }
@@ -2264,6 +2103,14 @@ export default class triviaPage {
                 }
              
                 else throw new Error("Trivia Question text button  is not visible in color section")
+        }
+        async StopLiveBtn(){
+                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).last()
+                if(await ele.isVisible()){
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).click({force:true})
+                        await this.page.waitForTimeout(1000)
+                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
+                }
         }
         async clickQuestionBackgroundBtn(){
                 const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.QuestionBackgroundBtn).isVisible()
@@ -3044,6 +2891,25 @@ export default class triviaPage {
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.previewToggle).click({button:"left",delay:1000})
                 }
                 else throw new Error('Trivia Preview toggle is not visible')
+        }
+        async ClickMobileMediaImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MobileMediaImageUploadBtn).first()
+                try{
+                        await ele.click({button:"left",delay:1000})
+                 }
+                 catch(error) {
+                         throw(`Trivia Add Question section Mainboard Media image upload btn is not visible,could not find locator:"${ele}"`)
+                 }
+        }
+        async ClickMainboardMediaImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.MainboardMediaImageUploadBtn).first()
+                try{
+                       await ele.click({button:"left",delay:1000})
+                }
+                catch(error) {
+                        throw(`Trivia Add Question section Mobile Media image upload btn is not visible,could not find locator:"${ele}"`)
+                }
+                
         }
        
         }

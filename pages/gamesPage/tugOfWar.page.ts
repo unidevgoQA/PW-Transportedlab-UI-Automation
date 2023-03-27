@@ -1,10 +1,5 @@
 import { expect, Page } from "@playwright/test";
 import { readFileSync } from 'fs'
-
-
-
-
-
 export default class tugOfWarPage {
         private page: Page;
         constructor(page: Page) {
@@ -12,15 +7,15 @@ export default class tugOfWarPage {
         }
 
         private tugOfWarPageElements = {
-                tugOfWarText: `text=Tug of War`,
+                tugOfWarText: "//p[text()='Tug of War']",
                 configrationTitleText: "Configurations",
                 buttonListIteam: "listitem",
-                addNewConfigPlusBtn: "button",
-                newConfigTitleText: `New Configuration`,
+                addNewConfigPlusBtn: '//button[@class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1mbcpzw"]',
+                newConfigTitleText: "//p[text()='New Configuration']",
                 configInputField: `textbox`,
                 configAddBtn: `ADD`,
                 errorAlertMassage: "Incorrect configuration name",
-                gameStageBtn: `//p[text()='Stages']`,
+                gameStageBtn: "//p[text()='Stages']",
                 gameSettingsBtn: "//p[text()='Game Settings']",
                 fontUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[1]",
                 fontTitleText: `//h4[text()='Fonts']`,
@@ -48,8 +43,8 @@ export default class tugOfWarPage {
                 mobileBackgroundDeleteBtn: "(//button[@title='Delete'])[2]",
                 startBtn: "//button[text()='Start']",
                 stopBtn: "//button[text()='Stop']",
-                customMobileWaitingMassageInputField: "//div[@aria-label='rdw-toolbar']/following-sibling::div[1]",
-                customMobileWaitingMassageTitleText: "//p[text()='Custom Mobile Waiting Message']",
+                customMobileWaitingMassageInputField: "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']",
+                customMobileWaitingMassageTitleText: "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']",
                 sponsorLogoDeleteBtn: "(//button[@aria-label='Delete'])[4]",
                 teamLogoDeleteBtn: "(//button[@aria-label='Delete'])[3]",
                 gameTitleImageDeleteBtn: "(//button[@aria-label='Delete'])[2]",
@@ -58,18 +53,123 @@ export default class tugOfWarPage {
                 teamLogoUploadInputBtn: "(//div[@class='MuiBox-root css-v2612'])[3]",
                 gameTitleImageUploadInputBtn: "(//div[@class='MuiBox-root css-v2612'])[2]",
                 titleBackgroundImageUploadInputBtn: "//div[@class='MuiBox-root css-v2612']",
+                cofigNameInputField: `//input[@type="text"]`,
+                addNewBtn: "//button[text()='ADD']",
+                newConfigurationTitleText: "//p[text()='New Configuration']",
+                FontCustommobilewaitingMessageDRP:"(//div[@class='rdw-dropdown-carettoopen'])[2]",
+                FontArial:"//li[text()='Arial']",
+                CharacterDRopdown:"(//div[@class='rdw-dropdown-carettoopen'])[3]",
+                customPowerDropdown_Normal_H1_H6:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[3]",
+                CustomMobilewaitingMSGNOrmal:"//li[text()='Normal']",
+                CustomMobilewaitingMSGH1:"//li[text()='H1']",
+                CustomMobilewaitingMSGH2:"//li[text()='H2']",
+                CustomMobilewaitingMSGH3:"//li[text()='H3']",
+                CustomMobilewaitingMSGH4:"//li[text()='H4']",
+                CustomMobilewaitingMSGH5:"//li[text()='H5']",
+                CustomMobilewaitingMSGH6:"//li[text()='H6']",
+                CustomMobilewaitingMSGBlock:"//li[text()='Blockquote']",
+                CustomMobileWaitingMSGBold:"//div[@title='Bold']//img[1]",
+                CustomMobileWaitingMSGItalic:"//div[@title='Italic']//img[1]",
+                CustomMobileWaitingMSGUnderline:"//div[@title='Underline']",
+                CustomMobileWaitingMSGStrikeThrough:"//div[@title='Strikethrough']",
+                CustomMobileWaitingMSGColorPicker:"//div[@title='Color Picker']",
+                CustomMobileWaitingMSGColor1:"(//span[@class='rdw-colorpicker-cube'])[1]",
+                CustomMobileWaitingMSGHighlights:"//span[text()='Highlight']",
+                CustomMobileWaitingMSGHighlightsColor1:"(//span[@class='rdw-colorpicker-cube'])[1]",
+                CustomMobileWaitingMSGLeftAlignment:"//div[@title='Left']//img[1]",
+                CustomMobileWaitingMSGCenterAlignment:"//div[@title='Center']//img[1]",
+                CustomMobileWaitingMSGRightAlignment:"//div[@title='Right']",
+                CustomMobileWaitingMSGOutdent:"//div[@title='Outdent']//img[1]",
+                CustomMobileWaitingMSGINdent:"//div[@title='Indent']//img[1]",
+                CustomMobileWaitingMSGOrderd:"//div[@title='Ordered']//img[1]",
+                CustomMobileWaitingMSGUnOrderd:"//div[@title='Unordered']//img[1]",
+                CustomMobileWaitingMSGRemoverStyles:"//div[@title='Remove(styles) only']//img[1]",
+                TitlebackgroundImageoptionSelector:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
+                TitleBackgroundImageUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
+                DeleteUploadedImage:"//div[@class='MuiBox-root css-1tejaop']",
+                VideoOPtionSelector:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
+                VideoDeleteBTN:"//button[@aria-label='Delete']",
+                UploadTitleBackgroundVideoBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
+                spomsorLogoUploadBTn:"(//h5[contains(@class,'MuiTypography-root MuiTypography-h5')]/following-sibling::div)[3]",
+                TeamLogoUploadBtn:"(//div[@class='MuiBox-root css-v2612'])[3]",
+                GameTitleImage:"(//div[@class='MuiBox-root css-v2612'])[2]",
+                SelectionIMageImageOption:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
+                NavigateToTheSelectionStage:"(//div[@class='MuiBox-root css-1gcppq'])[1]",
+                SelectionBackgroundImageUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
+                SelectionBackgroundIMageDelete:"//div[@class='MuiBox-root css-1tejaop']",
+                SelectionStageVideoOPtion:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
+                SelectionStageVideoUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
+                GameStartBTN:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]",
+                AdjustableTimerSelectionStage:"(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[1]",
+                NumberOfTEamsINputField:"(//input[@placeholder='Type message'])[1]",
+                Team1LogoUploadBTN:"(//div[@class='MuiBox-root css-li8ra3'])[1]",
+                Team1NameInput:"(//input[@placeholder='Type message'])[2]",
+                Team2LogoUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[3]",
+                Team2NameInput:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
+                CustomSelectionMesaage:"(//div[@class='notranslate public-DraftEditor-content']//div)[2]",
+                CustomTeamSelectionMessage:"(//div[@aria-label='rdw-toolbar']/following-sibling::div)[2]",
+                TeamNameBoxBTn:"//p[text()='Team Name Box']/following-sibling::button",
+                AddColor:"//button[@aria-label='Add Color']",
+                RGBInput1:"(//input[@inputmode='numeric'])[1]",
+                RGBInput2:"(//input[@inputmode='numeric'])[2]",
+                RGBInput3:"(//input[@inputmode='numeric'])[3]",
+                RGBInput4:"(//input[@inputmode='numeric'])[4]",
+                ColorRGBDrpdown:"//div[contains(@class,'MuiSelect-select MuiSelect-standard')]",
+                RGBSolid:"//li[@data-value='solid']",
+                HoriZontal:"//li[@data-value='horizontal']",
+                Vertical:"//li[@data-value='vertical']",
+                Diagonal:"//li[text()='Diagonal']",
+                Radial:"//li[text()='Radial']",
+                RGB5input:"//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
+                SaveBTNRGB:"//button[text()='Save']",
+                TeamSelectedMessageBox:"//div[@class='MuiBox-root css-1pqer0i']",
+                MoveToTheNextStage:"(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[2]",
+                CustomCountDownMessage:"//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'][1]",
+                GamePlayMainBoardMessage:"(//div[@class='notranslate public-DraftEditor-content'])[1]",
+                ConfigurationsText:"//h5[text()='Configurations']",
+                SelectionStage:"//div[@class='MuiBox-root css-t11jit']",
+                MobileLinkCLoseBtn:"//div[@class='MuiBox-root css-1pkezxe']//button[1]",
+                imageDetele:"//button[@aria-label='Delete']",
+                InputRGBFirstColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
+                InputRGBSecondColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
+                InputRGBThirdColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
+                InputRGBFourthColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]",
+                InputRGBHexColor:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[5]",
+                InputMobileMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]",
+                ImageUploadRadioBtn:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[1]",
+                VideoUploadRadioBtn:"(//input[@class='PrivateSwitchBase-input css-1m9pwf3'])[2]",
+                GamePlayBackgrounImageUpload:"(//p[text()='Gameplay Background']/following-sibling::div)[2]",
+                GamePlayBackgrounVideoUpload:"(//p[text()='Gameplay Background']/following-sibling::div)[2]",
+                CustomPowerMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]",
+                EndGameImageUploadBtn:"//div[@class='MuiBox-root css-f0x2ei']",
+                EndGameVideoUploadBtn:"//div[@class='MuiBox-root css-f0x2ei']",
+                customEndGameMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[1]",
+                customWinnerMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]",
+                EndgameMessageDropdownHeader_Normal_H1_To_H6:"(//div[@class='rdw-dropdown-carettoopen'])[3]",
+                CustomWinnerHeader_Dropdown:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[2]",
+                CustomConsolationMessage:"(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[3]",
+                CustomConsolationHeader_Dropdown:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[3]",
+                InputEndGameTimer:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+                LeaderboardBackgroundImageUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[1]",
+                LeaderboardBackgroundVideoUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[1]",
+                LeaderboardHeaderImageUpload:"(//div[@class='MuiBox-root css-f0x2ei'])[2]",
+                LeaderBoardTimer:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
+                thankyouBackgroundImageUploadBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
+                thankyouBackgroundVideoUploadBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[1]",
+                thankyouLeaderboardHeaderUpload:"(//div[@class='MuiBox-root css-3fw1ig'])[2]",
+                ThankYouStages:"//p[text()='Thankyou Stage']",
+                LeaderboardStage:"(//p[text()='Leaderboard'])[1]",
+                EndGameStage:"//p[text()='EndGame Stage']",
+                GamePlayStage:"//p[text()='Gameplay Stage']",
+                CountdownStage:"//p[text()='Countdown Stage']",
+                MobileMessageHeaderDropdown_Normal_H1_H6:"(//div[contains(@class,'rdw-dropdown-wrapper rdw-block-dropdown')])[2]",
+                DeleteSection:'//p[text()="Delete"]',
+                DeleteConfiguration:"//button[text()='Delete']",
 
 
 
 
 
-
-                gussTheScroeGameTitle: "//p[text()='Guess The Score']",
-                triviaGameTitle: "//p[text()='Trivia']",
-                liveWallGameTitle: "//p[text()='Live Wall']",
-                noiseMeterGameTitle: "//p[text()='Noise Meter']",
-                tugOfWarGameTitle: "//p[text()='Tug of War']",
-                prizeDropGameTitle: "//p[text()='Prize Drop']",
 
 
 
@@ -92,23 +192,40 @@ export default class tugOfWarPage {
         //click Tug Of War Page
         async clickTugOfWarPage() {
                 await this.page.waitForSelector(this.tugOfWarPageElements.tugOfWarText)
-                const ele = await this.page.locator(this.tugOfWarPageElements.tugOfWarText).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.tugOfWarPageElements.tugOfWarText).click({ button: "left", delay: 1000 })
+                const ele = this.page.locator(this.tugOfWarPageElements.tugOfWarText)
+                try{
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForLoadState('domcontentloaded')
+                        await this.page.waitForTimeout(4000)
                 }
-                else throw new Error(`Tug Of War Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.tugOfWarText}"`)
-                await this.page.waitForLoadState("networkidle")
-                await this.page.waitForTimeout(2000)
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+                
+               
         }
+               async clickAddNewConfigPlusBtn() {                
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.addNewConfigPlusBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Tug Of War Add New Plus Btn Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.addNewConfigPlusBtn}"`)
+        }
+
 
         //click Tug Of War Page
         async clickGameSettingsSection() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last().click({ button: "left", delay: 1000 })
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameSettingsBtn).last()
+                try{
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
-                else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
-                await this.page.waitForLoadState("networkidle")
+                catch(error){
+                        throw(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
+                }
+                
+                
         }
 
         async clickQrCodeBtn() {
@@ -117,7 +234,7 @@ export default class tugOfWarPage {
                         await ele.click({ button: "left", delay: 1000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameSettingsBtn}"`)
-                await this.page.waitForLoadState("networkidle")
+                await this.page.waitForTimeout(2000)
 
         }
 
@@ -184,6 +301,26 @@ export default class tugOfWarPage {
 
         }
 
+        async verifyAddNewConfigPlusWindowText() {
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.newConfigTitleText)
+                try{
+                        await expect(ele).toContainText("New Configuration")
+                }
+                catch(error){
+                      throw(`Tug Of War New Configuration Text Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.newConfigTitleText}"`)
+                }
+                
+
+        }
+        async verifyConfigurationsText() {
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ConfigurationsText)
+                if (await ele.isVisible()) {
+                        await expect(ele).toContainText("Configurations")
+                }
+                else throw new Error(`Tug Of War Configuration Text Element Is Not visiable, Could not find locator:"${ele}"`)
+
+        }
+
         async verifyPrimaryColorTitleText() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorTitleText)
                 if (await ele.isVisible()) {
@@ -205,7 +342,7 @@ export default class tugOfWarPage {
         async inputPrimaryColor() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
                 if (await ele.isVisible()) {
-                        await ele.fill("355C7D", { timeout: 3000 })
+                        await ele.fill("7B178CFF", { timeout: 3000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Primary Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)
         }
@@ -270,7 +407,7 @@ export default class tugOfWarPage {
         async inputTextColor() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.primaryColorInputField)
                 if (await ele.isVisible()) {
-                        await ele.fill("FFFFFFFF", { timeout: 3000 })
+                        await ele.fill("7B178CFF", { timeout: 3000 })
                 }
                 else throw new Error(`Tug Of War Game Settins Text Color Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.primaryColorInputField}"`)
         }
@@ -346,35 +483,32 @@ export default class tugOfWarPage {
                 }
                 else throw new Error(`Tug Of War Game Settins Stand By Massage Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.standbyMassageInputFiled}"`)
         }
-
-
-
-
-
-
-
         async inputConfigurationName(name: string) {
-                const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
-                await ele.fill(name)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.cofigNameInputField)
+                if (await ele.isVisible()) {
+                        await ele.fill(name)
+                }
+                else throw new Error(`Tug Of War Game Settins Stand By Massage Input Field Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.cofigNameInputField}"`)
 
         }
 
 
         async clickStagesBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last().click({ button: "left", delay: 1000 })
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.gameStageBtn).last()
+                try{
+                        await ele.last().click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 }
-                else throw new Error(`Tug Of War Stage Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameStageBtn}"`)
-                await this.page.waitForLoadState("networkidle")
-
-
+                catch(error){
+                        throw(`Tug Of War Stage Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.gameStageBtn}"`)
+                }
         }
 
         async clickGameStartBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.startBtn)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.startBtn).last()
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 else {
                         console.log(`Tug Of War Game Start Btn Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.startBtn}"`)
@@ -382,8 +516,10 @@ export default class tugOfWarPage {
         }
 
         async clickGameStopBtn() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.stopBtn)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.stopBtn).last()
                 if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                         await ele.click({ button: "left", delay: 1000 })
                 }
                 else {
@@ -392,14 +528,14 @@ export default class tugOfWarPage {
 
         }
 
-        async verifyCustomMobileWaitingMassageTitleText() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customMobileWaitingMassageTitleText)
-                if (await ele.isVisible()) {
-                        await ele.click({ button: "left", delay: 1000 })
-                }
-                else throw new Error(`Tug Of War Stage Section Custom Mobile Waiting Massage Text Is not visiable, Could not find locator: "${this.tugOfWarPageElements.customMobileWaitingMassageTitleText}"`)
+        // async verifyCustomMobileWaitingMassageTitleText() {
+        //         const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customMobileWaitingMassageTitleText)
+        //         if (await ele.isVisible()) {
+        //                 await ele.click({ button: "left", delay: 1000 })
+        //         }
+        //         else throw new Error(`Tug Of War Stage Section Custom Mobile Waiting Massage Text Is not visiable, Could not find locator: "${this.tugOfWarPageElements.customMobileWaitingMassageTitleText}"`)
 
-        }
+        // }
 
         async inputCustomMobileWaitingMassage() {
                 const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customMobileWaitingMassageInputField)
@@ -447,1343 +583,978 @@ export default class tugOfWarPage {
 
         }
 
-
-
-        async clickTitleStageTab() {
-                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
-                //         await this.page.waitForSelector(ele)        
-
-                await this.page.frameLocator('iframe')
-                        .locator('text=Title Stage')
-                        .click({ force: true })
-
-        }
-
-        async verifyEnableStageText() {
-                //      const ele = await this.page.frameLocator('iframe').locator('text=Enable Stage to be skip and jump to next one')
-                await this.page.waitForSelector('text=Enable Stage to be skip and jump to next one')
-                // expect(ele).toContainText("Enable Stage to be skip and jump to next one")          
-
-
-        }
-
-        async enableStage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
-
-                await ele.check()
-                // if ((ele == false)) {
-                //         // console.log("Enable Stage to be skip and jump to next one")
-                //         await this.page.frameLocator('iframe')
-                //                 .locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[1]")
-                //                 .click()
-                // }
-
-
-        }
-        async clickImageRadioBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("input[value='image']").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("input[value='image']")
-                                .click()
-                }
-
-
-        }
-        async deletedUploadedTitleImageBG() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadTitleBackgroundImage() {
-
-
-                let filePath0 = "testData/images/CountDownStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0])
-                })
-                await this.page.frameLocator('iframe').locator('text=Title BackgroundImageVideo >> div').nth(3).click();
-
-        }
-
-        async clickVideoUploadCheckbox() {
-
-                let ele = await this.page.frameLocator('iframe').locator("//input[@value='video']").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("//input[@value='video']")
-                                .check()
-                }
-        }
-
-
-
-        async uploadTitleBackgroundVideo() {
-
-
-                let filePath0 = "testData/videos/video.mp4"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]").click();
-
-        }
-
-        async deleteUploadedGameTitleImageBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]")
-                                .click()
-                }
-
-
-        }
-
-
-        async uploadGameTitleImage() {
-
-
-                let filePath0 = "testData/images/SelectionStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]").first().click();
-
-
-        }
-        async deleteUploadedTeamLogo() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//div[@class='MuiBox-root css-1v2p79w'])[1]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadTeamLogo() {
-
-
-                let filePath0 = "testData/logos/gameTeamLogo.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[3]").first().click();
-
-
-        }
-
-        async deleteUploadedSponsorLogo() {
-                let ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1v2p79w']").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("//div[@class='MuiBox-root css-1v2p79w']")
-                                .click()
-                }
-
-
-        }
-
-        async clickSponsorLogoUploadIcon() {
-                let ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[4]")
-                await ele.click()
-
-        }
-
-        async clickTeamLogoUploadIcon() {
-                let ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[3]")
-                await ele.click()
-
-        }
-
-        async clickGameTitleUploadIcon() {
-                let ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-                await ele.click()
-
-        }
-
-        async clickTitleBackgroundUploadIcon() {
-                let ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
-                await ele.click()
-
-        }
-
-
-
-        async uploadSponsorLogo() {
-
-
-                let filePath0 = "testData/logos/gameLogo.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath0])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[4]").first().click();
-
-
-        }
-
-        async enableCustomSelectionMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]")
-                await ele.click()
-                // if ((ele == false)) {
-                //         // console.log("Enable Stage to be skip and jump to next one")
-                //         await this.page.frameLocator('iframe')
-                //                 .locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]")
-                //                 .click()
-                // }
-
-
-        }
-
-        async inputCustomSelectionMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                                .fill("In publishing and graphic design, Lorem ipsum is a placeholder")
-                }
-
-
-        }
-
-
-        //🔚 Closed Title Stage Section Element 
-        //=======================================================
-        //▶▶Start Selection Stage Section Element     
-
-
-
-        async clickSelectionStagePage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='Selection Stage']")
-                await locator.click()
-                // console.log("Successfully Click To Selection Stage Page ")
-        }
-
-        async clickSelectionImageText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Selection Images')
-                expect(locator).toContainText('Selection Images')
-
-        }
-
-        async deleteUploadedSelactionBG() {
-                let ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1v2p79w']").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("//div[@class='MuiBox-root css-1v2p79w']")
-                                .click()
-                }
-
-
-        }
-
-        async uploadSelactionBG() {
-
-
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]").click();
-
-
-        }
-        async clickSecondTeamLogoUploadIcon() {
-
-
-                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']").click();
-
-
-        }
-
-        async inputSelectionStageTeamName() {
-                await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]").fill("Jone Doe")
-
-
-        }
-
-
-        async inputSelectionStageSecondTeamName() {
-                await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]").fill("Jone")
-
-
-        }
-
-
-
-
-
-        async inputNumberOfTeams() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
-                await ele.fill('3')
-
-        }
-
-
-        async clickFirstTeamLogoUploadIcon() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]")
-                await ele.click()
-
-        }
-        async enableAdjustableSelection() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
-                await ele.click({ force: true })
-
-        }
-
-        async inputSelectionTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("//input[@max='59']")
-                await ele.fill('20')
-
-        }
-
-        async enableAllowSelectionChange() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[2]")
-                await ele.click()
-
-        }
-
-
-        async clickAllowSelectionChangeCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("click Allow Selection Change Check box")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[1]")
-                                .click()
-                }
-
-
-        }
-        async clickCustomSelectionMassageCheckBox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[3]").isChecked()
-                if ((ele == false)) {
-                        // console.log("click Custom Selection Massage CheckBox")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[3]")
-                                .click()
-                }
-
-
-        }
-        async inputCustomSelectionMassgeText() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("input Custom Selection Massge Text")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                                .fill("Demo Text Here...")
-                }
-
-
-        }
-
-        async clickCustomTeamSelectionMassageCheckBox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[4]").isChecked()
-                if ((ele == false)) {
-                        // console.log("click Custom Team Selection Massage Check Box")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[4]")
-                                .click()
-                }
-
-
-        }
-
-        async inputCustomeTeamSectionMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("click Custom Team Selection Massage Check Box")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
-                                .fill("lorim upsum dorlo")
-                }
-
-
-        }
-
-        async clickTeamNameBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[1]")
-                await ele.click()
-
-        }
-
-        async inputTeamNameBoxColorRGBFirst() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[3]')
-                await ele.fill("54")
-
-        }
-
-        async inputTeamNameBoxColorRGBSecond() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[4]')
-                await ele.fill("115")
-
-        }
-        async inputTeamNameBoxColorRGBThird() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[5]')
-                await ele.fill("224")
-
-        }
-
-        async inputTeamNameBoxColorOpacity() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[6]')
-                await ele.fill("224")
-
-        }
-
-        async inputTeamNameBoxColorHEXColor() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[7]')
-                await ele.fill("224")
-
-        }
-
-        async clickSaveBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
-                await ele.click()
-
-        }
-
-
-        async clickTeamSelectedMassageBoxColorInput() {
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-1pqer0i'])[2]")
-                await ele.click()
-
-        }
-
-        async inputTeamSelectedMassageBoxColorRGBFirst() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[3]')
-                await ele.fill("154")
-
-        }
-
-        async inputTeamSelectedMassageBoxColorRGBSecond() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[4]')
-                await ele.fill("115")
-
-        }
-        async inputTeamSelectedMassageBoxColorRGBThird() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[5]')
-                await ele.fill("224")
-
-        }
-
-        async inputTeamSelectedMassageBoxColorOpacity() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[6]')
-                await ele.fill("224")
-
-        }
-
-        async inputTeamSelectedMassageBoxColorHEXColor() {
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[7]')
-                await ele.fill("e100daff")
-
-        }
-
-
-        //🔚 Closed Selection Stage Section Element 
-        //=======================================================
-        //▶▶Start Countdown Stage Section Element    
-
-
-        async clickCountdownStagePage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='Countdown Stage']")
-                await locator.click()
-                // console.log("Successfully Click To Countdown Stage Page ")
-        }
-
-        async enableCountDownStageSkipAndJump() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[1]")
-                                .click({ force: true })
-                }
-
-
-        }
-
-        async clickCountdownImageText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Countdown Images')
-                expect(locator).toContainText('Countdown Images')
-
-        }
-
-        async deleteUploadedCountdownBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Countdown BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//button[@type='button']//div)[2]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadCountdownBG() {
-
-
-
-                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']").click();
-
-
-        }
-
-
-
-
-        async inputAdjustableCountdownLengthTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("//input[@type='number']")
-                await ele.fill('22')
-
-        }
-
-
-        async clickCustomCountdownMessageCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("click Custom Countdown Message Checkbox")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[2]")
-                                .click()
-                }
-
-
-        }
-
-        async inputCustomCountDownMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("//textarea[@placeholder='Type message']").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("//textarea[@placeholder='Type message']")
-                                .fill("In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate")
-                }
-
-
-        }
-
-
-
-        //🔚 Closed Countdown Stage Section Element 
-        //=======================================================
-        //▶▶Start Gameplay Stage Section Element    
-
-
-        async clickGameplayStagePage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='Gameplay Stage']")
-                await locator.click()
-                // console.log("Successfully Click To Gameplay Stage Page ")
-        }
-
-
-
-        async clickGameplayImageText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Gameplay Images')
-                expect(locator).toContainText('Gameplay Images')
-
-        }
-
-        async deleteUploadedGameplayBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Gameplay BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//button[@type='button']//div)[2]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadGameplayBG() {
-
-                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']").click();
-
-
-        }
-
-
-        async enableDisplayPowerMeter() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[3]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[3]")
-                                .click({ force: true })
-                }
-
-
-        }
-
-        async verifyPowerMethodsText() {
-                const ele = await this.page.frameLocator('iframe').locator("//h6[text()='Power Methods']")
-                expect(ele).toContainText("Power Methods")
-
-        }
-
-
-        async clickTapToPowerCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='radio'])[3]").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='radio'])[3]")
-                                .click()
-                }
-
-
-        }
-
-        async clickShoutToPowerCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("//input[@value='shout']").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("//input[@value='shout']")
-                                .click()
-                }
-
-
-        }
-
-        async clickShakeToPowerCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("//input[@value='shake']").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("//input[@value='shake']")
-                                .click()
-                }
-
-
-        }
-
-        async clickSwipeToPowerCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("//input[@value='swipe']").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("//input[@value='swipe']")
-                                .click()
-                }
-
-
-        }
-
-        async enableCustomPowerMessageCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[4]").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[4]")
-                                .click()
-                }
-
-
-        }
-
-        async inputCustomPowerMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[@placeholder='Type message'])[3]")
-                                .fill("In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate")
-                }
-
-
-        }
-
-
-        async enableMainboardMessageCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[1]")
-                                .click()
-                }
-
-
-        }
-
-        async inputMainboardMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                                .fill("In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate")
-                }
-
-
-        }
-        async enableMobileMessageCheckbox() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[2]").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[2]")
-                                .click()
-                }
-
-
-        }
-
-        async inputMobileMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
-                                .fill("In publishing and graphic design, Lorem ipsum ")
-                }
-
-
-        }
-        //🔚 Closed Gameplay Stage Section Element 
-        //=======================================================
-        //▶▶Start Endgame Stage Section Element    
-
-
-
-
-        async clickEndgameStagePage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='EndGame Stage']")
-                await locator.click({ force: true })
-                // console.log("Successfully Click To Endgame Stage Page ")
-        }
-
-
-
-        async clickEndgameImageText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Endgame Images')
-                expect(locator).toContainText('Endgame Images')
-
-        }
-
-        async deleteUploadedEndgameBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Endgame BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//button[@type='button']//div)[2]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadEndgameBG() {
-
-
-                let filePath1 = "testData/images/SelectionStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath1])
-                })
-                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']").first().click();
-
-
-        }
-
-
-
-
-        async inputCustomEndgamerMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[1]")
-                await ele.fill('Lorem ipsum, in graphical and textual context, refers to filler text that is placed')
-
-        }
-
-
-
-        async inputCustomWinnerTitle() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[2]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[@placeholder='Type message'])[2]")
-                                .fill("In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate")
-                }
-
-
-        }
-
-        async inputWinnerAddURL() {
-                const ele = await this.page.frameLocator('iframe').locator("//textarea[@placeholder='Type url']")
-                await ele.fill('https://www.lipsum.com/')
-
-        }
-
-        async inputCustomConsolationMassage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[3]")
-                await ele.fill('In publishing and graphic design')
-
-        }
-
-        async inputConsolationAddURL() {
-
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[@placeholder='Type message'])[4]").isVisible()
-                if ((ele == true)) {
-
-                        await this.page.frameLocator('iframe')
-                                .locator("(//textarea[@placeholder='Type message'])[4]")
-                                .fill('https://www.lipsum.com/')
-                }
-
-
-        }
-
-
-
-        async enableEndgameAdsBtn() {
-                let ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]").isVisible()
-                if ((ele == true)) {
-                        // console.log("click Custom Countdown Message Checkbox")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[1]")
-                                .click()
-                }
-
-
-        }
-        async inputEndgameTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("//input[@type='number']")
-                await ele.fill('23')
-
-        }
-
-
-
-
-        //🔚 Closed Endgame Stage Section Element 
-        //=======================================================
-        //▶▶Start Leaderboard Stage Section Element    
-
-
-
-
-        async clickLeaderboardPage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='Leaderboard']")
-                await locator.click()
-                // console.log("Successfully Click To Leaderboard Page ")
-        }
-
-
-        async enableStageForLeaderboard() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]")
-                await ele.check()
-
-                // if ((ele == true)) {
-
-                //         await this.page.frameLocator('iframe')
-                //                 .locator("(//input[@type='checkbox'])[1]")
-                //                 .click()
-                // }
-
-
-        }
-
-
-
-        async clickLeaderboardImageText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Leaderboard Images')
-                expect(locator).toContainText('Leaderboard Images')
-
-        }
-
-        async deleteUploadedLeaderboardBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Leaderboard BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//button[@type='button']//div)[2]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadLeaderboardBG() {
-
-
-                let filePath1 = "testData/images/SelectionStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath1])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]").click();
-
-
-        }
-
-        async deleteLeaderboardHeaderUploadedImage() {
-                let ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1v2p79w']").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Leaderboard Header BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("//div[@class='MuiBox-root css-1v2p79w']")
-                                .click()
-                }
-
-
-        }
-
-        async uploadLeaderboardHeaderImage() {
-
-
-                const filePath1 = "testData/images/SelectionStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath1])
-                })
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]").click();
-
-
-        }
-
-
-
-
-
-        async fileUploadCropper() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
-                await ele.click({ force: true })
-
-                const saveBtn = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
-                await saveBtn.click()
-
-        }
-
-        async inputLeaderboardTimer() {
-                const ele = await this.page.frameLocator('iframe').locator('[type="number"]')
-                await ele.fill('23')
-
-        }
-
-
-        //🔚 Closed Leaderboard Stage Section Element 
-        //=======================================================
-        //▶▶Start Thankyou Stage Section Element    
-
-
-
-
-
-
-        async clickThankYouStage() {
-                const locator = this.page.frameLocator('iframe').locator("//p[text()='Thankyou Stage']")
-                await locator.click()
-                // console.log("Successfully Click To Thank you Stage Page ")
-        }
-
-
-        async enableStageForThankyouStage() {
-                const ele = await this.page.frameLocator('iframe').locator("(//input[@type='checkbox'])[1]").isVisible()
-                if ((ele == true)) {
-                        await this.page.frameLocator('iframe')
-                                .locator("(//input[@type='checkbox'])[1]")
-                                .click({ force: true })
-                }
-
-
-        }
-
-
-
-        async clickThankYouImagesText() {
-                const locator = this.page.frameLocator('iframe').locator('text= Thank You Images')
-                expect(locator).toContainText('Thank You Images')
-
-        }
-
-        async deleteUploadedThankYouImagesBG() {
-                let ele = await this.page.frameLocator('iframe').locator("(//button[@type='button']//div)[2]").isVisible()
-                if ((ele == true)) {
-                        // console.log("delete Uploaded Leaderboard BG")
-                        await this.page.frameLocator('iframe')
-                                .locator("(//button[@type='button']//div)[2]")
-                                .click()
-                }
-
-
-        }
-
-        async uploadThankYouStageImagesBG() {
-
-
-                let filePath1 = "testData/images/SelectionStageBanner.jpg"
-                this.page.on("filechooser", async (filechooser) => {
-                        await filechooser.setFiles([filePath1])
-                })
-                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']").first().click();
-
-
-        }
-
-        async inputUrlRedirectMassage() {
-                let ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                await ele.fill("https://garrett.testingdxp.com//")
-
-
-        }
-
-
-        async clickInputAutoResetTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("input.MuiInputBase-input.MuiOutlinedInput-input")
-                await ele.click()
-
-        }
-
-        async inputAutoResetTimer() {
-                const ele = await this.page.frameLocator('iframe').locator("input.MuiInputBase-input.MuiOutlinedInput-input")
-                await ele.fill('15')
-
-        }
-
-
-
-        async clickCustomThankYouMassageCheckBox() {
-
-
-                await this.page.frameLocator('iframe').locator("(//input[contains(@class,'PrivateSwitchBase-input MuiSwitch-input')])[2]").click()
-
-
-        }
-
-
-        async inputCustomThankYouMassageCheckBox() {
-                // await this.page.waitForSelector(`(//textarea[@placeholder='Type message'])[2]`)
-                const ele = await this.page.frameLocator('iframe').locator("(//textarea[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
-                await ele.fill("Thank You...")
-
-        }
-
-
-
-        //🔚 Closed Thankyou Stage Section Element 
-        //=======================================================
-        //▶▶Start Add New Config Section Element    
-
-        async deleteAutoConfigurationIfHave() {
-                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
-                //         await this.page.waitForSelector(ele)        
-
-                const ele = await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').last().isVisible()
-                if ((ele == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator('text=AutoStagesGame SettingsDelete >> p').last()
-                                .click({ force: true })
-                }
-
-                await this.page.waitForTimeout(3000)
-
-                const deleteBtn = await this.page.frameLocator('iframe').locator("//p[text()='Are you sure that you want to delete this configuration?']").isVisible()
-                if ((deleteBtn == true)) {
-                        // console.log("Enable Stage to be skip and jump to next one")
-                        await this.page.frameLocator('iframe')
-                                .locator("//button[text()='Delete']")
-                                .click({ force: true })
-                }
-
-
-
-
-
-        }
-
-
-        async clickAddNewConfigPlusBtn() {
-                await this.page.waitForTimeout(2000)
-                const ele = await this.page.frameLocator('iframe').locator("(//h5[text()='Configurations']/following-sibling::button)[1]")
-                await ele.click({ button: 'left', delay: 1000 })
-
-        }
-
-        async verifyAddNewConfigPlusWindowText() {
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='New Configuration']")
-                expect(ele).toContainText("New Configuration")
-
-        }
-
-
-
-
-
         async clickAddBtn() {
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
-                expect(ele).toBeVisible()
-                await ele.click()
-                await this.page.waitForLoadState("networkidle")
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.addNewBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Tug Of War Add New Button Element Is not visiable, Could not find locator: "${this.tugOfWarPageElements.addNewBtn}"`)
+
+        }
+        async FontSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.FontCustommobilewaitingMessageDRP)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Font Dropdown Element Not Found: "${this.tugOfWarPageElements.FontCustommobilewaitingMessageDRP}"`)
+
+                
+        }
+        async ArialFontSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.FontArial)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Font Arial Element is Not Found: "${this.tugOfWarPageElements.FontArial}"`)
 
         }
 
-
-        async clickGameDeleteBtn() {
-                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(2).click();
-
-        }
-
-        async deleteGame() {
-                await this.page.frameLocator('iframe').locator("//button[text()='Delete']").click();
-
-        }
-
-
-        //🔚 Closed Add New Config Section Element 
-        //=======================================================
-        //▶▶Start Game Design Section Element    
-
-        async clickGameDesignBtn() {
-                await this.page.frameLocator('iframe').locator('text=AutoStagesGame SettingsDelete >> p').nth(1).click();
-
-        }
-
-        async clickGameSettingFromTheNewlyAddedGame() {
-
-                const ele = await this.page.frameLocator("iframe").locator("//p[text()='Game Settings']").last()
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-
-
-
-        async clickUploadFontBtn() {
-
-                await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[1]").click();
-
-        }
-
-        //Primary Color Section Start
-        async clickPrimaryColorPickerBtn() {
-
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Primary Color']/following-sibling::button")
-                await ele.first().click()
-
-        }
-
-        async inputPrimaryRGBFirstColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[1]')
-                await ele.fill("173")
-
-        }
-        async inputPrimaryRGBSecondColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[2]')
-                await ele.fill("133")
-
-        }
-
-        async inputPrimaryRGBThirdColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[3]')
-                await ele.fill("3")
-
-        }
-
-        async inputPrimaryColorOpacity() {
-
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[4]')
-                await ele.fill("70")
-
-        }
-
-        async inputPrimaryColorHEX() {
-
-                const ele = await this.page.frameLocator('iframe').locator('(//input[@type="text"])[5]')
-                await ele.fill("ac8b04ff")
-
-        }
-
-        async clicSaveBtn() {
-
-                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-
-        //Secondary  Color Section Start
-        async clickSecondaryColorPickerBtn() {
-
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Secondary Color']/following-sibling::button")
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-        async inputSecondaryRGBFirstColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("256")
-
-        }
-        async inputSecondaryRGBSecondColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("33")
-
-        }
-
-        async inputSecondaryRGBThirdColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("32")
-
-        }
-
-        async inputSecondaryColorOpacity() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("70")
-
-        }
-
-        async inputSecondaryColorHEX() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[5]")
-                expect(ele).toBeVisible()
-                await ele.fill("ff3b30ff")
-
-        }
-
-
-        //Secondary  Color Section Start
-        async clickTextColorPickerBtn() {
-
-                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Text Color']/following-sibling::button")
-                expect(ele).toBeVisible()
-                await ele.click()
-
-        }
-
-        async inputTextRGBFirstColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]")
-                expect(ele).toBeVisible()
-                await ele.fill("167")
-
-        }
-        async inputTextRGBSecondColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]")
-                expect(ele).toBeVisible()
-                await ele.fill("73")
-
-        }
-
-        async inputTextRGBThirdColor() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]")
-                expect(ele).toBeVisible()
-                await ele.fill("213")
-
-        }
-
-        async inputTextColorOpacity() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[4]")
-                expect(ele).toBeVisible()
-                await ele.fill("79")
-
-        }
-
-        async inputTextColorHEX() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[5]")
-                expect(ele).toBeVisible()
-                await ele.fill("b13cd5ff")
-
-        }
-
-        async clickForUploadMainboardBG() {
-
-
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
-
-        }
-
-        async clickForUploadMobileBG() {
-
-                const ele = await this.page.frameLocator('iframe').locator("(//div[@class='MuiBox-root css-v2612'])[2]")
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
-
-        }
-        async enableStandByCheckBox() {
-
-                const ele = await this.page.frameLocator('iframe').locator("//input[@type='checkbox']")
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
-
-        }
-
-
-
-
-
-        //🔚 Closed Game Design Section Element 
-        //=======================================================
-        //▶▶Start Game Design Section Element    
-
-        async clickStartGameBtn() {
-
-                await this.page.frameLocator('iframe').locator('text=AutoStart').click();
-
-                // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
-                // expect(ele).toBeVisible()
-                // await ele.click({force:true})
-
-        }
-        async clickMobileLinkBtn() {
-
-                const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
-                expect(ele).toBeVisible()
-                await ele.click({ force: true })
-
-        }
-
-        async clickMobileLinkOpenBtn() {
-
-                // Click text=Open Link
-                const [page1] = await Promise.all([
-                        this.page.waitForEvent('popup'),
-                        this.page.frameLocator('iframe').locator('text=Open Link').click()
-                ]);
+        async Click_Normal_H1_H2_H3_H4_H5_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CharacterDRopdown)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown Is Not Found: "${this.tugOfWarPageElements.CharacterDRopdown}"`)
 
 
         }
-
-        async inputUserNameInGame() {
-
-                const ele = await this.page.frameLocator('iframe').locator('//input[@type="text"]')
-                expect(ele).toBeVisible()
-                await ele.fill("Jon Doe")
+        async ClickCustomPower_Normal_H1_H2_H3_H4_H5_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customPowerDropdown_Normal_H1_H6)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown Is Not Found: "${this.tugOfWarPageElements.CharacterDRopdown}"`)
 
 
         }
-
-
-        getRandomName() {
-                return "Auto" + Date.now() + "Name"
+        async NormalSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGNOrmal)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown Normal Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGNOrmal}"`)
         }
+        async CustomH1Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH1)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown H1 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH1}"`)
+
+        }
+        async CustomH2Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH2)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  H2 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH2}"`)
+
+        }
+        async CustomH3Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH3)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  H3 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH3}"`)
+
+        }
+        async CustomH4Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH4)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  H4 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH4}"`)
+
+        }
+        async CustomH5Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH5)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  H5 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH5}"`)
+
+        }
+        async CustomH6Selection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGH6)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  H6 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGH6}"`)
+
+        }
+        async CustomBlockquoteSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobilewaitingMSGBlock)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Character Dropdown  Blockquote Option Is Not Found: "${this.tugOfWarPageElements.CustomMobilewaitingMSGBlock}"`)
+
+        }
+        async CustomBoldSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGBold)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Bold Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGBold}"`)
+
+        }
+        async CustomItalicSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGItalic)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Italic Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGItalic}"`)
+
+        }
+        async CustomUnderlineSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGUnderline)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Italic Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGUnderline}"`)
+
+        }
+        async CustomStrikethroughSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGStrikeThrough)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Strikethrough Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGStrikeThrough}"`)
+
+        }
+        async CustomColorPickerClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGColorPicker)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message color Picker Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGColorPicker}"`)
+
+        }
+        async CustomColorSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGColor1)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Color 1 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGColor1}"`)
+
+        }
+        async CustomColorPickerHighlightsClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGHighlights)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Highlights Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGHighlights}"`)
+
+        }
+        async CustomHighlightsSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGHighlightsColor1)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Color 1 Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGHighlightsColor1}"`)
+
+        }
+        async CustomLeftAlignmentSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGLeftAlignment)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Left Alignment Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGLeftAlignment}"`)
+
+        }
+        async CustomCenterAlignmentSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGCenterAlignment)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Center Alignment Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGCenterAlignment}"`)
+
+        }
+        async CustomRightAlignmentSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGRightAlignment)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Right Alignment Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGRightAlignment}"`)
+
+        }
+        async CustomOutdentSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGOutdent)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Outdent Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGOutdent}"`)
+
+        }
+        async CustomIntdentSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGINdent)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Indent Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGINdent}"`)
+
+        }
+        async CustomOrderSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGOrderd)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Order Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGOrderd}"`)
+
+        }
+        async CustomUnOrderSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGUnOrderd)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Unorder Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGUnOrderd}"`)
+
+        }
+        async CustomRemoverSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomMobileWaitingMSGRemoverStyles)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Custom Mobile Waiting Message Remover Option Is Not Found: "${this.tugOfWarPageElements.CustomMobileWaitingMSGRemoverStyles}"`)
+
+        }
+        async titlebackgroundImageOptionClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TitlebackgroundImageoptionSelector)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Image option Element is Not Found: "${this.tugOfWarPageElements.TitlebackgroundImageoptionSelector}"`)
+        }
+        async TitleBackgroundImageUploadBTnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TitleBackgroundImageUploadBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Image Upload Element is Not Found: "${this.tugOfWarPageElements.TitleBackgroundImageUploadBTN}"`)
+
+        }
+        async ImageDelete(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.DeleteUploadedImage)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Image Delete Element is Not Found: "${this.tugOfWarPageElements.DeleteUploadedImage}"`)
+
+        }
+        async titlebackgroundVideoOptionClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.VideoOPtionSelector)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Video option Element is Not Found: "${this.tugOfWarPageElements.VideoOPtionSelector}"`)
+        }
+        async VideoDeleteBTnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.VideoDeleteBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Video option Element is Not Found: "${this.tugOfWarPageElements.VideoDeleteBTN}"`)
+
+        }
+        async VideoUploadBTNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.UploadTitleBackgroundVideoBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Title Background Video upload Element is Not Found: "${this.tugOfWarPageElements.UploadTitleBackgroundVideoBTN}"`)
+
+        }
+        async sponsorLogoUploadBtnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.spomsorLogoUploadBTn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Sponsor Logo upload Element is Not Found: "${this.tugOfWarPageElements.spomsorLogoUploadBTn}"`)
+
+        }
+        async TeamLogoUploadBTNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamLogoUploadBtn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(5000)
+                }
+                else throw new Error(`Team Logo upload Element is Not Found: "${this.tugOfWarPageElements.TeamLogoUploadBtn}"`)
+                
+        }
+        async GameTitleImageClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GameTitleImage)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Game Title upload Element is Not Found: "${this.tugOfWarPageElements.GameTitleImage}"`)
+                
+        }
+        async selectionBackgroundImageSelection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionIMageImageOption)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection Background Image option Element is Not Found: "${this.tugOfWarPageElements.SelectionIMageImageOption}"`)
+
+        }
+        async NavigatetotheSelectionStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.NavigateToTheSelectionStage).last()
+                if (await ele.isVisible()) {
+                        await ele.last().click({ button: "left", delay: 2000 })
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Selection stage NAvigation Element is Not Found: "${this.tugOfWarPageElements.NavigateToTheSelectionStage}"`)
+
+        }
+        async selectionBackgroundIMageUploadBTNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionBackgroundImageUpload)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Selection Background Image upload Element is Not Found: "${this.tugOfWarPageElements.SelectionBackgroundImageUpload}"`)
+
+        }
+        async selectionBackgroundIMageDeleteClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionBackgroundIMageDelete)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Selection Background Image Delete Element is Not Found: "${this.tugOfWarPageElements.SelectionBackgroundIMageDelete}"`)
+
+        }
+        async SlectionBackgroundVideoBTnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionStageVideoOPtion)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Selection Background Video Option Element is Not Found: "${this.tugOfWarPageElements.SelectionStageVideoOPtion}"`)
+
+
+        }
+        async SelectionStageVideoUploadBtNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionStageVideoUploadBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Selection Background Video Upload Element is Not Found: "${this.tugOfWarPageElements.SelectionStageVideoUploadBTN}"`)
+
+        }
+        async GameStartBTNCLICK(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GameStartBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Selection Game Start Button Element is Not Found: "${this.tugOfWarPageElements.GameStartBTN}"`)
+
+        }
+        async AdjustableTimer(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.AdjustableTimerSelectionStage)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Adjustable Timer Button Element is Not Found: "${this.tugOfWarPageElements.AdjustableTimerSelectionStage}"`)
+
+        }
+        async NumberOFTeamsInputField(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.NumberOfTEamsINputField)
+                if (await ele.isVisible()) {
+                        await ele.fill("2")
+                }
+                else throw new Error(`Selection stage Number Of teams Input Element is Not Found: "${this.tugOfWarPageElements.NumberOfTEamsINputField}"`)
+
+        }
+        async TEam1LogoUploadBtnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Team1LogoUploadBTN)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage TEam1 Logo Upload Element is Not Found: "${this.tugOfWarPageElements.Team1LogoUploadBTN}"`)
+
+        }
+        async Team1Name(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Team1NameInput)
+                if (await ele.isVisible()) {
+                        await ele.fill("Skylarks")
+                        await this.page.waitForTimeout(3000)
+                }
+                else throw new Error(`Selection stage TEam1 Logo Upload Element is Not Found: "${this.tugOfWarPageElements.Team1NameInput}"`)
+
+        }
+        async Team2LogoUploadBTNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Team2LogoUpload)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage Team 2 Logo Upload Element is Not Found: "${this.tugOfWarPageElements.Team2LogoUpload}"`)
+
+        }
+        async TEam2NameInputField(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Team2NameInput)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Selection stage TEam1 Logo Upload Element is Not Found: "${this.tugOfWarPageElements.Team2NameInput}"`)
+
+
+        }
+        async CustomSelectionMessageInputField(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomSelectionMesaage)
+                if (await ele.isVisible()) {
+                        await ele.fill('This is a test message')
+                        await this.page.waitForTimeout(3000)
+                }
+                else throw new Error(`Selection stage Custom Selection Message Input Element is Not Found: "${this.tugOfWarPageElements.CustomSelectionMesaage}"`)
+
+
+        }
+        async CustomTeamSelectionMessageInputField(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomTeamSelectionMessage)
+                if (await ele.isVisible()) {
+                        await this.page.waitForTimeout(1000)
+                        await ele.fill("This is a test message")
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Selection stage Custom Team Selection Message Input Element is Not Found: "${this.tugOfWarPageElements.CustomTeamSelectionMessage}"`)
+
+
+        }
+        async TeamnameBoxBTNClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamNameBoxBTn)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Team Name Element is Not Found: "${this.tugOfWarPageElements.TeamNameBoxBTn}"`)
+
+        }
+        async AddColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.AddColor)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Add Color Swatch Element is Not Found: "${this.tugOfWarPageElements.AddColor}"`)
+
+        }
+        async RGB1Input(){
+                const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput1)
+                if (await ele.isVisible()) {
+                        await ele.fill('101')
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`RGB 1 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput1}"`)
+
+        }
+
+        async RGB2Input(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput2)
+                if (await ele.isVisible()) {
+                        await ele.fill("148")
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`RGB 2 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput2}"`)
+
+        }
+        async RGB3Input(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput3)
+                if (await ele.isVisible()) {
+                        await ele.fill("144")
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`RGB 3 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput3}"`)
+
+        }
+        async RGB4Input(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBInput4)
+                if (await ele.isVisible()) {
+                        await ele.fill("90")
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`RGB 3 input field Element is Not Found: "${this.tugOfWarPageElements.RGBInput4}"`)
+
+        }
+        async ColorDrpdownClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ColorRGBDrpdown)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Element is Not Found: "${this.tugOfWarPageElements.ColorRGBDrpdown}"`)
+
+        }
+        async ColorDrpdownSolidClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGBSolid)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Solid Element is Not Found: "${this.tugOfWarPageElements.ColorRGBDrpdown}"`)
+
+        }
+        async ColorDrpdownHorizontalClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.HoriZontal)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Horizontal Element is Not Found: "${this.tugOfWarPageElements.HoriZontal}"`)
+
+        }
+        async ColorDrpdownVerticalClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Vertical)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Vertical Element is Not Found: "${this.tugOfWarPageElements.Vertical}"`)
+
+        }
+        async ColorDrpdownDiagonalClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Diagonal)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Diagonal Element is Not Found: "${this.tugOfWarPageElements.Diagonal}"`)
+
+        }
+        async ColorDrpdownRadialClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.Radial)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB DRopdown Radial Element is Not Found: "${this.tugOfWarPageElements.Radial}"`)
+
+        }
+        async ColorRGB5INput(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.RGB5input)
+                if (await ele.isVisible()) {
+                        await ele.fill("659490E6")
+                        await this.page.waitForTimeout(1000)
+                }
+                else throw new Error(`Color RGB Color Code Element is Not Found: "${this.tugOfWarPageElements.RGB5input}"`)
+
+        }
+        async RGBSaveBTnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SaveBTNRGB)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Color RGB Color Csave Button Element is Not Found: "${this.tugOfWarPageElements.SaveBTNRGB}"`)
+
+        }
+        async TeamSelectedMessageBoxClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamSelectedMessageBox)
+                if (await ele.isVisible()) {
+                        await ele.click({ button: "left", delay: 1000 })
+                }
+                else throw new Error(`Team Selected Message Box Button Element is Not Found: "${this.tugOfWarPageElements.TeamSelectedMessageBox}"`)
+
+        }
+        async MoveToTheNextStageBtnClick(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MoveToTheNextStage)
+                try{
+                        
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(1000)
+                   }
+                    catch(error){
+                        throw(`Move to the next Stage Button Element is Not Found: "${this.tugOfWarPageElements.MoveToTheNextStage}"`)
+                    }
+
+        }
+        async CustomCountDownMessageInput(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomCountDownMessage)
+                if (await ele.isVisible()) {
+                        await ele.fill("This is a test message")
+                }
+                else throw new Error(`Custom Countdown Message Input Element is Not Found: "${this.tugOfWarPageElements.CustomCountDownMessage}"`)
+
+        }
+        async GameplayMainboardMessageInput(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayMainBoardMessage)
+                try{
+                        await ele.focus()
+                        await ele.fill('This a Mainboard Message')
+                        await this.page.waitForTimeout(2000)
+                   }
+                    catch(error){
+                            throw(`GAmeplay Mainboard Message Input Element is Not Found: "${this.tugOfWarPageElements.GamePlayMainBoardMessage}"`)
+                    }
+
+        }
+        async ClickSelectionStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.SelectionStage)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(2000)
+               }
+                catch(error){
+                        throw(`Tug of War Selection stage section Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async ClickMobileLinkPopupClose(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MobileLinkCLoseBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War Mobile link popup close  button Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBFirstColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFirstColor)
+               try{
+                    await ele.fill('123')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB first color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBSecondColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBSecondColor)
+               try{
+                    await ele.fill('23')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB second color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBThirdColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBThirdColor)
+               try{
+                    await ele.fill('140',{timeout:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Third color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBFourthColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFourthColor)
+               try{
+                    await ele.fill('100',{timeout:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+
+        }
+        async InputRGBHexColor(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputRGBFourthColor)
+               try{
+                    await ele.fill('78178CFF',{timeout:2000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War input RGB Fourth color field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickUploadedImageDeleteBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.imageDetele).first()
+              if(await ele.isVisible()){
+                await ele.click({button:"left",delay:1000})
+              }
+               
+
+        }
+        async InputMobileMessageInGameplaystage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputMobileMessage)
+               try{
+                   await ele.focus()
+                   await this.page.waitForTimeout(1000)
+                    await ele.clear()
+                    await ele.fill('Mobile Message game play stage',{timeout:2000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Game play stage mobile message input field is not visible:"${ele}"`)
+                }
+        }
+        async clickImageUploadRadioBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ImageUploadRadioBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  image upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickVideoUploadRadioBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.VideoUploadRadioBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Video upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGamePlayBackgroundImageBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayBackgrounImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Image upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameVideoUploadBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War Video upload upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardBackgroundVideoUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War leaderboard Video upload upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGamePlayBackgroundVideoBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayBackgrounVideoUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Video upload radio button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameImageUploadBtn)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  end game image upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        
+        async inputCustomEndGameMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customEndGameMessage)
+               try{
+                    await ele.fill('This is a Custom Endgame Message')
+               }
+                catch(error){
+                        throw(`Tug of War  end game message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomWinnerMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.customWinnerMessage)
+               try{
+                    await ele.fill('This is a Custom Winner Message')
+               }
+                catch(error){
+                        throw(`Tug of War  custom winner message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomPowerMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomPowerMessage)
+               try{
+                    await ele.focus()
+                    await ele.fill('This is a Custom Power Message')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom power message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputEndGameTimer(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.InputEndGameTimer)
+               try{
+                    await ele.focus()
+                    await ele.fill('5')
+               }
+                catch(error){
+                        throw(`Tug of War  Endgame timer input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputCustomConsolationMessage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomPowerMessage)
+               try{
+                    await ele.focus()
+                    await ele.fill('This is a Custom Consolation Message')
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom consolation message input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndgameMessageDropdownHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndgameMessageDropdownHeader_Normal_H1_To_H6)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  end game input message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCustomWinnerHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomWinnerHeader_Dropdown)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom winner  message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCustomCosolationHeader_Normal_H1_To_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CustomConsolationHeader_Dropdown)
+               try{
+                    await ele.click({button:"left",delay:1000})
+                    await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  custom consolation  message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardBackgroundImageBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardBackgroundImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard background image Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardHeaderImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardHeaderImageUpload)
+               try{
+                    await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard header image Element is Not Found:"${ele}"`)
+                }
+        }
+        async inputLeaderboardTimer(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderBoardTimer)
+               try{
+                    await ele.fill('5')
+               }
+                catch(error){
+                        throw(`Tug of War  leaderboard timer input field Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouBackgroundImageUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouBackgroundImageUploadBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou background image upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouBackgroundVideoUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouBackgroundVideoUploadBtn)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou background video upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouLeaderboardHeaderUploadBtn(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.thankyouLeaderboardHeaderUpload)
+               try{
+                await ele.click({button:"left",delay:1000})
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou leaderboard header upload button Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickThankyouStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.ThankYouStages)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Thankyou stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickLeaderboardStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.LeaderboardStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War  Leaderboard stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickEndGameStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.EndGameStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Endgame stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickGameplayStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.GamePlayStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Gameplay stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickCountdownStage(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.CountdownStage)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Countdown stage Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickMobileMessageHeaderDropdown_Normal_H1_H6(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.MobileMessageHeaderDropdown_Normal_H1_H6)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War Game stage mobile message header dropdown Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickDeleteSection(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.DeleteSection).last()
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War delete configuration section  Element is Not Found:"${ele}"`)
+                }
+        }
+        async clickDeleteConfiguration(){
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.DeleteConfiguration)
+               try{
+                  await ele.click({button:"left",delay:1000})
+                  await this.page.waitForTimeout(1000)
+               }
+                catch(error){
+                        throw(`Tug of War delete configuration Element is Not Found:"${ele}"`)
+                }
+        }
+        
 
 }
 

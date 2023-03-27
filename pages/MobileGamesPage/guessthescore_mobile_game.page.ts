@@ -232,6 +232,7 @@ export default class guesstheScoreMobilePage {
                    expect(ele).toContainText("Incorrect Guess!")
                }
                async verifycorrectguessmessage(){
+                  await this.page.waitForTimeout(1000)
                   const ele =    this.page.frameLocator('iframe').locator("//p[text()='Correct Guess!']").last()
                   expect(ele).toContainText("Correct Guess!")
               }
@@ -268,7 +269,7 @@ export default class guesstheScoreMobilePage {
                    expect(ele).toContainText("Earned Points")
                }
                async verifyEarnedPoints(){
-                  const ele =    this.page.frameLocator('iframe').locator('//p[@class="MuiTypography-root MuiTypography-body1 css-1nyeegg"]')
+                  const ele =    this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1lmbqew']")
                   //expect(ele).toBeVisible()
                    expect(ele).toContainText("50")
                }

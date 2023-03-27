@@ -11,14 +11,14 @@ export default class triviaMobilePage {
         }
         private triviaMobilePageElements = {
               answerBackground:"//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')]",
-              questionFrame:"//div[@class='MuiBox-root css-1vvhfhc']",
+              questionFrame:"//div[@class='MuiBox-root css-1eb4g8q']",
               correctAnswer:"(//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')])[2]",
               incorrectAnswer:"(//div[contains(@class,'MuiInputBase-root MuiOutlinedInput-root')])[1]",
               countdownAnimationfill:"//div[@class='MuiBox-root css-1htopk5']",
               TileBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
               TileFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
               answerframe:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
-              selectedAnswerColor:"//div[@class='MuiBox-root css-1kap4u3']",
+              selectedAnswerColor:"//div[@class='MuiBox-root css-nz1tze']",
               leaderboardText:"//div[text()='Your Rank']",
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
                userTopTenRank:"(//td[contains(@class,'MuiTableCell-root MuiTableCell-body')])[1]",
@@ -28,7 +28,7 @@ export default class triviaMobilePage {
                teamlogo:'//div[@class="MuiBox-root css-ebl92s"]',
                sponsorlogo:'//div[@class="MuiBox-root css-ebl92s"]',
                submittBtn:"//button[text()='Submit']",
-               Multiplechoise1:"(//div[@class='MuiBox-root css-1pt9sse']//p)[1]",
+               Multiplechoise1:"(//div[@class='MuiBox-root css-1sqndtg'])[1]",
                Multiplechoise2:"(//div[@class='css-101u4pc'])[3]]",
                addnewPrize:"//div[@class='MuiBox-root css-annpnb']",
                SaveToPhoneBtn:"//button[text()='Save to phone']",
@@ -216,7 +216,7 @@ export default class triviaMobilePage {
               
        }
        async verifyQuestionBackgroundColor(){
-              const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-mrk1m3']")
+              const ele =  this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1nsiq2x']")
               await expect.soft(ele).toHaveCSS("background-color","rgb(16, 10, 124)")
               
        }
@@ -357,6 +357,7 @@ export default class triviaMobilePage {
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise1).isVisible()
               if(ele == true){
                      await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.Multiplechoise1).click({button:"left",delay:1000})
+                     await this.page.waitForTimeout(1000)
               }
               else throw new Error("Triva Multiple choise first button is not visible")
        }

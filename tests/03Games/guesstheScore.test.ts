@@ -1089,13 +1089,13 @@ test("0013GTS-024 | Validate Game settings is visible.",async({loginPage,  guess
          await guesstheScorePage.verifyIncorrectGuessText()
          await guesstheScorePage.verifyGuessTimeText()
      })
-    //  await test.step("Validate Game settings all input field is visible", async()=>{
-    //     await guesstheScorePage.inputCorrectGuess()
-    //     await guesstheScorePage.inputCloseGuess()
-    //     await guesstheScorePage.inputFarGuess()
-    //     await guesstheScorePage.inputIncorrectGuess()
-    //     await guesstheScorePage.inputGuessTime()
-    // })
+     await test.step("Validate Game settings all input field is visible", async()=>{
+        await guesstheScorePage.inputCorrectGuessScore()
+        await guesstheScorePage.inputcloseGuessScore()
+        await guesstheScorePage.inputFarGuessScore()
+        await guesstheScorePage.inputInorrectGuessScore()
+        await guesstheScorePage.inputGuessTime()
+    })
    
     
 })
@@ -1167,6 +1167,7 @@ test("0013GTS-026 | Validate opacity slider is visible in color picker.",async({
                     body: screenshot
             })
             await guesstheScorePage.clickGuessTheScoreSection()
+            await guesstheScorePage.clickGameDesign()
             await page.waitForTimeout(2000)
 
 
@@ -1204,6 +1205,9 @@ test("0013GTS-027 | Validate swatches section is visible in color picker.",async
 
 
     })
+    await test.step("Click game design section",async()=>{
+        await guesstheScorePage.clickGameDesign()
+    })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
     })
@@ -1234,7 +1238,9 @@ test("0013GTS-028 | Validate color picker header text is visible.",async({loginP
             await page.waitForTimeout(2000)
 
 
-
+    await test.step("Click game design section",async()=>{
+                await guesstheScorePage.clickGameDesign()
+     })
     })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
@@ -1268,6 +1274,9 @@ test("0013GTS-029 | Validate + button is visible in color picker.",async({loginP
 
 
     })
+    await test.step("Click game design section",async()=>{
+        await guesstheScorePage.clickGameDesign()
+     })
     await test.step("Click Open ColorSection",async()=>{
         await guesstheScorePage.opencolorssection()
     })
@@ -3141,8 +3150,7 @@ test("0013GTS-071 | Validate Incorrect guess message reflection on mobile screen
                 // await guesstheScorePage.clickgameoperationssection() 
                 // await guesstheScorePage.clickgameoperationssection() 
                 //await guesstheScorePage.clickGameOperationAddedEventThreeDot()
-                await guesstheScorePage.clickEventStartBtn()  
-                await page.waitForTimeout(2000)          
+                await guesstheScorePage.clickEventStartBtn()        
                 await guesstheScorePage.clickMoveToNextBtn()
                 await page.waitForTimeout(1000) 
                 await guesstheScorePage.clickMoveToNextBtn()
@@ -3763,7 +3771,6 @@ test("0013GTS-079 | Validate earned points is visible on mobile screen.", async(
         await newguessthescoregame.verifyEarnedPointsText()
         await newguessthescoregame.verifyEarnedPoints()
        
-
      })
      await guesstheScorePage.clickLiveBtn()
 })
