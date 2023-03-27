@@ -12,15 +12,15 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results",
+        "outputDir": "D:/Work Station/Unidevgo/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "id": "",
         "name": "",
-        "testDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+        "testDir": "D:/Work Station/Unidevgo/Playwright",
         "testIgnore": [],
         "testMatch": [
-          "012Trivia.test.ts"
+          "001Login.test.ts"
         ],
         "timeout": 300000
       }
@@ -43,25 +43,25 @@
       "max": 5,
       "threshold": 15000
     },
-    "configFile": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/playwright.config.ts",
-    "rootDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
+    "configFile": "D:\\Work Station\\Unidevgo\\Playwright\\playwright.config.ts",
+    "rootDir": "D:/Work Station/Unidevgo/Playwright",
     "quiet": false,
     "shard": null,
-    "updateSnapshots": "all",
+    "updateSnapshots": "missing",
     "version": "1.29.1",
     "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "tests/03Games/012Trivia.test.ts",
-      "file": "tests/03Games/012Trivia.test.ts",
+      "title": "tests\\01Login\\001Login.test.ts",
+      "file": "tests/01Login/001Login.test.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "012TV-0112 | Validate  upload fonts successfully reflection on mobile screen.",
-          "ok": false,
+          "title": "TLL001-01 | Verify login with valid credentials",
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -73,50 +73,62 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "failed",
-                  "duration": 45848,
+                  "status": "interrupted",
+                  "duration": 14,
                   "error": {
-                    "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================",
-                    "stack": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\n    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7"
+                    "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24"
                   },
                   "errors": [
                     {
-                      "location": {
-                        "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts",
-                        "column": 14,
-                        "line": 27
-                      },
-                      "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n\n\u001b[90m   at \u001b[39mpages/loginPage/Login.page.ts:27\n\n\u001b[0m \u001b[90m 25 |\u001b[39m     \u001b[36masync\u001b[39m enterEmail(emailaddress\u001b[33m:\u001b[39m string) {\u001b[0m\n\u001b[0m \u001b[90m 26 |\u001b[39m         \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(\u001b[32m\"input[type='text']\"\u001b[39m)\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m             \u001b[33m.\u001b[39mtype(emailaddress)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 28 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 29 |\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 |\u001b[39m     \u001b[36masync\u001b[39m enterLoginPassword(password\u001b[33m:\u001b[39m string) {\u001b[0m\n\n\u001b[2m    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\u001b[22m\n\u001b[2m    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\u001b[22m\n\u001b[2m    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7\u001b[22m"
+                      "message": "\u001b[31mFixture \"browser\" timeout of 0ms exceeded.\u001b[39m\n\n\u001b[2m    at D:\\Work Station\\Unidevgo\\Playwright\\node_modules\\@playwright\\test\\lib\\index.js:777:24\u001b[22m"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login Admin",
-                      "duration": 44542,
-                      "error": {
-                        "message": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================",
-                        "stack": "locator.type: Target closed\n=========================== logs ===========================\nwaiting for locator('input[type=\\'text\\']')\n============================================================\n    at LoginPage.enterEmail (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:27:14)\n    at LoginPage.login (/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts:11:20)\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3894:29\n    at /Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts:3892:7"
-                      }
-                    }
-                  ],
-                  "startTime": "2023-03-27T06:51:53.980Z",
-                  "attachments": [],
-                  "errorLocation": {
-                    "file": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/pages/loginPage/Login.page.ts",
-                    "column": 14,
-                    "line": 27
-                  }
+                  "startTime": "2023-03-14T08:36:28.012Z",
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "skipped"
             }
           ],
-          "id": "923949df3e7701a35fec-358bcf319a4d3191f46e",
-          "file": "tests/03Games/012Trivia.test.ts",
-          "line": 3890,
+          "id": "d152332eee6d3e0219ce-6cb3d35422010c93e201",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 7,
+          "column": 6
+        },
+        {
+          "title": "TLL001-02 | Verify login with invalid credentials",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 0,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-03-14T08:36:28.102Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d152332eee6d3e0219ce-f33b0d99c8e8d99fa116",
+          "file": "tests/01Login/001Login.test.ts",
+          "line": 58,
           "column": 6
         }
       ]
