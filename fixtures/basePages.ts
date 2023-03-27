@@ -20,7 +20,7 @@ import mobilePreviewPage from "@pages/mobilePreview.page";
 import triviaMobilePage from "@pages/trivia_mobile_game.page";
 import fanSeeWallPage from "@pages/fanSeeWall.page";
 import fanSeeWallMobilePage from "@pages/fanSeeWallMobile.page";
-import testData from "@testData/testData";
+import fanaticsFilterPage from "@pages/Fanatics-filter-Web.page";
 
 const test = baseTest.extend<{
     loginPage: LoginPage;
@@ -34,7 +34,6 @@ const test = baseTest.extend<{
     liveWallPage: liveWallPage;
     liveWallMobileScreenPage: liveWallMobileScreenPage;
     functions: functions;
-    testData: testData;
     arcadePage: arcadePage;
     addnewexperiencePage: addnewexperiencePage;
     triviaPage: triviaPage;
@@ -45,15 +44,12 @@ const test = baseTest.extend<{
     triviamobilePage: triviaMobilePage;
     fanSeeWallPage: fanSeeWallPage;
     fanSeeWallMobilePage: fanSeeWallMobilePage;
-
+    fanaticsFilterPage:fanaticsFilterPage
 
 
 }>({
     functions: async ({ page }, use) => {
         await use(new functions(page));
-    },
-    testData: async ({ page }, use) => {
-        await use(new testData(page));
     },
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
@@ -108,7 +104,9 @@ const test = baseTest.extend<{
     BaseFunctions: async ({ page }, use) => {
         await use(new BaseFunctions(page));
     },
-
+    fanaticsFilterPage: async ({page},use) =>{
+        await use(new fanaticsFilterPage((page)))
+    }
 
 
 })

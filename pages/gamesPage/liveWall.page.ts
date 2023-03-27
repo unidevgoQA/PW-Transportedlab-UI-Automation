@@ -36,6 +36,7 @@ export default class liveWallPage {
     RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
     RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
     add_instance: '//p[text()="Instances"]//parent::div//button',
+    select_swatch:'//p[text()="Swatches"]//parent::li//following-sibling::li',
     click_mobile_background:'//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
     edit_button_mobile_background: '//p[text()="Mobile Background"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
     delete_button_mobile_background: "//p[text()='Mobile Background']//following-sibling::div[2]//button[@aria-label='Delete']",
@@ -896,13 +897,12 @@ export default class liveWallPage {
     }
   }
   async validate_solid_horizontal_vertical_dropdown() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Solid_dropdown).first()
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
-    }
-    else {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Solid_dropdown).last()
+     try {
+      await ele.click({button:'left'})
+     } catch (error) {
       throw new Error("Either solid dropdown  is missing or its not visible in this color picker")
-    }
+     }
   }
 
   async click_solid_button() {
@@ -948,6 +948,14 @@ export default class liveWallPage {
       throw new Error('click radial button click failed'+error)
     }
   }
+  async select_last_swatch(){
+    const ele = this.page.frameLocator('iframe').locator(this.Fansee_page_elements.select_swatch).last()
+     try {
+         await ele.click({ button: "left", delay: 1000 })
+     } catch (error) {
+         throw new Error(`Fansee | last swatch clicking failed | Error occurred: ${error}`);
+     }
+ }
 
   //countdown_color_input
   async input_Red_Color(value: string) {
