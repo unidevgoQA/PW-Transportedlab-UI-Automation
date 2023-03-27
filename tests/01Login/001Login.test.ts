@@ -4,7 +4,7 @@ import BaseFunctions from "base-function/baseFunctions";
 import { readFileSync } from "fs";
 
 
-test("TLL001-01 | Verify login with valid credentials", async ({ loginPage,page, MainMenu,  browser }) => {
+test.only("TLL001-01 | Verify login with valid credentials", async ({ loginPage,page, MainMenu,  browser }) => {
 
 
 
@@ -30,7 +30,7 @@ test("TLL001-01 | Verify login with valid credentials", async ({ loginPage,page,
                 fullPage: true
             })).toMatchSnapshot("login-page-UI.png")
 
-        // Login with valid credentials 
+        // Login with valid credentials
         await loginPage.login(data.username, data.password)
 
         const title = await page.title();
@@ -65,7 +65,7 @@ test("TLL001-02 | Verify login with invalid credentials", async ({ loginPage, Ma
 
 
 
-        // //Login with invalid credentials 
+        // //Login with invalid credentials
         // await loginPage.loginNegative("inavlidLogin", "InvalidPassword");
 
         await page.fill("input[type='text']", "invalidName")
@@ -127,11 +127,11 @@ test("TLL001-04| Verify Cue Logo Is Visible", async ({ loginPage, MainMenu, page
 
 
 
-        await page.goto('/admin/#/sign-in', { waitUntil: 'domcontentloaded' })    
+        await page.goto('/admin/#/sign-in', { waitUntil: 'domcontentloaded' })
 
         await page.waitForTimeout(4000)
         await loginPage.verifyCueLogoIsVisible()
-        
+
 
 
 
@@ -164,7 +164,7 @@ test("TLL001-06|  Verify Signin Page Title Text IsVisible", async ({ loginPage, 
         await page.goto('/admin/#/sign-in', { waitUntil: 'domcontentloaded' })
         await page.waitForTimeout(4000)
         await loginPage.verifySigninPageTitleTextIsVisible()
-     
+
 
 
 
@@ -234,7 +234,7 @@ test("TLL001-09| Verify Eye Button Functionality Is Working", async ({ loginPage
 
 
         await page.goto('/admin/#/sign-in', { waitUntil: 'domcontentloaded' })
-        await page.waitForTimeout(4000)        
+        await page.waitForTimeout(4000)
         await loginPage.inputSecret()
         await loginPage.clickEyeBtn()
 
