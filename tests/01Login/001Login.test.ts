@@ -2,7 +2,7 @@ import test, { expect } from "@fixtures/basePages"
 import * as data from "@testData/login.cred.json";
 import BaseFunctions from "base-function/baseFunctions";
 import { readFileSync } from "fs";
-test.only("TLL001-01 | Verify login with valid credentials", async ({ loginPage, page, MainMenu, browser }) => {
+test("TLL001-01 | Verify login with valid credentials", async ({ loginPage, page, MainMenu, browser }) => {
         // const context = await browser.newContext();
         // // start tracing
         // await context.tracing.start(

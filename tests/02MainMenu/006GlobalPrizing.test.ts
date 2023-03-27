@@ -4,7 +4,7 @@ import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 
 
-test.only("006GP-001 | Validate Global Prizing Section", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
+test("006GP-001 | Validate Global Prizing Section", async ({ loginPage, MainMenu, functions, languagePage, menuPage, singupPage, globalPrizingPage, page, }, testInfo) => {
         await test.step("Login Admin And Land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)

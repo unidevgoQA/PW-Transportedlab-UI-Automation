@@ -6,7 +6,7 @@ import { readFileSync } from 'fs'
 import triviaPage from '../../pages/gamesPage/trivia.page';
 import triviaMobilePage from '../../pages/MobileGamesPage/trivia_mobile_game.page';
 import tugOfWarPage from '../../pages/gamesPage/tugOfWar.page';
-test.only("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -31,7 +31,7 @@ test.only("000 | Select All The Menu Ready For UI Varification", async ({ loginP
 
         await functions.fontUploadFunction()
         await menuPage.clickToUploadFont()
-        await menuPage.verifyFontUploadedSuccessfully()        
+        await menuPage.verifyFontUploadedSuccessfully()
 
         await menuPage.clickBackgroundColorInputField()
         await menuPage.inputBackgroundColor()
@@ -78,7 +78,7 @@ test("008TOFW-001 | Add New Configuration.", async ({ loginPage, tugOfWarPage, f
         //click Tug Of War Page
         await tugOfWarPage.clickTugOfWarPage()
 
-        //click AddNew Config Plus Btn 
+        //click AddNew Config Plus Btn
         await tugOfWarPage.verifyConfigurationsText()
         await tugOfWarPage.clickAddNewConfigPlusBtn()
 
@@ -96,9 +96,9 @@ test("008TOFW-004 | Validate Admin Successfully Upload Font From Game Settings",
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage()     
+        await tugOfWarPage.clickTugOfWarPage()
 
         await tugOfWarPage.clickGameSettingsSection()
 
@@ -132,8 +132,8 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -143,8 +143,8 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -157,9 +157,9 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -167,9 +167,9 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
                 await tugOfWarMobilePages.validateFontSuccessfullyApplied()
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 })
@@ -179,8 +179,8 @@ test("008TOFW-006 | Validate Game Settings  Primary Color Successfully Update Fr
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
-        await tugOfWarPage.clickTugOfWarPage()   
+        expect(title).toBe('DXP Admin')
+        await tugOfWarPage.clickTugOfWarPage()
         await tugOfWarPage.clickGameSettingsSection()
         await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.verifyPrimaryColorTitleText()
@@ -209,16 +209,16 @@ test("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -231,17 +231,17 @@ test("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
+                await tugOfWarMobilePages.clickSubmitButton()
                 await page.waitForTimeout(2000)
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 await tugOfWarMobilePages.screenshot_matcher_PrimaryColor()
-                     
+
                 await tugOfWarPage.ClickMobileLinkPopupClose()
 
-             
+
         })
 
 })
@@ -250,8 +250,8 @@ test("008TOFW-008 | Validate Game Settings  Secondary Color Successfully Update 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
-        await tugOfWarPage.clickTugOfWarPage()     
+        expect(title).toBe('DXP Admin')
+        await tugOfWarPage.clickTugOfWarPage()
         await tugOfWarPage.clickGameSettingsSection()
         await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.verifySecondaryColorTitleText()
@@ -279,8 +279,8 @@ test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -288,8 +288,8 @@ test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -302,17 +302,17 @@ test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         // await test.step("Validation on mobile Screen", async () => {
 
         //         await tugOfWarMobilePages.validatePrimaryColorSuccessfullyApplied()
-                     
-             
-             
+
+
+
         // })
 
 })
@@ -321,9 +321,9 @@ test(" 008TOFW-010 | Validate Game Settings  Text Color Successfully Update From
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
-        await tugOfWarPage.clickTugOfWarPage()   
-        await tugOfWarPage.verifyConfigurationsText()  
+        expect(title).toBe('DXP Admin')
+        await tugOfWarPage.clickTugOfWarPage()
+        await tugOfWarPage.verifyConfigurationsText()
         await tugOfWarPage.clickGameSettingsSection()
         await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.verifyTextColorTitleText()
@@ -354,8 +354,8 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -363,8 +363,8 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -377,9 +377,9 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -389,9 +389,9 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
                 await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 })
@@ -405,11 +405,11 @@ test(" 008TOFW-012 | Validate Title Stage Custom Mobile Waiting Message Successf
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage() 
+        await tugOfWarPage.clickTugOfWarPage()
         await tugOfWarPage.verifyConfigurationsText()
-        await tugOfWarPage.clickStagesBtn()        
+        await tugOfWarPage.clickStagesBtn()
 
         //await tugOfWarPage.clickGameStopBtn()
         //await tugOfWarPage.verifyCustomMobileWaitingMassageTitleText()
@@ -423,7 +423,7 @@ test(" 008TOFW-012 | Validate Title Stage Custom Mobile Waiting Message Successf
         await tugOfWarPage.CustomH1Selection();
         await tugOfWarPage.Click_Normal_H1_H2_H3_H4_H5_H6();
         await tugOfWarPage.CustomH2Selection();
-        
+
         await tugOfWarPage.Click_Normal_H1_H2_H3_H4_H5_H6();
         await tugOfWarPage.CustomH3Selection();
         await tugOfWarPage.Click_Normal_H1_H2_H3_H4_H5_H6();
@@ -474,7 +474,7 @@ test("008TOFW-013 | Validate Custom Mobile Waiting Message Successfully Show on 
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -482,8 +482,8 @@ test("008TOFW-013 | Validate Custom Mobile Waiting Message Successfully Show on 
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -496,13 +496,13 @@ test("008TOFW-013 | Validate Custom Mobile Waiting Message Successfully Show on 
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
+                await tugOfWarMobilePages.clickSubmitButton()
         })
 
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.clickHomeBtn()
                 await tugOfWarMobilePages.validateCustomWaitingTextSuccessfullyApplied();
-             
+
         })
 
 })
@@ -511,14 +511,14 @@ test("008TOFW-014 | Validate Sponsor Logo Image Successfully Updated From Admin 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.clickGameSettingsSection()
-        await tugOfWarPage.clickClearAllBtn()   
+        await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.clickUploadedImageDeleteBtn()
-        await functions.logoImageUploadFunction();   
+        await functions.logoImageUploadFunction();
         await tugOfWarPage.sponsorLogoUploadBtnClick();
         await functions.fileUploadCropper();
         await page.waitForTimeout(7000)
@@ -543,7 +543,7 @@ test(" 008TOFW-015 | Validate Sponsor Logo Image Successfully Show on Mobile Scr
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -551,8 +551,8 @@ test(" 008TOFW-015 | Validate Sponsor Logo Image Successfully Show on Mobile Scr
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -564,17 +564,17 @@ test(" 008TOFW-015 | Validate Sponsor Logo Image Successfully Show on Mobile Scr
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton() 
-                await page.waitForTimeout(2000)     
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(2000)
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 await tugOfWarMobilePages.screenshot_matcher_Sponsorlogo();
-                     
-             
-             
+
+
+
         })
 
 })
@@ -583,9 +583,9 @@ test("008TOFW-016| Validate Title Stage Team Logo Successfully Updated From Admi
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage()  
+        await tugOfWarPage.clickTugOfWarPage()
         await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.clickUploadedImageDeleteBtn()
         await functions.logoImageUploadFunction();
@@ -612,8 +612,8 @@ test("008TOFW-017 | Validate Team Logo Successfully Show on Mobile Screen.", asy
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -621,8 +621,8 @@ test("008TOFW-017 | Validate Team Logo Successfully Show on Mobile Screen.", asy
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -635,16 +635,16 @@ test("008TOFW-017 | Validate Team Logo Successfully Show on Mobile Screen.", asy
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-                await page.waitForTimeout(2000)   
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(2000)
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 await tugOfWarMobilePages.screenshot_matcher_Teamlogo();
-             
-             
+
+
         })
 
 })
@@ -653,9 +653,9 @@ test.skip("008TOFW-018 | Validate Title Stage Sponsor Logo Successfully Updated 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage()     
+        await tugOfWarPage.clickTugOfWarPage()
 
         await tugOfWarPage.clickGameSettingsSection()
         // await tugOfWarPage.clickClearAllBtn()
@@ -666,7 +666,7 @@ test.skip("008TOFW-018 | Validate Title Stage Sponsor Logo Successfully Updated 
 
         await tugOfWarPage.verifyMainBoardBackgroundTitleText()
         await tugOfWarPage.clickMainBoardBackgroundUploadInputField()
-        
+
 
 
 
@@ -690,8 +690,8 @@ test.skip("008TOFW-019 | Validate Sponsor Logo Successfully Show on Mobile Scree
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -699,8 +699,8 @@ test.skip("008TOFW-019 | Validate Sponsor Logo Successfully Show on Mobile Scree
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -713,17 +713,17 @@ test.skip("008TOFW-019 | Validate Sponsor Logo Successfully Show on Mobile Scree
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 // await tugOfWarMobilePages.validateTextColorSuccessfullyApplied()
-                     
-             
-             
+
+
+
         })
 
 })
@@ -732,10 +732,10 @@ test("008TOFW-020 | Validate Game Title image in Stage Title Successfully Update
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();     
-        await tugOfWarPage.clickStagesBtn(); 
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.clickUploadedImageDeleteBtn()
         // await tugOfWarPage.clickClearAllBtn()
 
@@ -766,8 +766,8 @@ test("008TOFW-021 | Validate Game Title Image Successfully Show on Mobile Screen
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn();
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -775,8 +775,8 @@ test("008TOFW-021 | Validate Game Title Image Successfully Show on Mobile Screen
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -789,27 +789,27 @@ test("008TOFW-021 | Validate Game Title Image Successfully Show on Mobile Screen
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
+                await tugOfWarMobilePages.clickSubmitButton()
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 await tugOfWarMobilePages.screenshot_matcher_GameTitleImage()
-             
+
         })
 })
 
 
-test.only("008TOFW-022 | Validate Title Stage Title Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-022 | Validate Title Stage Title Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();     
+        await tugOfWarPage.clickTugOfWarPage();
 
-        await tugOfWarPage.clickStagesBtn(); 
+        await tugOfWarPage.clickStagesBtn();
         // await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.clickUploadedImageDeleteBtn()
 
@@ -825,14 +825,14 @@ test.only("008TOFW-022 | Validate Title Stage Title Background image Successfull
 //        await functions.videoUploadFunction();
 //        await tugOfWarPage.VideoUploadBTNClick();
        //await functions.fileUploadCropper();
-        
+
 
 
 
 
 })
 
-test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-023 | Validate Title Background image Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -849,8 +849,8 @@ test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mo
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -858,8 +858,8 @@ test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mo
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -872,36 +872,36 @@ test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mo
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
 
                 await tugOfWarMobilePages.screenshot_matcher_TitleBackground()
-                     
-             
-             
+
+
+
         })
 
 
 })
-test.only("008TOFW-024 | Validate Selection Stage Selection Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-024 | Validate Selection Stage Selection Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
         await test.step("Navigate Tug of War Game",async()=>{
-                await tugOfWarPage.clickTugOfWarPage(); 
+                await tugOfWarPage.clickTugOfWarPage();
         })
         await test.step("Click game stage section",async()=>{
-                await tugOfWarPage.clickStagesBtn(); 
+                await tugOfWarPage.clickStagesBtn();
                 await tugOfWarPage.ClickSelectionStage()
         })
         await test.step("Click selection stage",async()=>{
-                await tugOfWarPage.NavigatetotheSelectionStage();  
+                await tugOfWarPage.NavigatetotheSelectionStage();
                 await tugOfWarPage.clickUploadedImageDeleteBtn()
         })
         await test.step("Click selection stage",async()=>{
@@ -909,20 +909,20 @@ test.only("008TOFW-024 | Validate Selection Stage Selection Background image Suc
                 await functions.logoImageUploadFunction();
                 await tugOfWarPage.selectionBackgroundIMageUploadBTNClick();
                 await functions.fileUploadCropper();
-                await page.waitForTimeout(5000);  
+                await page.waitForTimeout(5000);
         })
-       
+
         // await tugOfWarPage.selectionBackgroundIMageDeleteClick();
         // await tugOfWarPage.SlectionBackgroundVideoBTnClick();
         // await functions.videoUploadFunction();
         // await tugOfWarPage.SelectionStageVideoUploadBtNClick();
         // await functions.fileUploadCropper();
         // await tugOfWarPage.AdjustableTimer();
-        
+
 })
 
 
-test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -941,8 +941,8 @@ test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobi
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -950,8 +950,8 @@ test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobi
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -965,7 +965,7 @@ test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobi
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
                 await tugOfWarMobilePages.clickSubmitButton()
-             
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -975,8 +975,8 @@ test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobi
                      await tugOfWarMobilePages.screenshot_matcher_SelectionBackgroundImage()
                      await tugOfWarPage.ClickMobileLinkPopupClose()
                      await tugOfWarPage.clickGameStopBtn()
-             
-             
+
+
         })
 })
 
@@ -985,17 +985,17 @@ test("008TOFW-026 | Validate Selection Stage Number Of Teams Successfully Update
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn();   
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
 
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.NavigatetotheSelectionStage();
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
 
         await tugOfWarPage.NumberOFTeamsInputField();
-        
+
 })
 
 test("008TOFW-027 | Validate Selection Stage #1 Team Logo Successfully Updated From Admin Side", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
@@ -1003,12 +1003,12 @@ test("008TOFW-027 | Validate Selection Stage #1 Team Logo Successfully Updated F
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn(); 
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.NavigatetotheSelectionStage();
-        await tugOfWarPage.clickUploadedImageDeleteBtn() 
+        await tugOfWarPage.clickUploadedImageDeleteBtn()
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         await functions.potraitImageUploadFunction();
@@ -1016,11 +1016,11 @@ test("008TOFW-027 | Validate Selection Stage #1 Team Logo Successfully Updated F
         await functions.fileUploadCropper();
         await page.waitForTimeout(5000)
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -1040,8 +1040,8 @@ test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", a
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1051,8 +1051,8 @@ test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1065,9 +1065,9 @@ test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1076,7 +1076,7 @@ test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarMobilePages.ValidateTeam1LOGO();
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-             
+
         })
 
 
@@ -1087,19 +1087,19 @@ test("008TOFW-029 | Validate Selection Stage Name Of The #1Teams Successfully Up
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn();   
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
+        await tugOfWarPage.NavigatetotheSelectionStage();
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
 
         await tugOfWarPage.Team1Name();
-        
-        
-        
-        
+
+
+
+
 })
 
 
@@ -1125,8 +1125,8 @@ test("008TOFW-029 | Validate Selection Stage Name Of The #1Teams Successfully Up
 //         await test.step("Click Guess The Scrore Section", async () => {
 //                 await tugOfWarPage.clickTugOfWarPage()
 //         })
-      
-//         let newTab = null;        
+
+//         let newTab = null;
 //         let tugOfWarMobilePages: tugOfWarMobilePage
 
 //         await test.step("now open the game in mobile view", async () => {
@@ -1134,8 +1134,8 @@ test("008TOFW-029 | Validate Selection Stage Name Of The #1Teams Successfully Up
 //                 await tugOfWarPage.clickQrCodeBtn()
 //                 //now click on open button
 //                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-//                 tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+//                 tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
 //         })
 //         await test.step("Validation on mobile Screen", async () => {
 
@@ -1148,9 +1148,9 @@ test("008TOFW-029 | Validate Selection Stage Name Of The #1Teams Successfully Up
 //                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
 //                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
 //                 await tugOfWarMobilePages.inputAdditionalZipCode()
-//                 await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+//                 await tugOfWarMobilePages.clickSubmitButton()
+
+
 //         })
 
 //         await test.step("Validation on mobile Screen", async () => {
@@ -1159,9 +1159,9 @@ test("008TOFW-029 | Validate Selection Stage Name Of The #1Teams Successfully Up
 //                 await tugOfWarMobilePages.ValidateTeam1SelectBTNClick();
 //                 await tugOfWarMobilePages.ValidateTeam1Name();
 
-                     
-             
-             
+
+
+
 //         })
 
 
@@ -1173,12 +1173,12 @@ test("008TOFW-030 | Validate Selection Stage #2 Team Logo Successfully Updated F
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn();   
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
 
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.NavigatetotheSelectionStage();
         await tugOfWarPage.clickUploadedImageDeleteBtn()
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
@@ -1187,11 +1187,11 @@ test("008TOFW-030 | Validate Selection Stage #2 Team Logo Successfully Updated F
         await functions.fileUploadCropper();
         await page.waitForTimeout(5000)
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 
@@ -1215,8 +1215,8 @@ test("008TOFW-031 | Validate #2Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1224,8 +1224,8 @@ test("008TOFW-031 | Validate #2Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1238,9 +1238,9 @@ test("008TOFW-031 | Validate #2Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1249,9 +1249,9 @@ test("008TOFW-031 | Validate #2Team Logo Successfully Show on Mobile Screen.", a
                 await tugOfWarMobilePages.ValidateTeam2LOGO();
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 
@@ -1263,17 +1263,17 @@ test("008TOFW-032 | Validate Custom Selection Message Successfully Updated From 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn();   
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
 
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.NavigatetotheSelectionStage();
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         await functions.potraitImageUploadFunction();
         await tugOfWarPage.CustomSelectionMessageInputField();
-        
+
 })
 
 
@@ -1296,8 +1296,8 @@ test.skip("008TOFW-033 | Validate Custom Selection Message Successfully Show on 
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1305,8 +1305,8 @@ test.skip("008TOFW-033 | Validate Custom Selection Message Successfully Show on 
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1319,9 +1319,9 @@ test.skip("008TOFW-033 | Validate Custom Selection Message Successfully Show on 
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1330,9 +1330,9 @@ test.skip("008TOFW-033 | Validate Custom Selection Message Successfully Show on 
                 await tugOfWarMobilePages.ValidateCustomSelectionMessage();
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 
@@ -1343,24 +1343,24 @@ test("008TOFW-034 | Validate Custom Team Selection Message Successfully Updated 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
+        await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.clickStagesBtn();
-        //await tugOfWarPage.ClickSelectionStage()   
+        //await tugOfWarPage.ClickSelectionStage()
 
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.NavigatetotheSelectionStage();
         await page.waitForTimeout(1000)
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         //await functions.potraitImageUploadFunction();
         await tugOfWarPage.CustomTeamSelectionMessageInputField();
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 
@@ -1382,8 +1382,8 @@ test.skip("008TOFW-035 | Validate Custom Team Selection Message Successfully Sho
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1391,8 +1391,8 @@ test.skip("008TOFW-035 | Validate Custom Team Selection Message Successfully Sho
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1405,9 +1405,9 @@ test.skip("008TOFW-035 | Validate Custom Team Selection Message Successfully Sho
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()          
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1415,9 +1415,9 @@ test.skip("008TOFW-035 | Validate Custom Team Selection Message Successfully Sho
 
                 await tugOfWarMobilePages.ValidateTeam1SelectBTNClick();
                 await tugOfWarMobilePages.ValidateCustomTeamSelectionMessage();
-                     
-             
-             
+
+
+
         })
 
 
@@ -1430,11 +1430,11 @@ test("008TOFW-036 | Validate Team Name Box color Successfully Updated From Admin
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
-        await tugOfWarPage.clickTugOfWarPage(); 
-        await tugOfWarPage.verifyConfigurationsText() 
-        await tugOfWarPage.clickStagesBtn();   
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        expect(title).toBe('DXP Admin')
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.verifyConfigurationsText()
+        await tugOfWarPage.clickStagesBtn();
+        await tugOfWarPage.NavigatetotheSelectionStage();
         await tugOfWarPage.TeamnameBoxBTNClick();
         await tugOfWarPage.ColorDrpdownClick();
         await tugOfWarPage.ColorDrpdownSolidClick();
@@ -1446,11 +1446,11 @@ test("008TOFW-036 | Validate Team Name Box color Successfully Updated From Admin
         await tugOfWarPage.ColorRGB5INput();
         await tugOfWarPage.RGBSaveBTnClick();
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 
@@ -1472,8 +1472,8 @@ test("008TOFW-037 | Validate Team Name Box color Successfully Applied In mobile 
         await test.step("Click trivia Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1483,8 +1483,8 @@ test("008TOFW-037 | Validate Team Name Box color Successfully Applied In mobile 
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1497,10 +1497,10 @@ test("008TOFW-037 | Validate Team Name Box color Successfully Applied In mobile 
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1519,12 +1519,12 @@ test("008TOFW-038 | Validate Team Selected Message Box Successfully Updated From
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
-        await tugOfWarPage.clickStagesBtn();   
+        await tugOfWarPage.clickTugOfWarPage();
+        await tugOfWarPage.clickStagesBtn();
 
-        await tugOfWarPage.NavigatetotheSelectionStage(); 
+        await tugOfWarPage.NavigatetotheSelectionStage();
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         await tugOfWarPage.TeamSelectedMessageBoxClick();
@@ -1534,7 +1534,7 @@ test("008TOFW-038 | Validate Team Selected Message Box Successfully Updated From
         await tugOfWarPage.RGB3Input();
         await tugOfWarPage.RGB4Input();
         await tugOfWarPage.ColorRGB5INput();
-        await tugOfWarPage.RGBSaveBTnClick();  
+        await tugOfWarPage.RGBSaveBTnClick();
 })
 
 
@@ -1555,8 +1555,8 @@ test.skip("008TOFW-039 | Validate Selected Team Message Box Successfully Applied
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1567,8 +1567,8 @@ test.skip("008TOFW-039 | Validate Selected Team Message Box Successfully Applied
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1581,13 +1581,13 @@ test.skip("008TOFW-039 | Validate Selected Team Message Box Successfully Applied
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()    
-                await page.waitForTimeout(3000)     
-                await tugOfWarMobilePages.ValidateTeam1SelectBTNClick() 
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+                await tugOfWarMobilePages.ValidateTeam1SelectBTNClick()
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-             
-             
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1595,9 +1595,9 @@ test.skip("008TOFW-039 | Validate Selected Team Message Box Successfully Applied
                 await tugOfWarMobilePages.validateSelectedTeamMessageBoxSuccessfullyApplied();
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 })
@@ -1608,20 +1608,20 @@ test("008TOFW-040 | Validate Navigation To The Next Stage  From Admin Side.", as
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
+        await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.verifyConfigurationsText()
-        await tugOfWarPage.clickStagesBtn();  
-        await tugOfWarPage.NavigatetotheSelectionStage();  
+        await tugOfWarPage.clickStagesBtn();
+        await tugOfWarPage.NavigatetotheSelectionStage();
 
         await tugOfWarPage.MoveToTheNextStageBtnClick();
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 test("008TOFW-041 | Validate Custom Countdown Message Successfully update From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
@@ -1629,23 +1629,23 @@ test("008TOFW-041 | Validate Custom Countdown Message Successfully update From A
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
+        await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.verifyConfigurationsText()
         await tugOfWarPage.clickStagesBtn();
-        //await tugOfWarPage.NavigatetotheSelectionStage();    
+        //await tugOfWarPage.NavigatetotheSelectionStage();
 
         await tugOfWarPage.MoveToTheNextStageBtnClick();
         await tugOfWarPage.MoveToTheNextStageBtnClick();
         await tugOfWarPage.CustomCountDownMessageInput();
 
 
-        
-        
-        
-        
-        
+
+
+
+
+
 })
 
 
@@ -1654,10 +1654,10 @@ test("008TOFW-042 | Validate Countdown Stage Countdown Background image Successf
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
-        await tugOfWarPage.clickTugOfWarPage();  
+        expect(title).toBe('DXP Admin')
+        await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.verifyConfigurationsText()
-        await tugOfWarPage.clickStagesBtn();   
+        await tugOfWarPage.clickStagesBtn();
 
         await tugOfWarPage.MoveToTheNextStageBtnClick();
         await tugOfWarPage.MoveToTheNextStageBtnClick();
@@ -1668,18 +1668,18 @@ test("008TOFW-042 | Validate Countdown Stage Countdown Background image Successf
         await tugOfWarPage.selectionBackgroundIMageUploadBTNClick();
         await functions.fileUploadCropper();
         await page.waitForTimeout(5000);
-        
+
         // await tugOfWarPage.selectionBackgroundIMageDeleteClick();
         // await tugOfWarPage.SlectionBackgroundVideoBTnClick();
         // await functions.videoUploadFunction();
         // await tugOfWarPage.SelectionStageVideoUploadBtNClick();
         //await functions.fileUploadCropper();
-        
+
         //await tugOfWarPage.AdjustableTimer();
-        
-        
-        
-        
+
+
+
+
 })
 
 test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -1703,8 +1703,8 @@ test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Sc
                 await page.waitForTimeout(1000)
                 await tugOfWarPage.MoveToTheNextStageBtnClick()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1712,8 +1712,8 @@ test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Sc
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1726,10 +1726,10 @@ test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Sc
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()  
-                     
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
@@ -1738,9 +1738,9 @@ test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Sc
                 await tugOfWarMobilePages.validateCountdownBackgroundSuccessfullyApplied();
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
-                     
-             
-             
+
+
+
         })
 
 
@@ -1751,16 +1751,16 @@ test("008TOFW-044 | Validate Gameplay Mainboard Message Successfully From Admin 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
-        expect(title).toBe('DXP Admin') 
+        expect(title).toBe('DXP Admin')
 
-        await tugOfWarPage.clickTugOfWarPage();  
+        await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.verifyConfigurationsText()
         await tugOfWarPage.clickStagesBtn();
         await test.step("Now click move to next button", async () => {
                 await tugOfWarPage.clickGameplayStage()
         })
         await tugOfWarPage.GameplayMainboardMessageInput();
-        
+
 })
 
 test.skip("008TOFW-045 | Validate Gameplay Mainboard Message Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -1780,8 +1780,8 @@ test.skip("008TOFW-045 | Validate Gameplay Mainboard Message Successfully Show o
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-      
-        let newTab = null;        
+
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1789,8 +1789,8 @@ test.skip("008TOFW-045 | Validate Gameplay Mainboard Message Successfully Show o
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1803,20 +1803,20 @@ test.skip("008TOFW-045 | Validate Gameplay Mainboard Message Successfully Show o
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()  
+                await tugOfWarMobilePages.clickSubmitButton()
                 await tugOfWarMobilePages.NavigateTotehGames()
-                await tugOfWarMobilePages.NavigatetotheThugOFwar()           
-             
-             
+                await tugOfWarMobilePages.NavigatetotheThugOFwar()
+
+
         })
 
         await test.step("Validation on mobile Screen", async () => {
                 await page.waitForTimeout(3000);
 
                 await tugOfWarMobilePages.validateGameplayMainBoardMSGSuccessfullyApplied();
-                     
-             
-             
+
+
+
         })
 
 
@@ -1841,7 +1841,7 @@ test("008TOFW-046 | Validate Gameplay Stage Mobile Message Successfully added fr
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click move to next button", async () => {
                 await tugOfWarPage.clickGameplayStage()
                 await page.waitForTimeout(2000)
@@ -1872,7 +1872,7 @@ test.skip("008TOFW-047 | Validate Gameplay Stage Mobile Message Successfully ref
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1881,8 +1881,8 @@ test.skip("008TOFW-047 | Validate Gameplay Stage Mobile Message Successfully ref
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1895,10 +1895,10 @@ test.skip("008TOFW-047 | Validate Gameplay Stage Mobile Message Successfully ref
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -1931,18 +1931,18 @@ test("008TOFW-049 | Validate Gameplay Background image Successfully added on adm
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click gameplay stage", async () => {
                 await tugOfWarPage.clickGameplayStage()
-                
+
         })
         await test.step("Now validate Gameplay Background image upload", async () => {
                 await tugOfWarPage.clickImageUploadRadioBtn()
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickGamePlayBackgroundImageBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(5000)    
-                
+                await page.waitForTimeout(5000)
+
         })
 })
 test("008TOFW-050 | Validate Gameplay Background image Successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -1965,7 +1965,7 @@ test("008TOFW-050 | Validate Gameplay Background image Successfully reflection o
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -1974,8 +1974,8 @@ test("008TOFW-050 | Validate Gameplay Background image Successfully reflection o
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -1988,10 +1988,10 @@ test("008TOFW-050 | Validate Gameplay Background image Successfully reflection o
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2024,7 +2024,7 @@ test("008TOFW-051 | Validate Gameplay Background video Successfully added on adm
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click move to next button", async () => {
                 await tugOfWarPage.clickGameplayStage()
         })
@@ -2033,7 +2033,7 @@ test("008TOFW-051 | Validate Gameplay Background video Successfully added on adm
                 await tugOfWarPage.clickVideoUploadRadioBtn()
                 await functions.videoUploadFunction()
                 await tugOfWarPage.clickGamePlayBackgroundImageBtn()
-                await page.waitForTimeout(7000)    
+                await page.waitForTimeout(7000)
         })
 })
 test("008TOFW-052 | Validate Gameplay Background video Successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2054,7 +2054,7 @@ test("008TOFW-052 | Validate Gameplay Background video Successfully reflection o
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -2063,8 +2063,8 @@ test("008TOFW-052 | Validate Gameplay Background video Successfully reflection o
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2077,10 +2077,10 @@ test("008TOFW-052 | Validate Gameplay Background video Successfully reflection o
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2115,7 +2115,7 @@ test("008TOFW-053 | Validate Gameplay settings Custom Power Message successfully
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click gameplay stage", async () => {
                await tugOfWarPage.clickGameplayStage()
                 await tugOfWarPage.clickUploadedImageDeleteBtn()
@@ -2146,7 +2146,7 @@ test("008TOFW-054 | Validate custom power message successfully reflection on mob
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -2155,8 +2155,8 @@ test("008TOFW-054 | Validate custom power message successfully reflection on mob
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2169,10 +2169,10 @@ test("008TOFW-054 | Validate custom power message successfully reflection on mob
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2214,7 +2214,7 @@ test("008TOFW-055 | Validate Endgame Images successfully added on admin side.", 
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickEndGameImageUploadBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(4000)    
+                await page.waitForTimeout(4000)
         })
 })
 test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2235,7 +2235,7 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -2244,8 +2244,8 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2258,10 +2258,10 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(1000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(1000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2270,7 +2270,7 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
                 }
         })
         await test.step("Now validate gameplay background image successfully uploaded on mobile screen", async () => {
-                await page.waitForTimeout(1000)   
+                await page.waitForTimeout(1000)
                 await tugOfWarMobilePages.screenshot_matcher_Gameplay_EndGameImage()
                 await tugOfWarPage.clickGameStopBtn()
          })
@@ -2295,7 +2295,7 @@ test("008TOFW-057 | Validate Endgame video successfully added on admin side.", a
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click Endgame stage", async () => {
                 await tugOfWarPage.clickEndGameStage()
         })
@@ -2304,7 +2304,7 @@ test("008TOFW-057 | Validate Endgame video successfully added on admin side.", a
                 await tugOfWarPage.clickVideoUploadRadioBtn()
                 await functions.videoUploadFunction()
                 await tugOfWarPage.clickEndGameVideoUploadBtn()
-                await page.waitForTimeout(7000)    
+                await page.waitForTimeout(7000)
         })
 })
 test("008TOFW-058 | Validate Endgame video successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2326,15 +2326,15 @@ test("008TOFW-058 | Validate Endgame video successfully reflection on mobile scr
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2347,10 +2347,10 @@ test("008TOFW-058 | Validate Endgame video successfully reflection on mobile scr
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                // await tugOfWarPage.MoveToTheNextStageBtnClick()
@@ -2411,15 +2411,15 @@ test("008TOFW-060 | Validate Custom Endgame Message successfully reflection on m
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2432,10 +2432,10 @@ test("008TOFW-060 | Validate Custom Endgame Message successfully reflection on m
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2539,7 +2539,7 @@ test("008TOFW-064 | Validate Custom Consolation Message successfully reflection 
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -2547,8 +2547,8 @@ test("008TOFW-064 | Validate Custom Consolation Message successfully reflection 
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2561,10 +2561,10 @@ test("008TOFW-064 | Validate Custom Consolation Message successfully reflection 
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2609,7 +2609,7 @@ test("008TOFW-065 | Validate Leaderboard Background image successfully added on 
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickLeaderboardBackgroundImageBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(4000)    
+                await page.waitForTimeout(4000)
         })
 })
 test("008TOFW-066 | Validate Leaderboard Background image successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2630,7 +2630,7 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
@@ -2638,8 +2638,8 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2652,10 +2652,10 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2689,7 +2689,7 @@ test("008TOFW-067 | Validate Leaderboard Background video successfully added on 
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Click Leaderboard stage", async () => {
                 await tugOfWarPage.clickLeaderboardStage()
         })
@@ -2698,7 +2698,7 @@ test("008TOFW-067 | Validate Leaderboard Background video successfully added on 
                 await tugOfWarPage.clickVideoUploadRadioBtn()
                 await functions.videoUploadFunction()
                 await tugOfWarPage.clickLeaderboardVideoUploadBtn()
-                await page.waitForTimeout(7000)    
+                await page.waitForTimeout(7000)
         })
 })
 test("008TOFW-068 | Validate Leaderboard Background video successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2722,15 +2722,15 @@ test("008TOFW-068 | Validate Leaderboard Background video successfully reflectio
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2743,10 +2743,10 @@ test("008TOFW-068 | Validate Leaderboard Background video successfully reflectio
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2780,7 +2780,7 @@ test("008TOFW-069 | Validate Leaderboard Header image Upload successfully added 
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Click Leaderboard stage", async () => {
                 await tugOfWarPage.clickLeaderboardStage()
         })
@@ -2790,7 +2790,7 @@ test("008TOFW-069 | Validate Leaderboard Header image Upload successfully added 
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickLeaderboardHeaderImageUploadBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(4000)    
+                await page.waitForTimeout(4000)
                 await tugOfWarPage.inputLeaderboardTimer()
         })
 })
@@ -2812,15 +2812,15 @@ test.skip("008TOFW-070 | Validate Leaderboard Header image Upload successfully r
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2833,10 +2833,10 @@ test.skip("008TOFW-070 | Validate Leaderboard Header image Upload successfully r
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2869,10 +2869,10 @@ test("008TOFW-071 | Validate Thank You Background image Upload successfully adde
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
-                
+
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click Thank you stage", async () => {
                 await tugOfWarPage.clickThankyouStage()
 
@@ -2883,7 +2883,7 @@ test("008TOFW-071 | Validate Thank You Background image Upload successfully adde
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickThankyouBackgroundImageUploadBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(4000)    
+                await page.waitForTimeout(4000)
         })
 })
 test("008TOFW-072 | Validate Thank You Background image Upload successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2905,15 +2905,15 @@ test("008TOFW-072 | Validate Thank You Background image Upload successfully refl
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -2926,10 +2926,10 @@ test("008TOFW-072 | Validate Thank You Background image Upload successfully refl
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -2963,7 +2963,7 @@ test("008TOFW-073 | Validate Thank You Background video Upload successfully adde
         await test.step("Click stage section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click Thank you stage", async () => {
                 await tugOfWarPage.clickThankyouStage()
 
@@ -2973,7 +2973,7 @@ test("008TOFW-073 | Validate Thank You Background video Upload successfully adde
                 await tugOfWarPage.clickVideoUploadRadioBtn()
                 await functions.videoUploadFunction()
                 await tugOfWarPage.clickLeaderboardVideoUploadBtn()
-                await page.waitForTimeout(7000)      
+                await page.waitForTimeout(7000)
         })
 })
 test("008TOFW-074 | Validate Thank You Background video Upload successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -2997,15 +2997,15 @@ test("008TOFW-074 | Validate Thank You Background video Upload successfully refl
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -3018,10 +3018,10 @@ test("008TOFW-074 | Validate Thank You Background video Upload successfully refl
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -3053,10 +3053,10 @@ test("008TOFW-075 | Validate Thank You Leaderboard Header Upload successfully ad
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
-                
+
                 await tugOfWarPage.clickStagesBtn()
         })
-        
+
         await test.step("Now click Thank you stage", async () => {
                 await tugOfWarPage.clickThankyouStage()
 
@@ -3067,7 +3067,7 @@ test("008TOFW-075 | Validate Thank You Leaderboard Header Upload successfully ad
                 await functions.portraitBackgroundImageUploadHelper()
                 await tugOfWarPage.clickThankyouLeaderboardHeaderUploadBtn()
                 await functions.fileUploadCropper()
-                await page.waitForTimeout(4000)    
+                await page.waitForTimeout(4000)
         })
 })
 test("008TOFW-076 | Validate Thank You Background video Upload successfully reflection on mobile screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
@@ -3088,19 +3088,19 @@ test("008TOFW-076 | Validate Thank You Background video Upload successfully refl
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
-                
+
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
         })
-        let newTab = null;        
+        let newTab = null;
         let tugOfWarMobilePages: tugOfWarMobilePage
 
         await test.step("now open the game in mobile view", async () => {
                 await tugOfWarPage.clickQrCodeBtn()
                 //now click on open button
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
-                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)                
-                
+                tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
+
         })
         await test.step("Validation on mobile Screen", async () => {
 
@@ -3113,10 +3113,10 @@ test("008TOFW-076 | Validate Thank You Background video Upload successfully refl
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
-                await tugOfWarMobilePages.clickSubmitButton()   
-                await page.waitForTimeout(3000)       
-             
-             
+                await tugOfWarMobilePages.clickSubmitButton()
+                await page.waitForTimeout(3000)
+
+
         })
         await test.step("Now click move to next button", async () => {
                await tugOfWarPage.ClickMobileLinkPopupClose()
@@ -3147,7 +3147,7 @@ test.skip("008TOFW-077 | Validate export button in analytics section.", async ({
         await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-        
+
 })
 test("008TOFW-078 | Validate tug of war delete configuration.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
@@ -3172,5 +3172,5 @@ test("008TOFW-078 | Validate tug of war delete configuration.", async ({ loginPa
         await test.step("Click click tug of war delete configuratio button", async () => {
                 await tugOfWarPage.clickDeleteConfiguration()
         })
-        
+
 })

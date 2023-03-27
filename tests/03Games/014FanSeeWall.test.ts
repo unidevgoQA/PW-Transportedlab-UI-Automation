@@ -1821,7 +1821,7 @@ test.skip("014FSW-060 | Mainboard | Validate Admin Updated Mainboard Image Uploa
         })
 })
 
-test.only("014FSW-061 | Moderation | Validate Admin Successfully Create a Post With Valid Data", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-061 | Moderation | Validate Admin Successfully Create a Post With Valid Data", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1861,7 +1861,7 @@ test.only("014FSW-061 | Moderation | Validate Admin Successfully Create a Post W
 
 })
 
-test.only("014FSW-062 | Moderation | Validate Admin Successfully Filter Custom Adds", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-062 | Moderation | Validate Admin Successfully Filter Custom Adds", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1882,7 +1882,7 @@ test.only("014FSW-062 | Moderation | Validate Admin Successfully Filter Custom A
 
 })
 
-test.only("014FSW-063 | Moderation | Validate Admin Successfully Approved Custom Adds", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-063 | Moderation | Validate Admin Successfully Approved Custom Adds", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1910,7 +1910,7 @@ test.only("014FSW-063 | Moderation | Validate Admin Successfully Approved Custom
 
 })
 
-test.only("014FSW-064 | Moderation | Validate Admin Successfully Filter With Sort By", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-064 | Moderation | Validate Admin Successfully Filter With Sort By", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1970,7 +1970,7 @@ test.only("014FSW-064 | Moderation | Validate Admin Successfully Filter With Sor
 
 })
 
-test.only("014FSW-065 | Mobile Screen | User Successfully Create A Post With Library", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("014FSW-065 | Mobile Screen | User Successfully Create A Post With Library", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2021,7 +2021,7 @@ test.only("014FSW-065 | Mobile Screen | User Successfully Create A Post With Lib
         })
 })
 
-test.only("014FSW-066 | Moderation | Validate User Created Post With Library Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-066 | Moderation | Validate User Created Post With Library Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2042,7 +2042,7 @@ test.only("014FSW-066 | Moderation | Validate User Created Post With Library Suc
 
 })
 
-test.only("014FSW-067 | Mobile Screen | User Successfully Create A Post With Take Photo", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("014FSW-067 | Mobile Screen | User Successfully Create A Post With Take Photo", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2093,7 +2093,7 @@ test.only("014FSW-067 | Mobile Screen | User Successfully Create A Post With Tak
         })
 })
 
-test.only("014FSW-068 | Moderation | Validate User Created Post With Take Photo Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-068 | Moderation | Validate User Created Post With Take Photo Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2115,7 +2115,7 @@ test.only("014FSW-068 | Moderation | Validate User Created Post With Take Photo 
 
 })
 
-test.only("014FSW-069 | Mobile Screen | User Successfully Create A Post With Record Video", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("014FSW-069 | Mobile Screen | User Successfully Create A Post With Record Video", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2166,7 +2166,7 @@ test.only("014FSW-069 | Mobile Screen | User Successfully Create A Post With Rec
         })
 })
 
-test.only("014FSW-070 | Moderation | Validate User Created Post With Record Video Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("014FSW-070 | Moderation | Validate User Created Post With Record Video Successfully Show On Admin Section", async ({ loginPage, testData, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
