@@ -20,17 +20,23 @@ export default class fanaticsFilterPage {
     AddNewConfigInputfield:"//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')]",
     NewConfigtitleText:"//p[text()='Add Configuration']",
     AddConfig:"//button[text()='ADD']",
-    NavigateTotheGamedesign:"(//p[text()='Game Design'])[2]",
-    FontUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[1]",
+    NavigateTotheGamedesign:"//p[text()='Game Design']",
+    Edit_tab:`//p[text()="Edit"]`,
+    edit_name: `//input[@type="text"]`,
+    edit_button:`//button[text()="EDIT"]`,
+    delete_tab:`//p[text()="Delete"]`,
+    delete_button:`//button[text()="Delete"]`,
+    FontUploadBTN:'//p[text()="Upload Font"]//preceding-sibling::div',
     SelectTheFont:"//p[text()='Aa']",
     ColorBackgroundBTN:"(//button[@background='rgba(255, 255, 255, 1)'])[1]",
     AddColor:"//button[@aria-label='Add Color']",
-    RGB1:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[1]",
-    RGB2:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[2]",
-    RGB3:"(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
-    RGB4:"//input[@id='P19792246122']",
     RGBDRopdown:"//div[contains(@class,'MuiSelect-select MuiSelect-standard')]",
-    RGB5:"//div[@class='MuiBox-root css-zfy2p9']/following-sibling::input[1]",
+    RGB_red_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[1]',
+    RGB_green_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[2]',
+    RGB_blue_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[3]',
+    RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
+    RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
+    select_swatch:'//p[text()="Swatches"]//parent::li//following-sibling::li',
     RGBSolid:"//li[@data-value='solid']",
     HoriZontal:"//li[@data-value='horizontal']",
     Vertical:"//li[@data-value='vertical']",
@@ -48,11 +54,11 @@ export default class fanaticsFilterPage {
     SelfiePhotoFrameUploadBTN:"(//div[@class='MuiBox-root css-v2612'])[6]",
     AddBannerButton:"(//p[text()='Ad Banner'])[2]",
     UploadFrameButton:"//div[@class='MuiBox-root css-v2612']",
-    FilterSettingBtn:"(//p[text()='Filter Settings'])[2]",
-    Filter1Inputfield:"(//div[@data-contents='true'])[2]",
-    FontSelection:"(//div[@class='rdw-dropdown-carettoopen'])[2]",
+    FilterSettingBtn:"//p[text()='Filter Settings']",
+    TextInputfield:'//div[@aria-label="rdw-editor"]//span[@data-text]',
+    FontSelection:"//div[@class='rdw-dropdown-carettoopen']",
     ArialSelection:"//li[text()='Arial']",
-    TextDropdown:"(//div[@class='rdw-dropdown-carettoopen'])[3]",
+    TextDropdown:'//a[@title="Block Type"]',
     NOrmal:"//li[text()='Normal']",
     H1:"//li[text()='H1']",
     H2:"//li[text()='H2']",
@@ -71,7 +77,7 @@ export default class fanaticsFilterPage {
     orderedList:"(//div[@title='Ordered']//img)[1]",
     UnorderedList:"(//div[@title='Unordered']//img)[1]",
     Remover:"(//div[@title='Remove(styles) only'])[1]",
-    clickQrCodeBtn:"(//button[@aria-label='Mobile']//span)[3]",
+    clickQrCodeBtn:"//button[@aria-label='Mobile']",
     opneLinkInNewTab: "//a[@aria-label='Open Link']",
     Filter2fontDropdown:"(//a[@title='Font']//div)[2]",
     Filter2textdropdown:"(//a[@title='Block Type'])[2]",
@@ -146,6 +152,12 @@ export default class fanaticsFilterPage {
     orderedList7:"(//div[@title='Ordered']//img)[7]",
     UnorderedList7:"(//div[@title='Unordered']//img)[7]",
     Remover7:"(//div[@title='Remove(styles) only'])[7]",
+    image_edit_splash_screen:'//p[text()="Splash Screen"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    image_edit_filter_transition_screen:'//p[text()="Filter Transition Screen"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    image_edit_camera_rotate_transition_screen:'//p[text()="Camera Rotate Transition Screen"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    image_edit_filter_button_background:'//p[text()="Filter Button Background"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    image_edit_selfie_photo_frame:'//p[text()="Selfie Photo Frame"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
+    
 
 
 
@@ -157,7 +169,7 @@ export default class fanaticsFilterPage {
  
   async clickFanaticsFilterPage() {
     await this.page.waitForSelector(this.FanaticsFilter_page_elements.FanticsFilterPage)
-    const ele = await this.page.locator(this.FanaticsFilter_page_elements.FanticsFilterPage)
+    const ele = this.page.locator(this.FanaticsFilter_page_elements.FanticsFilterPage)
     
     try {
         await ele.click({ button: "left", delay: 1000 })
@@ -165,6 +177,37 @@ export default class fanaticsFilterPage {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Add NewFanatics Filter Page Element Is not visiable | Error occurred: ${error}`);
     }
    
+}
+async clickEditgame(){
+    const ele = this.page.frameLocator('//iframe').locator(this.FanaticsFilter_page_elements.Edit_tab).last()
+    
+    try {
+        await ele.click({ button: "left", delay: 1000 })
+    } catch (error) {
+        throw new Error(`Fanatics Filter | Fanatics Filter Page edit tab is not visible| Error occurred: ${error}`);
+    } 
+}
+
+async update_name(value:string){
+    const ele = this.page.frameLocator('//iframe').locator(this.FanaticsFilter_page_elements.edit_name)
+    const ele2=this.page.frameLocator('//iframe').locator(this.FanaticsFilter_page_elements.edit_button)
+    try {
+        await ele.fill(' '+'Auto Edited')
+        await ele2.click({button:'left'})
+    } catch (error) {
+        throw new Error(`Fanatics Filter | Fanatics Filter Page edit tab is not visible| Error occurred: ${error}`);
+    }
+}
+async delete_game(){
+    const ele = this.page.frameLocator('//iframe').locator(this.FanaticsFilter_page_elements.delete_tab)
+    const ele2 =this.page.frameLocator('//iframe').locator(this.FanaticsFilter_page_elements.delete_button)
+
+    try {
+        await ele.click({button:'left'})
+        await ele2.click({button:'left'})
+    } catch (error) {
+        throw new Error(`Fanatics Filter | Fanatics Filter delete tab is not visible| Error occurred: ${error}`);
+    }
 }
 
 async AddNewConfigBtnClick(){
@@ -193,7 +236,7 @@ async inputConfigurationName(name: string) {
 }
 async AddNConfigBtnClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.AddConfig)
+    const ele =this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.AddConfig)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -204,7 +247,7 @@ async AddNConfigBtnClick(){
 }
 async Navigatetothegamedesign(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.NavigateTotheGamedesign).last()
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.NavigateTotheGamedesign).last()
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -216,9 +259,9 @@ async Navigatetothegamedesign(){
 
 async FontUploadBTNClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FontUploadBTN)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FontUploadBTN)
     try {
-        await ele.click({ button: "left", delay: 1000 })
+        await ele.click({ button: "left" })
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Font Upload Button Element Is not visiable | Error occurred: ${error}`);
     }
@@ -227,9 +270,9 @@ async FontUploadBTNClick(){
 
 async SelectTheFont(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SelectTheFont)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SelectTheFont).last()
     try {
-        await ele.click({ button: "left", delay: 1000 })
+        await ele.click({ button: "left"})
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Font Selection Element Is not visiable | Error occurred: ${error}`);
     }
@@ -238,7 +281,7 @@ async SelectTheFont(){
 
 async ColorBackgroundClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.ColorBackgroundBTN)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.ColorBackgroundBTN)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -257,60 +300,77 @@ async AddColorBTNClick(){
     }
     
 }
-async RGB1Input(){
-   
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGB1)
-    try {
-        await ele.fill("260")
-    } catch (error) {
-        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background RGB 1 Input Element Is not visiable | Error occurred: ${error}`);
+async input_Red_Color(value: string) {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.FanaticsFilter_page_elements.RGB_red_color);
+    if (await ele.isVisible()) {
+      await ele.focus()
+      await ele.fill(' ')
+      await ele.type(value, { delay: 500 })
     }
-    
-}
-async RGB2Input(){
-   
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGB2)
-    try {
-        await ele.fill("260")
-    } catch (error) {
-        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background RGB 2 Input Element Is not visiable | Error occurred: ${error}`);
+    else {
+      throw new Error(" THe red color input box for this color picker is not visible")
     }
-    
-}
-async RGB3Input(){
-   
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGB3)
-    try {
-        await ele.fill("260")
-    } catch (error) {
-        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background RGB 3 Input Element Is not visiable | Error occurred: ${error}`);
-    }
-    
-}
-async RGB4Input(){
-   
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGB4)
-    try {
-        await ele.fill("90")
-    } catch (error) {
-        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background RGB 4 Input Element Is not visiable | Error occurred: ${error}`);
-    }
-    
-}
+  }
 
-async RGB5Input(){
-   
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGB5)
-    try {
-        await ele.fill("FFFFFFFF")
-    } catch (error) {
-        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background RGB 5 Input Element Is not visiable | Error occurred: ${error}`);
+  async input_green_color(value: string) {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.FanaticsFilter_page_elements.RGB_green_color);
+    if (await ele.isVisible()) {
+      await ele.focus()
+      await ele.fill(' ')
+      await ele.type(value, { delay: 500 })
     }
-    
-}
+    else {
+      throw new Error(" THe Green color input box for this color picker is not visible")
+    }
+  }
+  async input_blue_color(value: string) {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.FanaticsFilter_page_elements.RGB_blue_color);
+    if (await ele.isVisible()) {
+      await ele.focus()
+      await ele.fill(' ')
+      await ele.type(value, { delay: 500 })
+    }
+    else {
+      throw new Error(" THe blue color input box for this color picker is not visible")
+    }
+  }
+
+  async inputColorOpacity(value: string) {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.FanaticsFilter_page_elements.RGB_opacity_color);
+    if (await ele.isVisible()) {
+      await ele.focus()
+      await ele.fill(' ')
+      await ele.type(value, { delay: 400 })
+    }
+    else {
+      throw new Error(" THe opacity color input box for this color picker is not visible")
+    }
+  }
+
+  async inputHEXColor(value: string) {
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.FanaticsFilter_page_elements.RGB_Hex_color);
+    if (await ele.isVisible()) {
+      await ele.fill(' ')
+      await ele.focus()
+      await ele.type(value, { delay: 400 })
+    }
+    else {
+      throw new Error(" THe Hex color input box for this color picker is not visible")
+    }
+  }
 async RGBDropdownClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGBDRopdown)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGBDRopdown)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -320,7 +380,7 @@ async RGBDropdownClick(){
 }
 async SolidColorSelection(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGBSolid)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.RGBSolid)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -329,9 +389,18 @@ async SolidColorSelection(){
     
 }
 
+async select_last_swatch(){
+   const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.select_swatch).last()
+    try {
+        await ele.click({ button: "left", delay: 1000 })
+    } catch (error) {
+        throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Color Background Dropdown Solid Button Element Is not visiable | Error occurred: ${error}`);
+    }
+}
+
 async HorizontalColorSelection(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.HoriZontal)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.HoriZontal)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -341,7 +410,7 @@ async HorizontalColorSelection(){
 }
 async VerticalColorSelection(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Vertical)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Vertical)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -351,7 +420,7 @@ async VerticalColorSelection(){
 }
 async DiagonalColorSelection(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Diagonal)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Diagonal)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -361,7 +430,7 @@ async DiagonalColorSelection(){
 }
 async RadialColorSelection(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Radial)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Radial)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -372,7 +441,7 @@ async RadialColorSelection(){
 
 async ColorSelectionSaveBTNClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SaveBTNRGB)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SaveBTNRGB)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -382,7 +451,7 @@ async ColorSelectionSaveBTNClick(){
 }
 async LoadingAnimationColorClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.LoadingAnimationColor)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.LoadingAnimationColor)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -393,7 +462,7 @@ async LoadingAnimationColorClick(){
 
 async FilterIconBorderColorClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterIconBoarder)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterIconBoarder)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -404,7 +473,7 @@ async FilterIconBorderColorClick(){
 
 async FilterIconGlowColorClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterIconGlow)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterIconGlow)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -416,7 +485,7 @@ async FilterIconGlowColorClick(){
 
 async PanelColorClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Panel)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Panel)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -427,7 +496,7 @@ async PanelColorClick(){
 
 async SplashScreenUploadClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SplashScreen)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SplashScreen)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -435,16 +504,32 @@ async SplashScreenUploadClick(){
     }
     
 }
+async wait_for_splash_screen_image(){
+    try {
+        const ele=  this.page.frameLocator('.css-r99fy3').locator(this.FanaticsFilter_page_elements.image_edit_splash_screen)
+        await expect(ele).toBeVisible({timeout:60000})
+    } catch (error) {
+        throw new Error("Image uplaod failed "+error)
+    }
+}
 
 async FilterTransitionScreenUploadClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterTransitionScreen)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterTransitionScreen)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Filter Transition Screen Upload Button Element Is not visiable | Error occurred: ${error}`);
     }
     
+}
+async wait_for_FilterTransitionScreen_image(){
+    try {
+        const ele=  this.page.frameLocator('.css-r99fy3').locator(this.FanaticsFilter_page_elements.image_edit_filter_transition_screen)
+        await expect(ele).toBeVisible({timeout:60000})
+    } catch (error) {
+        throw new Error("Image uplaod failed "+error)
+    }
 }
 
 async CameraRotateTransitionScreenUploadClick(){
@@ -458,11 +543,19 @@ async CameraRotateTransitionScreenUploadClick(){
     
 }
 
+async wait_for_camera_rotate_transition_image(){
+    try {
+        const ele=  this.page.frameLocator('.css-r99fy3').locator(this.FanaticsFilter_page_elements.image_edit_camera_rotate_transition_screen)
+        await expect(ele).toBeVisible({timeout:60000})
+    } catch (error) {
+        throw new Error("Image uplaod failed "+error)
+    }
+}
 
 
 async FilterBackgrounBTNClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.filterButtonBackgroundUpload)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.filterButtonBackgroundUpload)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -470,16 +563,33 @@ async FilterBackgrounBTNClick(){
     }
     
 }
+async wait_for_FilterBackground_image(){
+    try {
+        const ele=  this.page.frameLocator('.css-r99fy3').locator(this.FanaticsFilter_page_elements.image_edit_filter_button_background)
+        await expect(ele).toBeVisible({timeout:60000})
+    } catch (error) {
+        throw new Error("Image uplaod failed "+error)
+    }
+}
 
 async SelfiePhotoFrameUploadBTNClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SelfiePhotoFrameUploadBTN)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.SelfiePhotoFrameUploadBTN)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Game Design Selfie Photo Frame Upload Button Element Is not visiable | Error occurred: ${error}`);
     }
     
+}
+
+async wait_for_SelfiePhotoFrameUpload_image(){
+    try {
+        const ele=  this.page.frameLocator('.css-r99fy3').locator(this.FanaticsFilter_page_elements.image_edit_selfie_photo_frame)
+        await expect(ele).toBeVisible({timeout:60000})
+    } catch (error) {
+        throw new Error("Image uplaod failed " + error)
+    }
 }
 async NavigateToTheAddBanner(){
    
@@ -503,7 +613,7 @@ async UploadFrameBTNClick(){
 }
 async NavigateToTheFilterSetting(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterSettingBtn)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FilterSettingBtn).last()
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -512,11 +622,13 @@ async NavigateToTheFilterSetting(){
     
 }
 
-async Filter1TextInputField(){
+async Filter1TextInputField(value: String){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.Filter1Inputfield)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.TextInputfield).nth(1)
     try {
-        await ele.fill("Alien Test")
+        
+        await ele.fill(' ')
+        await ele.fill(`${value}`)
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Filter Setting Filter 1 Input Field Element Is not visiable | Error occurred: ${error}`);
     }
@@ -524,7 +636,7 @@ async Filter1TextInputField(){
 }
 async FontselecttionDropdown(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FontSelection)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.FontSelection).nth(1)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -544,9 +656,9 @@ async ArialFontselecttion(){
 }
 async TextDropdownClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.TextDropdown)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.TextDropdown).nth(0)
     try {
-        await ele.click({ button: "left", delay: 1000 })
+        await ele.click({ button: "left"})
     } catch (error) {
         throw new Error(`Fanatics Filter | Fanatics Filter Page Filter Setting Text Selection Dropdown Element Is not visiable | Error occurred: ${error}`);
     }
@@ -554,7 +666,7 @@ async TextDropdownClick(){
 }
 async NormalTextClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.NOrmal)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.NOrmal)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -564,7 +676,7 @@ async NormalTextClick(){
 }
 async H1TextClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.H1)
+    const ele = this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.H1)
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {
@@ -737,7 +849,7 @@ async RemoverClick(){
 }
 async QRCodeClick(){
    
-    const ele = await this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.clickQrCodeBtn)
+    const ele =  this.page.frameLocator('iframe').locator(this.FanaticsFilter_page_elements.clickQrCodeBtn).last()
     try {
         await ele.click({ button: "left", delay: 1000 })
     } catch (error) {

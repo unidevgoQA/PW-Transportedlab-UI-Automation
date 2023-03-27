@@ -20,6 +20,7 @@ const config: PlaywrightTestConfig = {
     "014FanSeeWall.test.ts",
     // "guesstheScore.test.ts",
     // "textExtractFromImage.test.ts"
+    "013Fanatics-filterWeb.test.ts"
   ],
   timeout: 1 * 30 * 10000,
   expect: {
@@ -51,7 +52,14 @@ const config: PlaywrightTestConfig = {
     baseURL: "https://qa-1.testingdxp.com/",
     launchOptions: {
       //  args: ["--start-maximized"],
-      slowMo: 100
+      slowMo: 100,
+      args: [
+        '--use-fake-device-for-media-stream',
+        '--use-fake-ui-for-media-stream',
+        '--no-sandbox',
+        '--disable-features=UseOzonePlatform',
+        '--use-file-for-fake-video-capture=E:/transported_labs/transporte_labs_updated/PW-Transportedlab-UI-Automation/mobile.y4m'
+      ]
     },
     permissions: ["microphone", "camera", "clipboard-read", "clipboard-write"],
     headless: process.env.CI ? true : false,

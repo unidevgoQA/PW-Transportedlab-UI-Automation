@@ -164,15 +164,22 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
         // await test.step("008TOFW-002 | Validate Font Upload Functionality", async () => {
 
         //click Live Wall Section
-        await test.step("now navigate to fanseepage and open Game Design", async () => {
+        await test.step("now navigate to fanseepage ", async () => {
                 await liveWallPage.click_Fan_see_Section()
 
-                await liveWallPage.remove_message_popup()
-
-                await liveWallPage.click_trippledot()
-                //click Design Page
-                await liveWallPage.clickDesignPage()
+               
         })
+       await test.step('Remove the warning', async() =>{ 
+        await liveWallPage.remove_message_popup()
+
+        })
+        await test.step('Open the tripple dot in top', async() =>{ 
+        await liveWallPage.click_trippledot()
+         })
+        //click Design Page
+      await test.step('Now open design page', async() =>{ 
+        await liveWallPage.clickDesignPage()
+       })
 
 
 
@@ -181,10 +188,11 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
         await test.step("009FanSee-45|	Validate Color Picker title is visible", async () => {
                 await liveWallPage.verify_image_upload_text()
         })
+         //click Background Color Picker Input Field
+        await test.step('Now open background color picker', async() =>{ 
+         await liveWallPage.clickBackgroundColorPickerInputField()
+         })
         await test.step("009FanSee-48|	Validate Background Color picker plus button is visible and clickable.", async () => {
-                //click Background Color Picker Input Field
-                await liveWallPage.clickBackgroundColorPickerInputField()
-
                 await liveWallPage.clickplusbuttonswatches()
                 await liveWallPage.clickdeletebuttonswatches()
         })
@@ -210,6 +218,10 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
         await test.step("back to solid again", async () => {
                 await liveWallPage.validate_solid_horizontal_vertical_dropdown()
                 await liveWallPage.click_solid_button()
+        })
+
+        await test.step('Now select the last swatches',async()=>{
+                await liveWallPage.select_last_swatch()
         })
 
         await test.step("009FanSee-52|	Validate Background Color picker RGB sections are working", async () => {
@@ -238,9 +250,10 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
                 //input Background Box Color HEX Color
                 await liveWallPage.inputHEXColor('711212FF')
 
+        })
 
-
-                //click Save Btn
+        await test.step('now save the changed color',async()=>{
+                 //click Save Btn
                 await liveWallPage.clickSaveBtn()
 
                 await page.waitForTimeout(2000)
@@ -272,10 +285,17 @@ test("009FanSee-58|validate Font color picker is working", async ({ loginPage, l
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
 
+               
+        })
+        await test.step('Click on remove message', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
 
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
                 //click Design Page
+        })
+        await test.step('Click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
 
@@ -283,59 +303,74 @@ test("009FanSee-58|validate Font color picker is working", async ({ loginPage, l
                 //009FanSee-56|	Validate Font Color text is visible and button is clickable.
                 await liveWallPage.clickFontColorPickerInputField()
         })
-        // await test.step("009FanSee-59|	Validate Font color picker plus button is visible and clickable.", async () => {
-        //         await liveWallPage.clickplusbuttonswatches()
+        await test.step("009FanSee-59|	Validate Font color picker plus button is visible and clickable.", async () => {
+                await liveWallPage.clickplusbuttonswatches()
                   
-        // })
-        
+        })
        
-        // await test.step("009FanSee-61|	Validate Font color picker vertical section", async () => {
-        //         await liveWallPage.validate_solid_horizontal_vertical_dropdown()
-        //         await liveWallPage.click_vertical_button()
-        // })
+       
+        await test.step("009FanSee-61|	Validate Font color picker vertical section", async () => {
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_vertical_button()
+        })
 
-        // await test.step("009FanSee-62|	Validate Font Color picker radial button", async () => {
-        //         await liveWallPage.validate_solid_horizontal_vertical_dropdown()
-        //         await liveWallPage.click_radial_button()
-        // })
-        // await test.step("009FanSee-63|	Validate Font color picker diagonal button", async () => {
-        //         await liveWallPage.validate_solid_horizontal_vertical_dropdown()
-        //         await liveWallPage.click_diagonal_button()
-        //         await liveWallPage.validate_solid_horizontal_vertical_dropdown()
-        //         await liveWallPage.click_solid_button()
-        //         await liveWallPage.clickdeletebuttonswatches()           
+        await test.step("009FanSee-62|	Validate Font Color picker radial button", async () => {
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_radial_button()
+        })
+        await test.step("009FanSee-63|	Validate Font color picker diagonal button", async () => {
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_diagonal_button()
                 
-        // })
+        })
+       await test.step('Now click on Solid button', async() =>{ 
+                await liveWallPage.validate_solid_horizontal_vertical_dropdown()
+                await liveWallPage.click_solid_button()
+        })
+
+       await test.step('Now click on delete button of swatches', async() =>{ 
+                await liveWallPage.clickdeletebuttonswatches()      
+       })   
+       
+        await test.step('select the last swatches',async()=>{
+        await liveWallPage.select_last_swatch()
+        })
+
      
 
 
         await test.step("009FanSee-65|	Validate Font color picker RGB is working", async () => {
                 //input Font First RGB Color
                 await liveWallPage.input_Red_Color('111')
+        })
 
-
-
-                //input Font Box Color RGB Second
-                await liveWallPage.input_green_color('48')
-
-                //input Font Box Color RGB Third
-                await liveWallPage.input_blue_color('214')
-
-                //input Font Box Color Opacity
-                await liveWallPage.inputColorOpacity('98')
-                
+         //input Font Box Color RGB Second
+       await test.step('input green color', async() =>{ 
+         await liveWallPage.input_green_color('48')
 
         })
+         //input Font Box Color RGB Third
+        await test.step('input blue color', async() =>{ 
+         await liveWallPage.input_blue_color('214')
+         })
+
+         //input Font Box Color Opacity
+        await test.step('input color opacity', async() =>{ 
+         await liveWallPage.inputColorOpacity('98')
+         })
+         
 
         await test.step("009FanSee-66|	Validate Font color picker hex and save button", async () => {
                 
                  await liveWallPage.inputHEXColor(' '+'#6F30D6FA')
-
-                //  await page.waitForSelector('//div[@fill="hsla(263, 67%, 51%, 0.98)"]',{state:'visible'})
-                //click Save Btn
-                await liveWallPage.clickSaveBtn()
+                
         })
+        //click Save Btn
+        await test.step('now click on save button', async() =>{ 
+                        await liveWallPage.clickSaveBtn()
 
+                        await page.waitForTimeout(2000)
+        })
 
 
 })
@@ -2129,7 +2164,7 @@ test("009FanSee-181|Validate Standby Text Message functionality", async ({ login
                 
         })
 })
-test(" ",async({ loginPage, liveWallPage, functions,browser, page }, testInfo) =>{
+test("009FanSee-250|validate standby message text is being reflected on mobile",async({ loginPage, liveWallPage, functions,browser, page }, testInfo) =>{
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
