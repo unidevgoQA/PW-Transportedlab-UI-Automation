@@ -1,255 +1,127 @@
-import { expect, Logger, Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 import { readFileSync,existsSync } from 'fs'
 export default class prizeDropPage {
         // [x: string]: any;
 
         private page: Page;
         // static buffer: void;
-        private prizedop_elements = {
-        //change the '//h6[text()=" Auto"]' with appropriate name if you change the configuration name
-          prizedrop_game:"//p[text()='Prize Drop']",
-          configurations_element:'text=Configurations',
-          Auto_config_element: '//h6[text()=" Auto"]',
-          Auto_config_delete_button:"//h6[text()=' Auto']//parent::div//parent::div//p[text()='Delete']",
-          delete_button:"//button[text()='Delete']",
-          plus_button:"(//h5[text()='Configurations']/following-sibling::button)[1]",
-          new_config_modal_header:"//p[text()='New Configuration']",
-          cancel_button:"//button[text()='CANCEL']",
-          add_button:"//button[text()='ADD']",
-          ok_button:"//button[text()='Ok']" ,
-          empty_config_error:"//p[text()='Configuration name cannot be empty']",
-          start_button:'//h6[text()=" Auto"]//following-sibling::div//button[text()="Start"]',
-          live_button:'//h6[text()=" Auto"]//following-sibling::div//button[text()="Live"]',
-          QR_button:'//h6[text()=" Auto"]//following-sibling::div//button[3]',
-          mobile_link_copy_button:'//button[text()="Copy Link"]',
-          QR_header_text:'//h2[text()="Mobile Link"]',
-          copy_qr_button:'//button[text()="Copy QR Code"]',
-          no_prize_error:"//p[text()='You can`t start a session without prizes, please create a prize']",
-          add_banner_item:'//p[text()="Add Banner"]',
-          marketing_message:"//h5[text()='Marketing Message']",
-          ele_for_marketing:'//p[text()="Marketing Message"]//preceding-sibling::div',
-          auto_mobile_link:'//h6[text()=" Auto"]//following-sibling::div//button[2]',
-          prize_page:'//p[text()="Prizing"]',
-          prize_list:"//h4[text()='Prizing List']",
-          auto_coupon_name:'//td[text()="AutoCoupon"]',
-          auto_coupon_total_prize:'//td[text()="20"]',
-          auto_coupon_parcentage_awarded: '//td[text()="10"]',
-          award_all_button:'//button[text()="Award All"]',
-          add_new_prize_button:"//button[text()='Award All']/following-sibling::button",
-          back_button:"//button[text()='Back']",
-          edit_button:'//button[text()="Edit"]',
-          save_button:"//button[text()='Save']",
-          game_design:'//p[text()="Game Design"]',
-          clear_all:"//button[text()='Clear All']",
-          text_color_button:"//p[text()='Text Color']/following-sibling::button",
-          main_color_button:"//p[text()='Main Color']/following-sibling::button",
-          button_color_button:"//p[text()='Button Color']/following-sibling::button",
-          accent_color_picker:"//p[text()='Accent Color']/following-sibling::button",
-          RGB_red_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[1]',
-          RGB_green_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[2]',
-          RGB_blue_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[3]',
-          RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
-          RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
-          choose_file_button:'//button[text()="Choose File"]',
-          file_type_not_supported:'//p[text()="File type is not supported"]',
-         
-          coupon_prize_select_button:"//div[@class='MuiBox-root css-1qf0ezp']",
-          select_first_coupon_prize_select:"(//button[text()='Select'])[1]",
-          coupon_name:"//input[@placeholder='Coupon name']",
-          amount_of_awarding:"//input[@placeholder='Amount Of Awarding']",
-          parcentage_awarded:"//input[@placeholder='Percentage Value']",
-          analytics_page:"//p[text()='Analytics']",
-          upload_fonts:'//p[text()="Upload Font"]',
-          font_uploader:'//p[text()="Upload Font"]//preceding-sibling::div',
-          font_text:'//p[text()="Aa"]',
-          add_color_button:'//button[@aria-label="Add Color"]',
-          delete_color_button:'//button[@aria-label="delete"]',
-          list_box_button:'//div[@aria-haspopup="listbox"]',
-          list_item_solid:'//li[text()="Solid"]',
-          list_item_horizontal:'//li[text()="Horizontal"]',
-          list_item_vertical:'//li[text()="Vertical"]',
-          list_item_diagonal:'//li[text()="Diagonal"]',
-          list_item_radial:'//li[text()="Radial"]',
-          color_opacity_slider:'//input[@aria-label="Alpha" and @aria-valuetext="100%"]',
-          edit_image_button:'//button[@aria-label="Upload/Edit"]',
-          delete_image_button:'//button[@aria-label="Delete"]',
-          image_or_video_click:'//div[@class="MuiBox-root css-v2612"]',
-          full_screen_logo_image_click:'//h5[text()="Full Screen Logo"]/parent::div/following-sibling::div//div[@class="MuiBox-root css-v2612"]'
-
-        }
         constructor(page: Page) {
                 this.page = page;
         }
 
-        
+
 
         //=======================================================
         //▶▶Start Title Stage Section Element       
 
 
         async clickPrizeDropSection() {
-                const locator = this.page.locator(this.prizedop_elements.prizedrop_game)
-                if(await locator.isEnabled()){
-                        await locator.click({button:'left'})
-                        await this.page.waitForLoadState('networkidle')
-                }
-                else {
-                        throw new Error('Prize drop Game selector element is missing in Admin panel')
-                }
+                const locator = this.page.locator("//p[text()='Prize Drop']")
+                // expect(locator).toContainText('Prize Drop')
+                await locator.click({force:true})
+                // console.log("Successfully Click To Tug of War Page ")
+                await this.page.waitForLoadState('networkidle');
         }
 
-        async verifyConfigurationsText() {   
+        async verifyConfigurationsText() {
+                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
+                //         await this.page.waitForSelector(ele)        
 
-                const ele =this.page.frameLocator('iframe').locator(this.prizedop_elements.configurations_element)
-                if(await ele.isVisible()){
-                     await   expect(ele).toContainText("Configurations")
+                const ele = await this.page.frameLocator('iframe').locator('text=Configurations')
+                expect(ele).toContainText("Configurations")
 
-                }
-                else {
-                        throw new Error('Configurations Text is not visible')
-                }
 
         }
 
-        async check_if_auto_config_exist() {    
+        async verifyDeleteAutoConfigurationIfHave() {
+                //      const ele = await this.page.frameLocator('iframe').w('text=Title Stag')
+                //         await this.page.waitForSelector(ele)        
 
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.Auto_config_element);
-                        
-                        if (await ele.isVisible()) {
+                const ele = await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').last().isVisible()
+                if ((ele == true)) {
+                        // console.log("Enable Stage to be skip and jump to next one")
+                        await this.page.frameLocator('iframe')
+                                .locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').last()
+                                .click({force:true})
+                }
 
-                                await this.page.frameLocator('iframe')
-                                .locator(this.prizedop_elements.Auto_config_delete_button).last()
-                                .click({ button:'left' });
-                                await this.page.waitForTimeout(3000);
-                                const delete_modal = await this.page.frameLocator('iframe').locator("//p[text()='Are you sure that you want to delete this configuration?']").isVisible();
-                                
-                                if (delete_modal) {
-                                    await this.page.frameLocator('iframe')
-                                        .locator(this.prizedop_elements.delete_button)
-                                        .click({ button:'left' });
-                                }
-                                else 
-                                {
-                                        throw new Error('Delete confirm modal is not Appearing')
-                                }
-                              
-                                
-                        }
+                await this.page.waitForTimeout(3000)
 
-                       
+                const deleteBtn = await this.page.frameLocator('iframe').locator("//p[text()='Are you sure that you want to delete this configuration?']").isVisible()
+                if ((deleteBtn == true)) {
+                        // console.log("Enable Stage to be skip and jump to next one")
+                        await this.page.frameLocator('iframe')
+                                .locator("//button[text()='Delete']")
+                                .click({force:true})
+                }
+
+
+               
+
 
         }
 
 
         async clickAddNewConfigPlusBtn() {
-                const ele =this.page
-                .frameLocator('iframe')
-                .locator(this.prizedop_elements.plus_button)
-               if(await ele.isVisible()){
-                        await ele.click()
-               }
-               else {
-                throw new Error('Plus button To add new config is not visible or attached to dom')
-               }
+                const ele = await this.page.frameLocator('iframe').locator("(//h5[text()='Configurations']/following-sibling::button)[1]")
+                await ele.click()
 
         }
         async verifyAddNewConfigPlusWindowText() {
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.new_config_modal_header);
-                  if (await ele.isVisible()) {
-                    await expect(ele).toContainText('New Configuration');
-                  } else {
-                    throw new Error('Modal header for new configuration is missing');
-                  }
-              }
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='New Configuration']")
+                expect(ele).toContainText("New Configuration")
+
+        }
 
 
-        async inputConfigurationName(value:string) {
-                const ele = this.page.frameLocator('iframe').locator('input[type="text"]')
-                if(await ele.isVisible()){
-                        await ele.fill(' '+value)
-                }
-                else{
-                        throw new Error('Configuration name input element is not visible')
-                }
-                
+        async inputConfigurationName() {
+                const ele = await this.page.frameLocator('iframe').locator('input[type="text"]')
+                await ele.fill("Auto")
 
         }
         async veirfycancelBtnvisiblity() {
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.cancel_button)
-                if(await ele.isEnabled()){
-                        await expect(ele).toBeVisible()
-                }
-                else {
-                        throw new Error("Cancel button is not visible")
-                }
-                
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='CANCEL']")
+                await expect(ele).toBeVisible()
+
         }
 
         async clickAddBtn() {
-                const ele = this.page
-                .frameLocator('iframe')
-                .locator(this.prizedop_elements.add_button)
-               if(await ele.isEnabled()){
-                        await expect(ele).toBeVisible()
-                        await ele.click()
-               }
-               else {
-                        throw new Error('Add button is missing/not visible')
-               }
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='ADD']")
+                expect(ele).toBeVisible()
+                await ele.click()
 
-        }
-        async check_error_modal(value:string){
-                const ele = this.page.frameLocator('//iframe').locator(`//p[text()="Configuration name ${value} already exists"]`)
-                if(await ele.isVisible()){
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.ok_button).click()
-                }
-                else{
-                        throw new Error("Duplicate warning modal is missing")
-                }
         }
 
         async verifyerrorvisiblity() {
-                const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.empty_config_error)
-                if(await ele.isVisible()){
-                    await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.ok_button).click()   
-                }
-                else{
-                    throw new Error("Empty name configuration warning is missing")    
-                }
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Configuration name cannot be empty']")
+                await expect(ele).toBeVisible()
+                await this.page.waitForTimeout(1000)
+        }
+
+        async clickokbuttonerror(){
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
+      
         }
         //start button visiblity
 
         async startbuttonvisible(){
-                const ele = this.page
-                .frameLocator('.css-r99fy3')
-                .locator(this.prizedop_elements.start_button)
-                if(await ele.isEnabled()){
-                        await expect(ele).toBeVisible()
-                }
-                else {
-                        throw new Error('Start button is missing')
-                }
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[text()="Start"]')
+                await expect(ele).toBeVisible()
                 
         }
 
-        // async clickstartbutton(){
-        //         await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.start_button).click()
-        // }
+        async clickstartbutton(){
+                await this.page.frameLocator('.css-r99fy3').locator("(//button[text()='Start'])[3]").click()
+        }
 
         async clickokinstartconfirmmodal(){
-                await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.ok_button).click()
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click()
         }
 
         async verifyerrorvisiblityfornoprize() {
-                const ele = this.page.frameLocator('.css-r99fy3')
-                        .locator(this.prizedop_elements.no_prize_error)
-                if (await ele.isEnabled()) {
-                        await expect(ele).toBeVisible()
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.ok_button).click()
-                }
-                else {
-                        throw new Error("No prize warning is missing")
-                }
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='You can`t start a session without prizes, please create a prize']")
+                await expect(ele).toBeVisible()
+                await this.page.waitForTimeout(1000)
         }
 
 
@@ -257,13 +129,8 @@ export default class prizeDropPage {
         //=======================================================
         //▶▶Start Game Design Section Element  
         async clickGameDesign() {
-               try {
-                 await this.page.frameLocator('iframe')
-                 .locator(this.prizedop_elements.game_design)
-                 .last().click({button:'left'})
-               } catch (error) {
-                throw `Prize Drop| Game design | clicking on game design is not working`
-               }
+        //       const ele =  await this.page.frameLocator('iframe').locator("//p[text()='Game Design']").last()
+                await this.page.frameLocator('iframe').locator('//p[text()="Game Design"]').last().click({button:'left'})
 
         }
 
@@ -273,150 +140,86 @@ export default class prizeDropPage {
                 await ele.click({button:'left'})
         }
         async handle_alert(){
-               try {
-                this.page.on('dialog', async dialog => {
-                         // Verify type of dialog
-                         expect(dialog.type()).toContain('alert');   
-                         
-                         // verify message of alert
-                         expect(dialog.message()).toContain('Error: Incorrect file extension');
-                         
-                         //click on alert ok button
-                         await dialog.accept();
-                       });
-               } catch (error) {
-                `Prize Drop| Game design | Error Message after trying to upload a wrong font is missing ${error}`
-               }
+               this.page.on('dialog', async dialog => {
+                        // Verify type of dialog
+                        expect(dialog.type()).toContain('alert');   
+                        
+                        // verify message of alert
+                        expect(dialog.message()).toContain('Error: Incorrect file extension');
+                        
+                        //click on alert ok button
+                        await dialog.accept();
+                      });
         }
         async wrong_font_uploader_click(){
-               try {
-                 const filePath0 = "testData/images/HTP.png"
-                 const [fileChooser] = await Promise.all([
-                         // It is important to call waitForEvent before click to set up waiting.
-                         this.page.waitForEvent('filechooser'),
-                         // Opens the file chooser.
-                         this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
-                 ]);
-                 await fileChooser.setFiles([filePath0]);
-               } catch (error) {
-                `Prize Drop| Game design | wrong file upload is failed ${error}`
-               }
+                const filePath0 = "testData/images/HTP.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
  
         }
        
         async font_uploader_click(){
-                try {
-                        const filePath0 = "testData/fonts/Midnight.ttf"
-                        const [fileChooser] = await Promise.all([
-                                // It is important to call waitForEvent before click to set up waiting.
-                                this.page.waitForEvent('filechooser'),
-                                // Opens the file chooser.
-                                this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.font_uploader).click()
-                        ]);
-                        await fileChooser.setFiles([filePath0]);
-                } catch (error) {
-                        `Prize drop| Game design| Font upload failed ${error}`
-                }
+                const filePath0 = "testData/fonts/Midnight.ttf"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//p[text()="Upload Font"]//preceding-sibling::div').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
  
-        }
-        async verify_font_uploaded(){
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.font_text).last()
-                try {
-                   await expect(ele).toBeVisible()
-                } catch (error) {
-                     `Prize drop| Game design| Font upload failed ${error}`   
-                }
         }
 
         async clickClearAllBtn() {
                 
-               try {
-                 await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.clear_all).dblclick({button:'left',delay:500})
-                 
-               } catch (error) {
-                 throw `Prize drop| game design | Clear all button clicking failed ${error}`
-               }
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Clear All']").dblclick({button:'left',delay:500})
+                
         }
         async verifyclearallworking(){
-               try {
-                 const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.text_color_button)
-                 await expect(ele).toHaveAttribute("background","rgba(255, 255, 255, 1)")
-               } catch (error) {
-                throw `Prize drop| game design | clear all button not working ${error}`
-               }
+                const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Text Color']/following-sibling::button")
+                await expect(ele).toHaveAttribute("background","rgba(255, 255, 255, 1)")
         }
         // swatches section for all color pickers
 
         async clickplusbuttonswatches() {
-              try {
-                  await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.add_color_button).click()
-              } catch (error) {
-                throw new Error('Prize drop | Game Design| click plus button in swatches failed' + error)
-              }
+                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="Add Color"]').click()
         }
 
         async clickdeletebuttonswatches() {
-               try {
-                 await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.delete_color_button).last().click()
-               } catch (error) {
-                throw new Error('Prize drop | Game Design| click delete button in swatches failed' + error)
-               }
+                await this.page.frameLocator('.css-r99fy3').locator('//button[@aria-label="delete"]').last().click()
         }
         // solid dropdowns 
 
         async validate_solid_horizontal_vertical_dropdown(){
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_box_button).first().click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click vertical dropdown  failed' + error)  
-                }
+                await this.page.frameLocator('.css-r99fy3').locator('//div[@aria-haspopup="listbox"]').first().click()
         }
 
         async click_solid_button(){
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_solid).click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click solid button  failed' + error)     
-                }
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Solid"]').click()
         }
 
-        async click_horizontal_button() {
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_horizontal).click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click horizontal button  failed' + error)
-                }
+        async click_horizontal_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Horizontal"]').click()
         }
-        async click_vertical_button() {
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_vertical).click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click vertical button  failed' + error)
-                }
+        async click_vertical_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Vertical"]').click()
         }
-        async click_diagonal_button() {
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_diagonal).click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click diagonal button  failed' + error)
-                }
+        async click_diagonal_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Diagonal"]').click()
         }
-        async click_radial_button() {
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.list_item_radial).click()
-                } catch (error) {
-                        throw new Error('Prize drop | Game Design| click radial button failed' + error)
-                }
+        async click_radial_button(){
+                await this.page.frameLocator('.css-r99fy3').locator('//li[text()="Radial"]').click()
         }
         
         //opacity slider
         async opacity_slider_visiblity() {
-              try {
-                  const ele =  this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.color_opacity_slider)
-                  await expect(ele).toBeVisible()
-              } catch (error) {
-                throw new Error(`Prize drop| Game design| Opacity slider not visible`)
-              }
+                const ele =  this.page.frameLocator('.css-r99fy3').locator('//input[@aria-label="Alpha" and @aria-valuetext="100%"]')
+                await expect(ele).toBeVisible()
         }
         //start main color section element
         async verifyMainColorText() {
@@ -427,27 +230,62 @@ export default class prizeDropPage {
 
 
         async clickMainColorPicker() {
-               try {
-                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.main_color_button).first()
-                 await expect(ele).toBeVisible()
-                 await ele.click()
- 
-               } catch (error) {
-                 throw new Error('Prize Drop| Game Design | Main color picker clicking failed '+ error)
-               }
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Main Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
+
         }
 
-        
+        async inputMainRGRFirstColor() {
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[1]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("84")
+                await this.page.waitForTimeout(500)
+
+        }
+        async inputMainRGRSecondColor() {
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[2]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("161")
+                await this.page.waitForTimeout(500)
+
+        }
+
+
+        async inputMainRGRThirdColor() {
+                const ele = this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[3]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("220")
+                await this.page.waitForTimeout(500)
+
+        }
+
+        async inputMainRGRFourColor() {
+                const ele =  this.page.frameLocator('iframe').locator('(//h3[text()="RGB"]//parent::legend//following-sibling::div//input)[4]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("95")
+                await this.page.waitForTimeout(500)  
+
+        }
+
+        async inputMainRGRFiveColor() {
+                const ele = this.page.frameLocator('iframe').locator('//input[@class="MuiOutlinedInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart css-1yftmq7"]')
+                await expect(ele).toBeVisible()
+                await ele.fill(" ")
+                await ele.fill("54A1DCF2")
+                await this.page.waitForTimeout(500)  
+
+        }
 
 
         async clickColorPickerSaveBtn() {
-               try {
-                 const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.save_button)
-                 await expect(ele).toBeVisible()
-                 await ele.click()
-               } catch (error) {
-                 throw new Error(`Prize Drop|Game Design| Color picker save button clicking failed ${error}`)
-               }
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save"]')
+                await expect(ele).toBeVisible()
+                await ele.click()
 
         }
         //image uploaders here
@@ -480,111 +318,73 @@ export default class prizeDropPage {
         }
 
         async wrong_image_uploader(){
-              try {
-                  const filePath0 = "testData/fonts/Thin.otf"
-                  const [fileChooser] = await Promise.all([
-                          // It is important to call waitForEvent before click to set up waiting.
-                          this.page.waitForEvent('filechooser'),
-                          // Opens the file chooser.
-                          this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.choose_file_button).click()
-                  ]);
-                  await fileChooser.setFiles([filePath0]);
-   
-              } catch (error) {
-                throw new Error("Prize Drop| File upload| File Upload failed for main color " + error)
-              }
+                const filePath0 = "testData/fonts/Thin.otf"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+ 
         }
         async validate_wrong_file_typetext(){
-                const wrong = this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.file_type_not_supported)
+                const wrong = this.page.frameLocator('(//iframe)[1]').locator('//p[text()="File type is not supported"]')
                 if(await wrong.isVisible()){
-                        await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.ok_button).click()
+                        await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Ok"]').click()
                 }
         }
         async fullscreenlogoupload(){
-                try {
-                        const edit_image_button =await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.edit_image_button).nth(1).isVisible()
-                        if(edit_image_button ){
-                                await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.delete_image_button).nth(1).click({button:'left'})
-                        }
-                        await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.full_screen_logo_image_click).click()
-                } catch (error) {
-                       throw new Error('Prize drop|Game design |Element click to upload Image is failed or existing image delete failed' + error) 
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
+                await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-v2612'])[2]").click({button:'left'})
         }
-        async delete_image_prize_drop(){
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.delete_image_button).click({button:'left'})
-                
-                } catch (error) {
-                    throw new Error('Prize Drop|Delete Image | deleting uploaded image is failed' + error)    
-                }}
+       
 
         async Image_uploader_For_Fullcreenlogo(){
-              try {
-                  const filePath0 = "testData/images/Fullscreen.png"
-                  const [fileChooser] = await Promise.all([
-                          // It is important to call waitForEvent before click to set up waiting.
-                          this.page.waitForEvent('filechooser'),
-                          // Opens the file chooser.
-                          this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.choose_file_button).click()
-                  ]);
-                  await fileChooser.setFiles([filePath0]);
-                  await this.page.frameLocator('(//iframe)[1]').locator(this.prizedop_elements.save_button).click() 
-              } catch (error) {
-                throw new Error("Prize drop| Game Design| Image upload for full screen logo upload is failed" + error)
-              } 
+                const filePath0 = "testData/images/Fullscreen.png"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async full_screen_logo_wait(){
-            try {
-                  const edit_image_button =this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.edit_image_button)
-                   expect(edit_image_button).toBeVisible({timeout:60000}) 
-               
-            } catch (error) {
-                throw new Error("Prize drop| Game Design| Image upload for full screen logo upload is not successful,upload/edit button missing" + error)
-            }
-        }
+        // async full_screen_logo_wait(){
+        //         const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Full Screen Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //       await expect(edit_image_button).toBeVisible({timeout:10000}) 
+        // }
 
         async Game_title_image_upload(){
-                try {
-                        const edit_image_button = this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-                        if(!await edit_image_button.isHidden() ){
-                                await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
-                        }
-                        await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
-                } catch (error) {
-                        throw new Error("Prize drop| Game Design| Image upload for game title upload is not successful,upload/edit button missing" + error)
-               
+                const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                if( await edit_image_button.isVisible() ){
+                        await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
+                await this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
         async Image_uploader_For_Game_title_image(){
-                try {
-                        const filePath0 = "testData/images/title.jpg"
-                        const [fileChooser] = await Promise.all([
-                                // It is important to call waitForEvent before click to set up waiting.
-                                this.page.waitForEvent('filechooser'),
-                                // Opens the file chooser.
-                                this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
-                        ]);
-                        await fileChooser.setFiles([filePath0]);
-                        await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
-                } catch (error) {
-                        throw new Error("Prize drop| Game Design| Image upload for game title upload failed" + error)
-               
-                }
+                const filePath0 = "testData/images/title.jpg"
+                const [fileChooser] = await Promise.all([
+                        // It is important to call waitForEvent before click to set up waiting.
+                        this.page.waitForEvent('filechooser'),
+                        // Opens the file chooser.
+                        this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Choose File"]').click()
+                ]);
+                await fileChooser.setFiles([filePath0]);
+                await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async game_tile_wait(){
-             try {
-                   const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-                  await expect(edit_image_button).toBeVisible({timeout:60000}) 
-             } catch (error) {
-                throw new Error("Prize drop| Game Design| Image upload for game title upload is not successful,upload/edit button missing" + error)
-               
-             }
-        }
+        // async game_tile_wait(){
+        //         const edit_image_button =this.page.frameLocator('.css-r99fy3').locator('//h5[text()="Game Title Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //        await expect(edit_image_button).toBeVisible({timeout:60000}) 
+        // }
         async Frame_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
@@ -600,14 +400,14 @@ export default class prizeDropPage {
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
         async frame_image_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Frame Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
         }
 
         async Sponsor_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[3]").click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
@@ -622,14 +422,14 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
                 await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()  
         }
-        async sponsor_image_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-               await expect(edit_image_button).toBeVisible({timeout:60000})
-        }
+        // async sponsor_image_wait(){
+        //         const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Sponsor Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
+        //        await expect(edit_image_button).toBeVisible({timeout:60000})
+        // }
         async Team_logo_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Team Logo"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
@@ -646,9 +446,9 @@ export default class prizeDropPage {
         }
 
         async Loading_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//div[@class="MuiBox-root css-v2612"]').click({button:'left'})
         }
@@ -665,7 +465,7 @@ export default class prizeDropPage {
         }
 
         async wait_loading_image(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Loading Image"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         //background video xpath might change, check here 
@@ -676,14 +476,17 @@ export default class prizeDropPage {
                
         }
         async check_Background_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').dblclick({button:'left',delay:300})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//button[@aria-label='Delete'])[6]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
+       
         async background_video_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Background"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         async Video_uploader_For_Background_video(){
@@ -723,9 +526,9 @@ export default class prizeDropPage {
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//input[@value="image"]').click({button:'left',delay:500})
         }
         async how_to_play_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div[2]//button[@aria-lable="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div[2]//button[@aria-lable="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div[2]//div[@class="MuiBox-root css-v2612"]').click()
         }
@@ -746,10 +549,12 @@ export default class prizeDropPage {
                
         }
         async check_Howtoplay_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').dblclick({button:'left',delay:400})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[3]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
         async wrong_Video_uploader_For_Howtoplay_video(){
@@ -784,13 +589,13 @@ export default class prizeDropPage {
                 
         }
         async howtoplay_video_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="How to Play"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         async rules_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//div[@class="MuiBox-root css-v2612"]').click()
         }
@@ -811,10 +616,13 @@ export default class prizeDropPage {
                
         }
         async check_rules_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@aria-label="Upload/Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@aria-label="Delete"]').dblclick({button:'left',delay:300})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[5]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
+               
                
         }
         async Video_uploader_For_rules_video(){
@@ -829,8 +637,8 @@ export default class prizeDropPage {
                 
         }
         async rules_video_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div[2]//button[@aria-label="Upload/Edit"]')
-                await expect(edit_image_button).toBeVisible({timeout:60000}) 
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Rules"]//parent::div//following-sibling::div//button[@title="Edit"]')
+                await expect(edit_image_button).toBeVisible() 
         }
         async wrong_Video_uploader_For_rules_video(){
                 this.page.on('dialog', async dialog => {
@@ -853,9 +661,9 @@ export default class prizeDropPage {
                 await fileChooser.setFiles([filePath0]);
         }
         async splash_image_upload(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@title="Edit"]')
                 if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@aria-label="Delete"]').click({button:'left'})
+                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@title="Delete"]').click({button:'left'})
                 }
                 await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//div[@class="MuiBox-root css-v2612"]').click()
         }
@@ -877,10 +685,12 @@ export default class prizeDropPage {
                
         }
         async check_splash_video_availablity(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@aria-label="Upload/Edit"]')
-                if( await edit_image_button.isVisible() ){
-                        await this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@aria-label="Delete"]').click({button:'left'})
-                }
+                const ele =this.page.frameLocator('(//iframe)[1]').locator("(//div[@class='MuiBox-root css-1tejaop'])[4]")
+                try {
+                        await ele.dblclick({ button: "left", delay: 1000 })
+                    } catch (error) {
+                        throw  Error(`Prize Drop | Unable to delete the available video | Error occurred: ${error}`);
+                    }
                
         }
         async Video_uploader_For_splash_video(){
@@ -895,31 +705,23 @@ export default class prizeDropPage {
                 
         }
         async splash_video_wait(){
-                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div[2]//button[@aria-label="Upload/Edit"]')
+                const edit_image_button =this.page.frameLocator('(//iframe)[1]').locator('//h5[text()="Splash Screen"]//parent::div//following-sibling::div//button[@title="Edit"]')
                 await expect(edit_image_button).toBeVisible({timeout:60000})
         }
         //start accent color section element
 
         async verifyAccentColorText() {
-               try {
-                 const ele =  this.page.frameLocator('iframe').locator('text=Accent Color')
-                 await expect(ele).toContainText("Accent Color")
-               } catch (error) {
-                 throw new Error('Prize drop | game design | Accent color text is incorrect or failed '+ error)
-               }
+                const ele = await this.page.frameLocator('iframe').locator('text=Accent Color')
+                expect(ele).toContainText("Accent Color")
 
         }
 
 
         async clickAccentColorPicker() {
-               try {
-                 const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.accent_color_picker).first()
-                 await expect(ele).toBeVisible()
-                 await ele.click()
- 
-               } catch (error) {
-                throw new Error('Prize drop | game design | Accent color picker clicking failed '+ error)
-               }
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Accent Color']/following-sibling::button").first()
+                expect(ele).toBeVisible()
+                await ele.click()
+
         }
 
         async inputAccentRGRFirstColor() {
@@ -961,24 +763,16 @@ export default class prizeDropPage {
 
         async verifyTextColorText() {
                 const ele = this.page.frameLocator('iframe').locator('//p[text()="Text Color"]')
-                try {
-                        await expect(ele).toContainText("Text Color")
-                } catch (error) {
-                       throw new Error('Prize drop| Game Design | Text color text failed or changed ' + error) 
-                }
+                await expect(ele).toContainText("Text Color")
 
         }
 
 
         async clickTextColorPicker() {
                 const ele = this.page.frameLocator('.css-r99fy3').locator("//p[text()='Text Color']/following-sibling::button").first()
-              try {
-                  await expect(ele).toBeVisible()
-                  await ele.click()
-  
-              } catch (error) {
-                throw new Error('Prize drop| Game Design | Text color click failed' + error) 
-                }
+                await expect(ele).toBeVisible()
+                await ele.click()
+
         }
 
         async inputTextRGRFirstColor() {
@@ -1031,95 +825,19 @@ export default class prizeDropPage {
         }
 
 
-        // color section elements
-        async input_Red_Color(value: string) {
-                const ele = this.page
-                  .frameLocator("iframe")
-                  .locator(this.prizedop_elements.RGB_red_color);
-                if (await ele.isVisible()) {
-                  await ele.focus()
-                  await ele.fill(' ')
-                  await ele.type(value, { delay: 500 })
-                }
-                else {
-                  throw new Error(" THe red color input box for this color picker is not visible")
-                }
-              }
-            
-              async input_green_color(value: string) {
-                const ele = this.page
-                  .frameLocator("iframe")
-                  .locator(this.prizedop_elements.RGB_green_color);
-                if (await ele.isVisible()) {
-                  await ele.focus()
-                  await ele.fill(' ')
-                  await ele.type(value, { delay: 500 })
-                }
-                else {
-                  throw new Error(" THe Green color input box for this color picker is not visible")
-                }
-              }
-              async input_blue_color(value: string) {
-                const ele = this.page
-                  .frameLocator("iframe")
-                  .locator(this.prizedop_elements.RGB_blue_color);
-                if (await ele.isVisible()) {
-                  await ele.focus()
-                  await ele.fill(' ')
-                  await ele.type(value, { delay: 500 })
-                }
-                else {
-                  throw new Error(" THe blue color input box for this color picker is not visible")
-                }
-              }
-            
-              async inputColorOpacity(value: string) {
-                const ele = this.page
-                  .frameLocator("iframe")
-                  .locator(this.prizedop_elements.RGB_opacity_color);
-                if (await ele.isVisible()) {
-                  await ele.focus()
-                  await ele.fill(' ')
-                  await ele.type(value, { delay: 400 })
-                }
-                else {
-                  throw new Error(" THe opacity color input box for this color picker is not visible")
-                }
-              }
-            
-              async inputHEXColor(value: string) {
-                const ele = this.page
-                  .frameLocator("iframe")
-                  .locator(this.prizedop_elements.RGB_Hex_color);
-                if (await ele.isVisible()) {
-                  await ele.fill(' ')
-                  await ele.focus()
-                  await ele.type(value, { delay: 400 })
-                }
-                else {
-                  throw new Error(" THe Hex color input box for this color picker is not visible")
-                }
-              }
+        //start Text color section element
 
         async verifyButtonColorText() {
-               try {
-                 const ele = this.page.frameLocator('iframe').locator("//p[text()='Button Color']")
-                 await expect(ele).toContainText("Button Color")
-               } catch (error) {
-                 throw new Error("Prize Drop| game design | Button color text is not correct or changed"+error)
-               }
+                const ele = this.page.frameLocator('iframe').locator('text=Button Color')
+                await expect(ele).toContainText("Button Color")
 
         }
 
 
         async clickButtonColorPicker() {
-              try {
-                  const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.button_color_button).first()
-                  await expect(ele).toBeVisible()
-                  await ele.click()
-              } catch (error) {
-                throw new Error("Prize Drop| game design | Button color picker click failed"+error)
-              }
+                const ele = this.page.frameLocator('iframe').locator("//p[text()='Button Color']/following-sibling::button").first()
+                await expect(ele).toBeVisible()
+                await ele.click()
 
         }
 
@@ -1371,33 +1089,17 @@ export default class prizeDropPage {
 
 
         async clickAddBannerSection() {
-                const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.add_banner_item).last()
-                if(await ele.isVisible()){
-                        await ele.click({})
-                }
-                else{
-                        throw new Error("Add banner section in newly added config is missing")
-                }
+                await this.page.frameLocator('iframe').locator("(//p[text()='Add Banner'])[3]").last().click()
 
         }
 
         async click_delete_button_added_banner(){
-                try {
-                        await this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-up2ccm"]').click()       
-                } catch (error) {
-                   throw `Add banner| Delete button`+error     
-                }
-               
+                await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-up2ccm']").dblclick({button:'left',delay:300})
         }
 
         async verifyMarketingMassageText() {
-                const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.marketing_message)
-                if(await ele.isVisible()){
-                       await expect(ele).toContainText("Marketing Message")
-                }
-                else {
-                        throw new Error("Marketing message text is missing")
-                }
+                const ele = await this.page.frameLocator('iframe').locator("//h5[text()='Marketing Message']")
+                expect(ele).toContainText("Marketing Message")
         }
 
         async verifyDragYourImageText() {
@@ -1407,19 +1109,13 @@ export default class prizeDropPage {
 
 
         async clickToUploadBanner() {
-                const ele = this.page.frameLocator('iframe')
-                .locator(this.prizedop_elements.ele_for_marketing)
-                if(await ele.isVisible()){
-                        await ele.click()
-                }
-                else{
-                        throw new Error("Click element for uploading marketing message is missing")
-                }
+                const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-v2612']")
+                expect(ele).toBeVisible()
+                await ele.click()
         }
         async check_marketing_message(){
-               const ele =  this.page.frameLocator('iframe').locator("//p[text()='Marketing Message']//parent::div[@class='MuiBox-root css-15rr3ay']").last() 
+               const ele =  this.page.frameLocator('iframe').locator('//p[text()="Marketing Message"]').last() 
                await expect(ele).toBeVisible()
-               
         }
 
 
@@ -1430,13 +1126,8 @@ export default class prizeDropPage {
 
 
         async clickPrizingSection() {
-              try {
-                await this.page.frameLocator('iframe')
-                .locator(this.prizedop_elements.prize_page).last().click()
+                await this.page.frameLocator('iframe').locator('text=AutoStartGame DesignGame SettingsAdd BannerPrizingAnalyticsEditDelete >> p').nth(3).click()
 
-              } catch (error) {
-                throw 'Prize drop| Prize page | prizing click not working'+ error;
-              }
         }
 
         async clickDefultGamePrizingSection() {                
@@ -1445,154 +1136,93 @@ export default class prizeDropPage {
         }
 
         async verifyPrizingListText() {
-               try {
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.prize_list)
+                const ele = this.page.frameLocator('iframe').locator("//h4[text()='Prizing List']")
                 await expect(ele).toContainText("Prizing List")
-               } catch (error) {
-                throw `Prize Drop| Prizing list text is missing ${error} ` 
-               }
         }
         async verify_Prizing_name(){
-                try {
-                 const ele = this.page.frameLocator('iframe')
-                 .locator(this.prizedop_elements.auto_coupon_name)
-                 await expect(ele).toBeVisible()
-                } catch (error) {
-                   throw  `prize drop|prizing name is missing |${error}`     
-                }
+                const ele = this.page.frameLocator('iframe').locator('//td[text()="AutoCoupon"]')
+                await expect(ele).toBeVisible()
         }
 
         async verify_total_prizes(){
-               try {
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.auto_coupon_total_prize)
+                const ele = this.page.frameLocator('iframe').locator('//td[text()="20"]')
                 await expect(ele).toBeVisible()
-               } catch (error) {
-                throw `prize drop|total prizes is missing |${error}`
-               }
         }
 
         async verify_Parcentage_awarded(){
-               try {
-                 const ele = this.page
-                 .frameLocator('iframe').locator(this.prizedop_elements.auto_coupon_parcentage_awarded)
-                 await expect(ele).toBeVisible()
-               } catch (error) {
-                throw `prize drop|parcentage awarded filling failed |${error}`
-               }
+                const ele = this.page.frameLocator('iframe').locator('//td[text()="10"]')
+                await expect(ele).toBeVisible()
         }
         async verify_awardall_button(){
-                const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.award_all_button)
-               
-                if (await ele.isVisible()) {
-                        await ele.click({button:'left'})
-                } else {
-                      throw new Error(`Prize drop| Prizing | Award all button| Button element is not visible`);    
-                }
+                const ele = this.page.frameLocator('iframe').locator('//button[text()="Award All"]')
+                await expect(ele).toBeVisible()
+                await ele.click({button:'left'})
         }
 
         async clickAddNewPrizeBtn() {
-                const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.add_new_prize_button)
-                if (await ele.isEnabled()) {
-                        await expect(ele).toBeVisible()
-                        await ele.click()
-                } else {
-                        throw new Error(`Prizedrop| Prizing|add new prize button is not visible`)
-                }
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Award All']/following-sibling::button")
+                expect(ele).toBeVisible()
+                await ele.click()
         }
 
         async click_back_button(){
-               try {
-                 const back = this.page.frameLocator('iframe').locator(this.prizedop_elements.back_button)
-                 await expect(back).toBeVisible()
-                 await back.click({button:'left'})
-                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.add_new_prize_button)
-                 await expect(ele).toBeVisible()
-               } catch (error) {
-                 throw `Prizedrop| Prizing |back button click is not working ${error}`
-               }
+                const back = this.page.frameLocator('iframe').locator("//button[text()='Back']")
+                await expect(back).toBeVisible()
+                await back.click({button:'left'})
+                const ele = this.page.frameLocator('iframe').locator("//button[text()='Award All']/following-sibling::button")
+                await expect(ele).toBeVisible()
                 
         }
         async click_edit_prize_button(){
-               try {
-                 const back=this.page.frameLocator('iframe').locator(this.prizedop_elements.edit_button).last()
-                 await expect(back).toBeVisible()
-                 await back.click({button:'left'})   
-               } catch (error) {
-                throw new Error(`Prizedrop| Prizing| edit prize button is not working ${error}`)
-               }   
+                const back=this.page.frameLocator('iframe').locator('//button[text()="Edit"]').last()
+                await expect(back).toBeVisible()
+                await back.click({button:'left'})      
 
         }
         async click_delete_prize_button(){                
-              try {
-                  const del= this.page.frameLocator('iframe').locator(this.prizedop_elements.delete_button).last()
-                  await expect(del).toBeVisible()
-                  await del.click({button:'left'})
-              } catch (error) {
-                throw `Prizedrop| Prizing|Delete prize button is not visible or clickable ${error}`
-              }
+                const del= this.page.frameLocator('iframe').locator('//button[text()="Delete"]').last()
+                await expect(del).toBeVisible()
+                await del.click({button:'left'})
         }
 
-        async inputCouponName(value: string) {
-             try {
-                   const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_name)
-                   expect(ele).toBeVisible()
-                   await ele.fill(value)
-             } catch (error) {
-                throw `Prize drop| Prizing| Input coupon name not working ${error}`
-             }
+        async inputCouponName() {
+                const ele = await this.page.frameLocator('iframe').locator("//input[@placeholder='Coupon name']")
+                expect(ele).toBeVisible()
+                await ele.fill("AutoCoupon")
         }
 
-        async inputAmountOfAwarding(value: string) {
-              try {
-                  const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.amount_of_awarding)
-                  await ele.fill(value)
-              } catch (error) {
-                `Prizedrop| Prizing| Input amount of awarding not working ${error}`
-              }
+        async inputAmountOfAwarding() {
+                const ele = await this.page.frameLocator('iframe').locator("//input[@placeholder='Amount Of Awarding']")
+                await ele.fill("20")
         }
 
-        async inputPercentageAwarded(value: string) {
-               try {
-                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.parcentage_awarded)
-                 await ele.fill(value)
-               } catch (error) {
-                 `Prizedrop| Prizing| Input percentage awarded not working ${error}`
-               }
+        async inputPercentageAwarded() {
+                const ele = await this.page.frameLocator('iframe').locator("//input[@placeholder='Percentage Value']")
+                await ele.fill("10")
         }
 
         async clickCouponPrizeSelectBtn() {
-               try {
-                 const ele = this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
-                 await ele.click()
-               } catch (error) {
-                `Prize drop| Prizing| click to select coupon prize selection not working ${error}`
-               }
+                // await page.frameLocator('iframe').locator('text=Coupon Prize Select *Select a coupon >> div').nth(2).click();
+                const ele = await this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-1qf0ezp']")
+                await ele.click()
         }
         async selectCouponPrizeSelect() {
-                try {
-                        const ele =  this.page.frameLocator('iframe').locator(this.prizedop_elements.coupon_prize_select_button)
-                        await ele.click()
-                } catch (error) {
-                        `Prizedrop| Prizing| coupon prize selection not working ${error}`       
-                }
+                const ele = await this.page.frameLocator('iframe').locator("(//button[text()='Select'])[1]")
+                await ele.click()
         }
-        // async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
-        //         const ele =  this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
-        //         expect(ele).toContainText("Auto Test")
-        // }
+        async verifyNewlyAddedGlobalPrizeSuccessfullyShowOnGamePrizeSection() {                
+                const ele = await this.page.frameLocator('iframe').locator("//p[text()='Auto Test']")
+                expect(ele).toContainText("Auto Test")
+        }
 
-        // async selectCouponCreatedFromGlobalPrizing() {
-        //         const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
-        //         await ele.click()
-        // }
+        async selectCouponCreatedFromGlobalPrizing() {
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Select']").last()
+                await ele.click()
+        }
 
         async clickSaveBtn() {
-              try {
-                  const ele =this.page.frameLocator('iframe').locator(this.prizedop_elements.save_button)
-                  await ele.click()
-              } catch (error) {
-                `Prizedrop| save button click not working ${error}`
-              }
+                const ele = await this.page.frameLocator('iframe').locator("//button[text()='Save']")
+                await ele.click()
         }
 
 
@@ -1629,22 +1259,14 @@ export default class prizeDropPage {
 
 
         async clickAnalyticsSection() {
-               try {
-                 await this.page.frameLocator('iframe').locator(this.prizedop_elements.analytics_page).first().click({button:'left'})
- 
-               } catch (error) {
-                 throw new Error(`Prize Drop | Analytics | Analytics Page is missing in Default section ${error}`)
-               }
+                await this.page.frameLocator('iframe').locator("//p[text()='Analytics']").first().click({button:'left'})
+
         }
 
         async clickToStopLiveGame() {
                 // Click text=AutoStart
-                try {
-                        await this.page.frameLocator('iframe').locator(this.prizedop_elements.live_button).click();
-        
-                } catch (error) {
-                        throw `Prize drop | Game menu| Live button is not visible `
-                }
+                await this.page.frameLocator('iframe').locator("//button[text()='Live']").last().click();
+
         }
 
 
@@ -1678,76 +1300,61 @@ export default class prizeDropPage {
 
 
         async click_closebutton_in_mobilelinkmodal (){
-               try {
-                 await this.page.frameLocator('.css-r99fy3').locator('(//div[@role="dialog"]//button)[1]').click()
-               } catch (error) {
-                throw new Error(`Prize Drop| Game menu| Close button in mobile link modal failed ` + error)
-               }
+                await this.page.frameLocator('.css-r99fy3').locator("//div[@class='MuiBox-root css-1xnxzwa']").click()
         }
 
         async clickStartGameBtn() {
-                const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.start_button)
-             try {
-                   await expect(ele).toBeVisible()
-                   await ele.click({button:'left'})
-             } catch (error) {
-              throw new Error(`Prize Drop| Game menu| Start button click failed ` + error)
-             }
-        // const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.start_button)
-        // await expect(ele).toBeVisible()
-        // await ele.click({button:'left'})
-        
+
+                const ele = this.page.frameLocator('.css-r99fy3').locator("(//button[text()='Start'])[3]").last();
+
+                 //const ele = await this.page.frameLocator('iframe').locator('text=Start').last()
+                //await expect(ele).toBeVisible()
+                await ele.click()
 
         }
 
         async clickStartGameOkBtn() {
 
-          try {
-                      await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.ok_button).click();
-      
-          } catch (error) {
-                `Prize Drop| Game menu| OK button click after start is failed ${error}`
-          }
+                await this.page.frameLocator('.css-r99fy3').locator("//button[text()='Ok']").click();
+
+                // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
+                // expect(ele).toBeVisible()
+                // await ele.click({force:true})
+
         }
 
 
         async clickStopGameOkBtn() {
 
-        try {
-                await this.page.frameLocator('iframe').locator(this.prizedop_elements.ok_button).click();
-                
-        } 
-        catch (error) {
-                `Prize Drop| Game menu| OK button click after stop is failed ${error}` 
-        }
+                await this.page.frameLocator('iframe').locator("//button[text()='Ok']").click();
+
+                // const ele = await this.page.frameLocator('iframe').locator('text=Start').nth(1)
+                // expect(ele).toBeVisible()
+                // await ele.click({force:true})
 
         }
 
 
 
         async clickMobileLinkBtn() {
-              try {  
-                await this.page.frameLocator('.css-r99fy3')
-                .locator(this.prizedop_elements.auto_mobile_link).click();
-              } catch (error) {
-                 throw `Prize Drop|Mobile link| Mobile linek text clicking failed `+error
-              }
+                // Click text=AutoStart >> button >> nth=1
+                await this.page.frameLocator('.css-r99fy3').locator("(//button[contains(@class,'MuiButtonBase-root MuiIconButton-root')]/following-sibling::button)[3]").click();
+
+                // const ele = await this.page.frameLocator('iframe').locator('text=AutoStop >> [data-testid="MobileScreenShareIcon"]')
+                // expect(ele).toBeVisible()
+                // await ele.click({force:true})
 
         }
 
         async  clickMobileLinkOpenBtn() {
 
                 // Click text=Open Link
-               try {
-                 const [page1] = await Promise.all([
-                         this.page.waitForEvent('popup'),
-                         this.page.frameLocator('.css-r99fy3').locator("//a[text()='Open Link']").click()
-                 ]);
- 
-                 return page1;
-               } catch (error) {
-                 throw `Prize Drop| Game menu| Open link button click failed or not returnging a page well failed ${error}`
-               }
+                const [page1] = await Promise.all([
+                        this.page.waitForEvent('popup'),
+                        this.page.frameLocator('.css-r99fy3').locator("//a[@aria-label='Open Link']").click({ button: "left" })
+                ]);
+
+                return page1;
 
 
         }
@@ -1755,54 +1362,37 @@ export default class prizeDropPage {
         async clickMobileLinkCopyBtn() {
 
                 // Click text=Open Link
-                try {
-                        await this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.mobile_link_copy_button).click()
-        
-                } catch (error) {
-                        throw  `Prize Drop | QR code |copy mobile link button clicking failed ${error}`
-                }
+
+                await this.page.frameLocator('.css-r99fy3').locator("//button[@aria-label='Copy Link']").click()
+
+
+
         }
         //QR code section here
         async clickQRcodebutton(){
                 
-                try {
-                        await  this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.QR_button).click()
-        
-                } catch (error) {
-                       throw `Prize Drop| QR code button| Click QR code button failed ${error}` 
-                }
+                await  this.page.frameLocator('.css-r99fy3').locator('//h6[text()="Auto"]//following-sibling::div//button[3]').click()
+
         }
 
         async validateQRtext(){
-                try {
-                        const ele = this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.QR_header_text)
-                        await expect(ele).toBeVisible()
-                } catch (error) {
-                        throw `Prize Drop| QR code button| QR code header text is missing or changed ${error}`  
-                }
+                const ele = this.page.frameLocator('.css-r99fy3').locator('//h2[text()="Mobile Link"]')
+                await expect(ele).toBeVisible()
         }
         async validateDownload(){
                 
-            try {
-                    const [download] = await Promise.all([
-                             this.page.waitForEvent('download'),
-                             this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save QR Code"]').click()
-                  ])
-                    const suggestedFileName = download.suggestedFilename()
-                    const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
-                    await download.saveAs(filePath)
-                    expect(existsSync(filePath)).toBeTruthy()
-            } catch (error) {
-                `Prize Drop Game| QR code Download| QR code download not worked successfulley ${error}`
-            }
+                const [download] = await Promise.all([
+                         this.page.waitForEvent('download'),
+                         this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save QR Code"]').click()
+              ])
+                const suggestedFileName = download.suggestedFilename()
+                const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
+                await download.saveAs(filePath)
+                expect(existsSync(filePath)).toBeTruthy()
         }
 
         async clickQRcodecopybtn(){
-              try {
-                  await  this.page.frameLocator('.css-r99fy3').locator(this.prizedop_elements.copy_qr_button).click()
-              } catch (error) {
-                `Prize Drop Game| QR code copy| copy QR code button is missing or not visible:  ${error}`
-              }
+                await  this.page.frameLocator('.css-r99fy3').locator('//button[text()="Copy QR Code"]').click()
         }
 
 
@@ -2041,6 +1631,9 @@ async clickEditBtn(){
                 await this.page.waitForTimeout(1000)
                 await this.page.frameLocator('.css-r99fy3').locator('//p[text()="Selection Message"]//following-sibling::div//div[@title="Unordered"]').click()
 
+        }
+        async deletehowtoplayVideo(){
+                await this.page.frameLocator('iframe').locator("(//button[@aria-label='Delete']//div)[3]").click();
         }
 
 
