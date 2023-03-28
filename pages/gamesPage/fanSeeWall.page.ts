@@ -62,6 +62,7 @@ export default class fanSeeWallPage {
                 perEventFilterBlockTypeInputField: "(//a[@title='Block Type'])[1]",
                 welcomeMassageBlockTypeInputField: "(//a[@title='Block Type'])[2]",
                 normalTag: "//li[text()='Normal']",
+                h1Tag: "//li[text()='H1']",
                 activeBackgroundColorPickerBtn: "//p[text()='Active Background']/following-sibling::button",
                 welcomeMassageTitleText: "//h5[text()='Welcome Message']",
                 welcomeMassageInputField: `(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])[2]`,
@@ -730,6 +731,16 @@ export default class fanSeeWallPage {
                 }
         }
 
+        async selectH1TagForBlockType() {
+                let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.h1Tag)
+                try {
+                        await ele.click({ force: true })
+                        await this.page.waitForTimeout(2000)
+                } catch (error) {
+                        throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type H1 Is Not Visible | Error occurred: ${error}`);
+                }
+        }
+
         async inputPreEventMessage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventMassageInputField)
                 try {
@@ -742,7 +753,6 @@ export default class fanSeeWallPage {
         async inputWelcomeMessageFromDialogs(value: string) {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.welcomeMassageInputField)
                 try {
-
                         await ele.click({ force: true })
                         await ele.clear()
                         await ele.fill(value)

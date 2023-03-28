@@ -166,6 +166,7 @@ export default class menuPage {
                 const ele = await this.page.locator(this.menuPageElements.threeLineAlignmentBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.click(this.menuPageElements.threeLineAlignmentBtn, { force: true })
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error("Main Bar Three Line Alignment Button Element Is Visible")
         }

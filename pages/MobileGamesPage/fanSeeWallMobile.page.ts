@@ -46,7 +46,7 @@ export default class fanSeeWallMobilePage {
                 takeRecordVideoBtn: "//button[text()='Record Video']",
                 takeRecordVideoMinMaxTitle: "//p[text()='The video must be (5)-(15) seconds long']",
                 homePageBtn: "(//button[@value='game']//div)[1]",
-                welcomeMassage: "//p[text()='Welcome Message']",
+                welcomeMassage: "//p[text()='   Welcome ']",
                 uploadedImageDeleteBtn: "(//button[@type='button'])[1]",
                 postTextInputField: "//textarea[@placeholder='Type something']",
                 postSubmitBtn: "//button[text()='Submit']"
@@ -265,9 +265,9 @@ export default class fanSeeWallMobilePage {
 
 
         async verifyWelcomeMassageText() {
-                const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.welcomeMassage)
+                const ele = await this.page.locator(this.fanSeeWallMobilePageElements.welcomeMassage)
                 try {
-                        await expect(ele).toContainText("Welcome Message")
+                        await expect(ele).toContainText("Welcome")
 
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Welcome Massage Does Not Update In Mobile Side After Updated From Admin Side | Error occurred: ${error}`);

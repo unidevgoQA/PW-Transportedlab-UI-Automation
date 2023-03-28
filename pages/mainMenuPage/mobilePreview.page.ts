@@ -586,7 +586,7 @@ export default class mobilePreviewPage {
               expect(color).toBe("rgb(95, 188, 210)");
        }
        async clickPrizeSection() {
-              const btn = this.page.locator("(//button[@value='prize']//div)[1]");
+              const btn = this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[2]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -665,7 +665,7 @@ export default class mobilePreviewPage {
               // expect(btn).toContainText("Perfil")
        }
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("(//button[@value='howToPlay']//div)[1]");
+              const btn = this.page.locator("//h6[text()='HOW TO PLAY']");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
