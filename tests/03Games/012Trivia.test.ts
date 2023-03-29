@@ -91,6 +91,7 @@ test("012TV-001 | Validate add new configuration name in trivia.", async ({ logi
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
             await triviaPage.verifyConfigurationsText()
             await triviaPage.clickAddNewConfigPlusBtn()
 
@@ -576,9 +577,6 @@ test("012TV-015 | Validate error message if round is  not created.", async ({ lo
       await test.step("Now click start button", async () => {
             await triviaPage.verifyConfigurationsText()
             await triviaPage.clickStartBtn()
-            await page.waitForTimeout(2000)
-            await triviaPage.clickOkBtn()
-
       })
       await test.step("Validate error message if round is  not created.",async()=>{
             await page.waitForTimeout(1000)
@@ -1858,6 +1856,8 @@ test("012TV-055 | Validate input RGB Background color is working in trivia.", as
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
 
       })
 
@@ -1953,9 +1953,9 @@ test("012TV-057 | Validate input RGB General/Button text color is working.", asy
             await triviaPage.clickTriviaSection()
 
       })
-
       await test.step("click game design", async () => {
-           await page.waitForTimeout(2000)
+           await page.waitForTimeout(3000)
+           await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -1992,12 +1992,13 @@ test("012TV-058 | Validate  General/Button text successfully reflection on mobil
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickControlPanelSection()
       })
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -2013,7 +2014,6 @@ test("012TV-058 | Validate  General/Button text successfully reflection on mobil
             await triviamobilepage.typeAge()
             await triviamobilepage.typezip()
             await triviamobilepage.clicksubmit()
-            await newTab.waitForTimeout(4000)
             })
             await test.step("Now verify General/Button text color on mobile screen",async()=>{
                   await page.waitForTimeout(5000)
@@ -2044,9 +2044,9 @@ test("012TV-059 | Validate input RGB Button Fill color is working.", async ({ lo
             await triviaPage.clickTriviaSection()
 
       })
-
       await test.step("click game design section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2090,7 +2090,6 @@ test("012TV-060 | Validate Button  Fill color successfully reflection on mobile 
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
            await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
@@ -2139,8 +2138,9 @@ test("012TV-061 | Validate input RGB Question text color is working.", async ({ 
 
       })
 
-      await test.step("Open upload fonts section", async () => {
+      await test.step("click game design in trivia", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2185,7 +2185,6 @@ test("012TV-062 | Validate Question text color successfully reflection on mobile
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await triviaPage.clickOkBtn()
            await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
       })
@@ -2233,10 +2232,12 @@ test("012TV-063 | Validate input RGB Answer text color is working.", async ({ lo
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
 
+
       })
 
       await test.step("Open upload fonts section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2283,7 +2284,7 @@ test("012TV-064 | Validate RGB Answer text color successfully reflection on mobi
       })
       await test.step("Clik start button", async () => {
             await triviaPage.clickStartBtn()
-            await page.waitForTimeout(2000)
+            await page.waitForTimeout(1000)
             await triviaPage.clickMOveToNextBtn()
             await triviaPage.clickMOveToNextBtn()
        })
@@ -2336,6 +2337,7 @@ test("012TV-065 | Validate input RGB Question background color is working.", asy
 
       await test.step("click game design section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2377,6 +2379,7 @@ test("012TV-066 | Validate Question Background color successfully reflection on 
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
@@ -2424,8 +2427,9 @@ test("012TV-067 | Validate input RGB answer background color is working.", async
 
       })
 
-      await test.step("Open upload fonts section", async () => {
+      await test.step("Click game design section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2515,6 +2519,7 @@ test("012TV-069 | Validate input RGB question frame color is working.", async ({
 
       await test.step("Open upload fonts section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2557,6 +2562,7 @@ test("012TV-070 | Validate Question frame color successfully reflection on mobil
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
@@ -2622,7 +2628,6 @@ test("012TV-071 | Validate input RGB answer frame color is working.", async ({ l
       await triviaPage.inputThirdRGB()
       await triviaPage.inputFourthRGB()
       await triviaPage.inputRGBHexColor()
-      await triviaPage
       await triviaPage.clickColorPickerSaveBtn()
     })
 
@@ -2678,7 +2683,7 @@ test.skip("012TV-072 | Validate Answer frame color successfully reflection on mo
             })
 
 })
-test("012TV-073 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0073 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2693,11 +2698,14 @@ test("012TV-073 | Validate input RGB selected answer color is working.", async (
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
 
       })
 
       await test.step("Open upload fonts section", async () => {
             await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -2718,6 +2726,7 @@ test("012TV-073 | Validate input RGB selected answer color is working.", async (
 
 
 })
+
 test("012TV-073 | Validate Selected answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
@@ -2734,12 +2743,13 @@ test("012TV-073 | Validate Selected answer color successfully reflection on mobi
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickControlPanelSection()
       })
 
       await test.step("Clik start button", async () => {
-           await triviaPage.clickstart()
-           await triviaPage.clickOkBtn()
+           await triviaPage.clickStartBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
@@ -2764,6 +2774,7 @@ test("012TV-073 | Validate Selected answer color successfully reflection on mobi
 
                   await page.waitForTimeout(5000)
                   await triviamobilepage.clickMultipleChoise1()
+                  await page.waitForTimeout(1000)
                   await triviamobilepage.verifySelectedAnswerColor()
             })
             await test.step("Now click game live button",async()=>{
@@ -2788,9 +2799,10 @@ test("012TV-074 | Validate input RGB correct answer color is working.", async ({
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
 
       })
-
       await test.step("Open upload fonts section", async () => {
             await page.waitForTimeout(2000)
            await triviaPage.clickgamedesignSection()
@@ -2810,8 +2822,6 @@ test("012TV-074 | Validate input RGB correct answer color is working.", async ({
       await triviaPage.inputFourthRGB()
       await triviaPage.clickColorPickerSaveBtn()
     })
-
-
 })
 test("012TV-075 | Validate Correct Answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
@@ -2829,6 +2839,8 @@ test("012TV-075 | Validate Correct Answer color successfully reflection on mobil
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickControlPanelSection()
       })
 
@@ -2973,7 +2985,7 @@ test("012TV-078 | Validate input RGB Timer Animation fill color is working.", as
 
       })
 
-      await test.step("Open upload fonts section", async () => {
+      await test.step("Click game design", async () => {
             await page.waitForTimeout(2000)
            await triviaPage.clickgamedesignSection()
       })
@@ -3239,10 +3251,12 @@ test("012TV-084 | Validate input RGB Leaderboard text color is working.", async 
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
 
       })
 
-      await test.step("Open upload fonts section", async () => {
+      await test.step("Click game design", async () => {
             await page.waitForTimeout(2000)
            await triviaPage.clickgamedesignSection()
       })
@@ -3278,17 +3292,14 @@ test("012TV-085 | Validate Leaderboard text color successfully reflection on mob
                     body: screenshot
             })
       })
-
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
             await triviaPage.clickControlPanelSection()
+            await triviaPage.StopLiveBtn()
       })
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
@@ -3341,8 +3352,9 @@ test("012TV-086 | Validate input RGB Leaderboard background color is working.", 
 
       })
 
-      await test.step("Open upload fonts section", async () => {
-            //await page.waitForTimeout(2000)
+      await test.step("Click game design", async () => {
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.verifygamedesignText()
            await triviaPage.clickgamedesignSection()
       })
@@ -3386,9 +3398,6 @@ test("012TV-087 | Validate Leaderboard background color successfully reflection 
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
@@ -3442,7 +3451,8 @@ test("012TV-088 | Validate input RGB User's Top 10 Rank color is working.", asyn
       })
 
       await test.step("Open upload fonts section", async () => {
-            //await page.waitForTimeout(2000)
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.verifygamedesignText()
            await triviaPage.clickgamedesignSection()
       })
@@ -3485,9 +3495,6 @@ test.skip("012TV-089 | Validate User's Top 10 Rank color successfully reflection
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
@@ -3541,7 +3548,6 @@ test("012TV-090 | Validate input RGB Leaderboard Frame color is working.", async
       })
 
       await test.step("Open upload fonts section", async () => {
-            //await page.waitForTimeout(2000)
             await triviaPage.verifygamedesignText()
            await triviaPage.clickgamedesignSection()
       })
@@ -3585,14 +3591,10 @@ test("012TV-091 | Validate Leaderboard frame color successfully reflection on mo
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
       })
       let newTab = null;
@@ -3637,12 +3639,12 @@ test("012TV-092 | Validate input RGB Leaderboard Accent color is working.", asyn
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
 
       })
 
-      await test.step("Open upload fonts section", async () => {
-            //await page.waitForTimeout(2000)
-            await triviaPage.verifygamedesignText()
+      await test.step("Click game design", async () => {
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open color section",async()=>{
@@ -3679,15 +3681,14 @@ test("012TV-093 | Validate Leaderboard Accent color successfully reflection on m
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickControlPanelSection()
             await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
+            await page.waitForTimeout(1000)
+            await triviaPage.clickControlPanelSection()
       })
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
-           await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
-           await page.waitForTimeout(1000)
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
            await triviaPage.clickMOveToNextBtn()
@@ -3861,7 +3862,6 @@ test("012TV-0111 | Validate  upload fonts is working.", async ({ loginPage, func
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-
       })
       await test.step("Click On The Game design", async () => {
             await page.waitForTimeout(1000)
@@ -3878,12 +3878,11 @@ test("012TV-0111 | Validate  upload fonts is working.", async ({ loginPage, func
 
       })
       await test.step("Validate upload fonts is working",async()=>{
-            //await triviaPage.verifyUploadFontText()
-             //await triviaPage.deleteUploadedzFront()
             await functions.fontUploadFunction()
             await triviaPage.clickUploadFontBtn()
+            await page.waitForTimeout(4000)
             await triviaPage.selectUploadedFont()
-
+            
     })
 
 })
@@ -3910,6 +3909,7 @@ test("012TV-0112 | Validate  upload fonts successfully reflection on mobile scre
 
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
+           await page.waitForTimeout(1000)
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -3958,6 +3958,8 @@ test("012TV-0113 | Validate Admin side upload game title logo is working.", asyn
       })
 
       await test.step("click game design section", async () => {
+            await page.waitForTimeout(3000)
+            await triviaPage.StopLiveBtn()
            await triviaPage.clickgamedesignSection()
       })
       await test.step("Open upload and dialogs section",async()=>{
@@ -3997,9 +3999,7 @@ test("012TV-0114 | Validate  upload Game title logo successfully reflection on m
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickgamedesignSection()
-            await triviaPage.clickColorSectionBtn()
-            await triviaPage.clickClearAllBtn()
+            await page.waitForTimeout(1000)
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -4083,9 +4083,7 @@ test("012TV-0116 | Validate  upload Team  logo successfully reflection on mobile
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickgamedesignSection()
-            await triviaPage.clickColorSectionBtn()
-            await triviaPage.clickClearAllBtn()
+            await page.waitForTimeout(1000)
       })
 
       let newTab = null;
@@ -4164,9 +4162,7 @@ test("012TV-0118 | Validate  upload Sponsor  logo successfully reflection on mob
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickgamedesignSection()
-            await triviaPage.clickColorSectionBtn()
-            await triviaPage.clickClearAllBtn()
+            await page.waitForTimeout(1000)
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -4259,14 +4255,6 @@ test("012TV-0120 | Validate  upload mainboard background image successfully refl
             newTab = await triviaPage.clickOutputScreenLinkOpenBtn()
             triviamobilepage = new triviaMobilePage(newTab)
             await newTab.waitForTimeout(7000)
-      //      // await guesstheScorePage.clickCloseBtn()
-      //       await triviamobilepage.typephoneno()
-      //       await triviamobilepage.typeemail()
-      //       await triviamobilepage.selectbirthdate()
-      //       await triviamobilepage.typeAge()
-      //       await triviamobilepage.typezip()
-      //       await triviamobilepage.clicksubmit()
-            //await newTab.waitForTimeout(4000)
             })
             await test.step("Now verify Mainboard Background  image in output screen",async()=>{
 
@@ -4360,7 +4348,7 @@ test("012TV-0122 | Validate  upload mobile background image successfully reflect
             })
 
 })
-test("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4380,38 +4368,29 @@ test("012TV-0123 | Validate  Admin side upload banner image is working.", async 
       })
 
       await test.step("Open upload fonts section", async () => {
+            await page.waitForTimeout(2000)
            await triviaPage.clickgamedesignSection()
            await triviaPage.openUploadAndDialogsSection()
       })
 
     await test.step("Now delete trivia all uploads image and logos if already uploaded",async()=>{
-
-      for(var i = 1; i <= 5; i++){
             await triviaPage.deleteImageandLogos()
-      }
     })
     await test.step("Open Banner image section",async()=>{
       await triviaPage.openAddBannerSection()
-      for(var i = 1; i <= 5; i++){
             await triviaPage.deleteImageandLogos()
-      }
-
-
-})
+       })
     await test.step("Now validate Banner image upload",async()=>{
-
-
-
       await functions.logoImageUploadFunction()
-      await functions.fileUploadCropper()
       await triviaPage.clickBannerImageUploadBtn()
+      await functions.fileUploadCropper()
       await triviaPage.verifyMarketingmessageText()
 
 
     })
 
 })
-test("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4429,9 +4408,6 @@ test("012TV-0124 | Validate  upload banner image successfully reflection on mobi
             await triviaPage.clickTriviaSection()
             await triviaPage.clickControlPanelSection()
             await triviaPage.clickgamedesignSection()
-            await triviaPage.clickColorSectionBtn()
-            await triviaPage.clickClearAllBtn()
-
       })
       let newTab = null;
       let triviamobilepage : triviaMobilePage
@@ -4469,6 +4445,8 @@ test("012TV-097 | Validate Game settings Text is visible.", async ({ loginPage, 
             })
       })
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickGameSettingsSection()
             await triviaPage.verifyGameSettingsText()
 
@@ -4489,6 +4467,8 @@ test("012TV-098 | Validate input Game Title name is working.", async ({ loginPag
             })
       })
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickGameSettingsSection()
             await triviaPage.verifyGameTitleTextInGameSettings()
             await triviaPage.InputGameTitleName()
@@ -4521,7 +4501,6 @@ test.skip("012TV-099 | Validate  Game Title name successfully reflection on mobi
       await test.step("Clik start button", async () => {
            await triviaPage.clickStartBtn()
            await page.waitForTimeout(1000)
-           await triviaPage.clickOkBtn()
 
       })
       let newTab = null;
@@ -4565,6 +4544,8 @@ test("012TV-0100 | Validate input Countdown Title name is working.", async ({ lo
             })
       })
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickGameSettingsSection()
             await triviaPage.verifyCountdownTitleTextInGameSettings()
             await triviaPage.InputCountdownTitleName()
@@ -4574,7 +4555,7 @@ test("012TV-0100 | Validate input Countdown Title name is working.", async ({ lo
 
 
 })
-test.only("012TV-0101 | Validate input Lederboard Title name is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0101 | Validate input Lederboard Title name is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -4841,6 +4822,8 @@ test("012TV-0110 | Validate Post Game settings is working.", async ({ loginPage,
             })
       })
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
             await triviaPage.clickGameSettingsSection()
             await page.waitForTimeout(1000)
             await triviaPage.verifyPostGameMessageText()
@@ -4892,14 +4875,11 @@ test("012TV-0125 | Validate Admin side prizing section is visible.", async ({ lo
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
            await page.waitForTimeout(2000)
+           await triviaPage.StopLiveBtn()
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
             await triviaPage.verifyDatahasnotbeencreatedText()
-
-
-
-
 })
 test("012TV-0126 | Validate  Admin side Add New Prize button is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
@@ -4946,6 +4926,7 @@ test("012TV-0127 | Validate input Add New Prize Title  is working.", async ({ lo
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
            await page.waitForTimeout(2000)
+           await triviaPage.StopLiveBtn()
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
@@ -5034,7 +5015,8 @@ test("012TV-0130 | Validate  Add New Prize section condition  type dropdown butt
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-           await page.waitForTimeout(2000)
+           await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
@@ -5077,6 +5059,7 @@ test("012TV-0131 | Validate  Add New prize for manual is working.", async ({ log
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
@@ -5123,7 +5106,9 @@ test.skip("012TV-0132 | Validate  prize won manually distribution successfully r
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-            await triviaPage.clickControlPanelSection()
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
+              await triviaPage.clickControlPanelSection()
 
       })
       let newTab = null;
@@ -5143,13 +5128,10 @@ test.skip("012TV-0132 | Validate  prize won manually distribution successfully r
                   await newTab.waitForTimeout(4000)
                   await triviaPage.clickMobileLinkPopupClose()
                    await triviaPage.clickStartBtn()
-                   await triviaPage.clickOkBtn()
-
+                   await page.waitForTimeout(1000)
                   await triviaPage.clickMOveToNextBtn()
-                  await page.waitForTimeout(1000)
                   await triviamobilepage.inputQuestionAnswer()
                   await triviamobilepage.clickSubmittBtn()
-
                   await triviaPage.clickMOveToNextBtn()
                   await triviaPage.clickMOveToNextBtn()
                   await triviamobilepage.clickMultipleChoise1()
@@ -5165,6 +5147,7 @@ test.skip("012TV-0132 | Validate  prize won manually distribution successfully r
             })
             await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
                   await triviamobilepage.verifyAddNewPrize_ManualDistribution_Cola()
+                  await triviaPage.StopLiveBtn()
             })
 
 
@@ -5204,11 +5187,9 @@ test.skip("012TV-0133 | Validate  prize won manually distribution  save to phone
                   await triviamobilepage.clicksubmit()
                   await newTab.waitForTimeout(4000)
                   await triviaPage.clickMobileLinkPopupClose()
-                   await triviaPage.clickStartBtn()
-                   await triviaPage.clickOkBtn()
-
-                  await triviaPage.clickMOveToNextBtn()
+                  await triviaPage.clickStartBtn()
                   await page.waitForTimeout(1000)
+                  await triviaPage.clickMOveToNextBtn()
                   await triviamobilepage.inputQuestionAnswer()
                   await triviamobilepage.clickSubmittBtn()
 
@@ -5227,6 +5208,7 @@ test.skip("012TV-0133 | Validate  prize won manually distribution  save to phone
             })
             await test.step("Now verify Add New Prize Manual distribution save to phone button is working on mobile screen",async()=>{
                   await triviamobilepage.validateSaveToPhoneBtn()
+                  await triviaPage.StopLiveBtn()
             })
 
 
@@ -5248,6 +5230,8 @@ test("012TV-0134 | Validate  Add New prize Distribution for Automatic  is workin
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
            await page.waitForTimeout(2000)
+           await page.waitForTimeout(1000)
+            await triviaPage.StopLiveBtn()
       })
             await triviaPage.clickPrizingSection()
             await triviaPage.verifyPrizingListText()
@@ -5313,9 +5297,7 @@ test("012TV-0135 | Validate  prize won Automatic distribution successfully refle
                   await triviamobilepage.clicksubmit()
                   await newTab.waitForTimeout(4000)
                   await triviaPage.clickMobileLinkPopupClose()
-                   await triviaPage.clickStartBtn()
-                   await triviaPage.clickOkBtn()
-
+                  await triviaPage.clickStartBtn()
                   await triviaPage.clickMOveToNextBtn()
                   await page.waitForTimeout(1000)
                   await triviamobilepage.inputQuestionAnswer()
@@ -5328,14 +5310,13 @@ test("012TV-0135 | Validate  prize won Automatic distribution successfully refle
                   await triviaPage.clickMOveToNextBtn()
                   await triviaPage.clickMOveToNextBtn()
                   await page.waitForTimeout(1000)
-
-
             })
             await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
                   await triviamobilepage.verifyAddNewPrize_AutomaticDistribution_Burger()
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.clicklive()
+                  await triviaPage.clickOkBtn()
             })
-
-
 })
 test.skip("012TV-0136 | Validate  prize won Automatic distribution save to phone button is working on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
@@ -5373,8 +5354,6 @@ test.skip("012TV-0136 | Validate  prize won Automatic distribution save to phone
                   await newTab.waitForTimeout(4000)
                   await triviaPage.clickMobileLinkPopupClose()
                    await triviaPage.clickStartBtn()
-                   await triviaPage.clickOkBtn()
-
                   await triviaPage.clickMOveToNextBtn()
                   await page.waitForTimeout(1000)
                   await triviamobilepage.inputQuestionAnswer()
@@ -5392,6 +5371,8 @@ test.skip("012TV-0136 | Validate  prize won Automatic distribution save to phone
             })
             await test.step("Now verify Add New Prize successfully reflection on mobile screen",async()=>{
                   await triviamobilepage.validateSaveToPhoneBtn()
+                  await triviaPage.clickMobileLinkPopupClose()
+                  await triviaPage.StopLiveBtn()
             })
 
 
@@ -5412,7 +5393,8 @@ test("012TV-0137 | Validate  Add New prize  edit button is working.", async ({ l
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
-           await page.waitForTimeout(2000)
+            await page.waitForTimeout(2000)
+            await triviaPage.StopLiveBtn()
       })
 
             await triviaPage.clickgamedesignSection()

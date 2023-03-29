@@ -133,7 +133,7 @@ export default class triviaPage {
                 uploadSponsorLogoBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[3]",
                 uploadMainboardBackgroundBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[4]",
                 uploadMobileBackgroundBtn:"(//div[@class='MuiBox-root css-3fw1ig'])[5]",
-                uploadBannerImageBtn:"(//div[@class='MuiBox-root css-78n4oq'])[4]",
+                uploadBannerImageBtn:'(//div[@class="MuiBox-root css-3fw1ig"])[6]',
                 UploadsAndDialogsBtn:"(//div[@class='MuiBox-root css-16eo6ym'])[3]",
                 clickAddBannerSection:"(//div[@class='MuiBox-root css-16eo6ym'])[4]",
                 colorsSection:"(//div[@class='MuiBox-root css-16eo6ym'])[1]",
@@ -309,7 +309,7 @@ export default class triviaPage {
                 ValuCannotbeemptyText:"//p[text()='Value cannot be an empty']",
                 MobileMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
                 MainboardMediaImageUploadBtn:"//div[@class='MuiBox-root css-v2612']",
-                uploadedFontTitleText: "//p[text()='Midnight']",
+                uploadedFontTitleText: "//p[text()='Aa']",
 
                 
 
@@ -566,7 +566,7 @@ export default class triviaPage {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.MarketingmessageText)
                 if(await ele.isVisible()){
                         await this.page.waitForTimeout(7000)
-                        await expect(ele).toContainText('Mainboard Background')
+                        await expect(ele).toContainText('Marketing message')
                 }
                 else throw new Error(`Trivia Marketing message text is not visible,Could not find locator:"${ele}"`)
               }
@@ -582,6 +582,7 @@ export default class triviaPage {
         const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.PrizingListText)
         if(await ele.isVisible()){
                 await expect(ele).toContainText('Prizing List')
+                await this.page.waitForTimeout(2000)
         }
         else throw new Error(`Trivia  Prizing List text is not visible in Prizing section,Could not find locator:"${ele}"`)
       }
@@ -626,8 +627,8 @@ export default class triviaPage {
         async typeConfigurationName(name : string) {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.inputConfigrationsName)
                 if(await ele.isVisible()){
-                  this.page.waitForTimeout(1000)
                   await ele.type(name)
+                  this.page.waitForTimeout(1000)
                 }
                 else throw new Error(`Trivia Configration input field is not visible,Could not find locator:"${ele}"`)
 
@@ -688,6 +689,7 @@ export default class triviaPage {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.clearAllBtn)
                 if(await ele.isVisible()){
                         await ele.click({force:true})
+                        await this.page.waitForTimeout(1000)
                 }
               else throw new Error(`Trivia game page clear all button is not visible,Could not find locator:"${ele}`)
         }
@@ -744,7 +746,8 @@ export default class triviaPage {
         async clickColorPickerSaveBtn() {
                 const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.colorPickerSaveBtn)
                 if(await ele.isVisible()){
-                        await ele.click({})
+                        await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
                 else throw new Error(`Trivia Color Picker Save button is not visible,Could not find locator:"${ele}`)
 
@@ -944,6 +947,7 @@ export default class triviaPage {
                 const ele =  this.page.frameLocator('iframe').locator(this.triviaPageElements.fontsUploadBtn)
                 if(await ele.isVisible()){
                         await ele.click({button:"left",delay:1000})
+                        await this.page.waitForTimeout(2000)
                 }
                 else throw new Error(`Trivia Upload Font button  is not visible,Could not find locator:"${ele}"`)
                
@@ -1866,8 +1870,8 @@ export default class triviaPage {
                       catch(error){
                         throw(`Trivia game page is not visible,Could not find:"${ele}"`)
                       }
+                      await this.page.waitForLoadState('domcontentloaded')
                 
-                await this.page.waitForLoadState('networkidle')
                 
         }
 
@@ -2105,11 +2109,11 @@ export default class triviaPage {
                 else throw new Error("Trivia Question text button  is not visible in color section")
         }
         async StopLiveBtn(){
-                const ele = this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).last()
-                if(await ele.isVisible()){
+                const ele = await this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).last().isVisible()
+                if(ele == true){
                         await this.page.frameLocator('iframe').locator(this.triviaPageElements.LiveButton).click({force:true})
                         await this.page.waitForTimeout(1000)
-                       await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
+                        await this.page.frameLocator('iframe').locator(this.triviaPageElements.okBtn).click()
                 }
         }
         async clickQuestionBackgroundBtn(){
