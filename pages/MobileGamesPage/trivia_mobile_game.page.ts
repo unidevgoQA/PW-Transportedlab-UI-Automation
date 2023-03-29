@@ -18,7 +18,7 @@ export default class triviaMobilePage {
               TileBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
               TileFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
               answerframe:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
-              selectedAnswerColor:"//div[@class='MuiBox-root css-nz1tze']",
+              selectedAnswerColor:"//div[@class='MuiBox-root css-1kap4u3']",
               leaderboardText:"//div[text()='Your Rank']",
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
                userTopTenRank:"(//td[contains(@class,'MuiTableCell-root MuiTableCell-body')])[1]",
@@ -28,7 +28,7 @@ export default class triviaMobilePage {
                teamlogo:'//div[@class="MuiBox-root css-ebl92s"]',
                sponsorlogo:'//div[@class="MuiBox-root css-ebl92s"]',
                submittBtn:"//button[text()='Submit']",
-               Multiplechoise1:"(//div[@class='MuiBox-root css-1sqndtg'])[1]",
+               Multiplechoise1:"//p[text()='PNG']",
                Multiplechoise2:"(//div[@class='css-101u4pc'])[3]]",
                addnewPrize:"//div[@class='MuiBox-root css-annpnb']",
                SaveToPhoneBtn:"//button[text()='Save to phone']",
@@ -193,7 +193,7 @@ export default class triviaMobilePage {
               //await expect.soft(ele).toHaveCSS("background","rgb(16, 10, 124)");
         }
         async verifyGeneralButtonTextcolor(){
-              const ele = this.page.frameLocator('iframe').locator("//div[text()='Time Remaining']")
+              const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-itlj2m']")
               await expect.soft(ele).toHaveCSS("color","rgb(16, 10, 124)")
               //button[contains(@class,'MuiButtonBase-root MuiButton-root')]
         }

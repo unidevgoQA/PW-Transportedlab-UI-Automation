@@ -1332,7 +1332,7 @@ test("0013GTS-030 | Validate RGB sections are visible in color picker.",async({l
    
     
 })
-test("0013GTS-032 |Validate background color change is visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
+test.only("0013GTS-032 |Validate background color change is visible on mobile screen.",async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land on guess the score", async () => {
 
         await page.goto('/admin/#/sign-in')
@@ -1418,7 +1418,7 @@ await test.step("validate Admin can change background color change is visible on
      await page.waitForTimeout(3000)
 })       
 await test.step("now validate background color change is visible on mobile screen",async () =>{
-    await newguessthescoregame.waitforelementLoad()
+    // await newguessthescoregame.waitforelementLoad()
     await newguessthescoregame.verifyBackgroundColorUpdatedSuccessfully()
 })
     // await guesstheScorePage.clickLiveBtn()
