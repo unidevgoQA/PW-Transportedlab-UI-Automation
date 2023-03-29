@@ -4615,10 +4615,6 @@ test("012TV-0102 | Validate Mainboard Countdown Alignments all button are workin
             await triviaPage.clickMainboardCountdownAlignmentBottomBtn()
             await triviaPage.clickMainboardCountdownAlignmentTopBtn()
             await page.waitForTimeout(1000)
-
-
-
-
 })
 test("012TV-0103 | Validate Answer shape selectable all button are working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {

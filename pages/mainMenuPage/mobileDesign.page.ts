@@ -79,7 +79,7 @@ export default class MobileDesign {
         landscapeBGVideoCheckBox: "(//input[@value='video'])[3]",
         landscapeBGVVdoCheckbox: "(//input[@value='video'])[1]",
         mainLogoUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[6]",
-        protraitBGHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[4]",
+        protraitBGHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[5]",
         landscpaeBGHeaderUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[4]",
         protraitBGUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[4(//h5[text()=/'Portrait Background/']/following::div[@class=/'MuiBox-root css-v2612/'])[1]",
         protraitAndLanscapeBGSuccessfullyUploadEle: "//button[@aria-label='Delete']",
@@ -607,6 +607,7 @@ export default class MobileDesign {
 
         try {
             await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click({ button: "left", delay: 1000 })
+            await this.page.waitForTimeout(1000)
 
         } catch (error) {
             console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked `)
@@ -636,7 +637,7 @@ export default class MobileDesign {
     async clickLandscapeBackgroundHeaderVideoCheckBox() {
         let ele = await this.page.locator(this.mobileDesignPageElements.landscapeBGImageCheckBox).isVisible()
         if ((ele == true)) {
-            await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click({ button: "left", delay: 1000 })
+            await this.page.locator(this.mobileDesignPageElements.landscapeBGImageCheckBox).click({ button: "left", delay: 1000 })
             await this.page.waitForTimeout(2000)
         }
         else {
@@ -673,7 +674,7 @@ export default class MobileDesign {
     async clickToUploadPortraitBackgroundHeader() {
         let ele = await this.page.locator(this.mobileDesignPageElements.protraitBGHeaderUploadInputField)
         try {
-            await ele.click({ button: "left", delay: 1000 })
+            await ele.click({ force: true })
         } catch (error) {
             throw new Error(`Main Menu | Mobile Design Protrait Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
@@ -681,7 +682,7 @@ export default class MobileDesign {
     async clickToUploadLandscapeBackgroundHeader() {
         let ele = await this.page.locator(this.mobileDesignPageElements.landscpaeBGHeaderUploadInputField)
         try {
-            await ele.click({ button: "left", delay: 1000 })
+            await ele.click({ force: true })
         } catch (error) {
             throw new Error(`Main Menu | Mobile Design Landscape Background Header Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }

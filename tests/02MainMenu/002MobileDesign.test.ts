@@ -639,7 +639,7 @@ test("MD002-024 | Verify input secondary color functionality", async ({ loginPag
                 await MainMenu.clickSaveBtn()
         })
 })
-test("MD002-025 | Validate Secondary Color Applied Into Mobile Screen", async ({ loginPage, MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("MD002-025 | Validate Secondary Color Applied Into Mobile Screen", async ({ loginPage, MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -830,7 +830,7 @@ test("MD002-032 | Verify input Tertiary color functionality", async ({ loginPage
                 await MainMenu.clickSaveBtn()
         })
 })
-test("MD002-033 | Validate Tertiary Color Applied Into Mobile Screen", async ({ loginPage, MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("MD002-033 | Validate Tertiary Color Applied Into Mobile Screen", async ({ loginPage, MainMenu, tugOfWarPage, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)

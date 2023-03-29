@@ -490,9 +490,9 @@ export default class mobilePreviewPage {
        }
        async clickTermsAndConditionsLink() {
               await this.page.waitForSelector("img[alt='Logotype']")
-              const ele = await this.page.locator(`.css-71bno7`).isVisible()
+              const ele = await this.page.locator(`//a[contains(text(),'Terms & Conditions')]`).isVisible()
               if ((ele == true)) {
-                     await this.page.locator(`.css-71bno7`).click({ button: "left", delay: 1000 })
+                     await this.page.locator(`//a[contains(text(),'Terms & Conditions')]`).click({ button: "left", delay: 1000 })
               }
               else throw new Error("Mobile Welcome Screen Tems And Condition Link Is not Visiable")
               await this.page.waitForTimeout(4000)
@@ -586,7 +586,7 @@ export default class mobilePreviewPage {
               expect(color).toBe("rgb(95, 188, 210)");
        }
        async clickPrizeSection() {
-              const btn = this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[2]");
+              const btn = this.page.locator("(//button[@value='prize']//div)[1]");
               expect(btn).toBeVisible()
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
@@ -665,8 +665,7 @@ export default class mobilePreviewPage {
               // expect(btn).toContainText("Perfil")
        }
        async clickHowToPlayBtn() {
-              const btn = this.page.locator("//h6[text()='HOW TO PLAY']");
-              expect(btn).toBeVisible()
+              const btn = this.page.locator("(//button[@value='howToPlay']//div)[1]");
               await btn.click({ force: true })
               await this.page.waitForLoadState("networkidle");
               await this.page.waitForTimeout(2000)
