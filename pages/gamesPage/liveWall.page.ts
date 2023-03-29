@@ -76,9 +76,12 @@ export default class liveWallPage {
     input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_stand_by_message_element: '//h5[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
-    live_countdown_timer_toggle: '//span[text()="Live Countdown Timer"]//preceding-sibling::span',
-    show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span',
-    enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]/following-sibling::span//span',
+    live_countdown_timer_toggle: '//span[text()="Live Countdown Timer"]//preceding-sibling::span//span',
+    live_countdown_input:'//span[text()="Live Countdown Timer"]//preceding-sibling::span//span//input',
+    show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span',
+    show_username_to_main_input:'//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
+    enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]//following-sibling::span//span',
+    enable_camera_flit_input:'//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
     hour_ele_controls: "//label[text()='Hours']//following-sibling::div//input",
     minutes_ele_controls: "//label[text()='Minutes']//following-sibling::div//input",
     seconds_ele_controls: "//label[text()='Seconds']//following-sibling::div//input",
@@ -125,6 +128,8 @@ export default class liveWallPage {
     uncue_button: "//h6[text()='Uncue']//preceding-sibling::button",
     copy_link_button:'//button[@aria-label="Copy Link"]',
     select_video_for_mobile_background:"//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']",
+    font_ele:`//p[text()='Aa']//parent::div`,
+    font_ele_selected:`//p[text()='Aa']//parent::div[@isactive]`
   }
 
 
@@ -227,6 +232,22 @@ export default class liveWallPage {
       throw new Error('Design button in left panel is missing')
     }
 
+  }
+
+  async select_font(){
+    const ele= this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele).first()
+    const ele2= this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele_selected).first()
+    try {
+          if(await ele2.isHidden()){
+            //do nothing because font already selected
+            await ele.click({button:'left'})
+          }
+          else{
+            
+          }
+    } catch (error) {
+       throw new Error('Font element selection failed'+error)
+    }
   }
 
   async click_trippledot() {
@@ -454,7 +475,14 @@ export default class liveWallPage {
     const ele = this.page
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.start_button);
+    const ele2 = this.page
+      .frameLocator("iframe")
+      .locator(this.Fansee_page_elements.stop_button);
     if (await ele.isVisible()) {
+      await ele.click({ button: 'left' });
+    }
+    else if (await ele2.isVisible()) {
+      await ele2.click({ button: 'left' })
       await ele.click({ button: 'left' });
     }
     else {
@@ -602,12 +630,12 @@ export default class liveWallPage {
     }
   }
   async verify_all_manual_Prize_distributed_confirmation() {
-    const ele = this.page.frameLocator('iframe').locator('//p[text()="All manual prizes Already distributed"]')
-    if (await ele.isVisible()) {
-
-    } else {
-      throw new Error("confirmation text that all manual prizes are distributed is not visible")
-    }
+    const ele = this.page.frameLocator('iframe').locator('//p[text()="Already distributed"]')
+   try {
+     await expect(ele).toBeVisible({timeout:30000})
+   } catch (error) {
+    throw new Error("confirmation text that all manual prizes are distributed is not visible"+error)
+   }
   }
   async back_button() {
     const ele = this.page.frameLocator('iframe').locator('//div//img')
@@ -2479,39 +2507,74 @@ export default class liveWallPage {
   }
 
   // controls section from here
-  async click_live_countdown_timer_toggle() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).last()
+  async click_live_countdown_timer_toggle_on() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).first()
+    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
+
     try {
-      await ele.click({button:'left',force:true}) 
+      // await this.page.waitForTimeout(40000)
+      if(!await input_ele.isChecked()){
+        await ele.click({button:'left'})
+      }
     } catch (error) {
       throw new Error('Toggle clicking falied '+error)
     }
   }
-  async click_show_username_to_mainboard_toggle() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_mainboard_toggle)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left',force:true })
-    }
-    else {
-      throw new Error("Show Username to Mainboard toggle is not visible")
-    }
-  }
-  async click_enable_camera_flipt_toggle() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle)
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left', force:true })
-    }
-    else {
-      throw new Error("Enable camera flip toggle is not visible")
+  async click_live_countdown_timer_toggle_off() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).first()
+    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
+
+    try {
+      // await this.page.waitForTimeout(40000)
+      if(await input_ele.isChecked()){
+        await ele.click({button:'left'})
+      }
+    } catch (error) {
+      throw new Error('Toggle clicking falied '+error)
     }
   }
-  async click_enable_camera_flip_single() {
-    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).last()
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left',force:true})
+  async click_show_username_to_mainboard_toggle_on() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_mainboard_toggle).first()
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_main_input)
+    try {
+      if (!await input_ele.isChecked()) {
+        await ele.click({ button: 'left',force:true })
+      }
+    } catch (error) {
+      throw new Error("Show Username to Mainboard toggle is not visible"+error)
     }
-    else {
-      throw new Error("Enable camera flip toggle is not visible" )
+  }
+  async click_show_username_to_mainboard_toggle_off() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_mainboard_toggle).first()
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_main_input)
+    try {
+      if (await input_ele.isChecked()) {
+        await ele.click({ button: 'left',force:true })
+      }
+    } catch (error) {
+      throw new Error("Show Username to Mainboard toggle is not visible"+error)
+    }
+  }
+  async click_enable_camera_flipt_toggle_on() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).first()
+    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
+    try {
+      if (!await input_ele.isChecked()) {
+        await ele.click({ button: 'left', force:true })
+      }
+    } catch (error) {
+      throw new Error("Enable camera flip toggle is not visible" +error)
+    }
+  }
+  async click_enable_camera_flip_off() {
+    const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).first()
+    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
+    try {
+      if (await input_ele.isChecked()) {
+        await ele.click({ button: 'left', force:true })
+      }
+    } catch (error) {
+      throw new Error("Enable camera flip toggle is not visible" +error)
     }
   }
   async type_hours_in_control(value:string) {
@@ -2690,7 +2753,25 @@ export default class liveWallPage {
     ])
     const suggestedFileName = download.suggestedFilename()
 
-    if (suggestedFileName.match('Fan-See-Qr')) {
+    if (suggestedFileName.match('FAN_SEE_DEFAULT_QRCODE')) {
+      const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
+      await download.saveAs(filePath)
+      expect(existsSync(filePath)).toBeTruthy()
+    }
+    else {
+      throw new Error("There is a problem with your download,may be you have changed the file name please Add the string Fan-See-QR to the Qr file name")
+    }
+
+  }
+  async validateDownload_QR() {
+
+    const [download] = await Promise.all([
+      this.page.waitForEvent('download'),
+      this.page.frameLocator('.css-r99fy3').locator('//button[text()="Save QR Code"]').click()
+    ])
+    const suggestedFileName = download.suggestedFilename()
+
+    if (suggestedFileName.match('FAN_SEE_DEFAULT_VIP_QRCODE')) {
       const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
       await download.saveAs(filePath)
       expect(existsSync(filePath)).toBeTruthy()

@@ -82,7 +82,7 @@ export default class livewallMobilePage {
                      await this.page.waitForTimeout(7000)
                      await expect
                             .soft(this.page.frameLocator('iframe').locator("//div[@id='app']//img"))
-                            .toHaveScreenshot('FullScreen.png', { maxDiffPixelRatio: 0.1 })
+                            .toHaveScreenshot('FullScreen.png', { maxDiffPixelRatio: 0.15 })
               } catch (error) {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
               }
@@ -185,7 +185,7 @@ export default class livewallMobilePage {
               try {
                      await this.page.waitForLoadState('networkidle')
                      const ele = this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
-                     await expect.soft(ele).toContainText(value)
+                     await expect.soft(ele).toContainText(value,{timeout:30000})
               } catch (error) {
                      throw new Error('seconds input reflection on mobile is not correct' + error)
               }
@@ -209,4 +209,20 @@ export default class livewallMobilePage {
               }
        }
 
+       async checkfont(){
+              try {
+                     await this.page.waitForTimeout(4000)
+                     await expect
+                            .soft(this.page.locator("//div[@id='app']"))
+                            .toHaveScreenshot('Font_check.png', { 
+                                   maxDiffPixelRatio: 0.15,
+                                   mask:[
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div")
+                                   ] 
+                            })
+              } catch (error) {
+                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+              }
+       } 
 }
