@@ -63,7 +63,7 @@ const config: PlaywrightTestConfig = {
         '--use-fake-ui-for-media-stream',
         '--no-sandbox',
         '--disable-features=UseOzonePlatform',
-        '--use-file-for-fake-video-capture=C:\Users\symoo\OneDrive\Documents\GitHub\PW-Transportedlab-UI-Automation\mobile.y4m'
+        `--use-file-for-fake-video-capture=${__dirname}/mobile.y4m`
       ],
       slowMo: 100
 
