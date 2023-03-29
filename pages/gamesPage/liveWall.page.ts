@@ -21,8 +21,8 @@ export default class liveWallPage {
     image_upload_text: '//p[text()="Image Upload"]',
     color_picker_swatches: '//button[@aria-label="Add Color"]',
     delete_button_in_swatches: '//button[@aria-label="delete"]',
-    output_button:'//button[@aria-label="Output"]',
-    output_link:'//a[@aria-label="Open Link"]',
+    output_button: '//button[@aria-label="Output"]',
+    output_link: '//a[@aria-label="Open Link"]',
     solid_ele: '//li[text()="Solid"]',
     Horizontal_ele: '//li[@data-value="horizontal"]',
     Vertical_ele: '//li[text()="Vertical"]',
@@ -36,18 +36,18 @@ export default class liveWallPage {
     RGB_opacity_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[4]',
     RGB_Hex_color: '(//h3[text()="RGB"]//parent::legend//parent::div//following-sibling::div//input[@type="text"])[5]',
     add_instance: '//p[text()="Instances"]//parent::div//button',
-    select_swatch:'//p[text()="Swatches"]//parent::li//following-sibling::li',
-    click_mobile_background:'//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    select_swatch: '//p[text()="Swatches"]//parent::li//following-sibling::li',
+    click_mobile_background: '//p[text()="Mobile Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
     edit_button_mobile_background: '//p[text()="Mobile Background"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
     delete_button_mobile_background: "//p[text()='Mobile Background']//following-sibling::div[2]//button[@aria-label='Delete']",
     edit_upload_button_mobile_home_screen_logo: '//p[text()="Mobile Home Screen Logo"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
     delete_button_mobile_home_screen_logo: "//p[text()='Mobile Home Screen Logo']//following-sibling::div//button[@aria-label='Delete']",
-    mobile_home_screen_click:'//p[text()="Mobile Home Screen Logo"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
-    select_image_for_output_back:"//p[text()='Output Background']//following-sibling::div//span[text()='Image']",
-    select_video_for_ouput_back:"//p[text()='Output Background']//following-sibling::div//span[text()='Video']",
-    click_output_back:'//p[text()="Output Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    mobile_home_screen_click: '//p[text()="Mobile Home Screen Logo"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    select_image_for_output_back: "//p[text()='Output Background']//following-sibling::div//span[text()='Image']",
+    select_video_for_ouput_back: "//p[text()='Output Background']//following-sibling::div//span[text()='Video']",
+    click_output_back: '//p[text()="Output Background"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
     edit_button_output_background: '//p[text()="Output Background"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
-    click_left_image_1_1_output:'//p[text()="Left Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    click_left_image_1_1_output: '//p[text()="Left Image (1:1 Output)"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
     edit_button_left_image_1_1_output: '//p[text()="Left Image (1:1 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
     delete_button_left_image_1_1_output: "//p[text()='Left Image (1:1 Output)']//following-sibling::div//button[@aria-label='Delete']",
     edit_button_mobile_frame: '//p[text()="Mobile Frame"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
@@ -59,29 +59,29 @@ export default class liveWallPage {
     edit_button_right_image_1_1_output: '//p[text()="Right Image (1:1 Output)"]//following-sibling::div//button[@aria-label="Upload/Edit"]',
     delete_button_right_image_1_1_output: "//p[text()='Right Image (1:1 Output)']//following-sibling::div//button[@aria-label='Delete']",
     delete_button_output_background: "//p[text()='Output Background']//following-sibling::div[2]//button[@aria-label='Delete']",
-    select_image_for_fallback:"//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Image']",
-    select_video_for_fallback:"//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Video']",
-    click_fallback_button:'//p[text()="1:1 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    select_image_for_fallback: "//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Image']",
+    select_video_for_fallback: "//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Video']",
+    click_fallback_button: '//p[text()="1:1 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
     edit_button_1_1_fallback: '//p[text()="1:1 Fallback"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
     delete_button_1_1_fallback: "//p[text()='1:1 Fallback']//following-sibling::div[2]//button[@aria-label='Delete']",
-    click_fallback_button_9_16:'//p[text()="9:16 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
-    select_image_for_fallback_9_16:"//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Image']",
-    select_video_for_fallback_9_16:"//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Video']",
+    click_fallback_button_9_16: '//p[text()="9:16 Fallback"]//following-sibling::div//div[@class="MuiBox-root css-v2612"]',
+    select_image_for_fallback_9_16: "//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Image']",
+    select_video_for_fallback_9_16: "//p[text()='9:16 Fallback']//following-sibling::div//span[text()='Video']",
     edit_button_9_16_fallback: '//p[text()="9:16 Fallback"]//following-sibling::div[2]//button[@aria-label="Upload/Edit"]',
     delete_button_9_16_fallback: "//p[text()='9:16 Fallback']//following-sibling::div[2]//button[@aria-label='Delete']",
-    choosefile_button:'//button[text()="Choose File"]',
-    save_button:'//button[text()="Save"]',
+    choosefile_button: '//button[text()="Choose File"]',
+    save_button: '//button[text()="Save"]',
     input_config_name: '//h2[text()="Configuration"]//following-sibling::div//input[@type="text"]',
     input_pre_live_text_element: '//h5[text()="Pre-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_post_live_text_element: '//h5[text()="Post-Live Text"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_stand_by_message_element: '//h5[text()="Stand By Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     input_low_connection_message_element: '//h5[text()="Low Connection Message"]//following-sibling::div//div[@aria-label="rdw-editor"]',
     live_countdown_timer_toggle: '//span[text()="Live Countdown Timer"]//preceding-sibling::span//span',
-    live_countdown_input:'//span[text()="Live Countdown Timer"]//preceding-sibling::span//span//input',
+    live_countdown_input: '//span[text()="Live Countdown Timer"]//preceding-sibling::span//span//input',
     show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span',
-    show_username_to_main_input:'//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
+    show_username_to_main_input: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
     enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]//following-sibling::span//span',
-    enable_camera_flit_input:'//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
+    enable_camera_flit_input: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
     hour_ele_controls: "//label[text()='Hours']//following-sibling::div//input",
     minutes_ele_controls: "//label[text()='Minutes']//following-sibling::div//input",
     seconds_ele_controls: "//label[text()='Seconds']//following-sibling::div//input",
@@ -126,10 +126,10 @@ export default class liveWallPage {
     auto_rotation_input_seconds: "//label[text()='Seconds']//following-sibling::div//input",
     alert_button: "//h6[text()='Alert']//preceding-sibling::button",
     uncue_button: "//h6[text()='Uncue']//preceding-sibling::button",
-    copy_link_button:'//button[@aria-label="Copy Link"]',
-    select_video_for_mobile_background:"//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']",
-    font_ele:`//p[text()='Aa']//parent::div`,
-    font_ele_selected:`//p[text()='Aa']//parent::div[@isactive]`
+    copy_link_button: '//button[@aria-label="Copy Link"]',
+    select_video_for_mobile_background: "//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']",
+    font_ele: `//p[text()='Aa']//parent::div`,
+    font_ele_selected: `//p[text()='Aa']//parent::div[@isactive]`
   }
 
 
@@ -234,19 +234,19 @@ export default class liveWallPage {
 
   }
 
-  async select_font(){
-    const ele= this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele).first()
-    const ele2= this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele_selected).first()
+  async select_font() {
+    const ele = this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele).first()
+    const ele2 = this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.font_ele_selected).first()
     try {
-          if(await ele2.isHidden()){
-            //do nothing because font already selected
-            await ele.click({button:'left'})
-          }
-          else{
-            
-          }
+      if (await ele2.isHidden()) {
+        //do nothing because font already selected
+        await ele.click({ button: 'left' })
+      }
+      else {
+
+      }
     } catch (error) {
-       throw new Error('Font element selection failed'+error)
+      throw new Error('Font element selection failed' + error)
     }
   }
 
@@ -530,7 +530,7 @@ export default class liveWallPage {
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.cue_button).first();
     if (await ele.isVisible()) {
-      await ele.click({button:'left'});
+      await ele.click({ button: 'left' });
     }
     else {
       throw new Error("Either stop button element is not found or element visiblity is hidden");
@@ -541,7 +541,7 @@ export default class liveWallPage {
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.live_button).first();
     if (await ele.isVisible()) {
-       await ele.click({button:'left'});
+      await ele.click({ button: 'left' });
     }
     else {
       throw new Error("Either stop button element is not found or element visiblity is hidden");
@@ -631,11 +631,11 @@ export default class liveWallPage {
   }
   async verify_all_manual_Prize_distributed_confirmation() {
     const ele = this.page.frameLocator('iframe').locator('//p[text()="Already distributed"]')
-   try {
-     await expect(ele).toBeVisible({timeout:30000})
-   } catch (error) {
-    throw new Error("confirmation text that all manual prizes are distributed is not visible"+error)
-   }
+    try {
+      await expect(ele).toBeVisible({ timeout: 30000 })
+    } catch (error) {
+      throw new Error("confirmation text that all manual prizes are distributed is not visible" + error)
+    }
   }
   async back_button() {
     const ele = this.page.frameLocator('iframe').locator('//div//img')
@@ -926,11 +926,11 @@ export default class liveWallPage {
   }
   async validate_solid_horizontal_vertical_dropdown() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Solid_dropdown).last()
-     try {
-      await ele.click({button:'left'})
-     } catch (error) {
+    try {
+      await ele.click({ button: 'left' })
+    } catch (error) {
       throw new Error("Either solid dropdown  is missing or its not visible in this color picker")
-     }
+    }
   }
 
   async click_solid_button() {
@@ -946,44 +946,44 @@ export default class liveWallPage {
   async click_horizontal_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Horizontal_ele)
     try {
-      await ele.click({button:'left'})
+      await ele.click({ button: 'left' })
     } catch (error) {
-      throw new Error('click horizontal button click failed'+error)
+      throw new Error('click horizontal button click failed' + error)
     }
   }
   async click_vertical_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Vertical_ele)
     try {
-      await ele.click({button:'left'})
+      await ele.click({ button: 'left' })
     } catch (error) {
-      throw new Error('click vertical button click failed'+error)
+      throw new Error('click vertical button click failed' + error)
     }
 
   }
   async click_diagonal_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Diagonal_ele)
     try {
-      await ele.click({button:'left'})
+      await ele.click({ button: 'left' })
     } catch (error) {
-      throw new Error('click diagonal button click failed'+error)
+      throw new Error('click diagonal button click failed' + error)
     }
   }
   async click_radial_button() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.Radial_ele)
     try {
-      await ele.click({button:'left'})
+      await ele.click({ button: 'left' })
     } catch (error) {
-      throw new Error('click radial button click failed'+error)
+      throw new Error('click radial button click failed' + error)
     }
   }
-  async select_last_swatch(){
+  async select_last_swatch() {
     const ele = this.page.frameLocator('iframe').locator(this.Fansee_page_elements.select_swatch).last()
-     try {
-         await ele.click({ button: "left", delay: 1000 })
-     } catch (error) {
-         throw new Error(`Fansee | last swatch clicking failed | Error occurred: ${error}`);
-     }
- }
+    try {
+      await ele.click({ button: "left", delay: 1000 })
+    } catch (error) {
+      throw new Error(`Fansee | last swatch clicking failed | Error occurred: ${error}`);
+    }
+  }
 
   //countdown_color_input
   async input_Red_Color(value: string) {
@@ -1139,12 +1139,12 @@ export default class liveWallPage {
 
   async deleteUploadedMobileFrame() {
     try {
-        await this.page.frameLocator('iframe').locator(this.Fansee_page_elements.delete_button_mobile_frame).click({button:'left'})
-    
+      await this.page.frameLocator('iframe').locator(this.Fansee_page_elements.delete_button_mobile_frame).click({ button: 'left' })
+
     } catch (error) {
-      throw new Error('Live wall | Game design | delete button in mobile frame clicking failed' + error )
-    }  
-}
+      throw new Error('Live wall | Game design | delete button in mobile frame clicking failed' + error)
+    }
+  }
 
   async deleteUploadedBackground() {
     let ele = await this.page
@@ -1173,13 +1173,13 @@ export default class liveWallPage {
   }
   async select_video_for_mobile_background() {
     const ele = this.page.
-    frameLocator(this.Fansee_page_elements.iframe)
-    .locator(this.Fansee_page_elements.select_video_for_mobile_background)
+      frameLocator(this.Fansee_page_elements.iframe)
+      .locator(this.Fansee_page_elements.select_video_for_mobile_background)
     if (await ele.isVisible()) {
       await ele.click({ button: 'left' })
     }
     else {
-      throw new Error('Mobile background video selector is missing.' )
+      throw new Error('Mobile background video selector is missing.')
     }
   }
   async mobile_background_image_upload() {
@@ -1191,10 +1191,10 @@ export default class liveWallPage {
   }
   async mobile_background_image_delete() {
     try {
-        await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
-        
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
+
     } catch (error) {
-      throw new Error('Live Wall Page|mobile background image | delete in mobile background image is failed'+error)
+      throw new Error('Live Wall Page|mobile background image | delete in mobile background image is failed' + error)
     }
   }
   async Image_uploader_For_mobile_background() {
@@ -1208,13 +1208,13 @@ export default class liveWallPage {
     await fileChooser.setFiles([filePath0]);
     await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.save_button).click()
   }
-  async video_uploader_for_mobile_background(){
+  async video_uploader_for_mobile_background() {
     const filePath0 = "testData/videos/video.mp4"
     const [fileChooser] = await Promise.all([
-            // It is important to call waitForEvent before click to set up waiting.
-            this.page.waitForEvent('filechooser'),
-            // Opens the file chooser.
-            await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.click_mobile_background).click({button:'left'})
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.click_mobile_background).click({ button: 'left' })
     ]);
     await fileChooser.setFiles([filePath0]);
   }
@@ -1227,14 +1227,14 @@ export default class liveWallPage {
       throw new Error('Edit/Upload button element is not visible or there is an issue with uploading the images')
     }
   }
-  async delete_mobile_back(){
+  async delete_mobile_back() {
     try {
-      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_mobile_background).click({button:'left'})
-   
+      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_mobile_background).click({ button: 'left' })
+
     } catch (error) {
-     throw new Error('Live Wall Page| delete | delete Failed'+ error)  
-    } 
-   }
+      throw new Error('Live Wall Page| delete | delete Failed' + error)
+    }
+  }
   //Mobile Home Screen Logo
   async mobile_home_screen_logo_upload() {
     const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_upload_button_mobile_home_screen_logo)
@@ -1266,13 +1266,13 @@ export default class liveWallPage {
     }
 
   }
-  async delete_mobile_homescreen(){
-   try {
-     await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_mobile_home_screen_logo).click({button:'left'})
-  
-   } catch (error) {
-    throw new Error('Live Wall Page| delete | delete Failed'+ error)  
-   } 
+  async delete_mobile_homescreen() {
+    try {
+      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_mobile_home_screen_logo).click({ button: 'left' })
+
+    } catch (error) {
+      throw new Error('Live Wall Page| delete | delete Failed' + error)
+    }
   }
   //Output Background
   async select_image_for_output_background() {
@@ -1283,7 +1283,7 @@ export default class liveWallPage {
       await ele.click({ button: 'left' })
     }
     else {
-      throw new Error('Mobile background Image selector is missing.' )
+      throw new Error('Mobile background Image selector is missing.')
     }
   }
   async output_background_upload() {
@@ -1316,7 +1316,7 @@ export default class liveWallPage {
     }
 
   }
-  async select_video_for_output_back(){
+  async select_video_for_output_back() {
     const ele = this.page.
       frameLocator(this.Fansee_page_elements.iframe)
       .locator(this.Fansee_page_elements.select_video_for_ouput_back)
@@ -1327,21 +1327,21 @@ export default class liveWallPage {
       throw new Error('output background video selector is missing.')
     }
   }
-  async delete_output_back(){
+  async delete_output_back() {
     try {
-      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_output_background).click({button:'left'})
-   
+      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_output_background).click({ button: 'left' })
+
     } catch (error) {
-     throw new Error('Live Wall Page| delete | delete Failed'+ error)  
-    } 
-   }
-   async video_uploader_For_output_background() {
+      throw new Error('Live Wall Page| delete | delete Failed' + error)
+    }
+  }
+  async video_uploader_For_output_background() {
     const filePath0 = "testData/videos/video.mp4"
     const [fileChooser] = await Promise.all([
-            // It is important to call waitForEvent before click to set up waiting.
-            this.page.waitForEvent('filechooser'),
-            // Opens the file chooser.
-            await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.click_output_back).click({button:'left'})
+      // It is important to call waitForEvent before click to set up waiting.
+      this.page.waitForEvent('filechooser'),
+      // Opens the file chooser.
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.click_output_back).click({ button: 'left' })
     ]);
     await fileChooser.setFiles([filePath0]);
   }
@@ -1354,23 +1354,23 @@ export default class liveWallPage {
       }
       await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.click_left_image_1_1_output).click({ button: 'left' })
     } catch (error) {
-      throw new Error('Live wall| Game design | click left image 1_1 upload failed'+ error )
+      throw new Error('Live wall| Game design | click left image 1_1 upload failed' + error)
     }
   }
   async Image_uploader_For_left_image_1_1() {
-   try {
-     const filePath0 = "testData/images/potrait.png"
-     const [fileChooser] = await Promise.all([
-       // It is important to call waitForEvent before click to set up waiting.
-       this.page.waitForEvent('filechooser'),
-       // Opens the file chooser.
-       this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.choosefile_button).click()
-     ]);
-     await fileChooser.setFiles([filePath0]);
-     await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.save_button).click()
-   } catch (error) {
-    throw new Error('Live wall| Game design | left image 1_1 upload failed'+ error )
-   }
+    try {
+      const filePath0 = "testData/images/potrait.png"
+      const [fileChooser] = await Promise.all([
+        // It is important to call waitForEvent before click to set up waiting.
+        this.page.waitForEvent('filechooser'),
+        // Opens the file chooser.
+        this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.choosefile_button).click()
+      ]);
+      await fileChooser.setFiles([filePath0]);
+      await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.save_button).click()
+    } catch (error) {
+      throw new Error('Live wall| Game design | left image 1_1 upload failed' + error)
+    }
   }
   async wait_left_image_1_1_upload() {
     const edit_image_button = this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.edit_button_left_image_1_1_output)
@@ -1383,10 +1383,10 @@ export default class liveWallPage {
 
   }
 
-  async delete_left_image_1_1(){
+  async delete_left_image_1_1() {
     try {
       await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_left_image_1_1_output).click({ button: 'left' })
-        
+
     } catch (error) {
       throw new Error('edit/upload button element is missing here or network issue')
     }
@@ -1456,10 +1456,10 @@ export default class liveWallPage {
     }
 
   }
-  async delete_output_frame_9_16(){
+  async delete_output_frame_9_16() {
     try {
       await this.page.frameLocator('(//iframe)[1]').locator(this.Fansee_page_elements.delete_button_Output_frame_9_16_output).click({ button: 'left' })
-        
+
     } catch (error) {
       throw new Error('edit/upload button element is missing here or network issue')
     }
@@ -1498,13 +1498,13 @@ export default class liveWallPage {
     }
 
   }
-  async delete_banner_image(){
+  async delete_banner_image() {
     try {
       await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_banner_image_9_16_output).click()
-  
+
     } catch (error) {
-      throw new Error('Live Wall | Game design | banner image delete failed' + error )
-    }  
+      throw new Error('Live Wall | Game design | banner image delete failed' + error)
+    }
   }
   //Right Image (1:1 Output)
   async right_image_1_1_upload() {
@@ -1540,13 +1540,13 @@ export default class liveWallPage {
 
   }
 
-  async delete_right_image(){
+  async delete_right_image() {
     try {
       await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_right_image_1_1_output).click()
-   
+
     } catch (error) {
-      throw new Error('Live Wall Page| Game design | right image(1:1) output delete failed' + error )
-    } 
+      throw new Error('Live Wall Page| Game design | right image(1:1) output delete failed' + error)
+    }
   }
   //1:1 Fallback
   async select_image_for_fallback_1_1() {
@@ -1560,7 +1560,7 @@ export default class liveWallPage {
       throw new Error('1:1 Fallback selector is missing.' + `//p[text()='1:1 Fallback']//following-sibling::div//span[text()='Image']`)
     }
   }
-  async select_video_fallback_1_1(){
+  async select_video_fallback_1_1() {
     const ele = this.page.
       frameLocator(this.Fansee_page_elements.iframe)
       .locator(this.Fansee_page_elements.select_video_for_fallback)
@@ -1590,7 +1590,7 @@ export default class liveWallPage {
     ]);
     await fileChooser.setFiles([filePath0]);
     await this.page.frameLocator('(//iframe)[1]').locator('//button[text()="Save"]').click()
-  }async video_uploader_For_Fallback_1_1() {
+  } async video_uploader_For_Fallback_1_1() {
     const filePath0 = "testData/videos/video.mp4"
     const [fileChooser] = await Promise.all([
       // It is important to call waitForEvent before click to set up waiting.
@@ -1610,12 +1610,12 @@ export default class liveWallPage {
     }
 
   }
-  async delete_Fallback_1_1_upload(){
-   try {
-     await this.page.frameLocator('iframe').locator(this.Fansee_page_elements.delete_button_1_1_fallback).click({button:'left'})
-   } catch (error) {
-     throw new Error(" Live Wall | Game design | Delete fallback 1 1 image " + error)
-   }
+  async delete_Fallback_1_1_upload() {
+    try {
+      await this.page.frameLocator('iframe').locator(this.Fansee_page_elements.delete_button_1_1_fallback).click({ button: 'left' })
+    } catch (error) {
+      throw new Error(" Live Wall | Game design | Delete fallback 1 1 image " + error)
+    }
   }
   //9:16 Fallback
   async select_image_for_fallback_9_16() {
@@ -1678,14 +1678,14 @@ export default class liveWallPage {
     }
   }
 
-  async delete_Fallback_9_16_upload(){
-   try {
-     await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_9_16_fallback).click({button:'left'})
- 
-   } catch (error) {
-    throw new Error("Live wall | Game design | clicking in delete button of fallback 9 16 is failed"+ error)
-   }  
-}
+  async delete_Fallback_9_16_upload() {
+    try {
+      await this.page.frameLocator('//iframe').locator(this.Fansee_page_elements.delete_button_9_16_fallback).click({ button: 'left' })
+
+    } catch (error) {
+      throw new Error("Live wall | Game design | clicking in delete button of fallback 9 16 is failed" + error)
+    }
+  }
   //Dispaly Massage Section Element From Here
 
 
@@ -2509,28 +2509,28 @@ export default class liveWallPage {
   // controls section from here
   async click_live_countdown_timer_toggle_on() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).first()
-    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
 
     try {
       // await this.page.waitForTimeout(40000)
-      if(!await input_ele.isChecked()){
-        await ele.click({button:'left'})
+      if (!await input_ele.isChecked()) {
+        await ele.click({ button: 'left' })
       }
     } catch (error) {
-      throw new Error('Toggle clicking falied '+error)
+      throw new Error('Toggle clicking falied ' + error)
     }
   }
   async click_live_countdown_timer_toggle_off() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_timer_toggle).first()
-    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.live_countdown_input)
 
     try {
       // await this.page.waitForTimeout(40000)
-      if(await input_ele.isChecked()){
-        await ele.click({button:'left'})
+      if (await input_ele.isChecked()) {
+        await ele.click({ button: 'left' })
       }
     } catch (error) {
-      throw new Error('Toggle clicking falied '+error)
+      throw new Error('Toggle clicking falied ' + error)
     }
   }
   async click_show_username_to_mainboard_toggle_on() {
@@ -2538,10 +2538,10 @@ export default class liveWallPage {
     const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_main_input)
     try {
       if (!await input_ele.isChecked()) {
-        await ele.click({ button: 'left',force:true })
+        await ele.click({ button: 'left', force: true })
       }
     } catch (error) {
-      throw new Error("Show Username to Mainboard toggle is not visible"+error)
+      throw new Error("Show Username to Mainboard toggle is not visible" + error)
     }
   }
   async click_show_username_to_mainboard_toggle_off() {
@@ -2549,35 +2549,35 @@ export default class liveWallPage {
     const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.show_username_to_main_input)
     try {
       if (await input_ele.isChecked()) {
-        await ele.click({ button: 'left',force:true })
+        await ele.click({ button: 'left', force: true })
       }
     } catch (error) {
-      throw new Error("Show Username to Mainboard toggle is not visible"+error)
+      throw new Error("Show Username to Mainboard toggle is not visible" + error)
     }
   }
   async click_enable_camera_flipt_toggle_on() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).first()
-    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
     try {
       if (!await input_ele.isChecked()) {
-        await ele.click({ button: 'left', force:true })
+        await ele.click({ button: 'left', force: true })
       }
     } catch (error) {
-      throw new Error("Enable camera flip toggle is not visible" +error)
+      throw new Error("Enable camera flip toggle is not visible" + error)
     }
   }
   async click_enable_camera_flip_off() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flip_toggle).first()
-    const input_ele =this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
+    const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
     try {
       if (await input_ele.isChecked()) {
-        await ele.click({ button: 'left', force:true })
+        await ele.click({ button: 'left', force: true })
       }
     } catch (error) {
-      throw new Error("Enable camera flip toggle is not visible" +error)
+      throw new Error("Enable camera flip toggle is not visible" + error)
     }
   }
-  async type_hours_in_control(value:string) {
+  async type_hours_in_control(value: string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.hour_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
@@ -2588,7 +2588,7 @@ export default class liveWallPage {
       throw new Error("Hours section element is not visible")
     }
   }
-  async type_minutes_in_control(value:string) {
+  async type_minutes_in_control(value: string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.minutes_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
@@ -2599,7 +2599,7 @@ export default class liveWallPage {
       throw new Error("Minutes section element is not visible")
     }
   }
-  async type_seconds_in_control(value:string) {
+  async type_seconds_in_control(value: string) {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.seconds_ele_controls)
     if (await ele.isVisible()) {
       await ele.focus()
@@ -2877,27 +2877,27 @@ export default class liveWallPage {
   }
 
   async clickOutPutBtn() {
-     const ele = this.page
+    const ele = this.page
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.output_button);
-      try {
-        await expect(ele).toBeVisible()
-        await ele.click();
-      } catch (error) {
-        throw new Error('LiveWall page| Output(Mainboard) screen element click failed' + error)
-      }
+    try {
+      await expect(ele).toBeVisible()
+      await ele.click();
+    } catch (error) {
+      throw new Error('LiveWall page| Output(Mainboard) screen element click failed' + error)
+    }
   }
 
   async clickOutPutLinkInNewTab() {
     const ele = this.page
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.output_link);
-     try {
+    try {
       await expect(ele).toBeVisible()
       await ele.click();
-     } catch (error) {
-       throw new Error('Livewall page |Output link click failed' +error)
-     }
+    } catch (error) {
+      throw new Error('Livewall page |Output link click failed' + error)
+    }
   }
 
   async clickVIPLiveSelfieCamBtn() {
