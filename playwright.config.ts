@@ -21,7 +21,7 @@ const config: PlaywrightTestConfig = {
     "012Trivia.test.ts",
     // "013Fanatics-filterWeb.test.ts",
     // "014FanSeeWall.test.ts",
-    // "guesstheScore.test.ts",
+    "guesstheScore.test.ts",
 
   ],
   timeout: 1 * 30 * 10000,
