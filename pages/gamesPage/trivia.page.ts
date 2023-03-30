@@ -1865,6 +1865,7 @@ export default class triviaPage {
                 const ele = await this.page.locator(this.triviaPageElements.triviaSestion)
                 try {
                         await ele.click()
+                        await this.page.waitForLoadState("networkidle")
                         await this.page.waitForTimeout(3000)
                 }
                 catch (error) {
