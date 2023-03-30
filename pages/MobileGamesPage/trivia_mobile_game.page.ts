@@ -18,7 +18,7 @@ export default class triviaMobilePage {
               TileBackground:'(//div[@class="MuiBox-root css-v8gp0z"])[1]',
               TileFrame: '(//div[@class="MuiBox-root css-ucngos"])[1]',
               answerframe:"//div[contains(@class,'MuiFormControl-root MuiFormControl-fullWidth')]",
-              selectedAnswerColor:"//div[@class='MuiBox-root css-1kap4u3']",
+              selectedAnswerColor:"(//div[@highlightcolor='rgb(16, 10, 124)'])[1]",
               leaderboardText:"//div[text()='Your Rank']",
               leaderboardBackground:"//div[@class='MuiBox-root css-dm87e7']",
                userTopTenRank:"(//td[contains(@class,'MuiTableCell-root MuiTableCell-body')])[1]",
@@ -120,6 +120,7 @@ export default class triviaMobilePage {
               const ele = this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.TimeReminingText)
               if(await ele.isVisible()){
                      expect.soft(ele).toHaveScreenshot("FontUploadedSuccessfull.png")
+                     await this.page.waitForTimeout(2000)
               }
              
               
@@ -128,6 +129,7 @@ export default class triviaMobilePage {
               const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-14msma']")
               if(await ele.isVisible()){
                      expect.soft(ele).toHaveScreenshot("Game_Title_Logo.png")
+                    await this.page.waitForTimeout(2000)
               }
               // expect(await this.page.screenshot({
               //        fullPage: true
@@ -138,27 +140,32 @@ export default class triviaMobilePage {
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Sponsor_Logo.png")
+                 await this.page.waitForTimeout(2000)
               
        }
        async verifyMainboardBackgroundAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Mainboard_Background.png")
+                 await this.page.waitForTimeout(2000)
        }
        async verifyMobiledBackgroundAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Mobile_Background.png")
+                 await this.page.waitForTimeout(2000)
        }
        async verifyBannerImageAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Banner_Image.png")
+                 await this.page.waitForTimeout(2000)
        }
        async verifyTeamLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
                      fullPage: true
                  })).toMatchSnapshot("Team_Logo.png")
+                 await this.page.waitForTimeout(2000)
               
        }
        async verifyAddNewPrize_ManualDistribution_Cola(){
@@ -252,6 +259,7 @@ export default class triviaMobilePage {
               const ele = await this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.selectedAnswerColor).isVisible()
               if(ele == true){
                      await expect.soft(this.page.frameLocator('iframe').locator(this.triviaMobilePageElements.selectedAnswerColor)).toHaveCSS("background-color","rgb(16, 10, 124)")
+                     await this.page.waitForTimeout(1000)
               }
               else throw new Error("Triva selected answer button  is not visible")
        }

@@ -513,7 +513,7 @@ test("012TV-013 | Validate save QR code is working.", async ({ loginPage, functi
 
 
 })
-test("012TV-014 | Validate Copy QR code is working.", async ({ loginPage, functions,browser, page, triviaPage }, testInfo) => {
+test.only("012TV-014 | Validate Copy QR code is working.", async ({ loginPage, functions,browser, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -2684,7 +2684,7 @@ test.skip("012TV-072 | Validate Answer frame color successfully reflection on mo
             })
 
 })
-test("012TV-0073 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0073 | Validate input RGB selected answer color is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -2728,7 +2728,7 @@ test("012TV-0073 | Validate input RGB selected answer color is working.", async 
 
 })
 
-test("012TV-073 | Validate Selected answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-073 | Validate Selected answer color successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -3930,8 +3930,8 @@ test("012TV-0112 | Validate  upload fonts successfully reflection on mobile scre
             await newTab.waitForTimeout(4000)
             })
             await test.step("Now verify fornt",async()=>{
-                  await page.waitForTimeout(5000)
                  // await triviaPage.clickCloseBtn()
+                  await page.waitForTimeout(2000)
                   await triviamobilepage.verifyFontAppliedSuccessfullyInMobileScreen()
                   await triviaPage.clickMobileLinkPopupClose()
                   await triviaPage.clicklive()
@@ -5263,7 +5263,7 @@ test("012TV-0134 | Validate  Add New prize Distribution for Automatic  is workin
 
 
 })
-test("012TV-0135 | Validate  prize won Automatic distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0135 | Validate  prize won Automatic distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
