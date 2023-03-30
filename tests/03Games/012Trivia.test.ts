@@ -529,6 +529,7 @@ test("012TV-014 | Validate Copy QR code is working.", async ({ loginPage, functi
 
       await test.step("Click On The Trivia Section", async () => {
             await triviaPage.clickTriviaSection()
+            await page.waitForTimeout(2000)
 
       })
       await test.step("Validate mobile link button is working", async () => {
@@ -544,7 +545,7 @@ test("012TV-014 | Validate Copy QR code is working.", async ({ loginPage, functi
                 await (await newtab).locator('//a[@title="Scan QR code from paste"]').click()
                 await (await newtab).waitForTimeout(2000)
                 await (await newtab).locator('//button[text()="Paste"]').click()
-                await (await newtab).waitForTimeout(2000)
+                await (await newtab).waitForTimeout(3000)
                 await (await newtab).locator("//div[@id='qr-content']//a[1]").click()
                 await (await newtab).waitForTimeout(2000)
 
@@ -2774,7 +2775,7 @@ test("012TV-073 | Validate Selected answer color successfully reflection on mobi
 
                   await page.waitForTimeout(5000)
                   await triviamobilepage.clickMultipleChoise1()
-                  await page.waitForTimeout(1000)
+                  await page.waitForTimeout(2000)
                   await triviamobilepage.verifySelectedAnswerColor()
             })
             await test.step("Now click game live button",async()=>{
@@ -4348,7 +4349,7 @@ test("012TV-0122 | Validate  upload mobile background image successfully reflect
             })
 
 })
-test.only("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0123 | Validate  Admin side upload banner image is working.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -4390,7 +4391,7 @@ test.only("012TV-0123 | Validate  Admin side upload banner image is working.", a
     })
 
 })
-test.only("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test("012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
 
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
@@ -5288,7 +5289,6 @@ test("012TV-0135 | Validate  prize won Automatic distribution successfully refle
                   await triviaPage.clickMobileLinkBtn()
                   newTab = await triviaPage.clickMobileLinkOpenBtn()
                   triviamobilepage = new triviaMobilePage(newTab)
-            // await guesstheScorePage.clickCloseBtn()
                   await triviamobilepage.typephoneno()
                   await triviamobilepage.typeemail()
                   await triviamobilepage.selectbirthdate()

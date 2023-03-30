@@ -47,7 +47,7 @@
     "rootDir": "/Users/user/Desktop/PW-Transportedlab-UI-Automation",
     "quiet": false,
     "shard": null,
-    "updateSnapshots": "all",
+    "updateSnapshots": "missing",
     "version": "1.29.1",
     "workers": 1,
     "webServer": null
@@ -60,7 +60,7 @@
       "line": 0,
       "specs": [
         {
-          "title": "012TV-0123 | Validate  Admin side upload banner image is working.",
+          "title": "012TV-0073 | Validate input RGB selected answer color is working.",
           "ok": true,
           "tags": [],
           "tests": [
@@ -74,7 +74,7 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 39515,
+                  "duration": 36627,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
@@ -82,30 +82,26 @@
                   "steps": [
                     {
                       "title": "Login Admin",
-                      "duration": 9447
+                      "duration": 9576
                     },
                     {
                       "title": "Click On The Trivia Section",
-                      "duration": 3757
+                      "duration": 6319
                     },
                     {
                       "title": "Open upload fonts section",
-                      "duration": 4462
+                      "duration": 2645
                     },
                     {
-                      "title": "Now delete trivia all uploads image and logos if already uploaded",
-                      "duration": 120
+                      "title": "Open color section",
+                      "duration": 2788
                     },
                     {
-                      "title": "Open Banner image section",
-                      "duration": 5038
-                    },
-                    {
-                      "title": "Now validate Banner image upload",
-                      "duration": 13792
+                      "title": "Now validate input selected answer color is working",
+                      "duration": 13270
                     }
                   ],
-                  "startTime": "2023-03-29T10:52:05.700Z",
+                  "startTime": "2023-03-30T06:26:44.454Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -115,7 +111,7 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-0123-Validate-Admin-side-upload-banner-image-is-working-/test-finished-1.png"
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-0073-Validate-input-RGB-selected-answer-color-is-working-/test-finished-1.png"
                     }
                   ]
                 }
@@ -123,13 +119,13 @@
               "status": "expected"
             }
           ],
-          "id": "923949df3e7701a35fec-4710359c63be04fe3e20",
+          "id": "923949df3e7701a35fec-9f2ec5778f37be1ce0e5",
           "file": "tests/03Games/012Trivia.test.ts",
-          "line": 4351,
+          "line": 2687,
           "column": 6
         },
         {
-          "title": "012TV-0124 | Validate  upload banner image successfully reflection on mobile screen.",
+          "title": "012TV-073 | Validate Selected answer color successfully reflection on mobile screen.",
           "ok": true,
           "tags": [],
           "tests": [
@@ -143,34 +139,38 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 37132,
+                  "duration": 54747,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/tests/03Games/012Trivia.test.ts-snapshots/Banner-Image-darwin.png does not match, writing actual.\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
                   "steps": [
                     {
                       "title": "Login Admin",
-                      "duration": 7578
+                      "duration": 9312
                     },
                     {
                       "title": "Click On The Trivia Section",
-                      "duration": 10506
+                      "duration": 10588
+                    },
+                    {
+                      "title": "Clik start button",
+                      "duration": 8619
                     },
                     {
                       "title": "Now game open in mobile screen",
-                      "duration": 12227
+                      "duration": 9763
                     },
                     {
-                      "title": "Now verify sponsor logo",
-                      "duration": 5486
+                      "title": "Now verify Answer frame color on mobile screen",
+                      "duration": 9888
+                    },
+                    {
+                      "title": "Now click game live button",
+                      "duration": 5624
                     }
                   ],
-                  "startTime": "2023-03-29T10:52:47.597Z",
+                  "startTime": "2023-03-30T06:27:21.717Z",
                   "attachments": [
                     {
                       "name": "login screenshot",
@@ -180,12 +180,12 @@
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-0124-Validate-up-6145e-image-successfully-reflection-on-mobile-screen-/test-finished-1.png"
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-073-Validate-Sel-3409d-color-successfully-reflection-on-mobile-screen-/test-finished-1.png"
                     },
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-0124-Validate-up-6145e-image-successfully-reflection-on-mobile-screen-/test-finished-2.png"
+                      "path": "/Users/user/Desktop/PW-Transportedlab-UI-Automation/test-results/tests-03Games-012Trivia-012TV-073-Validate-Sel-3409d-color-successfully-reflection-on-mobile-screen-/test-finished-2.png"
                     }
                   ]
                 }
@@ -193,9 +193,9 @@
               "status": "expected"
             }
           ],
-          "id": "923949df3e7701a35fec-1005e079af92d61cd657",
+          "id": "923949df3e7701a35fec-719071f5a0e9e80a255a",
           "file": "tests/03Games/012Trivia.test.ts",
-          "line": 4393,
+          "line": 2731,
           "column": 6
         }
       ]

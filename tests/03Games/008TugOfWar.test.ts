@@ -6,7 +6,7 @@ import { readFileSync } from 'fs'
 import triviaPage from '../../pages/gamesPage/trivia.page';
 import triviaMobilePage from '../../pages/MobileGamesPage/trivia_mobile_game.page';
 import tugOfWarPage from '../../pages/gamesPage/tugOfWar.page';
-test.only("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
+test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, functions,singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
 
 
 
@@ -800,7 +800,7 @@ test("008TOFW-021 | Validate Game Title Image Successfully Show on Mobile Screen
 })
 
 
-test.only("008TOFW-022 | Validate Title Stage Title Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-022 | Validate Title Stage Title Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -832,7 +832,7 @@ test.only("008TOFW-022 | Validate Title Stage Title Background image Successfull
 
 })
 
-test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-023 | Validate Title Background image Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')
@@ -887,7 +887,7 @@ test.only("008TOFW-023 | Validate Title Background image Successfully Show on Mo
 
 
 })
-test.only("008TOFW-024 | Validate Selection Stage Selection Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test("008TOFW-024 | Validate Selection Stage Selection Background image Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
 
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
@@ -922,7 +922,7 @@ test.only("008TOFW-024 | Validate Selection Stage Selection Background image Suc
 })
 
 
-test.only("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Screen.", async ({ loginPage,tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
 
                 await page.goto('/admin/#/sign-in')

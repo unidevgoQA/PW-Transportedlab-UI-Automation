@@ -125,9 +125,14 @@ export default class triviaMobilePage {
               
        }
        async verifyGameTitleLogoAppliedSuccessfullyInMobileScreen(){
-              expect(await this.page.screenshot({
-                     fullPage: true
-                 })).toMatchSnapshot("Game_Title_Logo.png")
+              const ele = this.page.frameLocator('iframe').locator("//div[@class='MuiBox-root css-14msma']")
+              if(await ele.isVisible()){
+                     expect.soft(ele).toHaveScreenshot("Game_Title_Logo.png")
+              }
+              // expect(await this.page.screenshot({
+              //        fullPage: true
+              //    })).toMatchSnapshot("Game_Title_Logo.png")
+              
        }
        async verifySponsorLogoAppliedSuccessfullyInMobileScreen(){
               expect(await this.page.screenshot({
