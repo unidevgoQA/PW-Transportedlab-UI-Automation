@@ -1,4 +1,5 @@
 import { devices, expect, Page } from "@playwright/test";
+import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 export default class fanSeeWallMobilePage {
         private page: Page;
@@ -6,9 +7,12 @@ export default class fanSeeWallMobilePage {
                 this.page = page;
                 page.setViewportSize({ width: 390, height: 844 })
         }
+
+        readonly url = "https://qa-2.testingdxp.com//#/home";
         private fanSeeWallMobilePageElements = {
                 additionalphoneNumberInputField: `//input[@name="phone"]`,
                 additionalEmailInputField: `//input[@name="email"]`,
+                emailInputFieldForGoogleLogin: "//input[@placeholder='Enter email']",
                 additionalAgeInputField: `//input[@name="age"]`,
                 additionalDatePickerInputField: `//input[@aria-label='Choose date']`,
                 additionalDateInputField: "(//input[@id='additionalbirthDate'])[2]",
@@ -54,6 +58,17 @@ export default class fanSeeWallMobilePage {
 
         }
 
+        async gotoUrl() {
+                // const context = await browser.newContext({
+                //         storageState: "./auth.json"
+                // })
+                // const page = await context.newPage()
+                // await this.page.goto(this.url);
+                await this.page.goto(Env.fanSeeWallGameOpenUrl);
+
+                await this.page.waitForLoadState("domcontentloaded")
+
+        }
 
         async inputPhoneNumberForAditionalInfo() {
                 await this.page.waitForSelector(this.fanSeeWallMobilePageElements.additionalphoneNumberInputField)
@@ -70,6 +85,14 @@ export default class fanSeeWallMobilePage {
                         await this.page.locator(this.fanSeeWallMobilePageElements.additionalAgeInputField).fill("22")
                 }
                 else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
+        }
+
+        async inputEmailForGoogleLogin() {
+                const ele = await this.page.locator(this.fanSeeWallMobilePageElements.emailInputFieldForGoogleLogin).isVisible()
+                if ((ele == true)) {
+                        await this.page.locator(this.fanSeeWallMobilePageElements.emailInputFieldForGoogleLogin).fill("demo@email.com")
+                }
+                else throw new Error("Aditional Information Email Input Field Is not visible In User Side")
         }
         async inputEmailForAditionalInfo() {
                 await this.page.waitForSelector(this.fanSeeWallMobilePageElements.additionalEmailInputField)

@@ -20,7 +20,7 @@ const config: PlaywrightTestConfig = {
     // "011AddNewExperiences.test.ts",
     "012Trivia.test.ts",
     "013Fanatics-filterWeb.test.ts",
-    // "014FanSeeWall.test.ts",
+    "014FanSeeWall.test.ts",
     // "guesstheScore.test.ts",
 
   ],
@@ -49,7 +49,7 @@ const config: PlaywrightTestConfig = {
     open: "never"
   }], ["allure-playwright"], ['./My-Reporter.js']],
 
-  globalTeardown: require.resolve("./mailer.js"),
+  // globalTeardown: require.resolve("./mailer.js"),
 
 
 

@@ -783,6 +783,19 @@ test("014FSW-023 | Mobile Settings | Validate Admin Successfully Update Welcome 
 })
 
 test("014FSW-024 | Mobile Settings | Validate Admin Updated Welcome Message Successfully Show On Mobile Screen", async ({ loginPage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+
+
+
+
+
+
+
+
+
+
+
+
+
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -825,6 +838,30 @@ test("014FSW-024 | Mobile Settings | Validate Admin Updated Welcome Message Succ
 
         })
 })
+
+test("014FSW-024dasdf | Mobile Settings | Validate Admin Updated Welcome Message Successfully Show On Mobile Screen", async ({ loginPage, browser, fanSeeWallMobilePage, fanSeeWallPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page }, testInfo) => {
+
+        await test.step("Go to The Game Url", async () => {
+                await fanSeeWallMobilePage.gotoUrl()
+        })
+        await test.step("Validation on mobile Screen", async () => {
+                await fanSeeWallMobilePage.inputPhoneNumberForAditionalInfo()
+                await fanSeeWallMobilePage.clickAdditionalDatePickterInputField()
+                await fanSeeWallMobilePage.clickAdditionalDateEditBtn()
+                await fanSeeWallMobilePage.inputAdditionalDate()
+                await fanSeeWallMobilePage.clickAdditionalDateDatePickerOkBtn()
+                await fanSeeWallMobilePage.inputAgeForAditionalInfo()
+                await fanSeeWallMobilePage.inputEmailForAditionalInfo()
+                await fanSeeWallMobilePage.inputAdditionalZipCode()
+                await fanSeeWallMobilePage.clickSubmitButton()
+        })
+
+        await fanSeeWallMobilePage.clickHomeBtn()
+
+})
+
+
+
 
 test("014FSW-029 | Mainboard | Validate Admin Successfully Updated Mainboard Title Section", async ({ loginPage, fanSeeWallPage, functions, singupPage, MainMenu, languagePage, menuPage, page, }, testInfo) => {
         await test.step("Login Admin And Land to Home Screen", async () => {

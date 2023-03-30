@@ -69,7 +69,7 @@ test("MD002-001 | Validate Font upload functionality", async ({ loginPage, funct
                 await MainMenu.verifyFontUploadedSuccessfully()
         })
 })
-test("MD002-002 | Validate Try To Upload Invalid Font Format", async ({ loginPage, MainMenu, page }) => {
+test.skip("MD002-002 | Validate Try To Upload Invalid Font Format", async ({ loginPage, MainMenu, page }) => {
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)

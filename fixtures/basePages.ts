@@ -111,6 +111,13 @@ const test = baseTest.extend<{
     },
     fanaticsFilterPage: async ({ page }, use) => {
         await use(new fanaticsFilterPage((page)))
+    },
+
+    fanSeeWallMobilePage: async ({ page }, use) => {
+        await use(new fanSeeWallMobilePage((page)))
+    },
+    mobilePreviewPage: async ({ page }, use) => {
+        await use(new mobilePreviewPage((page)))
     }
 
 

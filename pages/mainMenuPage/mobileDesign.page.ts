@@ -141,7 +141,7 @@ export default class MobileDesign {
     async clickUploadFontInputFiled() {
         let ele = await this.page.locator(this.mobileDesignPageElements.uploadFontInputField).first()
         if (await ele.isVisible()) {
-            await ele.click({ button: "left", delay: 1000 })
+            await ele.click({ force: true })
             await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Main Menu | Mobile Design Page Font Upload Input Field Element Is not Visible | Could not find:"${ele}"`)

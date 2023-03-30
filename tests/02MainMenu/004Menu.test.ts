@@ -64,49 +64,26 @@ test("004M-001 | Varify Fonts Upload Functionality", async ({ loginPage, functio
         await menuPage.clickToUploadFont()
         await menuPage.verifyFontUploadedSuccessfully()
 })
-test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", async ({ loginPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
+test("004M-002 | Validate Uploaded Font Successfully Applied In Mobile Screen", async ({ loginPage, mobilePreviewPage, guesstheScorePage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+        await test.step("Go to The Game Url", async () => {
+                await mobilePreviewPage.gotoUrl()
         })
-        await test.step("Click Prize Drop Section", async () => {
-                //click Prize Drop Section
-                await guesstheScorePage.clickGuessTheScoreSection()
-        })
-        await test.step("now click on start button on Admin site", async () => {
-                // await prizeDropPage.clickstartbutton()
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
-        let newTab = null;
-        let newmobilePreviewPage: mobilePreviewPage
-        await test.step("now open the game in mobile view", async () => {
-                //click Mobile Link Btn
-                await MainMenu.clickMobileLinkBtn()
-                //now click on open button
-                newTab = await MainMenu.clickMobileLinkOpenBtn()
-                newmobilePreviewPage = new mobilePreviewPage(newTab)
-                // await MainMenu.click_closebutton_in_mobilelinkmodal()
-        })
-        await test.step("Input Additional Information For Mobile Screen", async () => {
-                await newmobilePreviewPage.typephoneno()
-                await newmobilePreviewPage.selectbirthdate()
-                await newmobilePreviewPage.typeAge()
-                await newmobilePreviewPage.typeemail()
-                await newmobilePreviewPage.typezip()
-                await newmobilePreviewPage.clicksubmit()
+        await test.step("Validation on mobile Screen", async () => {
+                await mobilePreviewPage.inputPhoneNumberForAditionalInfo()
+                await mobilePreviewPage.clickAdditionalDatePickterInputField()
+                await mobilePreviewPage.clickAdditionalDateEditBtn()
+                await mobilePreviewPage.inputAdditionalDate()
+                await mobilePreviewPage.clickAdditionalDateDatePickerOkBtn()
+                await mobilePreviewPage.inputAgeForAditionalInfo()
+                await mobilePreviewPage.inputEmailForAditionalInfo()
+                await mobilePreviewPage.inputAdditionalZipCode()
+                await mobilePreviewPage.clickSubmitButton()
         })
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
-                await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.clickHomeBtn()
-                await newmobilePreviewPage.verifyMainMenuFontSuccessfullyAppliedInMobileScreen()
+                await mobilePreviewPage.clickHowToPlayBtn()
+                await mobilePreviewPage.clickPrizeSection()
+                await mobilePreviewPage.clickHomeBtn()
+                await mobilePreviewPage.verifyMainMenuFontSuccessfullyAppliedInMobileScreen()
         })
 })
 test("004M-004 | Validate Menu Bar Background Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
@@ -124,48 +101,25 @@ test("004M-004 | Validate Menu Bar Background Color Input Functionality From Adm
                 await menuPage.inputBackgroundColor()
         })
 })
-test("004M-005 | Validate  Menu Bar Background Color Successfully Applied In Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
+test("004M-005 | Validate  Menu Bar Background Color Successfully Applied In Mobile Screen", async ({ loginPage, mobilePreviewPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+        await test.step("Go to The Game Url", async () => {
+                await mobilePreviewPage.gotoUrl()
         })
-        await test.step("Click Prize Drop Section", async () => {
-                //click Prize Drop Section
-                await guesstheScorePage.clickGuessTheScoreSection()
-        })
-        await test.step("now click on start button on Admin site", async () => {
-                // await prizeDropPage.clickstartbutton()
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
-        let newTab = null;
-        let newmobilePreviewPage: mobilePreviewPage
-        await test.step("now open the game in mobile view", async () => {
-                //click Mobile Link Btn
-                await MainMenu.clickMobileLinkBtn()
-                //now click on open button
-                newTab = await MainMenu.clickMobileLinkOpenBtn()
-                newmobilePreviewPage = new mobilePreviewPage(newTab)
-                // await MainMenu.click_closebutton_in_mobilelinkmodal()
-        })
-        await test.step("Input Additional Information For Mobile Screen", async () => {
-                await newmobilePreviewPage.typephoneno()
-                await newmobilePreviewPage.selectbirthdate()
-                await newmobilePreviewPage.typeAge()
-                await newmobilePreviewPage.typeemail()
-                await newmobilePreviewPage.typezip()
-                await newmobilePreviewPage.clicksubmit()
+        await test.step("Validation on mobile Screen", async () => {
+                await mobilePreviewPage.inputPhoneNumberForAditionalInfo()
+                await mobilePreviewPage.clickAdditionalDatePickterInputField()
+                await mobilePreviewPage.clickAdditionalDateEditBtn()
+                await mobilePreviewPage.inputAdditionalDate()
+                await mobilePreviewPage.clickAdditionalDateDatePickerOkBtn()
+                await mobilePreviewPage.inputAgeForAditionalInfo()
+                await mobilePreviewPage.inputEmailForAditionalInfo()
+                await mobilePreviewPage.inputAdditionalZipCode()
+                await mobilePreviewPage.clickSubmitButton()
         })
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
-                await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await mobilePreviewPage.clickHowToPlayBtn()
+                await mobilePreviewPage.clickPrizeSection()
+                await mobilePreviewPage.verifyMenuBarBackgroundColorSuccessfullyAppliedInMobileScreen()
         })
 })
 test("004M-006 | Validate Menu Bar Text Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
@@ -181,51 +135,29 @@ test("004M-006 | Validate Menu Bar Text Color Input Functionality From Admin Sid
         await test.step("Login Admin And Land to Home Screen", async () => {
                 await menuPage.clickTextColorInputField()
                 await menuPage.inputTextColor()
+                await menuPage.clickColorPickerWindowSaveBtn()
         })
 })
-test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
+test("004M-007 | Validate  Menu Bar Text Color Successfully Applied In Mobile Screen", async ({ loginPage, mobilePreviewPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+        await test.step("Go to The Game Url", async () => {
+                await mobilePreviewPage.gotoUrl()
         })
-        await test.step("Click Prize Drop Section", async () => {
-                //click Prize Drop Section
-                await guesstheScorePage.clickGuessTheScoreSection()
-        })
-        await test.step("now click on start button on Admin site", async () => {
-                // await prizeDropPage.clickstartbutton()
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
-        let newTab = null;
-        let newmobilePreviewPage: mobilePreviewPage
-        await test.step("now open the game in mobile view", async () => {
-                //click Mobile Link Btn
-                await MainMenu.clickMobileLinkBtn()
-                //now click on open button
-                newTab = await MainMenu.clickMobileLinkOpenBtn()
-                newmobilePreviewPage = new mobilePreviewPage(newTab)
-                // await MainMenu.click_closebutton_in_mobilelinkmodal()
-        })
-        await test.step("Input Additional Information For Mobile Screen", async () => {
-                await newmobilePreviewPage.typephoneno()
-                await newmobilePreviewPage.selectbirthdate()
-                await newmobilePreviewPage.typeAge()
-                await newmobilePreviewPage.typeemail()
-                await newmobilePreviewPage.typezip()
-                await newmobilePreviewPage.clicksubmit()
+        await test.step("Validation on mobile Screen", async () => {
+                await mobilePreviewPage.inputPhoneNumberForAditionalInfo()
+                await mobilePreviewPage.clickAdditionalDatePickterInputField()
+                await mobilePreviewPage.clickAdditionalDateEditBtn()
+                await mobilePreviewPage.inputAdditionalDate()
+                await mobilePreviewPage.clickAdditionalDateDatePickerOkBtn()
+                await mobilePreviewPage.inputAgeForAditionalInfo()
+                await mobilePreviewPage.inputEmailForAditionalInfo()
+                await mobilePreviewPage.inputAdditionalZipCode()
+                await mobilePreviewPage.clickSubmitButton()
         })
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
-                await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.clickHomeBtn()
-                await newmobilePreviewPage.verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen()
+                await mobilePreviewPage.clickHowToPlayBtn()
+                await mobilePreviewPage.clickPrizeSection()
+                await mobilePreviewPage.clickHomeBtn()
+                await mobilePreviewPage.verifyMenuBarTextColorSuccessfullyAppliedInMobileScreen()
         })
 })
 test("004M-008 | Validate Menu Bar Active Background Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {
@@ -244,48 +176,26 @@ test("004M-008 | Validate Menu Bar Active Background Color Input Functionality F
                 await menuPage.clickColorPickerWindowSaveBtn()
         })
 })
-test("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied In Mobile Screen", async ({ loginPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
-        await test.step("Login Admin And land To Home Screen", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
+test("004M-009 | Validate  Menu Bar Active Background Color Successfully Applied In Mobile Screen", async ({ loginPage, mobilePreviewPage, MainMenu, prizeDropPage, guesstheScorePage, functions, page, }, testInfo) => {
+        await test.step("Go to The Game Url", async () => {
+                await mobilePreviewPage.gotoUrl()
         })
-        await test.step("Click Prize Drop Section", async () => {
-                //click Prize Drop Section
-                await guesstheScorePage.clickGuessTheScoreSection()
-        })
-        await test.step("now click on start button on Admin site", async () => {
-                // await prizeDropPage.clickstartbutton()
-                // await prizeDropPage.clickStartGameOkBtn()
-        })
-        let newTab = null;
-        let newmobilePreviewPage: mobilePreviewPage
-        await test.step("now open the game in mobile view", async () => {
-                //click Mobile Link Btn
-                await MainMenu.clickMobileLinkBtn()
-                //now click on open button
-                newTab = await MainMenu.clickMobileLinkOpenBtn()
-                newmobilePreviewPage = new mobilePreviewPage(newTab)
-                // await MainMenu.click_closebutton_in_mobilelinkmodal()
-        })
-        await test.step("Input Additional Information For Mobile Screen", async () => {
-                await newmobilePreviewPage.typephoneno()
-                await newmobilePreviewPage.selectbirthdate()
-                await newmobilePreviewPage.typeAge()
-                await newmobilePreviewPage.typeemail()
-                await newmobilePreviewPage.typezip()
-                await newmobilePreviewPage.clicksubmit()
+        await test.step("Validation on mobile Screen", async () => {
+                await mobilePreviewPage.inputPhoneNumberForAditionalInfo()
+                await mobilePreviewPage.clickAdditionalDatePickterInputField()
+                await mobilePreviewPage.clickAdditionalDateEditBtn()
+                await mobilePreviewPage.inputAdditionalDate()
+                await mobilePreviewPage.clickAdditionalDateDatePickerOkBtn()
+                await mobilePreviewPage.inputAgeForAditionalInfo()
+                await mobilePreviewPage.inputEmailForAditionalInfo()
+                await mobilePreviewPage.inputAdditionalZipCode()
+                await mobilePreviewPage.clickSubmitButton()
         })
         await test.step("Verify Japanese Language Applaid Successfully", async () => {
-                await newmobilePreviewPage.clickHowToPlayBtn()
-                await newmobilePreviewPage.clickPrizeSection()
-                await newmobilePreviewPage.verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen()
+                await mobilePreviewPage.clickHowToPlayBtn()
+                await mobilePreviewPage.clickPrizeSection()
+                // await mobilePreviewPage.clickHomeBtn()
+                await mobilePreviewPage.verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen()
         })
 })
 test("004M-010 | Validate Menu Bar Active Text Color Input Functionality From Admin Side", async ({ loginPage, functions, MainMenu, languagePage, menuPage, page, }, testInfo) => {

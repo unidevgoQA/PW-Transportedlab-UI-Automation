@@ -1,4 +1,5 @@
 import { expect, Page } from "@playwright/test";
+import Env from "@utils/environment";
 import { readFileSync } from 'fs'
 export default class mobilePreviewPage {
        private page: Page;
@@ -38,6 +39,20 @@ export default class mobilePreviewPage {
               noiseMeterGameTitle: "//p[text()='Noise Meter']",
               tugOfWarGameTitle: "//p[text()='Tug of War']",
               prizeDropGameTitle: "//p[text()='Prize Drop']",
+              selectTextOnHomeScreen: "(//h3[text()='Select'])[1]",
+              teamAccountModal: "(//div[@teamcount='2'])[2]",
+              postContentSectionMobileUIEle: "//div[@class='MuiBox-root css-d6o6cv']",
+              openLibraryBtn: "//button[text()='Open Library']",
+              takePhotoBtn: "//button[text()='Take Photo']",
+              takeRecordVideoBtn: "//button[text()='Record Video']",
+              takeRecordVideoMinMaxTitle: "//p[text()='The video must be (5)-(15) seconds long']",
+              homePageBtn: "(//button[@value='game']//div)[1]",
+              welcomeMassage: "//p[text()='   Welcome ']",
+              uploadedImageDeleteBtn: "(//button[@type='button'])[1]",
+              postTextInputField: "//textarea[@placeholder='Type something']",
+              postSubmitBtn: "//button[text()='Submit']",
+              prizeSectionBtn: "(//button[@value='prize']//div)[1]"
+
        }
        // export default class mobilePreviewPage {
        //        // [x: string]: any;
@@ -47,6 +62,19 @@ export default class mobilePreviewPage {
        //               this.page = page;
        //               page.setViewportSize({ width: 390, height: 844 })
        //        }
+
+       async gotoUrl() {
+              // const context = await browser.newContext({
+              //         storageState: "./auth.json"
+              // })
+              // const page = await context.newPage()
+              // await this.page.goto(this.url);
+              await this.page.goto(Env.fanSeeWallGameOpenUrl);
+
+              await this.page.waitForLoadState("domcontentloaded")
+
+       }
+
        async clickTriviaSectionForOpenMobileScreen() {
               const ele = this.page.locator("//p[text()='Trivia']")
               await expect(ele).toBeVisible()
@@ -692,8 +720,16 @@ export default class mobilePreviewPage {
               expect(BackgroundColor).toHaveCSS("color", "rgb(2, 16, 25)")
        }
        async verifyMenuBarActivBackgroundColorSuccessfullyAppliedInMobileScreen() {
-              const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })
-              expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")
+              const BackgroundColor = await this.page.locator(this.mobilePreviewPageElements.prizeSectionBtn)
+              try {
+                     expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")
+
+              } catch (error) {
+                     throw new Error(`Main Menu | Active Menu Background Color Does Not Updated Properly | Error occurred: ${error}`)
+
+              }
+              // const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })
+              // expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")
        }
        async verifyMenuBarActivTextColorSuccessfullyAppliedInMobileScreen() {
               const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })
