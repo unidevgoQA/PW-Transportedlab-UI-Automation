@@ -70,7 +70,6 @@ export default class MobileDesign {
         landscapeHeaderBGDeleteBtn: "(//button[@aria-label='Delete'])[3]",
         protraitHeaderBGDeleteBtn: "(//button[@aria-label='Delete'])[2]",
         mainLogoDeleteBtn: "(//button[@aria-label='Delete'])[1]",
-
         protraitImageCheckBox: "(//input[@value='video'])[2]",
         protraitVideoCheckBox: "(//input[@value='video'])[4]",
         protraitImageChecboxs: "(//span[text()='Image']/preceding::input[@type='radio'])[2]",
@@ -89,7 +88,6 @@ export default class MobileDesign {
         landScapeBGUploadInputField: "(//div[@class='MuiBox-root css-v2612'])[2]",
         errorAlertMassage: "//p[text()='Incorrect file extension. Please upload an image']",
         okBtn: "//button[text()='Ok']",
-
     }
     async clickHomeAvater() {
         const ele = this.page.locator('button').nth(2)
@@ -120,7 +118,6 @@ export default class MobileDesign {
             await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Home Avater Button | Main Menu Button Element Is not Visible | Could not find locator:"${ele}"`)
-
     }
     async clickMobileDesign() {
         let ele = await this.page.locator(this.mobileDesignPageElements.mobileDesignPage)
@@ -145,7 +142,6 @@ export default class MobileDesign {
             await this.page.waitForLoadState("networkidle");
         }
         else throw new Error(`Main Menu | Mobile Design Page Font Upload Input Field Element Is not Visible | Could not find:"${ele}"`)
-
     }
     async verifyFontUploadedSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.uploadedFontTitle)
@@ -207,7 +203,6 @@ export default class MobileDesign {
         else throw new Error(`Main Menu | Mobile Design Page Entry Screen As Home Element Is Not Visible | Could not find:"${ele}"`)
     }
     async clickMobileLinkBtn() {
-
         let ele = await this.page.frameLocator('iframe').locator(this.mobileDesignPageElements.mobileLinkButton)
         try {
             await ele.click({ button: "left", delay: 1000 })
@@ -223,7 +218,6 @@ export default class MobileDesign {
         } catch (error) {
             throw new Error(`Game | Guess The Score Button Element Is Not Visible | Error occurred: ${error}`);
         }
-
     }
     async clickMobileLinkOpenBtn() {
         // Click text=Open Link
@@ -402,9 +396,6 @@ export default class MobileDesign {
         }
         else throw new Error(`Main Menu | Mobile Design Color Window Color Type Solid Is Not Visible | Could not find:"${ele}}"`)
     }
-
-
-
     //Tertiary color input field ele
     async checkTertiaryText() {
         let ele = await this.page.locator(this.mobileDesignPageElements.tertiaryTitleText)
@@ -412,7 +403,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Tertiary")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Tertiary Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickTertiaryColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.tertiaryColorInputField)
@@ -428,7 +418,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Button")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Button Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickButtonColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.buttonColorInputField)
@@ -444,7 +433,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Button Glow")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Button Glow Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickButtonGlowColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.buttonGlowColorInputField)
@@ -460,7 +448,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Text")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Text Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickTextColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.textColorInputField)
@@ -476,7 +463,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Text Dialog Box")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Text Dialog Box Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickTextDialogBoxColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.textDialogBoxColorInputField)
@@ -492,7 +478,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Header")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Header Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickHeaderFieldColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.headerColorInputField)
@@ -508,7 +493,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Header Text")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Header Text Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickHeaderTextFieldColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.headerTitleTextColorInputField)
@@ -524,7 +508,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Gamification")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Gamification Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickGamificationFieldColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.gamificationColorInputField)
@@ -540,7 +523,6 @@ export default class MobileDesign {
             await expect(ele).toContainText("Gamification Glow Line")
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Gamification Glow Line Title Text Is Not Visible | Could not find:"${ele}}"`)
-
     }
     async clickGamificationGlowLineFieldColorBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.gamificationGlowLineColorInputField)
@@ -549,7 +531,6 @@ export default class MobileDesign {
         }
         else throw new Error(`Main Menu | Mobile Design Color Section Gamification Line Color Input Field Button Is Not Visible | Could not find:"${ele}}"`)
     }
-
     async deleteUploadedLandscapeBG() {
         let ele = await this.page.locator(this.mobileDesignPageElements.lnadscapeBGDeleteBtn)
         if (await ele.isVisible()) {
@@ -560,7 +541,6 @@ export default class MobileDesign {
             console.log(`Main Menu | Mobile Design Uploaded Landscape Background Is Not Found | Could not find:"${ele}}"`)
         }
     }
-
     async deleteUploadedPortraitBG() {
         let ele = await this.page.locator(this.mobileDesignPageElements.protraitBGDeleteBtn)
         if (await ele.isVisible()) {
@@ -601,20 +581,13 @@ export default class MobileDesign {
             console.log(`Main Menu | Mobile Design Uploaded Main Logo Is Not Found | Could not find:"${ele}}"`)
         }
     }
-
-
     async clickPortraitBackgroundHeaderVideoCheckBox() {
-
         try {
             await this.page.locator(this.mobileDesignPageElements.protraitVideoCheckBox).click({ button: "left", delay: 1000 })
             await this.page.waitForTimeout(1000)
-
         } catch (error) {
             console.log(`Main Menu | Mobile Design Protrait Background Image CheckBox Is Not Checked `)
-
         }
-
-
     }
     async clickPortraitBackgroundHeaderImageCheckBox() {
         let ele = await this.page.locator(this.mobileDesignPageElements.protraitImageChecboxs)
@@ -633,7 +606,6 @@ export default class MobileDesign {
             console.log(`Main Menu | Mobile Design Protrait Background Image Delete Button is not visiable  | Could not find:"${ele}}"`)
         }
     }
-
     async clickLandscapeBackgroundHeaderVideoCheckBox() {
         let ele = await this.page.locator(this.mobileDesignPageElements.landscapeBGImageCheckBox).isVisible()
         if ((ele == true)) {
@@ -662,7 +634,6 @@ export default class MobileDesign {
             console.log(`Main Menu | Mobile Design Landscape Background Image CheckBox Is Checked`)
         }
     }
-
     async clickToUploadMainLogo() {
         let ele = await this.page.locator(this.mobileDesignPageElements.mainLogoUploadInputField)
         try {
@@ -695,17 +666,14 @@ export default class MobileDesign {
             throw new Error(`Main Menu | Mobile Design Protrait Background Upload Input Field Is Not Visible | Error occurred: ${error}`);
         }
     }
-
     async verifyPotraitBackgroundUploadSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.protraitAndLanscapeBGSuccessfullyUploadEle)
     }
     async verifyLandscapeBackgroundUploadSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.protraitAndLanscapeBGSuccessfullyUploadEle)
-
     }
     async verifyLandscapeBackgroundHeaderUploadSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.landscapeBGHeaderSuccessfullyUploadEle)
-
     }
     async verifyPortraitBackgroundHeaderUploadSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.protraitBGHeaderSuccessfullyUploadEle)
@@ -713,7 +681,6 @@ export default class MobileDesign {
     async verifyMainLogoUploadSuccessfully() {
         await this.page.waitForSelector(this.mobileDesignPageElements.mainLogoSuccessfullyUploadEle)
     }
-
     async clickToUploadLandscapeBackground() {
         let ele = await this.page.locator(this.mobileDesignPageElements.landScapeBGUploadInputField)
         try {
@@ -729,7 +696,6 @@ export default class MobileDesign {
         } catch (error) {
             throw new Error(`Main Menu | Mobile Design File Type Supported Error Alert Massage Is Not Visible | Error occurred: ${error}`);
         }
-
     }
     async clcikErrorAlertOkBtn() {
         let ele = await this.page.locator(this.mobileDesignPageElements.okBtn)
@@ -740,7 +706,6 @@ export default class MobileDesign {
             throw new Error(`Main Menu | Mobile Design File Type Supported Error Alert Modal Ok Button Is Not Visible | Error occurred: ${error}`);
         }
     }
-
     //Start function from here
     async validateTryToUploadInvalidFont() {
         const filePath0 = "testData/csv/csv.csv"

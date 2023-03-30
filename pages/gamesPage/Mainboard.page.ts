@@ -6,13 +6,11 @@ export default class mainBoardPage {
   // static buffer: void;
   private elements = {
     ok_button: '//button[text()="Ok"]',
-    video_ele:"//div[@id='app']//video"
-
+    video_ele: "//div[@id='app']//video"
   }
   constructor(page: Page) {
     this.page = page;
   }
-
   async validate_output_image() {
     try {
       await this.page.waitForTimeout(7000)
@@ -24,7 +22,7 @@ export default class mainBoardPage {
     }
   }
   async validate_output_video() {
-    const ele= this.page.locator(this.elements.video_ele)
+    const ele = this.page.locator(this.elements.video_ele)
     try {
       await this.page.waitForTimeout(7000)
       await expect(ele).toBeVisible()
@@ -52,12 +50,10 @@ export default class mainBoardPage {
       throw new Error(`Livewallpage| Mmainboard| output frame (9:16 Output) mismatch found` + error)
     }
   }
-
   async clickokbutton() {
     await this.page.reload()
     await this.page.locator(this.elements.ok_button).click({ button: 'left' })
   }
-
   async validate_banner_image() {
     try {
       await this.page.waitForTimeout(7000)
@@ -107,9 +103,8 @@ export default class mainBoardPage {
       throw new Error(`Livewallpage| Mmainboard| Fallback (9:16) mismatch found` + error)
     }
   }
-
   async validate_fallback_9_16_video() {
-    const ele=this.page.locator(this.elements.video_ele).last()
+    const ele = this.page.locator(this.elements.video_ele).last()
     try {
       await this.page.waitForTimeout(7000)
       await expect.soft(ele).toBeVisible()

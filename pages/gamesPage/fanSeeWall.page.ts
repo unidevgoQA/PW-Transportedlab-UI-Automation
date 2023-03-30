@@ -74,7 +74,6 @@ export default class fanSeeWallPage {
                 bottomAlignmentButton: "//h5[text()='Bottom']//parent::button",
                 qrCodeBtn: `//button[@type='button']//button[1]`,
                 opneLinkInNewTab: "//a[@aria-label='Open Link']",
-
                 mainboardBtn: "//p[text()='Mainboard']",
                 settigsTitleText: "//p[text()='Settings']",
                 titleText: "//p[text()='Title']",
@@ -116,7 +115,6 @@ export default class fanSeeWallPage {
                 featurePostTextTitleText: "//p[text()='Featured Post Text']",
                 featurePostTextColorInputFieldBtn: "//p[text()='Featured Post Text']/following-sibling::button",
                 ColorPickerSaveBtn: '//button[text()="Save"]',
-
                 backgroundImageUploadInputFieldBtn: "(//div[@class='MuiBox-root css-v2612'])[1]",
                 defaultMainboardTileTitleText: "//p[text()='Default Mainboard Tile']",
                 defaultMainboardTileImageUploadInputFieldBtn: "(//div[@class='MuiBox-root css-v2612'])[2]",
@@ -134,9 +132,6 @@ export default class fanSeeWallPage {
                 deleteBtnForFeaturedPostOverlay: "(//button[@aria-label='Delete'])[3]",
                 deleteBtnForDefaultMainboardTile: "(//button[@aria-label='Delete'])[2]",
                 deleteBtnForBackground: "//button[@aria-label='Delete']",
-
-
-
                 moderationPage: "//p[text()='Moderation']",
                 createPostBtn: "//button[text()='Create Post']",
                 addNewPostTitleText: "//p[text()='Add New Post']",
@@ -155,8 +150,6 @@ export default class fanSeeWallPage {
                 sourcesDropDownInputField: "(//div[@role='button'])[1]",
                 cueSourceCheckBox: "//li[@data-value='CUE']",
                 customAddsSourceCheckBox: "//li[@data-value='Custom Adds']",
-
-
                 sortByDropDownInputField: "(//div[@role='button'])[2]",
                 approvedSrotByCheckBox: "//li[@data-value='Approved']",
                 likedSrotByCheckBox: "//li[@data-value='Liked']",
@@ -189,8 +182,6 @@ export default class fanSeeWallPage {
                 postFlagBtn: "button:nth-child(4)",
                 postDeleteBtn: "button:nth-child(5)"
         }
-
-
         async clickQrCodeBtn() {
                 const ele = this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.qrCodeBtn)
                 try {
@@ -199,10 +190,8 @@ export default class fanSeeWallPage {
                 } catch (error) {
                         throw new Error(`FanSee Wall Page Default Config QR Code Btn Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
         async clickOpenLinkInNewTab() {
-
                 // Click text=Open Link
                 const [page1] = await Promise.all([
                         this.page.waitForEvent('popup'),
@@ -212,7 +201,6 @@ export default class fanSeeWallPage {
                 await this.page.waitForTimeout(3000)
                 return page1;
         }
-
         async clickFanSeeWallPage() {
                 let ele = await this.page.locator(this.fanSeeWallPageElements.fanSeeWallPage)
                 try {
@@ -222,7 +210,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall Page Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMobileSettingsPage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileSectionBtn)
                 try {
@@ -232,7 +219,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall Page Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyUserProfileTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.userProfileTitleText)
                 try {
@@ -241,7 +227,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page User Profle Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyShowAvatarTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showAvatarTitleText)
                 try {
@@ -250,7 +235,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Avatar Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async disableShowAvatar() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showAvatarCheckBox).isChecked()
                 if ((ele == false)) {
@@ -260,17 +244,14 @@ export default class fanSeeWallPage {
                         console.log("Game | FanSee Wall | Show Avater CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async enableShowAvatar() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showAvatarCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showAvatarCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | Show Avater CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyShowUserNameTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showUserNameTitleText)
                 try {
@@ -280,7 +261,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Username Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async disableUserName() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showUserNameCheckBox).isChecked()
                 if ((ele == true)) {
@@ -290,17 +270,14 @@ export default class fanSeeWallPage {
                         console.log("Game | FanSee Wall | Show UserName CheckBox Is Disable So Did Not Click On It")
                 }
         }
-
         async enableUserName() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showUserNameCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.showUserNameCheckBox).click({ force: true })
-
                 } else {
                         console.log("Game | FanSee Wall | Show UserName CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyAllowPhotoTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowPhotoTitleText)
                 try {
@@ -309,17 +286,14 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Allow Photo Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async enableAllowPhoto() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowPhotoCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowPhotoCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | Show Allow Photo CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyAllowVideoTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowVideoTitleText)
                 try {
@@ -328,17 +302,14 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Allow Video Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async enableAllowVideo() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowVideoCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowVideoCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | Show Allow Video CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyAllowTextTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowTextTitleText)
                 try {
@@ -347,17 +318,14 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Allow Text Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async enableAllowText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowTextCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowTextCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | Show Allow Text CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyFileUploadTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowFileUploadTitleText)
                 try {
@@ -366,17 +334,14 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Show Allow File Upload Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async enableAllowFileUpload() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowFileUploadCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.allowFileUploadCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | Show Allow File Upload CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyVideoTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.videoTitleText)
                 try {
@@ -385,7 +350,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Video Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyMinimumVideoLenthTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.minimumVideoLengthTitleText)
                 try {
@@ -394,7 +358,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Min Video Length Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyMinimumVideoLenthSecondTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.minimumSecondLabelText)
                 try {
@@ -403,7 +366,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Seconds Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputMinimumVideoLenthSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.minimumVideoLengthInputField)
                 try {
@@ -412,7 +374,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Minimum Video Length Seconds Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyMaxVideoLengthTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.maxVideoLengthTitleText)
                 try {
@@ -421,7 +382,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Max Video Length Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyMaxVideoLenthSecondTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.maxSecondLabelText)
                 try {
@@ -430,7 +390,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Seconds Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputMaxVideoLenthSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.maxVideoLengthInputField)
                 try {
@@ -439,7 +398,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Page Minimum Video Length Seconds Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async collapseSettingsSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.settinsSectionExpnadCollapseBtn)
                 try {
@@ -448,8 +406,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Section Expand Collapse Button Does Not Work | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyColorSectionTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorTitleText)
                 try {
@@ -458,7 +414,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Colors Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async expandColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorSectionExpandCollapseBtn)
                 try {
@@ -467,7 +422,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Expand Collapse Button Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async verifyImageUploadSectionTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUploadTitleText)
                 try {
@@ -476,7 +430,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Image Upload Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async expandImageUploadSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUploadSectionExpandCollapseBtn)
                 try {
@@ -486,10 +439,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Image Upload Expand Collapse Button Does Not Work | Error occurred: ${error}`);
                 }
         }
-
-
-
-
         async verifyMobileBackGroundTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundColorTitleText)
                 try {
@@ -498,7 +447,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Mobile Background Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMobileBackgroundColorInputBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundColorInputField)
                 try {
@@ -507,7 +455,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Background Color Input Section Open Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputColorCodeForMobileBackground() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -516,7 +463,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Background Color Code Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async colorWindowSaveBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorWindowSaveBtn)
                 try {
@@ -526,10 +472,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Background Color Window Save Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
-
-
-
         async verifyColorSectionButtonTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileButtonColorTitleText)
                 try {
@@ -538,7 +480,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Mobile Button Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMobileButtonColorInputBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileButtonColorInputField)
                 try {
@@ -547,7 +488,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Button Color Input Section Open Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputColorCodeForMobileButton() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -556,10 +496,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Button Color Code Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
-
-
-
         async verifyColorSectionButtonTextTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileButtonTextColorTitleText)
                 try {
@@ -568,7 +504,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Mobile Button Text Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMobileButtonTextColorInputBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileButtonTextColorInputField)
                 try {
@@ -577,7 +512,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Button Text Color Input Section Open Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputColorCodeForMobileButtonText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -586,9 +520,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Button Text Color Code Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
-
-
         async verifyColorSectionTextTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileTextColorTitleText)
                 try {
@@ -597,7 +528,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Mobile Text Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMobileTextColorInputBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileTextColorInputField)
                 try {
@@ -606,7 +536,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Text Color Input Section Open Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputColorCodeForMobileText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -615,7 +544,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settings Mobile Text Color Code Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async deleteMobileBackgroundImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundUploadedImagedeleteBtn).isVisible()
                 if ((ele == true)) {
@@ -625,29 +553,22 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Background Image Is Not Found`);
                 }
         }
-
         async deleteMobileWelcomeImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeUploadedImagedeleteBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeUploadedImagedeleteBtn).click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } else {
                         console.log(`Game | FanSee Wall | Mobile Welcome Image Is Not Found`);
                 }
         }
-
         async deleteMobileEventImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventUploadedImagedeleteBtn).isVisible()
                 if ((ele == true)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventUploadedImagedeleteBtn).click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } else { console.log(`Game | FanSee Wall | Mobile Event Image Is Not Found`); }
-
-
         }
-
         async clickToUploadMobileBackgroundImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileBackgroundImageUploadBtn)
                 try {
@@ -656,7 +577,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Background Upload Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickToUploadMobileWelcomeImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileWelcomeImageUploadBtn)
                 try {
@@ -665,7 +585,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Welcome Upload Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickToUploadMobileEventImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mobileEventImageUploadBtn)
                 try {
@@ -674,7 +593,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Event Upload Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async verifyDialogsSectionTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.dialogTitleText)
                 try {
@@ -683,7 +601,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Dialogs Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async expandDialogsSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.dialogExpandCollapseBtn)
                 try {
@@ -693,7 +610,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Dialogs Expand Collapse Button Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async verifyPreEventMessageTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventMassageTitleText)
                 try {
@@ -702,7 +618,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Page Pre-Event Message Title Text Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickBlockTypeSectionField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventFilterBlockTypeInputField)
                 try {
@@ -711,7 +626,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickWelcomeMassageBlockTypeSectionField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.welcomeMassageBlockTypeInputField)
                 try {
@@ -720,7 +634,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async selectH1Tag() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.normalTag)
                 try {
@@ -730,7 +643,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type H1 Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async selectH1TagForBlockType() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.h1Tag)
                 try {
@@ -740,7 +652,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Block Type H1 Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputPreEventMessage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.perEventMassageInputField)
                 try {
@@ -749,7 +660,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputWelcomeMessageFromDialogs(value: string) {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.welcomeMassageInputField)
                 try {
@@ -760,7 +670,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Mobile Settins Dialogs Section Page Pre-Event Message Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickMainBoardPage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mainboardBtn)
                 try {
@@ -770,7 +679,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Button Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.titleText)
                 try {
@@ -779,7 +687,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Title Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputTitle() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.titleInputField)
                 try {
@@ -788,7 +695,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Title Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyLeftRightMarginTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.leftRightMargin)
                 try {
@@ -797,7 +703,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Left & Right Margin Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputLeftRightMarginParcent() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.leftRightMarginInputField)
                 try {
@@ -806,7 +711,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Left & Right Margin Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyTopBottomMarginTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.topBottomMarginTitleText)
                 try {
@@ -815,7 +719,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Top & Bottom Margin Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputTopBottomMarginParcent() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.topBottomMarginInputField)
                 try {
@@ -824,7 +727,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Top & Bottom Margin Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyMostRecentPostsTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mostRecentPostsTitleText)
                 try {
@@ -833,7 +735,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Most Recent Posts Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputMostRecentPostsSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.mostRecentPostsInputField)
                 try {
@@ -842,7 +743,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Most Recent Posts Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyTileAnimationSpeedTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.tileAnimationSpeedTitleText)
                 try {
@@ -851,7 +751,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Tile Animation Speed Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputTileAnimationSpeedSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.tileAnimationSpeedInputField)
                 try {
@@ -860,7 +759,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Tile Animation Speed Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyLoopVideoTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.loopVideoTitleText)
                 try {
@@ -869,7 +767,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Loop Video Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async disableLoopVideoCheckBox() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.loopVideoCheckBox).isChecked()
                 if ((ele == true)) {
@@ -879,17 +776,14 @@ export default class fanSeeWallPage {
                         console.log("Game | FanSee Wall | MainBoard Settins Loop Video CheckBox Is Disable So Did Not Click On It")
                 }
         }
-
         async enableLoopVideoCheckBox() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.loopVideoCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.loopVideoCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | MainBoard Settins Loop Video CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifySocailIconTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.socialIconTitleText)
                 try {
@@ -898,7 +792,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Social Icons Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyCueTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.cueTitleText)
                 try {
@@ -907,7 +800,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section CUE Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async disableCueCheckBox() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.cueCheckBox).isChecked()
                 if ((ele == true)) {
@@ -917,18 +809,14 @@ export default class fanSeeWallPage {
                         console.log("Game | FanSee Wall | MainBoard Settins CUE CheckBox Is Disableed So Did Not Click On It")
                 }
         }
-
-
         async enableCueCheckBox() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.cueCheckBox).isChecked()
                 if ((ele == false)) {
                         await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.cueCheckBox).click()
-
                 } else {
                         console.log("Game | FanSee Wall | MainBoard Settins CUE CheckBox Is Enabled So Did Not Click On It")
                 }
         }
-
         async verifyAutomateFeaturedPostsTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.automateFeaturePost)
                 try {
@@ -937,7 +825,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Automate Featured Posts Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyIntervalTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.intervalTitleText)
                 try {
@@ -946,7 +833,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Interval Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputIntervalSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.intervalSecondInputField)
                 try {
@@ -955,7 +841,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Interval Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyDurationTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.durationTitleText)
                 try {
@@ -964,7 +849,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Duration Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputDurationSecond() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.durationSecondInputField)
                 try {
@@ -973,8 +857,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Settings Section Duration Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async clickTitleColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.titleColorInputField)
                 try {
@@ -983,7 +865,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Color Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputTitleColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -992,7 +873,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyPostTextTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postTitleText)
                 try {
@@ -1001,7 +881,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Post Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickPostTextColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postColorInputFieldBtn)
                 try {
@@ -1010,8 +889,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Post Text Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputPostTextColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1020,7 +897,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyBackgroundTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.backgroundTitleText)
                 try {
@@ -1029,7 +905,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Background Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickBackgroundColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.backgroundColorInputField)
                 try {
@@ -1038,8 +913,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Background Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputBackgroundColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1048,8 +921,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyTileBackgroundTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.titleBackgroundTitleText)
                 try {
@@ -1058,7 +929,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Tile Background Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickTileBackgroundColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.titleBackgroundColorInputFieldBtn)
                 try {
@@ -1067,8 +937,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Tile Background Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputTileBackgroundColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1077,8 +945,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Tile Background Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyFeaturedPostTileTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostTitleText)
                 try {
@@ -1087,7 +953,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Tile Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickFeaturedPostTileColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostTextColorInputFieldBtn)
                 try {
@@ -1096,8 +961,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Tile Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputFeaturedPostTileColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1106,8 +969,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Featured Post Tile Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyFeaturedPostBackgroundTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostBAckgroundTitleText)
                 try {
@@ -1116,7 +977,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Background Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickFeaturedPostBackgroundColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostBAckgroundColorInputFieldBtn)
                 try {
@@ -1125,8 +985,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Background Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputFeaturedPostBackgroundColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1135,10 +993,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Featured Post Background Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
-
-
         async verifyFeaturedPostTextTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostTextTitleText)
                 try {
@@ -1147,7 +1001,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickFeaturedPostTextColorSection() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featurePostTextColorInputFieldBtn)
                 try {
@@ -1156,8 +1009,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Colors Section Featured Post Text Colors Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async inputFeaturedPostTextColor() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.colorCodeInputField)
                 try {
@@ -1166,9 +1017,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Color Section Featured Post Text Color Code Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
-
         async clickBackgroundImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.backgroundImageUploadInputFieldBtn)
                 try {
@@ -1177,8 +1025,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Background Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyDefaultMainboardTileTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.defaultMainboardTileTitleText)
                 try {
@@ -1187,7 +1033,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Default Mainbroad Title Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickDefaultMainboardTileImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.defaultMainboardTileImageUploadInputFieldBtn)
                 try {
@@ -1196,8 +1041,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Mainboard Tile Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyFeaturedPostOverlayTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featuredPostOverlayTitleText)
                 try {
@@ -1206,7 +1049,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Featured Post Overlay Title Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickFeaturedPostOverlayImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.featuredPostOverlayImageUploadInputFieldBtn)
                 try {
@@ -1215,8 +1057,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Featured Post Overlay Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyImageUpload1TitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUpload1TitleText)
                 try {
@@ -1225,7 +1065,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Image Upload 1 Title Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickImageUpload1ImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUpload1ImageUploadInputFieldBtn)
                 try {
@@ -1234,8 +1073,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Image Upload 1 Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyImageUpload2TitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUpload2TitleText)
                 try {
@@ -1244,7 +1081,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Image Upload 1 Title Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickImageUpload2ImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageUpload2ImageUploadInputFieldBtn)
                 try {
@@ -1253,9 +1089,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Image Upload 2 Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
-
         async verifyInternalSourceIconTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.internalSourceIconTitleText)
                 try {
@@ -1264,7 +1097,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Internal Source Icon Title Text Text Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickInternalSourceIconImageUploadField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.internalSourceIconImageUploadInputFieldBtn)
                 try {
@@ -1273,8 +1105,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | MainBoard Page Image Upload Section Internal Source Icon Image Upload Input Field Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async deleteBackgroundImage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForBackground).isVisible()
                 if ((ele == true)) {
@@ -1284,8 +1114,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Background Image Is Not Found`);
                 }
         }
-
-
         async deleteDefaultMainboardTile() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForDefaultMainboardTile).isVisible()
                 if ((ele == true)) {
@@ -1295,7 +1123,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Default Mainboard Tile Is Not Found`);
                 }
         }
-
         async deleteFeaturedPostOverlay() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForFeaturedPostOverlay).isVisible()
                 if ((ele == true)) {
@@ -1305,8 +1132,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Featured Post Overlay Tile Is Not Found`);
                 }
         }
-
-
         async deleteImageUpload1() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForImageUpload1).isVisible()
                 if ((ele == true)) {
@@ -1316,7 +1141,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Image Upload 1 Is Not Found`);
                 }
         }
-
         async deleteImageUpload2() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForImageUpload2).isVisible()
                 if ((ele == true)) {
@@ -1326,8 +1150,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Image Upload 2 Is Not Found`);
                 }
         }
-
-
         async deleteInternalSourceIcon() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deleteBtnForInternalSourceIcon).isVisible()
                 if ((ele == true)) {
@@ -1337,8 +1159,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Mobile Internal Server Icon Is Not Found`);
                 }
         }
-
-
         //moderation
         async clickModerationPage() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.moderationPage)
@@ -1349,7 +1169,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickCreatePostBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.createPostBtn)
                 try {
@@ -1359,7 +1178,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyAddNewPostTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.addNewPostTitleText)
                 try {
@@ -1368,7 +1186,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Section Add New Post Title Text Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyAvaterTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.avaterTitleText)
                 try {
@@ -1377,8 +1194,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Section Avatar Title Text Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async clickAvaterUploadInputField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.avaterUploadInputFieldBtn)
                 try {
@@ -1388,7 +1203,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Avater Upload Input Fiedl Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyNameTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.nameTitleText)
                 try {
@@ -1397,7 +1211,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Section Name Title Text Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputPostName(name: string) {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.nameInputField)
                 try {
@@ -1406,7 +1219,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Name Input Input Field Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyUserNameTitleText() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.userNameTitleText)
                 try {
@@ -1415,7 +1227,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Section User Name Title Text Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputPostUserName(name: string) {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.userNameInputField)
                 try {
@@ -1424,7 +1235,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page User Name Input Input Field Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async checkImageRadioBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.imageRadioBtn).isChecked()
                 if ((ele == false)) {
@@ -1433,7 +1243,6 @@ export default class fanSeeWallPage {
                         console.log(`Game | FanSee Wall | Moderation Create Post Image CheckBox Is Checked`);
                 }
         }
-
         async clickPostImageUploadInputField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postImageUploadInputField)
                 try {
@@ -1443,7 +1252,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Image Upload Input Field Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputPostText(text: string) {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postTextInputField)
                 try {
@@ -1452,7 +1260,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Section Post Text Input Field Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSaveBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.saveBtn)
                 try {
@@ -1462,7 +1269,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Create Post Save Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickRefreshBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.refreshBtn)
                 try {
@@ -1472,9 +1278,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Refresh Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
-
         async clickSourcesInputField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.sourcesDropDownInputField)
                 try {
@@ -1484,7 +1287,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Input Field Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSourcesInputFieldForceFullyWhenDropdownOptionsShow() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.sourcesDropDownInputField)
                 try {
@@ -1494,7 +1296,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Input Field Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickOnCueOptions() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.cueSourceCheckBox)
                 try {
@@ -1504,7 +1305,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources DropDown Field Cue CheckBox Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickOnCustomAddsOptions() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.customAddsSourceCheckBox)
                 try {
@@ -1514,7 +1314,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources DropDown Field Cue CheckBox Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyCuePostSuccessfullyShow() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postFromCueSide)
                 try {
@@ -1523,7 +1322,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Section Cue CheckBox Filter Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async verifyCuePostWithRecordVideoSuccessfullyShow() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postFromCueSideWithVideoRecord)
                 try {
@@ -1532,8 +1330,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Section Cue CheckBox Filter Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyCuePostWithTakePhotoSuccessfullyShow() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postFromCueSideWithTakePhoto)
                 try {
@@ -1542,7 +1338,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Section Cue CheckBox Filter Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async verifyCustomAddsPostSuccessfullyShow() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.customAdsFilterValidation)
                 try {
@@ -1551,8 +1346,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Section Custom Ads CheckBox Filter Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
-
         async verifyCustomAddsPostSuccessfullyShowForDeletedAndFlagged() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.customAdsFilterValidation).first()
                 try {
@@ -1561,11 +1354,9 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Sources Section Custom Ads CheckBox Filter Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async clickClearAllBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.clearAllBtn)
                 let okbtn = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.okBtn)
-
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
@@ -1575,7 +1366,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Clear All  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickPostApproveBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postApproveBtn).first()
                 try {
@@ -1585,7 +1375,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Approve  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async verifyApprovePostSuccessfullyShowOnPlaylist() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.playListPost)
                 try {
@@ -1594,52 +1383,42 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Approve Functionality Does Not Work | Error occurred: ${error}`);
                 }
         }
-
         async clickPostLikeBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postLikeBtn).first()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(1000)
-
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Like  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickPostFlaggedBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postFlagBtn).first()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(1000)
-
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Flagged  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickPostFevoraitBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postFevoraitBtn).first()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(1000)
-
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Favorait Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickPostDeleteBtn() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.postDeleteBtn).first()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Game | FanSee Wall | Moderation Page Post Delete  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
         async clickSortByOptionInputField() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.sortByDropDownInputField).first()
                 try {
@@ -1649,7 +1428,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page SrotBy Options Selection Input Field  Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSortByApprovedOption() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.approvedSrotByCheckBox).first()
                 try {
@@ -1659,7 +1437,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page SrotBy Approved Options Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSortByLikedOption() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.likedSrotByCheckBox).first()
                 try {
@@ -1669,7 +1446,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page SrotBy Liked Options Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSortByFlaggedOption() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.flaggedSrotByCheckBox).first()
                 try {
@@ -1679,7 +1455,6 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page SrotBy Flagged Options Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async clickSortByDeletedOption() {
                 let ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallPageElements.deletedSortByCheckBox).first()
                 try {
@@ -1689,156 +1464,12 @@ export default class fanSeeWallPage {
                         throw new Error(`Game | FanSee Wall | Moderation Page SrotBy Flagged Options Button Element Is Not Visiable | Error occurred: ${error}`);
                 }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         async cropperForFanSeeWall() {
-
                 const chooseBtn = await this.page.frameLocator('iframe').locator("//button[text()='Choose File']")
                 expect.soft(chooseBtn).toContainText("Choose File")
                 await chooseBtn.click()
-
                 const cropperSaveBtn = await this.page.frameLocator('iframe').locator("(//button[text()='Save'])[2]")
                 await cropperSaveBtn.click({ force: true })
                 await this.page.waitForTimeout(6000)
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

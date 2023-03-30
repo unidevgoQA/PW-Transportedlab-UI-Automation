@@ -30,7 +30,6 @@ export default class menuPage {
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]",
-
                 fontsTitleText: "//h4[text()='Fonts']",
                 uploadFontTitleText: "//p[text()='Upload Font']",
                 colorPickerWindowSaveBtn: "//button[text()='Save']",
@@ -41,9 +40,7 @@ export default class menuPage {
                 colorSwitchPlusBtn: `//button[@aria-label="Add Color"]`,
                 switchColorDeleteBtn: `//button[@aria-label="delete"]`,
                 bottomAlignmentButton: "//h5[text()='Bottom']//parent::button",
-
         }
-
         //Menu Page Button Element
         async clickMenuPage() {
                 const ele = await this.page.locator(this.menuPageElements.menuPage)
@@ -244,7 +241,6 @@ export default class menuPage {
                 } catch (error) {
                         throw (`Main Menu | Menu Page Color Picker Window Save Button Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
         //updated color pickers here, above ones sometimes conflict in code
         async click_Background_ColorPicker() {
@@ -310,8 +306,6 @@ export default class menuPage {
                         throw (`Main Menu | Menu Page Color Picker Switch Color Delete Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
-
         //click Bottom Alignment button
         async clickBottomAlignmentBtn() {
                 let ele = await this.page.locator(this.menuPageElements.bottomAlignmentButton).last()
@@ -322,5 +316,4 @@ export default class menuPage {
                         throw (`Main Menu | Menu Page Bottom Alignment Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
 }

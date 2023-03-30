@@ -7,7 +7,6 @@ export default class fanSeeWallMobilePage {
                 this.page = page;
                 page.setViewportSize({ width: 390, height: 844 })
         }
-
         readonly url = "https://qa-2.testingdxp.com//#/home";
         private fanSeeWallMobilePageElements = {
                 additionalphoneNumberInputField: `//input[@name="phone"]`,
@@ -54,18 +53,11 @@ export default class fanSeeWallMobilePage {
                 uploadedImageDeleteBtn: "(//button[@type='button'])[1]",
                 postTextInputField: "//textarea[@placeholder='Type something']",
                 postSubmitBtn: "//button[text()='Submit']"
-
-
         }
-
         async gotoUrl() {
-                
                 await this.page.goto(Env.fanSeeWallGameOpenUrl);
-
                 await this.page.waitForLoadState("domcontentloaded")
-
         }
-
         async inputPhoneNumberForAditionalInfo() {
                 await this.page.waitForSelector(this.fanSeeWallMobilePageElements.additionalphoneNumberInputField)
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.additionalphoneNumberInputField).isVisible()
@@ -82,7 +74,6 @@ export default class fanSeeWallMobilePage {
                 }
                 else throw new Error("Aditional Information Age Input Field Is not visible In User Side")
         }
-
         async inputEmailForGoogleLogin() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.emailInputFieldForGoogleLogin).isVisible()
                 if ((ele == true)) {
@@ -178,7 +169,6 @@ export default class fanSeeWallMobilePage {
                 }
                 else throw new Error("Aditional Information Custom Question Section Submit Button Is not visible In User Side")
         }
-
         async verifyOpenLibraryButtonIsVisible() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.openLibraryBtn)
                 try {
@@ -187,38 +177,31 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Mobile Screen Open Library Button Is Not Visiable After Admin Enable Allow File Upload | Error occurred: ${error}`);
                 }
         }
-
         async verifyTakePhotoButtonIsVisible() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.takePhotoBtn)
                 try {
                         await ele.isVisible()
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Take Photo Button Is Not Visiable After Admin Enable Allow Photo | Error occurred: ${error}`);
                 }
         }
-
         async verifyRecordVideoButtonIsVisible() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn)
                 try {
                         await ele.isVisible()
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Record Video Button Is Not Visiable After Admin Enable Allow Video | Error occurred: ${error}`);
                 }
         }
-
         async clickRecordVideoBtn() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn)
                 try {
                         // await this.page.getByRole('button', { name: 'Record Video' })
                         await ele.click({ button: "left", delay: 1000 })
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Record Video Button Is Not Visiable After Admin Enable Allow Video | Error occurred: ${error}`);
                 }
         }
-
         async clickHomeBtn() {
                 const ele = this.page.locator(this.fanSeeWallMobilePageElements.homePageBtn)
                 try {
@@ -226,22 +209,18 @@ export default class fanSeeWallMobilePage {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForLoadState("networkidle")
                         await this.page.waitForTimeout(3000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen home Page Button Is not visible| Error occurred: ${error}`);
                 }
         }
-
         async verifyRecordVideoMinMaxTitle() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takeRecordVideoMinMaxTitle)
                 try {
                         await expect(ele).toContainText("The video must be (5)-(15) seconds long")
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Record Video Mini And Max Input Does Not Update In Mobile Side After Updated From Admin Side | Error occurred: ${error}`);
                 }
         }
-
         async verifyMobileBackgroundColorChangesSuccessfullyApplied() {
                 const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.postContentSectionMobileUIEle).screenshot()
                 // await expect(ele).toMatchSnapshot("mobileBackground.png", { maxDiffPixelRatio: 0.10 })
@@ -251,7 +230,6 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Mobile Background Image Doest Not Updated After Updateding From Admin Side`);
                 }
         }
-
         async verifyMobileWelcomeImageChangesSuccessfullyApplied() {
                 const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.postContentSectionMobileUIEle).screenshot()
                 // await expect(ele).toMatchSnapshot("mobileBackground.png", { maxDiffPixelRatio: 0.10 })
@@ -263,7 +241,6 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Mobile Welcome Image Doest Not Updated After Updateding From Admin Side`);
                 }
         }
-
         async verifyMobileButtonColorChangesSuccessfullyApplied() {
                 const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.takePhotoBtn)
                 try {
@@ -272,7 +249,6 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Mobile Button Color Doest Not Updated After Updateding From Admin Side`);
                 }
         }
-
         async verifyMobileButtonTextColorChangesSuccessfullyApplied() {
                 const ele = await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.takePhotoBtn)
                 try {
@@ -281,21 +257,15 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Mobile Button Text Color Doest Not Updated After Updateding From Admin Side`);
                 }
         }
-
-
         async verifyWelcomeMassageText() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.welcomeMassage)
                 try {
                         await expect(ele).toContainText("Welcome")
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Welcome Massage Does Not Update In Mobile Side After Updated From Admin Side | Error occurred: ${error}`);
                 }
         }
-
         async clickOpenLibraryUploadBtn() {
-
-
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.openLibraryBtn)
                 const filePath0 = "testData/logos/gameTeamLogo.png"
                 try {
@@ -304,15 +274,11 @@ export default class fanSeeWallMobilePage {
                         })
                         await ele.click({ button: 'left', delay: 1000 })
                         await this.page.waitForTimeout(5000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Open Library Upload Input Field Is Not Visible  | Error occurred: ${error}`);
                 }
         }
-
         async uploadImageClickingOnTakePhoto() {
-
-
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takePhotoBtn)
                 const filePath0 = "testData/logos/gameTeamLogo.png"
                 try {
@@ -321,14 +287,11 @@ export default class fanSeeWallMobilePage {
                         })
                         await ele.click({ button: 'left', delay: 1000 })
                         await this.page.waitForTimeout(5000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Open Take Photo Upload Input Field Is Not Visible  | Error occurred: ${error}`);
                 }
         }
-
         async uploadVideoClickingOnRecordVideoBtn() {
-
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn)
                 const filePath0 = "testData/videos/Video.mkv"
                 try {
@@ -338,96 +301,58 @@ export default class fanSeeWallMobilePage {
                         await ele.click({ button: 'left', delay: 1000 })
                         await this.page.frameLocator("iframe").locator(this.fanSeeWallMobilePageElements.takeRecordVideoBtn).click({ force: true })
                         await this.page.waitForTimeout(7000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Open Record Video Upload Input Field Is Not Visible  | Error occurred: ${error}`);
                 }
         }
-
         async clickDeleteBtn() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.uploadedImageDeleteBtn)
-
                 try {
                         await ele.click({ button: 'left', delay: 1000 })
                         await this.page.waitForTimeout(3000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Open Library Uploaded Image Delete Btn Is Not Visible  | Error occurred: ${error}`);
                 }
         }
-
         async inputPostText() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
-
                 try {
                         await this.page.waitForTimeout(1000)
-
                         await ele.fill("Auto Post From Devid")
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputPostTextForTakePhotoPost() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
-
                 try {
                         await this.page.waitForTimeout(1000)
-
                         await ele.fill("Post With Take Photo")
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async inputPostTextForRecordVideoPost() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postTextInputField)
-
                 try {
                         await this.page.waitForTimeout(1000)
                         await ele.fill("Post With Record Video")
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Post Text Input Field Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         async clickSubmitBtn() {
                 const ele = await this.page.frameLocator('iframe').locator(this.fanSeeWallMobilePageElements.postSubmitBtn)
-
                 try {
                         await ele.click({ button: 'left', delay: 1000 })
                         await this.page.waitForTimeout(3000)
-
                 } catch (error) {
                         throw new Error(`Mobile Screen | Mobile Screen Post Submit Button Is Not Visible  | Error occurred: ${error}`);
                 }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         async validatePostContentChangesSuccessfullyApplied() {
                 const ele = await this.page.locator(this.fanSeeWallMobilePageElements.postContentSectionMobileUIEle).screenshot()
                 await expect(ele).toMatchSnapshot("postContent.png", { maxDiffPixelRatio: 0.10 })
@@ -437,12 +362,7 @@ export default class fanSeeWallMobilePage {
                 //         throw new Error(`Mobile Screen | Post Content Section Option Doest Not Updated After Updateding From Admin Side`);
                 // }
         }
-
-
-
-
         async logoUploadHelper() {
-
                 const filePath0 = "testData/logos/gameTeamLogo.png"
                 try {
                         this.page.on("filechooser", async (filechooser) => {
@@ -452,11 +372,4 @@ export default class fanSeeWallMobilePage {
                         throw new Error(`Mobile Screen | Issue On Logo Upload Helper  | Error occurred: ${error}`);
                 }
         }
-
-
-
-
-
-
-
 }

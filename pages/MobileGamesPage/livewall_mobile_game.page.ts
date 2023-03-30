@@ -76,26 +76,24 @@ export default class livewallMobilePage {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
               }
        }
-
        async screenshot_matcher_mobile_home_screen() {
               try {
-                     // 
+                     //
                      await this.page.waitForTimeout(4000)
                      await expect
                             .soft(this.page.locator("//div[@id='app']").first())
-                            .toHaveScreenshot('mobile_home_screen_logo.png', { 
+                            .toHaveScreenshot('mobile_home_screen_logo.png', {
                                    maxDiffPixelRatio: 0.15,
-                                   maxDiffPixels:10,
-                                   mask:[
+                                   maxDiffPixels: 10,
+                                   mask: [
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/div"),
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
-                                   ] 
+                                   ]
                             })
               } catch (error) {
-                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found` +error)
+                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found` + error)
               }
        }
-
        // async fake_video(){
        //        async function createBufferFromStream(stream:any) {
        //               const chunks = [];
@@ -104,27 +102,22 @@ export default class livewallMobilePage {
        //               }
        //               return Buffer.concat(chunks);
        //             }
-
        //        const videoStream = createReadStream('./testData/videos/video.mp4');
        //        const videoBuffer = await createBufferFromStream(videoStream)
-
        //        // Set the input files to the pre-recorded video file
        //        await this.page.setInputFiles('/html/body/div/div/div/div/div[3]', {
        //               name: 'video.mp4',
        //               mimeType: 'video/mp4',
        //               buffer: videoBuffer,
        //             });
-
        // }
        async clickjoin() {
               try {
                      await this.page.frameLocator('iframe').locator("//button[text()='Join for a chance to go Live!']").click({ button: 'left' })
-
               } catch (error) {
                      throw new Error('Join button click failed')
               }
        }
-
        async screenshot_matcher_mobile_frame() {
               try {
                      await this.page.waitForTimeout(7000)
@@ -135,7 +128,6 @@ export default class livewallMobilePage {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
               }
        }
-
        async test_for_pre_live_test(value: string) {
               const ele = this.page.frameLocator('//iframe').locator(`//p[text()="${value}"]`)
               try {
@@ -161,7 +153,6 @@ export default class livewallMobilePage {
                      throw new Error(" standby visiblity failed " + error)
               }
        }
-
        async check_progress_bar_hidden() {
               try {
                      await this.page.waitForTimeout(5000)
@@ -193,12 +184,11 @@ export default class livewallMobilePage {
               try {
                      await this.page.waitForLoadState('networkidle')
                      const ele = this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
-                     await expect.soft(ele).toContainText(value,{timeout:30000})
+                     await expect.soft(ele).toContainText(value, { timeout: 30000 })
               } catch (error) {
                      throw new Error('seconds input reflection on mobile is not correct' + error)
               }
        }
-
        async check_flip_button_hidden() {
               try {
                      const ele = this.page.frameLocator('//iframe').locator('//div[@id="video2"]//following-sibling::button')
@@ -207,7 +197,6 @@ export default class livewallMobilePage {
                      throw new Error('Camera flip reflection failed' + error)
               }
        }
-
        async check_flip_button_visible() {
               try {
                      const ele = this.page.frameLocator('//iframe').locator('//div[@id="video2"]//following-sibling::button')
@@ -216,21 +205,20 @@ export default class livewallMobilePage {
                      throw new Error('Camera flip reflection failed' + error)
               }
        }
-
-       async checkfont(){
+       async checkfont() {
               try {
                      await this.page.waitForTimeout(4000)
                      await expect
                             .soft(this.page.locator("//div[@id='app']"))
-                            .toHaveScreenshot('Font_check.png', { 
+                            .toHaveScreenshot('Font_check.png', {
                                    maxDiffPixelRatio: 0.15,
-                                   mask:[
+                                   mask: [
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/div")
-                                   ] 
+                                   ]
                             })
               } catch (error) {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
               }
-       } 
+       }
 }

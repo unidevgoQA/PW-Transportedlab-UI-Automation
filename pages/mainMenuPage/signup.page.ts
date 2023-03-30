@@ -68,12 +68,10 @@ export default class singupPage {
                 customQuestionPromptAutoCheckBox: "//h4/following::input[@type='checkbox']",
                 customOptionInCheckBox: "(//span[text()='Custom Opt-In']/preceding::input[@type='checkbox'])[1]",
                 addedCustomQuestionInDeleteBtn: "(//button[contains(@class,'MuiButtonBase-root MuiButton-root')]/following-sibling::button)[3]",
-
                 anonymousLoginCheckBox: "input[value='anonymousLogin']",
                 additionalInfoTitleText: "//h5[text()='Additional Information']",
                 phoneNumberCheckBoxs: "(//label[text()='Url or link']/following::input)[1]",
                 emailCheckBox: "(//span[text()='Phone Number']/following::input)[1]",
-
                 backgroundColorInputField: "//p[text()='Background']/following-sibling::button",
                 textColorInputField: "//p[text()='Text Color']/following-sibling::button",
                 activeBackgroundColorInputField: "//p[text()='Active Background']/following-sibling::button",
@@ -91,9 +89,6 @@ export default class singupPage {
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]",
-
-
-
         }
         async uncheckAdditionalInfoPhoneNumberCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
@@ -217,10 +212,7 @@ export default class singupPage {
                         await ele.fill("Demo Choice")
                 } catch (error) {
                         throw new Error(`Sign Up Page Add New Custom Question Window Add Choice Input Field Element Is not Visible | Error occurred: ${error}`)
-
                 }
-
-
         }
         async enableCustomQuestionMandatoryForUser() {
                 let ele = await this.page.locator(this.signUpPageElements.customQuestionMendotoryCheckBox).isVisible()
@@ -451,9 +443,7 @@ export default class singupPage {
                         await ele.fill("Devid")
                 } catch (error) {
                         throw new Error("Sign Up Page Registration Options Automatically Assign UserName Input Field Not Visible")
-
                 }
-
         }
         async clickProfilePictureAddNewSetBtn() {
                 let ele = await this.page.locator(this.signUpPageElements.addNewSetBtn).isVisible()
@@ -493,9 +483,7 @@ export default class singupPage {
                         await ele.click({ button: 'left', delay: 1000 })
                 } catch (error) {
                         throw new Error("Sign Up Page Profile Picture Add New Set Dialog Box Element is not visible ")
-
                 }
-
         }
         async selectAutoAssaigProfilePicture() {
                 await this.page.waitForSelector(this.signUpPageElements.selectDefultProfile)
@@ -584,7 +572,6 @@ export default class singupPage {
                 // else throw new Error("Sign Up Page Registration Options Text Is Not Visible")
                 await this.page.waitForTimeout(2000)
         }
-
         async clickAnonymousLogin() {
                 let ele = await this.page.locator(this.signUpPageElements.anonymousLoginRadioBtn)
                 try {
@@ -593,7 +580,6 @@ export default class singupPage {
                         throw (`Main Menu | Sign Up Annoymous Login Radio Button Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         //🔚Closed Terms & Conditions Section Element
         //=======================================================
         //▶▶Start Additional Information Section Element
@@ -604,7 +590,6 @@ export default class singupPage {
                 } catch (error) {
                         throw (`Main Menu | Sign Up Additional Info Title Text Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
         async clickPhoneNumberCheckBox() {
                 // expect(await this.page.locator("(//label[text()='Url or link']/following::input)[1]").isChecked()).toBeTruthy()
@@ -614,7 +599,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Phone Number Check Box Is Checked");
-
                 }
         }
         async clickEmailAddressCheckBox() {
@@ -624,7 +608,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Email Check Box Is Checked");
-
                 }
         }
         async clickAgeCheckBox() {
@@ -634,7 +617,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Age Check Box Is Checked");
-
                 }
         }
         async clickDateOfBirthCheckBox() {
@@ -644,7 +626,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Date Of Birth Check Box Is Checked");
-
                 }
         }
         async clickPostalCodeCheckBox() {
@@ -654,7 +635,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Postal Code Check Box Is Checked");
-
                 }
         }
         async clickCustomQuestionCheckBox() {
@@ -664,7 +644,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Postal Code Check Box Is Checked");
-
                 }
         }
         async uncheckPhoneNumberCheckBox() {
@@ -675,7 +654,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Postal Code Check Box Is Not Checked");
-
                 }
         }
         async uncheckEmailAddressCheckBox() {
@@ -685,7 +663,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Email Check Box Is Not Checked");
-
                 }
         }
         async uncheckAgeCheckBox() {
@@ -695,7 +672,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Age Check Box Is Not Checked");
-
                 }
         }
         async uncheckDateOfBirthCheckBox() {
@@ -705,7 +681,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Date Of Birth Check Box Is Not Checked");
-
                 }
         }
         async uncheckPostalCodeCheckBox() {
@@ -715,7 +690,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Postal Code Check Box Is Not Checked");
-
                 }
         }
         async uncheckCustomQuestionCheckBox() {
@@ -725,7 +699,6 @@ export default class singupPage {
                 }
                 else {
                         console.log("Main Menu | SignUp Page Postal Code Check Box Is Not Checked");
-
                 }
         }
         async clickAddQuestionAddBtn() {
@@ -736,5 +709,4 @@ export default class singupPage {
                         throw (`Main Menu | SignUp Page Postal Code Check Box Is Not Checked | Error occurred: ${error}`);
                 }
         }
-
 }

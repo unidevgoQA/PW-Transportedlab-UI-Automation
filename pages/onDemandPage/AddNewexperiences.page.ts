@@ -130,7 +130,8 @@ export default class addnewexperiencePage {
             typeAnswer1: "(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
             DeleteAddedAnswer: "//div[@class='MuiBox-root css-10a3ccs']",
             PollimageRadioBtn: "//input[@value='image']",
-            PollvideoRadioBtn: "//input[@value='video']",
+            PollvideoRadioBtn: "(//input[@type='radio'])[2]",
+            imageUploadForPollSection: "//div[@class='MuiBox-root css-v2612']",
             uploadVideo: "//div[@class='MuiBox-root css-v2612']",
             triviaSectio: "//button[@value='trivia']//p[1]",
             inputTriviaTitlezName: "//input[@placeholder='Title']",
@@ -143,11 +144,6 @@ export default class addnewexperiencePage {
             cannotbeemptytext: "//p[text()='Can`t be empty']",
             DeleteBtn: "//button[@aria-label='Delete']",
             inputAnswer: "//input[@placeholder='Type here text...']"
-
-
-
-
-
       }
       // export default class addnewexperiencePage {
       //       [x: string]: any;
@@ -187,6 +183,7 @@ export default class addnewexperiencePage {
             const ele = this.page.locator(this.addNewExperiencePageElement.AddNewExperinces)
             try {
                   await ele.click({ button: "left", delay: 1000 })
+                  await this.page.waitForTimeout(2000)
             }
             catch (error) {
                   throw new Error(`On demand add new experinces button is not visible,Could not find locator:"${error}"`)
@@ -211,7 +208,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces image button is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async inputTitleName() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputTitleName)
@@ -222,8 +218,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces image section input title field is not visible,Could not find locator:"${error}"`)
             }
-
-
       }
       async checkTitleText() {
             const locator = this.page.locator("//input[@placeholder='Title']")
@@ -258,14 +252,12 @@ export default class addnewexperiencePage {
                   await this.page.locator(this.addNewExperiencePageElement.Engagementdropdown).click()
                   const ele1 = await this.page.locator(this.addNewExperiencePageElement.cannotbeemptytext)
                   await expect(ele1).toContainText('Can`t be empty')
-
                   await this.page.waitForTimeout(3000)
             }
             catch (error) {
                   throw new Error(`On demand add new experinces iengagement section error message can't be empty is not visible,Could not find locator:"${error}"`)
             }
       }
-
       //select Size Category
       async selectLarge() {
             const ele = this.page.locator(this.addNewExperiencePageElement.headerTextLarge)
@@ -306,7 +298,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces image section input web link field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       //click Fill options Alignment button
       async clickFillBtn() {
@@ -392,6 +383,7 @@ export default class addnewexperiencePage {
             const ele = this.page.locator(this.addNewExperiencePageElement.SaveBtn)
             try {
                   await ele.click({ button: "left", delay: 1000 })
+                  await this.page.waitForTimeout(3000)
             }
             catch (error) {
                   throw new Error(`On demand add new experinces save button is not visible,Could not find locator:"${error}"`)
@@ -403,7 +395,6 @@ export default class addnewexperiencePage {
             try {
                   expect(ele).toContainText('Video')
                   await ele.click({ button: "left", delay: 1000 })
-
             }
             catch (error) {
                   throw new Error(`On demand add new experinces save button is not visible,Could not find locator:"${error}"`)
@@ -413,12 +404,10 @@ export default class addnewexperiencePage {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputHeader)
             try {
                   await ele.fill("Header")
-
             }
             catch (error) {
                   throw new Error(`On demand add new experinces header input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       //select Category
       async HeaderTextDropDownBtn() {
@@ -529,16 +518,15 @@ export default class addnewexperiencePage {
                   throw new Error(`On demand add new experinces web section is not visible,Could not find locator:"${error}"`)
             }
       }
-      async inputWebTitleText() {
+      async inputWebTitleText(name: string) {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputTitleName)
             try {
-                  await ele.fill("Auto Web Title")
+                  await ele.fill(name)
                   await this.page.waitForTimeout(2000)
             }
             catch (error) {
                   throw new Error(`On demand add new experinces web section input web title input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async inputWebHeaderText() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputHeaderText)
@@ -580,20 +568,16 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces web section enable web url button is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async WebImageUploadFunction() {
-            const buffer = readFileSync('testData/images/banner.png');
-            // Create the DataTransfer and File
-            const dataTransfer = await this.page.evaluateHandle((data) => {
-                  const dt = new DataTransfer();
-                  // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
-                  dt.items.add(file);
-                  return dt;
-            }, buffer);
-            // Now dispatch
-            await this.page.dispatchEvent(this.addNewExperiencePageElement.WebImageUpload, 'drop', { dataTransfer });
+            const ele = this.page.locator(this.addNewExperiencePageElement.WebImageUpload)
+            try {
+                  await ele.click({ button: "left", delay: 1000 })
+                  await this.page.waitForTimeout(1000)
+            }
+            catch (error) {
+                  throw new Error(`On Deamnd | Add New Exp Web Section Image Upload Button Is Not Visible | Could not find locator:"${error}"`)
+            }
       }
       async EngagementSection() {
             const ele = this.page.locator(this.addNewExperiencePageElement.EngagementSection)
@@ -704,7 +688,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section input title name field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async clickFonts() {
             const ele = this.page.locator(this.addNewExperiencePageElement.Fonts)
@@ -951,7 +934,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section input question field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async clickQuestionfield() {
             const ele = this.page.locator(this.addNewExperiencePageElement.clickquestionfield)
@@ -962,7 +944,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section input question field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async clickAnswerTypeFreeText() {
             await this.page.waitForTimeout(2000)
@@ -1056,7 +1037,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section type answer1 input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async TypeAnswer() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputAnswer).last()
@@ -1066,7 +1046,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section type answer1 input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async TypeAnswer_2() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputAnswer_2)
@@ -1076,7 +1055,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section type answer2 input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async TypeAnswer_3() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputAnswer_3)
@@ -1086,7 +1064,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section type answer3 input field is not visible,Could not find locator:"${error}"`)
             }
-
       }
       async inputCorrectAnswer() {
             const ele = this.page.locator(this.addNewExperiencePageElement.inputcorrectAnswer)
@@ -1097,7 +1074,6 @@ export default class addnewexperiencePage {
                   throw new Error(`On demand add new experinces poll section type input correct answer field is not visible,Could not find locator:"${error}"`)
             }
             //p[text()='Correct Answer']
-
       }
       async verifyCorrectAnswerText() {
             const ele = this.page.locator(this.addNewExperiencePageElement.correctanswerText)
@@ -1107,8 +1083,6 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand add new experinces poll section type correct answer text is not visible,Could not find locator:"${error}"`)
             }
-
-
       }
       async clickDeleteAddedAnswer() {
             const ele = this.page.locator(this.addNewExperiencePageElement.DeleteAddedAnswer).last()
@@ -1129,18 +1103,13 @@ export default class addnewexperiencePage {
             }
       }
       async uploadImage() {
-            const buffer = readFileSync('testData/images/banner.png');
-            // Create the DataTransfer and File
-            const dataTransfer = await this.page.evaluateHandle((data) => {
-                  const dt = new DataTransfer();
-                  // Convert the buffer to a hex array
-                  const file = new File([data.toString('hex')], 'a.png', { type: 'application/png' });
-                  dt.items.add(file);
-                  return dt;
-            }, buffer);
-            // Now dispatch
-            await this.page.dispatchEvent("//p[text()='Drag your image here, or browse']", 'drop', { dataTransfer });
-            await this.page.waitForTimeout(4000)
+            const ele = this.page.locator(this.addNewExperiencePageElement.imageUploadForPollSection)
+            try {
+                  await ele.click({ button: "left", delay: 100 })
+            }
+            catch (error) {
+                  throw new Error(`One Demand | Add New Exp Poll Section Image Upload Button Is Not Visible | Could not find locator:"${error}"`)
+            }
       }
       async Imageuploader() {
             const filePath0 = "testData/images/titlebanner.jpg"
@@ -1154,7 +1123,6 @@ export default class addnewexperiencePage {
             await this.page.locator('//button[text()="Save"]').last().click()
             await this.page.waitForTimeout(9000)
             //await this.page.waitForEvent('')
-
       }
       async clickVideoRadioBtn() {
             const ele = this.page.locator(this.addNewExperiencePageElement.PollvideoRadioBtn)
@@ -1235,10 +1203,7 @@ export default class addnewexperiencePage {
             catch (error) {
                   throw new Error(`On demand image section input title name field is not visible,Could not find locator:"${ele1}"`)
             }
-
-
       }
-
       async imageUploadbutton() {
             const ele = await this.page.locator(this.addNewExperiencePageElement.Imageupload).isVisible()
             if ((ele == true)) {
@@ -1271,7 +1236,6 @@ export default class addnewexperiencePage {
             const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal)
             if (await ele.isVisible()) {
                   await expect(ele).toContainText("File type is not supported")
-
                   //await this.page.click(this.addNewExperiencePageElement.InvalidFiletypeAlertmodal, { force: true })
             }
             else throw new Error("Invalid File Type Alert is not visible")
@@ -1287,7 +1251,6 @@ export default class addnewexperiencePage {
             await this.page.waitForTimeout(2000)
             await this.page.locator('//button[text()="Save"]').last().click()
             await this.page.waitForTimeout(5000)
-
       }
       async invalidfiletypealertOkbtn() {
             const ele = await this.page.locator(this.addNewExperiencePageElement.InvalidFiletypeAlertokbtn).isVisible()
@@ -1363,7 +1326,6 @@ export default class addnewexperiencePage {
                   this.page.locator('//button[text()="Choose File"]').click()
             ]);
             await fileChooser.setFiles([filePath0]);
-
       }
       async ImagemodalClosebtnweb() {
             const ele = await this.page.locator(this.addNewExperiencePageElement.Imageuploadclosebutton).isVisible()
@@ -1446,8 +1408,6 @@ export default class addnewexperiencePage {
                   await this.page.locator(this.addNewExperiencePageElement.addanswerBtn).click()
                   const ele1 = await this.page.locator(this.addNewExperiencePageElement.cannotbeemptytext)
                   await expect(ele1).toContainText("Can`t be empty")
-
-
             }
             catch (error) {
                   throw new Error(`On demand add answer1 input field is not visible,Could not find locator:"${error}"`)
@@ -1491,7 +1451,6 @@ export default class addnewexperiencePage {
                         await this.page.mouse.down()
                         await this.page.waitForTimeout(4000)
                   }
-
             }
       }
       async clickplusBtn() {
@@ -1513,7 +1472,6 @@ export default class addnewexperiencePage {
             }
       }
       async validateImportConfigurationBtn() {
-
       }
       async verifyAddOnDemandConfigurationText() {
             let ele = await this.page.locator(this.addNewExperiencePageElement.AddOnDemandConfiguration)
@@ -1648,7 +1606,6 @@ export default class addnewexperiencePage {
             try {
                   await ele.click({ button: "left", delay: 1000 })
                   await this.page.waitForTimeout(1000)
-
             }
             catch (error) {
                   throw new Error(`On-Demand flow-chart Minus button button is not visible,Could not find locator:"${error}"`)
@@ -1718,13 +1675,11 @@ export default class addnewexperiencePage {
             }
       }
       async clickMobileLinkOpenBtn() {
-
             // Click text=Open Link
             const [page1] = await Promise.all([
                   this.page.waitForEvent('popup'),
                   this.page.locator(this.addNewExperiencePageElement.MobileLinkOpenbtn).click()
             ]);
-
             return page1;
       }
       async validateSaveQRCode() {

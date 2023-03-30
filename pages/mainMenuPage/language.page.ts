@@ -30,10 +30,7 @@ export default class languagePage {
                 userSelectableInputField: "(//div[contains(@class,'MuiSelect-select MuiSelect-outlined')])[2]",
                 userForceLanguageRadioBtn: "(//input[@type='radio'])[2]",
                 forceLanguageInputField: "//div[@role='button']",
-
-
         }
-
         //Language Page Button Element
         async clickLanguagePage() {
                 let ele = await this.page.locator(this.languagePageElements.languagePage)
@@ -52,7 +49,6 @@ export default class languagePage {
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Language Settings Title Text Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
         //Language Controls Text Element
         async checkLanguageControlsText() {
@@ -62,9 +58,7 @@ export default class languagePage {
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Language Controls Title Text Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
-
         //Language Controls Elable disable btn Element
         async clickUserSelectableRadioBtn() {
                 let ele = await this.page.locator(this.languagePageElements.userSelectableRadioBtn)
@@ -80,7 +74,6 @@ export default class languagePage {
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page English Language Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -91,18 +84,15 @@ export default class languagePage {
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Francias Language Element Is Not Visible | Error occurred: ${error}`);
                 }
-
         }
         async clickOutSideOfLanguageSelectionModal() {
                 let ele = await this.page.locator(this.languagePageElements.outsideScreenFromUserSelectableLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page OutSide Screen From User Selectable Modal Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -113,7 +103,6 @@ export default class languagePage {
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(3000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Russian Language Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -133,7 +122,6 @@ export default class languagePage {
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Arabic Language Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -144,7 +132,6 @@ export default class languagePage {
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Spanish Language Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -163,7 +150,6 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable English Language Is Not Selected | Could not find:"${ele}"`)
@@ -174,7 +160,6 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable Francias Language Is Not Selected | Could not find:"${ele}"`)
@@ -185,7 +170,6 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable Russian Language Is Not Selected | Could not find:"${ele}"`)
@@ -196,7 +180,6 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable Arabic Language Is Not Selected | Could not find:"${ele}"`)
@@ -207,7 +190,6 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable Spanish Language Is Not Selected | Could not find:"${ele}"`)
@@ -218,20 +200,17 @@ export default class languagePage {
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 }
                 else {
                         console.log(`Main Menu | Language Page User Selectable Japanese Language Is Not Selected | Could not find:"${ele}"`)
                 }
         }
-
         //select language type Japanese
         async selectJapaneseLanguage() {
                 let ele = await this.page.locator(this.languagePageElements.forceJapaneseLanguage)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Japanese Language Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -241,19 +220,16 @@ export default class languagePage {
                 let ele = await this.page.locator(this.languagePageElements.selectedJapaneseLanguage)
                 try {
                         await expect(ele).toContainText("Japanese")
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page Japanese Language Text Element Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         //Language Controls Elable disable btn Element
         async clickUserProfileSelectableInputField() {
                 let ele = await this.page.locator(this.languagePageElements.userSelectableInputField)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page User Selectable Input Field Element Is Not Visible | Error occurred: ${error}`);
                 }
@@ -264,19 +240,16 @@ export default class languagePage {
                 try {
                         await ele.dblclick({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page User Force Language Radio Button Element Is Not Visible | Error occurred: ${error}`);
                 }
         }
-
         // //Language Controls Elable disable btn Element
         async clickForceLanguageInputField() {
                 let ele = await this.page.locator(this.languagePageElements.forceLanguageInputField)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Language Page User Force Language Radio Input Field Element Is Not Visible | Error occurred: ${error}`);
                 }

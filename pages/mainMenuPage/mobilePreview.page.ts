@@ -52,7 +52,6 @@ export default class mobilePreviewPage {
               postTextInputField: "//textarea[@placeholder='Type something']",
               postSubmitBtn: "//button[text()='Submit']",
               prizeSectionBtn: "(//button[@value='prize']//div)[1]"
-
        }
        // export default class mobilePreviewPage {
        //        // [x: string]: any;
@@ -62,7 +61,6 @@ export default class mobilePreviewPage {
        //               this.page = page;
        //               page.setViewportSize({ width: 390, height: 844 })
        //        }
-
        async gotoUrl() {
               // const context = await browser.newContext({
               //         storageState: "./auth.json"
@@ -70,11 +68,8 @@ export default class mobilePreviewPage {
               // const page = await context.newPage()
               // await this.page.goto(this.url);
               await this.page.goto(Env.fanSeeWallGameOpenUrl);
-
               await this.page.waitForLoadState("domcontentloaded")
-
        }
-
        async clickTriviaSectionForOpenMobileScreen() {
               const ele = this.page.locator("//p[text()='Trivia']")
               await expect(ele).toBeVisible()
@@ -723,10 +718,8 @@ export default class mobilePreviewPage {
               const BackgroundColor = await this.page.locator(this.mobilePreviewPageElements.prizeSectionBtn)
               try {
                      expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")
-
               } catch (error) {
                      throw new Error(`Main Menu | Active Menu Background Color Does Not Updated Properly | Error occurred: ${error}`)
-
               }
               // const BackgroundColor = await this.page.getByRole('button', { name: 'PRIZE' })
               // expect(BackgroundColor).toHaveCSS("background-color", "rgb(95, 188, 210)")

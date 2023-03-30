@@ -80,8 +80,6 @@ export default class globalPrizingPage {
                 logoImageInputFiled: "(//div[@class='MuiBox-root css-v2612'])[2]",
                 foregroundImageInputFiled: "(//div[@class='MuiBox-root css-v2612'])[3]",
                 selectTextCode: "//div[text()='3829234012349']",
-
-
                 backgroundColorInputField: "//p[text()='Background']/following-sibling::button",
                 textColorInputField: "//p[text()='Text Color']/following-sibling::button",
                 activeBackgroundColorInputField: "//p[text()='Active Background']/following-sibling::button",
@@ -99,9 +97,6 @@ export default class globalPrizingPage {
                 rulesMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 userProfileMenuBarIcon: "(//div[@class='MuiBox-root css-74zz35'])[1]",
                 lastGameEnableDisableBtn: "(//input[@type='checkbox'])[7]",
-
-
-
         }
         //click GlobalPrizing Page
         async clickGlobalPrizingPage() {
@@ -299,7 +294,6 @@ export default class globalPrizingPage {
         }
         async Couponcanvaslabl() {
                 await this.page.click("//p[text()='Coupon Canvas Editor']")
-
         }
         async Tfont() {
                 const locator = this.page.locator("//button[@aria-label='Tab: Typography']")
@@ -400,7 +394,6 @@ export default class globalPrizingPage {
                 let ele = await this.page.locator("//input[@id='P-13727520022']")
                 await ele.fill("60")
         }
-
         async inputXMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.xMarzin)
                 try {
@@ -410,7 +403,6 @@ export default class globalPrizingPage {
                         throw new Error(`Main Menu | Global Prizing X Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputYMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.yMarzin)
                 try {
@@ -421,7 +413,6 @@ export default class globalPrizingPage {
                 }
                 await this.page.waitForTimeout(2000)
         }
-
         async inputWelocmeTextWightMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.textWight)
                 try {
@@ -431,8 +422,6 @@ export default class globalPrizingPage {
                 } catch (error) {
                         throw new Error(`Main Menu | Global Prizing Welcome Text Wight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
-
-
         }
         async inputWelcomeTextHightMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.textHight)
@@ -440,7 +429,6 @@ export default class globalPrizingPage {
                         await ele.fill("160")
                         await this.page.keyboard.press('Enter');
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Global Prizing Welcome Text Hight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
@@ -471,7 +459,6 @@ export default class globalPrizingPage {
                         throw new Error(`Main Menu | Global Prizing Welcome Text Color Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
         }
-
         //stop from here
         async Colorpickerlabl() {
                 await this.page.click("//h3[text()='Color Picker']")
@@ -669,10 +656,7 @@ export default class globalPrizingPage {
                 } catch (error) {
                         throw new Error(`Main Menu | Global Prizing Code Section Select Text Code Element Is not Visiable | Error occurred: ${error}`);
                 }
-
         }
-
-
         async inputXMarginForTextCode() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.xMarzin)
                 try {
@@ -682,7 +666,6 @@ export default class globalPrizingPage {
                         throw new Error(`Main Menu | Global Prizing Code Section Text Code X Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async inputYMarginForTextCode() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.yMarzin)
                 try {
@@ -693,7 +676,6 @@ export default class globalPrizingPage {
                 }
                 await this.page.waitForTimeout(2000)
         }
-
         async inputTextCodeWightMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.textWight)
                 try {
@@ -703,8 +685,6 @@ export default class globalPrizingPage {
                 } catch (error) {
                         throw new Error(`Main Menu | Global Prizing Code Section Text Code Wight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
-
-
         }
         async inputTextCodeHightMargin() {
                 let ele = await this.page.locator(this.globalPrizingPageElements.textHight)
@@ -712,16 +692,13 @@ export default class globalPrizingPage {
                         await ele.fill("60")
                         await this.page.keyboard.press('Enter');
                         await this.page.waitForTimeout(2000)
-
                 } catch (error) {
                         throw new Error(`Main Menu | Global Prizing Code Section Text Code Hight Margin Input Field Element Is not Visiable | Error occurred: ${error}`);
                 }
         }
-
         async Barcode() {
                 await this.page.click("//button[text()='Bar Code']")
         }
-
         async clickOnBarCode() {
                 await this.page.click("//div[@class='MuiBox-root css-lx9vk']/following-sibling::div[1]")
         }
@@ -978,7 +955,6 @@ export default class globalPrizingPage {
         async ClickIconlogo() {
                 const locator = this.page.locator("//div[@class='MuiBox-root css-v2612']")
                 await locator.click({ button: "left" })
-
                 ////////
                 // await this.page.locator("//span[text()='per event']/following::input")
                 // //expect(locator).toBeVisible()
@@ -1015,7 +991,6 @@ export default class globalPrizingPage {
                 await this.page.waitForTimeout(3000)
                 await this.page.locator("(//button[text()='Save'])[2]").click()
         }
-
         async clickTimeSection() {
                 const locator = this.page.locator("//p[@iseditable='true']")
                 await locator.click()
