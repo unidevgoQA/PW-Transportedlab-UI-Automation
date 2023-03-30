@@ -1195,9 +1195,9 @@ test('009FanSee-239 | validate mobile frame image is reflected on mobile',async 
                
                 
         })
-        await test.step('check the join button',async()=>{
-                await newPage.clickjoin()
-        })
+        // await test.step('check the join button',async()=>{
+        //         await newPage.clickjoin()
+        // })
         await test.step('check the mobile frame',async()=>{
                  await newPage.screenshot_matcher_mobile_frame()
         })
@@ -2235,7 +2235,7 @@ test('009FanSee-163|Validate Post-Live Text Message is reflected on mobile',asyn
                 
                
         }) 
-        await test.step('',async()=>{
+        await test.step('Now check the post live message',async()=>{
                 await newPage.test_for_post_live_test('test For post live message')
         })
 

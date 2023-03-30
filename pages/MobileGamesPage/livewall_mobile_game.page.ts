@@ -79,14 +79,16 @@ export default class livewallMobilePage {
 
        async screenshot_matcher_mobile_home_screen() {
               try {
+                     // 
                      await this.page.waitForTimeout(4000)
                      await expect
                             .soft(this.page.locator("//div[@id='app']").first())
                             .toHaveScreenshot('mobile_home_screen_logo.png', { 
                                    maxDiffPixelRatio: 0.15,
+                                   maxDiffPixels:10,
                                    mask:[
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div"),
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
-                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div")
                                    ] 
                             })
               } catch (error) {
