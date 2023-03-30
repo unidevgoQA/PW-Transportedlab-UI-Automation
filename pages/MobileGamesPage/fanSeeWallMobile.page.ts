@@ -59,11 +59,7 @@ export default class fanSeeWallMobilePage {
         }
 
         async gotoUrl() {
-                // const context = await browser.newContext({
-                //         storageState: "./auth.json"
-                // })
-                // const page = await context.newPage()
-                // await this.page.goto(this.url);
+                
                 await this.page.goto(Env.fanSeeWallGameOpenUrl);
 
                 await this.page.waitForLoadState("domcontentloaded")
