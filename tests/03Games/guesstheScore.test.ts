@@ -169,7 +169,7 @@ test("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, g
 
 })
 
-test.only("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
