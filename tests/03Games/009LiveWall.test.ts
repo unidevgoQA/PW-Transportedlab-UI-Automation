@@ -1999,7 +1999,6 @@ test("009FanSee-130 | validate prelive text message functionalities", async ({ l
     }) 
 })
 
-
 test('009FanSee-248|	validate pre-live text is being reflected on mobile',async({ loginPage, liveWallPage, functions, page,browser }, testInfo)=>{
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -2031,6 +2030,8 @@ test('009FanSee-248|	validate pre-live text is being reflected on mobile',async(
         await test.step('now click on start button', async() =>{ 
                 await liveWallPage.click_start_button()
         })
+
+       
         await test.step("open mobile link and copy",async()=>{
                   //click Mobile QR Code
              
@@ -2052,9 +2053,6 @@ test('009FanSee-248|	validate pre-live text is being reflected on mobile',async(
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit() 
                 
-        })
-        await test.step('join the game',async()=>{
-                await newPage.clickjoin()
         })
         await test.step('close the game',async()=>{
                 await liveWallPage.clickCloseBtn()
@@ -2185,17 +2183,23 @@ test('009FanSee-163|Validate Post-Live Text Message is reflected on mobile',asyn
         })
         await test.step("now navigate to fanseepage", async () => {
                 await liveWallPage.click_Fan_see_Section()
-
-                await liveWallPage.remove_message_popup()
-
-                await liveWallPage.click_trippledot()
                
         })
-        await test.step('click admin page',async()=>{
-                await liveWallPage.clickAdminPage()
-                 //click Mobile QR Code
-                 await liveWallPage.click_start_button()
+        await test.step('Click on remove message popup', async() =>{ 
+                await liveWallPage.remove_message_popup()
         })
+
+       await test.step('click tripple dot', async() =>{ 
+                await liveWallPage.click_trippledot()
+       })
+        await test.step('click admin page and start button',async()=>{
+                await liveWallPage.clickAdminPage()
+                
+        })
+         //click Mobile QR Code
+        await test.step('click start button', async() =>{ 
+              await liveWallPage.click_start_button()
+         })
         await test.step("open mobile link and copy",async()=>{
                  
                   await liveWallPage.click_Mobile_button()
@@ -2218,9 +2222,9 @@ test('009FanSee-163|Validate Post-Live Text Message is reflected on mobile',asyn
                 
                 
         })
-        await test.step('click on join page',async()=>{
-                await newPage.clickjoin()   
-        })
+        // await test.step('click on join page',async()=>{
+        //         await newPage.clickjoin()   
+        // })
         await test.step('close the game',async()=>{
                 await liveWallPage.clickCloseBtn()
         })
@@ -2260,9 +2264,16 @@ test("009FanSee-181|Validate Standby Text Message functionality", async ({ login
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
 
+              
+        })
+        await test.step('remove popup message', async () => {
                 await liveWallPage.remove_message_popup()
 
+        })
+        await test.step('click tripple dot', async () => {
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click design page', async () => {
                 await liveWallPage.clickDesignPage()
         })
         await test.step("009FanSee-181|	Validate Stand By Message box input is working",async() =>{
@@ -2620,7 +2631,7 @@ test("009FanSee-253|	validate hours input is reflected on mobile",async({ loginP
               await newPage.clicksubmit()     
       }) 
       await test.step('now check the hours input',async() =>{
-              await newPage.check_hours('45:')
+              await newPage.check_hours('44:')
       })
       await test.step('click close button',async() =>{
          await liveWallPage.clickCloseBtn()
@@ -2697,7 +2708,7 @@ test("009FanSee-254|	validate minutes input is reflected on mobile",async({ logi
                 await newPage.clicksubmit()
         })
         await test.step('now check the minutes input', async () => {
-                await newPage.check_minutes(':54')
+                await newPage.check_minutes(':53')
         })
         await test.step('close the button', async () => {
                 await liveWallPage.clickCloseBtn()
@@ -2814,7 +2825,7 @@ test("009FanSee-256|	validate enable camera flip is reflected on mobile",async({
                 await liveWallPage.clickDesignPage()
         })
         await test.step("click camera flip",async()=>{
-                await liveWallPage.click_enable_camera_flip_single()      
+                await liveWallPage.click_enable_camera_flip_off()      
         }) 
         await test.step('now click on admin page and start',async()=>{
                 await liveWallPage.clickAdminPage()
@@ -2857,7 +2868,7 @@ test("009FanSee-256|	validate enable camera flip is reflected on mobile",async({
       await test.step('revert settings',async()=>{
       
         await liveWallPage.clickDesignPage()
-        await liveWallPage.click_enable_camera_flip_single()
+        await liveWallPage.click_enable_camera_flipt_toggle_on()
       })
 })
 test("009FanSee-257|	validate demo mode is reflected on mobile",async({ loginPage, liveWallPage,  page }, testInfo)=>{

@@ -909,7 +909,7 @@ export default class liveWallPage {
   async clickplusbuttonswatches() {
     const ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.color_picker_swatches)
     if (await ele.isVisible()) {
-      await ele.click({ button: 'left' })
+      await ele.dblclick({ button: 'left',delay:1000 })
     }
     else {
       throw new Error("Either Swatches section button is missing or its not visible")
@@ -2753,7 +2753,7 @@ export default class liveWallPage {
     ])
     const suggestedFileName = download.suggestedFilename()
 
-    if (suggestedFileName.match('FAN_SEE_DEFAULT_QRCODE')) {
+    if (suggestedFileName.match('FAN_SEE_AUTO_QRCODE')) {
       const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
       await download.saveAs(filePath)
       expect(existsSync(filePath)).toBeTruthy()
@@ -2771,7 +2771,7 @@ export default class liveWallPage {
     ])
     const suggestedFileName = download.suggestedFilename()
 
-    if (suggestedFileName.match('FAN_SEE_DEFAULT_VIP_QRCODE')) {
+    if (suggestedFileName.match('FAN_SEE_AUTO_VIP_QRCODE')) {
       const filePath = 'Test_data_that_gets_downloaded/' + suggestedFileName
       await download.saveAs(filePath)
       expect(existsSync(filePath)).toBeTruthy()
