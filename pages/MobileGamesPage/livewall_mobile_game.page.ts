@@ -79,12 +79,18 @@ export default class livewallMobilePage {
 
        async screenshot_matcher_mobile_home_screen() {
               try {
-                     await this.page.waitForTimeout(7000)
+                     await this.page.waitForTimeout(4000)
                      await expect
-                            .soft(this.page.frameLocator('iframe').locator("//div[@id='app']//img"))
-                            .toHaveScreenshot('FullScreen.png', { maxDiffPixelRatio: 0.15 })
+                            .soft(this.page.locator("//div[@id='app']").first())
+                            .toHaveScreenshot('mobile_home_screen_logo.png', { 
+                                   maxDiffPixelRatio: 0.15,
+                                   mask:[
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div")
+                                   ] 
+                            })
               } catch (error) {
-                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+                     throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found` +error)
               }
        }
 
