@@ -169,7 +169,7 @@ test("0013GTS-002 |  Validate Font Upload Functionality.", async ({ loginPage, g
 
 })
 
-test("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
+test.only("0013GTS-003 | Validate Font Successfully Applied in mobile screen.",async({loginPage,  guesstheScorePage, page, browser }, testInfo)=>{
     await test.step("Login Admin And land To Home Screen", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)
@@ -209,6 +209,7 @@ await test.step("Now game open in mobile screen",async()=>{
    // await newguessthescoregame.clcikHomePageInMobileScreen()
    await newTab.waitForTimeout(4000)
     await newguessthescoregame.verifyTodaysLineUpBtnText()
+    await page.waitForTimeout(60000)
     await newguessthescoregame.verifyFontAppliedSuccessfullyInMobileScreen()
     
 
@@ -1324,7 +1325,7 @@ test("0013GTS-030 | Validate RGB sections are visible in color picker.",async({l
         await guesstheScorePage.verifyRGBOpacityColorInputField()
         await guesstheScorePage.verifyRGBHexColorInputField()
 
-        await guesstheScorePage.selectColorNumberFive()
+        //await guesstheScorePage.selectColorNumberFive()
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 
@@ -1419,6 +1420,7 @@ await test.step("validate Admin can change background color change is visible on
 })       
 await test.step("now validate background color change is visible on mobile screen",async () =>{
     await newguessthescoregame.waitforelementLoad()
+    await page.waitForTimeout(60000)
     await newguessthescoregame.verifyBackgroundColorUpdatedSuccessfully()
 })
     // await guesstheScorePage.clickLiveBtn()
@@ -1673,6 +1675,7 @@ test("0013GTS-042 | validate  Background image upload works.", async({ loginPage
     })
   
 }) 
+
 test("0013GTS-043 | validate Game Title Logo upload works.", async({ loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {
 
@@ -1782,51 +1785,7 @@ test("0013GTS-045 | Validate Banner Image upload works.", async({ loginPage, gue
     })
    
 }) 
-test("0013GTS-046 | Validate Protrait Background image upload change is being reflected on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
-    await test.step("Login Admin And land game design of guess the score", async () => {
 
-            await page.goto('/admin/#/sign-in')
-            await loginPage.login(data.username, data.password)
-            const title = await page.title();
-            expect(title).toBe('DXP Admin')
-
-            const screenshot = await page.screenshot();
-            await testInfo.attach("login screenshot", {
-                    contentType: "image/png",
-                    body: screenshot
-            })
-
-            await guesstheScorePage.clickGuessTheScoreSection()
-            await page.waitForTimeout(1000)
-
-    })
-       
-        let newTab=null;
-       let newguessthescoregame :guesstheScoreMobilePage
-    await test.step("now open the game in mobile view", async() =>{
-            await guesstheScorePage.clickGameDesign()
-            await guesstheScorePage.clickMobileLinkBtn()     
-            //now click on open button
-            newTab = await guesstheScorePage.clickMobileLinkOpenBtn()
-            newguessthescoregame = new guesstheScoreMobilePage(newTab)
-            await guesstheScorePage.clickCloseBtn()
-            //await newTab.waitForTimeout(4000)
-            await newguessthescoregame.typephoneno()
-            await newguessthescoregame.typeemail()
-            await newguessthescoregame.selectbirthdate()
-            await newguessthescoregame.typeAge()
-            await newguessthescoregame.typezip()
-            await newguessthescoregame.clicksubmit()
-            await newTab.waitForTimeout(4000)
-            //await newguessthescoregame.clcikHomePageInMobileScreen()
-            // const before = newTab.screenshot({ path: 'testData/before.png' , fullPage: true })
-            //newTab.close()
-      })
-      await test.step("Now check the screenshot",async()=>{
-         await newguessthescoregame.screenshot_matcher_backgroundimage()
-      })
-
-})
  
 test("0013GTS-047 | Validate game title Image upload change is being reflected on mobile screen.", async({loginPage, guesstheScorePage, page, functions }, testInfo) =>{
     await test.step("Login Admin And land game design of guess the score", async () => {

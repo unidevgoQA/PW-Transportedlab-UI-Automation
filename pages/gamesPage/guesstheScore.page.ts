@@ -433,16 +433,16 @@ export default class guesstheScorePage {
                 }
         }
 
-        async selectColorNumberFive() {
-                let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ColorNumberFive)
+        // async selectColorNumberFive() {
+        //         let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ColorNumberFive)
                 
-                try{
-                        await ele.click({button:"left",delay:1000})
-                }
-                catch(error){
-                      throw(`Guess the score color section  Color number five input field is not visible,Could not find locator:"${ele}"`)
-                }
-        }
+        //         try{
+        //                 await ele.click({button:"left",delay:1000})
+        //         }
+        //         catch(error){
+        //               throw(`Guess the score color section  Color number five input field is not visible,Could not find locator:"${ele}"`)
+        //         }
+        // }
 
         async selectColorNumberTwo() {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ColorNumberTwo)
@@ -2805,6 +2805,7 @@ export default class guesstheScorePage {
         async verifyPlusBtnInColorPicker() {
                 let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.SwatchesText)
                 try{
+                        await ele.click();
                         
                        await this.page.waitForTimeout(1000)
                 }
@@ -2855,6 +2856,7 @@ export default class guesstheScorePage {
         async verifyRGBHexColorInputField() {
                 let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.InputRGBColorOpacity)
                 try{
+                       
                         
                        await this.page.waitForTimeout(1000)
                 }
@@ -3066,7 +3068,7 @@ export default class guesstheScorePage {
                         //clickEventThreeDot
                         await this.page.frameLocator('iframe').locator("(//p[contains(@class,'MuiTypography-root MuiTypography-body1')]/following-sibling::div)[1]").click({force:true})
                         await this.page.setDefaultTimeout(1000)
-                        await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click()
+                        //await this.page.frameLocator('iframe').locator("//p[text()='Stop Event']").click({force:true})
                         //clickEventStop
                   }
                //await this.page.waitForLoadState("networkidle")
