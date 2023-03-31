@@ -1640,7 +1640,7 @@ test("0013GTS-035 | Validate Wood Color Input From Admin Side.", async ({ loginP
         await guesstheScorePage.clickColorPickerSaveBtn()
     })
 })
-test("0013GTS-036 |Validate Wood Color Successfully Uploaed In mobile screen.", async ({ loginPage, guesstheScorePage, page, functions }, testInfo) => {
+test("0013GTS-036 | Validate Wood Color Successfully Uploaed In mobile screen.", async ({ loginPage, guesstheScorePage, page, functions }, testInfo) => {
     await test.step("Login Admin And land on guess the score", async () => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)

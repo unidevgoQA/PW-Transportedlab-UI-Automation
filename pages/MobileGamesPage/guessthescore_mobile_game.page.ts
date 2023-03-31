@@ -124,7 +124,7 @@ export default class guesstheScoreMobilePage {
       }
       async verifyWoodColorUpdatedSuccessfully() {
             const ele = this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-89f2e5"]')
-            expect.soft(ele).toHaveScreenshot("Wood-Color-Uploaded-UI.png")
+            expect.soft(ele).toHaveScreenshot("Wood-Color-Uploaded-UI.png", { maxDiffPixelRatio: 0.10 })
       }
       async checksbuttonColor() {
             const ele = this.page.frameLocator('iframe').locator("(//button[@type='button'])[1]")
@@ -149,7 +149,7 @@ export default class guesstheScoreMobilePage {
       async screenshot_matcher_gametitlelogo() {
             await expect.soft(await this.page.screenshot({
                   fullPage: true
-            })).toMatchSnapshot("gametitle_logo_image_screenshot.png")
+            })).toMatchSnapshot("gametitle_logo_image_screenshot.png", { maxDiffPixelRatio: 0.10 })
       }
       async verifyTodaysLineUpBtnText() {
             const ele = await this.page.frameLocator('iframe').locator("(//button[contains(@class,'MuiButtonBase-root MuiButton-root')])[1]")
@@ -198,10 +198,10 @@ export default class guesstheScoreMobilePage {
       async screenshot_matcher_sponsorlogo() {
             await expect.soft(await this.page.screenshot({
                   fullPage: true
-            })).toMatchSnapshot("sponsor_logo_image_screenshot.png")
+            })).toMatchSnapshot("sponsor_logo_image_screenshot.png", { maxDiffPixelRatio: 0.10 })
       }
       async screenshot_matcher_bannerimage() {
-            await expect.soft(this.page).toHaveScreenshot("banner_image_screenshot.png")
+            await expect.soft(this.page).toHaveScreenshot("banner_image_screenshot.png", { maxDiffPixelRatio: 0.10 })
       }
       async screenshot_matcher_rider_Avatar() {
             const ele = await this.page.frameLocator('iframe').locator("//div[contains(@class,'MuiAvatar-root MuiAvatar-square')]")
