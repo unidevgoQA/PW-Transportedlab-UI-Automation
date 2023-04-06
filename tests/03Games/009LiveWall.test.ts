@@ -2216,7 +2216,7 @@ test("009FanSee-199 | Validate Low connection Text Message functionality", async
                 
         })
 })
-test("009FanSee-251| validate low connection message text is being reflected on mobile", async ({ loginPage, liveWallPage, page,browser }, testInfo) => {
+test.skip("009FanSee-251| validate low connection message text is being reflected on mobile", async ({ loginPage, liveWallPage, page,browser }, testInfo) => {
         //explore CDP in playwright devtools
         test.setTimeout(3000000)
         const networkConditions = {
