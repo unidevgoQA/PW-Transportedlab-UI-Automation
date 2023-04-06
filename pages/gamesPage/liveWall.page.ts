@@ -79,7 +79,7 @@ export default class liveWallPage {
     show_username_to_mainboard_toggle: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span',
     show_username_to_main_input: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
     enable_camera_flip_toggle: '//p[text()="Enable Camera Flip"]//following-sibling::span//span',
-    enable_camera_flit_input: '//p[text()="Show Username to Mainboard"]//following-sibling::span//span//input',
+    enable_camera_flit_input: '//p[text()="Enable Camera Flip"]//following-sibling::span//span//input',
     hour_ele_controls: "//label[text()='Hours']//following-sibling::div//input",
     minutes_ele_controls: "//label[text()='Minutes']//following-sibling::div//input",
     seconds_ele_controls: "//label[text()='Seconds']//following-sibling::div//input",
@@ -127,7 +127,9 @@ export default class liveWallPage {
     copy_link_button: '//button[@aria-label="Copy Link"]',
     select_video_for_mobile_background: "//p[text()='Mobile Background']//following-sibling::div//span[text()='Video']",
     font_ele: `//p[text()='Aa']//parent::div`,
-    font_ele_selected: `//p[text()='Aa']//parent::div[@isactive]`
+    font_ele_selected: `//p[text()='Aa']//parent::div[@isactive]`,
+    go_live_button:'//p[text()="Go Live"]/parent::button',
+    clear_all_button:`//button[text()="Clear All"]`
   }
   async clickQRCodeBtn() {
     // await this.page.frameLocator('iframe').waitForSelector("text=Design")
@@ -508,12 +510,13 @@ export default class liveWallPage {
     const ele = this.page
       .frameLocator("iframe")
       .locator(this.Fansee_page_elements.cue_button).first();
-    if (await ele.isVisible()) {
-      await ele.click({ button: 'left' });
-    }
-    else {
-      throw new Error("Either stop button element is not found or element visiblity is hidden");
-    }
+      try {
+        if (await ele.isVisible()) {
+          await ele.click({ button: 'left' });
+        }    
+      } catch (error) {
+        throw new Error("Cue button clicking below the user mobile screen failed"+error)
+      }
   }
   async click_Live_button() {
     const ele = this.page
@@ -536,6 +539,30 @@ export default class liveWallPage {
     else {
       throw new Error("Either stop button element is not found or element visiblity is hidden");
     }
+  }
+  async click_go_live_button(){
+    const ele = this.page
+      .frameLocator("iframe")
+      .locator(this.Fansee_page_elements.go_live_button).first();
+     try {
+       await ele.click({button:'left'});
+     } catch (error) {
+       throw new Error('Click on Go live button is failed '+error)
+     }
+  }
+  async click_clear_all_button(){
+    const ele = this.page
+    .frameLocator("iframe")
+    .locator(this.Fansee_page_elements.clear_all_button).first();
+   try {
+     await ele.dblclick({button:'left',delay:500});
+   } catch (error) {
+     throw new Error('Click on clear all button is failed '+error)
+   }
+  }
+
+  async check_clearall_is_working(){
+    await expect(this.page).toHaveScreenshot('All_cleared_page.png',{ maxDiffPixelRatio: 0.15})
   }
   //cue section here
   async toggle_auto_rotation() {
@@ -2232,7 +2259,7 @@ export default class liveWallPage {
     const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
     try {
       if (!await input_ele.isChecked()) {
-        await ele.click({ button: 'left', force: true })
+        await ele.click({ button: 'left' })
       }
     } catch (error) {
       throw new Error("Enable camera flip toggle is not visible" + error)
@@ -2243,7 +2270,7 @@ export default class liveWallPage {
     const input_ele = this.page.frameLocator(this.Fansee_page_elements.iframe).locator(this.Fansee_page_elements.enable_camera_flit_input)
     try {
       if (await input_ele.isChecked()) {
-        await ele.click({ button: 'left', force: true })
+        await ele.click({ button: 'left' })
       }
     } catch (error) {
       throw new Error("Enable camera flip toggle is not visible" + error)

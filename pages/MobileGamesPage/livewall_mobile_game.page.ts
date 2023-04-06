@@ -41,10 +41,10 @@ export default class livewallMobilePage {
               await this.page.locator('//input[@name="age"]').type('24')
        }
        async selectbirthdate() {
-              await this.page.locator('//input[@name="birthDate"]').click()
+              await this.page.locator('//label[@for="additionalbirthDate"]/following-sibling::div//input').click()
               await this.page.locator('//button[@aria-label="calendar view is open, switch to year view"]').click()
               await this.page.locator("//button[text()='2000']").click()
-              await this.page.locator("//button[text()='OK']").click()
+              await this.page.locator("//button[text()='Save']").click()
        }
        async typezip() {
               await this.page.locator('//input[@name="zipCode"]').type('1217')
@@ -93,6 +93,21 @@ export default class livewallMobilePage {
               } catch (error) {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found` + error)
               }
+       }
+       async check_font_color(){
+              await this.page.waitForTimeout(4000)
+              const ele =this.page.frameLocator('//iframe').locator('//span[@role="progressbar"]//following-sibling::p')
+              await expect.soft(ele).toHaveCSS('color','rgba(111, 48, 214, 0.98)')
+
+              const ele2=this.page.frameLocator('//iframe').locator('//h4[text()="Waiting..."]')
+              await expect.soft(ele2).toHaveCSS('color','rgba(111, 48, 214, 0.98)')
+              await expect.soft(ele).toHaveCSS('color','rgba(111, 48, 214, 0.98)')
+       }
+
+       async check_countdown_color(){
+              await this.page.waitForTimeout(4000) 
+              const ele =this.page.frameLocator('//iframe').locator("//*[name()='svg']//*[name()='circle']")
+              await expect.soft(ele).toHaveCSS('color','rgba(43, 189, 221, 0.98)')
        }
        // async fake_video(){
        //        async function createBufferFromStream(stream:any) {
@@ -214,11 +229,30 @@ export default class livewallMobilePage {
                                    maxDiffPixelRatio: 0.15,
                                    mask: [
                                           this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
-                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div")
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div"),
+                                          this.page.frameLocator('iframe').locator('//span[@role="progressbar"]//following-sibling::p')
                                    ]
                             })
               } catch (error) {
                      throw new Error(`Livewallpage| Mobile Home screen logo| Mobile home screenlogo mismatch found`)
+              }
+       }
+
+       async check_live_status(){
+              try {
+                     await this.page.waitForTimeout(4000)
+                     await expect
+                            .soft(this.page.locator("//div[@id='app']"))
+                            .toHaveScreenshot('Live_check.png', {
+                                   maxDiffPixelRatio: 0.15,
+                                   mask: [
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/parent::div/parent::div/parent::div"),
+                                          this.page.frameLocator('iframe').locator("//button[@value='game']/div"),
+              
+                                   ]
+                            })
+              } catch (error) {
+                     throw new Error(`LiveWall Page| Error in screenshot of live game page `+error)
               }
        }
 }

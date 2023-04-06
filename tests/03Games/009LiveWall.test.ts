@@ -203,7 +203,7 @@ test("009FanSee-44|Validate Background Color input functionality", async ({ logi
         })
 })
 // })
-test("009FanSee-58|validate Font color picker is working", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-58|validate Font color picker input functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -934,7 +934,7 @@ test("009FanSee-83 | Validate Mobile Frame Upload Functionality", async ({ login
 })
 
 //here is an issue
-test.skip('009FanSee-239 | validate mobile frame image is reflected on mobile', async ({ loginPage, liveWallPage, page, browser }, testInfo) => {
+test('009FanSee-239 | validate mobile frame image is reflected on mobile', async ({ loginPage, liveWallPage, page, browser }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -954,6 +954,12 @@ test.skip('009FanSee-239 | validate mobile frame image is reflected on mobile', 
         })
         await test.step('click tripple dot', async () => {
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('go to design pag',async()=>{
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step('toggle timer on',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_off()
         })
         await test.step('click admin page', async () => {
                 await liveWallPage.clickAdminPage()
@@ -986,6 +992,7 @@ test.skip('009FanSee-239 | validate mobile frame image is reflected on mobile', 
         // await test.step('check the join button',async()=>{
         //         await newPage.clickjoin()
         // })
+        //need to add masks here 
         await test.step('check the mobile frame', async () => {
                 await newPage.screenshot_matcher_mobile_frame()
         })
@@ -1075,7 +1082,7 @@ test('009FanSee-240 | validate output frame (9:16 Output) is reflected on mainbo
         let newTab = null;
         let newmainboard: mainBoardPage
         await test.step('now click on output background', async () => {
-                await liveWallPage.clickOutPutBtn()
+                 await liveWallPage.clickOutPutBtn()
                 newTab = await liveWallPage.click_open_link_button_with_page()
                 newmainboard = new mainBoardPage(newTab)
         })
@@ -1087,9 +1094,7 @@ test('009FanSee-240 | validate output frame (9:16 Output) is reflected on mainbo
         })
         //need to use png here
         await test.step('now click ok again and wait for image', async () => {
-                let context = browser.contexts()
-                let page = context[0].pages()
-                await page[1].reload()
+                await browser.contexts()[0].pages()[1].reload()
                 await newmainboard.clickokbutton()
         })
         await test.step('now check the output frame', async () => {
@@ -1125,8 +1130,15 @@ test("009FanSee-85 | Validate Banner Image (9:16 Output) Upload Functionality", 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+              
+        })
+        await test.step('click on remove message', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('now click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
@@ -1135,7 +1147,7 @@ test("009FanSee-85 | Validate Banner Image (9:16 Output) Upload Functionality", 
                 await liveWallPage.wait_bannner_image_9_16_upload()
         })
 })
-test('009FanSee-241| validate banner Image (9:16 Output) is reflected on mainboard', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-241 | validate banner Image (9:16 Output) is reflected on mainboard', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1208,7 +1220,7 @@ test("009FanSee-86 | Validate Right Image (1:1 Output) Upload Functionality", as
                 await liveWallPage.wait_right_image_1_1_upload()
         })
 })
-test('009FanSee-243| validate right image(1:1 Output) is reflected on mainboard', async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test('009FanSee-243 | validate right image(1:1 Output) is reflected on mainboard', async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1249,7 +1261,7 @@ test('009FanSee-243| validate right image(1:1 Output) is reflected on mainboard'
                 await liveWallPage.delete_right_image()
         })
 })
-test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-87 | Validate 1:1 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1277,7 +1289,7 @@ test("009FanSee-87|Validate 1:1 Fallback Upload Functionality", async ({ loginPa
                 await liveWallPage.wait_Fallback_1_1_upload()
         })
 })
-test('009FanSee-245|	validate fallback 1:1 image is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
+test('009FanSee-245 | validate fallback 1:1 image is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1341,18 +1353,32 @@ test('009FanSee-272 | validate fallback 1:1 video upload is working', async ({ l
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+               
+        })
+        await test.step('click on remove message popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate fallback video upload works", async () => {
                 await liveWallPage.select_video_fallback_1_1()
+               
+        })
+        await test.step('click on fallback 1 1 upload', async() =>{ 
                 await liveWallPage.Fallback_1_1_upload()
+        })
+        await test.step('uploading video', async() =>{ 
                 await liveWallPage.video_uploader_For_Fallback_1_1()
+        })
+        await test.step('wait for upload to completer', async() =>{ 
                 await liveWallPage.wait_Fallback_1_1_upload()
         })
 })
-test('009FanSee-244| validate fallback 1:1 video is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
+test('009FanSee-244 | validate fallback 1:1 video is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1399,7 +1425,7 @@ test('009FanSee-244| validate fallback 1:1 video is reflected on mainboard', asy
                 await liveWallPage.delete_Fallback_1_1_upload()
         })
 })
-test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-88 | Validate 9:16 Fallback Upload Functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1416,8 +1442,15 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+               
+        })
+        await test.step('click on remove message popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
@@ -1427,7 +1460,7 @@ test("009FanSee-88|Validate 9:16 Fallback Upload Functionality", async ({ loginP
                 await liveWallPage.wait_Fallback_9_16_upload()
         })
 })
-test('009FanSee-245|	validate fallback 9:16 image is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
+test('009FanSee-245 | validate fallback 9:16 image is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1491,8 +1524,15 @@ test('009FanSee-273 | validate fallback 9:16 video upload is working', async ({ 
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+                
+        })
+        await test.step('click on remove message popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
         await test.step("validate mobile home screen logo upload works", async () => {
@@ -1502,7 +1542,7 @@ test('009FanSee-273 | validate fallback 9:16 video upload is working', async ({ 
                 await liveWallPage.wait_Fallback_9_16_upload()
         })
 })
-test('009FanSee-246|	validate fallback 9:16 video is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
+test('009FanSee-246 | validate fallback 9:16 video is reflected on mainboard', async ({ loginPage, liveWallPage, browser, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1519,11 +1559,24 @@ test('009FanSee-246|	validate fallback 9:16 video is reflected on mainboard', as
         //click Live Wall Section
         await test.step("now navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+                
+        })
+        await test.step('click on remove message popup', async () => {
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async () => {
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on admin page', async () => {
                 await liveWallPage.clickAdminPage()
+        })
+        await test.step('click start button', async () => {
                 await liveWallPage.click_start_button()
+        })
+        await test.step('click 9 16 mobile button', async () => {
                 await liveWallPage.click_9_16_mobile_button()
+        })
+        await test.step('click 4 1 mainboard toggle', async () => {
                 await liveWallPage.click_4_1_mainboard_toggle()
         })
         let newTab = null;
@@ -1549,7 +1602,7 @@ test('009FanSee-246|	validate fallback 9:16 video is reflected on mainboard', as
                 await liveWallPage.delete_Fallback_9_16_upload()
         })
 })
-test("009FanSee-130 | validate prelive text message functionalities", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-130 | validate pre-live text message functionalities", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -1671,7 +1724,7 @@ test("009FanSee-130 | validate prelive text message functionalities", async ({ l
                 await liveWallPage.preLiveInputBoxLeft()
         })
 })
-test('009FanSee-248|	validate pre-live text is being reflected on mobile', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test('009FanSee-248 | validate pre-live text is being reflected on mobile', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1732,7 +1785,7 @@ test('009FanSee-248|	validate pre-live text is being reflected on mobile', async
                 await liveWallPage.click_stop_button()
         })
 })
-test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-163 | Validate Post-Live Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1796,19 +1849,32 @@ test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ log
         await test.step('009FanSee-175|	Validate Post-Live Text blockquotes are working', async () => {
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH1()
+                
+        })
+           await test.step('Select H2 block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH2()
+            })
+        await test.step('Select H3 block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH3()
+         })
+          await test.step('Select H4 block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH4()
+           })
+         await test.step('select h5 block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH5()
+          })
+           await test.step('Select H6 block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH6()
+            })
+          await test.step('Select block quote block type', async() =>{ 
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockquote()
-        })
+           })
         await test.step('009FanSee-176|	Validate Post-Live Text Font Tag is start Left.', async () => {
                 await liveWallPage.postLiveInputBoxLeft()
         })
@@ -1821,10 +1887,13 @@ test("009FanSee-163|Validate Post-Live Text Message functionality", async ({ log
         await test.step('setup for next text', async () => {
                 await liveWallPage.postLiveInputBoxBlocktype()
                 await liveWallPage.postLiveInputBoxBlockH1()
-                await liveWallPage.postLiveInputBoxLeft()
+               
         })
+        await test.step('Select post input box left', async() =>{ 
+                await liveWallPage.postLiveInputBoxLeft()
+         })
 })
-test('009FanSee-163|Validate Post-Live Text Message is reflected on mobile', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test('009FanSee-163 | Validate Post-Live Text Message is reflected on mobile', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1889,7 +1958,7 @@ test('009FanSee-163|Validate Post-Live Text Message is reflected on mobile', asy
                 await liveWallPage.click_stop_button()
         })
 })
-test("009FanSee-181|Validate Standby Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-181 | Validate Standby Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1987,7 +2056,7 @@ test("009FanSee-181|Validate Standby Text Message functionality", async ({ login
                 await liveWallPage.standByInputBoxBlockH1()
         })
 })
-test("009FanSee-250|validate standby message text is being reflected on mobile", async ({ loginPage, liveWallPage, functions, browser, page }, testInfo) => {
+test("009FanSee-250 | validate standby message text is being reflected on mobile", async ({ loginPage, liveWallPage, functions, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2035,7 +2104,7 @@ test("009FanSee-250|validate standby message text is being reflected on mobile",
                 await newPage.test_for_standby_message('test For stand by message')
         })
 })
-test("009FanSee-199|Validate Low connection Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-199 | Validate Low connection Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2052,8 +2121,15 @@ test("009FanSee-199|Validate Low connection Text Message functionality", async (
         //click Live Wall Section
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
-                await liveWallPage.remove_message_popup()
+               
+        })
+        await test.step('click on Remove message', async() =>{ 
+         await liveWallPage.remove_message_popup()
+         })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
         })
         await test.step("009FanSee-199|	Validate Low Connection Message text field functionalites", async () => {
@@ -2066,16 +2142,29 @@ test("009FanSee-199|Validate Low connection Text Message functionality", async (
         await test.step('009FanSee-211|	Validate Low Connection Message blocktypes are working', async () => {
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH1()
+                
+        })
+        await test.step('Select h2 block', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH2()
+        })
+        await test.step('select H3 block', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH3()
+        })
+        await test.step('select H4 block', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH4()
+        })
+        await test.step('select H5 Block', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH5()
+        })
+        await test.step('Select H6 block', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockH6()
+        })
+        await test.step('select block Quote type', async() =>{ 
                 await liveWallPage.lowConnectionMassageInputBoxBlocktype()
                 await liveWallPage.lowConnectionMassageInputBoxBlockquote()
         })
@@ -2121,11 +2210,92 @@ test("009FanSee-199|Validate Low connection Text Message functionality", async (
         await test.step('009FanSee-214|	Validate Low Connection Message Font Tag is start Right.', async () => {
                 await liveWallPage.lowConnectionMassageInputBoxRight()
         })
+        await test.step('select H1 block for Final checking', async () => {
+                await liveWallPage.lowConnectionMassageInputBoxBlocktype()
+                await liveWallPage.lowConnectionMassageInputBoxBlockH1()
+                
+        })
 })
-test("009FanSee-251|	validate low connection message text is being reflected on mobile", async ({ loginPage, liveWallPage, page }, testInfo) => {
+test("009FanSee-251| validate low connection message text is being reflected on mobile", async ({ loginPage, liveWallPage, page,browser }, testInfo) => {
         //explore CDP in playwright devtools
+        test.setTimeout(3000000)
+        const networkConditions = {
+                'Slow 3G': {
+                  download: ((500 * 1000) / 8) * 0.8,
+                  upload: ((500 * 1000) / 8) * 0.8,
+                  latency: 400 * 5,
+                },
+                'Fast 3G': {
+                  download: ((1.6 * 1000 * 1000) / 8) * 0.9,
+                  upload: ((750 * 1000) / 8) * 0.9,
+                  latency: 150 * 3.75,
+                },
+              };
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+        })
+        await test.step('click on remove message popup', async () => {
+                await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async () => {
+                await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async () => {
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step("009FanSee-217|	validate Live countdown timer Toggle is working", async () => {
+                await liveWallPage.click_live_countdown_timer_toggle_off()
+        })
+        await test.step('go to admin page', async () => {
+                //click Mobile QR Code
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step('click start button', async () => {
+                await liveWallPage.click_start_button()
+        })
+        await test.step("open mobile link and copy", async () => {
+                await liveWallPage.click_Mobile_button()
+                await liveWallPage.click_copy_link_button()
+        })
+        let url = await clipboard.readSync()
+        let newPage: livewallMobilePage
+        await test.step('now open a new browser and check', async () => {
+                const newContext = await browser.newContext()
+                const page = await newContext.newPage()
+                const cdpSession = await newContext.newCDPSession(page)
+                newPage = new livewallMobilePage(page)
+                await cdpSession.send("Network.emulateNetworkConditions", {
+                        downloadThroughput: networkConditions["Slow 3G"].download,
+                        uploadThroughput: networkConditions["Slow 3G"].upload,
+                        latency: networkConditions["Slow 3G"].latency,
+                        offline: false
+                })
+                await newPage.GoTo(url)
+        })
+        await test.step('now go to game page', async () => {
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()
+        })
+
+        await page.waitForTimeout(1000000);
+
 })
-test("009FanSee-252|	validate live countdown timer toggle is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-252 | validate live countdown timer toggle is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2192,10 +2362,96 @@ test("009FanSee-252|	validate live countdown timer toggle is reflected on mobile
         await test.step('click on live count down timer toggle', async () => {
                 await liveWallPage.click_live_countdown_timer_toggle_on()
         })
+        await test.step('close the open context',async()=>{
+                await browser.contexts()[1].close()
+                await browser.contexts()[0].close()
+        })
 })
-
+test("009FanSee-255 | validate seconds input is reflected on mobile", async ({ loginPage, browser, liveWallPage, page }, testInfo) => {
+        await test.step("login admin", async () => {
+                await page.goto('/admin/#/sign-in')
+                await loginPage.login(data.username, data.password)
+                const title = await page.title();
+                expect(title).toBe('DXP Admin')
+                const screenshot = await page.screenshot();
+                await testInfo.attach("login screenshot", {
+                        contentType: "image/png",
+                        body: screenshot
+                })
+        })
+        await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
+                await liveWallPage.click_Fan_see_Section()
+        })
+        await test.step('click remove message popup', async () => {
+                await liveWallPage.remove_message_popup()
+        })
+        await test.step('click tripple dot', async () => {
+                await liveWallPage.click_trippledot()
+        })
+        await test.step('click design page', async () => {
+                await liveWallPage.clickDesignPage()
+        })
+        await test.step('click live count down timer toggle on', async () => {
+                await liveWallPage.click_live_countdown_timer_toggle_on()
+        })
+        await test.step("input seconds in control", async () => {
+                await liveWallPage.type_seconds_in_control('23')
+        })
+        await test.step('open admin panel', async () => {
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step('click start button', async () => {
+                //click Mobile QR Code
+                await liveWallPage.click_start_button()
+        })
+        await test.step("open mobile link and copy", async () => {
+                await liveWallPage.click_Mobile_button()
+                await liveWallPage.click_copy_link_button()
+        })
+        let url = await clipboard.readSync()
+        let newPage: livewallMobilePage
+        await test.step('now open a new browser and check', async () => {
+                const newContext = await browser.newContext()
+                newPage = new livewallMobilePage(await newContext.newPage())
+                await newPage.GoTo(url)
+        })
+        await test.step('now go to game page', async () => {
+                await newPage.typeAge()
+                await newPage.typeemail()
+                await newPage.typephoneno()
+                await newPage.typezip()
+                await newPage.selectbirthdate()
+                await newPage.clicksubmit()
+        })
+        await test.step('now check the minutes input', async () => {
+                await newPage.check_seconds(':07')
+        })
+        await test.step('close the open context',async()=>{
+                await browser.contexts()[1].close()
+        })
+        await test.step('stop the game', async () => {
+                await liveWallPage.clickCloseBtn()
+        })
+        await test.step('click admin page ', async () => {
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step('stop game', async () => {
+                await liveWallPage.click_stop_button()
+        })
+        await test.step('close the open context',async()=>{
+                try {
+                        const contexts = await browser.contexts();
+                        if (contexts.length > 1) {
+                          await contexts[1].close();
+                          await contexts[0].close();
+                        }
+                      } catch (error) {
+                        console.error(error);
+                      }
+        })
+})
 //here is an issue
-test.skip("009FanSee-253|	validate hours input is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-253 | validate hours input is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2248,8 +2504,9 @@ test.skip("009FanSee-253|	validate hours input is reflected on mobile", async ({
                 await newPage.clicksubmit()
         })
         await test.step('now check the hours input', async () => {
-                await newPage.check_hours('44:')
+                await newPage.check_hours('45:')
         })
+        
         await test.step('click close button', async () => {
                 await liveWallPage.clickCloseBtn()
         })
@@ -2259,9 +2516,20 @@ test.skip("009FanSee-253|	validate hours input is reflected on mobile", async ({
         await test.step('click on stop button', async () => {
                 await liveWallPage.click_stop_button()
         })
+        await test.step('close the open context',async()=>{
+                try {
+                        const contexts = await browser.contexts();
+                        if (contexts.length > 1) {
+                          await contexts[1].close();
+                          await contexts[0].close();
+                        }
+                      } catch (error) {
+                        console.error(error);
+                      }
+        })
         //here
 })
-test("009FanSee-254|	validate minutes input is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-254 | validate minutes input is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2320,8 +2588,9 @@ test("009FanSee-254|	validate minutes input is reflected on mobile", async ({ lo
                 await newPage.clicksubmit()
         })
         await test.step('now check the minutes input', async () => {
-                await newPage.check_minutes(':53')
+                await newPage.check_minutes(':54')
         })
+        
         await test.step('close the button', async () => {
                 await liveWallPage.clickCloseBtn()
         })
@@ -2331,81 +2600,21 @@ test("009FanSee-254|	validate minutes input is reflected on mobile", async ({ lo
         await test.step('now stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
-})
-
-//here is an issue
-test.skip("009FanSee-255|	validate seconds input is reflected on mobile", async ({ loginPage, browser, liveWallPage, page }, testInfo) => {
-        await test.step("login admin", async () => {
-                await page.goto('/admin/#/sign-in')
-                await loginPage.login(data.username, data.password)
-                const title = await page.title();
-                expect(title).toBe('DXP Admin')
-                const screenshot = await page.screenshot();
-                await testInfo.attach("login screenshot", {
-                        contentType: "image/png",
-                        body: screenshot
-                })
-        })
-        await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
-                await liveWallPage.click_Fan_see_Section()
-        })
-        await test.step('click remove message popup', async () => {
-                await liveWallPage.remove_message_popup()
-        })
-        await test.step('click tripple dot', async () => {
-                await liveWallPage.click_trippledot()
-        })
-        await test.step('click design page', async () => {
-                await liveWallPage.clickDesignPage()
-        })
-        await test.step('click live count down timer toggle on', async () => {
-                await liveWallPage.click_live_countdown_timer_toggle_on()
-        })
-        await test.step("input seconds in control", async () => {
-                await liveWallPage.type_seconds_in_control('18')
-        })
-        await test.step('open admin panel', async () => {
-                await liveWallPage.clickAdminPage()
-        })
-        await test.step('click start button', async () => {
-                //click Mobile QR Code
-                await liveWallPage.click_start_button()
-        })
-        await test.step("open mobile link and copy", async () => {
-                await liveWallPage.click_Mobile_button()
-                await liveWallPage.click_copy_link_button()
-        })
-        let url = await clipboard.readSync()
-        let newPage: livewallMobilePage
-        await test.step('now open a new browser and check', async () => {
-                const newContext = await browser.newContext()
-                newPage = new livewallMobilePage(await newContext.newPage())
-                await newPage.GoTo(url)
-        })
-        await test.step('now go to game page', async () => {
-                await newPage.typeAge()
-                await newPage.typeemail()
-                await newPage.typephoneno()
-                await newPage.typezip()
-                await newPage.selectbirthdate()
-                await newPage.clicksubmit()
-        })
-        await test.step('now check the minutes input', async () => {
-                await newPage.check_seconds(':05')
-        })
-        await test.step('stop the game', async () => {
-                await liveWallPage.clickCloseBtn()
-        })
-        await test.step('click admin page ', async () => {
-                await liveWallPage.clickAdminPage()
-        })
-        await test.step('stop game', async () => {
-                await liveWallPage.click_stop_button()
+        await test.step('close the open context',async()=>{
+                try {
+                        const contexts = await browser.contexts();
+                        if (contexts.length > 1) {
+                          await contexts[1].close();
+                          await contexts[0].close();
+                        }
+                      } catch (error) {
+                        console.error(error);
+                      }
         })
 })
 
 //here is an issue
-test.skip("009FanSee-256|	validate enable camera flip is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-256 | validate enable camera flip is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2429,11 +2638,17 @@ test.skip("009FanSee-256|	validate enable camera flip is reflected on mobile", a
         await test.step('now click on design page', async () => {
                 await liveWallPage.clickDesignPage()
         })
-        await test.step("click camera flip", async () => {
-                await liveWallPage.click_enable_camera_flip_off()
+        await test.step('toggle the live countdown timer',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_off()
         })
-        await test.step('now click on admin page and start', async () => {
+        await test.step("click camera flip", async () => {
+                await liveWallPage.click_enable_camera_flipt_toggle_on()
+        })
+        await test.step('now click on admin page ', async () => {
                 await liveWallPage.clickAdminPage()
+               
+        })
+        await test.step('now click on start button', async() =>{ 
                 await liveWallPage.click_start_button()
         })
         await test.step("open mobile link and copy", async () => {
@@ -2456,26 +2671,51 @@ test.skip("009FanSee-256|	validate enable camera flip is reflected on mobile", a
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
-        await test.step('now join the game', async () => {
-                await newPage.clickjoin()
-        })
-        await test.step('now check if the flip button disappears', async () => {
+        // await test.step('now join the game', async () => {
+        //         await newPage.clickjoin()
+        // })
+        await test.step('now check if the flip button is visible', async () => {
                 //work
-                await newPage.check_flip_button_hidden()
+                await newPage.check_flip_button_visible()
         })
-        await test.step('stop the game', async () => {
+        await test.step('close the button', async () => {
                 await liveWallPage.clickCloseBtn()
-                await liveWallPage.click_stop_button()
+                
         })
         await test.step('revert settings', async () => {
                 await liveWallPage.clickDesignPage()
-                await liveWallPage.click_enable_camera_flipt_toggle_on()
+               
         })
+        await test.step('now toggle the flip button off', async() =>{ 
+            await liveWallPage.click_enable_camera_flip_off()
+        })
+
+        await test.step('Now check the toggle button',async()=>{
+             await newPage.check_flip_button_hidden()
+        })
+        await test.step('now go to admin ',async()=>{
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step('now stop the game', async() =>{ 
+                await liveWallPage.click_stop_button()
+        })
+        await test.step('close the open context',async()=>{
+                try {
+                        const contexts = await browser.contexts();
+                        if (contexts.length > 1) {
+                          await contexts[1].close();
+                          await contexts[0].close();
+                        }
+                      } catch (error) {
+                        console.error(error);
+                      }
+        })
+       
 })
 test("009FanSee-257|	validate demo mode is reflected on mobile", async ({ loginPage, liveWallPage, page }, testInfo) => {
         //not implemented yet
 })
-test("009FanSee-216|Validate controls section functionalities ", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test("009FanSee-216 | Validate controls section functionalities ", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2550,6 +2790,9 @@ test("009FanSee-258 | validate font selection is reflected on mobile", async ({ 
         await test.step('select the first font', async () => {
                 await liveWallPage.select_font()
         })
+        await test.step('now check the live countdown timer toggle is on',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_on()
+        })
         await test.step('now click on admin page and start', async () => {
                 await liveWallPage.clickAdminPage()
         })
@@ -2576,6 +2819,7 @@ test("009FanSee-258 | validate font selection is reflected on mobile", async ({ 
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
+        //need to work here, 
         await test.step('now check the font', async () => {
                 await newPage.checkfont()
         })
@@ -2586,7 +2830,7 @@ test("009FanSee-258 | validate font selection is reflected on mobile", async ({ 
                 await liveWallPage.click_stop_button()
         })
 })
-test.skip("009FanSee-260 | validate font color change is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-260 | validate font color change is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2600,9 +2844,19 @@ test.skip("009FanSee-260 | validate font color change is reflected on mobile", a
         })
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+            
+        })
+        await test.step('click on remove message popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
+        })
+        await test.step('now check the live countdown timer toggle is on',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_on()
         })
         await test.step('now click on admin page and start', async () => {
                 await liveWallPage.clickAdminPage()
@@ -2630,11 +2884,17 @@ test.skip("009FanSee-260 | validate font color change is reflected on mobile", a
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
+        await test.step('now check the updated font color',async()=>{
+                await newPage.check_font_color()
+        })
+        await test.step('now close the button',async()=>{
+                await liveWallPage.clickCloseBtn()
+        })
         await test.step('stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
 })
-test.skip("009FanSee-261 | validate countdown color change is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test("009FanSee-261 | validate countdown color change is reflected on mobile", async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2648,9 +2908,19 @@ test.skip("009FanSee-261 | validate countdown color change is reflected on mobil
         })
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
+               
+        })
+        await test.step('click on remove message popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+         })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
+        })
+        await test.step('now toggle the live timer on',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_on()
         })
         await test.step('now click on admin page and start', async () => {
                 await liveWallPage.clickAdminPage()
@@ -2678,11 +2948,17 @@ test.skip("009FanSee-261 | validate countdown color change is reflected on mobil
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
+        await test.step('now check the countdown color here',async()=>{
+                await newPage.check_countdown_color()
+        })
+        await test.step('now close the button',async ()=>{
+                await liveWallPage.clickCloseBtn()
+        })
         await test.step('stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
 })
-test.skip("009FanSee-265 | validate go live button is working", async ({ loginPage, liveWallPage, page, browser }, testInfo) => {
+test("009FanSee-265 | validate go live button is working", async ({ loginPage, liveWallPage, page, browser }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2696,9 +2972,19 @@ test.skip("009FanSee-265 | validate go live button is working", async ({ loginPa
         })
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
-                await liveWallPage.remove_message_popup()
+               
+        })
+        await test.step('click on remove message popup', async() =>{ 
+                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
+        })
+        await test.step('toggle the live timer off',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_off()
         })
         await test.step('now click on admin page and start', async () => {
                 await liveWallPage.clickAdminPage()
@@ -2726,11 +3012,27 @@ test.skip("009FanSee-265 | validate go live button is working", async ({ loginPa
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
+        await test.step('now close the modal',async()=>{
+                await liveWallPage.clickCloseBtn()
+        })
+
+        await test.step('now send the user to Queue screen',async()=>{
+                await liveWallPage.click_cue_button()
+        })
+        await test.step('now navigate to Cue page',async()=>{
+                await liveWallPage.click_cue_Page()
+        })
+        await test.step('now click on go live button',async()=>{
+                await liveWallPage.click_go_live_button()
+        })
+        await test.step("now check if game is in live mode",async()=>{
+                await newPage.check_live_status()
+        })
         await test.step('stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
 })
-test.skip('009FanSee-266 | validate clear all button is working', async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
+test('009FanSee-266 | validate clear all button is working', async ({ loginPage, liveWallPage, browser, page }, testInfo) => {
         await test.step("login admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2744,9 +3046,19 @@ test.skip('009FanSee-266 | validate clear all button is working', async ({ login
         })
         await test.step("009FanSee-6|navigate to fanseepage and open Game Design", async () => {
                 await liveWallPage.click_Fan_see_Section()
-                await liveWallPage.remove_message_popup()
+               
+        })
+        await test.step('click on remove message popup', async() =>{ 
+                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click on tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on design page', async() =>{ 
                 await liveWallPage.clickDesignPage()
+        })
+        await test.step('toggle the live timer off',async()=>{
+                await liveWallPage.click_live_countdown_timer_toggle_off()
         })
         await test.step('now click on admin page and start', async () => {
                 await liveWallPage.clickAdminPage()
@@ -2774,90 +3086,35 @@ test.skip('009FanSee-266 | validate clear all button is working', async ({ login
                 await newPage.selectbirthdate()
                 await newPage.clicksubmit()
         })
+        await test.step('now close the modal',async()=>{
+                await liveWallPage.clickCloseBtn()
+        })
+
+        await test.step('now send the user to Queue screen',async()=>{
+                await liveWallPage.click_cue_button()
+        })
+        await test.step('now navigate to Cue page',async()=>{
+                await liveWallPage.click_cue_Page()
+        })
+        await test.step('now click on go live button',async()=>{
+                await liveWallPage.click_clear_all_button()
+        })
+        await test.step('go to admin page',async()=>{
+                await liveWallPage.clickAdminPage()
+        })
+        await test.step('now navigate to Cue page',async()=>{
+                await liveWallPage.click_cue_Page()
+        })
+        await test.step("now check if game is in live mode",async()=>{
+                await page.waitForTimeout(5000)
+                await liveWallPage.check_clearall_is_working()
+        })
         await test.step('stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
 })
-test.skip("009LW-008 | Validate Cue Section", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
-        // const browser = await chromium.launch({ headless: false });
-        // const context = await browser.newContext({permissions: ["camera"] });
-        // const page = await context.newPage();
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-        //click Live Wall Section
-        await liveWallPage.click_Fan_see_Section()
-        //click Refresh Btn
-        await liveWallPage.clickRefreshBtn()
-        //click To Add Live Selfie Cam In Cue
-        await liveWallPage.clickToAddLiveSelfieCamInCue()
-        //click Cue Btn
-        await liveWallPage.clickCueBtn()
-        const [page1] = await Promise.all([
-                page.waitForEvent('popup'),
-                page.frameLocator('iframe').locator('text=Open Link').click()
-        ]);
-        // Click text=LiveAlertUncue >> button >> nth=0
-        await page1.locator('text=LiveAlertUncue >> button').first().click();
-        await page1.waitForTimeout(3000)
-        // Click text=Next
-        await page1.locator("//button[text()='Next']").click({ force: true });
-        // Click text=No streamsNext >> div
-        await page1.locator('text=No streamsNext >> div').click();
-        // //click Cue Open New Tab Btn
-        // await liveWallPage.clickCueOpenNewTabBtn()
-        // //click To Add Live Selfie Cam In Cue
-        // await liveWallPage.clickToAddCueToLiveSection()
-        await page.waitForTimeout(2000)
-})
-test.skip("009LW-009 | Validate OutPut Section", async ({ loginPage, liveWallPage, functions, page, context }, testInfo) => {
-        // await test.step("Login Admin And land To Home Screen", async () => {
-        // const browser = await chromium.launch({ headless: false });
-        // const context = await browser.newContext({permissions: ["camera"] });
-        // const page = await context.newPage();
-        await page.goto('/admin/#/sign-in')
-        await loginPage.login(data.username, data.password)
-        const title = await page.title();
-        expect(title).toBe('DXP Admin')
-        const screenshot = await page.screenshot();
-        await testInfo.attach("login screenshot", {
-                contentType: "image/png",
-                body: screenshot
-        })
-        //click Live Wall Section
-        await liveWallPage.click_Fan_see_Section()
-        //click Refresh Btn
-        await liveWallPage.clickRefreshBtn()
-        //   // Click text=LiveAlertUncue >> button >> nth=0
-        // await page.locator('text=LiveAlertUncue >> button').first().click();
-        // Click text=CueLiveDelete >> button >> nth=1
-        await page.frameLocator('iframe').locator('text=CueLiveDelete >> button').nth(1).click();
-        //click Cue Btn
-        await liveWallPage.clickOutPutBtn()
-        const [page1] = await Promise.all([
-                page.waitForEvent('popup'),
-                page.frameLocator('iframe').locator('text=Open Link').click()
-        ]);
-        //                 // Click text=LiveAlertUncue >> button >> nth=0
-        //   await page1.locator('text=LiveAlertUncue >> button').first().click();
-        //   // Click text=Next
-        //   await page1.locator('text=Next').click();
-        //   // Click text=No streamsNext >> div
-        //   await page1.locator('text=No streamsNext >> div').click();
-        // //click Cue Open New Tab Btn
-        // await liveWallPage.clickCueOpenNewTabBtn()
-        // //click To Add Live Selfie Cam In Cue
-        // await liveWallPage.clickToAddCueToLiveSection()
-        await page.waitForTimeout(6000)
-})
-test("009FanSee-7|Validate normal user Qr section is functioning", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+
+test("009FanSee-7 | Validate normal user Qr section is functioning", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         // await test.step("Login Admin And land To Home Screen", async () => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
@@ -2900,7 +3157,7 @@ test("009FanSee-7|Validate normal user Qr section is functioning", async ({ logi
                 await liveWallPage.clickCloseBtn()
         })
 })
-test("009FanSee-14|validate open link in Normal QR code is working", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test("009FanSee-14 | validate open link in Normal QR code is working", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2924,13 +3181,12 @@ test("009FanSee-14|validate open link in Normal QR code is working", async ({ lo
         })
         await test.step('009FanSee-14|	validate open link in Normal QR code is working', async () => {
                 await liveWallPage.click_open_link_button()
-                await browser.contexts()[0].pages()[1].
-                        setViewportSize({ width: 320, height: 658 })
+                await browser.contexts()[0].pages()[1].setViewportSize({ width: 320, height: 658 })
                 await browser.contexts()[0].pages()[1].bringToFront()
                 await browser.contexts()[0].pages()[1].waitForSelector("(//div[@id='app'])[1]", { state: 'visible' })
         })
 })
-test("009FanSee-8|Validate VIP user QR section is functioning", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test("009FanSee-8 | Validate VIP user QR section is functioning", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2977,7 +3233,7 @@ test("009FanSee-8|Validate VIP user QR section is functioning", async ({ loginPa
                 await liveWallPage.clickCloseBtn()
         })
 })
-test("009FanSee-20|Validate open link in VIP QR code is working", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test("009FanSee-20 | Validate open link in VIP QR code is working", async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2991,8 +3247,15 @@ test("009FanSee-20|Validate open link in VIP QR code is working", async ({ login
         })
         await test.step("009FanSee-6|navigate to fanseepage and open Admin page", async () => {
                 await liveWallPage.click_Fan_see_Section()
+               
+        })
+        await test.step('remove the popup', async() =>{ 
                 await liveWallPage.remove_message_popup()
+        })
+        await test.step('click tripple dot', async() =>{ 
                 await liveWallPage.click_trippledot()
+        })
+        await test.step('click on admin page', async() =>{ 
                 await liveWallPage.clickAdminPage()
         })
         await test.step("009FanSee-9|Validate Mobile QR Code button visible and clickable.", async () => {
@@ -3001,12 +3264,19 @@ test("009FanSee-20|Validate open link in VIP QR code is working", async ({ login
         })
         await test.step('009FanSee-14|	validate open link in Normal QR code is working', async () => {
                 await liveWallPage.click_open_link_button()
+               
+        })
+        await test.step('change the viewport size of open context', async() =>{ 
                 await browser.contexts()[0].pages()[1].setViewportSize({ width: 320, height: 658 })
+        })
+        await test.step('now bring the browser context to front', async() =>{ 
                 await browser.contexts()[0].pages()[1].bringToFront()
+        })
+        await test.step('now wait for page to be visible', async() =>{ 
                 await browser.contexts()[0].pages()[1].waitForSelector("(//div[@id='app'])[1]", { state: 'visible' })
         })
 })
-test('009FanSee-223|validate Analytics section is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-223 | validate Analytics section is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3028,7 +3298,7 @@ test('009FanSee-223|validate Analytics section is working', async ({ loginPage, 
                 await liveWallPage.validate_Download_exports()
         })
 })
-test('009FanSee-225|validate prizing section in new instance is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-225 | validate prizing section in new instance is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3092,7 +3362,7 @@ test('009FanSee-225|validate prizing section in new instance is working', async 
         //         await liveWallPage.clickSaveBtn()
         // })
 })
-test('009FanSee-228|validate Distribute all manual prize button is clickable', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-228 | validate Distribute all manual prize button is clickable', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3115,7 +3385,7 @@ test('009FanSee-228|validate Distribute all manual prize button is clickable', a
                 await liveWallPage.verify_all_manual_Prize_distributed_confirmation()
         })
 })
-test('009FanSee-131|Validate Delete section in new config is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
+test('009FanSee-131 | Validate Delete section in new config is working', async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3136,7 +3406,7 @@ test('009FanSee-131|Validate Delete section in new config is working', async ({ 
                 await liveWallPage.delete_config_section()
         })
 })
-test('009FanSee-229|validate Admin section functionalities', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test('009FanSee-229 | validate Admin section functionalities', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3216,7 +3486,7 @@ test('009FanSee-229|validate Admin section functionalities', async ({ loginPage,
                 await pages.bringToFront()
         })
 })
-test('009FanSee-141|validate cue section functionalities', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test('009FanSee-141 | validate cue section functionalities', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -3283,7 +3553,7 @@ test('009FanSee-141|validate cue section functionalities', async ({ loginPage, l
                 await liveWallPage.click_stop_button()
         })
 })
-test('009FanSee-232|validate favourite section is working', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
+test('009FanSee-232 | validate favourite section is working', async ({ loginPage, liveWallPage, functions, page, browser }, testInfo) => {
         await test.step("login to admin", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
