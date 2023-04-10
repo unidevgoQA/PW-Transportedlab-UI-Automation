@@ -501,20 +501,22 @@ test("009FanSee-234|validate mobile background upload is reflected on mobile", a
                 newlivewallgame = new livewallMobilePage(newTab)
                 await liveWallPage.clickCloseBtn()
         })
-        await test.step('now check the updated logo', async () => {
-                await newlivewallgame.typeAge()
-                await newlivewallgame.typeemail()
-                await newlivewallgame.typephoneno()
-                await newlivewallgame.typezip()
-                await newlivewallgame.selectbirthdate()
-                await newlivewallgame.clicksubmit()
-        })
+        // await test.step('now check the updated logo', async () => {
+        //         await newlivewallgame.typeAge()
+        //         await newlivewallgame.typeemail()
+        //         await newlivewallgame.typephoneno()
+        //         await newlivewallgame.typezip()
+        //         await newlivewallgame.selectbirthdate()
+        //         await newlivewallgame.clicksubmit()
+        // })
         await test.step('now validate background video is working', async () => {
                 await newlivewallgame.screenshot_matcher_mobile_background()
         })
         await test.step('now delete the uploaded image', async () => {
                 await liveWallPage.clickDesignPage()
                 await liveWallPage.mobile_background_image_delete()
+
+                await browser.close()
         })
 })
 test("009FanSee-270 | validate mobile background video upload is working", async ({ loginPage, liveWallPage, functions, browser, page }, testInfo) => {
@@ -1784,6 +1786,7 @@ test('009FanSee-248 | validate pre-live text is being reflected on mobile', asyn
         await test.step('stop the game', async () => {
                 await liveWallPage.click_stop_button()
         })
+        //need to close instances here
 })
 test("009FanSee-163 | Validate Post-Live Text Message functionality", async ({ loginPage, liveWallPage, functions, page }, testInfo) => {
         await test.step("login admin", async () => {
@@ -1932,14 +1935,14 @@ test('009FanSee-163 | Validate Post-Live Text Message is reflected on mobile', a
                 newPage = new livewallMobilePage(await newContext.newPage())
                 await newPage.GoTo(url)
         })
-        await test.step('now go to game page', async () => {
-                await newPage.typeAge()
-                await newPage.typeemail()
-                await newPage.typephoneno()
-                await newPage.typezip()
-                await newPage.selectbirthdate()
-                await newPage.clicksubmit()
-        })
+        // await test.step('now go to game page', async () => {
+        //         await newPage.typeAge()
+        //         await newPage.typeemail()
+        //         await newPage.typephoneno()
+        //         await newPage.typezip()
+        //         await newPage.selectbirthdate()
+        //         await newPage.clicksubmit()
+        // })
         // await test.step('click on join page',async()=>{
         //         await newPage.clickjoin()
         // })
@@ -2283,14 +2286,14 @@ test.skip("009FanSee-251| validate low connection message text is being reflecte
                 })
                 await newPage.GoTo(url)
         })
-        await test.step('now go to game page', async () => {
-                await newPage.typeAge()
-                await newPage.typeemail()
-                await newPage.typephoneno()
-                await newPage.typezip()
-                await newPage.selectbirthdate()
-                await newPage.clicksubmit()
-        })
+        // await test.step('now go to game page', async () => {
+        //         await newPage.typeAge()
+        //         await newPage.typeemail()
+        //         await newPage.typephoneno()
+        //         await newPage.typezip()
+        //         await newPage.selectbirthdate()
+        //         await newPage.clicksubmit()
+        // })
 
         await page.waitForTimeout(1000000);
 
