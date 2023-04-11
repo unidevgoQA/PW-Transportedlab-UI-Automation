@@ -106,7 +106,7 @@ export default class tugOfWarPage {
                 Team2LogoUpload: "(//div[@class='MuiBox-root css-3fw1ig'])[3]",
                 Team2NameInput: "(//input[contains(@class,'MuiInputBase-input MuiOutlinedInput-input')])[3]",
                 CustomSelectionMesaage: "(//div[@class='notranslate public-DraftEditor-content']//div)[2]",
-                CustomTeamSelectionMessage: "(//div[@aria-label='rdw-toolbar']/following-sibling::div)[2]",
+                CustomTeamSelectionMessage: "(//div[@class='DraftEditor-editorContainer'])[2]",
                 TeamNameBoxBTn: "//p[text()='Team Name Box']/following-sibling::button",
                 AddColor: "//button[@aria-label='Add Color']",
                 RGBInput1: "(//input[@inputmode='numeric'])[1]",
@@ -173,7 +173,7 @@ export default class tugOfWarPage {
                 const ele = this.page.locator(this.tugOfWarPageElements.tugOfWarText)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
-                        await this.page.waitForLoadState('domcontentloaded')
+                        await this.page.waitForLoadState('networkidle')
                         await this.page.waitForTimeout(4000)
                 }
                 catch (error) {
@@ -299,6 +299,7 @@ export default class tugOfWarPage {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.colorInputWindowSaveBtn)
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 }
                 else throw new Error(`Tug Of War Game Settins Primary Color Input Window Save Btn Element Is Not visiable, Could not find locator:"${this.tugOfWarPageElements.colorInputWindowSaveBtn}"`)
         }
@@ -973,7 +974,7 @@ export default class tugOfWarPage {
                 else throw new Error(`Color RGB Color Csave Button Element is Not Found: "${this.tugOfWarPageElements.SaveBTNRGB}"`)
         }
         async TeamSelectedMessageBoxClick() {
-                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamSelectedMessageBox)
+                const ele = await this.page.frameLocator('iframe').locator(this.tugOfWarPageElements.TeamSelectedMessageBox).last()
                 if (await ele.isVisible()) {
                         await ele.click({ button: "left", delay: 1000 })
                 }

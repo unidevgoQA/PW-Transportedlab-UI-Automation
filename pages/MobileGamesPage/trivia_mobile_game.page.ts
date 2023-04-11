@@ -72,10 +72,10 @@ export default class triviaMobilePage {
               await this.page.locator('//input[@name="age"]').type('24')
        }
        async selectbirthdate() {
-              await this.page.locator('//input[@name="birthDate"]').click()
+              await this.page.locator("//input[@id='P-19902789642']").click()
               await this.page.locator('//button[@aria-label="calendar view is open, switch to year view"]').click()
               await this.page.locator("//button[text()='2000']").click()
-              await this.page.locator("//button[text()='OK']").click()
+              await this.page.locator("//button[text()='Save']").click()
        }
        async typezip() {
               await this.page.locator('//input[@name="zipCode"]').type('1217')

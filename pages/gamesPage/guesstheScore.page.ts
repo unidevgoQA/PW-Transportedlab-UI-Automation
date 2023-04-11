@@ -333,6 +333,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GameDesignSection).last()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(1000)
                 }
                 catch (error) {
                         throw (`Guess the score game design section  is not visible,Could not find locator:"${ele}"`)
@@ -507,6 +508,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.InputRGBFirstColor)
                 try {
                         await ele.fill("87")
+                        await this.page.waitForTimeout(1000)
                 }
                 catch (error) {
                         throw (`Guess the score color section RGB first color input field is not visible,Could not find locator:"${ele}"`)
@@ -525,6 +527,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.InputRGBSecondColor)
                 try {
                         await ele.fill("124")
+                        await this.page.waitForTimeout(1000)
                 }
                 catch (error) {
                         throw (`Guess the score color section RGB first color input field is not visible,Could not find locator:"${ele}"`)
@@ -534,6 +537,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.InputRGBThirdColor)
                 try {
                         await ele.fill("152")
+                        await this.page.waitForTimeout(1000)
                 }
                 catch (error) {
                         throw (`Guess the score color section RGB third color input field is not visible,Could not find locator:"${ele}"`)
@@ -543,6 +547,7 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.InputRGBColorOpacity)
                 try {
                         await ele.fill("100")
+                        await this.page.waitForTimeout(1000)
                 }
                 catch (error) {
                         throw (`Guess the score color section RGB color opacity input field is not visible,Could not find locator:"${ele}"`)
@@ -570,11 +575,12 @@ export default class guesstheScorePage {
                 let ele = this.page.frameLocator('.css-r99fy3').locator(this.guessthescorePageElements.ColorPickerSaveBtn)
                 try {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 }
                 catch (error) {
                         throw (`Guess the score color section color picker save Button  is not visible,Could not find locator:"${ele}"`)
                 }
-                await this.page.waitForTimeout(2000)
+                
         }
         //image upload starts here
         async openimagesection() {
@@ -1837,10 +1843,10 @@ export default class guesstheScorePage {
         }
         // game settings
         async clickgamesettings() {
-                await this.page.waitForTimeout(3000)
-                let ele = await this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GamesettingsSection).last()
+                let ele =  this.page.frameLocator('iframe').locator(this.guessthescorePageElements.GamesettingsSection).last()
                 try {
                         await ele.click({ button: "left", delay: 1000 })
+                        await this.page.waitForTimeout(2000)
                 }
                 catch (error) {
                         throw (`Guess the score  game settings section is not visible,Could not find locator:"${ele}"`)

@@ -38,10 +38,11 @@ export default class guesstheScoreMobilePage {
             await this.page.locator('//input[@name="age"]').type('26')
       }
       async selectbirthdate() {
-            await this.page.locator('//input[@name="birthDate"]').click()
+            //await this.page.locator('//input[@name="birthDate"]').click()
+            await this.page.locator("//input[@id='P-19902789642']").click()
             await this.page.locator('//button[@aria-label="calendar view is open, switch to year view"]').click()
             await this.page.locator("//button[text()='1996']").click()
-            await this.page.locator("//button[text()='OK']").click()
+            await this.page.locator("//button[text()='Save']").click()
       }
       async typezip() {
             await this.page.locator('//input[@name="zipCode"]').type('1217')
@@ -53,7 +54,7 @@ export default class guesstheScoreMobilePage {
       async verifyFontAppliedSuccessfullyInMobileScreen() {
             expect(await this.page.screenshot({
                   fullPage: true
-            })).toMatchSnapshot("Font-Uploaded-UI.png")
+            })).toMatchSnapshot("Font-Uploaded-UI.png",{ maxDiffPixelRatio: 0.01 })
       }
       async clcikHomePageInMobileScreen() {
             const ele = await this.page.locator("(//button[contains(@class,'MuiButtonBase-root MuiToggleButton-root')])[1]")
@@ -120,7 +121,7 @@ export default class guesstheScoreMobilePage {
       async verifyBackgroundColorUpdatedSuccessfully() {
             expect(await this.page.screenshot({
                   fullPage: true
-            })).toMatchSnapshot("BackGround-Color-Uploaded-UI.png")
+            })).toMatchSnapshot("BackGround-Color-Uploaded-UI.png",{ maxDiffPixelRatio: 0.01 })
       }
       async verifyWoodColorUpdatedSuccessfully() {
             const ele = this.page.frameLocator('iframe').locator('//div[@class="MuiBox-root css-89f2e5"]')

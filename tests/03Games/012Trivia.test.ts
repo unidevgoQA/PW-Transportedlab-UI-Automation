@@ -4437,7 +4437,7 @@ test("012TV-0134 | Validate  Add New prize Distribution for Automatic  is workin
       await page.waitForTimeout(1000)
       await triviaPage.clickSaveBtn()
 })
-test("012TV-0135 | Validate  prize won Automatic distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
+test.only("012TV-0135 | Validate  prize won Automatic distribution successfully reflection on mobile screen.", async ({ loginPage, functions, page, triviaPage }, testInfo) => {
       await test.step("Login Admin", async () => {
             await page.goto('/admin/#/sign-in')
             await loginPage.login(data.username, data.password)

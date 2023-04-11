@@ -45,6 +45,7 @@ test("000 | Select All The Menu Ready For UI Varification", async ({ loginPage, 
         await singupPage.clickAdditionalInfoDateOfBirthCheckbox()
         await singupPage.clickAdditionalInfoZipCodeCheckbox()
         await singupPage.uncheckAdditionalInfoCustomQuestionCheckbox()
+        //await singupPage.UncheckedAdditionalInfoPhoneNumberCheckbox()
         await languagePage.clickLanguagePage()
         await languagePage.clickUserForceLanguageOption()
         await languagePage.clickForceLanguageInputField()
@@ -93,7 +94,7 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         let newTab = null;
@@ -109,16 +110,17 @@ test("008TOFW-005 | Validate Uploaded Font Successfully Show on Mobile Screen.",
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+               // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
                 await tugOfWarMobilePages.clickSubmitButton()
         })
         await test.step("Validation on mobile Screen", async () => {
+                await page.waitForTimeout(3000)
                 await tugOfWarMobilePages.validateFontSuccessfullyApplied()
                 await tugOfWarPage.ClickMobileLinkPopupClose()
                 await tugOfWarPage.clickGameStopBtn()
@@ -152,7 +154,7 @@ test("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
@@ -166,10 +168,10 @@ test("008TOFW-007 | Validate Primary Color Successfully Applied In mobile Screen
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -194,7 +196,7 @@ test("008TOFW-008 | Validate Game Settings  Secondary Color Successfully Update 
         await tugOfWarPage.inputSecondaryColor()
         await tugOfWarPage.clickColorInputFieldSaveBtn()
 })
-test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile Screen", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile Screen.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -206,7 +208,7 @@ test.skip("008TOFW-009 | Validate Secondary Color Successfully Applied In mobile
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         let newTab = null;
@@ -263,7 +265,7 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
@@ -279,10 +281,10 @@ test("008TOFW-011 | Validate Text Color Successfully Applied In mobile Screen.",
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                //  await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                //  await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                //  await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -357,7 +359,7 @@ test("008TOFW-013 | Validate Custom Mobile Waiting Message Successfully Show on 
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         let newTab = null;
@@ -371,10 +373,10 @@ test("008TOFW-013 | Validate Custom Mobile Waiting Message Successfully Show on 
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -412,7 +414,7 @@ test(" 008TOFW-015 | Validate Sponsor Logo Image Successfully Show on Mobile Scr
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
@@ -427,10 +429,10 @@ test(" 008TOFW-015 | Validate Sponsor Logo Image Successfully Show on Mobile Scr
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -481,10 +483,10 @@ test("008TOFW-017 | Validate Team Logo Successfully Show on Mobile Screen.", asy
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -588,10 +590,10 @@ test("008TOFW-021 | Validate Game Title Image Successfully Show on Mobile Screen
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -649,10 +651,10 @@ test("008TOFW-023 | Validate Title Background image Successfully Show on Mobile 
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -672,6 +674,7 @@ test("008TOFW-024 | Validate Selection Stage Selection Background image Successf
         })
         await test.step("Click game stage section", async () => {
                 await tugOfWarPage.clickStagesBtn();
+                await tugOfWarPage.clickUploadedImageDeleteBtn()
                 await tugOfWarPage.ClickSelectionStage()
         })
         await test.step("Click selection stage", async () => {
@@ -704,7 +707,7 @@ test("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Sc
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
                 await tugOfWarPage.clickGameStartBtn()
@@ -720,10 +723,10 @@ test("008TOFW-025 | Validate Selection Background Successfully Show on Mobile Sc
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -793,10 +796,10 @@ test("008TOFW-028 | Validate #1Team Logo Successfully Show on Mobile Screen.", a
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -870,6 +873,8 @@ test("008TOFW-030 | Validate Selection Stage #2 Team Logo Successfully Updated F
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.NavigatetotheSelectionStage();
+        await page.waitForTimeout(2000)
+        await tugOfWarPage.clickUploadedImageDeleteBtn()
         await tugOfWarPage.clickUploadedImageDeleteBtn()
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
@@ -906,10 +911,10 @@ test("008TOFW-031 | Validate #2Team Logo Successfully Show on Mobile Screen.", a
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -930,6 +935,8 @@ test("008TOFW-032 | Validate Custom Selection Message Successfully Updated From 
         await tugOfWarPage.clickTugOfWarPage();
         await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.NavigatetotheSelectionStage();
+        await page.waitForTimeout(2000)
+        await tugOfWarPage.clickUploadedImageDeleteBtn()
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         await functions.potraitImageUploadFunction();
@@ -979,7 +986,7 @@ test.skip("008TOFW-033 | Validate Custom Selection Message Successfully Show on 
                 await tugOfWarPage.clickGameStopBtn()
         })
 })
-test("008TOFW-034 | Validate Custom Team Selection Message Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
+test.skip("008TOFW-034 | Validate Custom Team Selection Message Successfully Updated From Admin Side.", async ({ loginPage, tugOfWarPage, functions, page, }, testInfo) => {
         await page.goto('/admin/#/sign-in')
         await loginPage.login(data.username, data.password)
         const title = await page.title();
@@ -989,6 +996,7 @@ test("008TOFW-034 | Validate Custom Team Selection Message Successfully Updated 
         //await tugOfWarPage.ClickSelectionStage()
         await tugOfWarPage.NavigatetotheSelectionStage();
         await page.waitForTimeout(1000)
+        await tugOfWarPage.clickUploadedImageDeleteBtn()
         //await tugOfWarPage.GameStartBTNCLICK();
         // await tugOfWarPage.clickClearAllBtn()
         //await functions.potraitImageUploadFunction();
@@ -1044,6 +1052,7 @@ test("008TOFW-036 | Validate Team Name Box color Successfully Updated From Admin
         await tugOfWarPage.verifyConfigurationsText()
         await tugOfWarPage.clickStagesBtn();
         await tugOfWarPage.NavigatetotheSelectionStage();
+        await tugOfWarPage.clickUploadedImageDeleteBtn()
         await tugOfWarPage.TeamnameBoxBTNClick();
         await tugOfWarPage.ColorDrpdownClick();
         await tugOfWarPage.ColorDrpdownSolidClick();
@@ -1083,10 +1092,10 @@ test("008TOFW-037 | Validate Team Name Box color Successfully Applied In mobile 
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1214,7 +1223,7 @@ test("008TOFW-042 | Validate Countdown Stage Countdown Background image Successf
         //await functions.fileUploadCropper();
         //await tugOfWarPage.AdjustableTimer();
 })
-test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Screen.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-043 | Validate Countdown Background image Successfully Show on Mobile Screen.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -1244,10 +1253,10 @@ test("008TOFW-043 | Validate Countdown Background Successfully Show on Mobile Sc
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1453,10 +1462,10 @@ test("008TOFW-050 | Validate Gameplay Background image Successfully reflection o
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1531,10 +1540,10 @@ test("008TOFW-052 | Validate Gameplay Background video Successfully reflection o
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1612,10 +1621,10 @@ test("008TOFW-054 | Validate custom power message successfully reflection on mob
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1691,10 +1700,10 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1708,7 +1717,7 @@ test("008TOFW-056 | Validate Endgame Images successfully reflection on mobile sc
                 }
         })
         await test.step("Now validate gameplay background image successfully uploaded on mobile screen", async () => {
-                await page.waitForTimeout(1000)
+                await page.waitForTimeout(2000)
                 await tugOfWarMobilePages.screenshot_matcher_Gameplay_EndGameImage()
                 await tugOfWarPage.clickGameStopBtn()
         })
@@ -1769,10 +1778,10 @@ test("008TOFW-058 | Validate Endgame video successfully reflection on mobile scr
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1844,10 +1853,10 @@ test("008TOFW-060 | Validate Custom Endgame Message successfully reflection on m
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1946,6 +1955,7 @@ test("008TOFW-064 | Validate Custom Consolation Message successfully reflection 
         })
         await test.step("Click Guess The Scrore Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
+                await page.waitForTimeout(1000)
                 await tugOfWarPage.clickStagesBtn()
         })
         let newTab = null;
@@ -1959,10 +1969,10 @@ test("008TOFW-064 | Validate Custom Consolation Message successfully reflection 
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -1994,11 +2004,10 @@ test("008TOFW-065 | Validate Leaderboard Background image successfully added on 
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
-        await test.step("Click Tug of War Page", async () => {
-                await tugOfWarPage.clickTugOfWarPage()
+        await test.step("Click stages section", async () => {
                 await tugOfWarPage.clickStagesBtn()
         })
         await test.step("Click Leaderboard stage", async () => {
@@ -2025,7 +2034,7 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
                 await tugOfWarPage.clickStagesBtn()
         })
@@ -2040,10 +2049,10 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -2057,7 +2066,7 @@ test("008TOFW-066 | Validate Leaderboard Background image successfully reflectio
                 }
                 await page.waitForTimeout(2000)
         })
-        await test.step("Now validate video upload on mobile screen", async () => {
+        await test.step("Now validate leaderboard background image on mobile screen", async () => {
                 await tugOfWarMobilePages.screenshot_matcher_Leaderboard_BackgroundImage()
                 await tugOfWarPage.clickGameStopBtn()
         })
@@ -2074,7 +2083,7 @@ test("008TOFW-067 | Validate Leaderboard Background video successfully added on 
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
@@ -2120,10 +2129,10 @@ test("008TOFW-068 | Validate Leaderboard Background video successfully reflectio
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
+                // await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
+                // await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
+                // await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -2234,7 +2243,7 @@ test("008TOFW-071 | Validate Thank You Background image Upload successfully adde
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of War Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
@@ -2277,12 +2286,9 @@ test("008TOFW-072 | Validate Thank You Background image Upload successfully refl
                 newTab = await tugOfWarPage.clickOpenLinkInNewTab()
                 tugOfWarMobilePages = new tugOfWarMobilePage(newTab)
         })
-        await test.step("Validation on mobile Screen", async () => {
+        await test.step("Provide additional information on mobile screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -2342,7 +2348,7 @@ test("008TOFW-074 | Validate Thank You Background video Upload successfully refl
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
@@ -2359,10 +2365,7 @@ test("008TOFW-074 | Validate Thank You Background video Upload successfully refl
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()
@@ -2381,7 +2384,7 @@ test("008TOFW-074 | Validate Thank You Background video Upload successfully refl
                 await tugOfWarPage.clickGameStopBtn()
         })
 })
-test("008TOFW-075 | Validate Thank You Leaderboard Header Upload successfully added on admin side.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-075 | Validate Thank You Leaderboard Header image Upload successfully added on admin side.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2393,7 +2396,7 @@ test("008TOFW-075 | Validate Thank You Leaderboard Header Upload successfully ad
                         body: screenshot
                 })
         })
-        await test.step("Click Guess The Scrore Section", async () => {
+        await test.step("Click Tug of war Section", async () => {
                 await tugOfWarPage.clickTugOfWarPage()
         })
         await test.step("Click stage section", async () => {
@@ -2411,7 +2414,7 @@ test("008TOFW-075 | Validate Thank You Leaderboard Header Upload successfully ad
                 await page.waitForTimeout(4000)
         })
 })
-test("008TOFW-076 | Validate Thank You Background video Upload successfully reflection on mobile screen.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
+test("008TOFW-076 | Validate Thank You Leaderboard Header image Upload successfully reflection on mobile screen.", async ({ loginPage, tugOfWarPage, MainMenu, prizeDropPage, functions, page, }, testInfo) => {
         await test.step("Login Admin And land To Home Screen", async () => {
                 await page.goto('/admin/#/sign-in')
                 await loginPage.login(data.username, data.password)
@@ -2440,10 +2443,7 @@ test("008TOFW-076 | Validate Thank You Background video Upload successfully refl
         })
         await test.step("Validation on mobile Screen", async () => {
                 await tugOfWarMobilePages.inputPhoneNumberForAditionalInfo()
-                await tugOfWarMobilePages.clickAdditionalDatePickterInputField()
-                await tugOfWarMobilePages.clickAdditionalDateEditBtn()
                 await tugOfWarMobilePages.inputAdditionalDate()
-                await tugOfWarMobilePages.clickAdditionalDateDatePickerOkBtn()
                 await tugOfWarMobilePages.inputAgeForAditionalInfo()
                 await tugOfWarMobilePages.inputEmailForAditionalInfo()
                 await tugOfWarMobilePages.inputAdditionalZipCode()

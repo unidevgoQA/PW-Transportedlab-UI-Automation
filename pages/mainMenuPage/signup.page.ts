@@ -132,6 +132,12 @@ export default class singupPage {
                         await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({ button: "left", delay: 1000 })
                 }
         }
+        async UncheckedAdditionalInfoPhoneNumberCheckbox() {
+                let ele = await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).isChecked()
+                if ((ele == true)) {
+                        await this.page.locator(this.signUpPageElements.phoneNumberCheckBox).click({ button: "left", delay: 1000 })
+                }
+        }
         async clickAdditionalInfoEmailAddressCheckbox() {
                 let ele = await this.page.locator(this.signUpPageElements.emailAddressCheckBox).isChecked()
                 if ((ele == false)) {

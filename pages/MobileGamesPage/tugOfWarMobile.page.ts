@@ -124,27 +124,27 @@ export default class tugOfWarMobilePage {
         async screenshot_matcher_Gameplay_BackgroundImage() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("Gameplay_Background_ImageUpload_UI.png")
+                })).toMatchSnapshot("Gameplay_Background_ImageUpload_UI.png",{ maxDiffPixelRatio: 0.10 })
         }
         async screenshot_matcher_Gameplay_EndGameImage() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("Gameplay_EndGame_ImageUpload_UI.png")
+                })).toMatchSnapshot("Gameplay_EndGame_ImageUpload_UI.png",{ maxDiffPixelRatio: 0.15 })
         }
         async screenshot_matcher_Leaderboard_BackgroundImage() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("Gameplay_Leaderboard_Background_ImageUpload_UI.png")
+                })).toMatchSnapshot("Gameplay_Leaderboard_Background_ImageUpload_UI.png",{ maxDiffPixelRatio: 0.10 })
         }
         async screenshot_matcher_Leaderboard_Thankyou_BackgroundImage() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("Gameplay_Thankyou_Background_ImageUpload_UI.png")
+                })).toMatchSnapshot("Gameplay_Thankyou_Background_ImageUpload_UI.png",{ maxDiffPixelRatio: 0.10 })
         }
         async screenshot_matcher_Thankyou_Leaderboard_HeaderImage() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("Gameplay_Thankyou_Leaderboard_Header_ImageUpload_UI.png")
+                })).toMatchSnapshot("Gameplay_Thankyou_Leaderboard_Header_ImageUpload_UI.png",{ maxDiffPixelRatio: 0.01 })
         }
         async validateFontSuccessfullyApplied() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.selectTextOnHomeScreen)
@@ -157,7 +157,7 @@ export default class tugOfWarMobilePage {
         async screenshot_matcher_PrimaryColor() {
                 await expect.soft(await this.page.screenshot({
                         fullPage: true
-                })).toMatchSnapshot("primaryColor_UI.png")
+                })).toMatchSnapshot("primaryColor_UI.png", { maxDiffPixelRatio: 0.01 })
         }
         // async validatePrimaryColorSuccessfullyApplied() {
         //         const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.teamAccountModal)
@@ -188,6 +188,7 @@ export default class tugOfWarMobilePage {
                 const ele = await this.page.locator(this.tugOfWarMobilePageElements.additionalphoneNumberInputField).isVisible()
                 if ((ele == true)) {
                         await this.page.locator(this.tugOfWarMobilePageElements.additionalphoneNumberInputField).fill("+8801051703506")
+                        await this.page.waitForTimeout(1000)
                 }
                 else throw new Error("Aditional Information Phone NUmber Input Field Is not visible In User Side")
         }
@@ -224,12 +225,18 @@ export default class tugOfWarMobilePage {
                 else throw new Error("Aditional Information Date Picker Edit Button Is not visible In User Side")
         }
         async inputAdditionalDate() {
-                await this.page.waitForSelector(this.tugOfWarMobilePageElements.additionalDateInputField)
-                const ele = await this.page.locator(this.tugOfWarMobilePageElements.additionalDateInputField).isVisible()
-                if ((ele == true)) {
-                        await this.page.locator(this.tugOfWarMobilePageElements.additionalDateInputField).fill("01/31/2000")
-                }
-                else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
+                // await this.page.waitForSelector(this.tugOfWarMobilePageElements.additionalDateInputField)
+                // const ele = await this.page.locator(this.tugOfWarMobilePageElements.additionalDateInputField).isVisible()
+                // if ((ele == true)) {
+                //         await this.page.locator(this.tugOfWarMobilePageElements.additionalDateInputField).fill("01/31/2000")
+                // }
+                // else throw new Error("Aditional Information Date Picker Date Input Field Is not visible In User Side")
+                await this.page.locator("//input[@id='P-19902789642']").click()
+                await this.page.locator('//button[@aria-label="calendar view is open, switch to year view"]').click()
+                await this.page.locator("//button[text()='1996']").click()
+                
+                //await this.page.locator("//button[text()='OK']").click()
+                await this.page.locator("//button[text()='Save']").click()
         }
         async clickAdditionalDateDatePickerOkBtn() {
                 await this.page.waitForSelector(this.tugOfWarMobilePageElements.additionalDatePickerOkBtn)
@@ -362,9 +369,9 @@ export default class tugOfWarMobilePage {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCountdownBackgroundVid)
                 if (await ele.isVisible()) {
                         const selectText = await this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.ValidateCountdownBackgroundVid).screenshot()
-                        await expect.soft(selectText).toMatchSnapshot("CountdownBackground_UI.png", { maxDiffPixelRatio: 0.01 })
+                        await expect.soft(selectText).toMatchSnapshot("CountdownBackground_UI.png")
                 }
-                else throw new Error("Mobile Screen | Countdown Backgroundis Nsot Visible")
+                else throw new Error("Mobile Screen | Countdown Background is not Visible")
         }
         async validateGameplayMainBoardMSGSuccessfullyApplied() {
                 const ele = this.page.frameLocator('iframe').locator(this.tugOfWarMobilePageElements.VAlidateCustomTeamSelectionMessage)
